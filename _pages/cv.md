@@ -47,19 +47,15 @@ redirect_from:
     <br/><br/>
 </body>
 
-* Name: Your Name 
-* Phone and WeChat: 15705694836 / Email: [2200012917@stu.pku.edu.cn](2200012917@stu.pku.edu.cn)
-* Personal Website: [iculizhi.github.io](https://iculizhi.github.io/)
+* Name: GONG HENING
+* Phone and WeChat: 15267372696 / Email: [2400012436@stu.pku.edu.cn](2400012436@stu.pku.edu.cn)
+* Personal Website: [gonghening.github.io](https://gonghening.github.io/)
 
 Education
 ======
-* Undergraduate: Beijing, Peking University, 2022
-  * Major: Information and Computing Science (Turing Class), School of Electronics Engineering and Computer Science
-  * Double Degree: Economics, National School of Development
+* Undergraduate: Beijing, Peking University, 2024
+  * Major: Information and Computing Science, School of Electronics Engineering and Computer Science
 
-Awards
-======
-* Silver Medal, China Mathematical Olympiad (CMO)
 
 <!--
 Work experience
