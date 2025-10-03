@@ -4,7 +4,8 @@ title: "Repositories"
 permalink: /Repositories/
 author_profile: true
 ---
-喜欢的可以在Github点个小星星哦！
+If you like it, you can star it on Github!
+
 {% include base_path %}
 
 {% for post in site.Repositories reversed %}
