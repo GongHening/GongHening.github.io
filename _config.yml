@@ -7,13 +7,13 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "-Pkuhub's site"
+title                    : "Gong Hening's site"
 title_separator          : "-"
-name                     : &name "xker "
-description              : &description "111"
-url                      : https://pkuhub-dev.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+name                     : &name "Gong Hening"
+description              : &description "a second year undergraduate student from Peking University"
+url                      : https://GongHening.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "pkuhub-dev/pkuhub-dev.github.io"
+repository               : "GongHening/GongHening.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -80,14 +80,14 @@ analytics:
 
 # Site Author
 author:
-  name             : "Yourname"
-  avatar           : "white.png"
-  bio              : "Peking University"
+  name             : "GongHening"
+  avatar           : "avatar.png"
+  bio              : "Love strolling."
   location         : "China Beijing"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : #"http://yourfullgooglescholarurl.com"
-  email            : "help@pkuhub.cn"
+  email            : "2400012436@stu.pku.edu.cn"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -96,7 +96,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "pkuhub-dev"
+  github           : "GongHening"
   google_plus      :
   keybase          :
   instagram        :

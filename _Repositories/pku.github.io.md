@@ -2,9 +2,8 @@
 title: "pku.github.io"
 collection: Repositories
 type: "Repositories"
-permalink: /Repositories/pku.github.io
 venue: "Peking Univercity"
-date: 2024-08-22
+date: 2025-10-3
 location: "Beijing, China"
 ---
 我的第一个html:暂时不能给你明确的答复.com
