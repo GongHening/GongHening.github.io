@@ -97,11 +97,9 @@ author_profile: true
         </div>
     </div>
 </div>
-
+<!--
 ## 111
-
 {% assign paths = "nameofthemd.md" | split: "," %}
-
 {% for post in site.Notes reversed %}
   {% for path in paths %}
     {% if post.path contains path %}
@@ -109,4 +107,4 @@ author_profile: true
       {% break %}
     {% endif %}
   {% endfor %}
-{% endfor %}
+{% endfor %} -->
