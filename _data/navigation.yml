@@ -24,11 +24,11 @@ main:
   - title: "Repositories"
     url: /Repositories/
 
-  - title: "Blogs"
-    url: /Blogs/
+ #- title: "Blogs"
+ #  url: /Blogs/
 
-  - title: "CV"
-    url: /cv/
+ #- title: "CV"
+ #  url: /cv/
 
-  - title: "Links"
-    url: /Links/
+ #- title: "Links"
+ #  url: /Links/
