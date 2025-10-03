@@ -4,8 +4,7 @@ title: "Repositories"
 permalink: /Repositories/
 author_profile: true
 ---
-If you like it, you can star it on Github!
-
+If you like one of them, you can **STAR** it on Github!
 {% include base_path %}
 
 {% for post in site.Repositories reversed %}
