@@ -95,6 +95,7 @@ author_profile: true
             <span class="time">2020 Fall</span>
             <p>Attended Yiwu High School</p>
         </div>
+        <div class="timeline-node"></div>
         <div class="content">
             <h3>Hello, PKU</h3>
             <span class="time">2024 Fall</span>
