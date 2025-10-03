@@ -91,6 +91,17 @@ author_profile: true
     <div class="timeline-item">
         <div class="timeline-node"></div>
         <div class="content">
+            <h3>Hello, YWHS</h3>
+            <span class="time">2020 Fall</span>
+            <p>Attended Yiwu High School</p>
+        </div>
+    </div>
+</div>
+
+<div class="timeline-container">
+    <div class="timeline-item">
+        <div class="timeline-node"></div>
+        <div class="content">
             <h3>Hello, PKU</h3>
             <span class="time">2024 Fall</span>
             <p>Attended Peking university</p>
