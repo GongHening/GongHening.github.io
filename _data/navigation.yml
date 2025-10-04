@@ -1,7 +1,5 @@
 # main links links
 main:
-  #- title: "Publications"
-  #  url: /publications/
 
   #- title: "Talks"
   #  url: /talks/    
@@ -24,6 +22,8 @@ main:
   - title: "Repositories"
     url: /Repositories/
 
+  - title: "Publications"
+    url: /publications/
  #- title: "Blogs"
  #  url: /Blogs/
 
