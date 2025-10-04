@@ -1,13 +1,11 @@
 ---
-title: "2021年终总结"
+title: "2021-year-end-summary"
 collection: Notes
 type: "Notes"
 permalink: /Notes/2021-year-end-summary
 date: 2022-02-01
 location: "Zhejiang, China"
 ---
-
-# 2021年终总结
 
 2021辛丑年真的好重要。
 

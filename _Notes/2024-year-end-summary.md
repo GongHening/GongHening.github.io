@@ -1,5 +1,5 @@
 ---
-title: "2024年终总结"
+title: "2024-year-end-summary"
 collection: Notes
 type: "Notes"
 permalink: /Notes/2024-year-end-summary
@@ -7,7 +7,6 @@ date: 2025-01-28
 location: "Zhejiang, China"
 ---
 
-# 2024年终总结
 
 ## 寻云记
 ### 一、从云上来的孩子
@@ -83,6 +82,7 @@ location: "Zhejiang, China"
 终于有一天，他和妹妹又回到了自己刚掉下来的地方。妹妹问哥哥为什么不再寻找那朵云了，哥哥说：
 
 “我是喜欢那地方，可我更爱探索这人间。”
+
 ---
 
 *写于2025年1月28日*

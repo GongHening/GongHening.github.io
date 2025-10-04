@@ -1,5 +1,5 @@
 ---
-title: "2020年终总结"
+title: "2020-year-end-summary"
 collection: Notes
 type: "Notes"
 permalink: /Notes/2020-year-end-summary
@@ -7,7 +7,6 @@ date: 2021-02-11
 location: "Zhejiang, China"
 ---
 
-# 2020年终总结
 
 烟花恰盛，年味正浓。
 

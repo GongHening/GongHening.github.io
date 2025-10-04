@@ -1,13 +1,11 @@
 ---
-title: "2022年终总结"
+title: "2022-year-end-summary"
 collection: Notes
 type: "Notes"
 permalink: /Notes/2022-year-end-summary
 date: 2023-01-22
 location: "Zhejiang, China"
 ---
-
-# 2022年终总结
 
 喜悦都奔涌成诗，悲伤却逆流成河。
 

@@ -1,13 +1,11 @@
 ---
-title: "2023年终总结"
+title: "2023-year-end-summary"
 collection: Notes
 type: "Notes"
 permalink: /Notes/2023-year-end-summary
 date: 2024-02-29
 location: "Zhejiang, China"
 ---
-
-# 2023年终总结
 
 又到了烟花取代月亮占领夜空的时候了。
 

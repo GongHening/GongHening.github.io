@@ -7,7 +7,7 @@ author_profile: true
 
 {% include base_path %}
 
-## My Path
+## My Growth Path
 
 <style>
     /* 时间线容器 */
@@ -71,6 +71,31 @@ author_profile: true
         margin-bottom: 10px;
     }
 
+    /* 时间线图片样式 */
+    .timeline-image {
+        float: right;
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+    
+    .timeline-image img {
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        max-width: 200px;
+        height: auto;
+    }
+    
+    .timeline-image img:hover {
+        transform: scale(1.05);
+    }
+    
+    /* 清除浮动 */
+    .content::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
     /* 响应式设计 */
     @media (max-width: 600px) {
         .timeline-container::after {
@@ -84,6 +109,16 @@ author_profile: true
         .timeline-node {
             left: 0;
         }
+        
+        .timeline-image {
+            float: none;
+            text-align: center;
+            margin-left: 0;
+        }
+        
+        .timeline-image img {
+            max-width: 200px;
+        }
     }
 </style>
 
@@ -91,22 +126,30 @@ author_profile: true
     <div class="timeline-item">
         <div class="timeline-node"></div>
         <div class="content">
-            <h3>Hello, YWHS</h3>
+            <h3>YWHS, so lucky to be with you for four years</h3>
             <span class="time">2020 Fall</span>
             <p>Attended Yiwu High School</p>
+            <div class="timeline-image">
+                <img src="/images/YWHS.png" alt="YWHS Campus" style="width: 100%; max-width: 300px; height: auto; border-radius: 8px; margin-top: 10px;">
+            </div>
         </div>
     </div>
     <div class="timeline-item">
         <div class="timeline-node"></div>
         <div class="content">
-            <h3>Hello, PKU</h3>
+            <h3>PKU, nice to meet you</h3>
             <span class="time">2024 Fall</span>
             <p>Attended Peking university</p>
+            <div class="timeline-image">
+                <img src="/images/PKU.png" alt="PKU Campus" style="width: 100%; max-width: 300px; height: auto; border-radius: 8px; margin-top: 10px;">
+            </div>
         </div>
     </div>
 </div>
 
-## Year-End-Summaries
+---
+
+## My Year-End-Summaries
 
 {% for post in site.Notes reversed %}
   {% if post.path contains "year-end-summary" %}
