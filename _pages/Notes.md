@@ -71,12 +71,26 @@ author_profile: true
         margin-bottom: 10px;
     }
 
+    /* 时间线内容布局 */
+    .content {
+        position: relative;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    /* 文字内容区域 */
+    .content-text {
+        flex: 1;
+    }
+    
     /* 时间线图片样式 */
     .timeline-image {
-        position: absolute;
-        top: 50%;
-        right: 20px;
-        transform: translateY(-50%);
+        flex-shrink: 0;
         width: 120px;
         height: 120px;
         display: flex;
@@ -96,16 +110,6 @@ author_profile: true
     .timeline-image img:hover {
         transform: scale(1.05);
     }
-    
-    /* 确保内容区域有足够的右侧空间 */
-    .content {
-        position: relative;
-        background: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        padding-right: 160px; /* 为图片留出空间 */
-    }
 
     /* 响应式设计 */
     @media (max-width: 600px) {
@@ -122,21 +126,26 @@ author_profile: true
         }
         
         .content {
-            padding-right: 20px; /* 恢复正常的右侧内边距 */
-        }
-        
-        .timeline-image {
-            position: static;
-            transform: none;
-            width: 100%;
-            height: auto;
-            margin-top: 15px;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
         }
         
-        .timeline-image img {
+        .content-text {
+            order: 2;
+            margin-top: 15px;
+        }
+        
+        .timeline-image {
+            order: 1;
             width: 80%;
             max-width: 200px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-image img {
+            width: 100%;
             height: auto;
             object-fit: contain;
         }
@@ -147,22 +156,26 @@ author_profile: true
     <div class="timeline-item">
         <div class="timeline-node"></div>
         <div class="content">
-            <h3>YWHS, so lucky to be with you for four years</h3>
-            <span class="time">2020 Fall</span>
-            <p>Attended Yiwu High School</p>
+            <div class="content-text">
+                <h3>YWHS, so lucky to be with you for four years</h3>
+                <span class="time">2020 Fall</span>
+                <p>Attended Yiwu High School</p>
+            </div>
             <div class="timeline-image">
-                <img src="/images/YWHS.png" alt="YWHS Campus" style="width: 100%; max-width: 300px; height: auto; border-radius: 8px; margin-top: 10px;">
+                <img src="/images/YWHS.png" alt="YWHS Campus">
             </div>
         </div>
     </div>
     <div class="timeline-item">
         <div class="timeline-node"></div>
         <div class="content">
-            <h3>PKU, nice to meet you</h3>
-            <span class="time">2024 Fall</span>
-            <p>Attended Peking university</p>
+            <div class="content-text">
+                <h3>PKU, nice to meet you</h3>
+                <span class="time">2024 Fall</span>
+                <p>Attended Peking university</p>
+            </div>
             <div class="timeline-image">
-                <img src="/images/PKU.png" alt="PKU Campus" style="width: 100%; max-width: 300px; height: auto; border-radius: 8px; margin-top: 10px;">
+                <img src="/images/PKU.png" alt="PKU Campus">
             </div>
         </div>
     </div>
