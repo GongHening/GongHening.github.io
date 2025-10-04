@@ -3,7 +3,7 @@ title: "GongHening.github.io"
 collection: Repositories
 type: "Repositories"
 venue: "Peking Univercity"
-date: 2025-10-3
+date: 2025-10-03
 location: "Beijing, China"
 ---
 This is the repository of my personal website.
