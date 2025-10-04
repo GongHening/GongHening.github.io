@@ -187,6 +187,15 @@ author_profile: true
 
 {% for post in site.Notes reversed %}
   {% if post.path contains "year-end-summary" %}
-    {% include archive-single.html %}
+    <div class="archive__item">
+      <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+        <h2 class="archive__item-title" itemprop="headline">
+          <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ post.title }}</a>
+        </h2>
+        {% if post.date %}
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+        {% endif %}
+      </article>
+    </div>
   {% endif %}
 {% endfor %}
