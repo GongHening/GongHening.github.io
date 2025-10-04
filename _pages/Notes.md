@@ -105,14 +105,11 @@ author_profile: true
         </div>
     </div>
 </div>
-<!--
-## 111
-{% assign paths = "nameofthemd.md" | split: "," %}
+
+## Year-End-Summaries
+
 {% for post in site.Notes reversed %}
-  {% for path in paths %}
-    {% if post.path contains path %}
-      {% include archive-single.html %}
-      {% break %}
-    {% endif %}
-  {% endfor %}
-{% endfor %} -->
+  {% if post.path contains "year-end-summary" %}
+    {% include archive-single.html %}
+  {% endif %}
+{% endfor %}
