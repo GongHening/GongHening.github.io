@@ -18,8 +18,8 @@ main:
   #- title: "Guide"
   #  url: /markdown/
 
-  - title: "Notes"
-    url: /Notes/
+  #- title: "Notes"
+  #  url: /Notes/
   
   - title: "Repositories"
     url: /Repositories/
