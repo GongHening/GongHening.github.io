@@ -178,6 +178,6 @@ author_profile: true
 
 {% for post in site.Notes reversed %}
   {% if post.path contains "year-end-summary" %}
-    {% include archive-single.html}
+    {% include archive-single.html %}
   {% endif %}
 {% endfor %}
