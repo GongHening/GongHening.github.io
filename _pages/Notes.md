@@ -55,29 +55,6 @@ author_profile: true
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    /* 时间标题 */
-    .content h3 {
-        color: #3498db;
-        margin-bottom: 8px;
-    }
-
-    /* 时间日期 */
-    .time {
-        display: block;
-        color: #666;
-        font-size: 0.9em;
-        margin-bottom: 10px;
-    }
-
-    /* 时间线内容布局 */
-    .content {
-        position: relative;
-        background: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         display: flex;
         align-items: center;
         gap: 20px;
@@ -109,6 +86,20 @@ author_profile: true
     
     .timeline-image img:hover {
         transform: scale(1.05);
+    }
+
+    /* 时间标题 */
+    .content h3 {
+        color: #3498db;
+        margin-bottom: 8px;
+    }
+
+    /* 时间日期 */
+    .time {
+        display: block;
+        color: #666;
+        font-size: 0.9em;
+        margin-bottom: 10px;
     }
 
     /* 响应式设计 */
@@ -187,15 +178,6 @@ author_profile: true
 
 {% for post in site.Notes reversed %}
   {% if post.path contains "year-end-summary" %}
-    <div class="archive__item">
-      <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-        <h2 class="archive__item-title" itemprop="headline">
-          <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ post.title }}</a>
-        </h2>
-        {% if post.date %}
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></p>
-        {% endif %}
-      </article>
-    </div>
+    {% include archive-single.html %}
   {% endif %}
 {% endfor %}
