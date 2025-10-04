@@ -73,27 +73,38 @@ author_profile: true
 
     /* 时间线图片样式 */
     .timeline-image {
-        float: right;
-        margin-top: 15px;
-        margin-left: 20px;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        width: 120px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .timeline-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
         transition: transform 0.3s ease;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        max-width: 200px;
-        height: auto;
     }
     
     .timeline-image img:hover {
         transform: scale(1.05);
     }
     
-    /* 清除浮动 */
-    .content::after {
-        content: "";
-        display: table;
-        clear: both;
+    /* 确保内容区域有足够的右侧空间 */
+    .content {
+        position: relative;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        padding-right: 160px; /* 为图片留出空间 */
     }
 
     /* 响应式设计 */
@@ -110,14 +121,24 @@ author_profile: true
             left: 0;
         }
         
+        .content {
+            padding-right: 20px; /* 恢复正常的右侧内边距 */
+        }
+        
         .timeline-image {
-            float: none;
+            position: static;
+            transform: none;
+            width: 100%;
+            height: auto;
+            margin-top: 15px;
             text-align: center;
-            margin-left: 0;
         }
         
         .timeline-image img {
+            width: 80%;
             max-width: 200px;
+            height: auto;
+            object-fit: contain;
         }
     }
 </style>
