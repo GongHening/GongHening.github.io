@@ -7,7 +7,7 @@ author_profile: true
 
 {% include base_path %}
 
-## My Growth Path
+## My growth path
 
 <style>
     /* 时间线容器 */
@@ -163,7 +163,7 @@ author_profile: true
             <div class="content-text">
                 <h3>PKU, nice to meet you</h3>
                 <span class="time">2024 Fall</span>
-                <p>Attended Peking university</p>
+                <p>Attended Peking University</p>
             </div>
             <div class="timeline-image">
                 <img src="/images/PKU.png" alt="PKU Campus">
@@ -174,7 +174,7 @@ author_profile: true
 
 ---
 
-## My Year-End-Summaries
+## My year-end-summaries
 
 {% for post in site.Notes reversed %}
   {% if post.path contains "year-end-summary" %}
