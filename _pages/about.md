@@ -15,8 +15,6 @@ My research interest lies in computer vision, machine learning, and computationa
 <!--I am very fortunate to be advised by [Prof. XXX](https://www.XXX.com/) of XXX Lab from [School of Computer Science](https://cs.pku.edu.cn/), Peking University. I was advised by [Prof. XX](https://XXX.pku.edu.cn/) from [School of Computer Science](https://cs.pku.edu.cn/), Peking University.-->
 
 <!--You can find my CV here: [Curriculum Vitae](../assets/Curriculum_Vitae.pdf).-->
-# My visitor map
-<script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=KQYxoWx0DBq4hbYrgNFhOkz8ZaMlKPjrFMnYiFd2Enk"></script>
 
 ## Notice
 The website is still under construction. Codes and course notes are uploading quickly.
