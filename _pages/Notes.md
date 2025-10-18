@@ -175,9 +175,9 @@ author_profile: true
 ---
 
 ## My Annual Reviews
-
+<p>
 From 2020, at the end of each year, I always write an annual review. They encourage me to do better and make progress.
-
+</p>
 
 {% for post in site.Notes reversed %}
   {% if post.path contains "year-end-summary" %}
