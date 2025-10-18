@@ -178,6 +178,7 @@ author_profile: true
 
 From 2020, at the end of each year, I always write an annual review. They encourage me to do better and make progress.
 
+
 {% for post in site.Notes reversed %}
   {% if post.path contains "year-end-summary" %}
     {% include archive-single.html %}
