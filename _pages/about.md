@@ -1,13 +1,13 @@
 ---
 permalink: /
 title: ""
-excerpt: "About me"
+excerpt: "About Me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
-# About me
+# About Me
 I'm a second year undergraduate student from [School of EECS](https://eecs.pku.edu.cn/), [Peking University](https://www.pku.edu.cn/). 
 
 My research interest lies in computer vision, machine learning, and computational theories.

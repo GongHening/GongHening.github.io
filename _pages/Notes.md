@@ -7,7 +7,7 @@ author_profile: true
 
 {% include base_path %}
 
-## My growth path
+## My Growth Path
 
 <style>
     /* 时间线容器 */
@@ -148,7 +148,7 @@ author_profile: true
         <div class="timeline-node"></div>
         <div class="content">
             <div class="content-text">
-                <h3>YWHS, so lucky to be with you for four years</h3>
+                <h3>YWHS, I'm still missing you so much.</h3>
                 <span class="time">2020 Fall</span>
                 <p>Attended Yiwu High School</p>
             </div>
@@ -161,7 +161,7 @@ author_profile: true
         <div class="timeline-node"></div>
         <div class="content">
             <div class="content-text">
-                <h3>PKU, nice to meet you</h3>
+                <h3>PKU, hope we can have a great time together.</h3>
                 <span class="time">2024 Fall</span>
                 <p>Attended Peking University</p>
             </div>
@@ -174,7 +174,9 @@ author_profile: true
 
 ---
 
-## My year-end-summaries
+## My Annual Reviews
+
+From 2020, at the end of each year, I always write an annual review. They encourage me to do better and make progress.
 
 {% for post in site.Notes reversed %}
   {% if post.path contains "year-end-summary" %}
