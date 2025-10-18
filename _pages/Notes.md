@@ -180,7 +180,7 @@ From 2020, at the end of each year, I always write an annual review. They encour
 {% endraw %}
 
 {% for post in site.Notes reversed %}
-  {% if post.path contains "year-end-summary" %}
+  {% if post.path contains "20" %}
     {% include archive-single.html %}
   {% endif %}
 {% endfor %}
