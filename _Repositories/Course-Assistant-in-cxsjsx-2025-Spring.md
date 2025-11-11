@@ -2,7 +2,7 @@
 title: "Course-Assistant-in-cxsjsx-2025-Spring"
 collection: Repositories
 type: "Repositories"
-venue: "Peking Univercity"
+venue: "Peking University"
 date: 2025-06-25
 location: "Beijing, China"
 ---

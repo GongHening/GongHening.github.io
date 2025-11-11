@@ -2,7 +2,7 @@
 title: "GongHening.github.io"
 collection: Repositories
 type: "Repositories"
-venue: "Peking Univercity"
+venue: "Peking University"
 date: 2025-10-03
 location: "Beijing, China"
 ---
