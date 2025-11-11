@@ -1,7 +1,7 @@
 # 谈谈我对这个项目的理解
 academicpages没有系统性的官方文档, 我在diy的时候遇到了很多困难, 因此撰写了这个文档用以参考
 - 项目源码: https://github.com/academicpages/academicpages.github.io
-- 我的DIY版本: https://github.com/ICUlizhi/ICUlizhi.github.io
+
 ## 一. academicpages的文件系统
 本章可以跳过
 ### 系统
