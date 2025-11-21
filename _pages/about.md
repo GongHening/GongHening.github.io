@@ -10,7 +10,7 @@ redirect_from:
 # About Me
 I'm a second-year undergraduate student from [School of EECS](https://eecs.pku.edu.cn/), [Peking University](https://www.pku.edu.cn/). 
 
-My research interest lies in computer vision, machine learning, and computational theories.
+<!-- My research interest lies in computer vision, machine learning, and computational theories. -->
 
 <!--I am very fortunate to be advised by [Prof. XXX](https://www.XXX.com/) of XXX Lab from [School of Computer Science](https://cs.pku.edu.cn/), Peking University. I was advised by [Prof. XX](https://XXX.pku.edu.cn/) from [School of Computer Science](https://cs.pku.edu.cn/), Peking University.-->
 
