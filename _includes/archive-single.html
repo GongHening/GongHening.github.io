@@ -48,6 +48,9 @@
 
     {% if post.collection == 'Notes' and post.path contains '20' %}
       <!-- 不显示year-end-summary的excerpt -->
+      {% if post.description %}
+      <p class="archive__item-description" style="color: #666; font-style: italic; margin-top: 10px; margin-bottom: 10px;">{{ post.description | markdownify }}</p>
+      {% endif %}
     {% elsif post.excerpt and site.read_more != 'enabled' %}
     <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
     {% elsif post.excerpt and site.read_more == 'enabled' %}
