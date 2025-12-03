@@ -94,6 +94,9 @@
       {% if author.weibo %}
         <li><a href="https://www.weibo.com/{{ author.weibo }}"><i class="fab fa-fw fa-weibo" aria-hidden="true"></i> Weibo</a></li>
       {% endif %}
+      {% if author.wechat %}
+        <li><a href="{{ author.wechat | prepend: "/images/" | prepend: base_path }}"><i class="fab fa-fw fa-weixin" aria-hidden="true"></i> Wechat</a></li>
+      {% endif %}
       {% if author.flickr %}
         <li><a href="https://www.flickr.com/{{ author.flickr }}"><i class="fab fa-fw fa-flickr" aria-hidden="true"></i> Flickr</a></li>
       {% endif %}
