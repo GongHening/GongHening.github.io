@@ -16,13 +16,13 @@ I'm a second-year undergraduate student from [School of EECS](https://eecs.pku.e
 
 <!--You can find my CV here: [Curriculum Vitae](../assets/Curriculum_Vitae.pdf).-->
 
-## Notice
-The website is still under construction. Codes and course notes are uploading quickly.
-
 <!--<h2>Pageviews</h2>
 
 <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=TotgUc16tGNawSb8uG8ApnWC8tMLjeLuiR0R0d9Wb8w'></script>
 <h2>Contact me</h2>-->
 
-
+# Contact Me
 [Email](mailto:2400012436@stu.pku.edu.cn) / [Github](https://github.com/GongHening) / [Wechat](../images/wechat.png) 
+
+## Notice
+The website is still under construction. Codes and course notes are uploading quickly.
