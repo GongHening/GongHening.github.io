@@ -148,12 +148,11 @@ author_profile: true
         <div class="timeline-node"></div>
         <div class="content">
             <div class="content-text">
-                <h3>YWHS, I'm still missing you so much.</h3>
-                <span class="time">2020 Fall</span>
-                <p>Attended Yiwu High School</p>
+                <h3>Enter Peking University.</h3>
+                <p><span class="time">2024 Fall</span></p>
             </div>
             <div class="timeline-image">
-                <img src="/images/YWHS.png" alt="YWHS Campus">
+                <img src="/images/PKU.png" alt="PKU Campus">
             </div>
         </div>
     </div>
@@ -161,12 +160,11 @@ author_profile: true
         <div class="timeline-node"></div>
         <div class="content">
             <div class="content-text">
-                <h3>PKU, hope we can have a great time together.</h3>
-                <span class="time">2024 Fall</span>
-                <p>Attended Peking University</p>
+                <h3>Enter Yiwu High School.</h3>
+                <p><span class="time">2021 Fall</span></p>
             </div>
             <div class="timeline-image">
-                <img src="/images/PKU.png" alt="PKU Campus">
+                <img src="/images/YWHS.png" alt="YWHS Campus">
             </div>
         </div>
     </div>
