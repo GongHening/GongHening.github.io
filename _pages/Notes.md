@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 {% include base_path %}
-
+<!--
 ## My Growth Path
 
 <style>
@@ -171,7 +171,7 @@ author_profile: true
 </div>
 
 ---
-
+-->
 ## My Annual Reviews
 {% raw %}
 From 2020, at the end of each year, I always write an annual review. They encourage me to do better and make progress.
