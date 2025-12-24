@@ -4,7 +4,7 @@ title: "Notes"
 permalink: /Notes/
 author_profile: true
 ---
-Here lie the words I choose to set free.
+*Here lie the words I choose to set free.*
 
 {% include base_path %}
 <!--

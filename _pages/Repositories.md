@@ -4,7 +4,7 @@ title: "Repositories"
 permalink: /Repositories/
 author_profile: true
 ---
-If you like one of them, you can **STAR** it on Github!
+*If you find any you like, please give it a star on GitHub!*
 
 {% include base_path %}
 
