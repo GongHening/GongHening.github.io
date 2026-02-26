@@ -1,48 +1,48 @@
 # Gong Hening's Academic Website
 
-本仓库是我个人学术主页的源代码。该网站基于 [AcademicPages](https://github.com/academicpages/academicpages.github.io) 模板构建，并由 GitHub Pages 提供托管服务。
+This repository contains the source code for my personal academic website. The site is built upon the [AcademicPages](https://github.com/academicpages/academicpages.github.io) template and is hosted via GitHub Pages.
 
-## 📂 目录结构
+## 📂 Repository Structure
 
-本项目的核心目录和文件结构如下，方便日常维护和内容更新：
+The core directories and files in this repository are organized as follows to facilitate easy maintenance and content updates:
 
-- `_config.yml`: 网站的全局核心配置文件（包含个人基本信息、社交链接、网站设置等）。
-- `_data/`: 存放网站的数据文件，如导航栏配置 (`navigation.yml`) 和作者信息 (`authors.yml`)。
-- `_pages/`: 网站的独立页面（如主页 `about.md`、简历页等）。
-- `_publications/`: 存放发表的论文或出版物信息。
-- `_talks/`: 存放学术报告、讲座或会议记录。
-- `_teaching/`: 存放教学经历或课程相关资料。
-- `_Repositories/`: 存放开源项目与代码仓库的展示内容。
-- `_Notes/`: 存放个人笔记与课程资料。
-- `images/`: 存放网站所需的图片资源（头像、项目配图等）。
-- `files/`: 存放供下载的静态文件（如 PDF 版简历）。
+- `_config.yml`: The global configuration file containing personal information, social links, and site-wide settings.
+- `_data/`: Contains data files such as navigation bar configurations (`navigation.yml`) and author details (`authors.yml`).
+- `_pages/`: Standalone pages for the website (e.g., the homepage `about.md`, CV page).
+- `_publications/`: Markdown files detailing published papers and publications.
+- `_talks/`: Markdown files for academic talks, conference presentations, and seminars.
+- `_teaching/`: Markdown files related to teaching experiences and course materials.
+- `_Repositories/`: Showcases of open-source projects and code repositories.
+- `_Notes/`: Personal academic notes and course-related materials.
+- `images/`: Image assets used across the site (e.g., profile pictures, project illustrations).
+- `files/`: Static files available for download (e.g., PDF version of the CV).
 
-## 🚀 本地运行与调试
+## 🚀 Local Development
 
-如果你希望在本地预览网站的修改效果，请确保你的计算机上已安装 [Ruby](https://www.ruby-lang.org/) 和 [Bundler](https://bundler.io/)。
+If you wish to preview changes locally before pushing them, ensure you have [Ruby](https://www.ruby-lang.org/) and [Bundler](https://bundler.io/) installed on your machine.
 
-1. **克隆仓库到本地**
+1. **Clone the repository**
    ```bash
    git clone https://github.com/GongHening/GongHening.github.io.git
    cd GongHening.github.io
    ```
 
-2. **安装依赖**
+2. **Install dependencies**
    ```bash
    bundle install
    ```
-   *(注：如果遇到依赖问题，可尝试运行 `bundle add webrick faraday-retry`)*
+   *(Note: If you encounter dependency issues, try running `bundle add webrick faraday-retry`)*
 
-3. **启动本地服务器**
+3. **Start the local server**
    ```bash
    bundle exec jekyll serve
    ```
-   启动后，在浏览器中访问 `http://localhost:4000` 即可实时预览网站。
+   Once the server is running, open your browser and navigate to `http://localhost:4000` to preview the website.
 
-## ☁️ 部署
+## ☁️ Deployment
 
-本网站使用 GitHub Pages 进行自动化部署。只需将修改后的 Markdown 文件或配置推送到默认分支，GitHub 会自动构建并发布最新版本的网站。
+This website uses GitHub Pages for automated deployment. Simply push your modified Markdown files or configurations to the default branch, and GitHub will automatically build and publish the latest version of the site.
 
-## 📄 致谢
+## 📄 Acknowledgments
 
-本网站的主题和框架修改自 [AcademicPages](https://github.com/academicpages/academicpages.github.io)，该模板最初由 [Stuart Geiger](https://github.com/staeiou) 基于 Minimal Mistakes 开发。
+The theme and framework of this website are modified from [AcademicPages](https://github.com/academicpages/academicpages.github.io), which was originally forked by [Stuart Geiger](https://github.com/staeiou) from the Minimal Mistakes Jekyll theme.
