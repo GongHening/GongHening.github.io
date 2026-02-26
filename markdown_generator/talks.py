@@ -12,7 +12,6 @@
 import pandas as pd
 import os
 
-
 # ## Data format
 # 
 # The TSV needs to have the following columns: title, type, url_slug, venue, date, location, talk_url, description, with a header at the top. Many of these fields can be blank, but the columns must be in the TSV.
