@@ -56,21 +56,16 @@ author_profile: true
 <body>
 
 
-<h2>下载专区</h2>
-<ul>
-  <li><a href="../files/北京大学2025春季课表.xlsx">北京大学2025年春季课表(可搜索)</a></li>
-</ul>
-
-<h2>友链</h2>
+<!-- <h2>友链</h2>
 
 <br/><br/>
 <div class="friend-links-container">
-    <!-- 每个好友卡片 -->
+    # 每个好友卡片 
     <div class="friend-card" style="background-color: #f0f0f0;">
       <a href="https://iculizhi.github.io" target="_blank">
         <img src="../images/xj.jpg" alt="ICUlizhi's Blog" class="avatar" onerror="this.onerror=null;this.src='../images/default-avatar.jpg';">
-        <div class="friend-name">ICUlizhi's Blog</div>
-        <div class="friend-intro">上士闻道, 勤而行之</div>
+        <div class="friend-name">XXX</div>
+        <div class="friend-intro">XXXXXX</div>
       </a>
     </div>
   </div>
@@ -79,7 +74,7 @@ author_profile: true
 
 
 
-<br/>
+<br/> -->
 
 <!-- Giscus 评论系统嵌入 -->
 在你修改前, 这个评论区不是你的

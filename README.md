@@ -1,177 +1,48 @@
-# 谈谈我对这个项目的理解
-academicpages没有系统性的官方文档, 我在diy的时候遇到了很多困难, 因此撰写了这个文档用以参考
-- 项目源码: https://github.com/academicpages/academicpages.github.io
+# Gong Hening's Academic Website
 
-## 一. academicpages的文件系统
-本章可以跳过
-### 系统
-- _sass
-- _site : 本地运行生成的网站文件,网络部署无需此文件夹
-- assets : 核心代码
-- talkmap
-### 设置
-- _data
-    - _commets
-    - _authors.yml
-    - _navigation.yml
-    - _ui-text.yml
-- _includes
-- config.dev.yml
-- config.yml : 核心的设置文件
-### 网站内容
-- images : 放图片
-- files : 放文件
-- _draft,_talks,_teaching,_publications,_portfolio,_posts : 每个导航栏单独一个文件夹,存放markdown
-- _pages : 页面内容,放markdown和html
-- _layouts
-### 其他
-- markdown_generatot : md生成器
+本仓库是我个人学术主页的源代码。该网站基于 [AcademicPages](https://github.com/academicpages/academicpages.github.io) 模板构建，并由 GitHub Pages 提供托管服务。
 
-## 二. 配置
-### 云端部署
-使用github代理部署即可，想换域名也可以，网上都有教程,推荐一个校友的教程,和本项目是配套的 [戳这里](https://blog.csdn.net/qd1813100174/article/details/128604858?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522172224250516800180610476%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=172224250516800180610476&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-128604858-null-null.142^v100^pc_search_result_base8&utm_term=%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5&spm=1018.2226.3001.4187)
-### 本地运行
-- 必须用linux,在windows上配置是极为困难的
-- academicpagesd的readme提供的环境配置很不仔细,遇到诸多版本问题,我使用了RVM调整ruby的版本,并手动加了一些包
+## 📂 目录结构
 
-#### 1. 更新系统包列表并安装 GnuPG 2
-```
-sudo apt update
-sudo apt install gnupg2
-```
+本项目的核心目录和文件结构如下，方便日常维护和内容更新：
 
-#### 2. 导入 RVM 的 GPG 密钥并安装 RVM
-```
-command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-command curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
-\curl -sSL https://get.rvm.io | bash -s stable
-source ~/.rvm/scripts/rvm
-```
-#### 3. 装ruby
-```
-rvm install ruby
-rvm docs generate-ri
-rvm use ruby --default
-```
-装成功了belike:
+- `_config.yml`: 网站的全局核心配置文件（包含个人基本信息、社交链接、网站设置等）。
+- `_data/`: 存放网站的数据文件，如导航栏配置 (`navigation.yml`) 和作者信息 (`authors.yml`)。
+- `_pages/`: 网站的独立页面（如主页 `about.md`、简历页等）。
+- `_publications/`: 存放发表的论文或出版物信息。
+- `_talks/`: 存放学术报告、讲座或会议记录。
+- `_teaching/`: 存放教学经历或课程相关资料。
+- `_Repositories/`: 存放开源项目与代码仓库的展示内容。
+- `_Notes/`: 存放个人笔记与课程资料。
+- `images/`: 存放网站所需的图片资源（头像、项目配图等）。
+- `files/`: 存放供下载的静态文件（如 PDF 版简历）。
 
-<img src = 'images for how to use it/image2.png'>
+## 🚀 本地运行与调试
 
-#### 4. 安装项目依赖
-```
-bundle install
-bundle add webrick faraday-retry
-```
-#### 5. 运行代码
-```
-bundle exec jekyll liveserve
-```
-<img src = 'images for how to use it/image.png'>
+如果你希望在本地预览网站的修改效果，请确保你的计算机上已安装 [Ruby](https://www.ruby-lang.org/) 和 [Bundler](https://bundler.io/)。
 
-然后就可以在[http://localhost:4000/](http://localhost:4000/)看到我们的网站了,这个进程你不关闭它是不会停的,且会在运行中输出一些报错
+1. **克隆仓库到本地**
+   ```bash
+   git clone https://github.com/GongHening/GongHening.github.io.git
+   cd GongHening.github.io
+   ```
 
-## 三. diy方法
-### :star2: 基本信息设置
-- 请打开 ```_config.yml```
-- 这个文件里有大量个人信息, 建议从头开始改, 直到 author: 模块
-- 注意照片文件用png, 放在image文件夹
-### :star2: 在主页加一个记录访问情况的世界地图
-[点这里](https://mapmyvisitors.com/)
-- 在这个网站整一个,输出一个html对象,复制到 about.md 即可
+2. **安装依赖**
+   ```bash
+   bundle install
+   ```
+   *(注：如果遇到依赖问题，可尝试运行 `bundle add webrick faraday-retry`)*
 
-### :star2: 在任意页添加评论区
-[点这里](https://giscus.app/)
-- 在这个网站整一个,输出一个html对象,复制到对应页的 md 文件即可
-### :star2: 如何在导航栏中增加 Repositories 栏目
-以下代码块中的都需要添加, Repositories 可以根据需要修改为其他名称
-#### 1. config.yml 
+3. **启动本地服务器**
+   ```bash
+   bundle exec jekyll serve
+   ```
+   启动后，在浏览器中访问 `http://localhost:4000` 即可实时预览网站。
 
-Collections模块
-```
-  Repositories:
-    output: true
-    permalink: /:collection/:path/
-```
-Defaults模块
-```
-  - scope:
-      path: ""
-      type: Repositories
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
-```
-#### 2. _data/navigation.yml
-```
-  - title: "Repositories"
-    url: /Repositories/
-```
-#### 3. _pages/Repositories.md
-这个文件需要自行添加,参考代码如下:
-```
----
-layout: archive
-title: "Repositories"
-permalink: /Repositories/
-author_profile: true
----
+## ☁️ 部署
 
-{% include base_path %}
+本网站使用 GitHub Pages 进行自动化部署。只需将修改后的 Markdown 文件或配置推送到默认分支，GitHub 会自动构建并发布最新版本的网站。
 
-{% for post in site.Repositories reversed %}
-  {% include archive-single.html %}
-{% endfor %}
-```
-#### 4. _Repositories
-该栏目下的md文件需要放在根目录下的_Repositories文件夹中, 请自行创建, 例如PKU-2024-IBAL-cracked-version.md
-```
----
-title: "PKU-2024-IBAL-cracked-version"
-collection: Repositories
-type: "Repositories"
-permalink: /Repositories/PKU-2024-IBAL-cracked-version
-venue: "Peking Univercity"
-date: 2024-07-28
-location: "Beijing, China"
----
-英美文学概况的资料以及课程攻略,包含大模型写作业,给英文原著作摘要等功能
-- 状态 : 完结,开源
-- 链接 : [https://github.com/ICUlizhi/PKU-2024-IBAL-cracked-version](https://github.com/ICUlizhi/PKU-2024-IBAL-cracked-version)
-```
-参考效果
-<img src = 'images for how to use it/image3.png'>
+## 📄 致谢
 
-
-
-### :star2: 导航页代码参考
-以Notes页为例:
-#### Front Matter
-定义页面的元数据和布局信息
-```
----
-layout: archive
-title: "Notes"
-permalink: /Notes/
-author_profile: true
----
-```
-#### 展示指定的md文件 
-```
-{% include base_path %}
-{% assign paths = "概论统计A(现为信概统).md,hjfpython.md" | split: "," %}
-{% for post in site.Notes reversed %}
-  {% for path in paths %}
-    {% if post.path contains path %}
-      {% include archive-single.html %}
-      {% break %}
-    {% endif %}
-  {% endfor %}
-```
-这些md文件需要出现在根目录下_Notes文件夹中, 也可以直接遍历
-#### md文件的内容
-其实就是Front Matter+自由发挥的markdown,可参考[模版](https://github.com/ICUlizhi/academicpages-stu-/blob/main/files/nameofthemd.md)
-
-效果展示:
-<img src = 'images for how to use it/image4.png'>
+本网站的主题和框架修改自 [AcademicPages](https://github.com/academicpages/academicpages.github.io)，该模板最初由 [Stuart Geiger](https://github.com/staeiou) 基于 Minimal Mistakes 开发。
