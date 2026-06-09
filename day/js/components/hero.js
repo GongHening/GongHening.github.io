@@ -41,7 +41,7 @@ const Hero = {
     },
 
     /**
-     * Initialize hit counter
+     * Initialize hit counter (global visitor count)
      */
     initHitCounter() {
         if (!this.statHits) return;
@@ -49,17 +49,17 @@ const Hero = {
         // Show loading state
         this.statHits.innerHTML = '<span class="hits-loading">···</span>';
 
-        // Try to fetch hit count from API
+        // Try to fetch global hit count from API
         this.fetchHitCount()
             .then(count => {
                 if (count !== null) {
                     animateCounter(this.statHits, count, 2000);
                 } else {
-                    this.showLocalHitCount();
+                    this.showFallbackCount();
                 }
             })
             .catch(() => {
-                this.showLocalHitCount();
+                this.showFallbackCount();
             });
     },
 
@@ -94,18 +94,13 @@ const Hero = {
     },
 
     /**
-     * Show local hit count as fallback
+     * Show fallback when global count API is unavailable
+     * Displays a dash instead of misleading local-only count
      */
-    showLocalHitCount() {
+    showFallbackCount() {
         if (!this.statHits) return;
 
-        // Get local hit count
-        let localHits = parseInt(localStorage.getItem('day_local_hits') || '0');
-        localHits += 1;
-        localStorage.setItem('day_local_hits', String(localHits));
-
-        // Animate to local count
-        animateCounter(this.statHits, localHits, 1000);
+        this.statHits.innerHTML = '<span class="hits-fallback" title="全局访问量暂时无法获取">—</span>';
     },
 
     /**
