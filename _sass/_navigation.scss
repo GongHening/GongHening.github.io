@@ -222,6 +222,7 @@
         a {
           margin-left: 0;
           font-size: 1.05em;
+          opacity: 1;
         }
       }
 
@@ -234,27 +235,13 @@
 
     a {
       position: relative;
+      opacity: 0.8;
+      -webkit-transition: opacity 0.25s ease, color 0.25s ease;
+              transition: opacity 0.25s ease, color 0.25s ease;
 
-      &:before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        height: 2px;
-        background: #0071e3;
-        width: 100%;
-        -webkit-transition: $global-transition;
-        transition: $global-transition;
-        -webkit-transform: translateX(-50%) scaleX(0);
-            -ms-transform: translateX(-50%) scaleX(0);
-                transform: translateX(-50%) scaleX(0); /* hide*/
-        border-radius: 1px;
-      }
-
-      &:hover:before {
-        -webkit-transform: translateX(-50%) scaleX(1);
-            -ms-transform: translateX(-50%) scaleX(1);
-                transform: translateX(-50%) scaleX(1); /* reveal*/
+      &:hover {
+        opacity: 1;
+        color: #0071e3;
       }
     }
   }
