@@ -20,6 +20,14 @@
     margin-bottom: 1.25em;
   }
 
+  /* Italic subtitle text on archive pages */
+  > p:first-of-type em {
+    color: #86868b;
+    font-size: 1.05em;
+    display: block;
+    margin-bottom: 1.5em;
+  }
+
   a {
     text-decoration: none;
     color: #0071e3;
@@ -48,7 +56,18 @@
 
 .archive__item-title {
   margin-bottom: 0.25em;
-  font-family: $sans-serif-narrow;
+  font-family: $sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+
+  a {
+    color: #1d1d1f;
+    text-decoration: none;
+
+    &:hover {
+      color: #0071e3;
+    }
+  }
 
   a + a {
     opacity: 0.5;

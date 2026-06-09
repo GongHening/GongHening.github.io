@@ -67,7 +67,9 @@ audio:not([controls]) {
 }
 
 a {
-  color: $link-color;
+  color: #0071e3;
+  -webkit-transition: color 0.25s ease;
+          transition: color 0.25s ease;
 }
 
 /* Apply focus state */

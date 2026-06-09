@@ -49,6 +49,7 @@
 .page__lead {
   font-family: $global-font-family;
   font-size: $type-size-4;
+  color: #86868b;
 }
 
 .page__content {
@@ -257,6 +258,16 @@
   margin-bottom: 10px;
   font-size: $type-size-6;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #86868b;
+}
+
+.page__date {
+  color: #86868b;
+
+  i {
+    color: #86868b;
+  }
 }
 
 
