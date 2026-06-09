@@ -1219,6 +1219,14 @@ p:last-child { margin-bottom: 0; }
 .course-title a { color: inherit; }
 .course-title a:hover { color: var(--accent); }
 
+.course-institution {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-2);
+  margin-bottom: 0.75rem;
+  padding-right: 40px;
+}
+
 .course-description {
   font-size: 0.85rem;
   color: var(--text-2);
@@ -1445,6 +1453,72 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ==========================================================================
+   FAVORITE BUTTON — Heart icon on course cards
+   ========================================================================== */
+
+.favorite-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--t-fast);
+  z-index: 2;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.favorite-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: all var(--t-fast);
+}
+
+.favorite-btn .heart-outline {
+  stroke: var(--text-3);
+  fill: none;
+  stroke-width: 2;
+}
+
+.favorite-btn .heart-filled {
+  stroke: #ff453a;
+  fill: #ff453a;
+  display: none;
+}
+
+.favorite-btn:hover {
+  background: rgba(255, 69, 58, 0.08);
+  border-color: rgba(255, 69, 58, 0.2);
+  transform: scale(1.1);
+}
+
+.favorite-btn:hover .heart-outline { stroke: #ff453a; }
+
+.favorite-btn.active .heart-outline { display: none; }
+.favorite-btn.active .heart-filled { display: block; }
+
+.favorite-btn.active {
+  background: rgba(255, 69, 58, 0.08);
+  border-color: rgba(255, 69, 58, 0.2);
+}
+
+.favorite-btn.pop {
+  animation: heartPop 0.3s var(--ease-spring);
+}
+
+[data-theme="dark"] .favorite-btn {
+  background: rgba(28, 28, 30, 0.85);
+  border-color: var(--glass-border);
+}
+
+/* ==========================================================================
    SEARCH HISTORY DROPDOWN
    ========================================================================== */
 
@@ -1612,6 +1686,10 @@ p:last-child { margin-bottom: 0; }
 .courses-grid.list-view .course-title {
   font-size: 1rem;
   margin-bottom: 0.15rem;
+}
+
+.courses-grid.list-view .course-institution {
+  margin-bottom: 0.4rem;
 }
 
 .courses-grid.list-view .course-description {
