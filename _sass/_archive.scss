@@ -14,6 +14,12 @@
     @include prefix(0.5 of 12);
   }
 
+  .page__title {
+    padding-bottom: 0.6em;
+    border-bottom: 2px solid #d2d2d7;
+    margin-bottom: 1.25em;
+  }
+
   a {
     text-decoration: none;
     color: #0071e3;
@@ -93,6 +99,21 @@
    ========================================================================== */
 
 .list__item {
+  margin-bottom: 1em;
+  padding: 1.25em 1.5em;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  -webkit-transition: $global-transition;
+          transition: $global-transition;
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+  }
+
   @include breakpoint($medium) {
     padding-right: $right-sidebar-width-narrow;
   }

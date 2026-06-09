@@ -36,8 +36,9 @@
 
 .page__title {
   margin-top: 0;
+  margin-bottom: 0.75em;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   font-weight: 700;
 
   & + .page__meta {
