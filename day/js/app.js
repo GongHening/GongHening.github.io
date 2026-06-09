@@ -75,8 +75,16 @@ const App = {
         // Initialize hero
         Hero.init();
 
+        // Initialize particle field
+        if (typeof Particles !== 'undefined') {
+            Particles.init();
+        }
+
         // Initialize back to top button
         this.initBackToTop();
+
+        // Initialize scroll-triggered reveals
+        this.initScrollReveal();
     },
 
     /**
@@ -141,6 +149,38 @@ const App = {
                 behavior: 'smooth'
             });
         });
+    },
+
+    /**
+     * Initialize scroll-triggered reveal animations
+     */
+    initScrollReveal() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        // Observe all elements with .reveal class
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // MutationObserver to catch dynamically added cards
+        const grid = document.getElementById('coursesGrid');
+        if (grid) {
+            const mutObs = new MutationObserver((mutations) => {
+                mutations.forEach((m) => {
+                    m.addedNodes.forEach((node) => {
+                        if (node.nodeType === 1 && node.classList.contains('reveal')) {
+                            observer.observe(node);
+                        }
+                    });
+                });
+            });
+            mutObs.observe(grid, { childList: true });
+        }
     },
 
     /**

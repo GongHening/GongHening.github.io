@@ -9,10 +9,6 @@ const CourseCard = {
      */
     init() {
         this.cacheElements();
-        this.scrollAnimator = new ScrollAnimator({
-            threshold: 0.05,
-            rootMargin: '0px 0px -30px 0px'
-        });
     },
 
     /**
@@ -37,12 +33,6 @@ const CourseCard = {
 
         this.hideNoResults();
         this.grid.innerHTML = courses.map((course, index) => this.createCard(course, index)).join('');
-
-        // Observe cards for scroll animation
-        setTimeout(() => {
-            const cards = this.grid.querySelectorAll('.course-card:not(.visible)');
-            this.scrollAnimator.observeAll(cards);
-        }, 50);
     },
 
     /**
@@ -57,7 +47,7 @@ const CourseCard = {
         const delay = Math.min(index * 30, 300);
 
         return `
-            <div class="course-card" style="transition-delay: ${delay}ms">
+            <div class="course-card reveal" style="transition-delay: ${delay}ms">
                 <div class="course-card-header">
                     <div class="difficulty-indicator">
                         ${difficultyDots}
