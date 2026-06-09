@@ -45,9 +45,20 @@ const CourseCard = {
         const progress = ProgressManager.get(course.u);
         const difficultyDots = this.createDifficultyDots(course.d);
         const delay = Math.min(index * 30, 300);
+        const isFav = FavoritesManager.has(course.u);
+        const favClass = isFav ? ' active' : '';
 
         return `
             <div class="course-card reveal" style="transition-delay: ${delay}ms">
+                <button class="favorite-btn${favClass}" onclick="CourseCard.toggleFavorite('${escapeHtml(course.u)}', this)" title="${isFav ? '取消收藏' : '收藏'}">
+                    <svg class="heart-outline" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                    <svg class="heart-filled" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </button>
+
                 <div class="course-card-header">
                     <div class="difficulty-indicator">
                         ${difficultyDots}
@@ -56,7 +67,7 @@ const CourseCard = {
                 </div>
 
                 <h3 class="course-title">
-                    <a href="${escapeHtml(course.u)}" target="_blank" rel="noopener noreferrer">
+                    <a href="${escapeHtml(course.u)}" target="_blank" rel="noopener noreferrer" onclick="CourseCard.recordView('${escapeHtml(course.u)}')">
                         ${escapeHtml(course.n)}
                     </a>
                 </h3>
@@ -71,7 +82,7 @@ const CourseCard = {
 
                 <div class="course-card-footer">
                     <span class="course-duration">${formatHours(course.h)}</span>
-                    <a href="${escapeHtml(course.u)}" target="_blank" rel="noopener noreferrer" class="course-link">
+                    <a href="${escapeHtml(course.u)}" target="_blank" rel="noopener noreferrer" class="course-link" onclick="CourseCard.recordView('${escapeHtml(course.u)}')">
                         开始学习
                     </a>
                 </div>
@@ -121,6 +132,48 @@ const CourseCard = {
         // Re-render the specific card or all cards
         // For simplicity, re-render all filtered courses
         this.renderAll(App.state.filteredCourses);
+    },
+
+    /**
+     * Toggle favorite status for a course
+     * @param {string} courseUrl - Course URL
+     * @param {HTMLElement} btn - The favorite button element
+     */
+    toggleFavorite(courseUrl, btn) {
+        const isNowFav = FavoritesManager.toggle(courseUrl);
+
+        // Update button state
+        if (isNowFav) {
+            btn.classList.add('active');
+            btn.title = '取消收藏';
+            showToast('已添加到收藏', 'success', 1500);
+        } else {
+            btn.classList.remove('active');
+            btn.title = '收藏';
+            showToast('已取消收藏', 'info', 1500);
+        }
+
+        // Pop animation
+        btn.classList.add('pop');
+        setTimeout(() => btn.classList.remove('pop'), 300);
+
+        // Update sidebar favorites count
+        if (typeof Sidebar !== 'undefined' && Sidebar.updateFavoritesCount) {
+            Sidebar.updateFavoritesCount();
+        }
+
+        // If currently viewing favorites, re-render
+        if (App.state.activeDomain === '__favorites__') {
+            Filters.applyFilters();
+        }
+    },
+
+    /**
+     * Record a course view
+     * @param {string} courseUrl - Course URL
+     */
+    recordView(courseUrl) {
+        CourseViewsManager.recordView(courseUrl);
     },
 
     /**

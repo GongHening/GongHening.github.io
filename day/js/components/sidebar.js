@@ -31,24 +31,58 @@ const Sidebar = {
     renderNavigation() {
         if (!this.navContainer) return;
 
-        // Keep the section label
-        const sectionLabel = this.navContainer.querySelector('.nav-section-label');
         this.navContainer.innerHTML = '';
 
-        if (sectionLabel) {
-            this.navContainer.appendChild(sectionLabel);
-        } else {
-            const label = document.createElement('div');
-            label.className = 'nav-section-label';
-            label.textContent = 'AI 领域';
-            this.navContainer.appendChild(label);
-        }
+        // Add favorites item
+        const favItem = this.createFavoritesNavItem();
+        this.navContainer.appendChild(favItem);
+
+        // Add divider
+        const divider = document.createElement('div');
+        divider.className = 'nav-divider';
+        this.navContainer.appendChild(divider);
+
+        // Add section label
+        const label = document.createElement('div');
+        label.className = 'nav-section-label';
+        label.textContent = 'AI 领域';
+        this.navContainer.appendChild(label);
 
         // Add navigation items for each domain
         DOMAINS.forEach(domain => {
             const navItem = this.createNavItem(domain);
             this.navContainer.appendChild(navItem);
         });
+    },
+
+    /**
+     * Create the favorites navigation item
+     * @returns {HTMLElement} Navigation item element
+     */
+    createFavoritesNavItem() {
+        const button = document.createElement('button');
+        button.className = 'nav-item nav-item-favorites';
+        button.dataset.domain = '__favorites__';
+        button.onclick = () => this.selectDomain('__favorites__');
+
+        const favCount = FavoritesManager.count();
+        button.innerHTML = `
+            <span class="nav-emoji">❤️</span>
+            <span class="nav-label">我的收藏</span>
+            <span class="nav-favorites-count" id="navFavoritesCount">${favCount}</span>
+        `;
+
+        return button;
+    },
+
+    /**
+     * Update favorites count in sidebar
+     */
+    updateFavoritesCount() {
+        const countEl = document.getElementById('navFavoritesCount');
+        if (countEl) {
+            countEl.textContent = FavoritesManager.count();
+        }
     },
 
     /**
@@ -177,6 +211,23 @@ const Sidebar = {
      * @param {string} domainId - Domain ID
      */
     updateDomainHeader(domainId) {
+        // Handle favorites special case
+        if (domainId === '__favorites__') {
+            const domainHeader = document.getElementById('domainHeader');
+            const domainEmoji = document.getElementById('domainEmoji');
+            const domainName = document.getElementById('domainName');
+            const domainDescription = document.getElementById('domainDescription');
+
+            if (domainHeader) domainHeader.classList.add('show');
+            if (domainEmoji) domainEmoji.textContent = '❤️';
+            if (domainName) domainName.textContent = '我的收藏';
+            if (domainDescription) domainDescription.textContent = `${FavoritesManager.count()} 门收藏课程`;
+
+            const filterTitle = document.getElementById('filterTitle');
+            if (filterTitle) filterTitle.textContent = '我的收藏';
+            return;
+        }
+
         const domain = getDomainById(domainId);
         if (!domain) return;
 

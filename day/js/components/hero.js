@@ -11,6 +11,7 @@ const Hero = {
         this.cacheElements();
         this.animateStats();
         this.initHitCounter();
+        this.renderPopularCourses();
     },
 
     /**
@@ -20,6 +21,7 @@ const Hero = {
         this.statCourses = document.getElementById('statCourses');
         this.statDomains = document.getElementById('statDomains');
         this.statHits = document.getElementById('statHits');
+        this.popularCoursesScroll = document.getElementById('popularCoursesScroll');
     },
 
     /**
@@ -131,6 +133,30 @@ const Hero = {
         if (pathsSection) {
             pathsSection.scrollIntoView({ behavior: 'smooth' });
         }
+    },
+
+    /**
+     * Render popular courses in the hero section
+     */
+    renderPopularCourses() {
+        if (!this.popularCoursesScroll) return;
+
+        const popular = getPopularCourses(8);
+        if (popular.length === 0) return;
+
+        this.popularCoursesScroll.innerHTML = popular.map((course, index) => {
+            const domain = getDomainById(course.cat);
+            const domainName = domain ? domain.name : course.cat;
+            const rankClass = index < 3 ? ' top-3' : '';
+
+            return `
+                <a class="popular-course-chip" href="${escapeHtml(course.u)}" target="_blank" rel="noopener noreferrer" onclick="CourseViewsManager.recordView('${escapeHtml(course.u)}')">
+                    <span class="popular-course-rank${rankClass}">${index + 1}</span>
+                    <span class="popular-course-name">${escapeHtml(course.n)}</span>
+                    <span class="popular-course-domain">${escapeHtml(domainName)}</span>
+                </a>
+            `;
+        }).join('');
     },
 
     /**

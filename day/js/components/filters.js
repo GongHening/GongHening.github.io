@@ -22,6 +22,9 @@ const Filters = {
         this.resultsCount = document.getElementById('resultsCount');
         this.searchInput = document.getElementById('searchInput');
         this.searchDebounceTimer = null;
+        this.searchHistoryDropdown = document.getElementById('searchHistoryDropdown');
+        this.viewToggle = document.getElementById('viewToggle');
+        this.coursesGrid = document.getElementById('coursesGrid');
     },
 
     /**
@@ -46,6 +49,7 @@ const Filters = {
         // Search input with debounce
         if (this.searchInput) {
             this.searchInput.addEventListener('input', () => {
+                this.hideSearchHistory();
                 clearTimeout(this.searchDebounceTimer);
                 this.searchDebounceTimer = setTimeout(() => {
                     this.applyFilters();
@@ -54,6 +58,30 @@ const Filters = {
                         SearchHistoryManager.add(this.searchInput.value.trim());
                     }
                 }, 300);
+            });
+
+            // Show search history on focus
+            this.searchInput.addEventListener('focus', () => {
+                if (!this.searchInput.value.trim()) {
+                    this.showSearchHistory();
+                }
+            });
+        }
+
+        // Hide search history on outside click
+        document.addEventListener('click', (e) => {
+            if (this.searchHistoryDropdown && !e.target.closest('.search-wrapper')) {
+                this.hideSearchHistory();
+            }
+        });
+
+        // View toggle buttons
+        if (this.viewToggle) {
+            this.viewToggle.addEventListener('click', (e) => {
+                const btn = e.target.closest('.view-toggle-btn');
+                if (!btn) return;
+                const viewMode = btn.dataset.view;
+                this.setViewMode(viewMode);
             });
         }
 
@@ -106,8 +134,12 @@ const Filters = {
     filterCourses(filters) {
         let courses = [...App.state.allCourses];
 
-        // Filter by domain
-        if (filters.domain) {
+        // Filter by favorites (special domain)
+        if (filters.domain === '__favorites__') {
+            const favUrls = FavoritesManager.getAll();
+            courses = courses.filter(course => favUrls.includes(course.u));
+        } else if (filters.domain) {
+            // Filter by domain
             courses = courses.filter(course => course.cat === filters.domain);
         }
 
@@ -258,7 +290,9 @@ const Filters = {
         const filters = this.getActiveFilters();
         const parts = [];
 
-        if (filters.domain) {
+        if (filters.domain === '__favorites__') {
+            parts.push('我的收藏');
+        } else if (filters.domain) {
             const domain = getDomainById(filters.domain);
             if (domain) parts.push(domain.name);
         }
@@ -268,6 +302,113 @@ const Filters = {
         }
 
         return parts.length > 0 ? parts.join(' · ') : '全部课程';
+    },
+
+    /**
+     * Show search history dropdown
+     */
+    showSearchHistory() {
+        if (!this.searchHistoryDropdown) return;
+        this.renderSearchHistory();
+        this.searchHistoryDropdown.classList.add('show');
+    },
+
+    /**
+     * Hide search history dropdown
+     */
+    hideSearchHistory() {
+        if (!this.searchHistoryDropdown) return;
+        this.searchHistoryDropdown.classList.remove('show');
+    },
+
+    /**
+     * Render search history items
+     */
+    renderSearchHistory() {
+        if (!this.searchHistoryDropdown) return;
+
+        const history = SearchHistoryManager.getAll();
+
+        if (history.length === 0) {
+            this.searchHistoryDropdown.innerHTML = '<div class="search-history-empty">暂无搜索历史</div>';
+            return;
+        }
+
+        this.searchHistoryDropdown.innerHTML = `
+            <div class="search-history-header">
+                <span class="search-history-title">搜索历史</span>
+                <button class="search-history-clear" onclick="Filters.clearSearchHistory()">清除全部</button>
+            </div>
+            <div class="search-history-list">
+                ${history.map(query => `
+                    <div class="search-history-item" onclick="Filters.applySearchHistory('${escapeHtml(query)}')">
+                        <span class="search-history-icon">⏱</span>
+                        <span class="search-history-text">${escapeHtml(query)}</span>
+                        <button class="search-history-remove" onclick="event.stopPropagation(); Filters.removeSearchHistory('${escapeHtml(query)}')" title="删除">✕</button>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    },
+
+    /**
+     * Apply a search history item
+     * @param {string} query - Search query
+     */
+    applySearchHistory(query) {
+        if (this.searchInput) {
+            this.searchInput.value = query;
+            this.hideSearchHistory();
+            this.applyFilters();
+        }
+    },
+
+    /**
+     * Remove a search history item
+     * @param {string} query - Search query to remove
+     */
+    removeSearchHistory(query) {
+        SearchHistoryManager.remove(query);
+        this.renderSearchHistory();
+    },
+
+    /**
+     * Clear all search history
+     */
+    clearSearchHistory() {
+        SearchHistoryManager.clear();
+        this.hideSearchHistory();
+    },
+
+    /**
+     * Set view mode (grid/list)
+     * @param {string} mode - 'grid' or 'list'
+     */
+    setViewMode(mode) {
+        if (!this.coursesGrid || !this.viewToggle) return;
+
+        // Update grid class
+        if (mode === 'list') {
+            this.coursesGrid.classList.add('list-view');
+        } else {
+            this.coursesGrid.classList.remove('list-view');
+        }
+
+        // Update toggle buttons
+        this.viewToggle.querySelectorAll('.view-toggle-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.view === mode);
+        });
+
+        // Save preference
+        PreferencesManager.set('viewMode', mode);
+    },
+
+    /**
+     * Initialize view mode from saved preference
+     */
+    initViewMode() {
+        const savedMode = PreferencesManager.get('viewMode') || 'grid';
+        this.setViewMode(savedMode);
     }
 };
 

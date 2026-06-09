@@ -80,6 +80,9 @@ const App = {
             Particles.init();
         }
 
+        // Initialize view mode from saved preference
+        Filters.initViewMode();
+
         // Initialize back to top button
         this.initBackToTop();
 

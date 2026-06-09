@@ -1320,6 +1320,422 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ==========================================================================
+   FAVORITE BUTTON — Heart icon on course cards
+   ========================================================================== */
+
+.favorite-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(17, 25, 54, 0.7);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--t-fast);
+  z-index: 2;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.favorite-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: all var(--t-fast);
+}
+
+.favorite-btn .heart-outline {
+  stroke: var(--text-3);
+  fill: none;
+  stroke-width: 2;
+}
+
+.favorite-btn .heart-filled {
+  stroke: #ff6090;
+  fill: #ff6090;
+  display: none;
+}
+
+.favorite-btn:hover {
+  background: rgba(255, 96, 144, 0.15);
+  border-color: rgba(255, 96, 144, 0.3);
+  transform: scale(1.1);
+}
+
+.favorite-btn:hover .heart-outline { stroke: #ff6090; }
+
+.favorite-btn.active .heart-outline { display: none; }
+.favorite-btn.active .heart-filled { display: block; }
+
+.favorite-btn.active {
+  background: rgba(255, 96, 144, 0.15);
+  border-color: rgba(255, 96, 144, 0.3);
+}
+
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+.favorite-btn.pop {
+  animation: heartPop 0.3s var(--ease-spring);
+}
+
+/* ==========================================================================
+   SEARCH HISTORY DROPDOWN
+   ========================================================================== */
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-history-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  min-width: 280px;
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-lg);
+  z-index: var(--z-overlay);
+  display: none;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.search-history-dropdown.show { display: block; }
+
+.search-history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.search-history-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-3);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.search-history-clear {
+  font-size: 0.7rem;
+  color: var(--text-4);
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: var(--r-xs);
+  transition: all var(--t-fast);
+}
+
+.search-history-clear:hover {
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.search-history-list {
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+.search-history-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background var(--t-fast);
+}
+
+.search-history-item:hover { background: var(--glass-hover); }
+
+.search-history-icon {
+  color: var(--text-4);
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+
+.search-history-text {
+  flex: 1;
+  font-size: 0.82rem;
+  color: var(--text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-history-remove {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-4);
+  font-size: 0.75rem;
+  opacity: 0;
+  transition: all var(--t-fast);
+  flex-shrink: 0;
+}
+
+.search-history-item:hover .search-history-remove { opacity: 1; }
+
+.search-history-remove:hover {
+  background: rgba(255, 96, 144, 0.15);
+  color: #ff6090;
+}
+
+.search-history-empty {
+  padding: 16px 14px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-4);
+}
+
+/* ==========================================================================
+   VIEW TOGGLE — Grid/List switch
+   ========================================================================== */
+
+.view-toggle {
+  display: flex;
+  gap: 2px;
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+  padding: 3px;
+  border: 1px solid var(--glass-border);
+}
+
+.view-toggle-btn {
+  width: 32px;
+  height: 28px;
+  border-radius: var(--r-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-4);
+  transition: all var(--t-fast);
+}
+
+.view-toggle-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.view-toggle-btn:hover { color: var(--text-2); }
+
+.view-toggle-btn.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+/* List view mode */
+.courses-grid.list-view {
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.courses-grid.list-view .course-card {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.courses-grid.list-view .course-card-header {
+  display: none;
+}
+
+.courses-grid.list-view .course-title {
+  font-size: 1rem;
+  margin-bottom: 0.15rem;
+}
+
+.courses-grid.list-view .course-institution {
+  margin-bottom: 0.4rem;
+}
+
+.courses-grid.list-view .course-description {
+  -webkit-line-clamp: 2;
+  margin-bottom: 0.5rem;
+  flex: unset;
+}
+
+.courses-grid.list-view .course-tags {
+  margin-bottom: 0.5rem;
+}
+
+.courses-grid.list-view .course-card-footer {
+  border-top: none;
+  padding-top: 0;
+}
+
+.courses-grid.list-view .course-progress {
+  margin-top: 0.5rem;
+  min-width: 180px;
+  flex-shrink: 0;
+}
+
+.courses-grid.list-view .course-card:hover {
+  transform: translateY(-2px);
+}
+
+.courses-grid.list-view .favorite-btn {
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+}
+
+.courses-grid.list-view .favorite-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* ==========================================================================
+   POPULAR COURSES — Hero section
+   ========================================================================== */
+
+.popular-courses {
+  margin-top: 2.5rem;
+  max-width: var(--max-w);
+  width: 100%;
+}
+
+.popular-courses-title {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-3);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.popular-courses-scroll {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface-2) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.popular-courses-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.popular-courses-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.popular-courses-scroll::-webkit-scrollbar-thumb {
+  background: var(--surface-2);
+  border-radius: 2px;
+}
+
+.popular-course-chip {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-full);
+  cursor: pointer;
+  transition: all var(--t-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.popular-course-chip:hover {
+  background: var(--glass-hover);
+  border-color: rgba(0,229,255,0.2);
+  transform: translateY(-2px);
+}
+
+.popular-course-rank {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.popular-course-rank.top-3 {
+  background: var(--warm-dim);
+  color: var(--warm);
+}
+
+.popular-course-name {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-2);
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.popular-course-chip:hover .popular-course-name { color: var(--text-1); }
+
+.popular-course-domain {
+  font-size: 0.65rem;
+  color: var(--text-4);
+  padding: 1px 6px;
+  background: var(--surface-2);
+  border-radius: var(--r-full);
+}
+
+/* ==========================================================================
+   SIDEBAR — Favorites nav item
+   ========================================================================== */
+
+.nav-item-favorites {
+  position: relative;
+}
+
+.nav-item-favorites .nav-emoji {
+  font-size: 1rem;
+}
+
+.nav-favorites-count {
+  min-width: 18px;
+  height: 18px;
+  border-radius: var(--r-full);
+  background: rgba(255, 96, 144, 0.15);
+  color: #ff6090;
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+}
+
+.nav-divider {
+  height: 1px;
+  background: var(--glass-border);
+  margin: 8px 0;
+}
+
+/* ==========================================================================
    ANIMATIONS
    ========================================================================== */
 

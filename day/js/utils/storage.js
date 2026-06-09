@@ -451,6 +451,62 @@ const FavoritesManager = {
     }
 };
 
+/**
+ * Course Views Manager
+ * Tracks how many times each course has been viewed
+ */
+const CourseViewsManager = {
+    STORAGE_KEY: 'day_course_views',
+
+    /**
+     * Get all view data
+     * @returns {Object} View counts keyed by course URL
+     */
+    getAll() {
+        return Storage.get(this.STORAGE_KEY, {});
+    },
+
+    /**
+     * Record a view for a course
+     * @param {string} courseUrl - Course URL
+     */
+    recordView(courseUrl) {
+        const views = this.getAll();
+        views[courseUrl] = (views[courseUrl] || 0) + 1;
+        Storage.set(this.STORAGE_KEY, views);
+    },
+
+    /**
+     * Get view count for a course
+     * @param {string} courseUrl - Course URL
+     * @returns {number} View count
+     */
+    getViews(courseUrl) {
+        const views = this.getAll();
+        return views[courseUrl] || 0;
+    },
+
+    /**
+     * Get top viewed courses
+     * @param {number} limit - Max courses to return
+     * @returns {Array} Array of { url, views } sorted by views desc
+     */
+    getTopViewed(limit = 10) {
+        const views = this.getAll();
+        return Object.entries(views)
+            .map(([url, count]) => ({ url, views: count }))
+            .sort((a, b) => b.views - a.views)
+            .slice(0, limit);
+    },
+
+    /**
+     * Clear all view data
+     */
+    clear() {
+        Storage.remove(this.STORAGE_KEY);
+    }
+};
+
 // Export for module usage (if needed)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
@@ -458,6 +514,7 @@ if (typeof module !== 'undefined' && module.exports) {
         ProgressManager,
         PreferencesManager,
         SearchHistoryManager,
-        FavoritesManager
+        FavoritesManager,
+        CourseViewsManager
     };
 }

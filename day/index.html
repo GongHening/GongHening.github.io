@@ -88,6 +88,12 @@ layout: none
                         <div class="stat-label">访问量</div>
                     </div>
                 </div>
+                <div class="popular-courses" id="popularCourses">
+                    <div class="popular-courses-title">🔥 热门课程</div>
+                    <div class="popular-courses-scroll" id="popularCoursesScroll">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -111,6 +117,9 @@ layout: none
                     <div class="search-wrapper">
                         <input type="search" class="search-input" id="searchInput" placeholder="搜索课程、机构或标签..." aria-label="搜索课程">
                         <span class="search-hint">⌘K</span>
+                        <div class="search-history-dropdown" id="searchHistoryDropdown">
+                            <!-- Populated by JavaScript -->
+                        </div>
                     </div>
                     <select class="filter-select" id="difficultyFilter">
                         <option value="">全部难度</option>
@@ -128,6 +137,23 @@ layout: none
                         <option value="hours-desc">时间 长→短</option>
                     </select>
                     <button class="clear-btn" id="clearFiltersBtn">清除</button>
+                    <div class="view-toggle" id="viewToggle">
+                        <button class="view-toggle-btn active" data-view="grid" title="网格视图">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="1" y="1" width="6" height="6" rx="1"/>
+                                <rect x="9" y="1" width="6" height="6" rx="1"/>
+                                <rect x="1" y="9" width="6" height="6" rx="1"/>
+                                <rect x="9" y="9" width="6" height="6" rx="1"/>
+                            </svg>
+                        </button>
+                        <button class="view-toggle-btn" data-view="list" title="列表视图">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <line x1="1" y1="3" x2="15" y2="3"/>
+                                <line x1="1" y1="8" x2="15" y2="8"/>
+                                <line x1="1" y1="13" x2="15" y2="13"/>
+                            </svg>
+                        </button>
+                    </div>
                     <span class="results-count" id="resultsCount"></span>
                 </div>
             </div>
