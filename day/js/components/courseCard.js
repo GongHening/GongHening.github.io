@@ -84,8 +84,6 @@ const CourseCard = {
                     </a>
                 </h3>
 
-                <div class="course-institution">${escapeHtml(course.i)}</div>
-
                 <p class="course-description">${escapeHtml(course.desc)}</p>
 
                 <div class="course-tags">

@@ -1219,14 +1219,6 @@ p:last-child { margin-bottom: 0; }
 .course-title a { color: inherit; }
 .course-title a:hover { color: var(--accent); }
 
-.course-institution {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text-2);
-  margin-bottom: 0.75rem;
-  padding-right: 40px;
-}
-
 .course-description {
   font-size: 0.85rem;
   color: var(--text-2);
@@ -1620,10 +1612,6 @@ p:last-child { margin-bottom: 0; }
 .courses-grid.list-view .course-title {
   font-size: 1rem;
   margin-bottom: 0.15rem;
-}
-
-.courses-grid.list-view .course-institution {
-  margin-bottom: 0.4rem;
 }
 
 .courses-grid.list-view .course-description {
