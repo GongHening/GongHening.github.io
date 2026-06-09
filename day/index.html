@@ -153,21 +153,27 @@ layout: none
                             <!-- Populated by JavaScript -->
                         </div>
                     </div>
-                    <select class="filter-select" id="difficultyFilter">
-                        <option value="">全部难度</option>
-                        <option value="1">入门</option>
-                        <option value="2">初级</option>
-                        <option value="3">中级</option>
-                        <option value="4">高级</option>
-                        <option value="5">专家</option>
-                    </select>
-                    <select class="filter-select" id="sortFilter">
-                        <option value="default">默认排序</option>
-                        <option value="difficulty-asc">难度 低→高</option>
-                        <option value="difficulty-desc">难度 高→低</option>
-                        <option value="hours-asc">时间 短→长</option>
-                        <option value="hours-desc">时间 长→短</option>
-                    </select>
+                    <div class="custom-select" id="difficultyFilter" data-value="">
+                        <button class="custom-select-btn" type="button">全部难度 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+                        <div class="custom-select-dropdown">
+                            <div class="custom-select-option active" data-value="">全部难度</div>
+                            <div class="custom-select-option" data-value="1">入门</div>
+                            <div class="custom-select-option" data-value="2">初级</div>
+                            <div class="custom-select-option" data-value="3">中级</div>
+                            <div class="custom-select-option" data-value="4">高级</div>
+                            <div class="custom-select-option" data-value="5">专家</div>
+                        </div>
+                    </div>
+                    <div class="custom-select" id="sortFilter" data-value="default">
+                        <button class="custom-select-btn" type="button">默认排序 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+                        <div class="custom-select-dropdown">
+                            <div class="custom-select-option active" data-value="default">默认排序</div>
+                            <div class="custom-select-option" data-value="difficulty-asc">难度 低→高</div>
+                            <div class="custom-select-option" data-value="difficulty-desc">难度 高→低</div>
+                            <div class="custom-select-option" data-value="hours-asc">时间 短→长</div>
+                            <div class="custom-select-option" data-value="hours-desc">时间 长→短</div>
+                        </div>
+                    </div>
                     <button class="clear-btn" id="clearFiltersBtn">清除</button>
                     <div class="view-toggle" id="viewToggle">
                         <button class="view-toggle-btn active" data-view="grid" title="网格视图">

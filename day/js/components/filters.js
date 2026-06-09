@@ -31,15 +31,9 @@ const Filters = {
      * Bind event listeners
      */
     bindEvents() {
-        // Difficulty filter change
-        if (this.difficultyFilter) {
-            this.difficultyFilter.addEventListener('change', () => this.applyFilters());
-        }
-
-        // Sort filter change
-        if (this.sortFilter) {
-            this.sortFilter.addEventListener('change', () => this.applyFilters());
-        }
+        // Custom select dropdowns
+        this.initCustomSelect(this.difficultyFilter);
+        this.initCustomSelect(this.sortFilter);
 
         // Clear button click
         if (this.clearBtn) {
@@ -90,6 +84,57 @@ const Filters = {
         if (domainCloseBtn) {
             domainCloseBtn.addEventListener('click', () => Sidebar.clearSelection());
         }
+
+        // Close all custom selects on outside click
+        document.addEventListener('click', (e) => {
+            document.querySelectorAll('.custom-select.open').forEach(sel => {
+                if (!sel.contains(e.target)) {
+                    sel.classList.remove('open');
+                }
+            });
+        });
+    },
+
+    /**
+     * Initialize a custom select dropdown
+     * @param {HTMLElement} container - The custom-select container
+     */
+    initCustomSelect(container) {
+        if (!container) return;
+
+        const btn = container.querySelector('.custom-select-btn');
+        const options = container.querySelectorAll('.custom-select-option');
+
+        // Toggle dropdown
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Close other open selects
+            document.querySelectorAll('.custom-select.open').forEach(sel => {
+                if (sel !== container) sel.classList.remove('open');
+            });
+            container.classList.toggle('open');
+        });
+
+        // Option click
+        options.forEach(opt => {
+            opt.addEventListener('click', () => {
+                // Update active state
+                options.forEach(o => o.classList.remove('active'));
+                opt.classList.add('active');
+
+                // Update value and button text
+                const value = opt.dataset.value;
+                const text = opt.textContent;
+                container.dataset.value = value;
+                btn.innerHTML = text + ' <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>';
+
+                // Close dropdown
+                container.classList.remove('open');
+
+                // Trigger filter
+                this.applyFilters();
+            });
+        });
     },
 
     /**
@@ -120,8 +165,8 @@ const Filters = {
     getActiveFilters() {
         return {
             domain: App.state.activeDomain || '',
-            difficulty: this.difficultyFilter ? this.difficultyFilter.value : '',
-            sort: this.sortFilter ? this.sortFilter.value : 'default',
+            difficulty: this.difficultyFilter ? this.difficultyFilter.dataset.value : '',
+            sort: this.sortFilter ? this.sortFilter.dataset.value : 'default',
             search: this.searchInput ? this.searchInput.value.trim() : ''
         };
     },
@@ -173,7 +218,7 @@ const Filters = {
      * @returns {Array} Sorted courses
      */
     sortCourses(courses) {
-        const sortBy = this.sortFilter ? this.sortFilter.value : 'default';
+        const sortBy = this.sortFilter ? this.sortFilter.dataset.value : 'default';
         const sorted = [...courses];
 
         switch (sortBy) {
@@ -207,9 +252,9 @@ const Filters = {
      * Clear all filters
      */
     clearFilters() {
-        // Reset filter values
-        if (this.difficultyFilter) this.difficultyFilter.value = '';
-        if (this.sortFilter) this.sortFilter.value = 'default';
+        // Reset custom select values
+        this.resetCustomSelect(this.difficultyFilter, '', '全部难度');
+        this.resetCustomSelect(this.sortFilter, 'default', '默认排序');
         if (this.searchInput) this.searchInput.value = '';
 
         // Clear domain selection
@@ -217,6 +262,40 @@ const Filters = {
 
         // Apply filters
         this.applyFilters();
+    },
+
+    /**
+     * Reset a custom select to its default state
+     * @param {HTMLElement} container - The custom-select container
+     * @param {string} value - Default value
+     * @param {string} label - Default label text
+     */
+    resetCustomSelect(container, value, label) {
+        if (!container) return;
+        container.dataset.value = value;
+        const btn = container.querySelector('.custom-select-btn');
+        if (btn) btn.innerHTML = label + ' <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>';
+        const options = container.querySelectorAll('.custom-select-option');
+        options.forEach(opt => {
+            opt.classList.toggle('active', opt.dataset.value === value);
+        });
+    },
+
+    /**
+     * Set a custom select to a specific value
+     * @param {HTMLElement} container - The custom-select container
+     * @param {string} value - Value to set
+     */
+    setCustomSelectValue(container, value) {
+        if (!container) return;
+        const option = container.querySelector(`.custom-select-option[data-value="${value}"]`);
+        if (option) {
+            container.dataset.value = value;
+            const btn = container.querySelector('.custom-select-btn');
+            if (btn) btn.innerHTML = option.textContent + ' <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>';
+            container.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('active'));
+            option.classList.add('active');
+        }
     },
 
     /**
@@ -256,11 +335,11 @@ const Filters = {
         }
 
         if (params.difficulty && this.difficultyFilter) {
-            this.difficultyFilter.value = params.difficulty;
+            this.setCustomSelectValue(this.difficultyFilter, params.difficulty);
         }
 
         if (params.sort && this.sortFilter) {
-            this.sortFilter.value = params.sort;
+            this.setCustomSelectValue(this.sortFilter, params.sort);
         }
     },
 
