@@ -280,6 +280,8 @@ p:last-child { margin-bottom: 0; }
 .logo-icon {
   background: transparent;
   box-shadow: none;
+  color: var(--void);
+  overflow: visible;
 }
 
 .logo-icon svg {
