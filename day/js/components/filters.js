@@ -20,6 +20,8 @@ const Filters = {
         this.sortFilter = document.getElementById('sortFilter');
         this.clearBtn = document.getElementById('clearFiltersBtn');
         this.resultsCount = document.getElementById('resultsCount');
+        this.searchInput = document.getElementById('searchInput');
+        this.searchDebounceTimer = null;
     },
 
     /**
@@ -39,6 +41,20 @@ const Filters = {
         // Clear button click
         if (this.clearBtn) {
             this.clearBtn.addEventListener('click', () => this.clearFilters());
+        }
+
+        // Search input with debounce
+        if (this.searchInput) {
+            this.searchInput.addEventListener('input', () => {
+                clearTimeout(this.searchDebounceTimer);
+                this.searchDebounceTimer = setTimeout(() => {
+                    this.applyFilters();
+                    // Save to search history
+                    if (this.searchInput.value.trim()) {
+                        SearchHistoryManager.add(this.searchInput.value.trim());
+                    }
+                }, 300);
+            });
         }
 
         // Domain header close button
@@ -77,7 +93,8 @@ const Filters = {
         return {
             domain: App.state.activeDomain || '',
             difficulty: this.difficultyFilter ? this.difficultyFilter.value : '',
-            sort: this.sortFilter ? this.sortFilter.value : 'default'
+            sort: this.sortFilter ? this.sortFilter.value : 'default',
+            search: this.searchInput ? this.searchInput.value.trim() : ''
         };
     },
 
@@ -97,6 +114,22 @@ const Filters = {
         // Filter by difficulty
         if (filters.difficulty) {
             courses = courses.filter(course => course.d === parseInt(filters.difficulty));
+        }
+
+        // Filter by search query
+        if (filters.search) {
+            const searchTerm = filters.search.toLowerCase();
+            courses = courses.filter(course => {
+                const searchableText = [
+                    course.n,
+                    course.i,
+                    course.p,
+                    course.desc,
+                    ...course.t
+                ].join(' ').toLowerCase();
+
+                return searchableText.includes(searchTerm);
+            });
         }
 
         return courses;
@@ -145,6 +178,7 @@ const Filters = {
         // Reset filter values
         if (this.difficultyFilter) this.difficultyFilter.value = '';
         if (this.sortFilter) this.sortFilter.value = 'default';
+        if (this.searchInput) this.searchInput.value = '';
 
         // Clear domain selection
         Sidebar.clearSelection();
@@ -213,7 +247,7 @@ const Filters = {
      */
     hasActiveFilters() {
         const filters = this.getActiveFilters();
-        return filters.domain || filters.difficulty || filters.sort !== 'default';
+        return filters.domain || filters.difficulty || filters.sort !== 'default' || filters.search;
     },
 
     /**

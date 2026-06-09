@@ -108,6 +108,10 @@ layout: none
             <div class="filters-container">
                 <span class="filter-title" id="filterTitle">全部课程</span>
                 <div class="filter-controls">
+                    <div class="search-wrapper">
+                        <input type="search" class="search-input" id="searchInput" placeholder="搜索课程、机构或标签..." aria-label="搜索课程">
+                        <span class="search-hint">⌘K</span>
+                    </div>
                     <select class="filter-select" id="difficultyFilter">
                         <option value="">全部难度</option>
                         <option value="1">入门</option>
@@ -255,6 +259,11 @@ layout: none
 
     <!-- Scripts -->
     <script src="js/data/domains.js"></script>
+    <script src="js/data/courses/ml.js"></script>
+    <script src="js/data/courses/dl.js"></script>
+    <script src="js/data/courses/nlp.js"></script>
+    <script src="js/data/courses/cv.js"></script>
+    <script src="js/data/courses/others.js"></script>
     <script src="js/data/courses/index.js"></script>
     <script src="js/utils/helpers.js"></script>
     <script src="js/utils/storage.js"></script>
