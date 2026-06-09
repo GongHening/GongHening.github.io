@@ -10,20 +10,22 @@
   /* default button */
   display: inline-block;
   margin-bottom: 0.25em;
-  padding: 0.5em 1em;
+  padding: 0.6em 1.4em;
   color: #fff !important;
   font-family: $sans-serif;
   font-size: $type-size-6;
-  font-weight: bold;
+  font-weight: 600;
   text-align: center;
   text-decoration: none;
-  background-color: $primary-color;
+  background-color: #0071e3;
   border: 0 !important;
-  border-radius: $border-radius;
+  border-radius: 980px;
   cursor: pointer;
+  -webkit-transition: $global-transition;
+          transition: $global-transition;
 
   &:hover {
-    background-color: mix(white, #000, 20%);
+    background-color: #0077ED;
   }
 
   .icon {
@@ -48,13 +50,14 @@
   /* for dark backgrounds */
 
   &--inverse {
-    color: $gray !important;
-    border: 1px solid $light-gray !important; /* override*/
+    color: #1d1d1f !important;
+    border: 1px solid #d2d2d7 !important; /* override*/
     background-color: #fff;
 
     &:hover {
-      color: #fff !important;
-      border-color: $gray;
+      color: #0071e3 !important;
+      border-color: #0071e3;
+      background-color: rgba(0, 113, 227, 0.04);
     }
   }
 
@@ -68,40 +71,40 @@
   /* information */
 
   &--info {
-    background-color: $info-color;
+    background-color: #0071e3;
 
     &:hover {
-      background-color: mix(#000, $info-color, 20%);
+      background-color: #0077ED;
     }
   }
 
   /* warning */
 
   &--warning {
-    background-color: $warning-color;
+    background-color: #ff9f0a;
 
     &:hover {
-      background-color: mix(#000, $warning-color, 20%);
+      background-color: #ffB340;
     }
   }
 
   /* success */
 
   &--success {
-    background-color: $success-color;
+    background-color: #30d158;
 
     &:hover {
-      background-color: mix(#000, $success-color, 20%);
+      background-color: #5DD87A;
     }
   }
 
   /* danger */
 
   &--danger {
-    background-color: $danger-color;
+    background-color: #ff453a;
 
     &:hover {
-      background-color: mix(#000, $danger-color, 20%);
+      background-color: #FF6961;
     }
   }
 

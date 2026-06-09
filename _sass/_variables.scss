@@ -47,24 +47,24 @@ $type-size-8                : 0.625em;  // ~10px
    Colors
    ========================================================================== */
 
-$gray                       : #7a8288;
-$dark-gray                  : mix(#000, $gray, 40%);
-$darker-gray                : mix(#000, $gray, 60%);
-$light-gray                 : mix(#fff, $gray, 50%);
-$lighter-gray               : mix(#fff, $gray, 90%);
+$gray                       : #86868b;
+$dark-gray                  : #1d1d1f;
+$darker-gray                : #111111;
+$light-gray                 : #d2d2d7;
+$lighter-gray               : #f5f5f7;
 
-$body-color                 : #fff;
-$background-color           : #fff;
-$code-background-color      : #fafafa;
-$code-background-color-dark : $light-gray;
-$text-color                 : $dark-gray;
-$border-color               : $lighter-gray;
+$body-color                 : #f5f5f7;
+$background-color           : #f5f5f7;
+$code-background-color      : #f5f5f7;
+$code-background-color-dark : #e8e8ed;
+$text-color                 : #1d1d1f;
+$border-color               : #d2d2d7;
 
-$primary-color              : #7a8288;
-$success-color              : #62c462;
-$warning-color              : #f89406;
-$danger-color               : #ee5f5b;
-$info-color                 : #52adc8;
+$primary-color              : #0071e3;
+$success-color              : #30d158;
+$warning-color              : #ff9f0a;
+$danger-color               : #ff453a;
+$info-color                 : #0071e3;
 
 /* brands */
 $behance-color              : #1769FF;
@@ -90,11 +90,11 @@ $xing-color                 : #006567;
 
 
 /* links */
-$link-color                 : $info-color;
-$link-color-hover           : mix(#000, $link-color, 25%);
-$link-color-visited         : mix(#fff, $link-color, 25%);
-$masthead-link-color        : $primary-color;
-$masthead-link-color-hover  : mix(#000, $primary-color, 25%);
+$link-color                 : #0071e3;
+$link-color-hover           : #0077ED;
+$link-color-visited         : #0071e3;
+$masthead-link-color        : #1d1d1f;
+$masthead-link-color-hover  : #0071e3;
 
 
 /*
@@ -146,8 +146,8 @@ $susy: (
    Other
    ========================================================================== */
 
-$border-radius              : 4px;
-$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
-$navicon-width              : 28px;
-$navicon-height             : 4px;
-$global-transition          : all 0.2s ease-in-out;
+$border-radius              : 12px;
+$box-shadow                 : 0 2px 12px rgba(0, 0, 0, 0.08);
+$navicon-width              : 24px;
+$navicon-height             : 2px;
+$global-transition          : all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);

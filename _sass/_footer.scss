@@ -15,13 +15,13 @@
   height: auto;
   /* sticky footer fix end */
   margin-top: 3em;
-  color: mix(#fff, $gray, 25%);
-  -webkit-animation: intro 0.3s both;
-          animation: intro 0.3s both;
-  -webkit-animation-delay: 0.45s;
-          animation-delay: 0.45s;
-  background-color: $lighter-gray;
-  border-top: 1px solid $light-gray;
+  color: #86868b;
+  -webkit-animation: intro 0.5s both;
+          animation: intro 0.5s both;
+  -webkit-animation-delay: 0.35s;
+          animation-delay: 0.35s;
+  background-color: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 
   footer {
     @include clearfix;
@@ -49,7 +49,7 @@
   .fab,
   .far,
   .fal {
-    color: mix(#fff, $gray, 25%);
+    color: #86868b;
   }
 }
 
@@ -69,9 +69,10 @@
     display: inline-block;
     padding-top: 5px;
     padding-bottom: 5px;
-    font-family: $sans-serif-narrow;
+    font-family: $sans-serif;
     font-size: $type-size-6;
     text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 
   li + li:before {

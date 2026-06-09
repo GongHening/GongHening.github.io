@@ -77,16 +77,16 @@ textarea,
 select {
   display: inline-block;
   width: 100%;
-  padding: 0.25em;
+  padding: 0.5em 0.75em;
   margin-bottom: 0.5em;
-  color: $text-color;
+  color: #1d1d1f;
   background-color: #fff;
-  border: 1px solid mix(#fff, #000, 80%);
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
+  border: 1px solid #d2d2d7;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 
   &:hover {
-    border-color: mix(#fff, $primary-color, 50%);
+    border-color: #86868b;
   }
 }
 
@@ -221,9 +221,10 @@ textarea[readonly] {
 
 input:focus,
 textarea:focus {
-  border-color: $primary-color;
+  border-color: #0071e3;
   outline: 0;
   outline: thin dotted \9;
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
 }
 
 input[type="file"]:focus,

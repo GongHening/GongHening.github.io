@@ -11,13 +11,13 @@
           transform: translate3d(0, 0 , 0);
 
   @include clearfix();
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 
   @include breakpoint($large) {
     @include span(2 of 12);
     opacity: 1;
-    -webkit-transition: opacity 0.2s ease-in-out;
-            transition: opacity 0.2s ease-in-out;
+    -webkit-transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
 
     &:hover {
       opacity: 1;
@@ -31,7 +31,7 @@
 
   h2, h3, h4, h5, h6 {
     margin-bottom: 0;
-    font-family: $sans-serif-narrow;
+    font-family: $sans-serif;
   }
 
   h3, h4 {
@@ -41,7 +41,8 @@
   p, li {
     font-family: $sans-serif;
     font-size: $type-size-6;
-    line-height: 1.5;
+    line-height: 1.6;
+    color: #86868b;
   }
 
   img {
@@ -73,8 +74,6 @@
   display: table-cell;
   vertical-align: top;
   width: 36px;
-  // set width only, for non-square avatars
-  // height: 36px;
 
   @include breakpoint($large) {
     display: block;
@@ -83,12 +82,13 @@
   }
 
   img {
-    max-width: 175px;
+    max-width: 160px;
     border-radius: 50%;
 
     @include breakpoint($large) {
-      padding: 5px;
-      border: 1px solid $border-color;
+      padding: 4px;
+      border: 2px solid #d2d2d7;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     }
   }
 }
@@ -119,6 +119,9 @@
 .sidebar .author__name {
   font-family: $sans-serif;
   font-size: $type-size-5;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #1d1d1f;
 }
 
 .author__bio {
@@ -162,14 +165,16 @@
   display: none;
   position: absolute;
   right: 0;
-  margin-top: 15px;
-  padding: 10px;
+  margin-top: 12px;
+  padding: 8px;
   list-style-type: none;
-  border: 1px solid $border-color;
-  border-radius: $border-radius;
-  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+          backdrop-filter: saturate(180%) blur(20px);
   z-index: -1;
-  box-shadow: 0 0 10px rgba(#000, 0.25);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
   cursor: default;
 
   @include breakpoint($large) {
@@ -222,16 +227,22 @@
 
   a {
     display: block;
-    margin-bottom: 5px;
-    padding-right: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    color: inherit;
-    font-size: $type-size-5;
+    margin-bottom: 2px;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 8px;
+    color: #1d1d1f;
+    font-size: $type-size-6;
     text-decoration: none;
+    border-radius: 6px;
+    -webkit-transition: color 0.2s ease, background 0.2s ease;
+            transition: color 0.2s ease, background 0.2s ease;
 
     &:hover {
-      text-decoration: underline;
+      color: #0071e3;
+      background: rgba(0, 113, 227, 0.06);
+      text-decoration: none;
     }
   }
 }

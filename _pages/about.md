@@ -26,3 +26,4 @@ I'm a second-year undergraduate student from [School of EECS](https://eecs.pku.e
 
 ## Notice
 The website is still under construction. Codes and course notes are uploading quickly.
+{: .notice}

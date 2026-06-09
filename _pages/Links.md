@@ -15,22 +15,24 @@ author_profile: true
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
+      gap: 24px;
       margin-top: 20px;
     }
     /* 每个好友的卡片样式 */
     .friend-card {
-      background-color: #f0f0f0;
-      border-radius: 10px;
-      padding: 15px;
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 20px;
       width: 200px;
       text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.04);
       cursor: pointer;
-      transition: transform 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
     .friend-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     }
     /* 好友头像样式 */
     .avatar {
@@ -38,18 +40,20 @@ author_profile: true
       height: 80px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      border: 2px solid #d2d2d7;
     }
     /* 好友名字样式 */
     .friend-name {
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
+      font-size: 17px;
+      font-weight: 600;
+      color: #1d1d1f;
     }
     /* 好友介绍样式 */
     .friend-intro {
-      font-size: 14px;
-      color: #777;
+      font-size: 13px;
+      color: #86868b;
+      margin-top: 4px;
     }
   </style>
 </head>

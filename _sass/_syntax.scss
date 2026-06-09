@@ -4,25 +4,27 @@
 
 div.highlighter-rouge, figure.highlight {
   position: relative;
-  margin-bottom: 1em;
-  padding: 1em;
-  border: 1px solid $border-color;
-  border-radius: $border-radius;
-  background-color: $code-background-color;
-  box-shadow: $box-shadow;
+  margin-bottom: 1.5em;
+  padding: 1.25em;
+  border: 1px solid #e8e8ed;
+  border-radius: 12px;
+  background-color: #f5f5f7;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 
   &:before {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 0.5em;
-    background-color: $lighter-gray;
+    padding: 0.5em 0.75em;
+    background-color: #e8e8ed;
     content: "\f121";
     font-family: "fontawesome" !important;
-    font-size: $type-size-6;
+    font-size: $type-size-7;
     line-height: 1;
     text-transform: none;
     speak: none;
+    border-radius: 0 12px 0 8px;
+    color: #86868b;
   }
 
   .highlight {

@@ -4,18 +4,21 @@
 
 .masthead {
   position: relative;
-  border-bottom: 1px solid $border-color;
-  -webkit-animation: intro 0.3s both;
-          animation: intro 0.3s both;
-  -webkit-animation-delay: 0.15s;
-          animation-delay: 0.15s;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+          backdrop-filter: saturate(180%) blur(20px);
+  -webkit-animation: intro 0.4s both;
+          animation: intro 0.4s both;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
   z-index: 20;
 
   &__inner-wrap {
     @include container;
     @include clearfix;
-    padding: 1em 1em 1em;
-    font-family: $sans-serif-narrow;
+    padding: 0.8em 1.5em;
+    font-family: $sans-serif;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
@@ -48,6 +51,7 @@
 
   &--lg {
     padding-right: 2em;
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
 }

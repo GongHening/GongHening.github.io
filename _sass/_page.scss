@@ -6,10 +6,10 @@
   @include container;
   @include clearfix;
   margin-top: 2em;
-  padding-left: 1em;
-  padding-right: 1em;
-  animation: intro 0.3s both;
-  animation-delay: 0.35s;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  animation: intro 0.5s both;
+  animation-delay: 0.2s;
 
   @include breakpoint($x-large) {
     max-width: $x-large;
@@ -36,7 +36,9 @@
 
 .page__title {
   margin-top: 0;
-  line-height: 1;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
 
   & + .page__meta {
     margin-top: -0.5em;
@@ -52,11 +54,14 @@
 
   h2 {
     padding-bottom: 0.5em;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid #d2d2d7;
+    letter-spacing: -0.01em;
   }
 
   p, li, dl {
     font-size: 1em;
+    line-height: 1.75;
+    color: #1d1d1f;
   }
 
   /* paragraph indents */
@@ -73,13 +78,16 @@
   }
 
   a {
+    color: #0071e3;
     text-decoration: underline;
+    text-decoration-color: rgba(0, 113, 227, 0.3);
+    text-underline-offset: 3px;
 
     &:hover {
-      text-decoration: underline;
+      text-decoration-color: #0071e3;
 
       img {
-        box-shadow: 0 0 10px rgba(#000, 0.25);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
       }
     }
   }
@@ -87,7 +95,7 @@
   dt {
     margin-top: 1em;
     font-family: $sans-serif;
-    font-weight: bold;
+    font-weight: 600;
   }
 
   dd {
@@ -198,7 +206,7 @@
 .page__share {
   margin-top: 2em;
   padding-top: 1em;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid #d2d2d7;
 
   @include breakpoint(max-width $small) {
     .btn span {
@@ -227,7 +235,7 @@
 
 .page__meta {
   margin-top: 2em;
-  color: mix(#fff, $gray, 25%);
+  color: #86868b;
   font-family: $sans-serif;
   font-size: $type-size-6;
 
@@ -236,7 +244,11 @@
   }
 
   a {
-    color: inherit;
+    color: #86868b;
+
+    &:hover {
+      color: #0071e3;
+    }
   }
 }
 
@@ -265,14 +277,20 @@
   display: inline-block;
   margin-right: 5px;
   margin-bottom: 8px;
-  padding: 5px 10px;
+  padding: 4px 12px;
   text-decoration: none;
-  border: 1px solid $light-gray;
-  border-radius: $border-radius;
+  border: 1px solid #d2d2d7;
+  border-radius: 20px;
+  font-size: $type-size-6;
+  color: #86868b;
+  -webkit-transition: $global-transition;
+          transition: $global-transition;
 
   &:hover {
     text-decoration: none;
-    color: $link-color-hover;
+    color: #0071e3;
+    border-color: #0071e3;
+    background: rgba(0, 113, 227, 0.04);
   }
 }
 
@@ -296,7 +314,8 @@
 
 .page__comments-form {
   padding: 1em;
-  background: $lighter-gray;
+  background: #f5f5f7;
+  border-radius: 12px;
   transition: $global-transition;
 
   &.disabled {
@@ -380,7 +399,7 @@
 .page__related {
   margin-top: 2em;
   padding-top: 1em;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid #d2d2d7;
   @include clearfix();
   float: left;
 
@@ -391,6 +410,10 @@
   a {
     color: inherit;
     text-decoration: none;
+
+    &:hover {
+      color: #0071e3;
+    }
   }
 }
 
