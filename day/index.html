@@ -20,6 +20,9 @@ layout: none
     <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Mobile Header -->
     <header class="mobile-header" id="mobileHeader">
         <div class="mobile-logo">
@@ -83,6 +86,13 @@ layout: none
             <!-- Navigation items will be populated by JavaScript -->
         </nav>
 
+        <div class="sidebar-tools">
+            <button class="theme-toggle" id="themeToggle" title="切换暗色/亮色模式">
+                <span class="theme-toggle-icon" id="themeToggleIcon">🌙</span>
+                <span class="theme-toggle-label" id="themeToggleLabel">暗色模式</span>
+            </button>
+        </div>
+
         <div class="sidebar-footer">
             <p>© 2026 Day · 汇聚全球 AI 学习资源</p>
         </div>
@@ -124,6 +134,42 @@ layout: none
                     <div class="popular-courses-title">🔥 热门课程</div>
                     <div class="popular-courses-scroll" id="popularCoursesScroll">
                         <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section class="dashboard-section" id="dashboard">
+            <div class="dashboard-container">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card" onclick="Dashboard.filterByStatus('completed')">
+                        <div class="dashboard-icon dashboard-icon--completed">✅</div>
+                        <div class="dashboard-info">
+                            <div class="dashboard-value" id="dashCompleted">0</div>
+                            <div class="dashboard-label">已完成</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card" onclick="Dashboard.filterByStatus('progress')">
+                        <div class="dashboard-icon dashboard-icon--progress">📖</div>
+                        <div class="dashboard-info">
+                            <div class="dashboard-value" id="dashProgress">0</div>
+                            <div class="dashboard-label">进行中</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card" onclick="Dashboard.filterByStatus('favorites')">
+                        <div class="dashboard-icon dashboard-icon--favorites">❤️</div>
+                        <div class="dashboard-info">
+                            <div class="dashboard-value" id="dashFavorites">0</div>
+                            <div class="dashboard-label">已收藏</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card" onclick="Dashboard.filterByStatus('hours')">
+                        <div class="dashboard-icon dashboard-icon--hours">⏱️</div>
+                        <div class="dashboard-info">
+                            <div class="dashboard-value" id="dashHours">0</div>
+                            <div class="dashboard-label">学习时长</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -305,21 +351,79 @@ layout: none
 
         <!-- Footer -->
         <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <p class="footer-text">Day — Do AI Yourself · 所有课程链接指向原始资源方 · 2026 · Hening Gong</p>
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-brand-text">
+                        <span>☀️</span> Day — Do AI Yourself
+                    </div>
+                    <p class="footer-brand-desc">汇聚全球顶尖学府的 AI 课程，涵盖 13 个核心领域。从入门到前沿研究，系统构建你的知识体系。所有课程链接指向原始资源方。</p>
                 </div>
-                <div class="footer-links">
-                    <a href="#hero">首页</a>
-                    <a href="#courses">课程</a>
-                    <a href="#paths">学习路径</a>
+                <div class="footer-column">
+                    <div class="footer-column-title">导航</div>
+                    <div class="footer-column-links">
+                        <a href="#hero">首页</a>
+                        <a href="#dashboard">学习仪表盘</a>
+                        <a href="#courses">全部课程</a>
+                        <a href="#paths">学习路径</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <div class="footer-column-title">热门领域</div>
+                    <div class="footer-column-links">
+                        <a href="#" onclick="Sidebar.selectDomain('ml'); return false;">机器学习</a>
+                        <a href="#" onclick="Sidebar.selectDomain('dl'); return false;">深度学习</a>
+                        <a href="#" onclick="Sidebar.selectDomain('nlp'); return false;">自然语言处理</a>
+                        <a href="#" onclick="Sidebar.selectDomain('genai'); return false;">生成式AI</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <div class="footer-column-title">功能</div>
+                    <div class="footer-column-links">
+                        <a href="#" onclick="App.exportData(); return false;">导出数据</a>
+                        <a href="#" onclick="App.importDataPrompt(); return false;">导入数据</a>
+                        <a href="#" onclick="App.resetAllData(); return false;">重置数据</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-bottom-text">© 2026 Hening Gong · Made with ❤️ for AI learners</span>
+                <div class="footer-social">
+                    <a class="footer-social-link" href="https://github.com/GongHening" target="_blank" rel="noopener noreferrer" title="GitHub">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
                 </div>
             </div>
         </footer>
     </main>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+    <!-- Notes Modal -->
+    <div class="notes-modal-overlay" id="notesModalOverlay">
+        <div class="notes-modal">
+            <div class="notes-modal-header">
+                <div class="notes-modal-title">📝 课程笔记</div>
+                <button class="notes-modal-close" id="notesModalClose" title="关闭">✕</button>
+            </div>
+            <div class="notes-modal-course" id="notesModalCourse"></div>
+            <div class="notes-modal-body">
+                <textarea class="notes-textarea" id="notesTextarea" placeholder="在这里记录你的学习心得、重点知识、疑问..."></textarea>
+            </div>
+            <div class="notes-modal-footer">
+                <span class="notes-timestamp" id="notesTimestamp"></span>
+                <div class="notes-actions">
+                    <button class="notes-delete-btn" id="notesDeleteBtn" style="display:none;">删除笔记</button>
+                    <button class="notes-save-btn" id="notesSaveBtn">保存笔记</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button with Progress Ring -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">
+        <svg class="progress-ring" viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="22" id="progressRingCircle"/>
+        </svg>
+        <span class="back-to-top-arrow">↑</span>
+    </button>
 
     <!-- Scripts -->
     <script src="js/data/domains.js"></script>

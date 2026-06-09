@@ -83,11 +83,23 @@ const App = {
         // Initialize view mode from saved preference
         Filters.initViewMode();
 
-        // Initialize back to top button
+        // Initialize back to top button with progress ring
         this.initBackToTop();
 
         // Initialize scroll-triggered reveals
         this.initScrollReveal();
+
+        // Initialize dark mode
+        this.initDarkMode();
+
+        // Initialize scroll progress bar
+        this.initScrollProgress();
+
+        // Initialize dashboard
+        Dashboard.init();
+
+        // Initialize notes modal
+        NotesModal.init();
     },
 
     /**
@@ -119,10 +131,9 @@ const App = {
 
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
-            // Ctrl/Cmd + K to focus search (if we add one)
+            // Ctrl/Cmd + K to focus search
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
                 e.preventDefault();
-                // Focus search input if exists
                 const searchInput = document.querySelector('input[type="search"]');
                 if (searchInput) searchInput.focus();
             }
@@ -130,20 +141,35 @@ const App = {
     },
 
     /**
-     * Initialize back to top button
+     * Initialize back to top button with circular progress ring
      */
     initBackToTop() {
         const backToTopBtn = document.getElementById('backToTop');
-        if (!backToTopBtn) return;
+        const circle = document.getElementById('progressRingCircle');
+        if (!backToTopBtn || !circle) return;
 
-        // Show/hide button based on scroll position
+        const radius = 22;
+        const circumference = 2 * Math.PI * radius;
+        circle.style.strokeDasharray = `${circumference} ${circumference}`;
+        circle.style.strokeDashoffset = circumference;
+
+        // Show/hide button and update progress ring based on scroll position
         window.addEventListener('scroll', throttle(() => {
-            if (window.scrollY > 500) {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+
+            // Show/hide button
+            if (scrollTop > 500) {
                 backToTopBtn.classList.add('visible');
             } else {
                 backToTopBtn.classList.remove('visible');
             }
-        }, 100));
+
+            // Update progress ring
+            const offset = circumference - (scrollPercent * circumference);
+            circle.style.strokeDashoffset = offset;
+        }, 16));
 
         // Scroll to top on click
         backToTopBtn.addEventListener('click', () => {
@@ -152,6 +178,63 @@ const App = {
                 behavior: 'smooth'
             });
         });
+    },
+
+    /**
+     * Initialize scroll progress bar at top of page
+     */
+    initScrollProgress() {
+        const progressBar = document.getElementById('scrollProgress');
+        if (!progressBar) return;
+
+        window.addEventListener('scroll', throttle(() => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = scrollPercent + '%';
+        }, 16));
+    },
+
+    /**
+     * Initialize dark mode
+     */
+    initDarkMode() {
+        const toggle = document.getElementById('themeToggle');
+        const icon = document.getElementById('themeToggleIcon');
+        const label = document.getElementById('themeToggleLabel');
+
+        // Load saved theme preference
+        const savedTheme = PreferencesManager.get('theme') || 'light';
+        this.setTheme(savedTheme);
+
+        // Bind toggle click
+        if (toggle) {
+            toggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                this.setTheme(newTheme);
+                PreferencesManager.set('theme', newTheme);
+            });
+        }
+    },
+
+    /**
+     * Set the theme
+     * @param {string} theme - 'light' or 'dark'
+     */
+    setTheme(theme) {
+        const icon = document.getElementById('themeToggleIcon');
+        const label = document.getElementById('themeToggleLabel');
+
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            if (icon) icon.textContent = '☀️';
+            if (label) label.textContent = '亮色模式';
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            if (icon) icon.textContent = '🌙';
+            if (label) label.textContent = '暗色模式';
+        }
     },
 
     /**
@@ -217,6 +300,47 @@ const App = {
     },
 
     /**
+     * Export user data and download as JSON file
+     */
+    exportData() {
+        const data = this.exportUserData();
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `day-backup-${new Date().toISOString().slice(0, 10)}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        this.showSuccess('数据已导出');
+    },
+
+    /**
+     * Prompt user to import data from a JSON file
+     */
+    importDataPrompt() {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = '.json';
+        input.onchange = (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                try {
+                    const data = JSON.parse(event.target.result);
+                    this.importUserData(data);
+                } catch (err) {
+                    this.showError('导入失败：文件格式不正确');
+                }
+            };
+            reader.readAsText(file);
+        };
+        input.click();
+    },
+
+    /**
      * Export user data
      * @returns {Object} User data
      */
@@ -226,6 +350,7 @@ const App = {
             favorites: FavoritesManager.getAll(),
             preferences: PreferencesManager.getAll(),
             searchHistory: SearchHistoryManager.getAll(),
+            notes: NotesManager.getAll(),
             exportDate: new Date().toISOString()
         };
     },
@@ -249,15 +374,19 @@ const App = {
             if (data.searchHistory) {
                 Storage.set(SearchHistoryManager.STORAGE_KEY, data.searchHistory);
             }
+            if (data.notes) {
+                Storage.set(NotesManager.STORAGE_KEY, data.notes);
+            }
 
             // Re-render with imported data
             Filters.applyFilters();
-            this.showSuccess('Data imported successfully');
+            Dashboard.update();
+            this.showSuccess('数据导入成功');
 
             return true;
         } catch (error) {
             console.error('Error importing data:', error);
-            this.showError('Failed to import data');
+            this.showError('导入数据失败');
             return false;
         }
     },
@@ -266,15 +395,17 @@ const App = {
      * Reset all user data
      */
     resetAllData() {
-        if (confirm('Are you sure you want to reset all your data? This cannot be undone.')) {
+        if (confirm('确定要重置所有数据吗？此操作不可撤销。')) {
             ProgressManager.clearAll();
             FavoritesManager.clear();
             PreferencesManager.reset();
             SearchHistoryManager.clear();
+            NotesManager.clearAll();
 
             // Re-render
             Filters.applyFilters();
-            this.showSuccess('All data has been reset');
+            Dashboard.update();
+            this.showSuccess('所有数据已重置');
         }
     },
 
@@ -291,6 +422,228 @@ const App = {
         console.groupEnd();
 
         return stats;
+    }
+};
+
+/**
+ * Dashboard Component
+ * Shows learning statistics
+ */
+const Dashboard = {
+    init() {
+        this.update();
+    },
+
+    /**
+     * Update dashboard statistics
+     */
+    update() {
+        const stats = ProgressManager.getStats();
+        const favCount = FavoritesManager.count();
+        const allProgress = ProgressManager.getAll();
+        const allCourses = App.state.allCourses;
+
+        // Calculate total hours of completed courses
+        let completedHours = 0;
+        Object.entries(allProgress).forEach(([url, progress]) => {
+            if (progress >= 100) {
+                const course = allCourses.find(c => c.u === url);
+                if (course) completedHours += course.h;
+            }
+        });
+
+        // Animate counter updates
+        const elCompleted = document.getElementById('dashCompleted');
+        const elProgress = document.getElementById('dashProgress');
+        const elFavorites = document.getElementById('dashFavorites');
+        const elHours = document.getElementById('dashHours');
+
+        if (elCompleted) animateCounter(elCompleted, stats.completed, 800);
+        if (elProgress) animateCounter(elProgress, stats.inProgress, 800);
+        if (elFavorites) animateCounter(elFavorites, favCount, 800);
+        if (elHours) animateCounter(elHours, Math.round(completedHours), 800);
+    },
+
+    /**
+     * Filter courses by status when dashboard card is clicked
+     * @param {string} status - 'completed', 'progress', 'favorites', 'hours'
+     */
+    filterByStatus(status) {
+        // Clear existing filters
+        Sidebar.clearSelection();
+
+        const allProgress = ProgressManager.getAll();
+        let filteredUrls = [];
+
+        switch (status) {
+            case 'completed':
+                filteredUrls = Object.entries(allProgress)
+                    .filter(([, p]) => p >= 100)
+                    .map(([url]) => url);
+                break;
+            case 'progress':
+                filteredUrls = Object.entries(allProgress)
+                    .filter(([, p]) => p > 0 && p < 100)
+                    .map(([url]) => url);
+                break;
+            case 'favorites':
+                Sidebar.selectDomain('__favorites__');
+                return;
+            case 'hours':
+                // Show all courses sorted by hours desc
+                App.state.filteredCourses = [...App.state.allCourses].sort((a, b) => b.h - a.h);
+                CourseCard.renderAll(App.state.filteredCourses);
+                Filters.updateResultsCount(App.state.filteredCourses.length);
+                scrollToElement('#courses');
+                return;
+        }
+
+        if (filteredUrls.length === 0) {
+            showToast(status === 'completed' ? '还没有完成的课程' : '还没有进行中的课程', 'info', 2000);
+            return;
+        }
+
+        App.state.filteredCourses = App.state.allCourses.filter(c => filteredUrls.includes(c.u));
+        CourseCard.renderAll(App.state.filteredCourses);
+        Filters.updateResultsCount(App.state.filteredCourses.length);
+        scrollToElement('#courses');
+    }
+};
+
+/**
+ * Notes Modal Component
+ * Handles course notes CRUD
+ */
+const NotesModal = {
+    currentCourseUrl: null,
+    currentCourseName: null,
+
+    init() {
+        this.overlay = document.getElementById('notesModalOverlay');
+        this.closeBtn = document.getElementById('notesModalClose');
+        this.courseEl = document.getElementById('notesModalCourse');
+        this.textarea = document.getElementById('notesTextarea');
+        this.timestampEl = document.getElementById('notesTimestamp');
+        this.saveBtn = document.getElementById('notesSaveBtn');
+        this.deleteBtn = document.getElementById('notesDeleteBtn');
+
+        if (this.closeBtn) {
+            this.closeBtn.addEventListener('click', () => this.close());
+        }
+
+        if (this.overlay) {
+            this.overlay.addEventListener('click', (e) => {
+                if (e.target === this.overlay) this.close();
+            });
+        }
+
+        if (this.saveBtn) {
+            this.saveBtn.addEventListener('click', () => this.save());
+        }
+
+        if (this.deleteBtn) {
+            this.deleteBtn.addEventListener('click', () => this.deleteNote());
+        }
+
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isOpen()) {
+                this.close();
+            }
+        });
+    },
+
+    /**
+     * Open notes modal for a course
+     * @param {string} courseUrl - Course URL
+     * @param {string} courseName - Course name
+     */
+    open(courseUrl, courseName) {
+        this.currentCourseUrl = courseUrl;
+        this.currentCourseName = courseName;
+
+        if (this.courseEl) this.courseEl.textContent = courseName;
+
+        // Load existing note
+        const note = NotesManager.get(courseUrl);
+        if (note && note.text) {
+            if (this.textarea) this.textarea.value = note.text;
+            if (this.timestampEl) this.timestampEl.textContent = `上次编辑: ${new Date(note.updatedAt).toLocaleString('zh-CN')}`;
+            if (this.deleteBtn) this.deleteBtn.style.display = 'inline-flex';
+        } else {
+            if (this.textarea) this.textarea.value = '';
+            if (this.timestampEl) this.timestampEl.textContent = '';
+            if (this.deleteBtn) this.deleteBtn.style.display = 'none';
+        }
+
+        if (this.overlay) {
+            this.overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Focus textarea after animation
+        setTimeout(() => {
+            if (this.textarea) this.textarea.focus();
+        }, 300);
+    },
+
+    /**
+     * Close the modal
+     */
+    close() {
+        if (this.overlay) {
+            this.overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        this.currentCourseUrl = null;
+        this.currentCourseName = null;
+    },
+
+    /**
+     * Check if modal is open
+     * @returns {boolean}
+     */
+    isOpen() {
+        return this.overlay && this.overlay.classList.contains('show');
+    },
+
+    /**
+     * Save the current note
+     */
+    save() {
+        if (!this.currentCourseUrl || !this.textarea) return;
+
+        const text = this.textarea.value.trim();
+        if (text) {
+            NotesManager.save(this.currentCourseUrl, text);
+            showToast('笔记已保存', 'success', 2000);
+            if (this.timestampEl) {
+                this.timestampEl.textContent = `上次编辑: ${new Date().toLocaleString('zh-CN')}`;
+            }
+            if (this.deleteBtn) this.deleteBtn.style.display = 'inline-flex';
+        } else {
+            NotesManager.delete(this.currentCourseUrl);
+            showToast('笔记已删除', 'info', 2000);
+        }
+
+        // Re-render cards to show/hide note indicator
+        CourseCard.renderAll(App.state.filteredCourses);
+    },
+
+    /**
+     * Delete the current note
+     */
+    deleteNote() {
+        if (!this.currentCourseUrl) return;
+
+        NotesManager.delete(this.currentCourseUrl);
+        if (this.textarea) this.textarea.value = '';
+        if (this.timestampEl) this.timestampEl.textContent = '';
+        if (this.deleteBtn) this.deleteBtn.style.display = 'none';
+        showToast('笔记已删除', 'info', 2000);
+
+        // Re-render cards to remove note indicator
+        CourseCard.renderAll(App.state.filteredCourses);
     }
 };
 

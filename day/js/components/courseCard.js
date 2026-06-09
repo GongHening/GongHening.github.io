@@ -47,17 +47,29 @@ const CourseCard = {
         const delay = Math.min(index * 30, 300);
         const isFav = FavoritesManager.has(course.u);
         const favClass = isFav ? ' active' : '';
+        const hasNote = NotesManager.has(course.u);
+        const isCompleted = progress >= 100;
+        const completedClass = isCompleted ? ' completed' : '';
 
         return `
-            <div class="course-card reveal" style="transition-delay: ${delay}ms">
-                <button class="favorite-btn${favClass}" onclick="CourseCard.toggleFavorite('${escapeHtml(course.u)}', this)" title="${isFav ? '取消收藏' : '收藏'}">
-                    <svg class="heart-outline" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                    </svg>
-                    <svg class="heart-filled" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                    </svg>
-                </button>
+            <div class="course-card reveal${completedClass}" style="transition-delay: ${delay}ms">
+                ${hasNote ? '<div class="note-indicator" title="有笔记"></div>' : ''}
+                <div class="card-actions">
+                    <button class="card-action-btn card-action-btn--share" onclick="CourseCard.shareCourse('${escapeHtml(course.u)}', '${escapeHtml(course.n)}')" title="分享课程">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                    </button>
+                    <button class="card-action-btn card-action-btn--notes" onclick="CourseCard.openNotes('${escapeHtml(course.u)}', '${escapeHtml(course.n)}')" title="课程笔记">
+                        📝
+                    </button>
+                    <button class="card-action-btn card-action-btn--fav${favClass}" onclick="CourseCard.toggleFavorite('${escapeHtml(course.u)}', this)" title="${isFav ? '取消收藏' : '收藏'}">
+                        <svg class="heart-outline" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                        <svg class="heart-filled" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </button>
+                </div>
 
                 <div class="course-card-header">
                     <div class="difficulty-indicator">
@@ -127,11 +139,26 @@ const CourseCard = {
      * @param {number} progress - New progress value
      */
     updateProgress(courseUrl, progress) {
+        const wasCompleted = ProgressManager.get(courseUrl) >= 100;
         ProgressManager.set(courseUrl, progress);
 
-        // Re-render the specific card or all cards
-        // For simplicity, re-render all filtered courses
+        // Re-render all filtered courses
         this.renderAll(App.state.filteredCourses);
+
+        // Celebration effect when completing
+        if (progress >= 100 && !wasCompleted) {
+            const card = this.getCardByUrl(courseUrl);
+            if (card) {
+                card.classList.add('celebrate');
+                setTimeout(() => card.classList.remove('celebrate'), 600);
+            }
+            showToast('🎉 恭喜完成课程！', 'success', 3000);
+        }
+
+        // Update dashboard
+        if (typeof Dashboard !== 'undefined') {
+            Dashboard.update();
+        }
     },
 
     /**
@@ -162,9 +189,70 @@ const CourseCard = {
             Sidebar.updateFavoritesCount();
         }
 
+        // Update dashboard
+        if (typeof Dashboard !== 'undefined') {
+            Dashboard.update();
+        }
+
         // If currently viewing favorites, re-render
         if (App.state.activeDomain === '__favorites__') {
             Filters.applyFilters();
+        }
+    },
+
+    /**
+     * Share a course by copying its link
+     * @param {string} courseUrl - Course URL
+     * @param {string} courseName - Course name
+     */
+    shareCourse(courseUrl, courseName) {
+        const shareText = `📚 推荐课程: ${courseName}\n${courseUrl}\n\n— 来自 Day (Do AI Yourself)`;
+
+        if (navigator.share) {
+            navigator.share({
+                title: `Day — ${courseName}`,
+                text: shareText,
+                url: courseUrl
+            }).catch(() => {
+                // Fallback to clipboard
+                this.copyToClipboard(shareText);
+            });
+        } else {
+            this.copyToClipboard(shareText);
+        }
+    },
+
+    /**
+     * Copy text to clipboard and show toast
+     * @param {string} text - Text to copy
+     */
+    copyToClipboard(text) {
+        if (typeof copyToClipboard === 'function') {
+            copyToClipboard(text).then(success => {
+                if (success) {
+                    showToast('课程链接已复制到剪贴板', 'success', 2000);
+                } else {
+                    showToast('复制失败，请手动复制', 'error', 2000);
+                }
+            });
+        } else {
+            // Fallback
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('课程链接已复制到剪贴板', 'success', 2000);
+            }).catch(() => {
+                showToast('复制失败，请手动复制', 'error', 2000);
+            });
+        }
+    },
+
+    /**
+     * Open notes modal for a course
+     * @param {string} courseUrl - Course URL
+     * @param {string} courseName - Course name
+     */
+    openNotes(courseUrl, courseName) {
+        if (typeof NotesModal !== 'undefined') {
+            NotesModal.open(courseUrl, courseName);
         }
     },
 

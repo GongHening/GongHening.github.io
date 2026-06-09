@@ -507,6 +507,85 @@ const CourseViewsManager = {
     }
 };
 
+/**
+ * Notes Manager
+ * Manages personal notes for courses
+ */
+const NotesManager = {
+    STORAGE_KEY: 'day_notes',
+
+    /**
+     * Get all notes
+     * @returns {Object} Notes object with course URLs as keys
+     */
+    getAll() {
+        return Storage.get(this.STORAGE_KEY, {});
+    },
+
+    /**
+     * Get note for a specific course
+     * @param {string} courseUrl - Course URL
+     * @returns {Object|null} Note object { text, updatedAt } or null
+     */
+    get(courseUrl) {
+        const allNotes = this.getAll();
+        return allNotes[courseUrl] || null;
+    },
+
+    /**
+     * Save a note for a course
+     * @param {string} courseUrl - Course URL
+     * @param {string} text - Note text
+     * @returns {boolean} Success status
+     */
+    save(courseUrl, text) {
+        const allNotes = this.getAll();
+        allNotes[courseUrl] = {
+            text: text,
+            updatedAt: new Date().toISOString()
+        };
+        return Storage.set(this.STORAGE_KEY, allNotes);
+    },
+
+    /**
+     * Delete a note for a course
+     * @param {string} courseUrl - Course URL
+     * @returns {boolean} Success status
+     */
+    delete(courseUrl) {
+        const allNotes = this.getAll();
+        delete allNotes[courseUrl];
+        return Storage.set(this.STORAGE_KEY, allNotes);
+    },
+
+    /**
+     * Check if a course has a note
+     * @param {string} courseUrl - Course URL
+     * @returns {boolean} True if note exists
+     */
+    has(courseUrl) {
+        const note = this.get(courseUrl);
+        return note !== null && note.text && note.text.trim() !== '';
+    },
+
+    /**
+     * Get count of courses with notes
+     * @returns {number} Count
+     */
+    count() {
+        const allNotes = this.getAll();
+        return Object.values(allNotes).filter(n => n && n.text && n.text.trim() !== '').length;
+    },
+
+    /**
+     * Clear all notes
+     * @returns {boolean} Success status
+     */
+    clearAll() {
+        return Storage.remove(this.STORAGE_KEY);
+    }
+};
+
 // Export for module usage (if needed)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
@@ -515,6 +594,7 @@ if (typeof module !== 'undefined' && module.exports) {
         PreferencesManager,
         SearchHistoryManager,
         FavoritesManager,
-        CourseViewsManager
+        CourseViewsManager,
+        NotesManager
     };
 }

@@ -136,6 +136,16 @@ const Hero = {
     },
 
     /**
+     * Scroll to dashboard section
+     */
+    scrollToDashboard() {
+        const dashboardSection = document.getElementById('dashboard');
+        if (dashboardSection) {
+            dashboardSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    },
+
+    /**
      * Render popular courses in the hero section
      */
     renderPopularCourses() {
