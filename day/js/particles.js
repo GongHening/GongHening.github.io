@@ -14,12 +14,12 @@ const Particles = {
   animId: null,
 
   CONFIG: {
-    count: 80,
-    maxSpeed: 0.35,
-    size: { min: 1, max: 2.5 },
-    connectDistance: 140,
-    mouseRadius: 180,
-    colors: ['rgba(0,229,255,', 'rgba(124,77,255,', 'rgba(255,96,144,'],
+    count: 60,
+    maxSpeed: 0.25,
+    size: { min: 1.5, max: 3 },
+    connectDistance: 120,
+    mouseRadius: 150,
+    colors: ['rgba(0,113,227,', 'rgba(88,86,214,', 'rgba(175,82,222,'],
   },
 
   init() {
@@ -56,7 +56,7 @@ const Particles = {
         vy: (Math.random() - 0.5) * maxSpeed,
         size: size.min + Math.random() * (size.max - size.min),
         color: colors[Math.floor(Math.random() * colors.length)],
-        alpha: 0.3 + Math.random() * 0.5,
+        alpha: 0.15 + Math.random() * 0.25,
         pulse: Math.random() * Math.PI * 2,
         pulseSpeed: 0.01 + Math.random() * 0.02,
       });
@@ -142,11 +142,11 @@ const Particles = {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < this.CONFIG.connectDistance) {
-          const alpha = (1 - dist / this.CONFIG.connectDistance) * 0.12;
+          const alpha = (1 - dist / this.CONFIG.connectDistance) * 0.08;
           this.ctx.beginPath();
           this.ctx.moveTo(a.x, a.y);
           this.ctx.lineTo(b.x, b.y);
-          this.ctx.strokeStyle = `rgba(0, 229, 255, ${alpha})`;
+          this.ctx.strokeStyle = `rgba(0, 113, 227, ${alpha})`;
           this.ctx.lineWidth = 0.5;
           this.ctx.stroke();
         }
