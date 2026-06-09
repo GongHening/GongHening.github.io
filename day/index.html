@@ -1,0 +1,275 @@
+---
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day — Do AI Yourself | AI学习资源导航</title>
+    <meta name="description" content="汇聚全球顶尖学府的AI课程，涵盖13个核心领域。从入门到前沿研究，系统构建你的知识体系。">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+</head>
+<body>
+    <!-- Mobile Header -->
+    <header class="mobile-header" id="mobileHeader">
+        <div class="mobile-logo">
+            <span class="logo-mark">D</span>
+            <span class="logo-text">Day</span>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <span class="logo-mark">D</span>
+            <div class="logo-info">
+                <div class="logo-text">Day</div>
+                <div class="logo-subtitle">Do AI Yourself</div>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav" id="sidebarNav">
+            <div class="nav-section-label">AI 领域</div>
+            <!-- Navigation items will be populated by JavaScript -->
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>© 2026 Day · 汇聚全球 AI 学习资源</p>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-background">
+                <div class="hero-grid"></div>
+                <div class="hero-gradient"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-eyebrow">AI 学习资源导航</div>
+                <h1 class="hero-title">Do AI Yourself.</h1>
+                <p class="hero-subtitle">汇聚全球顶尖学府的 AI 课程，涵盖 13 个核心领域。从入门到前沿研究，系统构建你的知识体系。</p>
+                <div class="hero-actions">
+                    <a href="#courses" class="btn btn-primary">浏览全部课程</a>
+                    <a href="#paths" class="btn btn-secondary">探索学习路径</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="statCourses">0</div>
+                        <div class="stat-label">精选课程</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="statDomains">13</div>
+                        <div class="stat-label">AI 领域</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="statHits">
+                            <span class="hits-loading">···</span>
+                        </div>
+                        <div class="stat-label">访问量</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Domain Header (shows when a domain is selected) -->
+        <div class="domain-header" id="domainHeader">
+            <div class="domain-header-content">
+                <span class="domain-emoji" id="domainEmoji"></span>
+                <div class="domain-info">
+                    <h2 id="domainName"></h2>
+                    <p id="domainDescription"></p>
+                </div>
+                <button class="domain-close-btn" id="domainCloseBtn" title="清除筛选">✕</button>
+            </div>
+        </div>
+
+        <!-- Filters Section -->
+        <section class="filters-section" id="filters">
+            <div class="filters-container">
+                <span class="filter-title" id="filterTitle">全部课程</span>
+                <div class="filter-controls">
+                    <select class="filter-select" id="difficultyFilter">
+                        <option value="">全部难度</option>
+                        <option value="1">入门</option>
+                        <option value="2">初级</option>
+                        <option value="3">中级</option>
+                        <option value="4">高级</option>
+                        <option value="5">专家</option>
+                    </select>
+                    <select class="filter-select" id="sortFilter">
+                        <option value="default">默认排序</option>
+                        <option value="difficulty-asc">难度 低→高</option>
+                        <option value="difficulty-desc">难度 高→低</option>
+                        <option value="hours-asc">时间 短→长</option>
+                        <option value="hours-desc">时间 长→短</option>
+                    </select>
+                    <button class="clear-btn" id="clearFiltersBtn">清除</button>
+                    <span class="results-count" id="resultsCount"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section class="courses-section" id="courses">
+            <div class="courses-grid" id="coursesGrid">
+                <!-- Course cards will be populated by JavaScript -->
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon">🔍</div>
+                <div class="no-results-text">没有找到匹配的课程</div>
+                <p class="no-results-hint">尝试调整筛选条件或搜索关键词</p>
+            </div>
+        </section>
+
+        <!-- Learning Paths Section -->
+        <section class="paths-section" id="paths">
+            <div class="paths-container">
+                <div class="section-header">
+                    <div class="section-eyebrow">学习路径</div>
+                    <h2 class="section-title">系统化学习路线</h2>
+                    <p class="section-subtitle">根据你的目标，选择最适合的学习路径</p>
+                </div>
+                <div class="paths-grid">
+                    <div class="path-card">
+                        <div class="path-icon">🚀</div>
+                        <h3 class="path-title">AI 工程师之路</h3>
+                        <p class="path-description">从零基础到能够构建完整的 AI 系统</p>
+                        <ul class="path-steps">
+                            <li class="path-step">
+                                <span class="step-number">1</span>
+                                <span class="step-text">学习 Python 编程基础</span>
+                            </li>
+                            <li class="path-step">
+                                <span class="step-number">2</span>
+                                <span class="step-text">掌握机器学习基础理论</span>
+                            </li>
+                            <li class="path-step">
+                                <span class="step-number">3</span>
+                                <span class="step-text">深入深度学习与神经网络</span>
+                            </li>
+                            <li class="path-step">
+                                <span class="step-number">4</span>
+                                <span class="step-text">选择一个应用方向专精</span>
+                            </li>
+                            <li class="path-step">
+                                <span class="step-number">5</span>
+                                <span class="step-text">完成实际项目并部署</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="path-card">
+                        <div class="path-icon">🔬</div>
+                        <h3 class="path-title">AI 研究者之路</h3>
+                        <p class="path-description">深入理解 AI 理论，能够进行原创研究</p>
+                        <ul class="path-steps">
+                            <li class="path-step">
+                                <span class="step-number">1</span>
+                                <span class="step-text">扎实的数学基础（线代、概率、优化）</span>
+                            </li>
+                            <li class="path-step">
+                                <span class="step-number">2</span>
+                                <span class="step-text">系统学习机器学习理论</span>
+                            </li>
+                            <li class="path-step">
+                                <span class="step-number">3</span>
+                                <span class="step-text">精读经典论文与最新研究</span>
+                            </li>
+                            <li class="path-step">
+                                <span class="step-number">4</span>
+                                <span class="step-text">学习实验设计与论文写作</span>
+                            </li>
+                            <li class="path-step">
+                                <span class="step-number">5</span>
+                                <span class="step-text">参与开源项目或研究实习</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="path-card">
+                        <div class="path-icon">🎨</div>
+                        <h3 class="path-title">AI 创作者之路</h3>
+                        <p class="path-description">利用 AI 工具进行创意工作与内容生成</p>
+                        <ul class="path-steps">
+                            <li class="path-step">
+                                <span class="step-number">1</span>
+                                <span class="step-text">了解 AI 基本概念与能力边界</span>
+                            </li>
+                            <li class="path-step">
+                                <span class="step-number">2</span>
+                                <span class="step-text">学习使用主流 AI 创作工具</span>
+                            </li>
+                            <li class="path-step">
+                                <span class="step-number">3</span>
+                                <span class="step-text">掌握 Prompt Engineering 技巧</span>
+                            </li>
+                            <li class="path-step">
+                                <span class="step-number">4</span>
+                                <span class="step-text">探索多模态 AI 应用</span>
+                            </li>
+                            <li class="path-step">
+                                <span class="step-number">5</span>
+                                <span class="step-text">构建个人 AI 创作工作流</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p class="footer-text">Day — Do AI Yourself · 所有课程链接指向原始资源方 · 2026 · Hening Gong</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#hero">首页</a>
+                    <a href="#courses">课程</a>
+                    <a href="#paths">学习路径</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Scripts -->
+    <script src="js/data/domains.js"></script>
+    <script src="js/data/courses/index.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/animations.js"></script>
+    <script src="js/components/sidebar.js"></script>
+    <script src="js/components/filters.js"></script>
+    <script src="js/components/courseCard.js"></script>
+    <script src="js/components/hero.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

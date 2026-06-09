@@ -21,6 +21,9 @@ main:
   - title: "Repositories"
     url: /Repositories/
 
+  - title: "Day"
+    url: /day/
+
  # - title: "Publications"
  #   url: /publications/
  #- title: "Blogs"
