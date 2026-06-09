@@ -113,7 +113,7 @@ $x-large                    : 1800px;
 $small                      : 600px !default;
 $medium                     : 768px !default;
 $medium-wide                : 900px !default;
-$large                      : 925px !default;
+$large                      : 1080px !default;
 $x-large                    : 1280px !default;
 
 /*
@@ -131,7 +131,7 @@ $susy: (
   math: fluid,
   output: float,
   gutter-position: after,
-  container: $large,
+  container: 1080px,
   global-box-sizing: border-box,
   // debug: (
   //   image: show,

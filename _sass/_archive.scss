@@ -12,6 +12,7 @@
   @include breakpoint($large) {
     @include span(10 of 12 last);
     @include prefix(0.5 of 12);
+    @include suffix(1.5 of 12);
   }
 
   .page__title {
@@ -119,7 +120,7 @@
 
 .list__item {
   margin-bottom: 1em;
-  padding: 1.25em 1.5em;
+  padding: 1.5em 1.75em;
   background: #fff;
   border-radius: 16px;
   border: 1px solid rgba(0, 0, 0, 0.04);
