@@ -73,8 +73,7 @@ const Hero = {
 
         try {
             const response = await fetch(
-                `https://api.counterapi.dev/v2/${WORKSPACE}/${COUNTER_NAME}/up`,
-                { method: 'GET' }
+                `https://api.counterapi.dev/v1/${WORKSPACE}/${COUNTER_NAME}/up`
             );
 
             if (!response.ok) {
@@ -83,8 +82,8 @@ const Hero = {
 
             const data = await response.json();
 
-            if (data && typeof data.data === 'number') {
-                return data.data;
+            if (data && typeof data.count === 'number') {
+                return data.count;
             }
 
             return null;
