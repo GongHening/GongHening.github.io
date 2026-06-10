@@ -162,29 +162,8 @@
 /* Card body */
 .archive__item-body {
   flex: 1;
-  padding: 1.1em 1.4em 1.1em 1.6em;
+  padding: 1em 1.4em 1em 1.6em;
   min-width: 0;
-}
-
-/* Card row: left (title+desc) + right (meta) */
-.archive__item-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5em;
-}
-
-.archive__item-left {
-  flex: 1;
-  min-width: 0;
-}
-
-.archive__item-right {
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.35em;
-  padding-top: 0.15em;
 }
 
 .archive__item-title {
@@ -214,9 +193,22 @@
   }
 }
 
+/* Meta line — sits between title and description, same font style */
+.archive__item-meta {
+  margin: 0.25em 0 0;
+  font-family: $sans-serif;
+  font-size: 0.82em;
+  color: #9ca3af;
+  line-height: 1.5;
+
+  span + span {
+    margin-left: 0.8em;
+  }
+}
+
 /* Description text */
 .archive__item-description {
-  margin: 0.3em 0 0;
+  margin: 0.25em 0 0;
   font-size: 0.88em;
   line-height: 1.6;
   color: #9ca3af;
@@ -224,17 +216,6 @@
   p {
     margin: 0;
   }
-}
-
-/* Meta items on the right */
-.archive__item-meta-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4em;
-  white-space: nowrap;
-  font-family: $sans-serif;
-  font-size: 0.82em;
-  color: #9ca3af;
 }
 
 
