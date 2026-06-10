@@ -191,6 +191,7 @@ defaults:
     values:
       layout: single
       author_profile: true
+      comments: false
   # _Blogs
   - scope:
       path: ""
@@ -198,7 +199,6 @@ defaults:
     values:
       layout: single
       author_profile: true
-      share: true
       comments: true
   # _Friendlinks
   - scope:
@@ -207,8 +207,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      share: true
-      comments: true
+      comments: false
 
 # Sass/SCSS
 sass:
