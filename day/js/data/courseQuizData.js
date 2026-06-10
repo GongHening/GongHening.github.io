@@ -18152,4 +18152,720 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
         }
     },
 
+    /* ================================================================
+     * 15. Deep Learning Specialization (DeepLearning.AI)
+     *     Topics: neural networks, optimization, CNN, RNN,
+     *             sequence models, TensorFlow
+     * ================================================================ */
+    "Deep Learning Specialization": {
+        courseId: "deep-learning-specialization",
+        domain: "dl",
+        mid: {
+            choice: [
+                {
+                    id: "dls-mid-c-1",
+                    question: "在神经网络中，ReLU 激活函数的数学表达式为？",
+                    options: ["σ(x) = 1/(1+e^{-x})", "ReLU(x) = max(0, x)", "tanh(x) = (e^x - e^{-x})/(e^x + e^{-x})", "f(x) = x"],
+                    answer: 1,
+                    explanation: "ReLU（Rectified Linear Unit）定义为 max(0, x)，是当前最常用的激活函数之一，计算简单且缓解梯度消失问题。",
+                    difficulty: 1
+                },
+                {
+                    id: "dls-mid-c-2",
+                    question: "梯度下降中，学习率 α 过大会导致什么现象？",
+                    options: ["收敛速度变慢", "损失函数在最小值附近震荡甚至发散", "模型欠拟合", "正则化效果增强"],
+                    answer: 1,
+                    explanation: "学习率过大会导致参数更新幅度过大，越过最优解，在损失曲面上来回震荡甚至发散，无法收敛。",
+                    difficulty: 1
+                },
+                {
+                    id: "dls-mid-c-3",
+                    question: "卷积神经网络（CNN）中，卷积操作的主要优势是？",
+                    options: ["减少模型参数量并保持平移不变性", "增加全连接层的数量", "提高模型对颜色的敏感度", "加快训练时的内存消耗"],
+                    answer: 0,
+                    explanation: "卷积操作通过参数共享大幅减少参数量，同时局部感受野使网络对输入的平移具有不变性。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-mid-c-4",
+                    question: "在反向传播中，链式法则的作用是？",
+                    options: ["初始化网络参数", "从输出层逐层计算损失函数对每层参数的梯度", "计算前向传播的激活值", "选择最优的损失函数"],
+                    answer: 1,
+                    explanation: "反向传播算法利用链式法则，从输出层开始逐层计算损失函数对各层参数的偏导数，用于参数更新。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-mid-c-5",
+                    question: "以下哪种方法最有效地缓解深度网络中的梯度消失问题？",
+                    options: ["增加学习率", "使用 Batch Normalization 和残差连接", "减少训练数据量", "使用更大的 batch size"],
+                    answer: 1,
+                    explanation: "Batch Normalization 通过标准化中间层输出来稳定梯度流，残差连接（skip connection）提供梯度的高速公路，两者都有效缓解梯度消失。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-mid-c-6",
+                    question: "Softmax 函数通常用于多分类问题的输出层，其特点是？",
+                    options: ["输出值范围在 [-1, 1] 之间", "将输出转化为概率分布，所有值之和为 1", "输出二值结果 0 或 1", "输出稀疏向量"],
+                    answer: 1,
+                    explanation: "Softmax 将 logits 转化为概率分布，每个值在 (0,1) 之间且总和为 1，可解释为各类别的预测概率。",
+                    difficulty: 1
+                },
+                {
+                    id: "dls-mid-c-7",
+                    question: "RNN 中出现的梯度消失/爆炸问题，LSTM 通过什么机制来缓解？",
+                    options: ["增加隐藏层神经元数量", "引入门控机制（遗忘门、输入门、输出门）控制信息流", "使用更大的学习率", "增加网络深度"],
+                    answer: 1,
+                    explanation: "LSTM 的门控机制通过遗忘门、输入门和输出门控制细胞状态的信息读写，使梯度能够在较长序列中有效传播。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-mid-c-8",
+                    question: "在 TensorFlow 中，tf.GradientTape 的作用是？",
+                    options: ["定义神经网络的层结构", "记录前向传播的计算过程以自动计算梯度", "加载预训练模型", "可视化计算图"],
+                    answer: 1,
+                    explanation: "tf.GradientTape 用于记录在 with 块内的前向计算过程，随后可通过 tape.gradient() 自动计算损失对指定变量的梯度。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-mid-c-9",
+                    question: "关于 Adam 优化器，以下哪项描述是正确的？",
+                    options: ["Adam 不需要学习率参数", "Adam 结合了动量和 RMSProp 的优点，自适应调整各参数的学习率", "Adam 只使用一阶矩估计", "Adam 比 SGD 总是更慢"],
+                    answer: 1,
+                    explanation: "Adam 同时维护梯度的一阶矩（均值）和二阶矩（方差）的指数移动平均，实现自适应学习率，并结合了动量加速的效果。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-mid-c-10",
+                    question: "正则化技术 Dropout 在训练时的行为是？",
+                    options: ["随机删除所有权重", "以概率 p 随机将神经元的输出置零", "将学习率随机设为零", "删除网络中的所有层"],
+                    answer: 1,
+                    explanation: "Dropout 在训练时以概率 p 随机将某些神经元的输出置零（丢弃），推理时使用所有神经元并乘以 (1-p) 的缩放因子。",
+                    difficulty: 1
+                }
+            ],
+            fill: [
+                {
+                    id: "dls-mid-f-1",
+                    question: "在神经网络中，____ 损失函数常用于二分类问题，其数学形式为 -(y·log(ŷ) + (1-y)·log(1-ŷ))。",
+                    answer: "二元交叉熵（Binary Cross-Entropy）",
+                    explanation: "二元交叉熵衡量两个概率分布之间的距离，是二分类问题的标准损失函数。",
+                    difficulty: 1
+                },
+                {
+                    id: "dls-mid-f-2",
+                    question: "反向传播算法通过从输出层向输入层逐层计算 ____，来更新网络参数。",
+                    answer: "梯度",
+                    explanation: "反向传播的核心是利用链式法则从输出到输入逐层计算损失函数对各参数的偏导数（梯度）。",
+                    difficulty: 1
+                },
+                {
+                    id: "dls-mid-f-3",
+                    question: "在 CNN 中，____ 层通过在特征图上滑动窗口提取局部特征，减少空间维度。",
+                    answer: "池化（Pooling）",
+                    explanation: "池化层（如最大池化、平均池化）对特征图进行下采样，在保留关键特征的同时减少参数量和计算量。",
+                    difficulty: 1
+                },
+                {
+                    id: "dls-mid-f-4",
+                    question: "Xavier 初始化的设计目标是使每层输出的方差 ____，以避免梯度消失或爆炸。",
+                    answer: "保持不变（或相等）",
+                    explanation: "Xavier 初始化设置权重使得前向和反向传播时各层的激活值和梯度的方差大致一致。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-mid-f-5",
+                    question: "在序列到序列（Seq2Seq）模型中，____ 层用于将变长输入序列编码为固定长度的向量。",
+                    answer: "编码器（Encoder）",
+                    explanation: "编码器（通常为 LSTM 或 GRU）将输入序列逐步处理为一个上下文向量，供解码器使用。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-mid-f-6",
+                    question: "Batch Normalization 的核心操作是对每个 mini-batch 的激活值进行 ____ 和缩放。",
+                    answer: "标准化（或归一化、减去均值）",
+                    explanation: "BN 先对每个 mini-batch 的激活值做零均值单位方差标准化，再通过可学习参数 γ 和 β 进行缩放和平移。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-mid-f-7",
+                    question: "在优化算法中，____ 指数移动平均可以平滑梯度更新，加速收敛。",
+                    answer: "动量（Momentum）",
+                    explanation: "动量方法将历史梯度的指数移动平均引入更新规则，有助于加速沿一致方向的更新并抑制震荡。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-mid-f-8",
+                    question: "在深度学习中，____ 是指模型在训练集上表现好但在测试集上表现差的现象。",
+                    answer: "过拟合（Overfitting）",
+                    explanation: "过拟合意味着模型过度学习了训练数据中的噪声和细节，泛化能力下降。",
+                    difficulty: 1
+                },
+                {
+                    id: "dls-mid-f-9",
+                    question: "在 TensorFlow 2.x 中，____ API 以 Eager 模式运行，方便调试和交互式开发。",
+                    answer: "tf.function（或 Keras）",
+                    explanation: "TensorFlow 2.x 默认使用 Eager Execution，tf.function 可将 Python 函数编译为图以提升性能。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-mid-f-10",
+                    question: "在 RNN 中，____ 机制允许网络关注输入序列的不同部分，而不依赖单一的固定长度上下文向量。",
+                    answer: "注意力（Attention）",
+                    explanation: "注意力机制通过为输入序列各位置分配不同权重，使解码器可以动态关注最相关的输入信息。",
+                    difficulty: 3
+                }
+            ],
+            code: [
+                {
+                    id: "dls-mid-code-1",
+                    question: "补全以下 TensorFlow 代码，实现一个简单的二分类前向传播。",
+                    code: "import tensorflow as tf\n\ndef forward_pass(X, W1, b1, W2, b2):\n    z1 = tf.matmul(X, W1) + b1\n    a1 = tf.nn.relu(z1)\n    z2 = tf.matmul(a1, W2) + ____\n    output = tf.nn.sigmoid(z2)\n    return output",
+                    answer: "b2",
+                    explanation: "线性变换的完整形式为 z = XW + b。第二层也需要偏置项 b2。",
+                    difficulty: 1
+                },
+                {
+                    id: "dls-mid-code-2",
+                    question: "补全以下代码，使用 GradientTape 计算损失对权重的梯度。",
+                    code: "import tensorflow as tf\n\nW = tf.Variable(tf.random.normal([3, 1]))\nwith tf.GradientTape() as tape:\n    y_pred = tf.matmul(X, W)\n    loss = tf.reduce_mean((y_pred - y_true)**2)\n\ndW = tape.____(loss, W)",
+                    answer: "gradient",
+                    explanation: "tape.gradient(loss, W) 计算损失函数对变量 W 的梯度，是 TensorFlow 自动微分的核心 API。",
+                    difficulty: 2
+                }
+            ]
+        },
+        final: {
+            choice: [
+                {
+                    id: "dls-fin-c-1",
+                    question: "Transformer 模型中的自注意力（Self-Attention）机制，其核心计算涉及 Q、K、V 三个矩阵，正确的注意力权重计算公式是？",
+                    options: ["softmax(QK^T/√d_k)·V", "softmax(QV^T/√d_k)·K", "Q·K·V", "sigmoid(QK^T)·V"],
+                    answer: 0,
+                    explanation: "自注意力计算 QK^T 得到相似度矩阵，除以 √d_k 缩放后经 Softmax 得到注意力权重，再与 V 相乘得到输出。",
+                    difficulty: 3
+                },
+                {
+                    id: "dls-fin-c-2",
+                    question: "在迁移学习中，Fine-tuning 与 Feature Extraction 的主要区别是？",
+                    options: ["Fine-tuning 冻结所有层只训练分类头，Feature Extraction 更新所有参数", "Fine-tuning 解冻部分或全部预训练层并以较小学习率更新参数", "两者完全相同", "Feature Extraction 需要更多计算资源"],
+                    answer: 1,
+                    explanation: "Feature Extraction 冻结预训练层只训练新分类头，Fine-tuning 以较小学习率继续更新预训练层的参数以适应新任务。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-fin-c-3",
+                    question: "关于 Batch Normalization 在推理阶段的行为，以下哪项正确？",
+                    options: ["使用当前 mini-batch 的统计量", "使用训练过程中累积的全局均值和方差", "不需要任何统计量", "随机选择之前的 batch 统计量"],
+                    answer: 1,
+                    explanation: "推理时 BN 使用训练过程中通过指数移动平均累积的全局均值和方差，而非当前 batch 的统计量。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-fin-c-4",
+                    question: "残差网络（ResNet）中残差连接的核心思想是让网络学习？",
+                    options: ["完整的映射 H(x)", "残差映射 F(x) = H(x) - x", "输入的梯度", "权重矩阵的逆"],
+                    answer: 1,
+                    explanation: "残差连接将输入 x 直接跳过若干层加到输出上，网络只需学习残差 F(x) = H(x) - x，使得学习恒等映射变得容易。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-fin-c-5",
+                    question: "在循环神经网络中，GRU 相比 LSTM 的主要简化是？",
+                    options: ["去掉了所有门控机制", "将遗忘门和输入门合并为更新门，去掉了细胞状态", "增加了更多参数", "不支持序列建模"],
+                    answer: 1,
+                    explanation: "GRU 将 LSTM 的遗忘门和输入门合并为更新门，去掉了独立的细胞状态，参数量更少，训练更快。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-fin-c-6",
+                    question: "学习率调度（Learning Rate Schedule）的作用是？",
+                    options: ["在训练过程中保持学习率不变", "在训练过程中动态调整学习率以改善收敛", "只在验证集上调整学习率", "将学习率设为 0"],
+                    answer: 1,
+                    explanation: "学习率调度在训练过程中按预设策略（如衰减、余弦退火等）动态调整学习率，有助于跳出局部最优并提高收敛质量。",
+                    difficulty: 1
+                },
+                {
+                    id: "dls-fin-c-7",
+                    question: "在目标检测中，YOLO（You Only Look Once）属于哪类方法？",
+                    options: ["两阶段（Two-stage）方法", "单阶段（One-stage）方法", "非深度学习方法", "无监督方法"],
+                    answer: 1,
+                    explanation: "YOLO 将目标检测建模为回归问题，在单次前向传播中同时预测边界框和类别概率，属于单阶段检测器。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-fin-c-8",
+                    question: "关于正则化中的 L1 和 L2 惩罚，以下哪项描述正确？",
+                    options: ["L1 倾向于产生稀疏权重，L2 倾向于让权重均匀缩小", "L1 和 L2 的效果完全相同", "L2 产生稀疏权重，L1 让权重均匀缩小", "两者都不影响模型复杂度"],
+                    answer: 0,
+                    explanation: "L1 正则化（LASSO）可将部分权重精确压缩为零，实现特征选择；L2 正则化（Ridge）将权重整体缩小但不为零。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-fin-c-9",
+                    question: "在 GAN（生成对抗网络）中，生成器和判别器的关系可以描述为？",
+                    options: ["生成器和判别器合作最小化同一个损失", "生成器试图欺骗判别器，判别器试图区分真假样本，形成博弈", "生成器训练时判别器固定不变", "判别器生成新样本，生成器进行分类"],
+                    answer: 1,
+                    explanation: "GAN 中生成器和判别器处于零和博弈：生成器生成尽可能逼真的假样本欺骗判别器，判别器则努力区分真假样本。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-fin-c-10",
+                    question: "在部署深度学习模型时，模型量化（Quantization）的主要目的是？",
+                    options: ["增加模型参数精度", "降低模型大小和推理延迟，减少计算资源需求", "增加训练数据量", "提高模型的训练精度"],
+                    answer: 1,
+                    explanation: "量化将浮点权重和激活值转换为低精度表示（如 INT8），减小模型体积并加速推理，适合边缘设备部署。",
+                    difficulty: 2
+                }
+            ],
+            fill: [
+                {
+                    id: "dls-fin-f-1",
+                    question: "Transformer 中的多头注意力（Multi-Head Attention）允许模型同时关注来自不同 ____ 的信息。",
+                    answer: "表示子空间（或位置、角度）",
+                    explanation: "多头注意力将 Q、K、V 投影到多个子空间中并行计算注意力，然后拼接结果，捕获不同方面的依赖关系。",
+                    difficulty: 3
+                },
+                {
+                    id: "dls-fin-f-2",
+                    question: "在神经网络中，____ 是一种数据增强技术，通过随机旋转、翻转、裁剪等操作增加训练样本的多样性。",
+                    answer: "数据增强（Data Augmentation）",
+                    explanation: "数据增强通过对输入做随机变换来扩充训练集，有效提高模型的泛化能力并防止过拟合。",
+                    difficulty: 1
+                },
+                {
+                    id: "dls-fin-f-3",
+                    question: "在序列模型中，____ 位置编码被添加到词嵌入中，为 Transformer 提供序列的位置信息。",
+                    answer: "正弦/余弦（Sinusoidal）",
+                    explanation: "Transformer 使用正弦和余弦函数生成位置编码，其设计使得模型可以学习到相对位置关系并泛化到未见过的序列长度。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-fin-f-4",
+                    question: "在强化学习中，____ 算法通过学习一个 Q 值函数来估计在特定状态下采取特定动作的期望回报。",
+                    answer: "Q-Learning（或 Deep Q-Network, DQN）",
+                    explanation: "DQN 将 Q-Learning 与深度神经网络结合，使用神经网络近似 Q 值函数，可处理高维状态空间。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-fin-f-5",
+                    question: "在模型评估中，____ 曲线下面积（AUC-ROC）越接近 1，说明模型的分类性能越好。",
+                    answer: "ROC（Receiver Operating Characteristic）",
+                    explanation: "ROC 曲线绘制不同阈值下的 TPR 和 FPR，AUC 值越接近 1 表示模型区分正负样本的能力越强。",
+                    difficulty: 1
+                },
+                {
+                    id: "dls-fin-f-6",
+                    question: "在自编码器（Autoencoder）中，网络学习将输入压缩到低维 ____ 空间，再重构回原始维度。",
+                    answer: "潜在（Latent）",
+                    explanation: "自编码器通过编码器将输入映射到低维潜在表示，解码器从潜在表示重构输入，中间层称为潜在空间。",
+                    difficulty: 2
+                },
+                {
+                    id: "dls-fin-f-7",
+                    question: "在 TensorFlow/Keras 中，____ 回调函数可以在训练过程中监控验证集指标并在指标不再改善时停止训练。",
+                    answer: "EarlyStopping",
+                    explanation: "EarlyStopping 监控指定指标（如 val_loss），当指标在指定轮次内不再改善时自动终止训练，防止过拟合。",
+                    difficulty: 1
+                },
+                {
+                    id: "dls-fin-f-8",
+                    question: "扩散模型（Diffusion Model）的工作原理是先对数据添加____过程，再学习逆转该过程来生成数据。",
+                    answer: "噪声（或高斯噪声、扩散）",
+                    explanation: "扩散模型前向过程逐步向数据添加高斯噪声直到变成纯噪声，反向过程学习逐步去噪以生成新数据。",
+                    difficulty: 3
+                },
+                {
+                    id: "dls-fin-f-9",
+                    question: "在序列标注任务中，____ 层可以在 RNN 输出之上建模标签之间的依赖关系，输出全局最优标签序列。",
+                    answer: "条件随机场（CRF）",
+                    explanation: "CRF 层考虑标签间的转移概率，在所有可能的标签序列中找到全局最优解，常用于 NER 等序列标注任务。",
+                    difficulty: 3
+                },
+                {
+                    id: "dls-fin-f-10",
+                    question: "模型蒸馏（Knowledge Distillation）是将大模型（教师）的知识迁移到小模型（____）中。",
+                    answer: "学生（Student）",
+                    explanation: "蒸馏过程中，学生模型学习模仿教师模型的软输出分布（soft labels），以较小的模型规模获得接近大模型的性能。",
+                    difficulty: 2
+                }
+            ],
+            code: [
+                {
+                    id: "dls-fin-code-1",
+                    question: "补全以下代码，实现多头注意力机制中的缩放点积注意力。",
+                    code: "import tensorflow as tf\nimport numpy as np\n\ndef scaled_dot_product_attention(Q, K, V, mask=None):\n    d_k = Q.shape[-1]\n    scores = tf.matmul(Q, K, transpose_b=True) / np.sqrt(____)\n    if mask is not None:\n        scores += (mask * -1e9)\n    weights = tf.nn.softmax(scores, axis=-1)\n    output = tf.matmul(weights, V)\n    return output",
+                    answer: "d_k",
+                    explanation: "缩放因子 √d_k 防止点积值过大导致 Softmax 梯度消失。d_k 是 Query 和 Key 向量的维度。",
+                    difficulty: 3
+                },
+                {
+                    id: "dls-fin-code-2",
+                    question: "补全以下代码，实现带 L2 正则化的自定义损失函数。",
+                    code: "import tensorflow as tf\n\ndef l2_regularized_loss(y_true, y_pred, model, lambda_reg=0.01):\n    bce = tf.keras.losses.binary_crossentropy(y_true, y_pred)\n    l2_penalty = sum(tf.nn.l2_loss(w) for w in model.____)\n    return tf.reduce_mean(bce) + lambda_reg * l2_penalty",
+                    answer: "trainable_weights",
+                    explanation: "model.trainable_weights 获取模型所有可训练参数（权重矩阵），对每个权重计算 L2 范数并求和作为正则化惩罚项。",
+                    difficulty: 3
+                }
+            ]
+        }
+    },
+
+    /* ================================================================
+     * 16. Practical Deep Learning for Coders (fast.ai)
+     *     Topics: PyTorch, fastai library, transfer learning,
+     *             data augmentation, SGD, learning rate
+     * ================================================================ */
+    "Practical Deep Learning for Coders": {
+        courseId: "practical-deep-learning-fastai",
+        domain: "dl",
+        mid: {
+            choice: [
+                {
+                    id: "pdl-mid-c-1",
+                    question: "fastai 的 Learner 对象的核心功能是？",
+                    options: ["仅定义网络结构", "封装模型、数据、损失函数和优化器，提供统一的训练和推理接口", "仅负责数据预处理", "仅用于模型评估"],
+                    answer: 1,
+                    explanation: "fastai 的 Learner 将模型、数据加载器、损失函数和优化器封装在一起，提供 fit、predict 等统一 API。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-mid-c-2",
+                    question: "在 PyTorch 中，nn.Module 的 forward 方法的作用是？",
+                    options: ["定义优化器", "定义数据集路径", "定义数据在模型中的前向传播路径", "定义损失函数"],
+                    answer: 2,
+                    explanation: "forward 方法定义输入数据经过模型各层的计算流程。调用 model(x) 时 PyTorch 自动调用 forward。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-mid-c-3",
+                    question: "fastai 中 DataLoaders 的主要作用是？",
+                    options: ["设置优化器", "管理训练集和验证集的数据加载、批处理和增强", "设置学习率", "管理模型权重"],
+                    answer: 1,
+                    explanation: "DataLoaders 管理训练和验证数据的加载流程，包括批处理、数据增强和数据预处理。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-mid-c-4",
+                    question: "fastai 的 learning rate finder 的工作原理是？",
+                    options: ["随机选择学习率", "在训练过程中从小到大递增学习率，观察损失变化来选择最佳学习率", "使用固定学习率进行网格搜索", "根据验证集准确率调整学习率"],
+                    answer: 1,
+                    explanation: "lr_find 从小学习率开始逐步增大学习率，记录每步的损失，选择损失下降最快处对应的学习率作为最佳值。",
+                    difficulty: 2
+                },
+                {
+                    id: "pdl-mid-c-5",
+                    question: "迁移学习中，Fine-tuning 策略在 fastai 中通过哪个方法实现？",
+                    options: ["learn.fit()", "learn.fine_tune()", "learn.predict()", "learn.export()"],
+                    answer: 1,
+                    explanation: "learn.fine_tune() 先冻结预训练层训练分类头若干轮，再解冻全部层以小学习率微调，是 fastai 的迁移学习核心方法。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-mid-c-6",
+                    question: "在 fastai 中，aug_transforms() 函数的作用是？",
+                    options: ["定义模型架构", "自动创建适合图像任务的数据增强流水线", "定义损失函数", "调整学习率"],
+                    answer: 1,
+                    explanation: "aug_transforms() 返回一组适合图像任务的默认数据增强变换（如翻转、旋转、缩放等），可通过参数自定义。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-mid-c-7",
+                    question: "关于 SGD（随机梯度下降）优化器，以下哪项描述正确？",
+                    options: ["SGD 使用全部训练数据计算梯度", "SGD 使用单个样本或小批量样本估计梯度进行参数更新", "SGD 不需要学习率", "SGD 只能用于线性模型"],
+                    answer: 1,
+                    explanation: "SGD 每次使用一个 mini-batch 的数据估计梯度并更新参数，相比全批量梯度下降更高效且引入有益噪声。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-mid-c-8",
+                    question: "fastai 中的 Callback 系统允许用户做什么？",
+                    options: ["只能修改学习率", "在训练过程的不同阶段（如每批、每轮前后）插入自定义逻辑", "只能保存模型", "只能进行数据预处理"],
+                    answer: 1,
+                    explanation: "fastai 的回调系统允许在训练的几乎任意时刻（如 epoch 开始/结束、batch 前/后、优化器步骤等）注入自定义行为。",
+                    difficulty: 2
+                },
+                {
+                    id: "pdl-mid-c-9",
+                    question: "PyTorch 中的 DataLoader 的 num_workers 参数控制什么？",
+                    options: ["模型参数数量", "用于并行加载数据的子进程数", "训练轮次数", "批处理大小"],
+                    answer: 1,
+                    explanation: "num_workers 指定用于数据预加载的子进程数量，增加此值可以加速数据加载，但过多可能导致内存压力。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-mid-c-10",
+                    question: "在 fastai 的 VisionLearner 中，head 层指的是？",
+                    options: ["网络的第一层", "模型最后的分类层（通常是全连接层）", "数据预处理层", "损失计算层"],
+                    answer: 1,
+                    explanation: "head 层是模型添加在预训练 body 之上的自定义分类层，fine_tune 时首先只训练这一层。",
+                    difficulty: 2
+                }
+            ],
+            fill: [
+                {
+                    id: "pdl-mid-f-1",
+                    question: "fastai 基于 ____ 深度学习框架构建，提供了更高层的 API。",
+                    answer: "PyTorch",
+                    explanation: "fastai 是 PyTorch 之上的高级库，提供简洁的 API 和最佳实践，降低深度学习入门门槛。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-mid-f-2",
+                    question: "在训练图像分类模型时，____ 指的是对训练图像进行随机变换（如翻转、旋转、裁剪）来增加数据多样性。",
+                    answer: "数据增强（Data Augmentation）",
+                    explanation: "数据增强通过对训练样本施加随机变换来人工扩充训练集，提高模型的泛化能力。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-mid-f-3",
+                    question: "在 fastai 中，____ 是一个专门用于图像分类任务的 Learner 子类。",
+                    answer: "vision_learner（或 VisionLearner）",
+                    explanation: "vision_learner 快速创建图像分类模型，自动处理图像预处理、数据增强和预训练模型加载。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-mid-f-4",
+                    question: "PyTorch 中，____ 用于定义优化器在每次参数更新时的行为。",
+                    answer: "优化器（Optimizer，如 torch.optim.SGD）",
+                    explanation: "优化器定义了梯度如何被用于更新参数。常见优化器有 SGD、Adam 等。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-mid-f-5",
+                    question: "在迁移学习中，冻结预训练模型的特征层只训练新分类头的策略称为 ____。",
+                    answer: "特征提取（Feature Extraction）",
+                    explanation: "特征提取模式下预训练层的权重不更新，只训练新添加的分类层，计算成本低且适合小数据集。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-mid-f-6",
+                    question: "fastai 的 DataBlock API 通过定义 ____、get_items、splitter 和 batch_tfms 等组件来灵活构建数据管道。",
+                    answer: "blocks（或 block 类型）",
+                    explanation: "DataBlock 通过声明式方式定义数据处理流水线，blocks 指定输入和标签的类型（如 ImageBlock, CategoryBlock）。",
+                    difficulty: 2
+                },
+                {
+                    id: "pdl-mid-f-7",
+                    question: "在 PyTorch 中，模型训练循环需要调用 ____ 来清零梯度、前向传播、反向传播和更新参数。",
+                    answer: "optimizer.zero_grad()、loss.backward()、optimizer.step()",
+                    explanation: "标准训练循环包含：零梯度、前向传播、计算损失、反向传播、参数更新五步。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-mid-f-8",
+                    question: "在 fastai 中，____ 指标如 Precision、Recall 和 F1 常用于评估分类模型的性能。",
+                    answer: "自定义指标（或 Metrics）",
+                    explanation: "fastai 支持在训练过程中追踪多种指标，帮助从不同角度评估模型性能。",
+                    difficulty: 2
+                },
+                {
+                    id: "pdl-mid-f-9",
+                    question: "PyTorch 中，nn.CrossEntropyLoss 内部实际上包含了 ____ 激活函数。",
+                    answer: "Softmax",
+                    explanation: "nn.CrossEntropyLoss 将 LogSoftmax 和 NLLLoss 合二为一，无需在网络输出层额外添加 Softmax。",
+                    difficulty: 2
+                },
+                {
+                    id: "pdl-mid-f-10",
+                    question: "在 fastai 中，____ 回调可以在每个训练 epoch 结束后自动保存模型的最佳版本。",
+                    answer: "SaveModelCallback",
+                    explanation: "SaveModelCallback 监控指定指标，在验证指标改善时自动保存模型，防止最佳模型被后续训练覆盖。",
+                    difficulty: 2
+                }
+            ],
+            code: [
+                {
+                    id: "pdl-mid-code-1",
+                    question: "补全以下 fastai 代码，使用预训练模型创建图像分类器并进行微调。",
+                    code: "from fastai.vision.all import *\n\ndls = ImageDataLoaders.from_folder(path, valid_pct=0.2,\n    item_tfms=Resize(224),\n    batch_tfms=aug_transforms())\n\nlearn = vision_learner(dls, resnet34, metrics=____)\nlearn.fine_tune(5)",
+                    answer: "accuracy",
+                    explanation: "vision_learner 需要传入指标列表，accuracy 是分类任务最常用的评估指标。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-mid-code-2",
+                    question: "补全以下 PyTorch 代码，实现训练一个 epoch 的基本训练循环。",
+                    code: "import torch\n\ndef train_epoch(model, loader, criterion, optimizer):\n    model.train()\n    for batch in loader:\n        inputs, targets = batch\n        optimizer.____()\n        outputs = model(inputs)\n        loss = criterion(outputs, targets)\n        loss.backward()\n        optimizer.step()",
+                    answer: "zero_grad",
+                    explanation: "每批训练前必须调用 optimizer.zero_grad() 清零累积的梯度，否则梯度会跨批次累加导致更新错误。",
+                    difficulty: 1
+                }
+            ]
+        },
+        final: {
+            choice: [
+                {
+                    id: "pdl-fin-c-1",
+                    question: "在 fastai 中，one_cycle 学习率调度策略的特点是？",
+                    options: ["学习率保持恒定", "学习率先升后降，同时动量先降后升，实现超收敛", "学习率单调递减", "学习率单调递增"],
+                    answer: 1,
+                    explanation: "1cycle 策略让学习率先升到最大学习率再降回，动量同步反向变化，这种超收敛技术可显著加速训练。",
+                    difficulty: 2
+                },
+                {
+                    id: "pdl-fin-c-2",
+                    question: "PyTorch 中 torch.no_grad() 上下文管理器的作用是？",
+                    options: ["禁用 dropout", "禁用梯度计算，节省内存并加速推理", "禁用数据增强", "禁用批量归一化"],
+                    answer: 1,
+                    explanation: "torch.no_grad() 禁用梯度追踪，减少内存占用并加速计算，常用于推理和评估阶段。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-fin-c-3",
+                    question: "fastai 中的 test_time_augmentation (TTA) 的作用是？",
+                    options: ["在训练时进行数据增强", "在推理时对单张图片做多次增强变换并平均预测结果", "在测试时增强模型参数", "在推理时增大 batch size"],
+                    answer: 1,
+                    explanation: "TTA 在推理时对同一输入做多次随机增强，分别预测后取平均，利用集成效应提升预测准确率。",
+                    difficulty: 2
+                },
+                {
+                    id: "pdl-fin-c-4",
+                    question: "在 fastai 中使用 Learner.predict() 对单张图片进行推理时，默认返回什么？",
+                    options: ["原始概率值", "解码后的类别名称、类别索引和概率列表", "仅类别索引", "仅原始输出张量"],
+                    answer: 1,
+                    explanation: "learn.predict() 返回元组 (decoded_class, class_index, probabilities)，自动完成预处理和解码。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-fin-c-5",
+                    question: "在图像分类中，当训练集和验证集分布不一致时最可能导致什么问题？",
+                    options: ["训练速度变慢", "模型在验证集上表现远差于训练集（分布偏移）", "模型无法加载", "梯度爆炸"],
+                    answer: 1,
+                    explanation: "分布偏移会导致模型学到的模式无法泛化到验证集上，表现为训练集上性能好但验证集性能差。",
+                    difficulty: 2
+                },
+                {
+                    id: "pdl-fin-c-6",
+                    question: "fastai 中 MixedPrecision 训练（混合精度训练）的优势是？",
+                    options: ["使用全 64 位浮点精度提升准确率", "使用 FP16 加速训练并减少显存占用，同时保持近似相同的准确率", "使用 INT8 量化模型", "使用更多 GPU 显存"],
+                    answer: 1,
+                    explanation: "混合精度训练将大部分计算用 FP16 进行以加速和节省显存，关键步骤保留 FP32 以维持数值稳定性。",
+                    difficulty: 2
+                },
+                {
+                    id: "pdl-fin-c-7",
+                    question: "在 fastai 中，使用 label_from_folder 或 DataBlock 构建数据集时，splitter 参数的作用是？",
+                    options: ["定义数据增强策略", "定义训练集和验证集的划分方式", "定义损失函数", "定义学习率"],
+                    answer: 1,
+                    explanation: "splitter 决定如何将数据划分为训练集和验证集，常见方式有随机划分、按文件夹划分等。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-fin-c-8",
+                    question: "关于 fastai 的 show_results() 方法，以下哪项描述正确？",
+                    options: ["仅显示训练集的结果", "显示验证集中一批样本的输入、预测和实际标签的可视化对比", "仅显示数值指标", "仅保存结果到文件"],
+                    answer: 1,
+                    explanation: "show_results() 可视化展示一批验证样本的输入图像、模型预测和真实标签，直观评估模型效果。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-fin-c-9",
+                    question: "在使用 fastai 进行文本分类时，通常需要将文本转换为 ____。",
+                    options: ["图像", "数字 token 序列（tokenize）", "音频", "PDF 文档"],
+                    answer: 1,
+                    explanation: "fastai 的文本处理流水线将文本分词（tokenize）为词或子词，再转换为数字索引供模型处理。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-fin-c-10",
+                    question: "在 PyTorch 中，model.eval() 方法的作用是？",
+                    options: ["开始训练模型", "将模型切换到评估模式，禁用 dropout 和 batchnorm 的训练行为", "删除模型", "打印模型结构"],
+                    answer: 1,
+                    explanation: "model.eval() 将模型切换到推理模式，关闭 dropout 并使 BatchNorm 使用训练时积累的统计量而非当前 batch 的统计量。",
+                    difficulty: 1
+                }
+            ],
+            fill: [
+                {
+                    id: "pdl-fin-f-1",
+                    question: "在 fastai 中，____ 方法可以导出模型为 .pkl 文件，包含模型结构和训练参数。",
+                    answer: "export",
+                    explanation: "learn.export() 将整个 Learner（模型、数据处理流水线、类别映射等）序列化为 .pkl 文件，便于部署。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-fin-f-2",
+                    question: "在使用 ResNet 进行迁移学习时，通常冻结除 ____ 层之外的所有层进行第一阶段训练。",
+                    answer: "最后的全连接层（或分类头、fc）",
+                    explanation: "迁移学习第一阶段冻结预训练层，只训练最后的分类头，使其适应新任务的类别数。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-fin-f-3",
+                    question: "fastai 的 ____ 函数可以自动进行学习率搜索，帮助选择最优学习率。",
+                    answer: "lr_find",
+                    explanation: "lr_find 通过在训练初期逐步增大学习率，绘制损失-学习率曲线，推荐损失下降最快处的学习率。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-fin-f-4",
+                    question: "在 PyTorch 中，____ 是一个轻量级的容器，用于存储训练状态并在训练中断后恢复。",
+                    answer: "checkpoint（或 torch.save / CheckpointCallback）",
+                    explanation: "检查点保存模型权重和优化器状态，使训练可以从中断处恢复，fastai 通过 SaveModelCallback 自动管理。",
+                    difficulty: 2
+                },
+                {
+                    id: "pdl-fin-f-5",
+                    question: "在 fastai 中，____ 是处理结构化数据（表格数据）的 Learner 类。",
+                    answer: "tabular_learner（或 TabularLearner）",
+                    explanation: "tabular_learner 自动处理表格数据的嵌入和连续变量归一化，适用于表格分类和回归任务。",
+                    difficulty: 2
+                },
+                {
+                    id: "pdl-fin-f-6",
+                    question: "在 PyTorch 中，____ 是一个辅助函数，用于自动将模型和数据移动到 GPU 或 CPU。",
+                    answer: "to()（如 model.to(device)）",
+                    explanation: ".to(device) 将模型参数或数据张量移动到指定设备（GPU/CPU），是 PyTorch 中标准的设备管理方式。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-fin-f-7",
+                    question: "在 fastai 的文本分类中，____ 层将词嵌入序列整合为固定长度的向量表示。",
+                    answer: "池化（Pooling）",
+                    explanation: "池化层（如平均池化、最大池化）将变长的嵌入序列聚合为固定长度的向量，供后续分类层使用。",
+                    difficulty: 2
+                },
+                {
+                    id: "pdl-fin-f-8",
+                    question: "在训练过程中，____ 是指模型在未见过的数据上的表现，是衡量模型泛化能力的关键指标。",
+                    answer: "验证性能（或验证准确率、Validation Performance）",
+                    explanation: "验证性能反映模型在新数据上的表现，是判断模型是否过拟合或欠拟合的重要依据。",
+                    difficulty: 1
+                },
+                {
+                    id: "pdl-fin-f-9",
+                    question: "fastai 中的 ____ 允许用户在训练过程中自定义逻辑，如调整学习率、记录指标、早停等。",
+                    answer: "回调（Callback）",
+                    explanation: "fastai 的回调系统是其核心设计之一，提供了训练过程中几乎每个事件点的自定义扩展能力。",
+                    difficulty: 2
+                },
+                {
+                    id: "pdl-fin-f-10",
+                    question: "在 fastai 中，使用 pretrained=True 加载预训练模型时，模型权重来自在 ____ 数据集上的预训练。",
+                    answer: "ImageNet",
+                    explanation: "大多数 fastai 支持的预训练模型（如 ResNet）是在 ImageNet（1000 类图像分类）上预训练的。",
+                    difficulty: 1
+                }
+            ],
+            code: [
+                {
+                    id: "pdl-fin-code-1",
+                    question: "补全以下 fastai 代码，使用 DataBlock API 构建自定义图像分类数据管道。",
+                    code: "from fastai.vision.all import *\n\ndef get_x(r): return r['fname']\ndef get_y(r): return r['label']\n\ndb = DataBlock(\n    blocks=(ImageBlock, ____),\n    get_items=get_image_files,\n    splitter=RandomSplitter(valid_pct=0.2),\n    get_x=get_x,\n    get_y=get_y,\n    item_tfms=Resize(224)\n)",
+                    answer: "CategoryBlock",
+                    explanation: "ImageBlock 定义输入为图像，CategoryBlock 定义标签为类别（多分类）。对于多标签任务使用 MultiCategoryBlock。",
+                    difficulty: 2
+                },
+                {
+                    id: "pdl-fin-code-2",
+                    question: "补全以下 PyTorch 代码，实现模型的推理函数（不需要计算梯度）。",
+                    code: "import torch\n\ndef predict(model, input_tensor):\n    model.____()\n    with torch.no_grad():\n        output = model(input_tensor)\n    predicted = torch.argmax(output, dim=1)\n    return predicted",
+                    answer: "eval",
+                    explanation: "推理前必须调用 model.eval() 将模型切换到评估模式，关闭 dropout 和 BN 的训练行为，确保结果确定性。",
+                    difficulty: 1
+                }
+            ]
+        }
+    },
+
 };
