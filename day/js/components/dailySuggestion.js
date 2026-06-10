@@ -207,12 +207,15 @@ const DailySuggestion = {
         const dateStr = `${now.getMonth() + 1}月${now.getDate()}日 周${weekdays[now.getDay()]}`;
 
         container.innerHTML = `
-            <div class="ds-header">
-                <div class="ds-header-text">
-                    <h3 class="ds-title">今日推荐</h3>
-                    <span class="ds-date">${dateStr}</span>
+            <div class="section-divider"></div>
+            <div class="module-header">
+                <div class="module-header-icon-wrap">
+                    <span class="module-header-icon">✨</span>
                 </div>
-                <span class="ds-hint">每天为你准备不同的小确幸 ✨</span>
+                <div class="module-header-text">
+                    <h3 class="module-title">今日推荐</h3>
+                    <span class="module-subtitle">${dateStr} · 每天为你准备不同的小确幸</span>
+                </div>
             </div>
             <div class="ds-grid">
                 ${suggestions.map(s => this._cardHTML(s.category, s.text)).join('')}

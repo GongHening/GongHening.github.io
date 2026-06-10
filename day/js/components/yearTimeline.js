@@ -81,17 +81,17 @@ const YearTimeline = (() => {
     });
 
     container.innerHTML = `
-      <div class="yt-card">
-        <div class="yt-header">
-          <div class="yt-header-left">
-            <span class="yt-header-icon">📅</span>
-            <span class="yt-header-title">每年时间进度</span>
-          </div>
-          <div class="yt-header-right">
-            <span class="yt-year">${year}</span>
-          </div>
+      <div class="section-divider"></div>
+      <div class="module-header">
+        <div class="module-header-icon-wrap">
+          <span class="module-header-icon">📊</span>
         </div>
-
+        <div class="module-header-text">
+          <h3 class="module-title">年度时间进度</h3>
+          <span class="module-subtitle">${year}年 · 已过 ${dayOfYear} 天，还剩 ${totalDays - dayOfYear} 天</span>
+        </div>
+      </div>
+      <div class="yt-card">
         <div class="yt-body">
           <div class="yt-info-row">
             <div class="yt-info-item">

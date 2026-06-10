@@ -28,16 +28,17 @@ const LifeProgress = {
      */
     renderInput() {
         this.container.innerHTML = `
-            <div class="lp-card">
-                <div class="lp-card-header">
-                    <div class="lp-card-icon-wrap">
-                        <span class="lp-card-icon">⏳</span>
-                    </div>
-                    <div>
-                        <h3 class="lp-card-title">生命进度</h3>
-                        <p class="lp-card-desc">输入你的生日，看看生命的刻度</p>
-                    </div>
+            <div class="section-divider"></div>
+            <div class="module-header">
+                <div class="module-header-icon-wrap">
+                    <span class="module-header-icon">⏳</span>
                 </div>
+                <div class="module-header-text">
+                    <h3 class="module-title">生命进度</h3>
+                    <span class="module-subtitle">输入你的生日，看看生命的刻度</span>
+                </div>
+            </div>
+            <div class="lp-card">
                 <div class="lp-input-body">
                     <label class="lp-label" for="lpBirthdayInput">选择你的生日</label>
                     <input type="date" id="lpBirthdayInput" class="lp-date-input" max="${this._todayStr()}">
@@ -70,22 +71,23 @@ const LifeProgress = {
         const circumference = 2 * Math.PI * 54; // r=54
 
         this.container.innerHTML = `
-            <div class="lp-card lp-card--result">
-                <div class="lp-card-header">
-                    <div class="lp-card-icon-wrap">
-                        <span class="lp-card-icon">⏳</span>
-                    </div>
-                    <div>
-                        <h3 class="lp-card-title">生命进度</h3>
-                        <p class="lp-card-subtitle">生于 ${this._formatDate(birthday)} · 假设活到 ${this.LIFE_EXPECTANCY} 岁</p>
-                    </div>
-                    <button class="lp-edit-btn" id="lpEditBtn" title="修改生日">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                        </svg>
-                    </button>
+            <div class="section-divider"></div>
+            <div class="module-header">
+                <div class="module-header-icon-wrap">
+                    <span class="module-header-icon">⏳</span>
                 </div>
+                <div class="module-header-text">
+                    <h3 class="module-title">生命进度</h3>
+                    <span class="module-subtitle">生于 ${this._formatDate(birthday)} · 假设活到 ${this.LIFE_EXPECTANCY} 岁</span>
+                </div>
+                <button class="lp-edit-btn" id="lpEditBtn" title="修改生日">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="lp-card lp-card--result">
                 <div class="lp-result-body">
                     <div class="lp-ring-wrap">
                         <svg class="lp-ring-svg" viewBox="0 0 120 120">

@@ -96,23 +96,25 @@ const HistoryToday = (() => {
         const events = HistoryTodayData[dateKey];
         const displayDate = _getDisplayDate();
 
+        const headerHTML = `
+            <div class="section-divider"></div>
+            <div class="module-header">
+                <div class="module-header-icon-wrap">
+                    <span class="module-header-icon">📜</span>
+                </div>
+                <div class="module-header-text">
+                    <h3 class="module-title">历史上的今天</h3>
+                    <span class="module-subtitle">${displayDate} · 每天了解一段历史</span>
+                </div>
+            </div>`;
+
         if (!events || events.length === 0) {
             // Fallback: try to show a random date's events
             const fallbackKey = Object.keys(HistoryTodayData)[0];
             const fallbackEvents = HistoryTodayData[fallbackKey];
             const sorted = fallbackEvents.sort((a, b) => b.year - a.year);
 
-            container.innerHTML = `
-                <div class="ht-header">
-                    <div class="ht-header-left">
-                        <span class="ht-header-icon">📜</span>
-                        <div class="ht-header-text">
-                            <h3 class="ht-title">历史上的今天</h3>
-                            <span class="ht-date">${displayDate}</span>
-                        </div>
-                    </div>
-                    <span class="ht-hint">每天了解一段历史</span>
-                </div>
+            container.innerHTML = `${headerHTML}
                 <div class="ht-grid">
                     ${sorted.map((e, i) => _eventCardHTML(e, i)).join('')}
                 </div>`;
@@ -122,17 +124,7 @@ const HistoryToday = (() => {
         // Sort by year descending (most recent first)
         const sorted = events.sort((a, b) => b.year - a.year);
 
-        container.innerHTML = `
-            <div class="ht-header">
-                <div class="ht-header-left">
-                    <span class="ht-header-icon">📜</span>
-                    <div class="ht-header-text">
-                        <h3 class="ht-title">历史上的今天</h3>
-                        <span class="ht-date">${displayDate}</span>
-                    </div>
-                </div>
-                <span class="ht-hint">每天了解一段历史</span>
-            </div>
+        container.innerHTML = `${headerHTML}
             <div class="ht-grid">
                 ${sorted.map((e, i) => _eventCardHTML(e, i)).join('')}
             </div>`;

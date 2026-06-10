@@ -75,6 +75,16 @@ const App = {
         // Initialize hero
         Hero.init();
 
+        // Initialize year progress ring
+        if (typeof YearProgress !== 'undefined') {
+            YearProgress.init();
+        }
+
+        // Initialize inspirational quote
+        if (typeof InspirationalQuote !== 'undefined') {
+            InspirationalQuote.init();
+        }
+
         // Initialize daily suggestions
         if (typeof DailySuggestion !== 'undefined') {
             DailySuggestion.init();
@@ -109,6 +119,16 @@ const App = {
         // Initialize learning path wizard
         if (typeof Wizard !== 'undefined') {
             Wizard.init();
+        }
+
+        // Initialize history today
+        if (typeof HistoryToday !== 'undefined') {
+            HistoryToday.init();
+        }
+
+        // Initialize year timeline
+        if (typeof YearTimeline !== 'undefined') {
+            YearTimeline.init();
         }
 
         // Initialize life progress
@@ -277,6 +297,18 @@ const App = {
             });
             mutObs.observe(grid, { childList: true });
         }
+
+        // Observe new-section elements for entrance animation
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('new-section--visible');
+                    sectionObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.new-section').forEach(el => sectionObserver.observe(el));
     },
 
     /**

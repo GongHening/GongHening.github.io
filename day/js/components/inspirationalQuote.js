@@ -75,6 +75,7 @@ const InspirationalQuote = {
         this.container.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
 
         this.container.innerHTML = `
+            <div class="section-divider"></div>
             <div class="iq-card">
                 <div class="iq-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
