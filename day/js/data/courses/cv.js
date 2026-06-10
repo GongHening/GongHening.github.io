@@ -27,17 +27,6 @@ const CV_COURSES = [
         cat: "cv"
     },
     {
-        n: "Computer Vision Basics",
-        i: "University at Buffalo",
-        p: "Coursera",
-        d: 1,
-        h: 18,
-        u: "https://www.coursera.org/learn/computer-vision-basics",
-        desc: "CV入门基础课程",
-        t: ["图像处理", "边缘检测", "特征提取"],
-        cat: "cv"
-    },
-    {
         n: "CNN for Detection & Segmentation",
         i: "DeepLearning.AI",
         p: "Coursera",
@@ -81,59 +70,60 @@ const CV_COURSES = [
         t: ["NeRF", "3D重建", "体积渲染"],
         cat: "cv"
     },
+    // === Top University Additions ===
     {
-        n: "Vision Transformers (ViT)",
-        i: "Google / Various",
-        p: "Free",
-        d: 3,
-        h: 20,
-        u: "https://huggingface.co/docs/transformers/model_doc/vit",
-        desc: "Vision Transformer架构与应用",
-        t: ["ViT", "Transformer", "图像分类"],
-        cat: "cv"
-    },
-    {
-        n: "3D Computer Vision",
-        i: "Various",
-        p: "Free",
-        d: 4,
-        h: 30,
-        u: "https://github.com/3d-vision",
-        desc: "3D视觉：深度估计/立体匹配/点云处理",
-        t: ["深度估计", "点云", "3D重建"],
-        cat: "cv"
-    },
-    {
-        n: "Self-Supervised Visual Learning",
-        i: "Various",
-        p: "Free",
-        d: 4,
-        h: 25,
-        u: "https://github.com/facebookresearch/dino",
-        desc: "视觉自监督学习：DINO/MAE/SimCLR",
-        t: ["自监督", "DINO", "MAE"],
-        cat: "cv"
-    },
-    {
-        n: "OpenCV & Computer Vision",
-        i: "Various",
-        p: "Free",
+        n: "CS131: Computer Vision Foundations",
+        i: "Stanford",
+        p: "Stanford",
         d: 2,
-        h: 30,
-        u: "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html",
-        desc: "OpenCV Python教程：图像处理/特征检测/视频分析",
-        t: ["OpenCV", "图像处理", "特征检测"],
+        h: 50,
+        u: "http://cs131.stanford.edu",
+        desc: "Niebles/Krishna CV入门，图像形成/特征检测/分割/目标识别/3D重建",
+        t: ["特征检测", "分割", "3D重建", "入门"],
         cat: "cv"
     },
     {
-        n: "Gaussian Splatting",
-        i: "Various",
-        p: "Free",
+        n: "CS 280: Computer Vision",
+        i: "UC Berkeley",
+        p: "Berkeley",
+        d: 5,
+        h: 80,
+        u: "http://people.eecs.berkeley.edu/~cs280/",
+        desc: "Jitendra Malik/Alyosha Efros研究生CV课程，目标识别/分割/3D重建/场景理解",
+        t: ["目标识别", "分割", "3D重建", "场景理解"],
+        cat: "cv"
+    },
+    {
+        n: "16-824: Visual Learning and Recognition",
+        i: "CMU",
+        p: "CMU",
         d: 4,
-        h: 20,
-        u: "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/",
-        desc: "3D Gaussian Splatting实时渲染与重建",
-        t: ["Gaussian Splatting", "3D渲染", "实时重建"],
+        h: 60,
+        u: "http://visual-learning.cs.cmu.edu/",
+        desc: "Deepak Pathak视觉学习，目标检测/自监督/生成模型/ViT/NeRF/CLIP/SAM",
+        t: ["ViT", "自监督", "CLIP", "SAM"],
+        cat: "cv"
+    },
+    {
+        n: "16-385/720: Computer Vision",
+        i: "CMU",
+        p: "CMU",
+        d: 3,
+        h: 80,
+        u: "http://www.cs.cmu.edu/~16385/",
+        desc: "Deva Ramanan CV课程，图像形成/特征匹配/分割/目标识别/3D重建/光流",
+        t: ["特征匹配", "分割", "3D重建", "光流"],
+        cat: "cv"
+    },
+    {
+        n: "6.819/6.869: Advances in Computer Vision",
+        i: "MIT",
+        p: "MIT",
+        d: 4,
+        h: 70,
+        u: "http://6.819.csail.mit.edu/",
+        desc: "Antonio Torralba/Bill Freeman高级CV，场景理解/深度学习视觉/立体视觉/运动估计",
+        t: ["场景理解", "立体视觉", "运动估计"],
         cat: "cv"
     }
 ];

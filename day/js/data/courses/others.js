@@ -72,7 +72,7 @@ const RL_COURSES = [
         cat: "rl"
     },
     {
-        n: "RLHF: Reinforcement Learning from Human Feedback",
+        n: "RLHF: RL from Human Feedback",
         i: "Various",
         p: "Free",
         d: 4,
@@ -82,15 +82,38 @@ const RL_COURSES = [
         t: ["RLHF", "PPO", "DPO", "对齐"],
         cat: "rl"
     },
+    // === Top University Additions ===
     {
-        n: "Decision Transformer",
-        i: "Various",
-        p: "Free",
+        n: "CS238: Decision Making under Uncertainty",
+        i: "Stanford",
+        p: "Stanford",
         d: 4,
-        h: 15,
-        u: "https://arxiv.org/abs/2106.01345",
-        desc: "将RL重构为序列建模问题",
-        t: ["Decision Transformer", "序列建模", "离线RL"],
+        h: 70,
+        u: "https://cs238.stanford.edu",
+        desc: "Mykel Kochenderfer，MDP/POMDP/动态规划/蒙特卡洛树搜索/贝叶斯决策",
+        t: ["MDP", "POMDP", "蒙特卡洛", "决策理论"],
+        cat: "rl"
+    },
+    {
+        n: "10-703: Deep Reinforcement Learning",
+        i: "CMU",
+        p: "CMU",
+        d: 4,
+        h: 60,
+        u: "https://www.andrew.cmu.edu/course/10-703/",
+        desc: "Deepak Pathak深度RL，DQN/策略梯度/PPO/模仿学习/模型基RL/Sim-to-Real",
+        t: ["DQN", "PPO", "模仿学习", "模型基RL"],
+        cat: "rl"
+    },
+    {
+        n: "16-745: Optimal Control and RL",
+        i: "CMU",
+        p: "CMU",
+        d: 4,
+        h: 50,
+        u: "http://optcontrolcourse.com/",
+        desc: "Zachary Manchester，LQR/iLQR/MPC/动态规划/策略梯度，经典控制与RL桥梁",
+        t: ["LQR", "MPC", "轨迹优化", "控制"],
         cat: "rl"
     }
 ];
@@ -117,17 +140,6 @@ const GENAI_COURSES = [
         u: "https://deepgenerativemodels.github.io/",
         desc: "全面覆盖VAE/GAN/Flow/扩散/能量模型",
         t: ["生成模型", "概率模型"],
-        cat: "genai"
-    },
-    {
-        n: "Generative AI with LLMs",
-        i: "DeepLearning.AI / AWS",
-        p: "Coursera",
-        d: 3,
-        h: 20,
-        u: "https://www.coursera.org/learn/generative-ai-with-llms",
-        desc: "LLM全栈：预训练/微调/RLHF/部署",
-        t: ["RLHF", "PEFT", "缩放定律"],
         cat: "genai"
     },
     {
@@ -197,28 +209,6 @@ const GENAI_COURSES = [
         cat: "genai"
     },
     {
-        n: "Text-to-Image with Diffusion Models",
-        i: "Various",
-        p: "Free",
-        d: 3,
-        h: 15,
-        u: "https://huggingface.co/blog/stable_diffusion",
-        desc: "文生图技术详解：SDXL/DALL-E/Midjourney原理",
-        t: ["文生图", "SDXL", "DALL-E"],
-        cat: "genai"
-    },
-    {
-        n: "Video Generation with AI",
-        i: "Various",
-        p: "Free",
-        d: 4,
-        h: 15,
-        u: "https://github.com/showlab/VideoGPT",
-        desc: "AI视频生成：Sora/VideoGPT/视频编辑",
-        t: ["视频生成", "Sora", "时序生成"],
-        cat: "genai"
-    },
-    {
         n: "Music Generation with AI",
         i: "Various",
         p: "Free",
@@ -228,10 +218,33 @@ const GENAI_COURSES = [
         desc: "AI音乐生成：MusicGen/AudioLM/乐理",
         t: ["音乐生成", "MusicGen", "音频合成"],
         cat: "genai"
+    },
+    // === Top University Additions ===
+    {
+        n: "CS 294-280: Generative AI",
+        i: "UC Berkeley",
+        p: "Berkeley",
+        d: 5,
+        h: 50,
+        u: "https://www.cs.berkeley.edu/~pabbeel/cs294-280-241/",
+        desc: "Pieter Abbeel生成式AI，LLM/扩散模型/GAN/VAE/RLHF/多模态生成",
+        t: ["LLM", "扩散模型", "RLHF", "多模态"],
+        cat: "genai"
+    },
+    {
+        n: "11-777: Multimodal Machine Learning",
+        i: "CMU",
+        p: "CMU",
+        d: 4,
+        h: 60,
+        u: "http://www.cs.cmu.edu/~morency/teaching/multimodal-ml-spring2024/",
+        desc: "Louis-Philippe Morency多模态ML，表示学习/对齐/融合/视觉语言/跨模态推理",
+        t: ["多模态", "对齐", "融合", "视觉语言"],
+        cat: "genai"
     }
 ];
 
-// AI Agents (NEW)
+// AI Agents
 const AGENTS_COURSES = [
     {
         n: "AI Agents and Agentic AI",
@@ -278,17 +291,6 @@ const AGENTS_COURSES = [
         cat: "agents"
     },
     {
-        n: "Function Calling & Tool Use",
-        i: "Google",
-        p: "Free",
-        d: 2,
-        h: 8,
-        u: "https://ai.google.dev/docs/function_calling",
-        desc: "LLM函数调用与工具使用教程",
-        t: ["函数调用", "工具使用", "API"],
-        cat: "agents"
-    },
-    {
         n: "Agentic Design Patterns",
         i: "DeepLearning.AI",
         p: "Coursera",
@@ -309,17 +311,6 @@ const AGENTS_COURSES = [
         desc: "Microsoft AutoGen多Agent对话框架",
         t: ["AutoGen", "多Agent", "对话"],
         cat: "agents"
-    },
-    {
-        n: "OpenAI Assistants API",
-        i: "OpenAI",
-        p: "Free",
-        d: 2,
-        h: 6,
-        u: "https://platform.openai.com/docs/assistants/overview",
-        desc: "OpenAI Assistants API：代码解释器/文件搜索/函数调用",
-        t: ["Assistants API", "代码解释器", "文件搜索"],
-        cat: "agents"
     }
 ];
 
@@ -334,17 +325,6 @@ const SAFETY_COURSES = [
         u: "https://www.coursera.org/learn/ai-ethics",
         desc: "AI伦理与社会挑战：价值对齐/控制问题",
         t: ["价值对齐", "控制问题", "偏见"],
-        cat: "safety"
-    },
-    {
-        n: "Fairness, Accountability, Transparency",
-        i: "Various",
-        p: "edX",
-        d: 3,
-        h: 30,
-        u: "https://www.edx.org/learn/artificial-intelligence",
-        desc: "AI公平性、问责制和透明度",
-        t: ["公平性", "可解释性", "审计"],
         cat: "safety"
     },
     {
@@ -370,46 +350,13 @@ const SAFETY_COURSES = [
         cat: "safety"
     },
     {
-        n: "Responsible AI Practices",
-        i: "Google",
-        p: "Free",
-        d: 2,
-        h: 10,
-        u: "https://ai.google/responsibility/responsible-ai-practices/",
-        desc: "Google负责任AI实践指南",
-        t: ["公平性", "隐私", "安全"],
-        cat: "safety"
-    },
-    {
-        n: "Machine Learning Security",
-        i: "Various",
-        p: "Free",
-        d: 4,
-        h: 30,
-        u: "https://mlsecurity.ai/",
-        desc: "ML安全：对抗攻击/模型窃取/数据投毒",
-        t: ["对抗攻击", "模型窃取", "数据投毒"],
-        cat: "safety"
-    },
-    {
-        n: "Red Teaming AI Systems",
-        i: "Various",
-        p: "Free",
-        d: 3,
-        h: 20,
-        u: "https://learnprompting.org/docs/hacking/red_teaming",
-        desc: "AI红队测试：越狱/提示注入/安全评估",
-        t: ["红队", "越狱", "提示注入"],
-        cat: "safety"
-    },
-    {
         n: "Interpretable Machine Learning",
-        i: "Various",
-        p: "Free",
+        i: "Christoph Molnar",
+        p: "Free Book",
         d: 3,
         h: 30,
         u: "https://christophm.github.io/interpretable-ml-book/",
-        desc: "可解释ML：SHAP/LIME/特征重要性",
+        desc: "可解释ML：SHAP/LIME/特征重要性/部分依赖图",
         t: ["SHAP", "LIME", "可解释性"],
         cat: "safety"
     }
@@ -426,17 +373,6 @@ const ROBOTICS_COURSES = [
         u: "https://web.stanford.edu/class/cs237b/",
         desc: "Bohg/Pavone/Sadigh教授，RL/操作/人机交互",
         t: ["强化学习", "模仿学习", "操作"],
-        cat: "robotics"
-    },
-    {
-        n: "6.800 Robotics: Science & Systems",
-        i: "MIT",
-        p: "MIT",
-        d: 4,
-        h: 90,
-        u: "https://ocw.mit.edu/courses/6-800-robotics-science-and-systems-fall-2022/",
-        desc: "MIT机器人学核心课程",
-        t: ["运动规划", "感知", "控制"],
         cat: "robotics"
     },
     {
@@ -472,37 +408,49 @@ const ROBOTICS_COURSES = [
         t: ["最优控制", "接触", "操作"],
         cat: "robotics"
     },
+    // === Top University Additions ===
     {
-        n: "ROS2 for Beginners",
-        i: "Various",
-        p: "Free",
-        d: 2,
-        h: 25,
-        u: "https://docs.ros.org/en/humble/Tutorials.html",
-        desc: "ROS2机器人操作系统入门教程",
-        t: ["ROS2", "节点", "话题"],
-        cat: "robotics"
-    },
-    {
-        n: "Sim-to-Real Robot Learning",
-        i: "Various",
-        p: "Free",
+        n: "6.800/6.821: Underactuated Robotics",
+        i: "MIT",
+        p: "MIT",
         d: 5,
-        h: 20,
-        u: "https://sites.google.com/view/sim2real-surveys",
-        desc: "仿真到真实迁移：域随机化/系统辨识",
-        t: ["Sim-to-Real", "域随机化", "迁移学习"],
+        h: 80,
+        u: "https://underactuated.csail.mit.edu/",
+        desc: "Russ Tedrake，非线性动力学/轨迹优化/MPC/腿式运动/Lyapunov分析，含完整视频",
+        t: ["轨迹优化", "MPC", "动力学", "控制"],
         cat: "robotics"
     },
     {
-        n: "Robot Manipulation",
-        i: "Various",
-        p: "Free",
+        n: "6.843: Robotic Manipulation",
+        i: "MIT",
+        p: "MIT",
         d: 4,
+        h: 60,
+        u: "http://manipulation.mit.edu",
+        desc: "Russ Tedrake机器人操作，运动学/动力学/规划/控制/感知/Sim-to-Real",
+        t: ["操作", "运动学", "Sim-to-Real"],
+        cat: "robotics"
+    },
+    {
+        n: "CS237A: Principles of Robot Autonomy",
+        i: "Stanford",
+        p: "Stanford",
+        d: 4,
+        h: 70,
+        u: "https://stanford-cs237a.github.io",
+        desc: "机器人感知/状态估计/运动规划/控制/自主决策",
+        t: ["感知", "状态估计", "运动规划", "自主"],
+        cat: "robotics"
+    },
+    {
+        n: "CS326: Advanced Robotic Manipulation",
+        i: "Stanford",
+        p: "Stanford",
+        d: 5,
         h: 30,
-        u: "https://manipulation.csail.mit.edu/",
-        desc: "Russ Tedrake机器人操作课程",
-        t: ["抓取", "操作", "运动规划"],
+        u: "https://cs326.stanford.edu",
+        desc: "Jeannette Bohg高级操作，抓取/接触丰富操作/学习基操作/触觉感知",
+        t: ["抓取", "接触操作", "学习基操作"],
         cat: "robotics"
     }
 ];
@@ -554,17 +502,6 @@ const SPEECH_COURSES = [
         cat: "speech"
     },
     {
-        n: "Audio Machine Learning",
-        i: "Various",
-        p: "Free",
-        d: 3,
-        h: 25,
-        u: "https://github.com/iver56/audiomentations",
-        desc: "音频ML数据增强与处理",
-        t: ["音频增强", "特征提取", "Mel频谱"],
-        cat: "speech"
-    },
-    {
         n: "Whisper & Open-Source ASR",
         i: "OpenAI / Hugging Face",
         p: "Free",
@@ -586,15 +523,16 @@ const SPEECH_COURSES = [
         t: ["语音克隆", "VITS", "TTS"],
         cat: "speech"
     },
+    // === Top University Addition ===
     {
-        n: "Speech Emotion Recognition",
-        i: "Various",
-        p: "Free",
-        d: 3,
-        h: 15,
-        u: "https://github.com/speechbrain/speechbrain",
-        desc: "语音情感识别与说话人识别",
-        t: ["情感识别", "说话人识别", "SpeechBrain"],
+        n: "6.345: Automatic Speech Recognition",
+        i: "MIT",
+        p: "MIT OCW",
+        d: 4,
+        h: 60,
+        u: "https://ocw.mit.edu/courses/6-345-automatic-speech-recognition-spring-2003/",
+        desc: "James Glass语音识别课程，HMM/声学建模/语言建模/解码/特征提取",
+        t: ["HMM", "声学建模", "解码", "特征提取"],
         cat: "speech"
     }
 ];
@@ -658,7 +596,7 @@ const INFRA_COURSES = [
     },
     {
         n: "Efficient ML Systems",
-        i: "Various",
+        i: "MIT",
         p: "Free",
         d: 4,
         h: 35,
@@ -711,26 +649,27 @@ const INFRA_COURSES = [
         t: ["Docker", "Kubernetes", "GPU集群"],
         cat: "infra"
     },
+    // === Top University Additions ===
     {
-        n: "Weights & Biases MLOps",
-        i: "W&B",
-        p: "Free",
-        d: 2,
-        h: 15,
-        u: "https://docs.wandb.ai/",
-        desc: "W&B实验追踪/超参搜索/模型管理",
-        t: ["W&B", "实验追踪", "超参搜索"],
+        n: "15-418/618: Parallel Computer Architecture",
+        i: "CMU",
+        p: "CMU",
+        d: 4,
+        h: 60,
+        u: "http://15418.courses.cs.cmu.edu/",
+        desc: "并行计算课程，SIMD/MIMD/GPU编程/MapReduce/同步/性能优化",
+        t: ["并行计算", "GPU编程", "CUDA", "性能优化"],
         cat: "infra"
     },
     {
-        n: "Triton Compiler for ML",
-        i: "OpenAI",
-        p: "Free",
-        d: 5,
-        h: 20,
-        u: "https://triton-lang.org/",
-        desc: "Triton GPU编程：自定义算子/高性能计算",
-        t: ["Triton", "GPU编程", "自定义算子"],
+        n: "CS149: Parallel Computing",
+        i: "Stanford",
+        p: "Stanford",
+        d: 3,
+        h: 60,
+        u: "https://cs149.stanford.edu",
+        desc: "Kunle Olukotun并行计算，共享内存/GPU编程/并行算法/异构计算",
+        t: ["并行架构", "GPU", "异构计算", "CUDA"],
         cat: "infra"
     }
 ];

@@ -104,17 +104,6 @@ const DL_COURSES = [
         cat: "dl"
     },
     {
-        n: "Practical PyTorch",
-        i: "DeepLearning.AI",
-        p: "Coursera",
-        d: 2,
-        h: 35,
-        u: "https://www.coursera.org/learn/deep-neural-networks-pytorch",
-        desc: "PyTorch深度学习实践",
-        t: ["PyTorch", "模型训练", "调试"],
-        cat: "dl"
-    },
-    {
         n: "CS224W ML with Graphs",
         i: "Stanford",
         p: "Stanford",
@@ -148,28 +137,6 @@ const DL_COURSES = [
         cat: "dl"
     },
     {
-        n: "Deep Learning on Graphs",
-        i: "Various",
-        p: "Free",
-        d: 4,
-        h: 25,
-        u: "https://cs224w.stanford.edu/",
-        desc: "图深度学习高级主题",
-        t: ["图Transformer", "异构图"],
-        cat: "dl"
-    },
-    {
-        n: "Deep Learning: Foundations & Applications",
-        i: "NPTEL / IIT",
-        p: "NPTEL",
-        d: 3,
-        h: 60,
-        u: "https://nptel.ac.in/courses/106106188",
-        desc: "IIT深度学习课程，理论与印度工程实践",
-        t: ["CNN", "RNN", "正则化"],
-        cat: "dl"
-    },
-    {
         n: "Dive into Deep Learning",
         i: "UC Berkeley / Amazon",
         p: "Free Book",
@@ -200,6 +167,62 @@ const DL_COURSES = [
         u: "https://course.fast.ai/Lessons/part2.html",
         desc: "fast.ai高级课程，从零实现Transformer/优化器",
         t: ["Transformer", "优化器", "从零实现"],
+        cat: "dl"
+    },
+    // === Top University Additions ===
+    {
+        n: "CS330: Deep Multi-Task and Meta Learning",
+        i: "Stanford",
+        p: "Stanford",
+        d: 4,
+        h: 50,
+        u: "https://cs330.stanford.edu",
+        desc: "Chelsea Finn元学习课程，MAML/Prototypical Networks/少样本学习/元RL",
+        t: ["元学习", "少样本", "MAML", "迁移学习"],
+        cat: "dl"
+    },
+    {
+        n: "CS 182: Designing Deep Neural Networks",
+        i: "UC Berkeley",
+        p: "Berkeley",
+        d: 3,
+        h: 60,
+        u: "https://cs182sp21.github.io/",
+        desc: "Sergey Levine深度学习课程，CNN/RNN/Transformer/VAE/GAN/可视化",
+        t: ["CNN", "Transformer", "VAE", "可视化"],
+        cat: "dl"
+    },
+    {
+        n: "CS 294-158: Deep Unsupervised Learning",
+        i: "UC Berkeley",
+        p: "Berkeley",
+        d: 5,
+        h: 50,
+        u: "https://sites.google.com/view/berkeley-cs294-158-sp20/",
+        desc: "Pieter Abbeel无监督学习，VAE/GAN/Flow/自回归/能量模型，含LeCun/Hinton客座",
+        t: ["VAE", "GAN", "Flow", "自监督"],
+        cat: "dl"
+    },
+    {
+        n: "10-707: Topics in Deep Learning",
+        i: "CMU",
+        p: "CMU",
+        d: 4,
+        h: 70,
+        u: "http://www.cs.cmu.edu/~rsalakhu/10707/",
+        desc: "Ruslan Salakhutdinov深度学习课程，CNN/RNN/生成模型/Transformer/深度RL",
+        t: ["CNN", "RNN", "生成模型", "Transformer"],
+        cat: "dl"
+    },
+    {
+        n: "10-708: Probabilistic Graphical Models",
+        i: "CMU",
+        p: "CMU",
+        d: 5,
+        h: 80,
+        u: "https://www.cs.cmu.edu/~epxing/Class/10708/",
+        desc: "Eric Xing概率图模型，贝叶斯网络/马尔可夫随机场/变分推断/MCMC/因果推断",
+        t: ["贝叶斯网络", "变分推断", "MCMC", "因果推断"],
         cat: "dl"
     }
 ];
