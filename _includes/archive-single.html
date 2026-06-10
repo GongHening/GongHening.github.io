@@ -32,11 +32,6 @@
         </div>
 
         <div class="archive__item-right">
-          {% if post.collection == 'Repositories' %}
-            {% if post.venue %}
-              <span class="archive__item-meta-item">🏫 {{ post.venue }}</span>
-            {% endif %}
-          {% endif %}
           {% if post.date %}
             <span class="archive__item-meta-item">🗓️ {{ post.date | date: "%Y.%m.%d" }}</span>
           {% endif %}

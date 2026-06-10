@@ -175,9 +175,6 @@ kramdown:
 
 # Collections
 collections:
-  Repositories:
-    output: true
-    permalink: /:collection/:path/
   Blogs:
     output: true
     permalink: /:collection/:path/
@@ -194,15 +191,6 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _Repositories
-  - scope:
-      path: ""
-      type: Repositories
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
   # _Blogs
   - scope:
       path: ""

@@ -3,8 +3,5 @@ main:
   - title: "Blogs"
     url: /Blogs/
 
-  - title: "Repositories"
-    url: /Repositories/
-
   - title: "Day"
     url: /day/
