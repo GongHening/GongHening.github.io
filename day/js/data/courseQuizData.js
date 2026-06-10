@@ -14155,4 +14155,144 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
         },
     },
 
+    /* ================================================================
+     * N. CS229: Machine Learning (Stanford)
+     *     Topics: supervised/unsupervised learning, linear regression,
+     *             logistic regression, SVM, kernel methods, learning theory
+     * ================================================================ */
+    "CS229: Machine Learning": {
+        courseId: "cs229-ml",
+        domain: "ml",
+        mid: {
+            choice: [
+                { id: "cs229-mid-c-1", question: "在监督学习中，线性回归模型的假设函数形式是？", options: ["h(x) = wx + b（输出连续值）", "h(x) = sigmoid(wx + b)", "h(x) = softmax(wx + b)", "h(x) = ReLU(wx + b)"], answer: 0, explanation: "线性回归的假设函数为 h(x) = wx + b（或 h_θ(x) = θ^T x），输出为连续实数值，用于回归问题。", difficulty: 1 },
+                { id: "cs229-mid-c-2", question: "逻辑回归中使用的激活函数是？", options: ["ReLU", "Sigmoid（S型函数）", "Tanh", "Softmax"], answer: 1, explanation: "逻辑回归使用 Sigmoid 函数 σ(z) = 1/(1+e^(-z)) 将线性组合映射到 (0,1) 区间，表示概率。", difficulty: 1 },
+                { id: "cs229-mid-c-3", question: "支持向量机（SVM）的目标是什么？", options: ["最小化训练误差", "最大化分类间隔（margin）", "最大化模型参数量", "最小化预测时间"], answer: 1, explanation: "SVM 的核心思想是找到一个超平面，使两类数据之间的间隔（margin）最大化，从而提高泛化能力。", difficulty: 1 },
+                { id: "cs229-mid-c-4", question: "以下哪种方法属于无监督学习？", options: ["线性回归", "逻辑回归", "K-均值聚类（K-Means）", "支持向量机"], answer: 2, explanation: "K-均值聚类是无监督学习算法，不需要标签数据，通过数据的内在结构将样本分为 K 个簇。", difficulty: 1 },
+                { id: "cs229-mid-c-5", question: "在正则化中，L1 正则化（Lasso）的一个重要特性是？", options: ["使所有参数都接近零", "产生稀疏解（部分参数精确为零）", "总是优于 L2 正则化", "不改变损失函数的凸性"], answer: 1, explanation: "L1 正则化通过在损失函数中加入参数绝对值之和，倾向于产生稀疏解，即某些参数被精确压缩为零，从而实现特征选择。", difficulty: 2 },
+                { id: "cs229-mid-c-6", question: "核方法（Kernel Methods）的主要优势是？", options: ["减少训练数据量", "隐式地将数据映射到高维空间进行线性分类", "自动选择特征", "降低模型复杂度"], answer: 1, explanation: "核方法通过核函数 K(x,z) = φ(x)^T φ(z) 隐式计算高维特征空间的内积，无需显式映射，使线性分类器能处理非线性问题。", difficulty: 2 },
+                { id: "cs229-mid-c-7", question: "在偏差-方差权衡（Bias-Variance Tradeoff）中，模型复杂度增加会导致？", options: ["偏差和方差都减小", "偏差减小、方差增大", "偏差增大、方差减小", "偏差和方差都增大"], answer: 1, explanation: "随着模型复杂度增加，模型能更好地拟合训练数据（偏差减小），但对训练数据的波动更敏感（方差增大）。", difficulty: 2 },
+                { id: "cs229-mid-c-8", question: "梯度下降中，学习率 α 过大可能导致什么问题？", options: ["收敛速度变慢", "模型欠拟合", "损失函数震荡甚至发散", "模型过拟合"], answer: 2, explanation: "学习率过大时，每次参数更新的步长过大，可能越过最优点，导致损失函数震荡甚至发散，无法收敛。", difficulty: 1 },
+                { id: "cs229-mid-c-9", question: "EM 算法（期望最大化）通常用于什么场景？", options: ["线性回归优化", "含有隐变量的概率模型参数估计", "图像分类任务", "文本情感分析"], answer: 1, explanation: "EM 算法用于含有隐变量（latent variables）的概率模型参数估计，通过交替执行 E 步（期望）和 M 步（最大化）来迭代优化。", difficulty: 3 },
+                { id: "cs229-mid-c-10", question: "以下关于 VC 维（Vapnik-Chervonenkis Dimension）的说法，正确的是？", options: ["VC 维衡量模型的训练误差", "VC 维是假设空间能够打散的最大样本数", "VC 维只适用于线性模型", "VC 维越大，泛化能力一定越好"], answer: 1, explanation: "VC 维定义为假设空间能够完全打散（shatter）的最大样本点数，它衡量假设空间的容量和复杂度，是学习理论中泛化界的重要组成部分。", difficulty: 3 }
+            ],
+            fill: [
+                { id: "cs229-mid-f-1", question: "线性回归中常用的损失函数是____损失（均方误差）。", answer: "最小二乘", explanation: "最小二乘法（Least Squares）通过最小化预测值与实际值之间差的平方和来求解模型参数。", difficulty: 1 },
+                { id: "cs229-mid-f-2", question: "逻辑回归中，模型输出的是事件发生的____。", answer: "概率", explanation: "逻辑回归的输出经过 Sigmoid 函数处理后表示正类的概率，即 P(y=1|x)。", difficulty: 1 },
+                { id: "cs229-mid-f-3", question: "在 SVM 中，决定分类决策边界的样本点被称为____向量。", answer: "支持", explanation: "支持向量（Support Vectors）是距离决策边界最近的样本点，它们直接决定了 SVM 的分类超平面。", difficulty: 1 },
+                { id: "cs229-mid-f-4", question: "K-均值聚类算法的优化目标是最小化各样本点到其所属____的距离之和。", answer: "簇中心", explanation: "K-Means 算法通过交替更新聚类分配和簇中心来最小化目标函数 J = Σ ||x^(i) - μ_c^(i)||^2，即各样本到其簇中心的距离平方和。", difficulty: 1 },
+                { id: "cs229-mid-f-5", question: "高斯核函数 K(x,z) = exp(-||x-z||^2/(2σ^2)) 也被称为____核。", answer: "径向基函数", explanation: "高斯核是径向基函数（RBF, Radial Basis Function）核的一种，它将数据映射到无穷维特征空间。", difficulty: 2 },
+                { id: "cs229-mid-f-6", question: "在学习理论中，泛化误差可以分解为____误差和方差两部分。", answer: "偏差", explanation: "偏差-方差分解是学习理论的核心概念，总误差 ≈ 偏差^2 + 方差 + 噪声，偏差衡量模型的拟合能力。", difficulty: 2 },
+                { id: "cs229-mid-f-7", question: "正则化通过在损失函数中添加参数的____项来防止过拟合。", answer: "惩罚", explanation: "正则化通过在原始损失函数中加入对模型参数的惩罚项（如 L1 或 L2 范数），约束模型复杂度，防止过拟合。", difficulty: 1 },
+                { id: "cs229-mid-f-8", question: "在生成学习中，贝叶斯分类器选择后验概率最大的类别，即 argmax P(y|x) = argmax P(x|y)P(y)/____。", answer: "P(x)", explanation: "根据贝叶斯定理 P(y|x) = P(x|y)P(y)/P(x)，由于 P(x) 对所有类别相同，决策时只需比较 P(x|y)P(y)。", difficulty: 2 },
+                { id: "cs229-mid-f-9", question: "在线性回归的正规方程解中，参数 θ = (X^T X)^{-1} X^T ____。", answer: "y", explanation: "正规方程（Normal Equation）为 θ = (X^T X)^{-1} X^T y，是令损失函数梯度为零得到的解析解。", difficulty: 2 },
+                { id: "cs229-mid-f-10", question: "非监督学习中的主成分分析（PCA）通过找到数据____最大的方向来降维。", answer: "方差", explanation: "PCA 通过寻找数据方差最大的正交方向（主成分）来实现降维，保留数据中最重要的变化信息。", difficulty: 2 }
+            ],
+            code: [
+                { id: "cs229-mid-code-1", question: "补全线性回归的梯度下降更新公式", code: "import numpy as np\n\ndef gradient_step(X, y, theta, learning_rate):\n    m = len(y)\n    predictions = X.dot(theta)\n    errors = predictions - y\n    gradient = (1/m) * X.T.dot(errors)\n    theta = ____\n    return theta", answer: "theta - learning_rate * gradient", explanation: "梯度下降的核心更新公式为 θ := θ - α·∇J(θ)，其中 α 为学习率，∇J(θ) 为损失函数对参数的梯度。", difficulty: 2 },
+                { id: "cs229-mid-code-2", question: "补全 Sigmoid 激活函数的实现", code: "import numpy as np\n\ndef sigmoid(z):\n    \"\"\"计算 Sigmoid 函数值\"\"\"\n    return ____", answer: "1 / (1 + np.exp(-z))", explanation: "Sigmoid 函数定义为 σ(z) = 1/(1+e^{-z})，将任意实数映射到 (0,1) 区间，是逻辑回归的核心激活函数。", difficulty: 1 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "cs229-fin-c-1", question: "在 SVM 的对偶问题中，拉格朗日乘子 α_i > 0 对应的样本是？", options: ["所有训练样本", "只有正确分类的样本", "支持向量", "远离决策边界的样本"], answer: 2, explanation: "在 SVM 对偶问题中，只有支持向量对应的拉格朗日乘子 α_i > 0，其他样本的 α_i = 0，不参与决策边界的构建。", difficulty: 2 },
+                { id: "cs229-fin-c-2", question: "软间隔 SVM 中，参数 C 越大意味着？", options: ["允许更多的分类错误", "对误分类的惩罚越重（间隔越硬）", "决策边界越平滑", "核函数的带宽越大"], answer: 1, explanation: "参数 C 控制对误分类样本的惩罚力度，C 越大对误分类的惩罚越重，倾向于得到更小的间隔但更少的误分类。", difficulty: 2 },
+                { id: "cs229-fin-c-3", question: "以下关于核技巧（Kernel Trick）的说法，哪个是正确的？", options: ["核技巧需要显式计算高维映射", "核技巧通过核函数直接计算高维空间的内积", "核技巧只能用于 SVM", "核技巧会增加计算复杂度到不可接受的程度"], answer: 1, explanation: "核技巧的核心在于通过核函数 K(x,z) 直接计算映射后高维空间的内积 φ(x)^Tφ(z)，而无需显式计算 φ(x) 和 φ(z)，大大降低了计算复杂度。", difficulty: 2 },
+                { id: "cs229-fin-c-4", question: "高斯混合模型（GMM）与 K-均值聚类的主要区别是？", options: ["GMM 只能处理二维数据", "GMM 假设每个簇服从高斯分布，允许椭圆形簇和软分配", "K-均值比 GMM 计算更快但更准确", "两者完全等价"], answer: 1, explanation: "GMM 假设数据由多个高斯分布混合生成，每个簇可以用椭圆形（协方差矩阵描述），且样本可以以概率方式属于多个簇（软分配），比 K-均值更灵活。", difficulty: 2 },
+                { id: "cs229-fin-c-5", question: "朴素贝叶斯分类器的"朴素"假设是指？", options: ["数据服从均匀分布", "各特征在给定类别下条件独立", "所有特征同等重要", "先验概率相同"], answer: 1, explanation: "朴素贝叶斯的核心假设是：在给定类别标签的条件下，各特征之间相互独立，即 P(x_1,...,x_n|y) = Π P(x_i|y)。", difficulty: 1 },
+                { id: "cs229-fin-c-6", question: "在决策树学习中，信息增益（Information Gain）基于哪个度量来选择分裂特征？", options: ["均方误差", "基尼不纯度", "熵（Entropy）的减少", "互信息的增加"], answer: 2, explanation: "信息增益基于信息论中的熵（Entropy），选择使分裂前后数据集熵减少最多的特征进行分裂。", difficulty: 2 },
+                { id: "cs229-fin-c-7", question: "Bagging（Bootstrap Aggregating）方法主要通过什么方式降低方差？", options: ["增加训练数据", "对多个模型的预测取平均", "增加单个模型的复杂度", "使用更复杂的特征"], answer: 1, explanation: "Bagging 通过自助采样（bootstrap）生成多个训练集，训练多个模型并对它们的预测取平均（回归）或投票（分类），有效降低方差。", difficulty: 2 },
+                { id: "cs229-fin-c-8", question: "在半监督学习中，自训练（Self-Training）的基本思路是？", options: ["只用无标签数据训练", "用少量标签数据训练后，对无标签数据预测并加入训练集迭代优化", "同时优化有标签和无标签数据的损失", "使用两个对抗网络互相训练"], answer: 1, explanation: "自训练先用有标签数据训练模型，然后用模型对无标签数据进行预测，将高置信度的预测结果加入训练集，反复迭代。", difficulty: 2 },
+                { id: "cs229-fin-c-9", question: "PAC 学习理论中，样本复杂度与 VC 维的关系是？", options: ["无关", "线性关系", "VC 维越大，所需样本量越多", "VC 维越大，所需样本量越少"], answer: 2, explanation: "PAC 学习理论表明，假设空间的 VC 维 d 越大，要达到给定的泛化误差界，所需的训练样本数 m 也越多（大致 m ∝ d/ε）。", difficulty: 3 },
+                { id: "cs229-fin-c-10", question: "异常检测（Anomaly Detection）中，高斯概率密度模型的核心假设是？", options: ["异常数据服从均匀分布", "正常数据可以用高斯分布建模，异常数据的概率密度很低", "异常和正常数据服从相同分布", "不需要任何分布假设"], answer: 1, explanation: "基于高斯分布的异常检测假设正常数据服从高斯分布，通过估计正常数据的概率密度，将概率密度低于阈值的样本判定为异常。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cs229-fin-f-1", question: "SVM 的原始优化问题中，目标函数包含间隔的____形式，即 1/2 ||w||^2。", answer: "范数平方", explanation: "SVM 的原始优化目标是最小化 1/2 ||w||^2，其中 ||w||^2 是权重向量的 L2 范数平方，等价于最大化间隔 2/||w||。", difficulty: 2 },
+                { id: "cs229-fin-f-2", question: "核函数必须满足____条件（Mercer 条件）才能保证对应的特征映射存在。", answer: "Mercer", explanation: "Mercer 条件要求核函数对应的核矩阵在任意样本集上都是半正定的，这是保证存在对应高维特征映射的充要条件。", difficulty: 3 },
+                { id: "cs229-fin-f-3", question: "逻辑回归的损失函数是____损失（交叉熵损失），而非均方误差损失。", answer: "对数", explanation: "逻辑回归使用对数损失（Log Loss / Cross-Entropy Loss），因为 Sigmoid 函数与均方误差组合会导致损失函数非凸，而对数损失保证了凸优化。", difficulty: 2 },
+                { id: "cs229-fin-f-4", question: "随机森林（Random Forest）在构建每棵树时，不仅对样本做 bootstrap 采样，还对____进行随机子集选择。", answer: "特征", explanation: "随机森林在每棵树的每个分裂节点处，随机选择一部分特征作为候选分裂特征，增加了树之间的多样性，进一步降低方差。", difficulty: 2 },
+                { id: "cs229-fin-f-5", question: "在期望最大化（EM）算法中，E 步计算隐变量的____，M 步最大化该期望对应的似然函数。", answer: "期望", explanation: "EM 算法交替执行两步：E 步基于当前参数估计计算隐变量的后验期望（即 Q 函数），M 步通过最大化 Q 函数更新参数。", difficulty: 2 },
+                { id: "cs229-fin-f-6", question: "在生成学习中，GDA（高斯判别分析）假设 P(x|y) 服从____分布。", answer: "多元高斯", explanation: "GDA（Gaussian Discriminant Analysis）假设在每个类别下，特征的条件分布 P(x|y) 服从多元高斯分布 N(μ_y, Σ)。", difficulty: 2 },
+                { id: "cs229-fin-f-7", question: "在学习理论中，假设空间 H 的____越小，泛化误差的上界越紧。", answer: "复杂度", explanation: "学习理论的泛化界通常包含假设空间复杂度（如 VC 维）项，复杂度越小，泛化误差的上界越紧（即泛化保证越好）。", difficulty: 3 },
+                { id: "cs229-fin-f-8", question: "Boosting 算法如 AdaBoost 通过调整____的权重来关注前一轮分类错误的样本。", answer: "样本", explanation: "AdaBoost 在每轮迭代中增加前一轮分类错误样本的权重，减少正确分类样本的权重，使后续弱分类器更关注难以分类的样本。", difficulty: 2 },
+                { id: "cs229-fin-f-9", question: "在正则化的线性回归（岭回归）中，L2 正则化等价于对参数施加____分布的先验。", answer: "高斯", explanation: "从贝叶斯角度看，L2 正则化等价于对模型参数施加均值为零的高斯先验，即参数的 MAP 估计等价于岭回归的解。", difficulty: 3 },
+                { id: "cs229-fin-f-10", question: "Isomap 等流形学习方法通过保持样本间的测地____来实现非线性降维。", answer: "距离", explanation: "Isomap 在保持数据流形结构的基础上，通过计算样本间的测地距离（沿流形表面的最短路径距离）来实现非线性降维。", difficulty: 3 }
+            ],
+            code: [
+                { id: "cs229-fin-code-1", question: "补全逻辑回归的交叉熵损失函数", code: "import numpy as np\n\ndef cross_entropy_loss(y_true, y_pred):\n    \"\"\"计算二元交叉熵损失\n    y_true: 真实标签 (0 或 1)\n    y_pred: 预测概率\n    \"\"\"\n    m = len(y_true)\n    loss = -(1/m) * np.sum(\n        y_true * np.log(____) + (1 - y_true) * np.log(1 - y_pred)\n    )\n    return loss", answer: "y_pred", explanation: "二元交叉熵损失函数为 L = -1/m Σ [y·log(ŷ) + (1-y)·log(1-ŷ)]，其中 ŷ 是模型预测为正类的概率。", difficulty: 2 },
+                { id: "cs229-fin-code-2", question: "补全 SVM 硬间隔的合页损失（Hinge Loss）计算", code: "import numpy as np\n\ndef hinge_loss(y_true, y_score):\n    \"\"\"计算合页损失\n    y_true: 真实标签 (-1 或 1)\n    y_score: y_true * (w^T x + b) 的值\n    \"\"\"\n    losses = np.maximum(0, ____)\n    return np.mean(losses)", answer: "1 - y_score", explanation: "合页损失定义为 max(0, 1 - y·f(x))，当 y·f(x) ≥ 1 时损失为 0（正确分类且在间隔外），否则损失随 y·f(x) 线性增长。", difficulty: 2 }
+            ]
+        }
+    },
+
+    /* ================================================================
+     * N+1. Machine Learning Specialization (DeepLearning.AI)
+     *     Topics: linear regression, logistic regression, neural networks,
+     *             recommender systems, decision trees
+     * ================================================================ */
+    "Machine Learning Specialization": {
+        courseId: "ml-spec-dlai",
+        domain: "ml",
+        mid: {
+            choice: [
+                { id: "mlspec-mid-c-1", question: "Andrew Ng 课程中，成本函数（Cost Function）J(w,b) 的作用是？", options: ["存储训练数据", "衡量模型预测值与真实值的偏差程度", "记录模型的参数数量", "控制学习率的大小"], answer: 1, explanation: "成本函数 J(w,b) 量化模型在训练数据上的表现，用于衡量预测值与真实值之间的差距，优化过程的目标是最小化成本函数。", difficulty: 1 },
+                { id: "mlspec-mid-c-2", question: "在多元线性回归中，假设函数的形式是？", options: ["h(x) = w1*x1", "h(x) = w1*x1 + w2*x2 + ... + wn*xn + b", "h(x) = w*x^2 + b", "h(x) = sigmoid(w*x)"], answer: 1, explanation: "多元线性回归的假设函数为 h(x) = w^T·x + b = Σ(w_i·x_i) + b，其中每个特征 x_i 都有对应的权重 w_i。", difficulty: 1 },
+                { id: "mlspec-mid-c-3", question: "特征缩放（Feature Scaling）的主要目的是？", options: ["增加特征的数量", "使不同尺度的特征具有可比性，加速梯度下降收敛", "减少训练数据量", "增加模型的非线性能力"], answer: 1, explanation: "特征缩放将不同范围的特征归一化到相近的尺度（如 [0,1] 或 [-1,1]），使梯度下降能更快、更稳定地收敛。", difficulty: 1 },
+                { id: "mlspec-mid-c-4", question: "逻辑回归中，决策边界（Decision Boundary）由什么决定？", options: ["训练数据的形状", "假设函数 h(x) ≥ 0.5 时的分界", "学习率的大小", "正则化参数"], answer: 1, explanation: "逻辑回归的决策边界是使 h(x) = 0.5 的分界线/面，即 w^T·x + b = 0 的超平面，将空间分为正类和负类两个区域。", difficulty: 1 },
+                { id: "mlspec-mid-c-5", question: "在神经网络中，隐藏层（Hidden Layer）的作用是？", options: ["直接输出最终预测", "从原始输入中学习中间特征表示", "存储训练数据", "替换激活函数"], answer: 1, explanation: "隐藏层通过非线性变换从原始输入中提取高阶特征表示，这是神经网络能够学习复杂模式的关键。", difficulty: 1 },
+                { id: "mlspec-mid-c-6", question: "过拟合（Overfitting）的典型表现是？", options: ["训练集和测试集表现都很差", "训练集表现好但测试集表现差", "训练集表现差但测试集表现好", "训练集和测试集表现都很好"], answer: 1, explanation: "过拟合是指模型在训练数据上学到了噪声和细节，导致在训练集上表现优秀但在未见过的测试数据上泛化能力差。", difficulty: 1 },
+                { id: "mlspec-mid-c-7", question: "学习率 α 的选择对梯度下降有什么影响？", options: ["α 越大训练越快，不需要调整", "α 过大会导致不收敛，α 过小会导致收敛慢", "α 只影响训练时间，不影响结果", "α 的选择不重要"], answer: 1, explanation: "学习率过大可能导致损失函数震荡甚至发散；学习率过小则收敛速度很慢。选择合适的学习率是优化的关键。", difficulty: 1 },
+                { id: "mlspec-mid-c-8", question: "在监督学习中，"标签"（Label）指的是？", options: ["输入特征", "模型参数", "训练数据中的正确答案（目标值）", "损失函数的值"], answer: 2, explanation: "标签是训练数据中每个样本对应的正确答案或目标值，模型的目标是学习从输入特征到标签的映射关系。", difficulty: 1 },
+                { id: "mlspec-mid-c-9", question: "以下哪种情况最可能发生欠拟合（Underfitting）？", options: ["模型过于复杂，训练集表现很好", "模型过于简单，无法捕捉数据中的规律", "训练数据量太大", "特征太多"], answer: 1, explanation: "欠拟合发生在模型过于简单时，无法学习到数据中的潜在规律，导致训练集和测试集表现都很差。", difficulty: 1 },
+                { id: "mlspec-mid-c-10", question: "正则化参数 λ（lambda）增大时，模型倾向于？", options: ["更复杂，更好地拟合训练数据", "更简单，参数值更小", "增加过拟合风险", "忽略正则化项"], answer: 1, explanation: "λ 增大意味着对参数大小的惩罚加重，模型参数会趋向于更小的值，模型变得更简单，有助于减少过拟合但可能增加偏差。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "mlspec-mid-f-1", question: "线性回归中，批量梯度下降（Batch Gradient Descent）在每次更新时使用____数据来计算梯度。", answer: "全部", explanation: "批量梯度下降在每次参数更新时使用全部训练样本来计算梯度，保证了收敛的稳定性但计算成本较高。", difficulty: 1 },
+                { id: "mlspec-mid-f-2", question: "逻辑回归将线性函数的输出通过____函数转换为概率值。", answer: "Sigmoid", explanation: "Sigmoid 函数 σ(z) = 1/(1+e^{-z}) 将任意实数压缩到 (0,1) 区间，使输出可解释为正类的概率。", difficulty: 1 },
+                { id: "mlspec-mid-f-3", question: "神经网络中，常见的激活函数包括 Sigmoid、____和 ReLU。", answer: "Tanh", explanation: "Tanh（双曲正切）函数将输出映射到 (-1,1) 区间，是介于 Sigmoid 和 ReLU 之间的常用激活函数。", difficulty: 1 },
+                { id: "mlspec-mid-f-4", question: "均方误差（MSE）损失函数的公式为 (1/2m)Σ(____)^2。", answer: "预测值-真实值", explanation: "MSE = (1/2m) Σ (ŷ - y)^2，其中 ŷ 是预测值，y 是真实值，m 是样本数，系数 1/2 便于求导。", difficulty: 1 },
+                { id: "mlspec-mid-f-5", question: "在梯度下降中，参数更新公式为 w := w - α * ____J(w,b)。", answer: "偏导数", explanation: "梯度下降的核心是沿成本函数梯度的反方向更新参数，其中 α 是学习率，∂J/∂w 是成本函数对参数的偏导数。", difficulty: 1 },
+                { id: "mlspec-mid-f-6", question: "正则化通过在成本函数中添加 λΣw^2 项来惩罚过大的____值。", answer: "参数", explanation: "L2 正则化通过惩罚参数的平方和，促使模型学习较小的权重值，降低模型复杂度，从而减少过拟合。", difficulty: 1 },
+                { id: "mlspec-mid-f-7", question: "交叉验证（Cross-Validation）常用于更可靠地评估模型的____性能。", answer: "泛化", explanation: "交叉验证通过将数据分成多个子集轮流作为验证集，更可靠地估计模型在未见数据上的泛化能力。", difficulty: 2 },
+                { id: "mlspec-mid-f-8", question: "在神经网络中，反向传播算法利用____法则高效计算各层参数的梯度。", answer: "链式", explanation: "反向传播利用微积分的链式法则（Chain Rule），从输出层到输入层逐层计算损失函数对各参数的梯度。", difficulty: 2 },
+                { id: "mlspec-mid-f-9", question: "随机梯度下降（SGD）每次更新只使用一个____来计算梯度。", answer: "样本", explanation: "SGD 每次随机选取一个样本计算梯度并更新参数，计算速度快但更新方向有噪声，需要适当的学习率调度。", difficulty: 1 },
+                { id: "mlspec-mid-f-10", question: "偏差（Bias）反映的是模型的____能力，偏差高意味着欠拟合。", answer: "拟合", explanation: "偏差衡量模型在训练数据上的拟合能力，高偏差意味着模型过于简单，无法捕捉数据中的真实关系，导致欠拟合。", difficulty: 2 }
+            ],
+            code: [
+                { id: "mlspec-mid-code-1", question: "补全线性回归的成本函数实现", code: "import numpy as np\n\ndef compute_cost(X, y, w, b):\n    m = len(y)\n    predictions = X @ w + b\n    cost = (1 / (2 * m)) * np.sum(____)\n    return cost", answer: "(predictions - y) ** 2", explanation: "均方误差成本函数 J(w,b) = (1/2m) Σ(ŷ-y)^2，其中 ŷ = X·w + b 是模型预测值。使用 ** 2 对每个元素求平方后求和。", difficulty: 1 },
+                { id: "mlspec-mid-code-2", question: "补全 Sigmoid 函数的实现", code: "import numpy as np\n\ndef sigmoid(z):\n    \"\"\"Sigmoid 激活函数\"\"\"\n    g = ____\n    return g", answer: "1 / (1 + np.exp(-z))", explanation: "Sigmoid 函数 σ(z) = 1/(1+e^{-z})，是逻辑回归和神经网络中常用的激活函数，输出范围为 (0,1)。", difficulty: 1 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "mlspec-fin-c-1", question: "在推荐系统中，协同过滤（Collaborative Filtering）的核心思想是？", options: ["基于内容相似性推荐", "基于用户-物品交互矩阵，发现相似用户或物品的偏好", "随机推荐热门物品", "基于物品的价格推荐"], answer: 1, explanation: "协同过滤通过分析用户-物品交互数据，找到行为相似的用户（用户协同过滤）或被相同用户喜欢的物品（物品协同过滤），从而做出推荐。", difficulty: 2 },
+                { id: "mlspec-fin-c-2", question: "决策树中，基尼不纯度（Gini Impurity）为 0 表示什么？", options: ["数据完全随机", "节点中所有样本属于同一类别", "节点为空", "特征没有区分能力"], answer: 1, explanation: "基尼不纯度为 0 意味着该节点中的所有样本都属于同一个类别，即该节点是"纯净的"，不需要进一步分裂。", difficulty: 2 },
+                { id: "mlspec-fin-c-3", question: "深度学习中，批量归一化（Batch Normalization）的主要作用是？", options: ["增加模型参数", "加速训练并稳定网络的内部协变量偏移", "减少训练数据量", "替代激活函数"], answer: 1, explanation: "批量归一化通过对每层的输入进行标准化处理，缓解内部协变量偏移（Internal Covariate Shift），使训练更快更稳定。", difficulty: 2 },
+                { id: "mlspec-fin-c-4", question: "Dropout 正则化在训练过程中如何工作？", options: ["删除整个网络层", "随机将一部分神经元的输出设为零", "增加神经元的数量", "固定所有参数不更新"], answer: 1, explanation: "Dropout 在每次训练迭代中随机"丢弃"（置零）一定比例的神经元输出，防止神经元之间产生过强的共适应，从而起到正则化效果。", difficulty: 2 },
+                { id: "mlspec-fin-c-5", question: "在决策树的剪枝（Pruning）中，预剪枝和后剪枝的区别是？", options: ["没有区别", "预剪枝在构建时限制生长，后剪枝在完整生长后剪去子树", "预剪枝效果更好", "后剪枝不需要验证集"], answer: 1, explanation: "预剪枝在树的构建过程中通过限制深度、最小样本数等提前停止生长；后剪枝先生成完整的树，再自底向上剪去对验证集没有改善的子树。", difficulty: 2 },
+                { id: "mlspec-fin-c-6", question: "神经网络中，ReLU 激活函数相比于 Sigmoid 的主要优势是？", options: ["输出范围更大", "缓解梯度消失问题，计算更高效", "总是产生更好的结果", "不需要计算梯度"], answer: 1, explanation: "ReLU 在正区间梯度恒为 1，有效缓解了 Sigmoid 在深层网络中的梯度消失问题，且计算只需判断是否大于零，效率更高。", difficulty: 2 },
+                { id: "mlspec-fin-c-7", question: "在推荐系统的矩阵分解中，将用户-物品评分矩阵分解为用户特征矩阵和物品特征矩阵的目的是？", options: ["增加数据稀疏性", "发现潜在的用户偏好和物品属性的低维表示", "减少物品数量", "增加评分数"], answer: 1, explanation: "矩阵分解将稀疏的高维评分矩阵分解为低维的用户特征矩阵和物品特征矩阵（潜在因子），捕捉用户偏好和物品属性之间的隐藏关系。", difficulty: 2 },
+                { id: "mlspec-fin-c-8", question: "多分类问题中，Softmax 函数的作用是？", options: ["将输出转换为二元概率", "将 K 个类别的得分转换为概率分布", "选择最大的得分", "计算损失"], answer: 1, explanation: "Softmax 函数将 K 维得分向量转换为概率分布，使所有类别的概率之和为 1，每个类别的概率为 e^{z_i} / Σe^{z_j}。", difficulty: 1 },
+                { id: "mlspec-fin-c-9", question: "Adam 优化器结合了哪两种优化方法的优点？", options: ["SGD 和批量梯度下降", "Momentum（动量）和 RMSprop（自适应学习率）", "遗传算法和模拟退火", "L1 和 L2 正则化"], answer: 1, explanation: "Adam 优化器结合了 Momentum（利用历史梯度的指数移动平均加速收敛）和 RMSprop（自适应调整每个参数的学习率）的优点。", difficulty: 2 },
+                { id: "mlspec-fin-c-10", question: "XGBoost 等梯度提升决策树（GBDT）的核心思想是？", options: ["并行训练多棵树取平均", "顺序训练每棵树来纠正前面所有树的残差", "随机选择特征分裂", "使用单棵深树"], answer: 1, explanation: "GBDT 通过顺序添加弱学习器（决策树），每棵新树拟合前面所有树预测的残差（负梯度），逐步提升整体模型性能。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "mlspec-fin-f-1", question: "在神经网络中，前向传播（Forward Propagation）是从____层到输出层逐层计算输出的过程。", answer: "输入", explanation: "前向传播从输入层开始，逐层经过各隐藏层的线性变换和激活函数计算，最终得到输出层的预测值。", difficulty: 1 },
+                { id: "mlspec-fin-f-2", question: "决策树选择最优分裂特征时，信息增益基于____熵的减少量。", answer: "信息", explanation: "信息增益 = 父节点信息熵 - 子节点加权信息熵之和，选择信息增益最大的特征进行分裂。", difficulty: 2 },
+                { id: "mlspec-fin-f-3", question: "在推荐系统中，基于内容的推荐通过计算用户画像和物品____之间的相似度来推荐。", answer: "特征", explanation: "基于内容的推荐通过分析物品的内容特征（如标签、类别、描述）和用户偏好画像之间的匹配程度进行推荐。", difficulty: 2 },
+                { id: "mlspec-fin-f-4", question: "神经网络中的权重初始化应避免将所有权重设为相同的值，否则会导致____问题。", answer: "对称", explanation: "如果所有权重相同，同一层的所有神经元将计算相同的输出，反向传播时梯度也相同，导致所有参数更新一致，网络无法学习有用的特征。", difficulty: 2 },
+                { id: "mlspec-fin-f-5", question: "小批量梯度下降（Mini-batch Gradient Descent）中，每次更新使用 b 个样本，b 通常选择 2 的____次幂。", answer: "整数", explanation: "Mini-batch 的大小通常选择 2 的整数次幂（如 32、64、128、256），以更好地利用 GPU 的内存对齐和并行计算能力。", difficulty: 2 },
+                { id: "mlspec-fin-f-6", question: "在决策树中，叶节点的预测值通常是该节点中训练样本目标值的____。", answer: "平均", explanation: "对于回归问题，叶节点预测值为节点内所有样本目标值的平均值；对于分类问题，通常是多数类的类别。", difficulty: 2 },
+                { id: "mlspec-fin-f-7", question: "神经网络中，梯度消失问题在使用 Sigmoid 激活函数的____网络中尤为严重。", answer: "深层", explanation: "Sigmoid 函数的导数最大值为 0.25，在深层网络中多层连乘会导致梯度指数级衰减，使浅层参数几乎无法更新。", difficulty: 2 },
+                { id: "mlspec-fin-f-8", question: "在监督学习中，我们通常将数据集分为训练集、验证集和____集三部分。", answer: "测试", explanation: "训练集用于模型学习，验证集用于调参和模型选择，测试集用于最终评估模型的泛化性能，三者应互不重叠。", difficulty: 1 },
+                { id: "mlspec-fin-f-9", question: "决策树的深度越深，模型的方差越____，越容易过拟合。", answer: "大", explanation: "深决策树可以将训练数据分割得非常精细，模型变得复杂且方差增大，对训练数据的噪声过度拟合，泛化能力下降。", difficulty: 2 },
+                { id: "mlspec-fin-f-10", question: "在神经网络中，损失函数的选择取决于任务类型，回归任务常用均方误差，分类任务常用交叉____损失。", answer: "熵", explanation: "交叉熵损失衡量真实分布和预测分布之间的差异，在分类任务中与 Softmax 或 Sigmoid 输出配合使用，梯度性质良好。", difficulty: 1 }
+            ],
+            code: [
+                { id: "mlspec-fin-code-1", question: "补全决策树信息增益的计算", code: "import numpy as np\n\ndef information_gain(y, left_y, right_y):\n    \"\"\"计算分裂的信息增益\"\"\"\n    m = len(y)\n    # 父节点熵\n    parent_entropy = compute_entropy(y)\n    # 子节点加权熵\n    child_entropy = (len(left_y)/m) * compute_entropy(left_y) \\\n                  + (len(right_y)/m) * ____\n    return parent_entropy - child_entropy", answer: "compute_entropy(right_y)", explanation: "信息增益 = 父节点熵 - 子节点加权熵。右子节点的加权熵 = (右子节点样本数/总样本数) * compute_entropy(right_y)。", difficulty: 2 },
+                { id: "mlspec-fin-code-2", question: "补全 Softmax 函数的实现", code: "import numpy as np\n\ndef softmax(z):\n    \"\"\"计算 Softmax 激活\n    z: K 维得分向量\n    返回: K 维概率分布\n    \"\"\"\n    exp_z = np.exp(z - np.max(z))  # 数值稳定\n    return ____", answer: "exp_z / np.sum(exp_z)", explanation: "Softmax 将得分向量转换为概率分布：softmax(z_i) = e^{z_i} / Σe^{z_j}。先减去最大值避免数值溢出，然后除以指数和进行归一化。", difficulty: 2 }
+            ]
+        }
+    },
+
 };
