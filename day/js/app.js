@@ -100,6 +100,11 @@ const App = {
 
         // Initialize notes modal
         NotesModal.init();
+
+        // Initialize learning path wizard
+        if (typeof Wizard !== 'undefined') {
+            Wizard.init();
+        }
     },
 
     /**

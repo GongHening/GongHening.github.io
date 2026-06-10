@@ -95,7 +95,7 @@ layout: none
                 <p class="hero-subtitle">汇聚全球顶尖学府的 AI 课程，涵盖 13 个核心领域。从入门到前沿研究，系统构建你的知识体系。</p>
                 <div class="hero-actions">
                     <a href="#courses" class="btn btn-primary">浏览全部课程</a>
-                    <a href="#paths" class="btn btn-secondary">探索学习路径</a>
+                    <button class="btn btn-secondary btn-wizard" data-wizard-trigger>🎯 AI 学习路径测评</button>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
@@ -245,6 +245,7 @@ layout: none
                     <div class="section-eyebrow">学习路径</div>
                     <h2 class="section-title">系统化学习路线</h2>
                     <p class="section-subtitle">根据你的目标，选择最适合的学习路径</p>
+                    <button class="btn btn-primary" data-wizard-trigger style="margin-top: 1rem;">🎯 不确定选哪个？试试 AI 路径测评</button>
                 </div>
                 <div class="paths-grid">
                     <div class="path-card">
@@ -379,6 +380,28 @@ layout: none
         </footer>
     </main>
 
+    <!-- AI Learning Path Wizard Modal -->
+    <div class="wizard-overlay" id="wizardOverlay">
+        <div class="wizard-modal">
+            <div class="wizard-header">
+                <div class="wizard-progress-wrapper">
+                    <div class="wizard-progress-bar">
+                        <div class="wizard-progress-fill" id="wizardProgressFill"></div>
+                    </div>
+                    <div class="wizard-progress-text" id="wizardProgressText">准备开始</div>
+                </div>
+                <button class="wizard-close" id="wizardClose" title="关闭">✕</button>
+            </div>
+            <div class="wizard-body" id="wizardBody">
+                <!-- Dynamic content rendered by Wizard component -->
+            </div>
+            <div class="wizard-footer">
+                <button class="btn btn-secondary" id="wizardPrev" style="visibility: hidden;">← 上一步</button>
+                <button class="btn btn-primary" id="wizardNext">开始测评 →</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Notes Modal -->
     <div class="notes-modal-overlay" id="notesModalOverlay">
         <div class="notes-modal">
@@ -423,6 +446,8 @@ layout: none
     <script src="js/components/filters.js"></script>
     <script src="js/components/courseCard.js"></script>
     <script src="js/components/hero.js"></script>
+    <script src="js/data/wizardQuestions.js"></script>
+    <script src="js/components/wizard.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/app.js"></script>
 </body>
