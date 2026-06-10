@@ -15,9 +15,9 @@ redirect_from:
     <title>中文页面</title>
     <style>
         .lang-btn {
-            background-color: #f5f5f7;
-            border: 1px solid #d2d2d7;
-            color: #1d1d1f;
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            color: #1a1a2e;
             padding: 12px 28px;
             text-align: center;
             text-decoration: none;
@@ -29,15 +29,15 @@ redirect_from:
             transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
         .lang-btn:hover {
-            background-color: #0071e3;
+            background-color: #2563eb;
             color: #fff;
-            border-color: #0071e3;
+            border-color: #2563eb;
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
         .lang-btn:active {
             transform: translateY(0);
-            box-shadow: 0 2px 6px rgba(0, 113, 227, 0.2);
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
         }
     </style>
 </head>

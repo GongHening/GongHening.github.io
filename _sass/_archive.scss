@@ -17,21 +17,25 @@
 
   .page__title {
     padding-bottom: 0.6em;
-    border-bottom: 2px solid #d2d2d7;
-    margin-bottom: 1.25em;
+    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 1.5em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   /* Italic subtitle text on archive pages */
   > p:first-of-type em {
-    color: #86868b;
-    font-size: 1.05em;
+    color: #6b7280;
+    font-size: 1em;
     display: block;
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
+    font-style: italic;
+    letter-spacing: 0.01em;
   }
 
   a {
     text-decoration: none;
-    color: #0071e3;
+    color: #2563eb;
 
     &:hover {
       text-decoration: underline;
@@ -47,35 +51,15 @@
   margin: 1.414em 0 0;
   padding-bottom: 0.5em;
   font-size: $type-size-5;
-  color: #86868b;
-  border-bottom: 1px solid #d2d2d7;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
 
   + .list__item .archive__item-title {
     margin-top: 0.5em;
   }
 }
 
-.archive__item-title {
-  margin-bottom: 0.25em;
-  font-family: $sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-
-  a {
-    color: #1d1d1f;
-    text-decoration: none;
-
-    &:hover {
-      color: #0071e3;
-    }
-  }
-
-  a + a {
-    opacity: 0.5;
-  }
-}
-
-/* remove border*/
+/* remove border */
 .page__content {
 
   .archive__item-title {
@@ -104,51 +88,172 @@
 .archive__item:hover {
   .archive__item-teaser {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    -webkit-transform: translateY(-2px);
-            transform: translateY(-2px);
-  }
-
-  .archive__item-title {
-    color: #0071e3;
+    transform: translateY(-2px);
   }
 }
 
 
 /*
-   List view
+   List view — unified card design
    ========================================================================== */
 
 .list__item {
   margin-bottom: 1em;
-  padding: 1em 2em;
+  opacity: 0;
+  animation: cardEntrance 0.5s ease forwards;
+
+  @for $i from 1 through 20 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.08}s;
+    }
+  }
+}
+
+.archive__item {
+  position: relative;
+  display: flex;
   background: #fff;
-  border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  -webkit-transition: $global-transition;
-          transition: $global-transition;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  overflow: hidden;
 
   &:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    -webkit-transform: translateY(-2px);
-            transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+    border-color: rgba(0, 0, 0, 0.08);
+
+    .archive__item-accent {
+      transform: scaleY(1.05);
+    }
+
+    .archive__item-title a {
+      color: #2563eb;
+    }
+  }
+}
+
+/* Accent bar — left side color indicator */
+.archive__item-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #2563eb;
+  transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform-origin: center;
+}
+
+/* Collection-specific accent colors */
+.archive__item[data-collection="Notes"] .archive__item-accent {
+  background: linear-gradient(180deg, #2563eb, #3b82f6);
+}
+
+.archive__item[data-collection="Repositories"] .archive__item-accent {
+  background: linear-gradient(180deg, #059669, #10b981);
+}
+
+.archive__item[data-collection="Blogs"] .archive__item-accent {
+  background: linear-gradient(180deg, #d97706, #f59e0b);
+}
+
+/* Card body */
+.archive__item-body {
+  flex: 1;
+  padding: 1.25em 1.5em 1.25em 1.75em;
+  min-width: 0;
+}
+
+/* Card header with title and year badge */
+.archive__item-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 0.5em;
+}
+
+.archive__item-title {
+  margin: 0;
+  font-family: $sans-serif;
+  font-size: 1.1em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  flex: 1;
+  min-width: 0;
+
+  a {
+    color: #1a1a2e;
+    text-decoration: none;
+    transition: color 0.25s ease;
+
+    &:hover {
+      color: #2563eb;
+      text-decoration: none;
+    }
   }
 
-  @include breakpoint($medium) {
-    padding-right: $right-sidebar-width-narrow;
+  a + a {
+    opacity: 0.4;
+    margin-left: 0.5em;
+    font-size: 0.8em;
   }
+}
 
-  @include breakpoint($large) {
-    padding-right: $right-sidebar-width;
-  }
+/* Year badge */
+.archive__item-year {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2em 0.65em;
+  font-family: $sans-serif;
+  font-size: 0.75em;
+  font-weight: 600;
+  color: #6b7280;
+  background: #f3f4f6;
+  border-radius: 8px;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
 
-  @include breakpoint($x-large) {
-    padding-right: $right-sidebar-width-wide;
-  }
+/* Description text */
+.archive__item-description {
+  margin: 0 0 0.75em;
+  font-size: 0.9em;
+  line-height: 1.65;
+  color: #6b7280;
 
-  .page__meta {
-    margin: 0 0 4px;
+  p {
+    margin: 0;
   }
+}
+
+/* Meta information row */
+.archive__item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  font-family: $sans-serif;
+  font-size: 0.8em;
+  color: #9ca3af;
+
+  i {
+    color: #9ca3af;
+    font-size: 0.85em;
+    margin-right: 0.15em;
+  }
+}
+
+.archive__item-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  white-space: nowrap;
 }
 
 
@@ -160,16 +265,14 @@
   margin-bottom: 2em;
   padding: 1.25em;
   background: #fff;
-  border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  -webkit-transition: $global-transition;
-          transition: $global-transition;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: $global-transition;
 
   &:hover {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    -webkit-transform: translateY(-3px);
-            transform: translateY(-3px);
+    transform: translateY(-3px);
   }
 
   .page__meta {
@@ -193,8 +296,8 @@
   }
 
   @include breakpoint($medium) {
-    margin-left: 0; /* reset before mixin does its thing*/
-    margin-right: 0; /* reset before mixin does its thing*/
+    margin-left: 0;
+    margin-right: 0;
     @include gallery(2.5 of 10);
 
     .archive__item-teaser {
@@ -216,7 +319,7 @@
 .feature__wrapper {
   @include clearfix();
   margin-bottom: 2em;
-  border-bottom: 1px solid #d2d2d7;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .feature__item {
@@ -298,5 +401,21 @@
         width: span(7 of 12);
       }
     }
+  }
+}
+
+
+/*
+   Card entrance animation
+   ========================================================================== */
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
