@@ -13,23 +13,18 @@
  * @returns {Array} Complete array of all courses
  */
 function getAllCourses() {
-    // This function aggregates courses from all domain files
-    // Each domain file defines a constant like ML_COURSES, DL_COURSES, etc.
     const allCourses = [];
 
-    // Check if each domain's courses are defined and add them
     if (typeof ML_COURSES !== 'undefined') allCourses.push(...ML_COURSES);
     if (typeof DL_COURSES !== 'undefined') allCourses.push(...DL_COURSES);
     if (typeof NLP_COURSES !== 'undefined') allCourses.push(...NLP_COURSES);
     if (typeof CV_COURSES !== 'undefined') allCourses.push(...CV_COURSES);
     if (typeof RL_COURSES !== 'undefined') allCourses.push(...RL_COURSES);
     if (typeof GENAI_COURSES !== 'undefined') allCourses.push(...GENAI_COURSES);
+    if (typeof AGENTS_COURSES !== 'undefined') allCourses.push(...AGENTS_COURSES);
     if (typeof SAFETY_COURSES !== 'undefined') allCourses.push(...SAFETY_COURSES);
     if (typeof ROBOTICS_COURSES !== 'undefined') allCourses.push(...ROBOTICS_COURSES);
     if (typeof SPEECH_COURSES !== 'undefined') allCourses.push(...SPEECH_COURSES);
-    if (typeof TIMESERIES_COURSES !== 'undefined') allCourses.push(...TIMESERIES_COURSES);
-    if (typeof GNN_COURSES !== 'undefined') allCourses.push(...GNN_COURSES);
-    if (typeof MULTIMODAL_COURSES !== 'undefined') allCourses.push(...MULTIMODAL_COURSES);
     if (typeof INFRA_COURSES !== 'undefined') allCourses.push(...INFRA_COURSES);
 
     return allCourses;
@@ -48,12 +43,10 @@ function getCoursesByDomain(domainId) {
         'cv': typeof CV_COURSES !== 'undefined' ? CV_COURSES : [],
         'rl': typeof RL_COURSES !== 'undefined' ? RL_COURSES : [],
         'genai': typeof GENAI_COURSES !== 'undefined' ? GENAI_COURSES : [],
+        'agents': typeof AGENTS_COURSES !== 'undefined' ? AGENTS_COURSES : [],
         'safety': typeof SAFETY_COURSES !== 'undefined' ? SAFETY_COURSES : [],
         'robotics': typeof ROBOTICS_COURSES !== 'undefined' ? ROBOTICS_COURSES : [],
         'speech': typeof SPEECH_COURSES !== 'undefined' ? SPEECH_COURSES : [],
-        'timeseries': typeof TIMESERIES_COURSES !== 'undefined' ? TIMESERIES_COURSES : [],
-        'gnn': typeof GNN_COURSES !== 'undefined' ? GNN_COURSES : [],
-        'multimodal': typeof MULTIMODAL_COURSES !== 'undefined' ? MULTIMODAL_COURSES : [],
         'infra': typeof INFRA_COURSES !== 'undefined' ? INFRA_COURSES : []
     };
 

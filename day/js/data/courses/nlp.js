@@ -102,5 +102,82 @@ const NLP_COURSES = [
         desc: "信息检索与搜索，倒排索引和排序",
         t: ["搜索引擎", "PageRank", "向量空间模型"],
         cat: "nlp"
+    },
+    {
+        n: "LLMOps: Building LLM-Powered Apps",
+        i: "DeepLearning.AI",
+        p: "Coursera",
+        d: 2,
+        h: 12,
+        u: "https://www.coursera.org/learn/large-language-model-operations-llmops",
+        desc: "LLM应用开发全流程：评估/监控/迭代",
+        t: ["LLMOps", "评估", "应用开发"],
+        cat: "nlp"
+    },
+    {
+        n: "LangChain for LLM Application Development",
+        i: "DeepLearning.AI",
+        p: "Coursera",
+        d: 2,
+        h: 8,
+        u: "https://www.coursera.org/learn/langchain",
+        desc: "LangChain框架：记忆/检索/链式调用",
+        t: ["LangChain", "RAG", "记忆"],
+        cat: "nlp"
+    },
+    {
+        n: "Building RAG Agents with LLMs",
+        i: "DeepLearning.AI",
+        p: "Coursera",
+        d: 3,
+        h: 10,
+        u: "https://www.coursera.org/learn/building-agentic-rag-with-llms",
+        desc: "用LLM构建检索增强生成(RAG)系统",
+        t: ["RAG", "向量数据库", "嵌入"],
+        cat: "nlp"
+    },
+    {
+        n: "Finetuning Large Language Models",
+        i: "DeepLearning.AI",
+        p: "Coursera",
+        d: 3,
+        h: 5,
+        u: "https://www.coursera.org/learn/finetuning-large-language-models",
+        desc: "LLM微调技术：LoRA/QLoRA/全参数微调",
+        t: ["LoRA", "QLoRA", "PEFT"],
+        cat: "nlp"
+    },
+    {
+        n: "Natural Language Understanding",
+        i: "Various",
+        p: "edX",
+        d: 4,
+        h: 40,
+        u: "https://www.edx.org/learn/natural-language-processing",
+        desc: "NLU高级主题：语义解析/共指消解/问答",
+        t: ["语义解析", "共指消解", "问答系统"],
+        cat: "nlp"
+    },
+    {
+        n: "Speech and Language Processing",
+        i: "Dan Jurafsky",
+        p: "Free Textbook",
+        d: 3,
+        h: 80,
+        u: "https://web.stanford.edu/~jurafsky/slp3/",
+        desc: "Jurafsky经典NLP/语音处理教材",
+        t: ["NLP基础", "语言模型", "分词"],
+        cat: "nlp"
+    },
+    {
+        n: "Prompt Engineering Guide",
+        i: "Various",
+        p: "Free",
+        d: 2,
+        h: 15,
+        u: "https://www.promptingguide.ai/",
+        desc: "Prompt Engineering全面指南：CoT/Few-shot/ReAct",
+        t: ["Prompt", "CoT", "Few-shot"],
+        cat: "nlp"
     }
 ];

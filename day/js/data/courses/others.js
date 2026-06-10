@@ -1,6 +1,6 @@
 /**
  * Other Domain Courses
- * Courses for: rl, genai, safety, robotics, speech, timeseries, gnn, multimodal, infra
+ * Courses for: rl, genai, agents, safety, robotics, speech, infra
  */
 
 // Reinforcement Learning
@@ -70,10 +70,32 @@ const RL_COURSES = [
         desc: "离线RL方法综述与实践",
         t: ["离线RL", "数据驱动", "保守Q学习"],
         cat: "rl"
+    },
+    {
+        n: "RLHF: Reinforcement Learning from Human Feedback",
+        i: "Various",
+        p: "Free",
+        d: 4,
+        h: 15,
+        u: "https://huggingface.co/blog/rlhf",
+        desc: "RLHF技术详解：奖励模型/PPO/DPO",
+        t: ["RLHF", "PPO", "DPO", "对齐"],
+        cat: "rl"
+    },
+    {
+        n: "Decision Transformer",
+        i: "Various",
+        p: "Free",
+        d: 4,
+        h: 15,
+        u: "https://arxiv.org/abs/2106.01345",
+        desc: "将RL重构为序列建模问题",
+        t: ["Decision Transformer", "序列建模", "离线RL"],
+        cat: "rl"
     }
 ];
 
-// Generative AI
+// Generative AI (merged with Multimodal)
 const GENAI_COURSES = [
     {
         n: "How Diffusion Models Work",
@@ -140,6 +162,164 @@ const GENAI_COURSES = [
         desc: "用ChatGPT API构建完整系统",
         t: ["API链", "评估", "部署"],
         cat: "genai"
+    },
+    {
+        n: "Stable Diffusion",
+        i: "Hugging Face",
+        p: "Free",
+        d: 3,
+        h: 20,
+        u: "https://huggingface.co/learn/diffusion-course",
+        desc: "扩散模型课程，文生图/图生文/ControlNet",
+        t: ["扩散模型", "文生图", "ControlNet"],
+        cat: "genai"
+    },
+    {
+        n: "Multimodal Machine Learning",
+        i: "CMU",
+        p: "CMU",
+        d: 4,
+        h: 60,
+        u: "https://cmu-multimodal.github.io/",
+        desc: "CMU多模态ML课程，对齐/融合/生成",
+        t: ["对齐", "融合", "表示学习"],
+        cat: "genai"
+    },
+    {
+        n: "Generative AI for Everyone",
+        i: "DeepLearning.AI",
+        p: "Coursera",
+        d: 1,
+        h: 6,
+        u: "https://www.coursera.org/learn/generative-ai-for-everyone",
+        desc: "生成式AI面向所有人的入门课",
+        t: ["生成式AI", "应用", "伦理"],
+        cat: "genai"
+    },
+    {
+        n: "Text-to-Image with Diffusion Models",
+        i: "Various",
+        p: "Free",
+        d: 3,
+        h: 15,
+        u: "https://huggingface.co/blog/stable_diffusion",
+        desc: "文生图技术详解：SDXL/DALL-E/Midjourney原理",
+        t: ["文生图", "SDXL", "DALL-E"],
+        cat: "genai"
+    },
+    {
+        n: "Video Generation with AI",
+        i: "Various",
+        p: "Free",
+        d: 4,
+        h: 15,
+        u: "https://github.com/showlab/VideoGPT",
+        desc: "AI视频生成：Sora/VideoGPT/视频编辑",
+        t: ["视频生成", "Sora", "时序生成"],
+        cat: "genai"
+    },
+    {
+        n: "Music Generation with AI",
+        i: "Various",
+        p: "Free",
+        d: 3,
+        h: 15,
+        u: "https://huggingface.co/blog/music-generation",
+        desc: "AI音乐生成：MusicGen/AudioLM/乐理",
+        t: ["音乐生成", "MusicGen", "音频合成"],
+        cat: "genai"
+    }
+];
+
+// AI Agents (NEW)
+const AGENTS_COURSES = [
+    {
+        n: "AI Agents and Agentic AI",
+        i: "DeepLearning.AI",
+        p: "Coursera",
+        d: 2,
+        h: 8,
+        u: "https://www.coursera.org/learn/ai-agents-in-langgraph",
+        desc: "AI Agent核心概念与LangGraph实现",
+        t: ["Agent", "LangGraph", "工具调用"],
+        cat: "agents"
+    },
+    {
+        n: "Building Agentic RAG with LLMs",
+        i: "DeepLearning.AI",
+        p: "Coursera",
+        d: 3,
+        h: 10,
+        u: "https://www.coursera.org/learn/building-agentic-rag-with-llms",
+        desc: "构建Agentic RAG系统：检索/推理/行动",
+        t: ["Agentic RAG", "检索", "推理"],
+        cat: "agents"
+    },
+    {
+        n: "LangGraph for Agent Workflows",
+        i: "LangChain",
+        p: "Free",
+        d: 3,
+        h: 15,
+        u: "https://langchain-ai.github.io/langgraph/",
+        desc: "LangGraph构建有状态的Agent工作流",
+        t: ["LangGraph", "状态机", "工作流"],
+        cat: "agents"
+    },
+    {
+        n: "CrewAI Multi-Agent Systems",
+        i: "CrewAI",
+        p: "Free",
+        d: 3,
+        h: 12,
+        u: "https://docs.crewai.com/",
+        desc: "CrewAI多智能体协作框架教程",
+        t: ["多智能体", "CrewAI", "协作"],
+        cat: "agents"
+    },
+    {
+        n: "Function Calling & Tool Use",
+        i: "Google",
+        p: "Free",
+        d: 2,
+        h: 8,
+        u: "https://ai.google.dev/docs/function_calling",
+        desc: "LLM函数调用与工具使用教程",
+        t: ["函数调用", "工具使用", "API"],
+        cat: "agents"
+    },
+    {
+        n: "Agentic Design Patterns",
+        i: "DeepLearning.AI",
+        p: "Coursera",
+        d: 2,
+        h: 5,
+        u: "https://www.coursera.org/learn/agentic-design-patterns",
+        desc: "Agent设计模式：ReAct/Plan-Execute/反思",
+        t: ["ReAct", "设计模式", "规划"],
+        cat: "agents"
+    },
+    {
+        n: "Building AI Agents with AutoGen",
+        i: "Microsoft",
+        p: "Free",
+        d: 3,
+        h: 12,
+        u: "https://microsoft.github.io/autogen/",
+        desc: "Microsoft AutoGen多Agent对话框架",
+        t: ["AutoGen", "多Agent", "对话"],
+        cat: "agents"
+    },
+    {
+        n: "OpenAI Assistants API",
+        i: "OpenAI",
+        p: "Free",
+        d: 2,
+        h: 6,
+        u: "https://platform.openai.com/docs/assistants/overview",
+        desc: "OpenAI Assistants API：代码解释器/文件搜索/函数调用",
+        t: ["Assistants API", "代码解释器", "文件搜索"],
+        cat: "agents"
     }
 ];
 
@@ -201,14 +381,36 @@ const SAFETY_COURSES = [
         cat: "safety"
     },
     {
-        n: "MLOps Operations",
-        i: "DeepLearning.AI",
-        p: "Coursera",
+        n: "Machine Learning Security",
+        i: "Various",
+        p: "Free",
+        d: 4,
+        h: 30,
+        u: "https://mlsecurity.ai/",
+        desc: "ML安全：对抗攻击/模型窃取/数据投毒",
+        t: ["对抗攻击", "模型窃取", "数据投毒"],
+        cat: "safety"
+    },
+    {
+        n: "Red Teaming AI Systems",
+        i: "Various",
+        p: "Free",
         d: 3,
-        h: 60,
-        u: "https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops",
-        desc: "MLOps生产环境AI部署",
-        t: ["MLOps", "监控", "治理"],
+        h: 20,
+        u: "https://learnprompting.org/docs/hacking/red_teaming",
+        desc: "AI红队测试：越狱/提示注入/安全评估",
+        t: ["红队", "越狱", "提示注入"],
+        cat: "safety"
+    },
+    {
+        n: "Interpretable Machine Learning",
+        i: "Various",
+        p: "Free",
+        d: 3,
+        h: 30,
+        u: "https://christophm.github.io/interpretable-ml-book/",
+        desc: "可解释ML：SHAP/LIME/特征重要性",
+        t: ["SHAP", "LIME", "可解释性"],
         cat: "safety"
     }
 ];
@@ -269,6 +471,39 @@ const ROBOTICS_COURSES = [
         desc: "Pieter Abbeel高级机器人课程",
         t: ["最优控制", "接触", "操作"],
         cat: "robotics"
+    },
+    {
+        n: "ROS2 for Beginners",
+        i: "Various",
+        p: "Free",
+        d: 2,
+        h: 25,
+        u: "https://docs.ros.org/en/humble/Tutorials.html",
+        desc: "ROS2机器人操作系统入门教程",
+        t: ["ROS2", "节点", "话题"],
+        cat: "robotics"
+    },
+    {
+        n: "Sim-to-Real Robot Learning",
+        i: "Various",
+        p: "Free",
+        d: 5,
+        h: 20,
+        u: "https://sites.google.com/view/sim2real-surveys",
+        desc: "仿真到真实迁移：域随机化/系统辨识",
+        t: ["Sim-to-Real", "域随机化", "迁移学习"],
+        cat: "robotics"
+    },
+    {
+        n: "Robot Manipulation",
+        i: "Various",
+        p: "Free",
+        d: 4,
+        h: 30,
+        u: "https://manipulation.csail.mit.edu/",
+        desc: "Russ Tedrake机器人操作课程",
+        t: ["抓取", "操作", "运动规划"],
+        cat: "robotics"
     }
 ];
 
@@ -328,161 +563,39 @@ const SPEECH_COURSES = [
         desc: "音频ML数据增强与处理",
         t: ["音频增强", "特征提取", "Mel频谱"],
         cat: "speech"
-    }
-];
-
-// Time Series
-const TIMESERIES_COURSES = [
+    },
     {
-        n: "Practical Time Series Analysis",
-        i: "SUNY",
-        p: "Coursera",
+        n: "Whisper & Open-Source ASR",
+        i: "OpenAI / Hugging Face",
+        p: "Free",
         d: 2,
-        h: 24,
-        u: "https://www.coursera.org/learn/practical-time-series-analysis",
-        desc: "时间序列分析实践课程",
-        t: ["ARIMA", "季节性", "预测"],
-        cat: "timeseries"
+        h: 10,
+        u: "https://huggingface.co/openai/whisper-large-v3",
+        desc: "Whisper语音识别模型使用与微调",
+        t: ["Whisper", "ASR", "多语言"],
+        cat: "speech"
     },
     {
-        n: "Time Series Analysis",
-        i: "Various",
-        p: "edX",
-        d: 3,
-        h: 30,
-        u: "https://www.edx.org/learn/time-series",
-        desc: "时间序列分析方法",
-        t: ["平稳性", "自回归", "移动平均"],
-        cat: "timeseries"
-    },
-    {
-        n: "Sequence Models for Time Series",
-        i: "DeepLearning.AI",
-        p: "Coursera",
-        d: 3,
-        h: 20,
-        u: "https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction",
-        desc: "TensorFlow时序预测",
-        t: ["RNN", "LSTM", "Conv1D", "预测"],
-        cat: "timeseries"
-    },
-    {
-        n: "Forecasting with ML",
-        i: "Various",
-        p: "Coursera",
-        d: 3,
-        h: 25,
-        u: "https://www.coursera.org/learn/ai-for-time-series",
-        desc: "ML时序预测方法",
-        t: ["Prophet", "XGBoost", "特征工程"],
-        cat: "timeseries"
-    },
-    {
-        n: "Anomaly Detection in Time Series",
+        n: "Voice Cloning & TTS",
         i: "Various",
         p: "Free",
         d: 3,
         h: 15,
-        u: "https://github.com/topics/anomaly-detection",
-        desc: "时序异常检测方法",
-        t: ["Isolation Forest", "自编码器", "统计方法"],
-        cat: "timeseries"
-    }
-];
-
-// Graph Neural Networks
-const GNN_COURSES = [
-    {
-        n: "CS224W ML with Graphs",
-        i: "Stanford",
-        p: "Stanford",
-        d: 4,
-        h: 80,
-        u: "https://web.stanford.edu/class/cs224w/",
-        desc: "Jure Leskovec图ML课程，GNN/知识图谱/社交网络",
-        t: ["GNN", "知识图谱", "图嵌入"],
-        cat: "gnn"
+        u: "https://github.com/coqui-ai/TTS",
+        desc: "语音克隆与TTS系统：VITS/Bark/XTTS",
+        t: ["语音克隆", "VITS", "TTS"],
+        cat: "speech"
     },
     {
-        n: "Graph Neural Networks",
+        n: "Speech Emotion Recognition",
         i: "Various",
         p: "Free",
         d: 3,
-        h: 30,
-        u: "https://distill.pub/",
-        desc: "GNN交互式教程与可视化",
-        t: ["消息传递", "图卷积", "图注意力"],
-        cat: "gnn"
-    },
-    {
-        n: "Knowledge Graphs",
-        i: "Various",
-        p: "Coursera",
-        d: 3,
-        h: 30,
-        u: "https://www.coursera.org/learn/knowledge-graphs",
-        desc: "知识图谱构建与推理",
-        t: ["RDF", "OWL", "链接预测"],
-        cat: "gnn"
-    },
-    {
-        n: "Deep Learning on Graphs",
-        i: "Various",
-        p: "Free",
-        d: 4,
-        h: 25,
-        u: "https://cs224w.stanford.edu/",
-        desc: "图深度学习高级主题",
-        t: ["图Transformer", "异构图"],
-        cat: "gnn"
-    }
-];
-
-// Multimodal Learning
-const MULTIMODAL_COURSES = [
-    {
-        n: "CS25 Transformers United V6",
-        i: "Stanford",
-        p: "Stanford",
-        d: 3,
-        h: 40,
-        u: "https://web.stanford.edu/class/cs25/",
-        desc: "Transformer前沿含多模态主题",
-        t: ["CLIP", "多模态Transformer"],
-        cat: "multimodal"
-    },
-    {
-        n: "Multimodal Machine Learning",
-        i: "CMU",
-        p: "CMU",
-        d: 4,
-        h: 60,
-        u: "https://cmu-multimodal.github.io/",
-        desc: "CMU多模态ML课程，对齐/融合/生成",
-        t: ["对齐", "融合", "表示学习"],
-        cat: "multimodal"
-    },
-    {
-        n: "Stable Diffusion",
-        i: "Hugging Face",
-        p: "Free",
-        d: 3,
-        h: 20,
-        u: "https://huggingface.co/learn/diffusion-course",
-        desc: "扩散模型课程，文生图/图生文",
-        t: ["扩散模型", "文生图", "ControlNet"],
-        cat: "multimodal"
-    },
-    {
-        n: "Generative AI for Everyone",
-        i: "DeepLearning.AI",
-        p: "Coursera",
-        d: 1,
-        h: 6,
-        u: "https://www.coursera.org/learn/generative-ai-for-everyone",
-        desc: "生成式AI面向所有人的入门课",
-        t: ["生成式AI", "应用", "伦理"],
-        cat: "multimodal"
+        h: 15,
+        u: "https://github.com/speechbrain/speechbrain",
+        desc: "语音情感识别与说话人识别",
+        t: ["情感识别", "说话人识别", "SpeechBrain"],
+        cat: "speech"
     }
 ];
 
@@ -574,6 +687,50 @@ const INFRA_COURSES = [
         u: "https://jax.readthedocs.io/",
         desc: "JAX框架教程：自动微分/JIT/并行",
         t: ["JAX", "XLA", "TPU"],
+        cat: "infra"
+    },
+    {
+        n: "vLLM & LLM Inference Optimization",
+        i: "Various",
+        p: "Free",
+        d: 4,
+        h: 20,
+        u: "https://docs.vllm.ai/",
+        desc: "vLLM推理引擎：PagedAttention/连续批处理/量化部署",
+        t: ["vLLM", "推理优化", "PagedAttention"],
+        cat: "infra"
+    },
+    {
+        n: "Docker & Kubernetes for ML",
+        i: "Various",
+        p: "Free",
+        d: 3,
+        h: 25,
+        u: "https://kubernetes.io/docs/tutorials/",
+        desc: "容器化ML部署：Docker/K8s/GPU集群",
+        t: ["Docker", "Kubernetes", "GPU集群"],
+        cat: "infra"
+    },
+    {
+        n: "Weights & Biases MLOps",
+        i: "W&B",
+        p: "Free",
+        d: 2,
+        h: 15,
+        u: "https://docs.wandb.ai/",
+        desc: "W&B实验追踪/超参搜索/模型管理",
+        t: ["W&B", "实验追踪", "超参搜索"],
+        cat: "infra"
+    },
+    {
+        n: "Triton Compiler for ML",
+        i: "OpenAI",
+        p: "Free",
+        d: 5,
+        h: 20,
+        u: "https://triton-lang.org/",
+        desc: "Triton GPU编程：自定义算子/高性能计算",
+        t: ["Triton", "GPU编程", "自定义算子"],
         cat: "infra"
     }
 ];

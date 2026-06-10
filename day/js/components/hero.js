@@ -34,9 +34,9 @@ const Hero = {
             animateCounter(this.statCourses, totalCourses, 1500);
         }
 
-        // Domain count is static (13)
+        // Domain count is static (11)
         if (this.statDomains) {
-            animateCounter(this.statDomains, 13, 1000);
+            animateCounter(this.statDomains, 11, 1000);
         }
     },
 

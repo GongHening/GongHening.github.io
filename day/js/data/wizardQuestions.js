@@ -398,9 +398,7 @@ function generateSkills(scoredCourses, answers) {
         'safety': ['AI 安全与伦理', '模型对齐', '负责任的 AI 开发'],
         'robotics': ['机器人学基础', '运动规划与控制'],
         'speech': ['语音识别技术', '语音合成与处理'],
-        'timeseries': ['时间序列分析', '时序预测方法'],
-        'gnn': ['图神经网络', '图表示学习'],
-        'multimodal': ['多模态学习', '跨模态理解与生成'],
+        'agents': ['AI Agent 架构', '工具调用与多智能体协作', 'Agentic RAG'],
         'infra': ['MLOps 工程实践', '分布式训练', '模型部署与运维']
     };
 

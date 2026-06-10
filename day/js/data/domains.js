@@ -1,6 +1,6 @@
 /**
  * AI Domains Data
- * Contains all 13 AI domain definitions
+ * Contains all 11 AI domain definitions
  */
 
 const DOMAINS = [
@@ -8,15 +8,15 @@ const DOMAINS = [
         id: 'ml',
         name: '机器学习',
         icon: '🧠',
-        description: '监督/无监督学习、特征工程与模型选择',
+        description: '监督/无监督学习、特征工程、时序分析与模型选择',
         color: '#6366f1',
-        count: 0 // Will be calculated dynamically
+        count: 0
     },
     {
         id: 'dl',
         name: '深度学习',
         icon: '🔬',
-        description: '神经网络、CNN、RNN与优化训练',
+        description: '神经网络、CNN、RNN、图神经网络与优化训练',
         color: '#8b5cf6',
         count: 0
     },
@@ -32,7 +32,7 @@ const DOMAINS = [
         id: 'cv',
         name: '计算机视觉',
         icon: '👁️',
-        description: '图像识别、目标检测与3D视觉',
+        description: '图像识别、目标检测、3D视觉与生成模型',
         color: '#10b981',
         count: 0
     },
@@ -40,7 +40,7 @@ const DOMAINS = [
         id: 'rl',
         name: '强化学习',
         icon: '🎮',
-        description: 'RL基础、策略梯度与高级方法',
+        description: 'RL基础、策略梯度与多智能体方法',
         color: '#f59e0b',
         count: 0
     },
@@ -48,63 +48,47 @@ const DOMAINS = [
         id: 'genai',
         name: '生成式AI',
         icon: '✨',
-        description: '扩散模型、文本生成与Prompt工程',
+        description: '扩散模型、LLM生成、多模态生成与Prompt工程',
         color: '#ec4899',
+        count: 0
+    },
+    {
+        id: 'agents',
+        name: 'AI Agents',
+        icon: '🤖',
+        description: '智能体架构、工具调用、多智能体协作与Agentic RAG',
+        color: '#f97316',
         count: 0
     },
     {
         id: 'safety',
         name: 'AI安全与伦理',
         icon: '🛡️',
-        description: 'AI伦理、对齐与负责任开发',
+        description: 'AI伦理、对齐、红队测试与负责任开发',
         color: '#14b8a6',
         count: 0
     },
     {
         id: 'robotics',
         name: '机器人学',
-        icon: '🤖',
-        description: '机器人基础、运动规划与控制',
-        color: '#f97316',
+        icon: '🦾',
+        description: '机器人基础、运动规划、操控与具身智能',
+        color: '#a855f7',
         count: 0
     },
     {
         id: 'speech',
         name: '语音处理',
         icon: '🎤',
-        description: '语音识别、语音合成与音频ML',
-        color: '#a855f7',
-        count: 0
-    },
-    {
-        id: 'timeseries',
-        name: '时间序列',
-        icon: '📈',
-        description: '时序基础、深度学习预测与异常检测',
+        description: '语音识别、语音合成、音频ML与多语言ASR',
         color: '#22c55e',
         count: 0
     },
     {
-        id: 'gnn',
-        name: '图神经网络',
-        icon: '🔗',
-        description: '图表示学习与知识图谱',
-        color: '#3b82f6',
-        count: 0
-    },
-    {
-        id: 'multimodal',
-        name: '多模态学习',
-        icon: '🌐',
-        description: '视觉-语言模型与跨模态生成',
-        color: '#ef4444',
-        count: 0
-    },
-    {
         id: 'infra',
-        name: 'AI基础设施',
+        name: 'AI Infra',
         icon: '⚙️',
-        description: 'MLOps、分布式训练与GPU编程',
+        description: 'MLOps、分布式训练、GPU编程与推理优化',
         color: '#64748b',
         count: 0
     }

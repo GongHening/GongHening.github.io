@@ -1,9 +1,11 @@
 /**
  * Sidebar Component
- * Handles sidebar navigation and mobile menu
+ * Handles sidebar navigation, mobile menu, and expandable course lists
  */
 
 const Sidebar = {
+    expandedDomains: new Set(),
+
     /**
      * Initialize the sidebar
      */
@@ -86,23 +88,96 @@ const Sidebar = {
     },
 
     /**
-     * Create a navigation item
+     * Create a navigation item with expandable course list
      * @param {Object} domain - Domain object
-     * @returns {HTMLElement} Navigation item element
+     * @returns {HTMLElement} Navigation item wrapper
      */
     createNavItem(domain) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'nav-item-wrapper';
+        wrapper.dataset.domain = domain.id;
+
+        // Main button
         const button = document.createElement('button');
         button.className = 'nav-item';
         button.dataset.domain = domain.id;
-        button.onclick = () => this.selectDomain(domain.id);
 
         button.innerHTML = `
             <span class="nav-emoji">${domain.icon}</span>
             <span class="nav-label">${domain.name}</span>
             <span class="nav-count">${domain.count}</span>
+            <span class="nav-toggle" data-domain="${domain.id}">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+            </span>
         `;
 
-        return button;
+        // Click on main area selects domain
+        button.addEventListener('click', (e) => {
+            if (e.target.closest('.nav-toggle')) return;
+            this.selectDomain(domain.id);
+        });
+
+        // Click on toggle arrow expands/collapses
+        const toggle = button.querySelector('.nav-toggle');
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.toggleExpand(domain.id);
+        });
+
+        wrapper.appendChild(button);
+
+        // Course list container
+        const courseList = document.createElement('div');
+        courseList.className = 'nav-children';
+        courseList.id = `nav-children-${domain.id}`;
+
+        const courses = getCoursesByDomain(domain.id);
+        courses.forEach(course => {
+            const courseLink = document.createElement('a');
+            courseLink.className = 'nav-course-item';
+            courseLink.href = course.u;
+            courseLink.target = '_blank';
+            courseLink.rel = 'noopener noreferrer';
+            courseLink.textContent = course.n;
+            courseLink.title = `${course.n} — ${course.i}`;
+            courseList.appendChild(courseLink);
+        });
+
+        wrapper.appendChild(courseList);
+
+        return wrapper;
+    },
+
+    /**
+     * Toggle expand/collapse for a domain's course list
+     * @param {string} domainId - Domain ID
+     */
+    toggleExpand(domainId) {
+        const wrapper = this.navContainer.querySelector(`.nav-item-wrapper[data-domain="${domainId}"]`);
+        if (!wrapper) return;
+
+        const children = wrapper.querySelector('.nav-children');
+        if (!children) return;
+
+        const isExpanded = this.expandedDomains.has(domainId);
+
+        if (isExpanded) {
+            this.expandedDomains.delete(domainId);
+            wrapper.classList.remove('expanded');
+            // Animate close
+            children.style.maxHeight = children.scrollHeight + 'px';
+            requestAnimationFrame(() => {
+                children.style.maxHeight = '0';
+            });
+        } else {
+            this.expandedDomains.add(domainId);
+            wrapper.classList.add('expanded');
+            // Animate open
+            children.style.maxHeight = children.scrollHeight + 'px';
+            setTimeout(() => {
+                children.style.maxHeight = 'none';
+            }, 300);
+        }
     },
 
     /**
@@ -325,11 +400,11 @@ const Sidebar = {
      * Update domain counts
      */
     updateCounts() {
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            const domainId = item.dataset.domain;
+        const navItems = this.navContainer.querySelectorAll('.nav-item-wrapper');
+        navItems.forEach(wrapper => {
+            const domainId = wrapper.dataset.domain;
             const domain = getDomainById(domainId);
-            const countEl = item.querySelector('.nav-count');
+            const countEl = wrapper.querySelector('.nav-count');
             if (countEl && domain) {
                 countEl.textContent = domain.count;
             }

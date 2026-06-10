@@ -249,6 +249,8 @@
 
 [data-theme="dark"] .nav-item:hover { background: rgba(10,132,255,0.08); }
 [data-theme="dark"] .nav-item.active { background: var(--accent-dim); }
+[data-theme="dark"] .nav-toggle:hover { background: var(--accent-dim); color: var(--accent); }
+[data-theme="dark"] .nav-course-item:hover { background: rgba(10,132,255,0.08); color: var(--accent); }
 
 [data-theme="dark"] .search-hint {
   background: var(--surface-2);
@@ -597,6 +599,65 @@ p:last-child { margin-bottom: 0; }
   transition: all var(--t-fast);
   min-width: 22px;
   text-align: center;
+}
+
+/* Sidebar Expandable Course List */
+.nav-item-wrapper { position: relative; }
+
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: all var(--t-fast);
+  color: var(--text-3);
+  cursor: pointer;
+}
+
+.nav-toggle:hover {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+.nav-toggle svg {
+  transition: transform var(--t-norm);
+}
+
+.nav-item-wrapper.expanded .nav-toggle svg {
+  transform: rotate(180deg);
+}
+
+.nav-children {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 0.5rem 0 2.25rem;
+}
+
+.nav-item-wrapper.expanded .nav-children {
+  /* max-height set dynamically by JS */
+}
+
+.nav-course-item {
+  display: block;
+  padding: 5px 10px;
+  font-size: 0.72rem;
+  color: var(--text-2);
+  text-decoration: none;
+  border-radius: var(--r-xs);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all var(--t-fast);
+  line-height: 1.5;
+}
+
+.nav-course-item:hover {
+  background: var(--accent-dim);
+  color: var(--accent);
 }
 
 .sidebar-footer {
