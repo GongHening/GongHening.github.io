@@ -16,9 +16,11 @@ I'm a second-year undergraduate student from [School of EECS](https://eecs.pku.e
 
 {% include base_path %}
 
-# Blogs
+# My Blogs
 
 *Here lie the words I choose to set free.*
+
+## My Annual Reviews
 
 From 2020, at the end of each year, I always write an annual review. They encourage me to do better and make progress.
 
