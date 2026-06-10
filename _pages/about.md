@@ -12,8 +12,6 @@ redirect_from:
 
 I'm a second-year undergraduate student from [School of EECS](https://eecs.pku.edu.cn/), [Peking University](https://www.pku.edu.cn/).
 
-My research interests lie in computer vision, machine learning, and computational theories.
-
 ---
 
 ## Explore
@@ -37,7 +35,3 @@ My research interests lie in computer vision, machine learning, and computationa
 </div>
 
 ---
-
-## Contact
-
-[Email](mailto:2400012436@stu.pku.edu.cn) · [GitHub](https://github.com/GongHening) · [WeChat](../images/wechat.png)
