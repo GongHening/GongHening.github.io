@@ -18868,4 +18868,140 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
         }
     },
 
+    /* ================================================================
+     * Deep Learning Courses
+     * ================================================================ */
+
+    /* --- 6.S191 Introduction to Deep Learning (MIT) --- */
+    "6.S191 Introduction to Deep Learning": {
+        courseId: "6s191-intro-dl",
+        domain: "dl",
+        mid: {
+            choice: [
+                { id: "6s191-mid-c-1", question: "TensorFlow 中用于定义计算图的核心数据结构是什么？", options: ["Tensor", "Session", "Variable", "Placeholder"], answer: 0, explanation: "Tensor 是 TensorFlow 的核心数据结构，所有运算都围绕张量进行，计算图由张量之间的运算关系定义。", difficulty: 1 },
+                { id: "6s191-mid-c-2", question: "以下哪个不是序列模型（RNN/LSTM/GRU）面临的典型问题？", options: ["梯度消失", "长期依赖捕获困难", "并行计算效率低", "无法处理变长输入"], answer: 3, explanation: "RNN 天然支持变长输入。梯度消失、长期依赖困难和串行计算导致的并行效率低都是序列模型的典型挑战。", difficulty: 1 },
+                { id: "6s191-mid-c-3", question: "LSTM 中的门控机制（Gating Mechanism）包括哪几种门？", options: ["输入门、遗忘门、输出门", "卷积门、池化门、全连接门", "前向门、后向门、双向门", "编码门、解码门、注意力门"], answer: 0, explanation: "LSTM 包含遗忘门（决定丢弃哪些信息）、输入门（决定写入哪些新信息）和输出门（决定输出哪些信息）。", difficulty: 1 },
+                { id: "6s191-mid-c-4", question: "在深度强化学习中，策略梯度（Policy Gradient）方法的优势是什么？", options: ["不需要环境模型", "只能用于离散动作空间", "总是比值函数方法收敛更快", "不需要奖励信号"], answer: 0, explanation: "策略梯度方法直接优化策略参数，无需环境的转移模型（model-free），可以处理连续动作空间和随机策略。", difficulty: 2 },
+                { id: "6s191-mid-c-5", question: "变分自编码器（VAE）的损失函数包含哪两部分？", options: ["重建损失 + KL 散度", "对比损失 + 三元组损失", "交叉熵 + MSE", "L1 正则 + L2 正则"], answer: 0, explanation: "VAE 的损失函数由重建损失（保证解码器能还原输入）和 KL 散度（使潜在分布接近标准正态）两部分组成。", difficulty: 2 },
+                { id: "6s191-mid-c-6", question: "深度学习中 Batch Normalization 的主要作用是什么？", options: ["增加模型参数", "加速训练并起到正则化效果", "减少卷积核大小", "替代激活函数"], answer: 1, explanation: "BatchNorm 通过对每层输入进行归一化来加速训练收敛，同时具有轻微的正则化效果。", difficulty: 1 },
+                { id: "6s191-mid-c-7", question: "在优化过程中，Adam 优化器结合了哪两种优化方法的优点？", options: ["SGD 和动量（Momentum）", "RMSProp 和 Adagrad", "Momentum 和 RMSProp", "SGD 和 Adagrad"], answer: 2, explanation: "Adam 结合了 Momentum（一阶矩估计）和 RMSProp（二阶矩估计）的优点，自适应调整每个参数的学习率。", difficulty: 2 },
+                { id: "6s191-mid-c-8", question: "GAN（生成对抗网络）训练过程中，生成器和判别器的关系是什么？", options: ["合作最小化损失", "零和博弈（Minimax Game）", "生成器指导判别器", "两者交替冻结参数"], answer: 1, explanation: "GAN 的生成器和判别器构成对抗博弈：生成器试图生成逼真样本欺骗判别器，判别器试图区分真假样本。", difficulty: 1 },
+                { id: "6s191-mid-c-9", question: "深度强化学习中，DQN（Deep Q-Network）使用经验回放（Experience Replay）的主要目的是什么？", options: ["增加训练数据量", "打破样本间的时间相关性", "减少模型参数", "加速推理过程"], answer: 1, explanation: "经验回放缓冲区存储历史转移，通过随机采样打破连续样本间的时间相关性，使训练更稳定。", difficulty: 2 },
+                { id: "6s191-mid-c-10", question: "以下哪种优化技术最常用于解决深度网络训练中的梯度消失问题？", options: ["增加 batch size", "使用 ReLU 激活函数和残差连接", "减小学习率", "增加 dropout 率"], answer: 1, explanation: "ReLU 在正区间梯度恒为 1，残差连接让梯度可以直接回传，两者都能有效缓解梯度消失问题。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "6s191-mid-f-1", question: "TensorFlow 中使用____（Session）来执行计算图并获取张量的值。", answer: "Session", explanation: "tf.Session 是 TensorFlow 1.x 中执行计算图的运行时环境。在 TF2.x 中通过 eager execution 自动执行。", difficulty: 1 },
+                { id: "6s191-mid-f-2", question: "LSTM 中的____（Cell State）像一条信息传送带，帮助捕获长期依赖。", answer: "细胞状态", explanation: "LSTM 的细胞状态（Cell State）贯穿整个时间链，通过门控机制选择性地添加或移除信息，缓解长期依赖问题。", difficulty: 2 },
+                { id: "6s191-mid-f-3", question: "深度强化学习中，____（Q-Learning）通过估计状态-动作值函数来指导决策。", answer: "Q-Learning", explanation: "Q-Learning 学习一个 Q 函数 Q(s,a) 来估计在状态 s 执行动作 a 的期望累积回报。", difficulty: 1 },
+                { id: "6s191-mid-f-4", question: "GAN 训练中，当生成器的输出分布与真实数据分布完全一致时，称为达到____（Nash Equilibrium）。", answer: "纳什均衡", explanation: "纳什均衡是博弈论中的稳态，此时生成器生成的数据与真实数据不可区分，判别器无法分辨。", difficulty: 3 },
+                { id: "6s191-mid-f-5", question: "在序列到序列（Seq2Seq）模型中，____（Attention）机制让解码器能够关注编码器不同位置的输出。", answer: "注意力", explanation: "注意力机制动态地为编码器各时间步分配权重，使解码器能够选择性地关注输入序列的不同部分。", difficulty: 1 },
+                { id: "6s191-mid-f-6", question: "VAE 的潜在空间被强制服从____（Gaussian）分布（标准正态分布）。", answer: "高斯", explanation: "VAE 通过 KL 散度损失将潜在变量 z 的后验分布约束为标准正态分布 N(0,I)。", difficulty: 2 },
+                { id: "6s191-mid-f-7", question: "Adam 优化器名称来源于____（Adaptive Moment Estimation）。", answer: "自适应矩估计", explanation: "Adam 通过维护梯度的一阶矩（均值）和二阶矩（方差）的指数移动平均来自适应调整学习率。", difficulty: 2 },
+                { id: "6s191-mid-f-8", question: "深度学习中，____（Dropout）通过随机丢弃神经元来防止过拟合。", answer: "Dropout", explanation: "Dropout 在训练时以概率 p 随机将神经元输出置零，迫使网络学习更加鲁棒的特征表示。", difficulty: 1 },
+                { id: "6s191-mid-f-9", question: "梯度____（Vanishing）是指反向传播过程中梯度逐层衰减至接近零的现象。", answer: "消失", explanation: "梯度消失使深层网络的浅层参数几乎无法更新，是深度网络训练的主要挑战之一。", difficulty: 1 },
+                { id: "6s191-mid-f-10", question: "在强化学习中，____（Discount Factor）γ 用于平衡即时奖励与未来奖励的重要性。", answer: "折扣因子", explanation: "折扣因子 γ ∈ [0,1] 控制智能体对未来奖励的重视程度，γ 越大越关注远期回报。", difficulty: 2 }
+            ],
+            code: [
+                { id: "6s191-mid-code-1", question: "补全以下代码，定义一个简单的 LSTM 层用于序列分类。", code: "import tensorflow as tf\nfrom tensorflow.keras.layers import LSTM, Dense\n\ndef build_lstm_model(input_shape, num_classes):\n    model = tf.keras.Sequential([\n        LSTM(64, ____=True, input_shape=input_shape),\n        Dense(num_classes, activation='softmax')\n    ])\n    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])\n    return model", answer: "return_sequences", explanation: "如果 LSTM 后面还接 LSTM 层，需要设置 return_sequences=True 返回完整序列。但这里只有一层 LSTM，可以设为 False（默认值），也可以设为 True 让 Dense 层接收序列输出。不过作为入门级补全题，关键在于理解 return_sequences 参数。", difficulty: 2 },
+                { id: "6s191-mid-code-2", question: "补全以下代码，实现带学习率衰减的优化器。", code: "import tensorflow as tf\n\ninitial_lr = 0.001\nlr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(\n    initial_learning_rate=initial_lr,\n    decay_steps=10000,\n    ____=0.96,\n    staircase=True\n)\noptimizer = tf.keras.optimizers.Adam(learning_rate=lr_schedule)", answer: "decay_rate", explanation: "ExponentialDecay 使用 decay_rate 参数控制学习率的衰减速率，每经过 decay_steps 步将学习率乘以 decay_rate。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "6s191-fin-c-1", question: "Transformer 架构中，Self-Attention 的计算复杂度相对于序列长度 n 是多少？", options: ["O(n)", "O(n log n)", "O(n^2)", "O(1)"], answer: 2, explanation: "Self-Attention 需要计算所有位置对之间的注意力权重，因此计算复杂度为 O(n^2)。", difficulty: 2 },
+                { id: "6s191-fin-c-2", question: "深度强化学习中，PPO（Proximal Policy Optimization）的核心思想是什么？", options: ["使用经验回放", "通过裁剪比率限制策略更新幅度", "完全离线训练", "不需要价值函数"], answer: 1, explanation: "PPO 通过裁剪函数限制新策略与旧策略之间的比率偏离程度，确保策略更新步幅不过大，从而稳定训练。", difficulty: 2 },
+                { id: "6s191-fin-c-3", question: "在图像生成任务中，GAN 相比 VAE 的主要优势是什么？", options: ["训练更稳定", "生成图像通常更清晰锐利", "支持条件生成", "不需要大量数据"], answer: 1, explanation: "GAN 通过对抗训练学习数据分布的细节，生成的图像通常比 VAE（倾向产生模糊图像）更清晰。", difficulty: 2 },
+                { id: "6s191-fin-c-4", question: "残差连接（Residual Connection）最初由哪个网络架构提出？", options: ["VGGNet", "GoogLeNet/Inception", "ResNet", "AlexNet"], answer: 2, explanation: "残差连接由 He et al. 在 ResNet 中提出，通过跳跃连接让网络学习残差映射 F(x) = H(x) - x，使训练更深的网络成为可能。", difficulty: 1 },
+                { id: "6s191-fin-c-5", question: "在深度强化学习中，Actor-Critic 方法中 Actor 和 Critic 分别负责什么？", options: ["Actor 评估价值，Critic 执行动作", "Actor 选择动作，Critic 评估状态或动作的价值", "两者功能完全相同", "Actor 和 Critic 都只做预测"], answer: 1, explanation: "Actor 负责学习策略（选择动作），Critic 负责评估 Actor 所选动作或状态的价值，两者配合提升学习效率。", difficulty: 2 },
+                { id: "6s191-fin-c-6", question: "以下哪种技术可以实现 GAN 的条件生成（Conditional Generation）？", options: ["增加判别器深度", "向生成器和判别器输入额外条件信息（如类别标签）", "减少训练轮数", "使用更小的学习率"], answer: 1, explanation: "条件 GAN（cGAN）通过将条件信息（如类别标签、文本描述等）与噪声向量拼接后输入生成器和判别器来实现可控生成。", difficulty: 2 },
+                { id: "6s191-fin-c-7", question: "学习率预热（Learning Rate Warmup）的作用是什么？", options: ["训练结束后逐步降低学习率", "训练初期从小学习率逐步增大以稳定训练", "加速推理", "减少模型参数"], answer: 1, explanation: "Warmup 在训练初期使用较小的学习率并逐步增大，避免训练初期梯度波动过大导致的不稳定。", difficulty: 2 },
+                { id: "6s191-fin-c-8", question: "扩散模型（Diffusion Model）的训练过程包括哪两个阶段？", options: ["编码和解码", "前向加噪（Forward Diffusion）和反向去噪（Reverse Denoising）", "生成和判别", "预训练和微调"], answer: 1, explanation: "扩散模型在前向阶段逐步向数据添加高斯噪声，在反向阶段学习逐步去除噪声以恢复原始数据。", difficulty: 2 },
+                { id: "6s191-fin-c-9", question: "在自然语言处理中，BERT 使用的预训练任务是什么？", options: ["语言模型预测下一个词", "掩码语言模型（MLM）和下一句预测（NSP）", "序列到序列翻译", "情感分类"], answer: 1, explanation: "BERT 通过掩码语言模型（随机遮盖部分 token 预测）和下一句预测两个任务进行预训练。", difficulty: 1 },
+                { id: "6s191-fin-c-10", question: "数据增强（Data Augmentation）在深度学习中的主要目的是什么？", options: ["增加模型复杂度", "通过变换已有数据生成更多训练样本来提升泛化能力", "减少推理时间", "替代正则化"], answer: 1, explanation: "数据增强通过对训练数据进行随机变换（翻转、旋转、裁剪等）来扩充数据集，提升模型的泛化能力。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "6s191-fin-f-1", question: "Transformer 中，Multi-Head Attention 将 Q、K、V 分成多个____（Head）并行计算注意力。", answer: "头", explanation: "多头注意力将输入投影到多个子空间，在每个子空间独立计算注意力后拼接，捕获不同的依赖模式。", difficulty: 2 },
+                { id: "6s191-fin-f-2", question: "深度强化学习中，____（Replay Buffer）存储历史经验用于打破样本相关性。", answer: "经验回放缓冲区", explanation: "经验回放缓冲区存储 (s, a, r, s') 转移，通过随机采样使训练数据近似独立同分布。", difficulty: 1 },
+                { id: "6s191-fin-f-3", question: "GAN 的判别器本质上是一个____（Binary Classifier），区分真假样本。", answer: "二分类器", explanation: "判别器输入一个样本，输出该样本为真实数据（1）或生成数据（0）的概率。", difficulty: 1 },
+                { id: "6s191-fin-f-4", question: "在 VAE 中，通过____ Reparameterization Trick 使采样过程可微分。", answer: "重参数化", explanation: "重参数化技巧将随机采样 z = μ + σ·ε（ε 为标准正态噪声）转化为确定性运算，使梯度可以通过采样过程回传。", difficulty: 3 },
+                { id: "6s191-fin-f-5", question: "深度学习中的____（Transfer Learning）利用在大规模数据集上预训练的模型来提升目标任务性能。", answer: "迁移学习", explanation: "迁移学习通过微调（Fine-tuning）或特征提取等方式将源任务学到的知识迁移到目标任务。", difficulty: 1 },
+                { id: "6s191-fin-f-6", question: "在 DQN 中，使用____（Target Network）来稳定训练，其参数定期从主网络复制。", answer: "目标网络", explanation: "目标网络每隔 C 步从主网络复制参数，提供稳定的目标 Q 值来避免训练振荡。", difficulty: 2 },
+                { id: "6s191-fin-f-7", question: "Transformer 使用位置____（Positional Encoding）来向模型注入序列中位置的信息。", answer: "编码", explanation: "由于 Self-Attention 不包含位置信息，需要通过位置编码（正弦函数或可学习嵌入）来告诉模型 token 的位置。", difficulty: 2 },
+                { id: "6s191-fin-f-8", question: "在策略梯度方法中，REINFORCE 算法使用____（Monte Carlo）采样来估计期望回报。", answer: "蒙特卡洛", explanation: "REINFORCE 通过完整的轨迹采样来估计策略的梯度，属于基于蒙特卡洛的方法。", difficulty: 2 },
+                { id: "6s191-fin-f-9", question: "扩散模型的反向过程学习预测每个步骤添加的____（Noise）。", answer: "噪声", explanation: "扩散模型的去噪网络通常预测添加的高斯噪声，然后从带噪数据中减去预测噪声来逐步恢复原始数据。", difficulty: 2 },
+                { id: "6s191-fin-f-10", question: "梯度____（Clipping）技术通过限制梯度的范数来防止梯度爆炸。", answer: "裁剪", explanation: "梯度裁剪将梯度的 L2 范数限制在阈值以内，当梯度超过阈值时按比例缩放，防止参数更新过大。", difficulty: 1 }
+            ],
+            code: [
+                { id: "6s191-fin-code-1", question: "补全以下代码，实现 Multi-Head Self-Attention。", code: "import tensorflow as tf\n\nclass MultiHeadAttention(tf.keras.layers.Layer):\n    def __init__(self, d_model, num_heads):\n        super().__init__()\n        self.num_heads = num_heads\n        self.d_model = d_model\n        self.depth = d_model // num_heads\n        self.wq = tf.keras.layers.Dense(d_model)\n        self.wk = tf.keras.layers.Dense(d_model)\n        self.wv = tf.keras.layers.Dense(d_model)\n        self.dense = tf.keras.layers.Dense(d_model)\n    \n    def split_heads(self, x, batch_size):\n        x = tf.reshape(x, (batch_size, -1, self.num_heads, self.depth))\n        return ____", answer: "tf.transpose(x, perm=[0, 2, 1, 3])", explanation: "split_heads 将输入重塑为 (batch, seq_len, heads, depth) 后转置为 (batch, heads, seq_len, depth)，使每个头独立计算注意力。perm=[0,2,1,3] 交换 seq_len 和 heads 维度。", difficulty: 3 },
+                { id: "6s191-fin-code-2", question: "补全以下代码，实现经验回放（Experience Replay）的采样过程。", code: "import random\nimport numpy as np\n\nclass ReplayBuffer:\n    def __init__(self, capacity):\n        self.buffer = []\n        self.capacity = capacity\n    \n    def push(self, state, action, reward, next_state, done):\n        if len(self.buffer) >= self.capacity:\n            self.buffer.pop(0)\n        self.buffer.append((state, action, reward, next_state, done))\n    \n    def sample(self, batch_size):\n        batch = random.sample(self.buffer, batch_size)\n        states, actions, rewards, next_states, dones = zip(*batch)\n        return (np.array(states), np.array(actions),\n                np.array(rewards, dtype=np.float32),\n                np.array(next_states),\n                ____)", answer: "np.array(dones, dtype=np.float32)", explanation: "dones 是布尔数组，需要转换为 float32 以便在计算中使用（如 TD 目标中的 (1-done) 项）。", difficulty: 2 }
+            ]
+        }
+    },
+
+    /* --- CS230 Deep Learning (Stanford) --- */
+    "CS230 Deep Learning": {
+        courseId: "cs230-deep-learning",
+        domain: "dl",
+        mid: {
+            choice: [
+                { id: "cs230-mid-c-1", question: "在 CNN 架构中，卷积层输出特征图的尺寸计算需要考虑哪些参数？", options: ["输入尺寸、卷积核大小、步幅和填充", "只有卷积核大小", "学习率和批次大小", "激活函数和优化器类型"], answer: 0, explanation: "输出尺寸 = (输入尺寸 - 卷积核大小 + 2×填充) / 步幅 + 1，由输入尺寸、卷积核大小、步幅和填充四个参数决定。", difficulty: 1 },
+                { id: "cs230-mid-c-2", question: "以下哪个 CNN 架构首次引入了残差连接（Skip Connections）？", options: ["AlexNet", "VGGNet", "ResNet", "LeNet"], answer: 2, explanation: "ResNet（2015）首次引入残差连接，通过跳跃连接使信息直接跨层传播，使得训练超过 100 层的网络成为可能。", difficulty: 1 },
+                { id: "cs230-mid-c-3", question: "RNN 中的梯度消失问题导致的主要后果是什么？", options: ["模型参数过多", "网络无法学习长距离依赖关系", "推理速度变慢", "无法使用 GPU 加速"], answer: 1, explanation: "梯度消失使反向传播过程中梯度在长时间步上指数衰减，导致模型难以学习相距较远的输入之间的依赖关系。", difficulty: 1 },
+                { id: "cs230-mid-c-4", question: "在超参数调优中，以下哪种搜索策略效率通常最高？", options: ["随机搜索", "网格搜索", "贝叶斯优化（Bayesian Optimization）", "手动调参"], answer: 2, explanation: "贝叶斯优化通过构建目标函数的代理模型来指导搜索方向，相比网格搜索和随机搜索更高效地探索超参数空间。", difficulty: 2 },
+                { id: "cs230-mid-c-5", question: "迁移学习（Transfer Learning）中，以下哪种做法是正确的？", options: ["冻结预训练层只训练新分类头", "随机初始化所有层", "使用更小的学习率训练全部层", "移除预训练权重重新训练"], answer: 0, explanation: "典型的迁移学习做法是冻结预训练模型的特征提取层，只训练新添加的分类头；后期可以解冻微调部分层。", difficulty: 1 },
+                { id: "cs230-mid-c-6", question: "在 CNN 中，池化层（Pooling Layer）的主要作用是什么？", options: ["增加特征图数量", "降低特征图空间维度并引入平移不变性", "增加模型参数", "替代激活函数"], answer: 1, explanation: "池化层通过下采样降低特征图尺寸，减少计算量并引入一定程度的平移不变性。", difficulty: 1 },
+                { id: "cs230-mid-c-7", question: "在深度学习项目实践中，验证集（Validation Set）的主要用途是什么？", options: ["最终评估模型性能", "调参和选择模型", "训练模型参数", "数据预处理"], answer: 1, explanation: "验证集用于在训练过程中评估模型、调超参数和选择模型，避免在测试集上过拟合。", difficulty: 1 },
+                { id: "cs230-mid-c-8", question: "Batch Normalization 在推理时使用什么统计量？", options: ["当前批次的均值和方差", "训练时累积的移动平均均值和方差", "整个数据集的均值和方差", "随机采样的均值和方差"], answer: 1, explanation: "训练时 BatchNorm 使用当前 mini-batch 的统计量，推理时使用训练期间累积的指数移动平均均值和方差。", difficulty: 2 },
+                { id: "cs230-mid-c-9", question: "在 CNN 中，1×1 卷积的主要用途是什么？", options: ["提取空间特征", "跨通道信息整合和通道数降维", "替代全连接层", "进行图像分割"], answer: 1, explanation: "1×1 卷积不改变空间维度，但可以跨通道线性组合特征，常用于通道数降维（如 Inception 中）和引入非线性。", difficulty: 2 },
+                { id: "cs230-mid-c-10", question: "在深度学习中，过拟合（Overfitting）的典型表现是什么？", options: ["训练集和测试集性能都很差", "训练集性能好但测试集性能差", "训练集和测试集性能都很好", "模型无法收敛"], answer: 1, explanation: "过拟合指模型在训练数据上学到了噪声和细节，导致训练集表现好但泛化到新数据（测试集）时性能下降。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "cs230-mid-f-1", question: "CNN 中____（Convolutional）层通过可学习的卷积核在输入上滑动来提取局部特征。", answer: "卷积", explanation: "卷积层是 CNN 的核心组件，通过卷积核（滤波器）对输入进行卷积运算，提取局部空间特征。", difficulty: 1 },
+                { id: "cs230-mid-f-2", question: "RNN 的____（Backpropagation Through Time）算法在时间维度上展开网络以计算梯度。", answer: "时间反向传播", explanation: "BPTT 将 RNN 沿时间步展开为深层前馈网络，然后使用标准反向传播计算梯度。", difficulty: 2 },
+                { id: "cs230-mid-f-3", question: "在超参数调优中，____（Learning Rate）是控制参数更新步幅的最重要超参数之一。", answer: "学习率", explanation: "学习率决定了每次参数更新的步幅，过大导致训练不稳定，过小导致收敛缓慢。", difficulty: 1 },
+                { id: "cs230-mid-f-4", question: "迁移学习中，使用预训练模型参数初始化新模型，然后在小数据集上微调，这种方法称为____（Fine-tuning）。", answer: "微调", explanation: "微调是指在预训练模型基础上，用新任务的数据继续训练部分或全部层的参数。", difficulty: 1 },
+                { id: "cs230-mid-f-5", question: "CNN 中的____（Feature Map）是卷积核在输入上滑动后得到的激活输出。", answer: "特征图", explanation: "特征图是卷积核与输入进行卷积运算后的二维输出，每个特征图对应一个卷积核，捕获特定的局部模式。", difficulty: 1 },
+                { id: "cs230-mid-f-6", question: "在项目实践中，____（Data Augmentation）通过对训练图像进行随机变换来扩充数据集。", answer: "数据增强", explanation: "数据增强通过翻转、旋转、裁剪、颜色抖动等随机变换生成新的训练样本，提升模型泛化能力。", difficulty: 1 },
+                { id: "cs230-mid-f-7", question: "深度学习模型的____（Loss Function）衡量预测值与真实值之间的差距，指导参数更新方向。", answer: "损失函数", explanation: "损失函数定义了模型预测与目标之间的差异度量，优化器通过最小化损失函数来更新参数。", difficulty: 1 },
+                { id: "cs230-mid-f-8", question: "在 CNN 中，全局平均____（Global Average Pooling）将每个通道的所有空间位置取平均值。", answer: "池化", explanation: "全局平均池化将特征图的每个通道压缩为一个标量值，常用于替换全连接层以减少参数量。", difficulty: 2 },
+                { id: "cs230-mid-f-9", question: "超参数调优中，____（Cross-Validation）将数据分为 K 份轮流验证以更可靠地评估模型。", answer: "交叉验证", explanation: "K 折交叉验证将数据分成 K 份，每次用 K-1 份训练、1 份验证，取平均性能，减少评估结果的方差。", difficulty: 2 },
+                { id: "cs230-mid-f-10", question: "深度学习中，____（Dropout）在训练时随机将一部分神经元的输出置零来防止过拟合。", answer: "Dropout", explanation: "Dropout 是一种正则化技术，训练时随机失活部分神经元，测试时使用全部神经元但缩放权重。", difficulty: 1 }
+            ],
+            code: [
+                { id: "cs230-mid-code-1", question: "补全以下 CNN 模型定义代码，添加 MaxPooling 层。", code: "from tensorflow.keras.models import Sequential\nfrom tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense\n\ndef build_cnn():\n    model = Sequential([\n        Conv2D(32, (3,3), activation='relu', input_shape=(64,64,3)),\n        MaxPooling2D(____),\n        Conv2D(64, (3,3), activation='relu'),\n        MaxPooling2D((2,2)),\n        Flatten(),\n        Dense(128, activation='relu'),\n        Dense(10, activation='softmax')\n    ])\n    return model", answer: "(2,2)", explanation: "MaxPooling2D((2,2)) 使用 2x2 的池化窗口将特征图的空间尺寸缩小一半。", difficulty: 1 },
+                { id: "cs230-mid-code-2", question: "补全以下代码，实现简单数据增强流程。", code: "from tensorflow.keras.preprocessing.image import ImageDataGenerator\n\ndata_aug = ImageDataGenerator(\n    rotation_range=20,\n    width_shift_range=0.2,\n    height_shift_range=0.2,\n    ____=0.2,\n    horizontal_flip=True\n)\ntrain_gen = data_aug.flow_from_directory(\n    'data/train',\n    target_size=(64,64),\n    batch_size=32,\n    class_mode='categorical'\n)", answer: "shear_range", explanation: "shear_range 设置随机剪切变换的角度范围，是ImageDataGenerator中常用的数据增强参数。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "cs230-fin-c-1", question: "Inception 网络（GoogLeNet）使用 Inception Module 的主要设计思想是什么？", options: ["加深网络深度", "在同一层使用不同尺寸的卷积核并行提取多尺度特征", "减少网络层数", "只使用 3×3 卷积"], answer: 1, explanation: "Inception Module 在同一层使用 1×1、3×3、5×5 卷积和最大池化并行操作后拼接，让网络自适应地学习不同尺度的特征。", difficulty: 2 },
+                { id: "cs230-fin-c-2", question: "在迁移学习实践中，当目标任务数据量非常少时，以下哪种策略最合适？", options: ["从头训练所有层", "冻结预训练模型大部分层，只训练最后几层", "使用更复杂的模型", "增加 batch size"], answer: 1, explanation: "当目标数据量少时，应冻结预训练层以防止过拟合，只微调最后的分类层或少数几层。", difficulty: 2 },
+                { id: "cs230-fin-c-3", question: "在超参数搜索中，为什么学习率通常比网络宽度更重要？", options: ["学习率更容易调优", "学习率影响所有参数的更新方向和收敛性", "网络宽度不影响性能", "学习率不影响训练"], answer: 1, explanation: "学习率决定了参数更新的方向和幅度，是影响训练收敛性和最终性能的最关键超参数。", difficulty: 2 },
+                { id: "cs230-fin-c-4", question: "在深度学习项目中，模型在训练集上准确率 95% 但验证集上准确率只有 60%，这说明什么问题？", options: ["数据量不足", "模型严重过拟合", "学习率太低", "模型欠拟合"], answer: 1, explanation: "训练集和验证集之间巨大的性能差距（95% vs 60%）是过拟合的典型表现，模型记忆了训练数据但无法泛化。", difficulty: 1 },
+                { id: "cs230-fin-c-5", question: "在 CNN 可视化中，Grad-CAM 的主要用途是什么？", options: ["生成新的训练图像", "可视化图像中哪些区域对分类决策贡献最大", "加速模型推理", "压缩模型大小"], answer: 1, explanation: "Grad-CAM 通过计算特征图的梯度来生成类激活热力图，显示模型在做分类决策时关注输入图像的哪些区域。", difficulty: 2 },
+                { id: "cs230-fin-c-6", question: "RNN 在序列标注任务（如命名实体识别）中，通常使用哪种结构？", options: ["编码器-解码器结构", "多对一结构", "双向（Bidirectional）RNN", "单层前馈网络"], answer: 2, explanation: "序列标注需要对每个时间步输出标签，双向 RNN 同时利用过去和未来的上下文信息，提升标注准确性。", difficulty: 2 },
+                { id: "cs230-fin-c-7", question: "在深度学习部署中，模型压缩（Model Compression）的目的是什么？", options: ["增加模型参数", "减少模型大小和计算量以便在资源受限设备上运行", "提高训练精度", "增加网络层数"], answer: 1, explanation: "模型压缩通过知识蒸馏、量化、剪枝等技术减少模型的参数量和计算复杂度，便于部署到移动端或边缘设备。", difficulty: 2 },
+                { id: "cs230-fin-c-8", question: "在深度学习实验管理中，为什么需要版本控制数据和代码？", options: ["方便团队协作", "确保实验可复现并追踪结果变化", "减少存储空间", "加速训练"], answer: 1, explanation: "版本控制确保实验环境（代码、数据、参数）可复现，方便对比不同实验结果并回溯问题。", difficulty: 1 },
+                { id: "cs230-fin-c-9", question: "EfficientNet 架构使用什么方法来同时优化网络深度、宽度和分辨率？", options: ["手动调参", "复合缩放（Compound Scaling）", "随机搜索", "网格搜索"], answer: 1, explanation: "EfficientNet 通过复合缩放策略同时优化网络深度、输入分辨率和宽度三个维度，使用系数 α、β、γ 统一控制。", difficulty: 2 },
+                { id: "cs230-fin-c-10", question: "在多分类任务中，当类别不平衡时，最合适的损失函数是什么？", options: ["均方误差（MSE）", "带类别权重的交叉熵损失", "绝对值损失", "余弦相似度"], answer: 1, explanation: "带类别权重的交叉熵损失为少数类分配更高的权重，缓解类别不平衡对模型训练的影响。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cs230-fin-f-1", question: "ResNet 中的残差块学习的是恒等映射的____（Residual），即 F(x) = H(x) - x。", answer: "残差", explanation: "残差学习让网络只需学习输入到输出的残差部分，比直接学习完整映射更容易优化。", difficulty: 2 },
+                { id: "cs230-fin-f-2", question: "在迁移学习中，使用预训练模型的____（Feature Extractor）部分提取通用特征。", answer: "特征提取器", explanation: "预训练模型的前层学习了通用的视觉特征（边缘、纹理等），可以作为新任务的特征提取器。", difficulty: 1 },
+                { id: "cs230-fin-f-3", question: "超参数调优中，____（Bayesian Optimization）通过建立目标函数的代理模型来高效搜索超参数空间。", answer: "贝叶斯优化", explanation: "贝叶斯优化利用高斯过程等代理模型建模目标函数，通过采集函数（如 EI）平衡探索和利用。", difficulty: 3 },
+                { id: "cs230-fin-f-4", question: "在深度学习项目中，____（Baseline）模型作为基准，帮助衡量后续改进的效果。", answer: "基线", explanation: "基线模型是简单的初始模型（如逻辑回归或浅层网络），用于提供性能参考来评估复杂模型的改进幅度。", difficulty: 1 },
+                { id: "cs230-fin-f-5", question: "CNN 中的____（Padding）操作在输入边缘补充额外像素以控制输出尺寸。", answer: "填充", explanation: "Padding 在输入周围补充零像素（最常见），可以保持输出尺寸不变（same padding）或控制输出大小。", difficulty: 1 },
+                { id: "cs230-fin-f-6", question: "在 RNN 的注意力机制中，____（Alignment）分数衡量解码器当前状态与编码器各位置的相关程度。", answer: "对齐", explanation: "对齐分数（如通过点积或加法计算）衡量当前解码状态与每个编码器位置的相关性，决定注意力权重分配。", difficulty: 2 },
+                { id: "cs230-fin-f-7", question: "模型剪枝（Pruning）通过移除不重要的____（Weights）来减小模型大小。", answer: "权重", explanation: "剪枝将接近零或对输出影响小的权重移除，使模型更稀疏，减少存储和计算开销。", difficulty: 2 },
+                { id: "cs230-fin-f-8", question: "在深度学习中，学习率____（Scheduling）策略在训练过程中动态调整学习率。", answer: "调度", explanation: "学习率调度策略（如余弦退火、阶梯衰减、线性预热等）在训练过程中按计划调整学习率，有助于更好的收敛。", difficulty: 2 },
+                { id: "cs230-fin-f-9", question: "知识____（Distillation）通过让小模型学习大模型的输出分布来压缩模型。", answer: "蒸馏", explanation: "知识蒸馏使用大模型（教师）的软标签（soft label）指导小模型（学生）训练，将知识从大模型迁移到小模型。", difficulty: 2 },
+                { id: "cs230-fin-f-10", question: "在 CNN 可视化中，____（Feature Visualization）通过优化输入图像使特定神经元激活最大化。", answer: "特征可视化", explanation: "特征可视化从随机噪声出发，通过梯度上升优化输入，生成最大化特定神经元或通道激活的图像，帮助理解模型学到了什么。", difficulty: 3 }
+            ],
+            code: [
+                { id: "cs230-fin-code-1", question: "补全以下代码，实现迁移学习中的特征提取微调流程。", code: "import tensorflow as tf\nfrom tensorflow.keras.applications import ResNet50\nfrom tensorflow.keras.layers import Dense, GlobalAveragePooling2D\nfrom tensorflow.keras.models import Model\n\n# 加载预训练 ResNet50（不包含顶部分类层）\nbase_model = ResNet50(weights='imagenet', include_top=False)\n\n# 冻结预训练层\nfor layer in base_model.layers:\n    layer.____ = False\n\n# 添加自定义分类头\nx = base_model.output\nx = GlobalAveragePooling2D()(x)\nx = Dense(256, activation='relu')(x)\npredictions = Dense(10, activation='softmax')(x)\n\nmodel = Model(inputs=base_model.input, outputs=predictions)\nmodel.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])", answer: "trainable", explanation: "设置 trainable=False 冻结预训练层的参数，使它们在训练过程中不会被更新，只训练新添加的分类层。", difficulty: 1 },
+                { id: "cs230-fin-code-2", question: "补全以下代码，实现学习率余弦退火调度器。", code: "import tensorflow as tf\nimport numpy as np\n\nclass CosineAnnealing(tf.keras.callbacks.Callback):\n    def __init__(self, total_epochs, min_lr=1e-6):\n        self.total_epochs = total_epochs\n        self.min_lr = min_lr\n        self.initial_lr = None\n    \n    def on_train_begin(self, logs=None):\n        self.initial_lr = float(tf.keras.backend.get_value(self.model.optimizer.learning_rate))\n    \n    def on_epoch_begin(self, epoch, logs=None):\n        lr = self.min_lr + 0.5 * (self.initial_lr - self.min_lr) * (\n            1 + np.cos(np.pi * epoch / ____))\n        tf.keras.backend.set_value(self.model.optimizer.learning_rate, lr)\n        print(f'Epoch {epoch+1}: learning rate = {lr:.6f}')", answer: "self.total_epochs", explanation: "余弦退火公式：lr = lr_min + 0.5*(lr_max - lr_min)*(1 + cos(π*epoch/total_epochs))，其中 epoch 从 0 到 total_epochs-1。", difficulty: 2 }
+            ]
+        }
+    }
+
 };
