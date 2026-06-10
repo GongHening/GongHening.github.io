@@ -11663,7 +11663,7 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
         },
     },
 
-    "10-703: Deep RL": {
+    "10-703: Deep Reinforcement Learning": {
         courseId: "cmu-deep-rl", domain: "rl",
         mid: {
             choice: [
@@ -12559,7 +12559,7 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
         },
     },
 
-    "Made With ML": {
+    "Made With ML (MLOps)": {
         courseId: "madewithml-mlops", domain: "infra",
         mid: {
             choice: [
@@ -13456,7 +13456,7 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
         },
     },
 
-    "6.806/6.864: NLP": {
+    "6.806/6.864: Natural Language Processing": {
         courseId: "mit-nlp", domain: "nlp",
         mid: {
             choice: [
@@ -13520,7 +13520,7 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
         },
     },
 
-    "CS 288: NLP": {
+    "CS 288: Natural Language Processing": {
         courseId: "ucb-nlp", domain: "nlp",
         mid: {
             choice: [
@@ -13968,7 +13968,7 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
         },
     },
 
-    "16-824: Visual Learning": {
+    "16-824: Visual Learning and Recognition": {
         courseId: "cmu-visual-learning", domain: "cv",
         mid: {
             choice: [
@@ -14096,7 +14096,7 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
         },
     },
 
-    "6.819/6.869: Advances in CV": {
+    "6.819/6.869: Advances in Computer Vision": {
         courseId: "mit-advances-cv-adv", domain: "cv",
         mid: {
             choice: [
@@ -15866,7 +15866,7 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
      * Topics: kernel methods, SVM, graphical models, optimization,
      *         Bayesian methods, regularization, deep learning theory
      * ================================================================ */
-    "6.867 Machine Learning (MIT)": {
+    "6.867 Machine Learning": {
         courseId: "mit-6867-ml",
         domain: "ml",
         mid: {
@@ -16224,7 +16224,7 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
      * Topics: linear classifiers, SVM, neural networks,
      *         Bayesian methods, Python implementation
      * ================================================================ */
-    "6.86x ML with Python (MIT)": {
+    "6.86x ML with Python: Linear Models to Deep Learning": {
         courseId: "mit-686x-ml-python",
         domain: "ml",
         mid: {
@@ -17441,7 +17441,7 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
      * 17. Machine Learning (10-701, CMU PhD-level)
      *    Topics: kernel methods, graphical models, theory, graduate ML
      * ================================================================ */
-    "Machine Learning (10-701, CMU)": {
+    "10-701: Machine Learning (PhD-level)": {
         courseId: "ml-10701-cmu",
         domain: "ml",
         mid: {
@@ -17799,7 +17799,7 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
      *    Topics: concentration inequalities, nonparametric methods,
      *            kernel methods, minimax theory
      * ================================================================ */
-    "Statistical Machine Learning (10-702, CMU)": {
+    "10-702: Statistical Machine Learning": {
         courseId: "sml-10702-cmu",
         domain: "ml",
         mid: {
@@ -19010,7 +19010,7 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
      *    Topics: PyTorch, optimizers (SGD/Adam), regularization,
      *            CNN, RNN, BatchNorm
      * ================================================================ */
-    "Introduction to Deep Learning (11-785, CMU)": {
+    "11-785 Introduction to Deep Learning": {
         courseId: "11-785-intro-dl",
         domain: "dl",
         mid: {
@@ -19368,7 +19368,7 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
      *    Topics: backpropagation, gradient descent, neural network
      *            theory, sigmoid, softmax
      * ================================================================ */
-    "Neural Networks and Deep Learning (Michael Nielsen)": {
+    "Neural Networks and Deep Learning": {
         courseId: "nielsen-nndl",
         domain: "dl",
         mid: {

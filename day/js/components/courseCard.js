@@ -93,26 +93,6 @@ const CourseCard = {
                     </div>
                 </div>
                 ${this.createQuizSection(course)}
-
-                <div class="course-progress">
-                    <div class="progress-header">
-                        <span class="progress-label">进度 ${progress}%</span>
-                        <div class="progress-actions">
-                            <button class="progress-btn" onclick="CourseCard.updateProgress('${escapeHtml(course.u)}', ${Math.min(progress + 25, 100)})">
-                                +25%
-                            </button>
-                            <button class="progress-btn" onclick="CourseCard.updateProgress('${escapeHtml(course.u)}', 100)">
-                                完成
-                            </button>
-                            <button class="progress-btn" onclick="CourseCard.updateProgress('${escapeHtml(course.u)}', 0)">
-                                重置
-                            </button>
-                        </div>
-                    </div>
-                    <div class="progress-track">
-                        <div class="progress-fill" style="width: ${progress}%"></div>
-                    </div>
-                </div>
             </div>
         `;
     },
