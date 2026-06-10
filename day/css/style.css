@@ -2742,7 +2742,7 @@ p:last-child { margin-bottom: 0; }
 
   .visitor-map-section { padding: 3rem 1rem; }
 
-  .visitor-map-wrapper { min-height: 240px; }
+  .visitor-map-wrapper { max-width: 300px; }
 
   .footer { padding: 2rem 1rem 1.5rem; }
 
@@ -2836,19 +2836,17 @@ p:last-child { margin-bottom: 0; }
   border: 1px solid var(--glass-border);
   border-radius: var(--r-xl);
   overflow: hidden;
-  min-height: 340px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  aspect-ratio: 1 / 1;
   position: relative;
 }
 
-.visitor-map-wrapper iframe,
-.visitor-map-wrapper img,
-.visitor-map-wrapper canvas {
+.visitor-map-wrapper iframe {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   border: none;
 }
 
