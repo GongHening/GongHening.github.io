@@ -75,6 +75,11 @@ const App = {
         // Initialize hero
         Hero.init();
 
+        // Initialize daily suggestions
+        if (typeof DailySuggestion !== 'undefined') {
+            DailySuggestion.init();
+        }
+
         // Initialize particle field
         if (typeof Particles !== 'undefined') {
             Particles.init();
@@ -104,6 +109,11 @@ const App = {
         // Initialize learning path wizard
         if (typeof Wizard !== 'undefined') {
             Wizard.init();
+        }
+
+        // Initialize life progress
+        if (typeof LifeProgress !== 'undefined') {
+            LifeProgress.init();
         }
     },
 
@@ -351,6 +361,7 @@ const App = {
             preferences: PreferencesManager.getAll(),
             searchHistory: SearchHistoryManager.getAll(),
             notes: NotesManager.getAll(),
+            birthday: Storage.get(LifeProgress.STORAGE_KEY, null),
             exportDate: new Date().toISOString()
         };
     },
@@ -377,6 +388,10 @@ const App = {
             if (data.notes) {
                 Storage.set(NotesManager.STORAGE_KEY, data.notes);
             }
+            if (data.birthday && typeof LifeProgress !== 'undefined') {
+                Storage.set(LifeProgress.STORAGE_KEY, data.birthday);
+                LifeProgress.init();
+            }
 
             // Re-render with imported data
             Filters.applyFilters();
@@ -401,6 +416,10 @@ const App = {
             PreferencesManager.reset();
             SearchHistoryManager.clear();
             NotesManager.clearAll();
+            if (typeof LifeProgress !== 'undefined') {
+                Storage.remove(LifeProgress.STORAGE_KEY);
+                LifeProgress.init();
+            }
 
             // Re-render
             Filters.applyFilters();
