@@ -9513,7 +9513,7 @@ class CountMinSketch:
      * (Skipped: cs236-deep-generative-models, #51 Speech&LP duplicate)
      * ==================================================== */
     /* ================================================================
-     * DL Courses 1-9
+     * DL Courses 1-11
      * ================================================================ */
 
     /* --- 1. Graph Neural Networks --- */
@@ -10105,6 +10105,139 @@ class CountMinSketch:
             ]
         }
     },
+
+    /* --- 10. Convolutional Neural Networks (DeepLearning.AI) --- */
+    "Convolutional Neural Networks": {
+        courseId: "cnn-deeplearningai",
+        domain: "dl",
+        mid: {
+            choice: [
+                { id: "cnn-mid-c-1", question: "卷积层的核心操作是什么？", options: ["全连接", "用卷积核在输入上滑动计算局部特征", "全局平均池化", "softmax 分类"], answer: 1, explanation: "卷积层通过卷积核在输入特征图上滑动，进行局部区域的加权求和，提取空间局部特征。", difficulty: 1 },
+                { id: "cnn-mid-c-2", question: "在卷积层中，填充（Padding）的主要作用是什么？", options: ["增加参数数量", "控制输出特征图的空间尺寸", "加速训练", "防止过拟合"], answer: 1, explanation: "填充通过在输入边缘补零，可以控制输出尺寸，保持空间分辨率（如 same padding），避免尺寸逐层缩小。", difficulty: 1 },
+                { id: "cnn-mid-c-3", question: "池化层（Pooling Layer）的主要功能是什么？", options: ["增加特征维度", "降低特征图的空间分辨率，减少计算量并提供平移不变性", "增加模型参数", "进行分类"], answer: 1, explanation: "池化层通过下采样降低特征图尺寸，减少参数和计算量，同时使模型对输入的小幅平移更具鲁棒性。", difficulty: 1 },
+                { id: "cnn-mid-c-4", question: "最大池化（Max Pooling）和平均池化（Average Pooling）的区别是什么？", options: ["没有区别", "最大池化取区域最大值，平均池化取区域均值", "最大池化用于分类，平均池化用于回归", "最大池化更慢"], answer: 1, explanation: "最大池化在每个区域内取最大值，保留最显著的特征；平均池化取均值，保留更多整体信息。", difficulty: 1 },
+                { id: "cnn-mid-c-5", question: "感受野（Receptive Field）在 CNN 中指的是什么？", options: ["输出特征图的大小", "输出层一个像素对应输入层的区域范围", "卷积核的数量", "网络的深度"], answer: 1, explanation: "感受野是输出特征图上某个位置在输入上对应的空间区域大小。层数越多，感受野越大，能捕获更全局的模式。", difficulty: 2 },
+                { id: "cnn-mid-c-6", question: "1x1 卷积的主要作用是什么？", options: ["不改变任何东西", "跨通道信息融合和通道数调整（降维/升维）", "仅用于边缘检测", "增加空间分辨率"], answer: 1, explanation: "1x1 卷积在不改变空间尺寸的情况下，对不同通道的信息进行线性组合，实现通道间的交互和维度调整（如 Inception 模块中）。", difficulty: 2 },
+                { id: "cnn-mid-c-7", question: "在经典 CNN 架构中，卷积层之间常见的操作顺序是？", options: ["池化-激活-卷积", "卷积-激活-池化", "激活-卷积-池化", "池化-卷积-激活"], answer: 1, explanation: "经典顺序为 Conv -> ReLU -> Pooling，先通过卷积提取特征，再非线性激活，最后池化降维。", difficulty: 1 },
+                { id: "cnn-mid-c-8", question: "感受野计算中，两层 3x3 卷积（stride=1）的感受野等效于？", options: ["3x3 卷积", "5x5 卷积", "7x7 卷积", "9x9 卷积"], answer: 1, explanation: "两层 3x3 卷积的感受野为 5x5，与单层 5x5 卷积等效，但参数更少（2x9=18 vs 25），且多一次非线性变换。", difficulty: 2 },
+                { id: "cnn-mid-c-9", question: "在卷积层中，参数量的计算公式是？", options: ["C_in * C_out", "C_in * C_out * K * K + C_out", "H * W * C", "K * K"], answer: 1, explanation: "每个卷积核大小为 K x K，有 C_in 个通道，共 C_out 个卷积核，加上偏置项：C_in * K * K * C_out + C_out。", difficulty: 2 },
+                { id: "cnn-mid-c-10", question: "转置卷积（Transposed Convolution）也常被称为？", options: ["池化", "反卷积（Deconvolution）", "深度卷积", "可分离卷积"], answer: 1, explanation: "转置卷积常被非正式地称为反卷积（deconvolution），它在上采样中通过学习的卷积核扩大特征图尺寸。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cnn-mid-f-1", question: "在卷积层中，____（Stride）参数控制卷积核每次滑动的步幅大小。", answer: "步幅", explanation: "步幅（stride）决定卷积核每次移动的像素数，stride=2 会使输出尺寸约减半。", difficulty: 1 },
+                { id: "cnn-mid-f-2", question: "____（Channel）是卷积层中卷积核的深度维度，每个卷积核有 C_in 个通道。", answer: "通道", explanation: "输入特征图的通道数（channels）决定了卷积核的深度，不同通道对应不同特征的响应。", difficulty: 1 },
+                { id: "cnn-mid-f-3", question: "____池化（Max Pooling）在每个区域内取最大值，能保留最显著的特征响应。", answer: "最大", explanation: "最大池化在每个滑动窗口中只保留最大值，起到特征筛选和降维的作用。", difficulty: 1 },
+                { id: "cnn-mid-f-4", question: "当卷积核大小为 F、填充为 P、步幅为 S 时，输出尺寸为 (____ - F + 2P) / S + 1。", answer: "N", explanation: "输出尺寸公式：(N - F + 2P) / S + 1，其中 N 为输入的空间维度大小。", difficulty: 2 },
+                { id: "cnn-mid-f-5", question: "____（Batch Normalization）层通过对每个通道的激活值进行归一化来加速训练。", answer: "批量归一化", explanation: "BatchNorm 对 mini-batch 内的特征沿通道维度计算均值和方差进行归一化，稳定训练过程。", difficulty: 1 },
+                { id: "cnn-mid-f-6", question: "深度可分离卷积（____ Convolution）将标准卷积分解为深度卷积和逐点卷积两步。", answer: "可分离", explanation: "深度可分离卷积先对每个通道单独卷积（depthwise），再用 1x1 卷积融合通道信息（pointwise），大幅减少参数量。", difficulty: 2 },
+                { id: "cnn-mid-f-7", question: "在 CNN 中，____（Flatten）操作将二维特征图展平为一维向量，用于连接全连接层。", answer: "展平", explanation: "Flatten 将多维特征图 reshape 为一维，是连接卷积部分和全连接分类头的桥梁。", difficulty: 1 },
+                { id: "cnn-mid-f-8", question: "____（Upsampling）操作用于增大特征图的空间尺寸，常见于语义分割等任务。", answer: "上采样", explanation: "上采样通过转置卷积、双线性插值等方法增大特征图尺寸，使网络能恢复空间细节。", difficulty: 2 },
+                { id: "cnn-mid-f-9", question: "感受野随网络深度增加而____（增大/减小），使深层神经元能感知更广的输入区域。", answer: "增大", explanation: "每一层卷积都会扩大感受野，使深层特征图上的每个位置能"看到"更大范围的原始输入。", difficulty: 1 },
+                { id: "cnn-mid-f-10", question: "在卷积层中，____（Bias）为每个卷积核添加一个偏置项，增加模型的表达能力。", answer: "偏置", explanation: "偏置项在卷积运算后逐元素相加，使模型能学习非零中心的激活模式。", difficulty: 1 }
+            ],
+            code: [
+                { id: "cnn-mid-code-1", question: "补全卷积层输出尺寸的计算函数", code: "def conv_output_size(input_size, kernel_size, padding, stride):\n    \"\"\"计算卷积层输出的空间尺寸\"\"\"\n    # output = (input - kernel + 2*padding) / stride + 1\n    output = (input_size - kernel_size + ____ ) // stride + 1\n    return output", answer: "2 * padding", explanation: "卷积输出尺寸公式为 (N - F + 2P) / S + 1，其中 padding 在两侧各补 P 个零。", difficulty: 1 },
+                { id: "cnn-mid-code-2", question: "补全最大池化操作的实现", code: "import numpy as np\n\ndef max_pool_2d(input_feat, pool_size=2, stride=2):\n    \"\"\"实现 2D 最大池化\"\"\"\n    h, w = input_feat.shape\n    out_h = (h - pool_size) // stride + 1\n    out_w = (w - pool_size) // stride + 1\n    output = np.zeros((out_h, out_w))\n    for i in range(out_h):\n        for j in range(out_w):\n            window = input_feat[i*stride:i*stride+pool_size, j*stride:j*stride+pool_size]\n            output[i, j] = ____\n    return output", answer: "np.max(window)", explanation: "最大池化在每个窗口区域取最大值，输出该窗口中最显著的特征响应。", difficulty: 1 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "cnn-fin-c-1", question: "ResNet 中残差连接（Skip Connection）的核心思想是什么？", options: ["增加网络深度而不降低性能", "让网络学习恒等映射的残差 F(x) = H(x) - x", "减少参数量", "增加模型复杂度"], answer: 1, explanation: "残差连接让网络学习 F(x) = H(x) - x，即输出与输入的差异（残差），而非直接学习映射 H(x)，使训练极深网络成为可能。", difficulty: 2 },
+                { id: "cnn-fin-c-2", question: "在目标检测中，anchor box 的作用是什么？", options: ["加速训练", "为不同大小和比例的物体提供预定义的候选框", "增强图像", "数据增强"], answer: 1, explanation: "anchor box 预设了不同大小和长宽比的候选框，网络在此基础上预测偏移量，使模型能同时检测不同尺寸的物体。", difficulty: 2 },
+                { id: "cnn-fin-c-3", question: "U-Net 的编码器-解码器结构中，跳跃连接（Skip Connection）的主要目的是？", options: ["增加参数", "将编码器的高分辨率特征传递给解码器，保留空间细节", "减少计算", "加速推理"], answer: 1, explanation: "U-Net 的跳跃连接将编码器每层的特征直接拼接到对应解码器层，弥补下采样丢失的空间信息，提升分割精度。", difficulty: 2 },
+                { id: "cnn-fin-c-4", question: "在目标检测中，IoU（Intersection over Union）用于什么？", options: ["计算损失", "衡量预测框与真实框的重叠程度", "计算学习率", "特征归一化"], answer: 1, explanation: "IoU = 交集面积 / 并集面积，是目标检测中衡量预测框与真实框匹配程度的标准指标，也用于 NMS 和评估。", difficulty: 1 },
+                { id: "cnn-fin-c-5", question: "非极大值抑制（NMS）在目标检测中的作用是什么？", options: ["增加检测框", "去除重叠的冗余检测框，保留最优结果", "加速训练", "增强图像"], answer: 1, explanation: "NMS 按置信度排序后，逐步移除与高置信度框 IoU 超过阈值的冗余框，确保同一物体只有一个检测结果。", difficulty: 2 },
+                { id: "cnn-fin-c-6", question: "语义分割和实例分割的区别是什么？", options: ["没有区别", "语义分割区分像素类别，实例分割还区分同一类别的不同个体", "语义分割更快", "实例分割更简单"], answer: 1, explanation: "语义分割为每个像素分配类别标签但不区分同类个体，实例分割（如 Mask R-CNN）同时区分类别和个体实例。", difficulty: 2 },
+                { id: "cnn-fin-c-7", question: "ResNet 中 Bottleneck 模块的设计目的是什么？", options: ["增加参数", "通过 1x1 卷积先降维再升维，减少计算量同时保持深度", "简化网络", "增加宽度"], answer: 1, explanation: "Bottleneck 使用 1x1 卷积先将通道数从 256 降到 64，3x3 卷积处理后，再 1x1 升回 256，减少了约 2/3 的计算量。", difficulty: 3 },
+                { id: "cnn-fin-c-8", question: "在 U-Net 中，上采样通常使用什么操作？", options: ["最大池化", "转置卷积（Transposed Convolution）", "全连接层", "全局平均池化"], answer: 1, explanation: "U-Net 的解码器使用转置卷积（或上采样+卷积）来扩大特征图尺寸，逐步恢复空间分辨率。", difficulty: 1 },
+                { id: "cnn-fin-c-9", question: "Faster R-CNN 中的 Region Proposal Network (RPN) 的作用是什么？", options: ["分类物体", "在特征图上生成候选区域（region proposals）", "图像增强", "数据预处理"], answer: 1, explanation: "RPN 在特征图上通过滑动窗口生成候选区域并预测其是前景还是背景的概率和边界框偏移，替代了传统的 Selective Search。", difficulty: 2 },
+                { id: "cnn-fin-c-10", question: "在语义分割中，编解码器架构的编器部分逐渐____特征图，解码器部分逐渐____特征图。", options: ["扩大、缩小", "缩小、扩大", "保持不变、保持不变", "模糊、清晰"], answer: 1, explanation: "编码器通过池化/步幅卷积逐步降低空间分辨率（提取高层语义），解码器通过上采样逐步恢复空间分辨率（定位细节）。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "cnn-fin-f-1", question: "ResNet 通过____连接解决了深层网络的退化问题，使训练上百层的网络成为可能。", answer: "残差（或跳跃/Skip）", explanation: "残差连接让梯度可以跳过中间层直接回传，缓解梯度消失，同时让网络只需学习残差而非完整映射。", difficulty: 2 },
+                { id: "cnn-fin-f-2", question: "在目标检测中，____（Intersection over Union, IoU）是预测框与真实框交集面积与并集面积的比值。", answer: "交并比", explanation: "IoU 是目标检测中衡量定位精度的核心指标，通常 IoU > 0.5 视为检测正确（PASCAL VOC 标准）。", difficulty: 1 },
+                { id: "cnn-fin-f-3", question: "____（Non-Maximum Suppression）通过移除 IoU 超过阈值的冗余框来精炼检测结果。", answer: "非极大值抑制", explanation: "NMS 先按置信度排序，然后逐个保留高置信度框并抑制与其高度重叠的低置信度框。", difficulty: 2 },
+                { id: "cnn-fin-f-4", question: "U-Net 架构最初是为____（医学图像分割）任务设计的，因其在小数据集上表现优异。", answer: "医学图像分割", explanation: "U-Net 最初由 Ronneberger 等人提出用于生物医学图像分割，其跳跃连接结构在标注数据有限时特别有效。", difficulty: 1 },
+                { id: "cnn-fin-f-5", question: "目标检测中的____（Feature Pyramid Network）通过构建多尺度特征图来检测不同大小的物体。", answer: "特征金字塔", explanation: "FPN 通过自顶向下的路径和横向连接，在不同尺度的特征图上进行检测，增强了多尺度目标的检测能力。", difficulty: 2 },
+                { id: "cnn-fin-f-6", question: "在 ResNet-50 等深层网络中，____（Bottleneck）结构先用 1x1 卷积降维，再用 3x3 卷积，最后 1x1 升维。", answer: "瓶颈", explanation: "瓶颈结构通过 1x1 卷积降低中间层的通道数，使 3x3 卷积在低维空间进行，大幅减少计算量。", difficulty: 2 },
+                { id: "cnn-fin-f-7", question: "语义分割的评价指标 mIoU 是指各类别____（Intersection over Union）的平均值。", answer: "交并比", explanation: "mIoU 是各类别 IoU 的均值，是语义分割最常用的评价指标，反映了模型对各类别的整体分割精度。", difficulty: 1 },
+                { id: "cnn-fin-f-8", question: "在 Mask R-CNN 中，____分支在检测框基础上为每个物体实例生成像素级的分割掩码。", answer: "掩码（Mask）", explanation: "Mask R-CNN 在 Faster R-CNN 基础上增加了掩码分支，对每个 RoI 预测一个二值掩码，实现实例分割。", difficulty: 2 },
+                { id: "cnn-fin-f-9", question: "感受野计算公式中，L 层 3x3 卷积的感受野大小为 ____^L + 1。", answer: "2", explanation: "每增加一层 3x3 卷积，感受野增加 2（两侧各扩展 1），所以 L 层的感受野为 2L + 1。", difficulty: 3 },
+                { id: "cnn-fin-f-10", question: "全局平均池化（____ Pooling）对整个特征图取平均值，常用于替代全连接层减少参数。", answer: "全局平均", explanation: "GAP 将每个通道的整个特征图取均值，得到一个标量，大幅减少参数量且避免过拟合。", difficulty: 1 }
+            ],
+            code: [
+                { id: "cnn-fin-code-1", question: "补全 IoU（交并比）的计算代码", code: "import numpy as np\n\ndef compute_iou(box1, box2):\n    \"\"\"计算两个边界框的 IoU\n    box 格式: [x1, y1, x2, y2]\n    \"\"\"\n    x1 = max(box1[0], box2[0])\n    y1 = max(box1[1], box2[1])\n    x2 = min(box1[2], box2[2])\n    y2 = min(box1[3], box2[3])\n    \n    intersection = max(0, x2 - x1) * max(0, y2 - y1)\n    area1 = (box1[2]-box1[0]) * (box1[3]-box1[1])\n    area2 = (box2[2]-box2[0]) * (box2[3]-box2[1])\n    union = area1 + area2 - ____\n    \n    return intersection / (union + 1e-6)", answer: "intersection", explanation: "IoU = 交集 / 并集，而并集 = 面积1 + 面积2 - 交集。加 1e-6 防止除零。", difficulty: 1 },
+                { id: "cnn-fin-code-2", question: "补全残差块（Residual Block）的前向传播代码", code: "import torch\nimport torch.nn as nn\n\nclass ResidualBlock(nn.Module):\n    def __init__(self, channels):\n        super().__init__()\n        self.conv1 = nn.Conv2d(channels, channels, 3, padding=1)\n        self.bn1 = nn.BatchNorm2d(channels)\n        self.conv2 = nn.Conv2d(channels, channels, 3, padding=1)\n        self.bn2 = nn.BatchNorm2d(channels)\n        self.relu = nn.ReLU()\n    \n    def forward(self, x):\n        residual = x\n        out = self.relu(self.bn1(self.conv1(x)))\n        out = self.bn2(self.conv2(out))\n        out = ____\n        return self.relu(out)", answer: "out + residual", explanation: "残差块的核心是将输入 x（residual）直接加到卷积层的输出上，使网络只需学习残差 F(x)，而非完整映射。", difficulty: 2 }
+            ]
+        }
+    },
+
+    /* --- 11. Sequence Models (DeepLearning.AI) --- */
+    "Sequence Models": {
+        courseId: "sequence-models-deeplearningai",
+        domain: "dl",
+        mid: {
+            choice: [
+                { id: "seq-mid-c-1", question: "LSTM（长短期记忆网络）中，遗忘门（Forget Gate）的作用是什么？", options: ["决定输入新信息", "决定从细胞状态中丢弃哪些信息", "决定输出什么", "决定学习率"], answer: 1, explanation: "遗忘门通过 sigmoid 函数输出 0 到 1 的值，决定细胞状态中哪些信息应该被保留或丢弃。", difficulty: 1 },
+                { id: "seq-mid-c-2", question: "GRU（门控循环单元）相比 LSTM 的主要区别是什么？", options: ["GRU 更复杂", "GRU 将遗忘门和输入门合并为更新门，没有独立的细胞状态", "GRU 参数更多", "GRU 不支持反向传播"], answer: 1, explanation: "GRU 将 LSTM 的遗忘门和输入门合并为更新门（Update Gate），同时将细胞状态和隐藏状态合并，参数更少。", difficulty: 2 },
+                { id: "seq-mid-c-3", question: "Transformer 中自注意力（Self-Attention）机制的计算复杂度是？", options: ["O(n)", "O(n^2)", "O(n * log n)", "O(1)"], answer: 1, explanation: "标准自注意力需要计算所有位置对之间的注意力分数，复杂度为 O(n^2 * d)，其中 n 为序列长度。", difficulty: 2 },
+                { id: "seq-mid-c-4", question: "Transformer 中的多头注意力（Multi-Head Attention）的目的是什么？", options: ["增加参数量", "让模型同时关注不同表示子空间的不同位置信息", "减少计算量", "降低模型深度"], answer: 1, explanation: "多头注意力将 Q、K、V 投影到多个子空间中并行计算注意力，捕获不同维度的上下文关系。", difficulty: 2 },
+                { id: "seq-mid-c-5", question: "编码器-解码器（Encoder-Decoder）架构中，编码器的输出通常被称为什么？", options: ["梯度", "上下文向量（Context Vector）", "损失函数", "权重矩阵"], answer: 1, explanation: "编码器将输入序列编码为上下文表示（或一系列隐状态），解码器在此基础上生成输出序列。", difficulty: 1 },
+                { id: "seq-mid-c-6", question: "在 Seq2Seq 模型中，Teacher Forcing 的含义是什么？", options: ["不使用任何训练技巧", "训练时将真实标签作为解码器下一步的输入", "让模型自己预测所有步骤", "在推理时使用"], answer: 1, explanation: "Teacher Forcing 在训练时将 ground truth 作为解码器每一步的输入，加速收敛但可能导致暴露偏差。", difficulty: 2 },
+                { id: "seq-mid-c-7", question: "Transformer 中的注意力分数计算公式是？", options: ["softmax(Q + K) * V", "softmax(QK^T / sqrt(d_k)) * V", "Q * K * V", "softmax(Q - K) * V"], answer: 1, explanation: "缩放点积注意力：Attention(Q,K,V) = softmax(QK^T / sqrt(d_k)) * V，其中 sqrt(d_k) 用于防止点积值过大。", difficulty: 2 },
+                { id: "seq-mid-c-8", question: "GRU 中更新门（Update Gate）的功能是？", options: ["只控制遗忘", "决定保留多少旧状态和接受多少新信息", "只控制输出", "控制学习率"], answer: 1, explanation: "更新门 z_t 控制隐藏状态的更新程度：h_t = (1-z_t) * h_{t-1} + z_t * cand_t，同时决定遗忘和吸收。", difficulty: 2 },
+                { id: "seq-mid-c-9", question: "Transformer 中位置编码（Positional Encoding）的作用是什么？", options: ["加快训练", "为序列注入位置信息，因为自注意力本身不感知顺序", "减少参数", "防止过拟合"], answer: 1, explanation: "自注意力是置换不变的，不包含位置信息。位置编码通过向输入嵌入添加位置信号让模型感知序列顺序。", difficulty: 1 },
+                { id: "seq-mid-c-10", question: "注意力机制相比固定窗口的 RNN 的核心优势是什么？", options: ["参数更少", "可以直接捕获序列中任意两个位置间的依赖关系", "计算更简单", "不需要训练"], answer: 1, explanation: "注意力机制通过直接计算任意位置对的相关性，不受距离限制，解决了 RNN 中长距离依赖信息衰减的问题。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "seq-mid-f-1", question: "LSTM 中的____门（Input Gate）控制当前时间步有多少新信息被写入细胞状态。", answer: "输入", explanation: "输入门 i_t 通过 sigmoid 决定哪些值更新，tanh 生成候选值，两者相乘确定写入细胞状态的新信息。", difficulty: 1 },
+                { id: "seq-mid-f-2", question: "GRU 通过____门（Reset Gate）控制如何将新输入与之前的记忆相结合。", answer: "重置", explanation: "重置门 r_t 决定之前隐藏状态 h_{t-1} 有多少参与候选隐藏状态的计算，控制对过去信息的遗忘。", difficulty: 2 },
+                { id: "seq-mid-f-3", question: "Transformer 中的____编码（Positional Encoding）使用正弦和余弦函数为序列中的每个位置生成唯一表示。", answer: "位置", explanation: "原始 Transformer 使用 sin(pos, 2i) 和 cos(pos, 2i) 生成位置编码，使模型能区分不同位置。", difficulty: 1 },
+                { id: "seq-mid-f-4", question: "多头注意力（____-Head Attention）将 Q、K、V 分别投影到多个子空间中并行计算。", answer: "多", explanation: "多头注意力让模型在不同的表示子空间中学习不同的注意力模式，增强了模型的表达能力。", difficulty: 1 },
+                { id: "seq-mid-f-5", question: "在编码器-解码器架构中，____机制允许解码器在生成每个词时关注编码器输入的不同位置。", answer: "注意力", explanation: "注意力机制打破了编码器将整个输入压缩为固定长度向量的瓶颈，让解码器能灵活获取相关信息。", difficulty: 1 },
+                { id: "seq-mid-f-6", question: "Transformer 的前馈网络（____ Network）由两层全连接层和 ReLU 激活组成。", answer: "前馈", explanation: "FFN(x) = max(0, xW1 + b1)W2 + b2，逐位置独立应用，增加了模型的非线性表达能力。", difficulty: 1 },
+                { id: "seq-mid-f-7", question: "缩放点积注意力中，注意力权重需要除以 ____ (d_k) 来防止点积值过大。", answer: "√（或 sqrt）", explanation: "当维度 d_k 较大时，点积值方差也大，导致 softmax 梯度消失。除以 sqrt(d_k) 缩放后分布更均匀。", difficulty: 2 },
+                { id: "seq-mid-f-8", question: "LSTM 中的____门（Output Gate）决定细胞状态的哪些部分被输出为隐藏状态。", answer: "输出", explanation: "输出门 o_t 决定细胞状态 c_t 中哪些信息输出到隐藏状态 h_t = o_t * tanh(c_t)。", difficulty: 1 },
+                { id: "seq-mid-f-9", question: "Transformer 的层归一化（Layer____）用于稳定每层的输入分布。", answer: "Normalization", explanation: "LayerNorm 在特征维度上对每个样本进行归一化，与 BatchNorm 不同，它不依赖 batch 中的其他样本。", difficulty: 2 },
+                { id: "seq-mid-f-10", question: "Transformer 中____（Masked）注意力用于解码器的自注意力，防止模型在未来位置上"偷看"。", answer: "掩码", explanation: "因果掩码将未来位置的注意力分数设为 -inf，softmax 后变为 0，确保位置 i 只能关注位置 <= i 的内容。", difficulty: 2 }
+            ],
+            code: [
+                { id: "seq-mid-code-1", question: "补全缩放点积注意力的实现", code: "import torch\nimport torch.nn.functional as F\nimport math\n\ndef scaled_dot_product_attention(Q, K, V):\n    d_k = Q.size(-1)\n    scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(____)\n    attn_weights = F.softmax(scores, dim=-1)\n    output = torch.matmul(attn_weights, V)\n    return output", answer: "d_k", explanation: "除以 sqrt(d_k) 缩放注意力分数，防止维度过大导致 softmax 输出过于集中。", difficulty: 2 },
+                { id: "seq-mid-code-2", question: "补全 GRU 的单步更新代码", code: "import torch\nimport torch.nn as nn\n\nclass GRUCell(nn.Module):\n    def __init__(self, input_dim, hidden_dim):\n        super().__init__()\n        self.Wz = nn.Linear(input_dim + hidden_dim, hidden_dim)\n        self.Wr = nn.Linear(input_dim + hidden_dim, hidden_dim)\n        self.Wh = nn.Linear(input_dim + hidden_dim, hidden_dim)\n    \n    def forward(self, x_t, h_prev):\n        combined = torch.cat([x_t, h_prev], dim=-1)\n        z_t = torch.sigmoid(self.Wz(combined))  # 更新门\n        r_t = torch.sigmoid(self.Wr(combined))  # 重置门\n        combined_reset = torch.cat([x_t, r_t * h_prev], dim=-1)\n        h_candidate = torch.tanh(self.Wh(combined_reset))\n        h_t = ____\n        return h_t", answer: "(1 - z_t) * h_prev + z_t * h_candidate", explanation: "GRU 的隐藏状态更新公式：h_t = (1 - z_t) * h_{t-1} + z_t * h̃_t，更新门控制旧状态和新候选的混合比例。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "seq-fin-c-1", question: "Transformer 解码器中交叉注意力（Cross-Attention）的 Q、K、V 分别来自哪里？", options: ["全部来自解码器", "Q 来自解码器，K 和 V 来自编码器输出", "全部来自编码器", "Q 和 K 来自解码器，V 来自编码器"], answer: 1, explanation: "交叉注意力中 Q 来自解码器上一层的输出，K 和 V 来自编码器输出，使解码器能关注输入序列的信息。", difficulty: 2 },
+                { id: "seq-fin-c-2", question: "Transformer 的自回归（Autoregressive）生成方式指的是什么？", options: ["一次生成整个序列", "逐个生成 token，每个 token 依赖之前生成的 token", "并行生成所有 token", "随机生成 token"], answer: 1, explanation: "自回归生成在每一步只生成一个 token，将其加入输入序列后继续生成下一个，保证了输出的连贯性。", difficulty: 1 },
+                { id: "seq-fin-c-3", question: "注意力机制中的软注意力（Soft Attention）和硬注意力（Hard Attention）的区别是什么？", options: ["没有区别", "软注意力对所有位置加权求和，硬注意力只选择一个位置", "软注意力更快", "硬注意力更平滑"], answer: 1, explanation: "软注意力使用 softmax 生成所有位置的连续权重并加权求和，可微可训练；硬注意力离散选择一个位置，需要强化学习训练。", difficulty: 2 },
+                { id: "seq-fin-c-4", question: "Transformer 中的残差连接和层归一化的组合有什么作用？", options: ["增加参数", "稳定训练并允许梯度直接通过捷径传播", "加速推理", "减少内存"], answer: 1, explanation: "残差连接防止梯度消失，层归一化稳定激活值分布，两者组合使得训练极深的 Transformer 成为可能。", difficulty: 2 },
+                { id: "seq-fin-c-5", question: "在机器翻译任务中，BLEU 分数的计算基于什么？", options: ["词嵌入距离", "生成译文与参考译文的 n-gram 精度", "编辑距离", "词向量余弦相似度"], answer: 1, explanation: "BLEU 计算生成翻译与参考翻译之间 1-gram 到 4-gram 的修改精度均值，值越高翻译质量越好。", difficulty: 1 },
+                { id: "seq-fin-c-6", question: "LSTM 的细胞状态（Cell State）为什么能缓解梯度消失问题？", options: ["因为激活函数不同", "因为细胞状态通过加法更新，梯度可以直接沿细胞状态传播", "因为参数更少", "因为使用了不同的损失函数"], answer: 1, explanation: "细胞状态通过线性加法（而非乘法）更新，梯度在时间步间传播时不会反复相乘，有效缓解了梯度消失。", difficulty: 2 },
+                { id: "seq-fin-c-7", question: "Transformer 的位置编码使用 sin 和 cos 函数的好处是什么？", options: ["计算更快", "能通过线性变换表达相对位置关系，且可推广到训练时未见过的序列长度", "不需要训练", "防止过拟合"], answer: 1, explanation: "sin/cos 位置编码使得相对位置可以通过线性变换表示（PE(pos+k) 可由 PE(pos) 线性变换得到），且可外推到更长序列。", difficulty: 3 },
+                { id: "seq-fin-c-8", question: "在 Seq2Seq 模型中，束搜索（Beam Search）相比贪心解码的优势是什么？", options: ["速度更快", "维护多个候选序列，找到更优的全局翻译结果", "不使用 GPU", "不需要参数"], answer: 1, explanation: "束搜索每步维护 k 个最优候选序列，避免了贪心解码的局部最优问题，k 越大搜索越全面但越慢。", difficulty: 2 },
+                { id: "seq-fin-c-9", question: "Transformer 训练中 Label Smoothing 的作用是什么？", options: ["增加训练速度", "防止模型对正确标签过于自信，提升泛化能力", "减少参数", "增加损失值"], answer: 1, explanation: "Label Smoothing 将 one-hot 标签平滑为非零概率分布，防止模型输出过于极端的 logits，提高模型的校准性和泛化性。", difficulty: 3 },
+                { id: "seq-fin-c-10", question: "编码器-解码器注意力机制解决了什么问题？", options: ["过拟合", "使解码器在生成每个 token 时能动态关注编码器输出中最相关的部分", "训练速度慢", "参数量过大"], answer: 1, explanation: "编码器-解码器注意力让解码器在每个生成步骤都能回顾整个输入序列，并自适应地聚焦于最相关的信息。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "seq-fin-f-1", question: "Transformer 解码器中的____（Masked）自注意力确保位置 i 只能关注位置 i 及之前的 token，保持自回归特性。", answer: "掩码", explanation: "因果掩码将注意力矩阵的上三角部分设为 -inf，使模型无法"偷看"未来的 token。", difficulty: 2 },
+                { id: "seq-fin-f-2", question: "Transformer 中的前馈网络由两层 ____ 全连接层和一个 ReLU 激活函数组成。", answer: "线性", explanation: "FFN(x) = max(0, xW1 + b1)W2 + b2，其中两层都是线性变换，中间有非线性激活。", difficulty: 1 },
+                { id: "seq-fin-f-3", question: "在注意力计算中，当 Q 和 K 做点积后，需要除以 sqrt(____) 进行缩放。", answer: "d_k", explanation: "d_k 是 K 向量的维度。缩放因子 sqrt(d_k) 防止点积值过大导致 softmax 梯度消失。", difficulty: 2 },
+                { id: "seq-fin-f-4", question: "Transformer 模型的训练目标通常是最大化对数____（Likelihood）。", answer: "似然", explanation: "自回归语言模型的训练目标是最大化给定前文条件下下一个 token 的对数似然，即最小化交叉熵损失。", difficulty: 2 },
+                { id: "seq-fin-f-5", question: "束搜索（____ Search）在解码时维护 k 个最优候选序列以提高生成质量。", answer: "束（Beam）", explanation: "Beam Search 在每步保留得分最高的 k 个候选，逐步扩展，找到近似最优的输出序列。", difficulty: 1 },
+                { id: "seq-fin-f-6", question: "Transformer 的位置编码公式中，PE(pos, 2i+1) 使用 ____ 函数编码奇数维度。", answer: "cos", explanation: "sin 用于偶数维度 PE(pos, 2i) = sin(pos/10000^{2i/d})，cos 用于奇数维度 PE(pos, 2i+1) = cos(pos/10000^{2i/d})。", difficulty: 3 },
+                { id: "seq-fin-f-7", question: "在 RNN 中，____（Backpropagation Through Time, BPTT）是训练循环网络的标准算法。", answer: "时间反向传播", explanation: "BPTT 将 RNN 在时间上展开为前馈网络，然后应用标准反向传播算法计算梯度。", difficulty: 2 },
+                { id: "seq-fin-f-8", question: "Transformer 编码器由 N 层相同的层堆叠而成，每层包含多头自注意力和前馈____（Feed-Forward）网络。", answer: "前馈", explanation: "Transformer 编码器的标准结构是 N 层（原文为 6 层），每层交替使用多头自注意力和位置前馈网络。", difficulty: 1 },
+                { id: "seq-fin-f-9", question: "注意力权重通过 ____ 函数归一化，确保所有注意力分数之和为 1。", answer: "softmax", explanation: "softmax 将原始注意力分数转换为概率分布，使所有权重之和为 1，可以解释为关注各位置的比例。", difficulty: 1 },
+                { id: "seq-fin-f-10", question: "层归一化（Layer ____）在特征维度上对每个样本的激活值进行归一化，稳定深层网络训练。", answer: "Normalization", explanation: "LayerNorm 对每个样本独立地在特征维度上计算均值和方差进行归一化，不依赖 batch 大小。", difficulty: 1 }
+            ],
+            code: [
+                { id: "seq-fin-code-1", question: "补全多头注意力的实现代码", code: "import torch\nimport torch.nn as nn\nimport math\n\nclass MultiHeadAttention(nn.Module):\n    def __init__(self, d_model, num_heads):\n        super().__init__()\n        self.num_heads = num_heads\n        self.d_k = d_model // num_heads\n        self.W_q = nn.Linear(d_model, d_model)\n        self.W_k = nn.Linear(d_model, d_model)\n        self.W_v = nn.Linear(d_model, d_model)\n        self.W_o = nn.Linear(d_model, d_model)\n    \n    def forward(self, Q, K, V, mask=None):\n        batch_size = Q.size(0)\n        Q = self.W_q(Q).view(batch_size, -1, self.num_heads, self.d_k).transpose(1, 2)\n        K = self.W_k(K).view(batch_size, -1, self.num_heads, self.d_k).transpose(1, 2)\n        V = self.W_v(V).view(batch_size, -1, self.num_heads, self.d_k).transpose(1, 2)\n        \n        scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(self.d_k)\n        if mask is not None:\n            scores = scores.masked_fill(mask == 0, ____)\n        attn = torch.softmax(scores, dim=-1)\n        context = torch.matmul(attn, V)\n        context = context.transpose(1, 2).contiguous().view(batch_size, -1, self.num_heads * self.d_k)\n        return self.W_o(context)", answer: "-1e9", explanation: "被掩码的位置填入极小的负值（-1e9），softmax 后变为 0，确保这些位置的注意力权重为零。", difficulty: 2 },
+                { id: "seq-fin-code-2", question: "补全 LSTM 单步前向传播中的细胞状态更新代码", code: "import torch\nimport torch.nn as nn\n\nclass LSTMCell(nn.Module):\n    def __init__(self, input_dim, hidden_dim):\n        super().__init__()\n        self.W = nn.Linear(input_dim + hidden_dim, 4 * hidden_dim)\n    \n    def forward(self, x_t, h_prev, c_prev):\n        combined = torch.cat([x_t, h_prev], dim=-1)\n        gates = self.W(combined)\n        i_t = torch.sigmoid(gates[:, :hidden_dim])          # 输入门\n        f_t = torch.sigmoid(gates[:, hidden_dim:2*hidden_dim])  # 遗忘门\n        o_t = torch.sigmoid(gates[:, 2*hidden_dim:3*hidden_dim]) # 输出门\n        c_candidate = torch.tanh(gates[:, 3*hidden_dim:])       # 候选值\n        \n        c_t = f_t * c_prev + ____\n        h_t = o_t * torch.tanh(c_t)\n        return h_t, c_t", answer: "i_t * c_candidate", explanation: "细胞状态更新公式：c_t = f_t * c_{t-1} + i_t * c̃_t，遗忘门丢弃旧信息，输入门写入新信息。", difficulty: 2 }
+            ]
+        }
+    },
+
     /* ================================================================
      * NLP Courses 10-23
      * ================================================================ */
@@ -17301,5 +17434,722 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
         }
     },
 
+
+
+
+    /* ================================================================
+     * 17. Machine Learning (10-701, CMU PhD-level)
+     *    Topics: kernel methods, graphical models, theory, graduate ML
+     * ================================================================ */
+    "Machine Learning (10-701, CMU)": {
+        courseId: "ml-10701-cmu",
+        domain: "ml",
+        mid: {
+            choice: [
+                {
+                    id: "ml10701-mid-c-1",
+                    question: "核方法（Kernel Methods）的核心思想是什么？",
+                    options: ["直接在低维空间计算", "通过隐式映射将数据映射到高维特征空间，在高维空间进行线性运算", "通过降维减少计算量", "使用随机采样加速训练"],
+                    answer: 1,
+                    explanation: "核方法通过核函数 K(x, x') = φ(x)·φ(x') 隐式地将数据映射到高维特征空间，无需显式计算映射 φ，就能在高维空间中进行线性算法（如 SVM、PCA）。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-mid-c-2",
+                    question: "以下哪个核函数是正定核（Mercer 核）？",
+                    options: ["K(x, x') = x·x' - 1", "K(x, x') = exp(-||x - x'||² / 2σ²)", "K(x, x') = -||x - x'||²", "K(x, x') = x·x' + sin(x)"],
+                    answer: 1,
+                    explanation: "高斯 RBF 核 K(x, x') = exp(-||x - x'||² / 2σ²) 是经典的 Mercer 核，对所有输入都满足正半定条件，可以表示某个再生核希尔伯特空间（RKHS）的内积。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-mid-c-3",
+                    question: "在马尔可夫随机场（MRF）中，势函数（Potential Function）定义在什么结构上？",
+                    options: ["单个节点", "图中的团（Clique）或最大团", "任意一对不相邻的节点", "整个图的所有节点"],
+                    answer: 1,
+                    explanation: "MRF 的联合概率分布通过定义在图的团（clique）上的势函数来参数化，P(x) = (1/Z) ∏_c ψ_c(x_c)，其中 c 遍历所有团。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-mid-c-4",
+                    question: "关于 VC 维（Vapnik-Chervonenkis Dimension），以下哪个说法正确？",
+                    options: ["VC 维衡量模型的训练误差", "VC 维是假设空间能打散（shatter）的最大点集大小", "VC 维越高，泛化误差一定越小", "线性分类器的 VC 维为 1"],
+                    answer: 1,
+                    explanation: "VC 维定义为假设空间 H 能打散的最大样本集大小。如果 H 能打散 d 个点的任意标记组合，则 VC(H) ≥ d。VC 维控制了泛化误差的上界。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-mid-c-5",
+                    question: "有向图模型（贝叶斯网络）中，条件概率表（CPT）的参数量随父节点数指数增长。当二值节点有 k 个二值父节点时，CPT 需要多少个独立参数？",
+                    options: ["2^k", "2^k - 1", "2k", "k"],
+                    answer: 1,
+                    explanation: "每个节点有 2^k 种父节点组合，每种组合下两个状态的概率之和为 1，因此独立参数为 2^k × (2-1) = 2^k - 1。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-mid-c-6",
+                    question: "Mercer 定理保证了核矩阵 K 满足什么性质？",
+                    options: ["K 必须是对角矩阵", "K 必须是半正定矩阵（Positive Semi-Definite）", "K 必须是正定矩阵", "K 必须是对称且可逆的"],
+                    answer: 1,
+                    explanation: "Mercer 定理指出，如果核函数 K 是正半定的（即对任意输入数据点，核矩阵是半正定的），则存在特征映射 φ 使得 K(x, x') = φ(x)·φ(x')。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-mid-c-7",
+                    question: "在有向图模型中，d-separation（有向分离）准则用于判断什么？",
+                    options: ["两个变量是否独立", "给定观测节点后，两个变量是否条件独立", "图是否是 DAG", "参数是否可识别"],
+                    answer: 1,
+                    explanation: "d-separation 是贝叶斯网络中判断条件独立性的图形化准则。如果在有向无环图中所有连接两个变量节点的路径都被观测节点\"阻断\"，则这两个变量条件独立。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-mid-c-8",
+                    question: "核技巧（Kernel Trick）在支持向量机中的关键作用是什么？",
+                    options: ["加速梯度下降", "避免显式计算高维映射，直接用核函数计算内积", "减少支持向量的数量", "自动选择最优超参数"],
+                    answer: 1,
+                    explanation: "SVM 的对偶形式仅涉及内积 φ(x_i)·φ(x_j)，核技巧用 K(x_i, x_j) 替代，无需显式计算高维映射 φ，从而高效地在高维甚至无限维空间中工作。",
+                    difficulty: 1
+                },
+                {
+                    id: "ml10701-mid-c-9",
+                    question: "在图模型中，期望最大化（EM）算法的 E 步和 M 步分别做什么？",
+                    options: ["E 步更新参数，M 步计算隐变量", "E 步计算隐变量的期望，M 步最大化期望似然", "E 步选择模型，M 步验证模型", "E 步计算梯度，M 步更新步长"],
+                    answer: 1,
+                    explanation: "EM 算法中，E 步基于当前参数估计隐变量的后验期望（充分统计量），M 步将该期望代入似然函数并最大化以更新参数，保证似然单调递增。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-mid-c-10",
+                    question: "关于结构风险最小化（SRM）原则，以下哪个描述最准确？",
+                    options: ["只最小化训练误差", "在经验风险和模型复杂度之间进行权衡", "最小化测试误差", "选择参数最多的模型"],
+                    answer: 1,
+                    explanation: "SRM 通过引入正则化项 R(f) + λΩ(f)，在训练误差（经验风险）和模型复杂度（如 VC 维、范数）之间做权衡，以获得更好的泛化性能。",
+                    difficulty: 2
+                }
+            ],
+            fill: [
+                {
+                    id: "ml10701-mid-f-1",
+                    question: "核函数 K(x, x') = (x·x' + c)^d 对应的特征空间维度是 ____。",
+                    answer: "C(n+d, d)（或组合数相关表达）",
+                    explanation: "多项式核 (x·x' + c)^d 的特征映射维度为 C(n+d, d)，其中 n 是输入维度。显式计算在高维时不可行，核技巧正是为了避免这一问题。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-mid-f-2",
+                    question: "在贝叶斯网络中，____ 定理用于从先验概率和似然函数计算后验概率。",
+                    answer: "贝叶斯",
+                    explanation: "贝叶斯定理 P(H|D) = P(D|H)P(H)/P(D) 是贝叶斯网络推理的基础，将先验 P(H) 与数据似然 P(D|H) 结合得到后验 P(H|D)。",
+                    difficulty: 1
+                },
+                {
+                    id: "ml10701-mid-f-3",
+                    question: "高斯过程回归中，预测分布的均值由 ____ 和核矩阵的逆决定。",
+                    answer: "核向量（或核矩阵与训练输出的乘积）",
+                    explanation: "高斯过程回归的预测均值为 m* = K(x*, X)[K(X, X) + σ²I]^{-1} y，其中 K(x*, X) 是测试点与训练点之间的核向量。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-mid-f-4",
+                    question: "在条件随机场（CRF）中，对数线性模型的特征函数同时依赖于 ____ 和观测数据。",
+                    answer: "标签（或标记）",
+                    explanation: "CRF 的特征函数 f(y_{i-1}, y_i, x_i, t) 同时依赖于相邻标签对和观测数据，这使得 CRF 能建模标签间的依赖关系，克服了独立分类假设的局限。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-mid-f-5",
+                    question: "再生核希尔伯特空间（RKHS）中，表示定理（Representer Theorem）指出最优解可以表示为 ____ 的线性组合。",
+                    answer: "核函数（或训练样本处的核函数）",
+                    explanation: "表示定理表明，在 RKHS 中最小化正则化目标函数的解可以写成 f(x) = Σ α_i K(x_i, x)，即核函数的线性组合，这是核方法的理论基础。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-mid-f-6",
+                    question: "隐马尔可夫模型（HMM）的前向算法时间复杂度为 ____。",
+                    answer: "O(TK²)（或 O(T·|状态数|²)）",
+                    explanation: "前向算法通过动态规划递推计算前向概率，每步需要 O(K²) 计算，总复杂度 O(TK²)，远优于暴力枚举的 O(K^T)。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-mid-f-7",
+                    question: "支持向量机的松弛变量（Slack Variable）ξ_i 用于处理 ____ 数据。",
+                    answer: "线性不可分（或非线性可分、含噪声）",
+                    explanation: "当数据不是严格线性可分时，引入松弛变量 ξ_i ≥ 0 允许样本违反间隔约束，目标函数变为 min (1/2)||w||² + C·Σξ_i，参数 C 控制对误分类的惩罚。",
+                    difficulty: 1
+                },
+                {
+                    id: "ml10701-mid-f-8",
+                    question: "在 EM 算法中，ELBO（Evidence Lower Bound）的全称是 ____ Lower Bound。",
+                    answer: "Evidence（或期望下界）",
+                    explanation: "ELBO = E_{q(z|θ)}[log p(x,z|θ)] - E_{q(z|θ)}[log q(z|θ)]，是对数边际似然 log p(x|θ) 的下界。EM 的 E 步最大化 ELBO 关于 q，M 步最大化 ELBO 关于 θ。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-mid-f-9",
+                    question: "朴素贝叶斯分类器的\"朴素\"假设是：给定类别标签后，各特征之间 ____。",
+                    answer: "条件独立",
+                    explanation: "朴素贝叶斯假设 P(x_1, ..., x_n | y) = Π P(x_i | y)，即特征在给定类别下条件独立。虽然假设过强，但在文本分类等任务中效果良好。",
+                    difficulty: 1
+                },
+                {
+                    id: "ml10701-mid-f-10",
+                    question: "KL 散度 D_KL(P||Q) 用于衡量概率分布 P 和 Q 之间的 ____。",
+                    answer: "差异（或距离、散度）",
+                    explanation: "KL 散度 D_KL(P||Q) = Σ P(x) log(P(x)/Q(x))，衡量用分布 Q 近似分布 P 时的信息损失。注意 KL 散度不对称且不满足三角不等式。",
+                    difficulty: 1
+                }
+            ],
+            code: [
+                {
+                    id: "ml10701-mid-code-1",
+                    question: "补全以下代码，实现高斯 RBF 核函数的计算。",
+                    code: "import numpy as np\n\ndef rbf_kernel(x1, x2, sigma=1.0):\n    diff = x1 - x2\n    sq_dist = np.dot(diff, diff)\n    return ____",
+                    answer: "np.exp(-sq_dist / (2 * sigma**2))",
+                    explanation: "RBF 核通过计算两点欧氏距离的平方，除以 2σ² 取负后指数化，得到 0 到 1 之间的核值。距离越近，核值越大。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-mid-code-2",
+                    question: "补全以下代码，实现朴素贝叶斯的对数后验概率计算。",
+                    code: "import numpy as np\n\ndef log_posterior(log_priors, log_likelihoods):\n    log_posteriors = log_priors[:, None] + log_likelihoods\n    max_vals = np.max(log_posteriors, axis=0)\n    log_sum = max_vals + np.log(np.sum(np.exp(____), axis=0))\n    return log_posteriors - log_sum",
+                    answer: "log_posteriors - max_vals",
+                    explanation: "为防止数值下溢，使用 log-sum-exp 技巧：先减去每列最大值再做 exp，最后加回 max 并取 log。这是对数空间中概率归一化的标准做法。",
+                    difficulty: 3
+                }
+            ]
+        },
+        final: {
+            choice: [
+                {
+                    id: "ml10701-fin-c-1",
+                    question: "核 PCA（Kernel PCA）与线性 PCA 的关键区别是什么？",
+                    options: ["核 PCA 只能处理线性可分数据", "核 PCA 在高维特征空间中执行 PCA，能提取非线性特征", "核 PCA 不需要中心化", "核 PCA 的计算量更小"],
+                    answer: 1,
+                    explanation: "核 PCA 通过核技巧在高维特征空间中执行 PCA，无需显式映射即可提取数据的非线性主成分，解决线性 PCA 无法处理的非线性结构问题。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-fin-c-2",
+                    question: "在概率图模型中，因子分解（Factorization）的 Hammersley-Clifford 定理说明了什么？",
+                    options: ["马尔可夫随机场的联合分布可以分解为团势函数的乘积", "贝叶斯网络的联合分布是条件概率之和", "有向图和无向图等价", "图模型的推理总是精确的"],
+                    answer: 0,
+                    explanation: "Hammersley-Clifford 定理建立了图的马尔可夫性质与概率分布的因子分解之间的等价关系：如果分布满足图的马尔可夫性质，则联合分布可以分解为团势函数之积。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-fin-c-3",
+                    question: "支持向量回归（SVR）的 ε-不敏感损失函数的特点是什么？",
+                    options: ["对所有误差等量惩罚", "预测值与真实值之差在 ε 范围内时不计损失", "只惩罚正误差", "损失随误差指数增长"],
+                    answer: 1,
+                    explanation: "ε-不敏感损失：当 |y - f(x)| ≤ ε 时损失为 0，超出部分线性增长。这使得模型对小误差具有鲁棒性，且解具有稀疏性（只有边界外的样本成为支持向量）。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-fin-c-4",
+                    question: "变分推断（Variational Inference）的基本思想是什么？",
+                    options: ["使用 MCMC 采样近似后验", "用简单的参数化分布族近似复杂后验分布", "穷举所有可能的隐变量组合", "直接计算后验分布的解析解"],
+                    answer: 1,
+                    explanation: "变分推断将推断问题转化为优化问题：在参数化分布族 q(z; ν) 中寻找 KL(q||p) 最小的分布，用 q 作为真实后验 p(z|x) 的近似。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-fin-c-5",
+                    question: "在指数族分布中，充分统计量（Sufficient Statistic）的作用是什么？",
+                    options: ["减少模型参数数量", "包含与参数估计相关的所有样本信息，且维度固定", "增加模型的非线性表达能力", "加速梯度下降收敛"],
+                    answer: 1,
+                    explanation: "充分统计量 T(x) 包含了样本关于参数的全部信息：P(x|θ) = h(x) exp(η(θ)·T(x) - A(θ))。给定 T(x)，数据的其他部分对参数估计不再提供额外信息。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-fin-c-6",
+                    question: "关于结构方程模型（SEM）和因果推断，以下哪个说法正确？",
+                    options: ["SEM 只能处理线性关系", "SEM 中的残差项代表未观测的混杂因素", "观测数据的关联可以直接推断因果关系", "SEM 不需要 DAG 表示"],
+                    answer: 1,
+                    explanation: "SEM 的残差项（干扰项）代表影响该变量的所有未观测因素。通过 SEM 可以形式化地表示因果假设，但因果推断还需要额外的识别条件（如工具变量）。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-fin-c-7",
+                    question: "图卷积网络（GCN）的消息传递（Message Passing）范式中，每层的聚合操作做了什么？",
+                    options: ["随机初始化节点特征", "将邻居节点的特征加权聚合后更新当前节点特征", "删除所有边", "计算全局图的平均特征"],
+                    answer: 1,
+                    explanation: "GCN 的消息传递：h_v^{(l+1)} = σ(Σ_{u∈N(v)} W^{(l)} h_u^{(l)})，每个节点聚合其邻居的特征（通过邻接矩阵加权），线性变换后激活，逐层捕捉局部到全局的图结构。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-fin-c-8",
+                    question: "在贝叶斯优化（Bayesian Optimization）中，采集函数（Acquisition Function）的作用是什么？",
+                    options: ["直接输出最终超参数", "平衡探索（Exploration）和利用（Exploitation）来选择下一个评估点", "评估模型的泛化能力", "加速梯度计算"],
+                    answer: 1,
+                    explanation: "采集函数如 EI（Expected Improvement）和 UCB（Upper Confidence Bound）在代理模型的预测均值和不确定性之间权衡，指导下一步在哪里评估目标函数。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-fin-c-9",
+                    question: "隐变量模型中，变分下界（ELBO）与对数边际似然的关系是什么？",
+                    options: ["ELBO 等于对数边际似然", "ELBO 是对数边际似然的下界，二者之差为 KL(q||p)", "ELBO 是对数边际似然的上界", "ELBO 和对数边际似然没有关系"],
+                    answer: 1,
+                    explanation: "log p(x) = ELBO + KL(q(z|x) || p(z|x))，由于 KL 散度 ≥ 0，ELBO 始终 ≤ log p(x)。变分推断通过最大化 ELBO 来间接逼近对数边际似然。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-fin-c-10",
+                    question: "在多项式核 K(x, x') = (x·x' + 1)^d 中，参数 d 控制什么？",
+                    options: ["数据的维度", "特征空间中多项式的最高次数", "正则化强度", "核函数的带宽"],
+                    answer: 1,
+                    explanation: "多项式核的 d 次幂决定了特征映射空间中多项式的最高次数。d=1 时退化为线性核，d 增大时能捕捉更高阶的特征交互，但也更容易过拟合。",
+                    difficulty: 1
+                }
+            ],
+            fill: [
+                {
+                    id: "ml10701-fin-f-1",
+                    question: "在图模型的精确推断中，变量消除（Variable Elimination）的计算复杂度取决于图的 ____（treewidth）。",
+                    answer: "树宽（或 treewidth）",
+                    explanation: "变量消除的复杂度随树宽指数增长。树宽衡量图与树的接近程度：树宽越小，精确推断越高效。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-fin-f-2",
+                    question: "非参数贝叶斯方法中，中国餐馆过程（CRP）是 ____ 过程的边际分布。",
+                    answer: "Dirichlet（或狄利克雷）",
+                    explanation: "CRP 是 Dirichlet 过程在逐个数据点分配时的边际分布描述，具有聚类且类别数自动确定。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-fin-f-3",
+                    question: "在高斯过程分类中，由于似然函数不是高斯分布，预测需要通过 ____ 方法近似。",
+                    answer: "拉普拉斯近似（或期望传播、变分推断）",
+                    explanation: "高斯过程分类的后验非高斯，无法解析计算。拉普拉斯近似用高斯分布拟合后验的 mode，期望传播（EP）匹配矩，变分推断最大化 ELBO。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-fin-f-4",
+                    question: "谱方法（Spectral Methods）在图模型参数学习中利用矩阵的 ____ 分解。",
+                    answer: "特征值（或 SVD）",
+                    explanation: "谱方法通过矩阵分解从观测数据的协方差结构中恢复图模型参数，避免了 EM 算法的局部最优问题。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-fin-f-5",
+                    question: "在在线学习（Online Learning）中，后悔值（Regret）衡量的是累积损失与 ____ 之差。",
+                    answer: "最优固定策略（或事后最优决策者）",
+                    explanation: "Regret(T) = Σ l_t(a_t) - min_{a*} Σ l_t(a*)，衡量在线算法与事后固定最优策略的差距。如果 Regret(T)/T → 0，则算法具有 no-regret 性质。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-fin-f-6",
+                    question: "半监督学习中，____ 假设指出相似的数据点应具有相似的标签。",
+                    answer: "平滑性（或流形假设）",
+                    explanation: "平滑性假设认为高维数据分布在低维流形上，流形上距离近的点应有相似标签。这是半监督学习的核心假设之一。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-fin-f-7",
+                    question: "在集成学习中，Boosting 通过 ____ 地训练弱学习器来降低偏差。",
+                    answer: "序列（或串行、逐步）",
+                    explanation: "Boosting 按序训练弱学习器，每个后续学习器侧重于前序学习器预测错误的样本，逐步降低偏差。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-fin-f-8",
+                    question: "在因子分析（Factor Analysis）中，观测数据的协方差矩阵被建模为因子协方差和 ____ 之和。",
+                    answer: "噪声协方差（或独特方差）",
+                    explanation: "Factor Analysis 假设 Σ = ΛΛ^T + Ψ，其中 Λ 是因子载荷矩阵，Ψ 是对角噪声矩阵。这种低秩加噪声结构是因子分析的核心。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-fin-f-9",
+                    question: "马尔可夫链蒙特卡罗（MCMC）方法通过构造平稳分布为目标分布的 ____ 来进行采样。",
+                    answer: "马尔可夫链",
+                    explanation: "MCMC 构造一条马尔可夫链，使其平稳分布等于目标分布 p(z)。Metropolis-Hastings 和 Gibbs 采样是经典 MCMC 算法。",
+                    difficulty: 2
+                },
+                {
+                    id: "ml10701-fin-f-10",
+                    question: "在核岭回归中，预测函数为 f(x*) = k*^T (K + λI)^{-1} y，其中 λ 是 ____ 参数。",
+                    answer: "正则化（或岭参数）",
+                    explanation: "λ 控制正则化强度：λ 增大则解更平滑（偏差大、方差小），λ 减小则解更拟合数据（偏差小、方差大）。",
+                    difficulty: 2
+                }
+            ],
+            code: [
+                {
+                    id: "ml10701-fin-code-1",
+                    question: "补全以下代码，实现变量消除（Variable Elimination）的因子乘法操作。",
+                    code: "import numpy as np\n\ndef factor_product(factors):\n    result = factors[0]\n    for f in factors[1:]:\n        common_vars = ____\n        if common_vars:\n            result = np.einsum('ij,ik->ijk', result, f) if len(common_vars) == 1 else result * f\n        else:\n            result = np.outer(result, f)\n    return result",
+                    answer: "set(result.scope) & set(f.scope)",
+                    explanation: "变量消除中因子乘法的关键是识别共享变量（scope 的交集），对共享变量对齐后逐元素相乘。",
+                    difficulty: 3
+                },
+                {
+                    id: "ml10701-fin-code-2",
+                    question: "补全以下代码，实现高斯过程回归的预测。",
+                    code: "import numpy as np\n\ndef gp_predict(X_train, y_train, X_test, kernel, noise_var=0.1):\n    K = kernel(X_train, X_train) + noise_var * np.eye(len(X_train))\n    K_s = kernel(X_train, X_test)\n    K_ss = kernel(X_test, X_test)\n    K_inv = np.linalg.inv(K)\n    mu = K_s.T @ K_inv @ y_train\n    sigma = K_ss - ____\n    return mu, np.diag(sigma)",
+                    answer: "K_s.T @ K_inv @ K_s",
+                    explanation: "GP 预测：均值 μ* = K(X*, X)[K(X, X) + σ²I]^{-1} y，方差 Σ* = K(X*, X*) - K(X*, X)[K(X, X) + σ²I]^{-1} K(X, X*)。",
+                    difficulty: 3
+                }
+            ]
+        }
+    },
+
+    /* ================================================================
+     * 18. Statistical Machine Learning (10-702, CMU)
+     *    Topics: concentration inequalities, nonparametric methods,
+     *            kernel methods, minimax theory
+     * ================================================================ */
+    "Statistical Machine Learning (10-702, CMU)": {
+        courseId: "sml-10702-cmu",
+        domain: "ml",
+        mid: {
+            choice: [
+                {
+                    id: "sml10702-mid-c-1",
+                    question: "Hoeffding 不等式给出的是随机变量之和偏离其期望值的概率的什么界？",
+                    options: ["精确值", "上界", "下界", "渐近值"],
+                    answer: 1,
+                    explanation: "Hoeffding 不等式 P(|Σ X_i - E[Σ X_i]| ≥ t) ≤ 2exp(-2t² / Σ(b_i - a_i)²) 给出了偏差概率的上界，是集中不等式的基础。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-mid-c-2",
+                    question: "关于非参数回归（Nonparametric Regression），以下哪个说法正确？",
+                    options: ["模型形式完全由数据决定，不预设函数形式", "不需要任何假设", "只能处理一维输入", "训练速度一定比参数方法快"],
+                    answer: 0,
+                    explanation: "非参数回归不对回归函数的形式做参数化假设（如线性），而是让模型复杂度随数据量增长，如核回归、样条回归。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-mid-c-3",
+                    question: "极小极大（Minimax）理论在统计学习中的意义是什么？",
+                    options: ["寻找对所有可能参数值中最坏情况下的最优策略", "最大化似然函数", "最小化计算复杂度", "选择最简单的模型"],
+                    answer: 0,
+                    explanation: "Minimax 决策规则 δ* 使得最大风险 min_δ sup_θ R(θ, δ) 最小化，即在所有可能的参数 θ 中的最坏情况下追求最优。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-mid-c-4",
+                    question: "Kolmogorov-Smirnov 检验衡量的是什么？",
+                    options: ["两个样本均值的差异", "两个累积分布函数之间的最大绝对差异", "方差的齐性", "回归斜率的显著性"],
+                    answer: 1,
+                    explanation: "K-S 检验统计量 D = sup_x |F_n(x) - G_n(x)|，衡量经验分布函数之间的最大距离。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-mid-c-5",
+                    question: "VC 不等式（VC Inequality）建立了经验风险与期望风险之间的什么关系？",
+                    options: ["它们总是相等的", "它们之间的偏差被 VC 维控制的量所界定", "经验风险总是小于期望风险", "期望风险不依赖于 VC 维"],
+                    answer: 1,
+                    explanation: "VC 不等式：P(sup_h |R(h) - R_n(h)| > t) ≤ 4·exp(-n t²/8 + d log(n))，其中 d 为 VC 维。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-mid-c-6",
+                    question: "在密度估计中，核密度估计（KDE）的带宽 h 过大时会导致什么问题？",
+                    options: ["过拟合", "欠拟合（过度平滑）", "方差增大", "计算不可行"],
+                    answer: 1,
+                    explanation: "带宽 h 过大导致密度估计过于平滑，丢失数据的细节结构（高偏差/欠拟合）。h 过小则估计波动大（高方差/过拟合）。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-mid-c-7",
+                    question: "集中不等式（Concentration Inequality）在机器学习中的主要作用是什么？",
+                    options: ["加速梯度计算", "量化随机变量偏离其期望的概率，为泛化提供理论保证", "选择最优模型", "设计网络架构"],
+                    answer: 1,
+                    explanation: "集中不等式量化独立或弱相关随机变量和的集中程度，是统计学习理论中推导泛化误差界的核心工具。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-mid-c-8",
+                    question: "在非参数方法中，收敛速率（Rate of Convergence）与什么维度诅咒相关？",
+                    options: ["参数数量", "输入特征维度", "模型深度", "输出维度"],
+                    answer: 1,
+                    explanation: "非参数方法的收敛速率通常为 O(n^{-2/(2+d)})，其中 d 是输入维度。随着 d 增大，收敛急剧变慢。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-mid-c-9",
+                    question: "关于 Rademacher 复杂度，以下哪个说法正确？",
+                    options: ["它衡量模型拟合噪声的能力上限", "它衡量假设空间对随机标签的拟合能力", "它只适用于线性模型", "它与样本量无关"],
+                    answer: 1,
+                    explanation: "Rademacher 复杂度衡量假设空间拟合随机标签的能力，是泛化误差界的重要组成部分。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-mid-c-10",
+                    question: "在核密度估计中，选择最优带宽的常用准则是什么？",
+                    options: ["最小化训练误差", "最小化积分均方误差（MISE）", "最大化似然函数", "最小化偏差"],
+                    answer: 1,
+                    explanation: "最优带宽选择通常最小化 MISE = E[∫(f̂(x) - f(x))² dx]，它平衡了偏差²和方差。",
+                    difficulty: 2
+                }
+            ],
+            fill: [
+                {
+                    id: "sml10702-mid-f-1",
+                    question: "McDiarmid 不等式要求函数满足 ____ 变化条件（即改变单个变量时函数值变化有界）。",
+                    answer: "有界（或 bounded）",
+                    explanation: "McDiarmid 不等式是证明泛化界的关键工具，要求函数满足有界差分条件。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-mid-f-2",
+                    question: "Nadaraya-Watson 核回归的预测值是观测值的加权平均，权重由 ____ 核函数决定。",
+                    answer: "（数据点与预测点之间的）距离",
+                    explanation: "权重 w_i = K_h(x - x_i) 由数据点与目标点的距离通过核函数决定，距离越近权重越大。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-mid-f-3",
+                    question: "统计决策理论中，贝叶斯风险（Bayes Risk）是在 ____ 先验下的期望风险。",
+                    answer: "先验分布（或参数分布）",
+                    explanation: "贝叶斯风险 r(π, δ) = ∫ R(θ, δ) π(dθ)，贝叶斯决策规则最小化贝叶斯风险。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-mid-f-4",
+                    question: "在 Bernstein 不等式中，除了方差外，还利用了随机变量的 ____ 来获得更紧的界。",
+                    answer: "高阶矩（或有界性）",
+                    explanation: "Bernstein 不等式同时利用了方差 σ² 和有界性 M（|X_i| ≤ M），在方差较小时给出比 Hoeffding 更紧的界。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-mid-f-5",
+                    question: "在非参数检验中，____ 检验（Permutation Test）通过随机置换标签来构建零分布。",
+                    answer: "置换（或排列）",
+                    explanation: "置换检验将样本标签随机重排，构建经验零分布。它是精确检验，适用于小样本。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-mid-f-6",
+                    question: "在核方法的统计理论中，核函数 K 对应的再生核希尔伯特空间记为 ____。",
+                    answer: "RKHS",
+                    explanation: "RKHS（Reproducing Kernel Hilbert Space）是与正定核 K 一一对应的函数空间。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-mid-f-7",
+                    question: "在 Minimax 问题中，Le Cam 方法通过构造两个假设来下界 ____ 距离。",
+                    answer: "总变差（或 KL）",
+                    explanation: "Le Cam 方法给出检测问题的固有困难度下界，基于两个参数点之间的总变差距离。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-mid-f-8",
+                    question: "K-近邻分类器在最近邻假设下的误差率上界是贝叶斯最优误差率的 ____ 倍。",
+                    answer: "2",
+                    explanation: "Cover-Hart 定理：1-NN 分类器的误差率 ≤ 2R*（其中 R* 是贝叶斯最优误差率）。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-mid-f-9",
+                    question: "在非参数方法中，偏差-方差权衡的表达式通常为：MISE = 偏差² + ____。",
+                    answer: "方差（Variance）",
+                    explanation: "非参数估计的均方误差分解为偏差² + 方差。最优平滑参数平衡两者使 MISE 最小。",
+                    difficulty: 1
+                },
+                {
+                    id: "sml10702-mid-f-10",
+                    question: "在统计学习中，____ 原则通过最小化期望平方损失来选择最优预测函数。",
+                    answer: "条件期望（或回归）",
+                    explanation: "对于平方损失，最优预测函数 f*(x) = E[Y|X=x] 即条件期望。",
+                    difficulty: 1
+                }
+            ],
+            code: [
+                {
+                    id: "sml10702-mid-code-1",
+                    question: "补全以下代码，实现核密度估计（KDE）。",
+                    code: "import numpy as np\n\ndef kde(X_train, x_query, h, kernel='gaussian'):\n    n = len(X_train)\n    if kernel == 'gaussian':\n        u = (x_query - X_train) / h\n        K_vals = (1 / np.sqrt(2 * np.pi)) * np.exp(-0.5 * u**2)\n    density = ____ / (n * h)\n    return density",
+                    answer: "np.sum(K_vals)",
+                    explanation: "KDE 公式 f̂(x) = (1/(nh)) Σ K((x - x_i)/h)。带宽 h 控制平滑程度。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-mid-code-2",
+                    question: "补全以下代码，实现 Hoeffding 不等式的上界计算。",
+                    code: "import numpy as np\n\ndef hoeffding_bound(n, t, a=0, b=1):\n    exponent = ____\n    bound = 2 * np.exp(exponent)\n    return min(bound, 1.0)",
+                    answer: "-2 * (n * t)**2 / (n * (b - a)**2)",
+                    explanation: "Hoeffding 不等式：P(|S_n/n - μ| ≥ t) ≤ 2exp(-2nt²/(b-a)²)。",
+                    difficulty: 2
+                }
+            ]
+        },
+        final: {
+            choice: [
+                {
+                    id: "sml10702-fin-c-1",
+                    question: "在 Minimax 估计理论中，James-Stein 估计量的存在说明了什么？",
+                    options: ["极大似然估计总是最优的", "当维度 ≥ 3 时，收缩估计量在平方损失下优于样本均值", "贝叶斯估计总是劣于频率方法", "非参数方法一定优于参数方法"],
+                    answer: 1,
+                    explanation: "Stein 现象：对于 d ≥ 3 维正态分布，样本均值不是 θ 的可容许估计。James-Stein 估计量在平方损失下严格占优。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-fin-c-2",
+                    question: "在非参数统计中，有效维度（Effective Dimension）与参数维度的区别是什么？",
+                    options: ["有效维度总是大于参数维度", "有效维度衡量函数空间的固有复杂度，而非参数数量", "两者完全相同", "有效维度只用于线性模型"],
+                    answer: 1,
+                    explanation: "有效维度描述目标函数的实际复杂度，而非显式的参数个数。非参数方法的收敛速率取决于有效维度。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-fin-c-3",
+                    question: "关于 VC 维，以下哪个说法正确？",
+                    options: ["VC 维只依赖于数据分布", "VC 维是假设空间的固有性质，与数据分布无关", "VC 维等于假设空间的参数数量", "VC 维越大，泛化越好"],
+                    answer: 1,
+                    explanation: "VC 维是假设空间 H 的组合性质，定义为 H 能打散的最大点集大小，与数据分布无关。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-fin-c-4",
+                    question: "在核岭回归的统计分析中，再生核希尔伯特空间（RKHS）范数控制什么？",
+                    options: ["模型的训练误差", "函数的光滑度（复杂度）", "预测的方差", "核矩阵的特征值"],
+                    answer: 1,
+                    explanation: "RKHS 范数量化函数的复杂度/光滑度。核岭回归中 ||f||_H² 作为正则化项惩罚复杂函数。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-fin-c-5",
+                    question: "在假设检验中，Neyman-Pearson 引理给出的是什么检验的最优性？",
+                    options: ["最小化总体误差率", "在第一类错误约束下最小化第二类错误", "最小化 p 值", "最大化功效但不约束假阳性"],
+                    answer: 1,
+                    explanation: "Neyman-Pearson 引理指出似然比检验在约束 P(第一类错误) ≤ α 下最有效。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-fin-c-6",
+                    question: "在非参数方法中，局部多项式回归相比 Nadaraya-Watson 核回归的主要优势是什么？",
+                    options: ["计算更简单", "能更好地处理边界偏差", "不需要选择带宽", "只适用于一维数据"],
+                    answer: 1,
+                    explanation: "Nadaraya-Watson 在边界处有显著偏差，而局部多项式回归通过拟合局部多项式来减少边界偏差。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-fin-c-7",
+                    question: "在统计学习理论中，Fano 方法用于下界什么量？",
+                    options: ["分类误差率", "多假设检验的错误概率", "回归的均方误差", "密度估计的 KL 散度"],
+                    answer: 1,
+                    explanation: "Fano 不等式通过信息论方法下界多假设检验的错误概率，进而下界 minimax 风险。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-fin-c-8",
+                    question: "在高维统计中，稀疏性假设如何帮助克服维度诅咒？",
+                    options: ["完全消除维度诅咒", "通过限制有效参数维度来降低问题复杂度", "增加样本量", "使用更复杂的模型"],
+                    answer: 1,
+                    explanation: "稀疏性假设意味着有效维度降至 O(s log p)。LASSO 等方法利用此假设在高维设置下实现一致估计。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-fin-c-9",
+                    question: "在核方法的统计理论中，一致性要求当 n→∞ 时带宽 h 满足什么条件？",
+                    options: ["h→∞", "h→0 且 nh→∞", "h 保持不变", "h→0 且 nh→0"],
+                    answer: 1,
+                    explanation: "核密度估计一致性：h→0（消除偏差）且 nh→∞（降低方差）。例如 h = n^{-1/5} 同时满足这两个条件。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-fin-c-10",
+                    question: "在 Minimax 理论中，如果某估计量的风险达到了 minimax 下界，说明什么？",
+                    options: ["该估计量是唯一的", "该估计量在最坏情况下是最优的，无法做得更好", "该估计量总是优于所有其他估计量", "该问题不存在最优估计"],
+                    answer: 1,
+                    explanation: "达到 minimax 下界意味着该估计量在 minimax 准则下是最优的。",
+                    difficulty: 2
+                }
+            ],
+            fill: [
+                {
+                    id: "sml10702-fin-f-1",
+                    question: "在 Minimax 理论中，____ 不等式通过信息论方法将统计推断与假设检验的错误概率联系起来。",
+                    answer: "Fano",
+                    explanation: "Fano 不等式将参数估计错误率下界转化为假设检验的错误概率下界。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-fin-f-2",
+                    question: "在 Sobolev 空间中，光滑度参数 s 控制函数的 ____ 阶导数的有限性。",
+                    answer: "s（或第 s 阶）",
+                    explanation: "Sobolev 空间 H^s 由 s 阶导数平方可积的函数组成。s 越大函数越光滑，收敛速率越快。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-fin-f-3",
+                    question: "在高维统计中，____ 算法通过逐步添加变量来控制错误发现率（FDR）。",
+                    answer: "Forward Stepwise（或逐步前向选择）",
+                    explanation: "逐步前向选择按边际相关性依次加入变量，并通过 knockoffs 或 BH 程序控制 FDR。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-fin-f-4",
+                    question: "在核方法中，Mercer 特征映射 φ: X → H 将输入映射到 ____ 维空间。",
+                    answer: "无限（或高维、有限但很大）",
+                    explanation: "对于 RBF 核映射到无限维 RKHS；对于多项式核映射到有限但很高的维。核技巧无需显式计算 φ(x)。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-fin-f-5",
+                    question: "在非参数估计中，MISE 的最优收敛速率与输入维度 d 和光滑度参数 s 的关系为 ____。",
+                    answer: "O(n^{-2s/(2s+d)})",
+                    explanation: "在 d 维 Sobolev 空间 H^s 中，最优 MSE 收敛速率为 n^{-2s/(2s+d)}。维度越高或光滑度越低，收敛越慢。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-fin-f-6",
+                    question: "在统计推断中，____ 区间提供了参数估计的不确定性量化。",
+                    answer: "置信（或 Confidence）",
+                    explanation: "置信区间以一定频率覆盖真实参数值，是频率学派中对估计量变异性的度量。",
+                    difficulty: 1
+                },
+                {
+                    id: "sml10702-fin-f-7",
+                    question: "在非参数假设检验中，____ 方法通过随机重排数据标签来构建零分布。",
+                    answer: "置换检验（Permutation Test）",
+                    explanation: "置换检验将标签随机重排构建经验零分布，是精确检验，不依赖渐近假设。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-fin-f-8",
+                    question: "在极小极大估计中，____ 估计量通过向某个中心点收缩来降低风险。",
+                    answer: "收缩（Shrinkage）",
+                    explanation: "James-Stein 等收缩估计量牺牲一点偏差来大幅降低方差。岭回归、LASSO 等都是收缩方法。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-fin-f-9",
+                    question: "在非参数回归中，样条方法通过最小化带 ____ 正则化项的目标函数来拟合平滑曲线。",
+                    answer: "粗糙度（或曲率、二阶导数）",
+                    explanation: "平滑样条 min Σ(y_i - f(x_i))² + λ ∫(f''(x))²dx 平衡拟合度和光滑度。",
+                    difficulty: 2
+                },
+                {
+                    id: "sml10702-fin-f-10",
+                    question: "在高维稀疏回归中，LASSO 通过 L1 正则化实现 ____，自动将部分系数压缩为零。",
+                    answer: "变量选择（或稀疏性）",
+                    explanation: "LASSO 的 L1 惩罚项使最优解落在坐标轴上，同时完成参数估计和变量选择。",
+                    difficulty: 2
+                }
+            ],
+            code: [
+                {
+                    id: "sml10702-fin-code-1",
+                    question: "补全以下代码，实现 k-近邻（kNN）密度估计。",
+                    code: "import numpy as np\n\ndef knn_density(X_train, x_query, k):\n    distances = np.sqrt(np.sum((X_train - x_query)**2, axis=1))\n    distances_sorted = np.sort(distances)\n    r_k = distances_sorted[k-1]\n    d = X_train.shape[1]\n    volume = np.pi**(d/2) / (____)\n    density = k / (len(X_train) * volume * r_k**d)\n    return density",
+                    answer: "np.math.gamma(d/2 + 1)",
+                    explanation: "d 维单位球体积 V_d = π^{d/2} / Γ(d/2 + 1)。kNN 密度估计通过球体积反推密度。",
+                    difficulty: 3
+                },
+                {
+                    id: "sml10702-fin-code-2",
+                    question: "补全以下代码，实现交叉验证选择核密度估计的最优带宽。",
+                    code: "import numpy as np\n\ndef cross_validate_bandwidth(X, bandwidths):\n    n = len(X)\n    scores = []\n    for h in bandwidths:\n        log_likelihood = 0\n        for i in range(n):\n            X_loo = np.delete(X, i, axis=0)\n            u = (X[i] - X_loo) / h\n            K_vals = (1/np.sqrt(2*np.pi)) * np.exp(-0.5 * u**2)\n            density = np.sum(K_vals) / ((n - 1) * h)\n            log_likelihood += ____\n        scores.append(log_likelihood / n)\n    best_h = bandwidths[np.argmax(scores)]\n    return best_h",
+                    answer: "np.log(density + 1e-300)",
+                    explanation: "LOO-CV 最大化平均对数似然。加 1e-300 防止 log(0)。选择使平均对数似然最大的带宽。",
+                    difficulty: 3
+                }
+            ]
+        }
+    },
 
 };
