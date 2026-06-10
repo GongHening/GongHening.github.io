@@ -16444,4 +16444,719 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
         }
     },
 
+    /* ================================================================
+     * CS281: Advanced Machine Learning (Stanford)
+     *    Topics: Bayesian inference, Gaussian processes,
+     *            variational inference, MCMC, Bayesian deep learning
+     * ================================================================ */
+    "CS281: Advanced Machine Learning": {
+        courseId: "cs281-advanced-ml",
+        domain: "ml",
+        mid: {
+            choice: [
+                {
+                    id: "cs281-mid-c-1",
+                    question: "在贝叶斯推断中，后验分布正比于什么的乘积？",
+                    options: ["先验分布与似然函数", "似然函数与归一化常数", "先验分布与证据", "后验分布与先验分布"],
+                    answer: 0,
+                    explanation: "贝叶斯定理表明：后验 ∝ 先验 × 似然。即 p(θ|D) ∝ p(D|θ) × p(θ)，其中 p(θ) 是先验，p(D|θ) 是似然。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs281-mid-c-2",
+                    question: "高斯过程（Gaussian Process）的完全定义由什么决定？",
+                    options: ["均值函数和协方差函数（核函数）", "数据集和超参数", "损失函数和优化器", "网络层数和激活函数"],
+                    answer: 0,
+                    explanation: "高斯过程由均值函数 m(x) 和协方差函数（核函数）k(x, x') 完全定义，记为 GP(m, k)。核函数决定了函数的平滑性和相关性。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs281-mid-c-3",
+                    question: "以下哪种方法属于变分推断（Variational Inference）的核心思想？",
+                    options: ["用简单的分布族逼近复杂后验", "通过重复采样逼近后验", "使用网格搜索最大化似然", "利用共轭先验解析求解"],
+                    answer: 0,
+                    explanation: "变分推断的核心思想是选择一个简单的参数化分布族 q(θ)，通过优化 q 使其尽量接近真实后验 p(θ|D)，通常最小化 KL 散度。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-mid-c-4",
+                    question: "马尔可夫链蒙特卡洛（MCMC）方法中，Metropolis-Hastings 算法的核心步骤是什么？",
+                    options: ["提出候选样本并根据接受率决定是否接受", "直接从后验分布中采样", "使用梯度下降优化参数", "将后验分布分解为因子乘积"],
+                    answer: 0,
+                    explanation: "Metropolis-Hastings 算法通过提议分布生成候选样本，然后根据接受概率 α = min(1, p(x')q(x|x') / p(x)q(x'|x)) 决定是否接受该候选样本。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-mid-c-5",
+                    question: "共轭先验（Conjugate Prior）的主要优点是什么？",
+                    options: ["后验分布与先验属于同一分布族，可解析求解", "计算效率一定比 MCMC 高", "不需要指定超参数", "只适用于离散数据"],
+                    answer: 0,
+                    explanation: "共轭先验使得后验分布与先验属于同一参数族，从而可以解析计算后验参数，避免了近似推断的复杂性。例如 Beta 先验与二项似然共轭。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs281-mid-c-6",
+                    question: "在变分推断中，ELBO（Evidence Lower Bound）的表达式是什么？",
+                    options: ["ELBO = E_q[log p(x,θ)] - E_q[log q(θ)]", "ELBO = log p(x) + KL(q||p)", "ELBO = -E_q[log p(θ|x)]", "ELBO = E_q[log p(x|θ)]"],
+                    answer: 0,
+                    explanation: "ELBO = E_q[log p(x,θ)] - E_q[log q(θ)]，它是 log p(x) 的下界。最大化 ELBO 等价于最小化 KL(q(θ) || p(θ|x))。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-mid-c-7",
+                    question: "高斯过程回归中，预测均值和方差的计算依赖于什么？",
+                    options: ["核矩阵的逆与测试点的核向量", "训练数据的标签均值", "梯度下降的迭代次数", "网络的深度"],
+                    answer: 0,
+                    explanation: "GP 回归的预测公式：均值 = k_*^T (K + σ²I)^{-1} y，方差 = k(**) - k_*^T (K + σ²I)^{-1} k_*，其中 K 是训练集的核矩阵。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-mid-c-8",
+                    question: "在 MCMC 中，Gibbs 采样的适用条件是什么？",
+                    options: ["每个变量的条件分布已知且易于采样", "联合分布是高斯分布", "数据维度不超过3", "先验分布是均匀分布"],
+                    answer: 0,
+                    explanation: "Gibbs 采样要求能从每个变量在其他所有变量条件下的满条件分布中采样，即 p(x_i | x_{-i}) 可以直接采样。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-mid-c-9",
+                    question: "KL 散度 KL(q||p) 被称为"反向 KL"时，它的近似特性是什么？",
+                    options: ["倾向于找到后验的众数（mode-seeking）", "倾向于覆盖后验的全部概率质量", "等价于最大似然估计", "保证 q 分布的方差大于 p 分布"],
+                    answer: 0,
+                    explanation: "最小化 KL(q||p) 即反向 KL，q 会倾向于在 p 的某个众数处集中（mode-seeking），可能低估后验的方差和不确定性。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs281-mid-c-10",
+                    question: "贝叶斯线性回归相比普通线性回归的最大优势是什么？",
+                    options: ["提供预测的不确定性估计", "训练速度更快", "不需要选择核函数", "对异常值完全免疫"],
+                    answer: 0,
+                    explanation: "贝叶斯线性回归通过引入权重的先验分布，在预测时不仅给出均值预测，还给出预测的方差（不确定性），这对安全关键应用非常重要。",
+                    difficulty: 1
+                }
+            ],
+            fill: [
+                {
+                    id: "cs281-mid-f-1",
+                    question: "贝叶斯定理的数学表达式为：p(θ|D) = ____ × p(D|θ) / p(D)。",
+                    answer: "p(θ)",
+                    explanation: "贝叶斯定理：后验 = 先验 × 似然 / 证据。p(θ) 是参数的先验分布，p(D|θ) 是似然，p(D) 是边际似然（证据）。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs281-mid-f-2",
+                    question: "高斯过程中的核函数 k(x, x') 也被称为____函数，它定义了函数值之间的相似性。",
+                    answer: "协方差",
+                    explanation: "核函数 k(x, x') 也称为协方差函数，它衡量输入 x 和 x' 对应函数值之间的相关性。常见的核函数包括 RBF、Matérn 等。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs281-mid-f-3",
+                    question: "在变分推断中，我们通过最小化 q(θ) 和真实后验 p(θ|D) 之间的____散度来优化近似分布。",
+                    answer: "KL",
+                    explanation: "变分推断最小化 KL(q(θ) || p(θ|D))，但由于真实后验难以直接计算，实际中通过最大化 ELBO 来间接最小化 KL 散度。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs281-mid-f-4",
+                    question: "MCMC 方法通过构造一个____链，使其平稳分布为目标后验分布。",
+                    answer: "马尔可夫",
+                    explanation: "MCMC 构造马尔可夫链，使其平稳分布收敛到目标分布（后验分布），通过沿链采样来获得后验的近似样本。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs281-mid-f-5",
+                    question: "对于高斯噪声下的线性回归，噪声方差 σ² 的共轭先验是____分布。",
+                    answer: "逆Gamma",
+                    explanation: "在高斯似然下，方差参数 σ² 的共轭先验是逆 Gamma 分布，它使得后验仍然可以用逆 Gamma 分布解析表达。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-mid-f-6",
+                    question: "变分推断中的平均场近似（Mean-Field Approximation）假设变分分布 q(θ) 可以分解为各个参数____分布的乘积。",
+                    answer: "边缘",
+                    explanation: "平均场近似假设 q(θ) = ∏_i q_i(θ_i)，即各参数之间独立，将联合变分分布分解为单个参数边缘分布的乘积。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-mid-f-7",
+                    question: "在 GP 分类中，由于似然函数不是高斯的，后验分布不再是高斯的，通常需要使用____方法来近似推断。",
+                    answer: "变分",
+                    explanation: "GP 分类中使用 sigmoid 等非高斯似然，导致后验非高斯，常用拉普拉斯近似或变分推断来近似后验。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-mid-f-8",
+                    question: "HMC（Hamiltonian Monte Carlo）方法引入辅助____变量来提高采样效率。",
+                    answer: "动量",
+                    explanation: "HMC 引入与位置变量共轭的动量变量，通过模拟哈密顿动力学来生成远距离跳跃的候选样本，大幅减少随机游走行为。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-mid-f-9",
+                    question: "贝叶斯模型选择中，边际似然 p(D) 也被称为____，它自动对模型复杂度进行惩罚。",
+                    answer: "证据",
+                    explanation: "边际似然 p(D) = ∫ p(D|θ)p(θ)dθ 称为模型的证据（evidence），它在贝叶斯框架下自动实现奥卡姆剃刀，惩罚过于复杂的模型。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-mid-f-10",
+                    question: "在贝叶斯神经网络中，权重的后验分布可以用____分布族来近似。",
+                    answer: "高斯",
+                    explanation: "常见的近似方法（如 Bayes by Backprop）使用对角高斯分布来近似每个权重的后验，即 q(w) = ∏_i N(w_i; μ_i, σ_i²)。",
+                    difficulty: 2
+                }
+            ],
+            code: [
+                {
+                    id: "cs281-mid-code-1",
+                    question: "补全以下代码，实现从高斯后验中采样并计算贝叶斯线性回归的预测。",
+                    code: "import numpy as np\n\ndef bayesian_linear_predict(X_train, y_train, X_test, alpha=1.0, sigma2=1.0):\n    \"\"\"贝叶斯线性回归预测\n    \n    先验：w ~ N(0, alpha^{-1} I)\n    似然：y = Xw + noise, noise ~ N(0, sigma2 I)\n    \"\"\"\n    n_features = X_train.shape[1]\n    # 后验精度矩阵\n    precision = alpha * np.eye(n_features) + (1/sigma2) * X_train.T @ X_train\n    # 后验均值\n    posterior_mean = np.linalg.solve(precision, (1/sigma2) * X_train.T @ y_train)\n    # 从后验采样权重\n    posterior_cov = np.linalg.inv(precision)\n    sampled_weights = ____\n    # 预测\n    predictions = X_test @ sampled_weights\n    return predictions",
+                    answer: "np.random.multivariate_normal(posterior_mean, posterior_cov)",
+                    explanation: "贝叶斯线性回归的后验权重分布是多元高斯分布，均值和协方差有解析解。使用 np.random.multivariate_normal 从后验中采样权重，然后计算预测。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-mid-code-2",
+                    question: "补全以下代码，实现 RBF（径向基函数）核函数的计算。",
+                    code: "import numpy as np\n\ndef rbf_kernel(X1, X2, length_scale=1.0, signal_variance=1.0):\n    \"\"\"计算 RBF（平方指数）核矩阵\n    \n    k(x, x') = σ² exp(-||x - x'||² / (2l²))\n    \n    Args:\n        X1: (n, d) 输入矩阵\n        X2: (m, d) 输入矩阵\n        length_scale: 长度尺度 l\n        signal_variance: 信号方差 σ²\n    Returns:\n        K: (n, m) 核矩阵\n    \"\"\"\n    # 计算欧氏距离的平方\n    sq_dist = np.sum(X1**2, axis=1).reshape(-1, 1) + np.sum(X2**2, axis=1).reshape(1, -2) - 2 * X1 @ X2.T\n    # 计算核矩阵\n    K = ____\n    return K",
+                    answer: "signal_variance * np.exp(-sq_dist / (2 * length_scale**2))",
+                    explanation: "RBF 核函数（也称平方指数核或高斯核）的公式为 k(x,x') = σ² exp(-||x-x'||²/(2l²))。其中 length_scale 控制函数的平滑程度。",
+                    difficulty: 2
+                }
+            ]
+        },
+        final: {
+            choice: [
+                {
+                    id: "cs281-fin-c-1",
+                    question: "在变分自编码器（VAE）中，编码器输出的是什么？",
+                    options: ["潜在变量的变分后验分布参数", "重构的输入图像", "判别器的分类概率", "梯度的方向"],
+                    answer: 0,
+                    explanation: "VAE 的编码器学习近似后验 q(z|x) 的参数（均值和方差），而解码器学习 p(x|z)。训练目标是最大化 ELBO。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-fin-c-2",
+                    question: "高斯过程与核支持向量机（Kernel SVM）之间的关系是什么？",
+                    options: ["GP 分类在特定条件下等价于无限宽的贝叶斯神经网络", "两者完全相同", "GP 是 SVM 的子集", "SVM 可以直接替代 GP"],
+                    answer: 0,
+                    explanation: "高斯过程可以看作无限宽神经网络的贝叶斯推断。在特定核函数选择下，GP 分类和使用相同核的 SVM 有密切联系。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs281-fin-c-3",
+                    question: "在 MCMC 中，"退火重要性采样"（Annealed Importance Sampling）的主要目的是什么？",
+                    options: ["通过逐步引入目标分布来处理多峰后验", "加速梯度收敛", "减少内存占用", "避免使用随机数生成器"],
+                    answer: 0,
+                    explanation: "退火重要性采样通过定义一系列从简单分布到目标分布的中间分布，沿这个"路径"逐步转移概率质量，有效处理多峰分布。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs281-fin-c-4",
+                    question: "贝叶斯深度学习中，MC Dropout 的理论基础是什么？",
+                    options: ["Dropout 近似于深度高斯过程的变分推断", "Dropout 是精确贝叶斯推断", "Dropout 等同于后验采样", "Dropout 消除了过拟合"],
+                    answer: 0,
+                    explanation: "Gal & Ghahramani (2016) 证明了在特定条件下，带有 Dropout 的前向传播等价于对深度高斯过程的变分推断进行近似采样。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs281-fin-c-5",
+                    question: "变分自编码器（VAE）的损失函数中，KL 散度项 KL(q(z|x) || p(z)) 的作用是什么？",
+                    options: ["使编码器的近似后验接近先验分布，保证潜在空间的规则性", "衡量重构质量", "防止过拟合训练集", "控制学习率"],
+                    answer: 0,
+                    explanation: "KL 项鼓励 q(z|x) 接近先验 p(z)=N(0,I)，使潜在空间连续、规则，便于生成新样本。它与重构损失一起构成 ELBO。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-fin-c-6",
+                    question: "以下哪种 MCMC 采样器最适合高维参数空间？",
+                    options: ["Hamiltonian Monte Carlo (HMC)", "Gibbs 采样", "随机游走 Metropolis", "拒绝采样"],
+                    answer: 0,
+                    explanation: "HMC 利用梯度信息和哈密顿动力学，在高维空间中可以进行远距离跳跃，避免随机游走行为，大大提高了高维空间的采样效率。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-fin-c-7",
+                    question: "贝叶斯优化（Bayesian Optimization）中，采集函数（Acquisition Function）的作用是什么？",
+                    options: ["平衡探索（exploration）和利用（exploitation）来选择下一个评估点", "直接最大化目标函数", "减少模型的参数量", "加速梯度计算"],
+                    answer: 0,
+                    explanation: "采集函数（如 EI、UCB）在模型代理和真实目标之间平衡：在预测不确定性高的区域（探索）和预测值高的区域（利用）之间做权衡。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-fin-c-8",
+                    question: "在变分推断中，重参数化技巧（Reparameterization Trick）解决了什么问题？",
+                    options: ["使采样操作可微分，允许通过采样步骤进行反向传播", "减少内存占用", "加速收敛", "提高数值稳定性"],
+                    answer: 0,
+                    explanation: "重参数化技巧将随机采样 z = μ + σ ⊙ ε（ε ~ N(0,I)）转化为确定性操作，使得梯度可以穿过采样步骤进行反向传播，这是 VAE 训练的关键。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-fin-c-9",
+                    question: "边际似然（Marginal Likelihood）在贝叶斯模型比较中如何工作？",
+                    options: ["自动执行奥卡姆剃刀，惩罚过复杂和过简单的模型", "总是偏好最复杂的模型", "总是偏好最简单的模型", "与模型复杂度无关"],
+                    answer: 0,
+                    explanation: "边际似然 p(D) = ∫ p(D|θ)p(θ)dθ 在模型拟合度和复杂度之间自动权衡：太简单的模型拟合差（低似然），太复杂的模型被先验稀释。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs281-fin-c-10",
+                    question: "关于高斯过程的核函数选择，以下哪项是正确的？",
+                    options: ["核函数的选择编码了我们对目标函数的先验信念", "核函数必须是高斯核", "核函数的选择不影响预测结果", "任何核函数都能保证后验是高斯的"],
+                    answer: 0,
+                    explanation: "核函数编码了对函数性质的先验假设：RBF 核假设函数平滑，周期核假设函数有周期性，Matérn 核控制平滑度。不同核函数导致不同的推断结果。",
+                    difficulty: 1
+                }
+            ],
+            fill: [
+                {
+                    id: "cs281-fin-f-1",
+                    question: "变分自编码器（VAE）的训练目标是最大化____（Evidence Lower Bound）。",
+                    answer: "ELBO",
+                    explanation: "VAE 最大化 ELBO = E_q[log p(x|z)] - KL(q(z|x) || p(z))，它是对数边际似然 log p(x) 的下界。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs281-fin-f-2",
+                    question: "在贝叶斯神经网络中，我们用____推断来近似权重的后验分布，而非精确推断。",
+                    answer: "变分",
+                    explanation: "精确后验推断在深度网络中不可行（指数级参数量），因此使用变分推断来学习一个简单分布族（如对角高斯）来近似后验。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs281-fin-f-3",
+                    question: "MCMC 方法的理论保证是：当链的长度趋于无穷时，样本的分布收敛到目标____分布。",
+                    answer: "平稳",
+                    explanation: "MCMC 方法的收敛性基于马尔可夫链的平稳分布理论：在满足不可约和非周期等条件后，链的样本分布会收敛到目标后验分布。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-fin-f-4",
+                    question: "核函数的____性质保证了构造的协方差矩阵是半正定的，从而核函数是有效的。",
+                    answer: "Mercer",
+                    explanation: "Mercer 定理保证了正定核函数对应的积分算子是半正定的，这意味着任意有限数据点的核矩阵是半正定的，从而可以作为协方差矩阵。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs281-fin-f-5",
+                    question: "在贝叶斯优化中，代理模型通常使用____过程来建模目标函数。",
+                    answer: "高斯",
+                    explanation: "贝叶斯优化通常使用高斯过程作为代理模型，因为它不仅给出预测均值，还给出预测方差（不确定性），用于构建采集函数。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs281-fin-f-6",
+                    question: "变分推断中的____散度衡量了近似分布 q 与目标分布 p 之间的差异，但实际中通常优化其下界。",
+                    answer: "KL",
+                    explanation: "KL 散度 KL(q||p) = E_q[log(q/p)] 是变分推断的目标，但由于 p(θ|D) 未知，实际通过最大化 ELBO 来间接最小化 KL 散度。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs281-fin-f-7",
+                    question: "在贝叶斯深度学习中，____近似常用于在预测时通过多次前向传播（带随机性）来估计预测不确定性。",
+                    answer: "MC Dropout",
+                    explanation: "MC Dropout 在测试时保持 Dropout 开启，进行多次前向传播，通过输出的方差来估计模型的预测不确定性，是一种实用的贝叶斯近似方法。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs281-fin-f-8",
+                    question: "在 HMC 中，leapfrog 积分器通过交替更新____和位置来模拟哈密顿动力学。",
+                    answer: "动量",
+                    explanation: "Leapfrog 积分器交替进行半步动量更新和全步位置更新，模拟哈密顿动力学，保持相空间的体积不变（辛性质）。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs281-fin-f-9",
+                    question: "变分推断中，如果选择反向 KL 散度 KL(q||p) 作为目标，近似分布 q 通常会表现出____特性。",
+                    answer: "mode-seeking",
+                    explanation: "最小化 KL(q||p)（反向 KL）时，q 倾向于在 p 的众数处集中，具有 mode-seeking 特性，可能低估后验方差。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs281-fin-f-10",
+                    question: "在高斯过程回归中，核矩阵 K 的元素 K_{ij} = k(x_i, x_j) 必须是____矩阵。",
+                    answer: "半正定",
+                    explanation: "有效的核函数必须使任意数据点的核矩阵是半正定的，这保证了协方差矩阵的合法性，从而保证 GP 分布的有效性。",
+                    difficulty: 2
+                }
+            ],
+            code: [
+                {
+                    id: "cs281-fin-code-1",
+                    question: "补全以下代码，实现简单的变分推断：用平均场近似推断贝叶斯线性回归的权重后验。",
+                    code: "import numpy as np\n\ndef mean_field_update(X, y, prior_mean, prior_var, noise_var, n_iterations=100):\n    \"\"\"平均场变分推断用于贝叶斯线性回归\n    \n    对每个权重 w_i 使用独立的高斯变分分布 q_i(w_i) = N(mu_i, sigma_i^2)\n    \"\"\"\n    n, d = X.shape\n    mu = prior_mean * np.ones(d)\n    sigma2 = prior_var * np.ones(d)\n    \n    for _ in range(n_iterations):\n        for j in range(d):\n            # 计算残差（排除第 j 个变量的影响）\n            residual = y - X @ mu + X[:, j] * mu[j]\n            # 更新变分参数\n            sigma2[j] = ____\n            mu[j] = sigma2[j] / noise_var * (X[:, j] @ residual) / n\n    \n    return mu, sigma2",
+                    answer: "1.0 / (1.0 / prior_var + np.sum(X[:, j]**2) / noise_var)",
+                    explanation: "在平均场变分推断中，第 j 个权重的变分方差 σ_j² 由先验精度和似然精度之和决定：1/σ_j² = 1/prior_var + Σ x_{ij}²/noise_var。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs281-fin-code-2",
+                    question: "补全以下代码，实现使用 RBF 核的高斯过程回归预测。",
+                    code: "import numpy as np\n\ndef gp_predict(X_train, y_train, X_test, length_scale=1.0, noise_var=1e-3):\n    \"\"\"高斯过程回归预测\n    \n    Returns:\n        mean: 预测均值\n        var: 预测方差\n    \"\"\"\n    # 计算训练集核矩阵\n    def rbf(a, b, l):\n        sq = np.sum(a**2, axis=1).reshape(-1, 1) + np.sum(b**2, axis=1).reshape(1, -2) - 2 * a @ b.T\n        return np.exp(-sq / (2 * l**2))\n    \n    K = rbf(X_train, X_train, length_scale) + noise_var * np.eye(len(X_train))\n    K_star = rbf(X_train, X_test, length_scale)\n    K_ss = rbf(X_test, X_test, length_scale)\n    \n    # GP 预测公式\n    K_inv = np.linalg.inv(K)\n    mean = ____\n    var = np.diag(K_ss - K_star.T @ K_inv @ K_star)\n    return mean, var",
+                    answer: "K_star.T @ K_inv @ y_train",
+                    explanation: "GP 回归的预测均值公式为 μ* = K(X_test, X_train) K(X_train, X_train)^{-1} y_train。预测方差为 Σ* = K(X_test, X_test) - K(X_test, X_train) K(X_train, X_train)^{-1} K(X_train, X_test)。",
+                    difficulty: 2
+                }
+            ]
+        }
+    },
+
+    /* ================================================================
+     * CS109: Probability for Computer Scientists (Stanford)
+     *    Topics: random variables, probability distributions,
+     *            Bayesian inference, hypothesis testing, regression
+     * ================================================================ */
+    "CS109: Probability for Computer Scientists": {
+        courseId: "cs109-probability",
+        domain: "ml",
+        mid: {
+            choice: [
+                {
+                    id: "cs109-mid-c-1",
+                    question: "一个离散随机变量 X 的期望 E[X] 的定义是什么？",
+                    options: ["所有可能值乘以其概率的加权和", "所有可能值的最大值", "所有可能值的中位数", "所有可能值的平方和"],
+                    answer: 0,
+                    explanation: "离散随机变量的期望定义为 E[X] = Σ_x x · P(X=x)，即所有可能取值乘以其对应概率的加权和。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-mid-c-2",
+                    question: "以下哪个分布最适合建模"在 n 次独立伯努利试验中成功的次数"？",
+                    options: ["二项分布 Binomial(n, p)", "正态分布 N(μ, σ²)", "均匀分布 U(a, b)", "指数分布 Exp(λ)"],
+                    answer: 0,
+                    explanation: "二项分布 Binomial(n, p) 正是描述 n 次独立伯努利试验中成功次数的分布，每次试验成功概率为 p。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-mid-c-3",
+                    question: "贝叶斯推断中，当我们观测到新数据后，先验分布会发生什么变化？",
+                    options: ["被更新为后验分布", "保持不变", "被删除", "变为均匀分布"],
+                    answer: 0,
+                    explanation: "贝叶斯推断的核心是通过贝叶斯定理将先验分布结合数据的似然信息更新为后验分布，实现对参数信念的更新。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-mid-c-4",
+                    question: "方差 Var(X) 与标准差 σ 之间的关系是什么？",
+                    options: ["Var(X) = σ²", "Var(X) = σ", "Var(X) = √σ", "Var(X) = 2σ"],
+                    answer: 0,
+                    explanation: "方差是标准差的平方，即 Var(X) = σ² = E[(X-μ)²]。标准差 σ = √Var(X)，两者衡量数据的离散程度。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-mid-c-5",
+                    question: "泊松分布 Poisson(λ) 中，参数 λ 代表什么？",
+                    options: ["单位时间（或空间）内事件发生的平均次数", "事件发生的最大次数", "每次事件发生的概率", "事件之间的最短间隔"],
+                    answer: 0,
+                    explanation: "泊松分布的参数 λ 表示在给定时间或空间单位内事件发生的期望次数，也等于分布的均值和方差。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-mid-c-6",
+                    question: "条件概率 P(A|B) 的公式是什么？",
+                    options: ["P(A∩B) / P(B)", "P(A) × P(B)", "P(A) + P(B)", "P(A∩B) / P(A)"],
+                    answer: 0,
+                    explanation: "条件概率的定义：P(A|B) = P(A∩B) / P(B)，表示在事件 B 已经发生的条件下事件 A 发生的概率。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-mid-c-7",
+                    question: "两个随机变量 X 和 Y 独立的充要条件是什么？",
+                    options: ["P(X∩Y) = P(X)·P(Y) 对所有 x, y 成立", "E[XY] = E[X]·E[Y]", "Cov(X,Y) = 0", "X 和 Y 同分布"],
+                    answer: 0,
+                    explanation: "X 和 Y 独立的定义是 P(X=x, Y=y) = P(X=x)·P(Y=y) 对所有 x, y 成立。注意协方差为 0（不相关）不等于独立。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-mid-c-8",
+                    question: "中心极限定理（CLT）告诉我们什么？",
+                    options: ["大量独立同分布随机变量的均值近似服从正态分布", "所有随机变量都服从正态分布", "样本方差总是等于总体方差", "中位数总是等于均值"],
+                    answer: 0,
+                    explanation: "中心极限定理表明，当样本量 n 足够大时，独立同分布随机变量的样本均值近似服从正态分布，无论原始分布是什么形状。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-mid-c-9",
+                    question: "在假设检验中，p 值的含义是什么？",
+                    options: ["在原假设为真时，观测到与当前数据同样极端或更极端结果的概率", "原假设为真的概率", "备择假设为真的概率", "统计检验的功效"],
+                    answer: 0,
+                    explanation: "p 值是在原假设 H₀ 为真的前提下，得到与当前观测数据一样极端或更极端结果的概率。p 值越小，越有证据拒绝原假设。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-mid-c-10",
+                    question: "协方差 Cov(X, Y) 衡量的是什么？",
+                    options: ["两个随机变量的联合变化趋势", "两个随机变量的比值", "两个随机变量的最大差异", "两个随机变量的独立程度"],
+                    answer: 0,
+                    explanation: "协方差衡量两个随机变量之间的线性相关方向和强度：Cov(X,Y) > 0 表示正相关，< 0 表示负相关，= 0 表示不相关（但不一定独立）。",
+                    difficulty: 1
+                }
+            ],
+            fill: [
+                {
+                    id: "cs109-mid-f-1",
+                    question: "伯努利分布 Bernoulli(p) 只有两个可能的取值：____和1，分别对应失败和成功。",
+                    answer: "0",
+                    explanation: "伯努利分布是最简单的离散分布，只有两个结果：0（失败，概率 1-p）和 1（成功，概率 p）。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-mid-f-2",
+                    question: "正态分布 N(μ, σ²) 的概率密度函数在均值 μ 处达到____值。",
+                    answer: "最大",
+                    explanation: "正态分布是对称的钟形曲线，在均值 μ 处概率密度达到最大值，向两侧逐渐衰减。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-mid-f-3",
+                    question: "期望的线性性质表明，对于任意常数 a, b 和随机变量 X, Y，有 E[aX + bY] = ____。",
+                    answer: "aE[X] + bE[Y]",
+                    explanation: "期望是线性算子，即 E[aX + bY] = aE[X] + bE[Y]，无论 X 和 Y 是否独立，这一性质始终成立。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-mid-f-4",
+                    question: "二项分布 Binomial(n, p) 的均值为 np，方差为____。",
+                    answer: "np(1-p)",
+                    explanation: "二项分布的均值 E[X] = np，方差 Var(X) = np(1-p) = npq，其中 q = 1-p。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-mid-f-5",
+                    question: "全概率公式用于计算一个事件的概率，方法是将其在样本空间的一个____上分解。",
+                    answer: "划分",
+                    explanation: "全概率公式：P(A) = Σ_i P(A|B_i)P(B_i)，其中 {B_i} 是样本空间的一个划分（互斥且穷举）。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-mid-f-6",
+                    question: "对于独立随机变量 X 和 Y，Var(X + Y) = ____。",
+                    answer: "Var(X) + Var(Y)",
+                    explanation: "独立随机变量之和的方差等于各自方差之和：Var(X+Y) = Var(X) + Var(Y)。注意这仅在 X, Y 独立时成立。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-mid-f-7",
+                    question: "指数分布常用于建模独立事件之间的____时间。",
+                    answer: "等待",
+                    explanation: "指数分布 Exp(λ) 常用于建模泊松过程中连续事件之间的等待时间，其无记忆性是指数分布的重要特性。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-mid-f-8",
+                    question: "在假设检验中，当原假设 H₀ 实际为真但我们错误地拒绝了它时，犯了____错误。",
+                    answer: "第一类",
+                    explanation: "第一类错误（Type I error）是在原假设为真时错误地拒绝它，其概率用显著性水平 α 表示。第二类错误是在备择为真时未能拒绝原假设。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-mid-f-9",
+                    question: "贝叶斯定理中，p(θ|D) = p(D|θ)p(θ) / ____，其中分母称为边际似然或证据。",
+                    answer: "p(D)",
+                    explanation: "贝叶斯定理的分母 p(D) = ∫ p(D|θ)p(θ)dθ 是边际似然（证据），它是所有可能参数值下数据的加权平均概率。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-mid-f-10",
+                    question: "对于正态总体 N(μ, σ²)，样本均值 X̄ 的抽样分布服从 N(μ, ____)。",
+                    answer: "σ²/n",
+                    explanation: "对于正态总体，样本均值 X̄ 的抽样分布为 N(μ, σ²/n)，方差随样本量增大而减小，这就是为什么增大样本量可以提高估计精度。",
+                    difficulty: 2
+                }
+            ],
+            code: [
+                {
+                    id: "cs109-mid-code-1",
+                    question: "补全以下代码，实现蒙特卡洛方法估计 π 值。",
+                    code: "import numpy as np\n\ndef estimate_pi(n_samples=100000):\n    \"\"\"使用蒙特卡洛方法估计 π\n    \n    在单位正方形内随机撒点，统计落在单位圆内的比例\n    \"\"\"\n    # 在 [0, 1] x [0, 1] 内生成随机点\n    x = np.random.uniform(0, 1, n_samples)\n    y = np.random.uniform(0, 1, n_samples)\n    \n    # 判断是否在单位圆内\n    inside_circle = (x**2 + y**2) <= 1.0\n    \n    # 估计 π\n    pi_estimate = ____\n    return pi_estimate",
+                    answer: "4.0 * np.sum(inside_circle) / n_samples",
+                    explanation: "单位正方形面积为 1，四分之一圆面积为 π/4。落在圆内的比例 ≈ π/4，所以 π ≈ 4 × (圆内点数 / 总点数)。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-mid-code-2",
+                    question: "补全以下代码，实现朴素贝叶斯分类器的概率计算。",
+                    code: "import numpy as np\n\ndef naive_bayes_predict(X_train, y_train, X_test):\n    \"\"\"朴素贝叶斯分类器（高斯假设）\n    \n    返回每个测试样本的预测类别\n    \"\"\"\n    classes = np.unique(y_train)\n    predictions = []\n    \n    for x in X_test:\n        posteriors = []\n        for c in classes:\n            # 先验概率\n            prior = np.mean(y_train == c)\n            # 条件概率（高斯假设下的对数似然）\n            X_c = X_train[y_train == c]\n            log_likelihood = 0\n            for j in range(X_train.shape[1]):\n                mean_j = X_c[:, j].mean()\n                std_j = X_c[:, j].std()\n                log_likelihood += -0.5 * np.log(2 * np.pi * std_j**2) - (x[j] - mean_j)**2 / (2 * std_j**2)\n            posteriors.append(np.log(prior) + log_likelihood)\n        predictions.append(____)\n    return np.array(predictions)",
+                    answer: "classes[np.argmax(posteriors)]",
+                    explanation: "朴素贝叶斯在对数空间中计算每个类别的后验概率（先验 + 条件对数似然之和），选择后验最大的类别作为预测结果。",
+                    difficulty: 2
+                }
+            ]
+        },
+        final: {
+            choice: [
+                {
+                    id: "cs109-fin-c-1",
+                    question: "线性回归中，最小二乘法的目标是最小化什么？",
+                    options: ["残差平方和（RSS）", "残差的绝对值之和", "残差的最大值", "残差的均值"],
+                    answer: 0,
+                    explanation: "最小二乘法通过最小化残差平方和 RSS = Σ(yᵢ - ŷᵢ)² 来求解最优回归系数，这等价于最大化高斯噪声假设下的似然函数。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-fin-c-2",
+                    question: "在假设检验中，第二类错误（Type II error）是什么？",
+                    options: ["备择假设为真时未能拒绝原假设", "原假设为真时错误地拒绝它", "同时犯了两类错误", "选择了错误的显著性水平"],
+                    answer: 0,
+                    explanation: "第二类错误（β）是在备择假设 H₁ 为真时，未能拒绝原假设 H₀ 的错误。统计功效 power = 1 - β 是正确拒绝错误原假设的概率。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-c-3",
+                    question: "贝叶斯估计中，当使用均匀先验（无信息先验）时，贝叶斯估计等价于什么？",
+                    options: ["最大似然估计（MLE）", "最大后验估计（MAP）", "最小方差估计", "矩估计"],
+                    answer: 0,
+                    explanation: "当先验 p(θ) 是均匀分布时，后验正比于似然 p(D|θ)，最大化后验等价于最大化似然，即贝叶斯估计退化为 MLE。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-c-4",
+                    question: "在回归分析中，R²（决定系数）的取值范围和含义是什么？",
+                    options: ["[0, 1]，表示模型解释了因变量变异的比例", "(-∞, +∞)，表示拟合误差", "[0, 1]，表示预测准确率", "[-1, 1]，表示相关系数"],
+                    answer: 0,
+                    explanation: "R² = 1 - RSS/TSS，取值在 [0, 1] 之间。R² = 1 表示完美拟合，R² = 0 表示模型不比简单的均值预测好。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-c-5",
+                    question: "关于最大似然估计（MLE），以下哪项是正确的？",
+                    options: ["MLE 选择使观测数据出现概率最大的参数值", "MLE 总是无偏的", "MLE 不依赖于数据的分布假设", "MLE 的值总是唯一的"],
+                    answer: 0,
+                    explanation: "MLE 通过最大化似然函数 L(θ|D) = p(D|θ) 来估计参数。MLE 可能是有偏的，依赖于模型假设，且在某些情况下可能不唯一。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-c-6",
+                    question: "大数定律（LLN）告诉我们什么？",
+                    options: ["样本均值依概率收敛到总体均值", "样本方差总是等于总体方差", "中位数等于均值", "样本总是正态分布"],
+                    answer: 0,
+                    explanation: "大数定律表明，随着样本量 n → ∞，样本均值 X̄ₙ 依概率收敛到总体均值 E[X]，即 X̄ₙ → E[X]（概率收敛）。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-fin-c-7",
+                    question: "在贝叶斯推断中，后验分布的"可信区间"（Credible Interval）的含义是什么？",
+                    options: ["参数落在该区间内的后验概率为指定值", "参数落在该区间内的频率概率为指定值", "该区间包含所有可能的参数值", "该区间等同于置信区间"],
+                    answer: 0,
+                    explanation: "贝叶斯可信区间 [a, b] 满足 P(a ≤ θ ≤ b | D) = 1-α，即在给定数据下参数 θ 落在该区间内的概率为 1-α。这与频率派的置信区间有本质区别。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-c-8",
+                    question: "多项分布 Multinomial(n, p₁, ..., pₖ) 是伯努利分布的什么推广？",
+                    options: ["多类别推广", "连续推广", "条件推广", "时间推广"],
+                    answer: 0,
+                    explanation: "多项分布是二项/伯努利分布向 K > 2 个类别的推广：在 n 次试验中，每个结果属于 K 个类别之一，概率分别为 p₁, ..., pₖ。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-c-9",
+                    question: "在假设检验中，增大样本量 n 对统计功效的影响是什么？",
+                    options: ["统计功效增大", "统计功效减小", "统计功效不变", "取决于效应大小的方向"],
+                    answer: 0,
+                    explanation: "增大样本量会减小标准误，使检验统计量的分布更加集中，从而更容易检测到真实效应，统计功效随之增大。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-c-10",
+                    question: "关于置信区间，以下哪个解释是正确的？",
+                    options: ["如果重复实验很多次，约 95% 的置信区间会包含真实参数值", "真实参数有 95% 的概率落在当前置信区间内", "95% 的数据点落在置信区间内", "95% 的样本均值等于总体均值"],
+                    answer: 0,
+                    explanation: "频率派置信区间的正确解释是：在重复抽样下，约 (1-α)×100% 的构造区间会包含真实参数值。不能说"参数有 95% 概率落在此区间内"。",
+                    difficulty: 3
+                }
+            ],
+            fill: [
+                {
+                    id: "cs109-fin-f-1",
+                    question: "在简单线性回归中，回归直线的斜率 β₁ 的最小二乘估计量为 β̂₁ = ____ / Sxx，其中 Sxy = Σ(xᵢ - x̄)(yᵢ - ȳ)。",
+                    answer: "Sxy",
+                    explanation: "简单线性回归的斜率估计 β̂₁ = Sxy/Sxx，其中 Sxy = Σ(xᵢ - x̄)(yᵢ - ȳ)，Sxx = Σ(xᵢ - x̄)²。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-f-2",
+                    question: "正态总体方差 σ² 的最大似然估计量为 σ̂² = (1/n)Σ(xᵢ - x̄)²，这是一个____估计量。",
+                    answer: "有偏",
+                    explanation: "MLE 估计的方差 σ̂² = (1/n)Σ(xᵢ - x̄)² 是有偏的（偏小），无偏估计应使用 1/(n-1) 作为分母，即样本方差 S²。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-f-3",
+                    question: "贝叶斯推断中，如果先验是 Beta(α, β)，似然是 Binomial(n, p)，则后验分布是____分布。",
+                    answer: "Beta",
+                    explanation: "Beta 分布是二项分布的共轭先验：后验为 Beta(α + k, β + n - k)，其中 k 是成功次数，n 是试验总次数。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-f-4",
+                    question: "假设检验中，____ = P(拒绝 H₀ | H₀ 为真) 被称为显著性水平。",
+                    answer: "α",
+                    explanation: "显著性水平 α 是第一类错误的概率，即在原假设为真时错误拒绝它的概率。常用的 α 值为 0.05 或 0.01。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-fin-f-5",
+                    question: "对于二维随机变量 (X, Y)，如果它们满足 E[XY] = E[X]E[Y]，则 X 和 Y 至少是____的。",
+                    answer: "不相关",
+                    explanation: "Cov(X,Y) = E[XY] - E[X]E[Y] = 0 意味着 X 和 Y 不相关，但不相关不等于独立（除非联合分布是高斯的）。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-f-6",
+                    question: "t 分布比标准正态分布具有更____的尾部，这使得它更适合处理小样本的情况。",
+                    answer: "厚",
+                    explanation: "t 分布（Student's t-distribution）具有比标准正态分布更厚的尾部，随着自由度增大逐渐趋近正态分布。厚尾使 t 分布对异常值更鲁棒。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-f-7",
+                    question: "χ² 拟合优度检验中，检验统计量 χ² = Σ(____)² / Eᵢ，其中 Oᵢ 是观测频数，Eᵢ 是期望频数。",
+                    answer: "Oᵢ - Eᵢ",
+                    explanation: "卡方检验统计量 χ² = Σ(Oᵢ - Eᵢ)²/Eᵢ，衡量观测频数与期望频数之间的差异。自由度为类别数减 1 再减去估计的参数个数。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-f-8",
+                    question: "在多元线性回归 Y = Xβ + ε 中，β̂ = (X^TX)^{-1}X^T Y 这个解被称为____解。",
+                    answer: "正规方程",
+                    explanation: "正规方程 (X^TX)β̂ = X^TY 给出最小二乘估计的解析解。要求 X^TX 可逆（即特征不共线），否则需要正则化或其他方法。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-f-9",
+                    question: "如果随机变量 X ~ N(μ, σ²)，则标准化变量 Z = (X - μ)/σ 服从标准____分布。",
+                    answer: "正态",
+                    explanation: "标准化变换将一般正态分布 N(μ, σ²) 转化为标准正态分布 N(0, 1)，即 Z = (X-μ)/σ ~ N(0,1)。这是 Z 检验和标准化的基础。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs109-fin-f-10",
+                    question: "在假设检验中，____ = P(拒绝 H₀ | H₁ 为真) 表示检验的功效。",
+                    answer: "1 - β",
+                    explanation: "统计功效（Power）= 1 - β，其中 β 是第二类错误概率。功效表示在备择假设为真时，检验能够正确拒绝原假设的概率。",
+                    difficulty: 2
+                }
+            ],
+            code: [
+                {
+                    id: "cs109-fin-code-1",
+                    question: "补全以下代码，实现简单线性回归的最小二乘估计。",
+                    code: "import numpy as np\n\ndef simple_linear_regression(x, y):\n    \"\"\"简单线性回归最小二乘估计\n    \n    拟合 y = beta0 + beta1 * x\n    Returns:\n        beta0: 截距\n        beta1: 斜率\n    \"\"\"\n    n = len(x)\n    x_mean = np.mean(x)\n    y_mean = np.mean(y)\n    \n    # 计算 Sxy 和 Sxx\n    Sxy = np.sum((x - x_mean) * (y - y_mean))\n    Sxx = np.sum((x - x_mean) ** 2)\n    \n    # 估计斜率\n    beta1 = ____\n    # 估计截距\n    beta0 = y_mean - beta1 * x_mean\n    \n    return beta0, beta1",
+                    answer: "Sxy / Sxx",
+                    explanation: "简单线性回归的最小二乘估计：斜率 β̂₁ = Sxy/Sxx = Σ(xᵢ-x̄)(yᵢ-ȳ) / Σ(xᵢ-x̄)²，截距 β̂₀ = ȳ - β̂₁x̄。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs109-fin-code-2",
+                    question: "补全以下代码，实现双样本 t 检验。",
+                    code: "import numpy as np\n\ndef two_sample_t_test(sample1, sample2, alpha=0.05):\n    \"\"\"双样本 t 检验（Welch's t-test）\n    \n    检验两个样本的均值是否相等\n    Returns:\n        t_stat: t 统计量\n        p_value: p 值\n        reject: 是否拒绝原假设\n    \"\"\"\n    n1, n2 = len(sample1), len(sample2)\n    mean1, mean2 = np.mean(sample1), np.mean(sample2)\n    var1, var2 = np.var(sample1, ddof=1), np.var(sample2, ddof=1)\n    \n    # Welch's t 统计量\n    t_stat = (mean1 - mean2) / np.sqrt(var1/n1 + var2/n2)\n    \n    # Welch-Satterthwaite 自由度\n    numerator = (var1/n1 + var2/n2) ** 2\n    denominator = (var1/n1)**2 / (n1-1) + (var2/n2)**2 / (n2-1)\n    df = ____\n    \n    # 使用正态近似计算双尾 p 值\n    from scipy import stats\n    p_value = 2 * (1 - stats.t.cdf(np.abs(t_stat), df))\n    reject = p_value < alpha\n    \n    return t_stat, p_value, reject",
+                    answer: "numerator / denominator",
+                    explanation: "Welch-Satterthwaite 公式计算有效自由度：df = (s₁²/n₁ + s₂²/n₂)² / [(s₁²/n₁)²/(n₁-1) + (s₂²/n₂)²/(n₂-1)]，适用于方差不等的两样本情况。",
+                    difficulty: 3
+                }
+            ]
+        }
+    },
 };
