@@ -177,9 +177,9 @@ const Achievements = {
             streak: typeof LearningLogManager !== 'undefined' ? LearningLogManager.getStreak().current : 0,
             hours: Math.round(completedHours),
             favorites: FavoritesManager.count(),
-            quizCompleted: typeof QuizManager !== 'undefined' ? QuizManager.getCompletedCount() : 0,
-            quizPerfect: typeof QuizManager !== 'undefined' ? QuizManager.getPerfectCount() : 0,
-            exercisesCompleted: typeof CodePlayground !== 'undefined' ? CodePlayground.getCompletedCount() : 0,
+            quizCompleted: typeof Quiz !== 'undefined' ? (Quiz.getStats().totalQuizzes || 0) : 0,
+            quizPerfect: typeof Quiz !== 'undefined' ? (Quiz.getStats().totalQuestions > 0 && Quiz.getStats().totalCorrect === Quiz.getStats().totalQuestions ? 1 : 0) : 0,
+            exercisesCompleted: typeof CodePlayground !== 'undefined' ? (CodePlayground.getStats().completed || 0) : 0,
             domainCount: completedDomains.size,
             notesCount: NotesManager.count(),
         };

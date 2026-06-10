@@ -209,8 +209,8 @@ layout: none
                 </div>
             </div>
             <div class="kh-tabs">
-                <button class="kh-tab active" onclick="KnowledgeHub.switchTab('quiz')">📝 每日自测</button>
-                <button class="kh-tab" onclick="KnowledgeHub.switchTab('flashcards')">🃏 概念速查</button>
+                <button class="kh-tab active" onclick="KnowledgeHub.switchTab('quiz', event)">📝 每日自测</button>
+                <button class="kh-tab" onclick="KnowledgeHub.switchTab('flashcards', event)">🃏 概念速查</button>
             </div>
             <div id="quizContainer" class="kh-panel"></div>
             <div id="flashcardContainer" class="kh-panel" style="display:none"></div>
@@ -308,21 +308,6 @@ layout: none
                 <div class="no-results-icon">🔍</div>
                 <div class="no-results-text">没有找到匹配的课程</div>
                 <p class="no-results-hint">尝试调整筛选条件或搜索关键词</p>
-            </div>
-        </section>
-
-        <!-- Code Playground Section -->
-        <section class="new-section" id="codePlayground">
-            <div class="section-divider"></div>
-            <div class="module-header">
-                <div class="module-header-icon-wrap"><div class="module-header-icon">💻</div></div>
-                <div class="module-header-text">
-                    <div class="module-title">代码练习场</div>
-                    <div class="module-subtitle">在浏览器中直接编写和运行 Python 代码</div>
-                </div>
-            </div>
-            <div class="cp-container" id="cpContainer">
-                <!-- Populated by CodePlayground.init() -->
             </div>
         </section>
 

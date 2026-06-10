@@ -39,25 +39,17 @@ const CodePlayground = {
     },
 
     /**
-     * Get user progress data from localStorage
+     * Get user progress data from storage
      */
     getProgress() {
-        try {
-            return JSON.parse(localStorage.getItem(this.STORAGE_KEY)) || {};
-        } catch (e) {
-            return {};
-        }
+        return Storage.get(this.STORAGE_KEY, {});
     },
 
     /**
-     * Save progress data to localStorage
+     * Save progress data to storage
      */
     saveProgress(data) {
-        try {
-            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(data));
-        } catch (e) {
-            // silent fail
-        }
+        Storage.set(this.STORAGE_KEY, data);
     },
 
     /**
@@ -84,6 +76,14 @@ const CodePlayground = {
         const total = CODE_EXERCISES.length;
         const completed = Object.values(progress).filter(p => p.completed).length;
         return { total, completed };
+    },
+
+    /**
+     * Get count of completed exercises
+     * @returns {number} Completed count
+     */
+    getCompletedCount() {
+        return this.getStats().completed;
     },
 
     /**
@@ -378,8 +378,10 @@ const CodePlayground = {
         if (status) status.textContent = '';
 
         // Hide panels
-        document.getElementById('cpHintPanel').style.display = 'none';
-        document.getElementById('cpSolutionPanel').style.display = 'none';
+        var hintPanel = document.getElementById('cpHintPanel');
+        var solutionPanel = document.getElementById('cpSolutionPanel');
+        if (hintPanel) hintPanel.style.display = 'none';
+        if (solutionPanel) solutionPanel.style.display = 'none';
 
         // Focus editor
         if (editor) editor.focus();
@@ -670,8 +672,10 @@ sys.stdout = StdoutCapture()
 
         // Reset hints
         this.currentHintIndex = 0;
-        document.getElementById('cpHintPanel').style.display = 'none';
-        document.getElementById('cpSolutionPanel').style.display = 'none';
+        var hintPanel = document.getElementById('cpHintPanel');
+        var solutionPanel = document.getElementById('cpSolutionPanel');
+        if (hintPanel) hintPanel.style.display = 'none';
+        if (solutionPanel) solutionPanel.style.display = 'none';
     },
 
     /**

@@ -193,14 +193,15 @@ var Quiz = {
 };
 
 var KnowledgeHub = {
-    switchTab: function(tab) {
+    switchTab: function(tab, evt) {
         var quizEl = document.getElementById('quizContainer');
         var fcEl = document.getElementById('flashcardContainer');
         if (quizEl) quizEl.style.display = tab === 'quiz' ? '' : 'none';
         if (fcEl) fcEl.style.display = tab === 'flashcards' ? '' : 'none';
         var tabs = document.querySelectorAll('.kh-tab');
         for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
-        if (event && event.target) event.target.classList.add('active');
+        var target = (evt && evt.target) ? evt.target : null;
+        if (target) target.classList.add('active');
         if (tab === 'quiz' && typeof Quiz !== 'undefined') Quiz.init();
         if (tab === 'flashcards' && typeof Flashcards !== 'undefined') Flashcards.init();
     }
