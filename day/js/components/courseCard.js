@@ -83,14 +83,16 @@ const CourseCard = {
                 <div class="course-card-footer">
                     <span class="course-duration">${formatHours(course.h)}</span>
                     <div class="course-footer-actions">
-                        <button class="card-action-btn card-action-btn--detail" onclick="CourseDetail.toggle('${escapeHtml(course.u)}')" title="查看详情">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                        <button class="card-detail-btn" onclick="CourseDetail.toggle('${escapeHtml(course.u)}')">
+                            <span class="card-detail-btn-text">详情</span>
+                            <span class="card-detail-btn-arrow">▼</span>
                         </button>
                         <a href="${escapeHtml(course.u)}" target="_blank" rel="noopener noreferrer" class="course-link" onclick="CourseCard.recordView('${escapeHtml(course.u)}')">
                             开始学习
                         </a>
                     </div>
                 </div>
+                ${this.createQuizSection(course)}
 
                 <div class="course-progress">
                     <div class="progress-header">
@@ -124,6 +126,52 @@ const CourseCard = {
         return Array.from({ length: 5 }, (_, i) =>
             `<span class="difficulty-dot ${i < level ? 'filled' : ''}"></span>`
         ).join('');
+    },
+
+    /**
+     * Create quiz section HTML for a course
+     * @param {Object} course - Course object
+     * @returns {string} HTML string
+     */
+    createQuizSection(course) {
+        // Check if quiz data exists for this course
+        var hasQuiz = typeof COURSE_QUIZ_DATA !== 'undefined' && COURSE_QUIZ_DATA[course.n];
+        if (!hasQuiz) return '';
+
+        return `
+            <div class="course-quiz-section">
+                <div class="course-quiz-label">📝 课程测验</div>
+                <div class="course-quiz-btns">
+                    <button class="course-quiz-btn course-quiz-btn--mid" onclick="CourseCard.startQuiz('${escapeHtml(course.n)}', 'mid')">
+                        期中测验
+                    </button>
+                    <button class="course-quiz-btn course-quiz-btn--final" onclick="CourseCard.startQuiz('${escapeHtml(course.n)}', 'final')">
+                        期末测验
+                    </button>
+                </div>
+            </div>
+        `;
+    },
+
+    /**
+     * Start a quiz for a course
+     * @param {string} courseName - Course name
+     * @param {string} examType - 'mid' or 'final'
+     */
+    startQuiz(courseName, examType) {
+        // Scroll to quiz section
+        var quizSection = document.getElementById('knowledgeHub');
+        if (quizSection) {
+            quizSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Initialize quiz with the selected course
+        if (typeof Quiz !== 'undefined') {
+            // Small delay to allow scroll to start
+            setTimeout(function() {
+                Quiz.startExam(courseName, examType);
+            }, 300);
+        }
     },
 
     /**

@@ -1497,6 +1497,78 @@ p:last-child { margin-bottom: 0; }
 
 .course-link:hover::after { transform: translateX(2px); }
 
+/* Detail button */
+.card-detail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.35rem 0.625rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-2);
+  background: var(--surface-2, rgba(0,0,0,0.04));
+  border: 1px solid var(--glass-border, rgba(0,0,0,0.08));
+  border-radius: var(--r-xs, 4px);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.card-detail-btn:hover {
+  color: var(--accent);
+  background: var(--accent-dim, rgba(0,113,227,0.08));
+  border-color: var(--accent);
+}
+.card-detail-btn-text { font-weight: 600; }
+.card-detail-btn-arrow {
+  font-size: 0.6rem;
+  transition: transform 0.2s;
+}
+
+/* Course Quiz Section */
+.course-quiz-section {
+  margin-top: 0.875rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--glass-border, rgba(0,0,0,0.08));
+}
+.course-quiz-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-3, #86868b);
+  margin-bottom: 0.5rem;
+}
+.course-quiz-btns {
+  display: flex;
+  gap: 0.5rem;
+}
+.course-quiz-btn {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1.5px solid;
+  border-radius: var(--r-sm, 8px);
+  cursor: pointer;
+  transition: all 0.15s;
+  background: transparent;
+}
+.course-quiz-btn--mid {
+  color: #6366f1;
+  border-color: #6366f1;
+}
+.course-quiz-btn--mid:hover {
+  background: #6366f1;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.3);
+}
+.course-quiz-btn--final {
+  color: #f59e0b;
+  border-color: #f59e0b;
+}
+.course-quiz-btn--final:hover {
+  background: #f59e0b;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(245,158,11,0.3);
+}
+
 /* Progress */
 .course-progress { margin-top: 1rem; }
 
@@ -5959,16 +6031,6 @@ p:last-child { margin-bottom: 0; }
 .quiz-restart-btn:hover { opacity: 0.9; }
 .quiz-back-btn { background: transparent; color: var(--text-2); border: 1px solid var(--glass-border); }
 .quiz-back-btn:hover { background: var(--surface); }
-
-/* Course Quiz - Search */
-.quiz-search { margin-bottom: 1.25rem; }
-.quiz-search-input {
-    width: 100%; padding: 0.625rem 1rem; font-size: 0.9rem;
-    background: var(--surface); border: 1px solid var(--glass-border); border-radius: var(--r-sm);
-    color: var(--text-1); outline: none; transition: border-color 0.2s;
-}
-.quiz-search-input:focus { border-color: var(--accent); }
-.quiz-search-input::placeholder { color: var(--text-3); }
 
 /* Course Quiz - Domain Sections */
 .quiz-domain-section { margin-bottom: 0.75rem; border: 1px solid var(--glass-border); border-radius: var(--r-sm); overflow: hidden; }

@@ -85,11 +85,6 @@ var Quiz = {
             html += '</div>';
         }
 
-        // Search box
-        html += '<div class="quiz-search">';
-        html += '<input type="text" class="quiz-search-input" id="quizSearchInput" placeholder="🔍 搜索课程名称..." oninput="Quiz.filterCourses(this.value)">';
-        html += '</div>';
-
         html += '<div class="quiz-domain-sections" id="quizDomainSections">';
 
         for (var d = 0; d < domainOrder.length; d++) {
@@ -138,31 +133,6 @@ var Quiz = {
     toggleDomainSection: function(header) {
         var section = header.parentElement;
         section.classList.toggle('quiz-domain-section--collapsed');
-    },
-
-    /**
-     * Filter courses by search query
-     */
-    filterCourses: function(query) {
-        query = query.toLowerCase();
-        var sections = document.querySelectorAll('.quiz-domain-section');
-        for (var i = 0; i < sections.length; i++) {
-            var section = sections[i];
-            var courses = section.querySelectorAll('.quiz-course-item');
-            var hasVisible = false;
-
-            for (var j = 0; j < courses.length; j++) {
-                var courseName = courses[j].getAttribute('data-course').toLowerCase();
-                if (query === '' || courseName.indexOf(query) !== -1) {
-                    courses[j].style.display = '';
-                    hasVisible = true;
-                } else {
-                    courses[j].style.display = 'none';
-                }
-            }
-
-            section.style.display = hasVisible ? '' : 'none';
-        }
     },
 
     /**
