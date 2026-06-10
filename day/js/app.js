@@ -80,6 +80,11 @@ const App = {
             InspirationalQuote.init();
         }
 
+        // Initialize daily news
+        if (typeof DailyNews !== 'undefined') {
+            DailyNews.init();
+        }
+
         // Initialize particle field
         if (typeof Particles !== 'undefined') {
             Particles.init();
