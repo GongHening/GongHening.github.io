@@ -430,7 +430,13 @@ p:last-child { margin-bottom: 0; }
   gap: 12px;
   border-bottom: 1px solid var(--glass-border);
   flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity var(--t-fast);
 }
+
+.sidebar-logo:hover { opacity: 0.8; }
 
 .logo-mark {
   width: 36px;
@@ -606,7 +612,14 @@ p:last-child { margin-bottom: 0; }
   justify-content: space-between;
 }
 
-.mobile-logo { display: flex; align-items: center; gap: 8px; }
+.mobile-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
 .mobile-logo .logo-mark { width: 28px; height: 28px; font-size: 0.85rem; }
 .mobile-logo .logo-icon svg { width: 100%; height: 100%; }
 .mobile-logo .logo-text {
