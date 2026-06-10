@@ -134,12 +134,6 @@ layout: none
                         <div class="stat-value" id="statDomains">13</div>
                         <div class="stat-label">AI 领域</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="statHits">
-                            <span class="hits-loading">···</span>
-                        </div>
-                        <div class="stat-label">访问量</div>
-                    </div>
                 </div>
                 <div class="popular-courses" id="popularCourses">
                     <div class="popular-courses-title">🔥 热门课程</div>
@@ -186,16 +180,23 @@ layout: none
             </div>
         </section>
 
-        <!-- Visitor Map Section -->
-        <section class="visitor-map-section" id="visitorMap">
-            <div class="visitor-map-container">
-                <div class="section-header">
-                    <div class="section-eyebrow">全球访问</div>
-                    <h2 class="section-title">访客分布</h2>
-                    <p class="section-subtitle">来自世界各地的访问者</p>
-                </div>
-                <div class="visitor-map-wrapper" id="visitorMapWrapper">
-                    <iframe src="https://revolvermaps2.com/widget/ffe7d576-8647-485f-baa7-1b96cc04a115" style="border:0;" loading="lazy"></iframe>
+        <!-- Global Visitor Section -->
+        <section class="global-visitor-section" id="visitorMap">
+            <div class="global-visitor-container">
+                <div class="global-visitor-card">
+                    <div class="global-visitor-left">
+                        <div class="global-visitor-badge">🌍 全球访问</div>
+                        <div class="global-visitor-count">
+                            <div class="global-visitor-number" id="statHits">
+                                <span class="hits-loading">···</span>
+                            </div>
+                            <div class="global-visitor-label">次访问</div>
+                        </div>
+                        <p class="global-visitor-desc">来自世界各地的访问者，实时更新</p>
+                    </div>
+                    <div class="global-visitor-right">
+                        <iframe src="https://revolvermaps2.com/widget/ffe7d576-8647-485f-baa7-1b96cc04a115" style="border:0;" loading="lazy"></iframe>
+                    </div>
                 </div>
             </div>
         </section>
