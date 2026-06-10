@@ -200,8 +200,6 @@ const App = {
      */
     initDarkMode() {
         const toggle = document.getElementById('themeToggle');
-        const icon = document.getElementById('themeToggleIcon');
-        const label = document.getElementById('themeToggleLabel');
 
         // Load saved theme preference
         const savedTheme = PreferencesManager.get('theme') || 'light';
@@ -223,17 +221,14 @@ const App = {
      * @param {string} theme - 'light' or 'dark'
      */
     setTheme(theme) {
-        const icon = document.getElementById('themeToggleIcon');
-        const label = document.getElementById('themeToggleLabel');
+        const toggle = document.getElementById('themeToggle');
 
         if (theme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
-            if (icon) icon.textContent = '☀️';
-            if (label) label.textContent = '亮色模式';
+            if (toggle) toggle.classList.add('is-dark');
         } else {
             document.documentElement.removeAttribute('data-theme');
-            if (icon) icon.textContent = '🌙';
-            if (label) label.textContent = '暗色模式';
+            if (toggle) toggle.classList.remove('is-dark');
         }
     },
 
