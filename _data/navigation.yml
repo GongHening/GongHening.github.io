@@ -1,7 +1,7 @@
 # main links
 main:
-  - title: "Notes"
-    url: /Notes/
+  - title: "Blogs"
+    url: /Blogs/
 
   - title: "Repositories"
     url: /Repositories/

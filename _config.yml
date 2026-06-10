@@ -178,7 +178,7 @@ collections:
   Repositories:
     output: true
     permalink: /:collection/:path/
-  Notes:
+  Blogs:
     output: true
     permalink: /:collection/:path/
   Links:
@@ -203,10 +203,10 @@ defaults:
       author_profile: true
       share: true
       comments: true
-  # _Notes
+  # _Blogs
   - scope:
       path: ""
-      type: Notes
+      type: Blogs
     values:
       layout: single
       author_profile: true

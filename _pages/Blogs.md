@@ -1,7 +1,7 @@
 ---
 layout: archive
-title: "Notes"
-permalink: /Notes/
+title: "Blogs"
+permalink: /Blogs/
 author_profile: true
 ---
 *Here lie the words I choose to set free.*
@@ -12,7 +12,7 @@ author_profile: true
 
 From 2020, at the end of each year, I always write an annual review. They encourage me to do better and make progress.
 
-{% for post in site.Notes reversed %}
+{% for post in site.Blogs reversed %}
   {% if post.path contains "20" %}
     {% include archive-single.html %}
   {% endif %}
