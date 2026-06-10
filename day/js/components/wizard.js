@@ -1,9 +1,12 @@
 /**
  * AI Learning Path Wizard Component
  * Multi-step quiz wizard that generates personalized learning paths
+ * Results are persisted to localStorage
  */
 
 const Wizard = {
+    STORAGE_KEY: 'day_wizard_result',
+
     // State
     currentStep: -1, // -1 = welcome, 0-9 = questions, 10 = result
     answers: {},
@@ -39,6 +42,9 @@ const Wizard = {
 
         // Bind trigger buttons
         this.bindTriggers();
+
+        // Load saved result and render persistent card
+        this.loadSavedResult();
     },
 
     /**
@@ -51,6 +57,147 @@ const Wizard = {
                 this.open();
             });
         });
+    },
+
+    /**
+     * Load saved wizard result from localStorage
+     */
+    loadSavedResult() {
+        const saved = Storage.get(this.STORAGE_KEY);
+        if (saved && saved.result && saved.answers) {
+            this.result = saved.result;
+            this.answers = saved.answers;
+            this.renderPersistentCard();
+        }
+    },
+
+    /**
+     * Save current result to localStorage
+     */
+    saveResult() {
+        if (this.result && this.answers) {
+            Storage.set(this.STORAGE_KEY, {
+                result: this.result,
+                answers: this.answers,
+                savedAt: new Date().toISOString()
+            });
+            this.renderPersistentCard();
+        }
+    },
+
+    /**
+     * Clear saved result
+     */
+    clearSavedResult() {
+        Storage.remove(this.STORAGE_KEY);
+        this.result = null;
+        this.answers = {};
+        this.removePersistentCard();
+    },
+
+    /**
+     * Render the persistent result card on the page
+     */
+    renderPersistentCard() {
+        let container = document.getElementById('wizardPersistentCard');
+        if (!container) {
+            // Create container after dashboard section
+            const dashboard = document.getElementById('dashboard');
+            if (!dashboard) return;
+            container = document.createElement('div');
+            container.id = 'wizardPersistentCard';
+            dashboard.parentNode.insertBefore(container, dashboard.nextSibling);
+        }
+
+        if (!this.result) {
+            container.innerHTML = '';
+            return;
+        }
+
+        const r = this.result;
+        const saved = Storage.get(this.STORAGE_KEY);
+        const savedDate = saved?.savedAt ? new Date(saved.savedAt).toLocaleDateString('zh-CN') : '';
+
+        // Build compact course list
+        const courseListHtml = r.courses.slice(0, 5).map(c =>
+            `<span class="wpc-course-tag">${c.n}</span>`
+        ).join('');
+        const moreCount = r.courses.length - 5;
+        const moreHtml = moreCount > 0 ? `<span class="wpc-course-tag wpc-course-tag--more">+${moreCount} 门</span>` : '';
+
+        // Format days to readable string
+        const daysText = r.totalDays <= 30 ? `约 ${r.totalDays} 天` :
+                         r.totalWeeks <= 12 ? `约 ${r.totalWeeks} 周` :
+                         `约 ${Math.ceil(r.totalWeeks / 4.3)} 个月`;
+
+        container.innerHTML = `
+            <section class="wpc-section">
+                <div class="wpc-card">
+                    <div class="wpc-card-header">
+                        <div class="wpc-card-icon">🎯</div>
+                        <div class="wpc-card-title-group">
+                            <h3 class="wpc-card-title">你的 AI 学习路径</h3>
+                            ${savedDate ? `<span class="wpc-card-date">测评于 ${savedDate}</span>` : ''}
+                        </div>
+                        <div class="wpc-card-actions">
+                            <button class="btn btn-secondary btn-sm" onclick="Wizard.openForResult()">查看详情</button>
+                            <button class="btn btn-primary btn-sm" onclick="Wizard.open()">重新测评</button>
+                        </div>
+                    </div>
+                    <div class="wpc-card-body">
+                        <div class="wpc-stats">
+                            <div class="wpc-stat">
+                                <span class="wpc-stat-value">${r.totalCourses}</span>
+                                <span class="wpc-stat-label">门课程</span>
+                            </div>
+                            <div class="wpc-stat-divider"></div>
+                            <div class="wpc-stat">
+                                <span class="wpc-stat-value">${formatHours(r.totalHours)}</span>
+                                <span class="wpc-stat-label">课程总时长</span>
+                            </div>
+                            <div class="wpc-stat-divider"></div>
+                            <div class="wpc-stat">
+                                <span class="wpc-stat-value">${daysText}</span>
+                                <span class="wpc-stat-label">每日${r.dailyHours}h · 预计完成</span>
+                            </div>
+                            <div class="wpc-stat-divider"></div>
+                            <div class="wpc-stat">
+                                <span class="wpc-stat-value">${r.totalPhases} 阶段</span>
+                                <span class="wpc-stat-label">${r.difficultyRange.label}</span>
+                            </div>
+                        </div>
+                        <div class="wpc-courses">
+                            ${courseListHtml}${moreHtml}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        `;
+    },
+
+    /**
+     * Remove the persistent card
+     */
+    removePersistentCard() {
+        const container = document.getElementById('wizardPersistentCard');
+        if (container) container.innerHTML = '';
+    },
+
+    /**
+     * Open wizard and jump directly to result page
+     */
+    openForResult() {
+        if (!this.result) {
+            this.open();
+            return;
+        }
+        this.currentStep = WIZARD_QUESTIONS.length;
+        this.isOpen = true;
+        this.render();
+        if (this.overlay) {
+            this.overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
     },
 
     /**
@@ -117,13 +264,14 @@ const Wizard = {
                 // Last question -> generate result
                 this.result = generateLearningPath(this.answers);
                 this.currentStep = WIZARD_QUESTIONS.length;
+                this.saveResult();
                 this.render();
             }
             return;
         }
 
         if (this.currentStep === WIZARD_QUESTIONS.length) {
-            // Result page -> close or restart
+            // Result page -> close
             this.close();
         }
     },
@@ -234,6 +382,7 @@ const Wizard = {
      * Render welcome page
      */
     renderWelcome() {
+        const hasSaved = !!this.result;
         this.body.innerHTML = `
             <div class="wizard-welcome">
                 <div class="wizard-welcome-icon">🧭</div>
@@ -256,9 +405,10 @@ const Wizard = {
                     </div>
                     <div class="wizard-welcome-feature">
                         <span class="wizard-welcome-feature-icon">⏱️</span>
-                        <span>预计学习时长</span>
+                        <span>预计完成时间</span>
                     </div>
                 </div>
+                ${hasSaved ? '<p class="wizard-welcome-hint">💡 你之前已有测评结果，重新测评将覆盖之前的记录</p>' : ''}
                 <p class="wizard-welcome-hint">预计需要 2-3 分钟完成</p>
             </div>
         `;
@@ -338,6 +488,10 @@ const Wizard = {
             `).join('');
 
             const phaseHours = phase.courses.reduce((sum, c) => sum + c.h, 0);
+            const phaseDays = Math.ceil(phaseHours / r.dailyHours);
+            const phaseTimeText = phaseDays <= 7 ? `${phaseDays} 天` :
+                                  phaseDays <= 30 ? `${Math.ceil(phaseDays / 7)} 周` :
+                                  `${Math.ceil(phaseDays / 30)} 个月`;
 
             return `
                 <div class="wizard-phase">
@@ -348,8 +502,8 @@ const Wizard = {
                             <p class="wizard-phase-desc">${phase.description}</p>
                         </div>
                         <div class="wizard-phase-meta">
-                            <span class="wizard-phase-time">${phase.weeks}</span>
-                            <span class="wizard-phase-hours">${formatHours(phaseHours)}</span>
+                            <span class="wizard-phase-time">每日${r.dailyHours}h · 约${phaseTimeText}</span>
+                            <span class="wizard-phase-hours">${formatHours(phaseHours)} 课程时长</span>
                         </div>
                     </div>
                     <div class="wizard-phase-courses">
@@ -364,6 +518,11 @@ const Wizard = {
             `<span class="wizard-skill-tag">${skill}</span>`
         ).join('');
 
+        // Format total days
+        const totalDaysText = r.totalDays <= 30 ? `${r.totalDays} 天` :
+                              r.totalWeeks <= 12 ? `${r.totalWeeks} 周` :
+                              `${Math.ceil(r.totalWeeks / 4.3)} 个月`;
+
         this.body.innerHTML = `
             <div class="wizard-result">
                 <div class="wizard-result-header">
@@ -375,19 +534,19 @@ const Wizard = {
                 <div class="wizard-result-stats">
                     <div class="wizard-result-stat">
                         <div class="wizard-result-stat-value">${formatHours(r.totalHours)}</div>
-                        <div class="wizard-result-stat-label">总学习时长</div>
+                        <div class="wizard-result-stat-label">课程总时长</div>
+                    </div>
+                    <div class="wizard-result-stat">
+                        <div class="wizard-result-stat-value">${totalDaysText}</div>
+                        <div class="wizard-result-stat-label">每日${r.dailyHours}h 预计完成</div>
                     </div>
                     <div class="wizard-result-stat">
                         <div class="wizard-result-stat-value">${r.totalCourses}</div>
                         <div class="wizard-result-stat-label">推荐课程</div>
                     </div>
                     <div class="wizard-result-stat">
-                        <div class="wizard-result-stat-value">${r.difficultyRange.label}</div>
-                        <div class="wizard-result-stat-label">难度范围</div>
-                    </div>
-                    <div class="wizard-result-stat">
-                        <div class="wizard-result-stat-value">${r.totalPhases}</div>
-                        <div class="wizard-result-stat-label">学习阶段</div>
+                        <div class="wizard-result-stat-value">${r.totalPhases} 阶段</div>
+                        <div class="wizard-result-stat-label">${r.difficultyRange.label}</div>
                     </div>
                 </div>
 

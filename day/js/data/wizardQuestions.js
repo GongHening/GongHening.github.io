@@ -147,9 +147,18 @@ function generateLearningPath(answers) {
     // Step 8: Generate summary
     const summary = generateSummary(answers, totalHours, selectedCourses.length, phases.length);
 
+    // Step 9: Calculate estimated completion time
+    const dailyHoursMap = { 'lt1': 0.75, '1to2': 1.5, '2to4': 3, 'gt4': 5 };
+    const dailyHours = dailyHoursMap[answers.dailyHours] || 1.5;
+    const totalDays = Math.ceil(totalHours / dailyHours);
+    const totalWeeks = Math.ceil(totalDays / 7);
+
     return {
         summary,
         totalHours,
+        dailyHours,
+        totalDays,
+        totalWeeks,
         totalCourses: selectedCourses.length,
         totalPhases: phases.length,
         difficultyRange,
@@ -434,5 +443,5 @@ function generateSummary(answers, totalHours, totalCourses, totalPhases) {
         '6months': '6 个月以上深入研究'
     };
 
-    return `根据你的学习目标（${goalLabels[goal]}）和时间规划（${timelineLabels[timeline]}），我们为你量身定制了一条包含 ${totalPhases} 个阶段、${totalCourses} 门精选课程的学习路径，总计约 ${formatHours(totalHours)} 的学习内容。`;
+    return `根据你的学习目标（${goalLabels[goal]}）和时间规划（${timelineLabels[timeline]}），我们为你量身定制了一条包含 ${totalPhases} 个阶段、${totalCourses} 门精选课程的学习路径。`;
 }

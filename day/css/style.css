@@ -2955,9 +2955,175 @@ p:last-child { margin-bottom: 0; }
   }
 }
 
+/* ==========================================================================
+   WIZARD PERSISTENT RESULT CARD
+   ========================================================================== */
+
+.wpc-section {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.wpc-card {
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  transition: box-shadow var(--t-norm);
+}
+
+.wpc-card:hover {
+  box-shadow: var(--sh-md);
+}
+
+[data-theme="dark"] .wpc-card {
+  background: var(--surface);
+}
+
+.wpc-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.wpc-card-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.wpc-card-title-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.wpc-card-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin: 0;
+}
+
+.wpc-card-date {
+  font-size: 0.72rem;
+  color: var(--text-3);
+}
+
+.wpc-card-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  border-radius: var(--r-full);
+}
+
+.wpc-card-body {
+  padding: 1rem 1.5rem;
+}
+
+.wpc-stats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.wpc-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.wpc-stat-value {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.wpc-stat-label {
+  font-size: 0.78rem;
+  color: var(--text-3);
+}
+
+.wpc-stat-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--text-4);
+}
+
+.wpc-courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.wpc-course-tag {
+  padding: 4px 10px;
+  background: var(--surface-2);
+  border-radius: var(--r-full);
+  font-size: 0.75rem;
+  color: var(--text-2);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .wpc-course-tag {
+  background: var(--surface-2);
+}
+
+.wpc-course-tag--more {
+  background: rgba(0, 113, 227, 0.08);
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .wpc-section { padding: 0 1rem 1rem; }
+
+  .wpc-card-header {
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+  }
+
+  .wpc-card-actions {
+    width: 100%;
+    padding-top: 0.5rem;
+  }
+
+  .wpc-card-actions .btn {
+    flex: 1;
+  }
+
+  .wpc-card-body {
+    padding: 0.75rem 1rem;
+  }
+
+  .wpc-stats {
+    gap: 0.5rem;
+  }
+
+  .wpc-stat-divider {
+    display: none;
+  }
+
+  .wpc-stat {
+    flex-basis: calc(50% - 0.25rem);
+  }
+}
+
 /* Print: hide wizard */
 @media print {
   .wizard-overlay { display: none !important; }
+  .wpc-section { display: none !important; }
 }
 
 /* Reduced motion */
@@ -2966,7 +3132,8 @@ p:last-child { margin-bottom: 0; }
   .wizard-progress-fill,
   .wizard-option,
   .wizard-option-check,
-  .wizard-option-check svg {
+  .wizard-option-check svg,
+  .wpc-card {
     transition: none;
   }
 
