@@ -8,6 +8,7 @@
 
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" data-collection="{{ post.collection }}">
+    <a class="archive__item-link" href="{% if post.link %}{{ post.link }}{% else %}{{ base_path }}{{ post.url }}{% endif %}"></a>
     <div class="archive__item-accent"></div>
     <div class="archive__item-body">
       <div class="archive__item-row">
