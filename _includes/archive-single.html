@@ -10,37 +10,41 @@
   <article class="archive__item" data-collection="{{ post.collection }}">
     <div class="archive__item-accent"></div>
     <div class="archive__item-body">
-      <h2 class="archive__item-title" itemprop="headline">
-        {% if post.link %}
-          <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
-        {% else %}
-          <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
-        {% endif %}
-      </h2>
+      <div class="archive__item-row">
+        <div class="archive__item-left">
+          <h2 class="archive__item-title" itemprop="headline">
+            {% if post.link %}
+              <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+            {% else %}
+              <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
+            {% endif %}
+          </h2>
 
-      <div class="archive__item-meta">
-        {% if post.collection == 'Repositories' %}
-          {% if post.venue %}
-            <span>🏫 {{ post.venue }}</span>
+          {% if post.collection == 'Blogs' and post.path contains '20' %}
+            {% if post.description %}
+            <p class="archive__item-description">{{ post.description }}</p>
+            {% endif %}
+          {% elsif post.excerpt and site.read_more != 'enabled' %}
+            <p class="archive__item-description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
+          {% elsif post.excerpt and site.read_more == 'enabled' %}
+            <p class="archive__item-description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
           {% endif %}
-        {% endif %}
-        {% if post.date %}
-          <span>🗓️ {{ post.date | date: "%Y.%m.%d" }}</span>
-        {% endif %}
-        {% if post.location %}
-          <span>📍 {{ post.location }}</span>
-        {% endif %}
-      </div>
+        </div>
 
-      {% if post.collection == 'Blogs' and post.path contains '20' %}
-        {% if post.description %}
-        <p class="archive__item-description">{{ post.description }}</p>
-        {% endif %}
-      {% elsif post.excerpt and site.read_more != 'enabled' %}
-        <p class="archive__item-description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
-      {% elsif post.excerpt and site.read_more == 'enabled' %}
-        <p class="archive__item-description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
-      {% endif %}
+        <div class="archive__item-right">
+          {% if post.collection == 'Repositories' %}
+            {% if post.venue %}
+              <span class="archive__item-meta-item">🏫 {{ post.venue }}</span>
+            {% endif %}
+          {% endif %}
+          {% if post.date %}
+            <span class="archive__item-meta-item">🗓️ {{ post.date | date: "%Y.%m.%d" }}</span>
+          {% endif %}
+          {% if post.location %}
+            <span class="archive__item-meta-item">📍 {{ post.location }}</span>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </article>
 </div>

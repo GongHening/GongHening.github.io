@@ -166,7 +166,7 @@
   min-width: 0;
 }
 
-/* Card row: left (title+desc) + right (meta) */
+/* Row: left (title+desc) + right (meta) */
 .archive__item-row {
   display: flex;
   align-items: flex-start;
@@ -183,7 +183,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.35em;
+  gap: 0.3em;
   padding-top: 0.15em;
 }
 
