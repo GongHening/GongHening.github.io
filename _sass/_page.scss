@@ -36,13 +36,24 @@
 
 .page__title {
   margin-top: 0;
-  margin-bottom: 0.75em;
-  line-height: 1.1;
+  margin-bottom: 0.5em;
+  line-height: 1.15;
   letter-spacing: -0.025em;
   font-weight: 700;
 
   & + .page__meta {
     margin-top: -0.5em;
+  }
+}
+
+.page__header-meta {
+  margin-bottom: 2em;
+  font-family: $sans-serif;
+  font-size: 0.88em;
+  color: #9ca3af;
+
+  span + span {
+    margin-left: 1em;
   }
 }
 
@@ -202,36 +213,6 @@
 }
 
 /*
-   Social sharing
-   ========================================================================== */
-
-.page__share {
-  margin-top: 2em;
-  padding-top: 1em;
-  border-top: 1px solid #e5e7eb;
-
-  @include breakpoint(max-width $small) {
-    .btn span {
-      border: 0;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
-    }
-  }
-}
-
-.page__share-title {
-  margin-bottom: 10px;
-  font-size: $type-size-6;
-  text-transform: uppercase;
-}
-
-
-/*
    Page meta
    ========================================================================== */
 
@@ -307,20 +288,47 @@
 
 
 /*
-   Comments
+   Comments — Giscus
    ========================================================================== */
 
-.page__comments {
-  @include full();
+.page__comments-wrapper {
+  @include breakpoint($large) {
+    @include pre(2 of 12);
+    @include span(8 of 12);
+  }
+
+  margin-top: 2.5em;
+  padding-top: 2em;
+  border-top: 1px solid #e5e7eb;
 }
 
 .page__comments-title {
-  margin-top: 2rem;
-  margin-bottom: 10px;
-  padding-top: 2rem;
-  font-size: $type-size-6;
-  border-top: 1px solid $border-color;
-  text-transform: uppercase;
+  margin: 0 0 0.25em;
+  font-family: $sans-serif;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #1a1a2e;
+  letter-spacing: -0.01em;
+}
+
+.page__comments-hint {
+  margin: 0 0 1.5em;
+  font-family: $sans-serif;
+  font-size: 0.82em;
+  color: #9ca3af;
+}
+
+.giscus-comments {
+  width: 100%;
+
+  iframe {
+    border: none;
+    width: 100%;
+  }
+}
+
+.page__comments {
+  @include full();
 }
 
 .page__comments-form {
