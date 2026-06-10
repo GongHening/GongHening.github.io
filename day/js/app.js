@@ -72,6 +72,11 @@ const App = {
         // Initialize course cards
         CourseCard.init();
 
+        // Initialize course detail panel
+        if (typeof CourseDetail !== 'undefined') {
+            CourseDetail.init();
+        }
+
         // Initialize hero
         Hero.init();
 
@@ -119,6 +124,36 @@ const App = {
         // Initialize year timeline
         if (typeof YearTimeline !== 'undefined') {
             YearTimeline.init();
+        }
+
+        // Initialize daily tasks
+        if (typeof DailyTasks !== 'undefined') {
+            DailyTasks.init();
+        }
+
+        // Initialize learning calendar
+        if (typeof LearningCalendar !== 'undefined') {
+            LearningCalendar.init();
+        }
+
+        // Initialize achievements
+        if (typeof Achievements !== 'undefined') {
+            Achievements.init();
+        }
+
+        // Initialize quiz
+        if (typeof Quiz !== 'undefined') {
+            Quiz.init();
+        }
+
+        // Initialize flashcards
+        if (typeof Flashcards !== 'undefined') {
+            Flashcards.init();
+        }
+
+        // Initialize code playground
+        if (typeof CodePlayground !== 'undefined') {
+            CodePlayground.init();
         }
     },
 
@@ -378,6 +413,11 @@ const App = {
             preferences: PreferencesManager.getAll(),
             searchHistory: SearchHistoryManager.getAll(),
             notes: NotesManager.getAll(),
+            learningLog: typeof LearningLogManager !== 'undefined' ? LearningLogManager.getAll() : {},
+            quizStats: typeof Quiz !== 'undefined' ? Quiz.getStats() : {},
+            flashcardProgress: Storage.get('day_flashcard_progress', {}),
+            codeExercises: Storage.get('day_code_exercises', {}),
+            achievements: typeof Achievements !== 'undefined' ? Achievements.getUnlocked() : {},
             exportDate: new Date().toISOString()
         };
     },
@@ -404,6 +444,21 @@ const App = {
             if (data.notes) {
                 Storage.set(NotesManager.STORAGE_KEY, data.notes);
             }
+            if (data.learningLog && typeof LearningLogManager !== 'undefined') {
+                Storage.set(LearningLogManager.STORAGE_KEY, data.learningLog);
+            }
+            if (data.quizStats && typeof Quiz !== 'undefined') {
+                Storage.set(Quiz.STORAGE_KEY, data.quizStats);
+            }
+            if (data.flashcardProgress) {
+                Storage.set('day_flashcard_progress', data.flashcardProgress);
+            }
+            if (data.codeExercises) {
+                Storage.set('day_code_exercises', data.codeExercises);
+            }
+            if (data.achievements && typeof Achievements !== 'undefined') {
+                Storage.set(Achievements.STORAGE_KEY, data.achievements);
+            }
 
             // Re-render with imported data
             Filters.applyFilters();
@@ -428,6 +483,11 @@ const App = {
             PreferencesManager.reset();
             SearchHistoryManager.clear();
             NotesManager.clearAll();
+            if (typeof LearningLogManager !== 'undefined') LearningLogManager.clear();
+            Storage.remove('day_quiz_stats');
+            Storage.remove('day_flashcard_progress');
+            Storage.remove('day_code_exercises');
+            if (typeof Achievements !== 'undefined') Storage.remove(Achievements.STORAGE_KEY);
 
             // Re-render
             Filters.applyFilters();

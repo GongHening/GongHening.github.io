@@ -26,6 +26,11 @@ const CourseCard = {
     renderAll(courses) {
         if (!this.grid) return;
 
+        // Close any open detail panel before re-rendering
+        if (typeof CourseDetail !== 'undefined') {
+            CourseDetail.close();
+        }
+
         if (courses.length === 0) {
             this.showNoResults();
             return;
@@ -77,9 +82,14 @@ const CourseCard = {
 
                 <div class="course-card-footer">
                     <span class="course-duration">${formatHours(course.h)}</span>
-                    <a href="${escapeHtml(course.u)}" target="_blank" rel="noopener noreferrer" class="course-link" onclick="CourseCard.recordView('${escapeHtml(course.u)}')">
-                        开始学习
-                    </a>
+                    <div class="course-footer-actions">
+                        <button class="card-action-btn card-action-btn--detail" onclick="CourseDetail.toggle('${escapeHtml(course.u)}')" title="查看详情">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                        </button>
+                        <a href="${escapeHtml(course.u)}" target="_blank" rel="noopener noreferrer" class="course-link" onclick="CourseCard.recordView('${escapeHtml(course.u)}')">
+                            开始学习
+                        </a>
+                    </div>
                 </div>
 
                 <div class="course-progress">

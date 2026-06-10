@@ -586,6 +586,310 @@ const NotesManager = {
     }
 };
 
+/**
+ * Learning Log Manager
+ * Tracks daily learning activity, streaks, and weekly goals
+ */
+const LearningLogManager = {
+    STORAGE_KEY: 'day_learning_log',
+
+    /**
+     * Get default data shape
+     * @returns {Object} Default learning log
+     */
+    _getDefaults() {
+        return {
+            log: {},
+            streak: { current: 0, best: 0, lastDate: null },
+            weeklyGoal: { target: 300, current: 0 }
+        };
+    },
+
+    /**
+     * Get all learning log data
+     * @returns {Object} Full learning log
+     */
+    getAll() {
+        return Storage.get(this.STORAGE_KEY, this._getDefaults());
+    },
+
+    /**
+     * Save all learning log data
+     * @param {Object} data - Data to save
+     * @returns {boolean} Success status
+     */
+    _save(data) {
+        return Storage.set(this.STORAGE_KEY, data);
+    },
+
+    /**
+     * Get today's date string (YYYY-MM-DD)
+     * @returns {string} Today's date
+     */
+    _getToday() {
+        return new Date().toISOString().slice(0, 10);
+    },
+
+    /**
+     * Get yesterday's date string (YYYY-MM-DD)
+     * @returns {string} Yesterday's date
+     */
+    _getYesterday() {
+        const d = new Date();
+        d.setDate(d.getDate() - 1);
+        return d.toISOString().slice(0, 10);
+    },
+
+    /**
+     * Get the start of the current week (Monday)
+     * @returns {string} Date string of Monday
+     */
+    _getWeekStart() {
+        const d = new Date();
+        const day = d.getDay();
+        const diff = day === 0 ? 6 : day - 1; // Monday = 0
+        d.setDate(d.getDate() - diff);
+        return d.toISOString().slice(0, 10);
+    },
+
+    /**
+     * Get today's log entry or default
+     * @returns {Object} Today's entry { minutes, tasksCompleted, conceptsReviewed }
+     */
+    getToday() {
+        const data = this.getAll();
+        const today = this._getToday();
+        return data.log[today] || { minutes: 0, tasksCompleted: 0, conceptsReviewed: 0 };
+    },
+
+    /**
+     * Log minutes of learning for today
+     * @param {number} minutes - Minutes to add
+     */
+    logMinutes(minutes) {
+        minutes = Math.max(0, Math.round(minutes));
+        if (minutes === 0) return;
+
+        const data = this.getAll();
+        const today = this._getToday();
+        const yesterday = this._getYesterday();
+
+        // Update today's log entry
+        if (!data.log[today]) {
+            data.log[today] = { minutes: 0, tasksCompleted: 0, conceptsReviewed: 0 };
+        }
+        data.log[today].minutes += minutes;
+
+        // Update streak
+        if (data.streak.lastDate === today) {
+            // Already logged today, no streak change
+        } else if (data.streak.lastDate === yesterday) {
+            // Consecutive day
+            data.streak.current += 1;
+        } else if (data.streak.lastDate !== today) {
+            // Streak broken or first time
+            data.streak.current = 1;
+        }
+        data.streak.lastDate = today;
+        if (data.streak.current > data.streak.best) {
+            data.streak.best = data.streak.current;
+        }
+
+        // Update weekly goal progress
+        this._recalcWeekly(data);
+
+        this._save(data);
+    },
+
+    /**
+     * Recalculate weekly goal progress from log data
+     * @param {Object} data - Learning log data
+     */
+    _recalcWeekly(data) {
+        const weekStart = this._getWeekStart();
+        let weekMinutes = 0;
+        const log = data.log;
+
+        for (const dateStr of Object.keys(log)) {
+            if (dateStr >= weekStart) {
+                weekMinutes += log[dateStr].minutes || 0;
+            }
+        }
+        data.weeklyGoal.current = weekMinutes;
+    },
+
+    /**
+     * Log a completed task for today
+     */
+    logTaskCompleted() {
+        const data = this.getAll();
+        const today = this._getToday();
+
+        if (!data.log[today]) {
+            data.log[today] = { minutes: 0, tasksCompleted: 0, conceptsReviewed: 0 };
+        }
+        data.log[today].tasksCompleted += 1;
+
+        // Ensure streak is updated if not already
+        this._ensureStreak(data, today);
+
+        this._save(data);
+    },
+
+    /**
+     * Log reviewed concepts for today
+     * @param {number} count - Number of concepts reviewed (default 1)
+     */
+    logConceptReviewed(count) {
+        count = count || 1;
+        const data = this.getAll();
+        const today = this._getToday();
+
+        if (!data.log[today]) {
+            data.log[today] = { minutes: 0, tasksCompleted: 0, conceptsReviewed: 0 };
+        }
+        data.log[today].conceptsReviewed += count;
+
+        // Ensure streak is updated if not already
+        this._ensureStreak(data, today);
+
+        this._save(data);
+    },
+
+    /**
+     * Ensure streak is updated for today
+     * @param {Object} data - Learning log data
+     * @param {string} today - Today's date string
+     */
+    _ensureStreak(data, today) {
+        const yesterday = this._getYesterday();
+        if (data.streak.lastDate === today) return;
+
+        if (data.streak.lastDate === yesterday) {
+            data.streak.current += 1;
+        } else {
+            data.streak.current = 1;
+        }
+        data.streak.lastDate = today;
+        if (data.streak.current > data.streak.best) {
+            data.streak.best = data.streak.current;
+        }
+    },
+
+    /**
+     * Get streak data
+     * @returns {Object} Streak { current, best, lastDate }
+     */
+    getStreak() {
+        return this.getAll().streak;
+    },
+
+    /**
+     * Get weekly progress
+     * @returns {Object} { target, current, percentage }
+     */
+    getWeeklyProgress() {
+        const data = this.getAll();
+        this._recalcWeekly(data);
+        this._save(data);
+
+        const { target, current } = data.weeklyGoal;
+        return {
+            target,
+            current,
+            percentage: target > 0 ? Math.min(100, Math.round((current / target) * 100)) : 0
+        };
+    },
+
+    /**
+     * Get year data for calendar heatmap
+     * @returns {Object} Object mapping date strings to minutes
+     */
+    getYearData() {
+        const data = this.getAll();
+        const year = new Date().getFullYear();
+        const result = {};
+
+        // Initialize all days of the year with 0
+        const startDate = new Date(year, 0, 1);
+        const endDate = new Date(year, 11, 31);
+        for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+            const key = d.toISOString().slice(0, 10);
+            result[key] = 0;
+        }
+
+        // Fill in actual data
+        for (const [dateStr, entry] of Object.entries(data.log)) {
+            if (dateStr.startsWith(String(year))) {
+                result[dateStr] = entry.minutes || 0;
+            }
+        }
+
+        return result;
+    },
+
+    /**
+     * Get total statistics
+     * @returns {Object} { totalDays, totalMinutes, longestStreak, currentMonthMinutes }
+     */
+    getTotalStats() {
+        const data = this.getAll();
+        const log = data.log;
+        const now = new Date();
+        const currentMonth = now.toISOString().slice(0, 7); // "2026-06"
+
+        let totalDays = 0;
+        let totalMinutes = 0;
+        let currentMonthMinutes = 0;
+
+        for (const [dateStr, entry] of Object.entries(log)) {
+            const mins = entry.minutes || 0;
+            if (mins > 0) {
+                totalDays += 1;
+                totalMinutes += mins;
+            }
+            if (dateStr.startsWith(currentMonth)) {
+                currentMonthMinutes += mins;
+            }
+        }
+
+        return {
+            totalDays,
+            totalMinutes,
+            longestStreak: data.streak.best || 0,
+            currentMonthMinutes
+        };
+    },
+
+    /**
+     * Get last n days of data
+     * @param {number} n - Number of days
+     * @returns {Array} Array of { date, minutes, tasksCompleted, conceptsReviewed }
+     */
+    getRecentDays(n) {
+        n = n || 7;
+        const data = this.getAll();
+        const result = [];
+        const d = new Date();
+
+        for (let i = 0; i < n; i++) {
+            const dateStr = d.toISOString().slice(0, 10);
+            const entry = data.log[dateStr] || { minutes: 0, tasksCompleted: 0, conceptsReviewed: 0 };
+            result.unshift({ date: dateStr, ...entry });
+            d.setDate(d.getDate() - 1);
+        }
+
+        return result;
+    },
+
+    /**
+     * Clear all learning log data
+     */
+    clear() {
+        Storage.remove(this.STORAGE_KEY);
+    }
+};
+
 // Export for module usage (if needed)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
@@ -595,6 +899,7 @@ if (typeof module !== 'undefined' && module.exports) {
         SearchHistoryManager,
         FavoritesManager,
         CourseViewsManager,
-        NotesManager
+        NotesManager,
+        LearningLogManager
     };
 }
