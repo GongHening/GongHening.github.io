@@ -19004,4 +19004,1179 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
         }
     }
 
+
+    /* ================================================================
+     * 19. Introduction to Deep Learning (11-785, CMU)
+     *    Topics: PyTorch, optimizers (SGD/Adam), regularization,
+     *            CNN, RNN, BatchNorm
+     * ================================================================ */
+    "Introduction to Deep Learning (11-785, CMU)": {
+        courseId: "11-785-intro-dl",
+        domain: "dl",
+        mid: {
+            choice: [
+                {
+                    id: "cmu11785-mid-c-1",
+                    question: "在 PyTorch 中，以下哪个方法用于清除上一步计算的梯度？",
+                    options: ["model.clear()", "optimizer.zero_grad()", "torch.reset()", "model梯度.clear()"],
+                    answer: 1,
+                    explanation: "PyTorch 中每次反向传播前需调用 optimizer.zero_grad() 来清除累积的梯度，否则梯度会叠加。",
+                    difficulty: 1
+                },
+                {
+                    id: "cmu11785-mid-c-2",
+                    question: "关于随机梯度下降（SGD），以下哪个说法正确？",
+                    options: ["每次使用全部数据计算梯度", "每次使用一个或一小批样本计算梯度估计", "不需要学习率", "一定能收敛到全局最优"],
+                    answer: 1,
+                    explanation: "SGD 使用 mini-batch 估计真实梯度，在噪声驱动下更容易跳出局部最优，但引入了梯度估计的方差。",
+                    difficulty: 1
+                },
+                {
+                    id: "cmu11785-mid-c-3",
+                    question: "Adam 优化器相比普通 SGD 的核心改进是什么？",
+                    options: ["不需要学习率", "自适应调整每个参数的学习率，结合动量和 RMSProp", "使用二阶导数", "完全消除梯度噪声"],
+                    answer: 1,
+                    explanation: "Adam 同时维护梯度一阶矩（动量）和二阶矩（RMSProp）的指数移动平均，自适应调整各参数学习率，对稀疏梯度和非平稳目标效果更好。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-mid-c-4",
+                    question: "卷积神经网络中，1x1 卷积的主要作用不包括以下哪项？",
+                    options: ["增加非线性", "调整通道数（升维/降维）", "增大空间分辨率", "跨通道信息融合"],
+                    answer: 2,
+                    explanation: "1x1 卷积不改变空间分辨率，其作用包括跨通道信息融合、通道数调整（GoogLeNet 中的 Bottleneck）以及引入额外非线性。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-mid-c-5",
+                    question: "RNN 中梯度消失问题的根本原因是什么？",
+                    options: ["学习率过大", "反向传播中梯度需要连乘多个小于1的 Jacobian 矩阵", "数据量不够", "模型参数过多"],
+                    answer: 1,
+                    explanation: "BPTT 展开 RNN 后，梯度通过时间步连乘，当谱范数小于1时，长距离梯度指数衰减至趋近零。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-mid-c-6",
+                    question: "L2 正则化（权重衰减）在深度学习中的主要作用是什么？",
+                    options: ["加速训练", "限制权重大小以降低过拟合风险", "增加模型容量", "消除梯度消失"],
+                    answer: 1,
+                    explanation: "L2 正则化在损失函数中添加惩罚项，促使权重趋向较小值，降低模型复杂度，从而减少过拟合。",
+                    difficulty: 1
+                },
+                {
+                    id: "cmu11785-mid-c-7",
+                    question: "Dropout 在训练和测试阶段的行为有什么区别？",
+                    options: ["两个阶段完全相同", "训练时随机丢弃神经元，测试时使用全部神经元并缩放输出", "仅在测试时丢弃", "训练时不更新被丢弃神经元的权重"],
+                    answer: 1,
+                    explanation: "训练时 Dropout 以概率 p 将神经元输出置零；测试时使用全部神经元，输出乘以 (1-p) 进行缩放。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-mid-c-8",
+                    question: "关于 Batch Normalization，以下哪个说法是正确的？",
+                    options: ["对整个训练集做归一化", "对每个 mini-batch 的特征维度做归一化并引入可学习参数", "只能用于卷积层", "会完全消除内部协变量偏移"],
+                    answer: 1,
+                    explanation: "BN 对每个 mini-batch 在通道维度计算均值和方差进行归一化，再通过可学习的 gamma 和 beta 恢复表达能力。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-mid-c-9",
+                    question: "在 PyTorch 中，torch.nn.CrossEntropyLoss 内部已经包含了什么操作？",
+                    options: ["Softmax + NLLLoss", "MSE 损失", "L1 正则化", "Dropout"],
+                    answer: 0,
+                    explanation: "nn.CrossEntropyLoss = log_softmax + nll_loss，即内部先对 logits 做 log_softmax 再计算负对数似然。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-mid-c-10",
+                    question: "残差连接（Skip Connection）的核心思想是什么？",
+                    options: ["增加网络深度的同时保持梯度流通", "减少参数量", "替代激活函数", "增加正则化效果"],
+                    answer: 0,
+                    explanation: "残差连接使梯度可以通过恒等映射直接回传，网络只需学习残差 F(x) = H(x) - x，有效缓解深度网络的退化和梯度消失问题。",
+                    difficulty: 1
+                }
+            ],
+            fill: [
+                {
+                    id: "cmu11785-mid-f-1",
+                    question: "PyTorch 中，____方法将张量从计算图中分离，阻止梯度回传到该张量。",
+                    answer: "detach()",
+                    explanation: "tensor.detach() 返回一个与原张量共享数据但不追踪梯度的新张量，常用于在计算目标值时切断不必要的梯度链。",
+                    difficulty: 1
+                },
+                {
+                    id: "cmu11785-mid-f-2",
+                    question: "SGD with Momentum 在更新时引入了速度变量 v，其更新公式为 v = beta*v + ____，然后 w = w - eta*v。",
+                    answer: "梯度(或 nabla L(w))",
+                    explanation: "动量 SGD 累积历史梯度方向，其中 beta 通常取 0.9，相当于在梯度方向上做指数加权平均，加速一致方向上的更新。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-mid-f-3",
+                    question: "Adam 优化器中，偏差校正公式为 m_hat = m / (1 - ____)，用于补偿零初始化导致的初始偏差。",
+                    answer: "beta1^t",
+                    explanation: "由于 m_0 = 0，前几步 m_t 偏向于零。偏差校正补偿了这一偏差，随着 t 增大校正因子趋近于 1。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-mid-f-4",
+                    question: "卷积层输出大小的计算公式为：O = (I - K + 2P) / S + 1，其中 P 代表 ____，S 代表步幅。",
+                    answer: "padding（填充）",
+                    explanation: "Padding P 在输入两侧补零，步幅 S 是卷积核每次移动的像素数。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-mid-f-5",
+                    question: "RNN 中，LSTM 的遗忘门 f_t 使用 ____ 激活函数将输出限制在 [0, 1] 范围内，决定细胞状态的遗忘比例。",
+                    answer: "sigmoid",
+                    explanation: "遗忘门使用 sigmoid 将输出压缩到 [0, 1]：0 表示完全遗忘，1 表示完全保留。输入门和输出门同样使用 sigmoid。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-mid-f-6",
+                    question: "Xavier 初始化的目标是使每一层输出的方差与输入方差____，以维持信号在深层网络中的稳定传播。",
+                    answer: "一致（或相同）",
+                    explanation: "Xavier 初始化设置权重的方差为 2/(n_in + n_out)，使得前向传播中输出方差约等于输入方差，避免信号逐层放大或衰减。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-mid-f-7",
+                    question: "Batch Normalization 在推理阶段使用训练过程中累积的____均值和方差进行归一化，而非当前 mini-batch 的统计量。",
+                    answer: "全局(或running、移动平均)",
+                    explanation: "训练时 BN 使用当前 mini-batch 的统计量，同时用指数移动平均维护 running mean/var。推理时使用这些 running 统计量。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-mid-f-8",
+                    question: "数据增强（Data Augmentation）中，随机水平翻转、旋转、裁剪等变换应____输入标签。",
+                    answer: "同步（或保持一致）",
+                    explanation: "对输入做几何变换时，标签也必须做相应变换，否则输入-标签不一致会导致训练失败。",
+                    difficulty: 1
+                },
+                {
+                    id: "cmu11785-mid-f-9",
+                    question: "PyTorch 中 DataLoader 的 ____ 参数控制是否在每个 epoch 开始时重新打乱数据顺序。",
+                    answer: "shuffle",
+                    explanation: "shuffle=True 在每个 epoch 开始前对数据集重新洗牌，打破样本间的顺序依赖，防止模型学习到虚假的顺序模式。",
+                    difficulty: 1
+                },
+                {
+                    id: "cmu11785-mid-f-10",
+                    question: "学习率预热（Warmup）策略是指训练初期从很小的学习率逐步____到目标学习率，以避免初始阶段大梯度导致训练不稳定。",
+                    answer: "增大（或增加）",
+                    explanation: "Warmup 在前几个 epoch 线性增大学习率，避免 Adam 等自适应优化器在初始阶段因统计量估计不准而产生的不稳定更新。",
+                    difficulty: 2
+                }
+            ],
+            code: [
+                {
+                    id: "cmu11785-mid-code-1",
+                    question: "补全以下代码，实现使用 PyTorch 构建一个简单的二分类前馈神经网络的前向传播。",
+                    code: "import torch\nimport torch.nn as nn\n\nclass SimpleNet(nn.Module):\n    def __init__(self, input_dim, hidden_dim):\n        super().__init__()\n        self.fc1 = nn.Linear(input_dim, hidden_dim)\n        self.fc2 = nn.Linear(hidden_dim, 1)\n    \n    def forward(self, x):\n        x = torch.relu(self.fc1(x))\n        ____\n        return torch.sigmoid(x)",
+                    answer: "x = self.fc2(x)",
+                    explanation: "第二层全连接层将隐藏表示映射到标量输出，外层 sigmoid 将输出压缩到 [0, 1] 表示二分类概率。",
+                    difficulty: 1
+                },
+                {
+                    id: "cmu11785-mid-code-2",
+                    question: "补全以下代码，实现手动 Batch Normalization 的前向传播（训练阶段）。",
+                    code: "import torch\n\ndef batch_norm_forward(x, gamma, beta, eps=1e-5):\n    mean = x.mean(dim=0)\n    var = ____\n    x_norm = (x - mean) / torch.sqrt(var + eps)\n    out = gamma * x_norm + beta\n    return out",
+                    answer: "x.var(dim=0, unbiased=False)",
+                    explanation: "BatchNorm 在特征维度（dim=0）计算 mini-batch 的均值和方差（使用有偏估计），然后归一化并通过 gamma、beta 缩放平移。",
+                    difficulty: 2
+                }
+            ]
+        },
+        final: {
+            choice: [
+                {
+                    id: "cmu11785-fin-c-1",
+                    question: "关于学习率调度策略，余弦退火（Cosine Annealing）的特点是什么？",
+                    options: ["线性递减到零", "按余弦曲线从初始值平滑衰减到最小值", "固定不变", "随机波动"],
+                    answer: 1,
+                    explanation: "余弦退火使学习率按余弦曲线平滑衰减，初期衰减慢（充分探索），后期衰减快（精细调优）。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-fin-c-2",
+                    question: "在深度学习中，标签平滑（Label Smoothing）的作用是什么？",
+                    options: ["增加训练速度", "将 one-hot 标签软化为概率分布以防止过拟合和过度自信", "减少数据量", "替代 Dropout"],
+                    answer: 1,
+                    explanation: "标签平滑将硬标签转换为软标签，防止模型对训练标签过度自信，提升校准性和泛化能力。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-fin-c-3",
+                    question: "ResNet 的 Bottleneck 结构中，1x1 卷积的作用是什么？",
+                    options: ["增大空间分辨率", "先降维减少计算量，再通过 3x3 卷积处理，最后 1x1 升维", "提取纹理特征", "进行池化"],
+                    answer: 1,
+                    explanation: "Bottleneck 采用 1x1(降维) - 3x3(卷积) - 1x1(升维) 的三段式结构，大幅减少参数和计算量，使网络可以设计得更深。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-fin-c-4",
+                    question: "关于梯度裁剪（Gradient Clipping），基于范数的裁剪与基于值的裁剪有什么区别？",
+                    options: ["完全相同", "基于范数裁剪所有参数的联合梯度，基于值的逐元素裁剪", "基于值的更常用", "基于范数不需要阈值"],
+                    answer: 1,
+                    explanation: "基于范数的裁剪计算整个梯度向量的 L2 范数，若超过阈值则等比缩放，保持梯度方向；基于值的逐元素裁剪独立限制每个分量。",
+                    difficulty: 3
+                },
+                {
+                    id: "cmu11785-fin-c-5",
+                    question: "RNN 中，GRU（Gated Recurrent Unit）相比 LSTM 的主要区别是什么？",
+                    options: ["完全相同", "GRU 将遗忘门和输入门合并为更新门，且没有独立的细胞状态", "GRU 多一个门", "GRU 不处理序列"],
+                    answer: 1,
+                    explanation: "GRU 用更新门同时控制遗忘和新信息的注入，结构比 LSTM 更简洁，参数更少，在小数据集上可能表现更好。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-fin-c-6",
+                    question: "深度学习中，迁移学习（Transfer Learning）的核心思想是什么？",
+                    options: ["从头训练所有参数", "利用在大规模数据集上预训练的模型作为起点，微调适配目标任务", "只使用线性层", "不需要数据"],
+                    answer: 1,
+                    explanation: "迁移学习利用在大数据集上学到的通用特征表示，通过 fine-tuning 或 feature extraction 适配到目标任务。",
+                    difficulty: 1
+                },
+                {
+                    id: "cmu11785-fin-c-7",
+                    question: "AdamW 优化器相比标准 Adam 的改进是什么？",
+                    options: ["更快的计算速度", "将权重衰减与梯度更新解耦，实现正确的 L2 正则化", "不使用动量", "只支持 CNN"],
+                    answer: 1,
+                    explanation: "标准 Adam 中 L2 正则化项被自适应学习率缩放，削弱了正则化效果。AdamW 将权重衰减独立于梯度更新，实现解耦正则化。",
+                    difficulty: 3
+                },
+                {
+                    id: "cmu11785-fin-c-8",
+                    question: "关于混合精度训练（Mixed Precision Training），以下哪个说法正确？",
+                    options: ["只使用 float64", "结合 FP16 前向/反向传播和 FP32 主权重副本以加速训练并减少显存", "只能用于推理", "会降低模型精度"],
+                    answer: 1,
+                    explanation: "混合精度训练在前向和反向传播中使用 FP16 加速计算和减少显存占用，同时维护 FP32 的主权重副本避免精度损失。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-fin-c-9",
+                    question: "Scaled Dot-Product Attention 公式中的缩放因子 1/sqrt(d_k) 的作用是什么？",
+                    options: ["加速计算", "防止点积值过大导致 softmax 梯度消失", "归一化输出", "减少参数"],
+                    answer: 1,
+                    explanation: "当维度 d_k 较大时，点积的方差随 d_k 线性增长，导致 softmax 输入值过大、梯度趋近于零。除以 sqrt(d_k) 将方差归一化到 1。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-fin-c-10",
+                    question: "梯度累积（Gradient Accumulation）的主要用途是什么？",
+                    options: ["加速训练", "在显存不足时模拟更大的 batch size", "减少参数", "替代反向传播"],
+                    answer: 1,
+                    explanation: "梯度累积在多个小 batch 上累加梯度后才执行一步参数更新，等效于使用更大 batch size，适用于显存无法容纳大 batch 的场景。",
+                    difficulty: 2
+                }
+            ],
+            fill: [
+                {
+                    id: "cmu11785-fin-f-1",
+                    question: "PyTorch 中，____是实现自定义前向传播的核心方法。",
+                    answer: "forward()",
+                    explanation: "nn.Module 的 forward() 方法定义数据从输入到输出的计算路径，PyTorch 自动处理反向传播。",
+                    difficulty: 1
+                },
+                {
+                    id: "cmu11785-fin-f-2",
+                    question: "卷积层中，感受野（Receptive Field）是指输出特征图上每个位置对应输入图像的____区域大小。",
+                    answer: "空间（或像素、局部）",
+                    explanation: "感受野随网络深度增大而增大，深层神经元可以看到更大的输入区域。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-fin-f-3",
+                    question: "AdaGrad 通过累积历史梯度的____来缩放每个参数的学习率。",
+                    answer: "平方和",
+                    explanation: "AdaGrad 为每个参数维护梯度平方和的累积量，频繁更新的参数获得更小学习率，适合稀疏特征。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-fin-f-4",
+                    question: "LSTM 中，细胞状态 C_t 的更新依赖于遗忘门 f_t 和____门 i_t。",
+                    answer: "输入",
+                    explanation: "遗忘门决定丢弃旧状态的哪些信息，输入门决定新候选值中哪些信息写入细胞状态。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-fin-f-5",
+                    question: "nn.DataParallel 通过在多个 ____ 上分割数据来实现数据并行训练。",
+                    answer: "GPU（或 device、CUDA）",
+                    explanation: "DataParallel 将输入 mini-batch 在 batch 维度拆分到多张 GPU，各自前向/反向传播后在主 GPU 上汇总梯度并更新参数。",
+                    difficulty: 1
+                },
+                {
+                    id: "cmu11785-fin-f-6",
+                    question: "自注意力（Self-Attention）机制的计算复杂度为 O(n^2 * d)，其中 n 是序列长度，d 是____维度。",
+                    answer: "特征（或模型、嵌入）",
+                    explanation: "Self-Attention 需计算 n x n 的注意力矩阵，每个元素涉及 d 维向量的点积，这是 Transformer 处理长序列的主要瓶颈。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-fin-f-7",
+                    question: "Focal Loss 通过在交叉熵中加入调制因子来解决____不平衡问题。",
+                    answer: "类别",
+                    explanation: "Focal Loss 对易分类样本降低权重，聚焦于难分类样本，有效解决极端类别不平衡问题。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-fin-f-8",
+                    question: "torch.no_grad() 上下文管理器用于在____时禁止梯度计算，节省显存。",
+                    answer: "推理（或评估、验证）",
+                    explanation: "torch.no_grad() 禁用 autograd 的梯度追踪，在验证/推理阶段可显著减少显存占用并提升计算速度。",
+                    difficulty: 1
+                },
+                {
+                    id: "cmu11785-fin-f-9",
+                    question: "非结构化剪枝通过将单个____置零来实现稀疏化。",
+                    answer: "权重（或参数）",
+                    explanation: "非结构化剪枝移除绝对值最小的权重元素，产生稀疏矩阵；结构化剪枝移除整个卷积核/通道，可以直接加速硬件推理。",
+                    difficulty: 2
+                },
+                {
+                    id: "cmu11785-fin-f-10",
+                    question: "Ring AllReduce 算法将 GPU 排成环形拓扑，每个 GPU 只需与____个邻居通信即可完成梯度同步。",
+                    answer: "2（或两）",
+                    explanation: "Ring AllReduce 中每个 GPU 只与左右两个邻居通信，分两个阶段完成梯度同步，通信量与 GPU 数量无关。",
+                    difficulty: 3
+                }
+            ],
+            code: [
+                {
+                    id: "cmu11785-fin-code-1",
+                    question: "补全以下代码，实现 PyTorch 训练循环中的梯度更新步骤。",
+                    code: "import torch\nimport torch.nn as nn\n\nmodel = MyModel()\noptimizer = torch.optim.Adam(model.parameters(), lr=1e-3)\ncriterion = nn.CrossEntropyLoss()\n\ndef train_step(x, y):\n    model.train()\n    optimizer.____()\n    output = model(x)\n    loss = criterion(output, y)\n    loss.backward()\n    optimizer.step()\n    return loss.item()",
+                    answer: "zero_grad",
+                    explanation: "PyTorch 中梯度默认累积，因此每次更新前必须调用 optimizer.zero_grad() 清除上一步的梯度。顺序为：zero_grad - forward - loss - backward - step。",
+                    difficulty: 1
+                },
+                {
+                    id: "cmu11785-fin-code-2",
+                    question: "补全以下代码，实现带残差连接的卷积块。",
+                    code: "import torch\nimport torch.nn as nn\n\nclass ResBlock(nn.Module):\n    def __init__(self, channels):\n        super().__init__()\n        self.conv1 = nn.Conv2d(channels, channels, 3, padding=1)\n        self.bn1 = nn.BatchNorm2d(channels)\n        self.conv2 = nn.Conv2d(channels, channels, 3, padding=1)\n        self.bn2 = nn.BatchNorm2d(channels)\n    \n    def forward(self, x):\n        identity = x\n        out = torch.relu(self.bn1(self.conv1(x)))\n        out = self.bn2(self.conv2(out))\n        ____\n        return torch.relu(out)",
+                    answer: "out += identity",
+                    explanation: "残差连接将输入 identity 直接加到卷积块的输出上：H(x) = F(x) + x，使网络只需学习残差 F(x)。",
+                    difficulty: 2
+                }
+            ]
+        }
+    },
+
+    /* ================================================================
+     * 20. Neural Networks and Deep Learning (Michael Nielsen)
+     *    Topics: backpropagation, gradient descent, neural network
+     *            theory, sigmoid, softmax
+     * ================================================================ */
+    "Neural Networks and Deep Learning (Michael Nielsen)": {
+        courseId: "nielsen-nndl",
+        domain: "dl",
+        mid: {
+            choice: [
+                {
+                    id: "nielsen-mid-c-1",
+                    question: "Michael Nielsen 书中反向传播算法的核心数学工具是什么？",
+                    options: ["矩阵分解", "链式法则（Chain Rule）", "泰勒展开", "拉格朗日乘子法"],
+                    answer: 1,
+                    explanation: "反向传播通过链式法则高效计算损失函数对每一层权重和偏置的偏导数，将复杂的多层复合函数求导分解为逐层的局部导数乘积。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-mid-c-2",
+                    question: "Sigmoid 函数 sigma(z) 的导数可以用自身表示为 sigma'(z) = sigma(z)(1-sigma(z))，这个性质有什么意义？",
+                    options: ["使计算更复杂", "使得反向传播中的梯度计算简洁高效", "增大输出范围", "加速前向传播"],
+                    answer: 1,
+                    explanation: "sigma'(z) = sigma(z)(1-sigma(z)) 是 sigmoid 的优美性质，反向传播时只需知道前向传播的输出即可计算导数。当 sigma 趋近 0 或 1 时导数趋近零，这是梯度消失的根源。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-mid-c-3",
+                    question: "随机梯度下降（SGD）相比批量梯度下降的优势是什么？",
+                    options: ["更精确的梯度", "训练速度更快且有助于逃离局部极小值", "不需要学习率", "不需要损失函数"],
+                    answer: 1,
+                    explanation: "SGD 使用小批量估计梯度，每次更新更快；同时梯度噪声帮助模型逃离尖锐的局部极小值，倾向于收敛到更平坦的极小值。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-mid-c-4",
+                    question: "二次代价函数在使用 sigmoid 激活时的主要缺点是什么？",
+                    options: ["计算更慢", "当神经元饱和时学习速度极慢", "不适用于分类", "无法求导"],
+                    answer: 1,
+                    explanation: "二次代价函数中梯度含 sigma' 项，当 sigmoid 饱和时 sigma' 约等于 0 导致学习极慢。交叉熵代价函数中 sigma' 项被抵消，在饱和区仍能快速学习。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-mid-c-5",
+                    question: "万能近似定理（Universal Approximation Theorem）表明什么？",
+                    options: ["任意深度网络都能拟合任何函数", "具有足够多隐藏神经元的单隐藏层网络可以近似任意连续函数", "所有函数都可被精确表示", "神经网络一定能找到全局最优"],
+                    answer: 1,
+                    explanation: "万能近似定理表明单隐藏层网络（sigmoid 激活、有限宽度）可以以任意精度近似任何连续函数，但这不意味着一定能高效学习到这样的近似。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-mid-c-6",
+                    question: "Softmax 函数用于多分类问题时，其输出满足什么性质？",
+                    options: ["所有输出相等", "所有输出之和为1且每个输出为正数", "输出只能是0或1", "输出范围是[-1,1]"],
+                    answer: 1,
+                    explanation: "Softmax 将 logits 转换为概率分布，保证所有输出大于 0 且和为 1，可解释为各类别的预测概率。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-mid-c-7",
+                    question: "输出层的误差项对于交叉熵损失和 softmax 输出的简化形式是什么？",
+                    options: ["a^L - y", "y - a^L", "sigma'(z^L)", "C/z^L"],
+                    answer: 0,
+                    explanation: "对于交叉熵损失和 softmax，误差项恰好等于预测值减真实值，形式极其简洁，避免了激活函数导数项。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-mid-c-8",
+                    question: "权重初始化策略的目的是什么？",
+                    options: ["加速收敛", "使每一层输出的方差保持稳定，防止信号在传播中爆炸或消失", "减少参数量", "实现稀疏连接"],
+                    answer: 1,
+                    explanation: "若权重方差过大，输出信号随层数指数增长（爆炸）；过小则信号指数衰减（消失）。合适的初始化方差使信号稳定传播。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-mid-c-9",
+                    question: "卷积层相比全连接层的核心优势不包括以下哪项？",
+                    options: ["参数共享大幅减少参数量", "天然具有平移不变性", "能处理变长输入", "训练速度一定更快"],
+                    answer: 3,
+                    explanation: "卷积层通过参数共享减少参数、局部连接增强空间结构感知、平移不变性提升泛化。但训练速度取决于实现和硬件，并不一定更快。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-mid-c-10",
+                    question: "L2 正则化通过在代价函数中添加惩罚项来防止过拟合，其中 lambda 控制什么？",
+                    options: ["学习率", "正则化的强度（模型复杂度惩罚程度）", "批大小", "网络深度"],
+                    answer: 1,
+                    explanation: "lambda 越大，权重衰减越强，模型越倾向于使用小权重，降低模型复杂度从而减少过拟合。",
+                    difficulty: 1
+                }
+            ],
+            fill: [
+                {
+                    id: "nielsen-mid-f-1",
+                    question: "反向传播分为两个阶段：前向传播计算输出和____，反向传播计算损失对各层参数的梯度。",
+                    answer: "损失（或代价、loss）",
+                    explanation: "前向传播从输入层到输出层逐步计算每层的加权输入和激活值，同时计算损失；然后反向传播逐层计算梯度。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-mid-f-2",
+                    question: "Sigmoid 激活函数将输入 z 映射到 (____, 1) 的开区间，常用于二分类输出层。",
+                    answer: "0",
+                    explanation: "sigma(z) 的值域为 (0,1)，当 z 趋近负无穷时 sigma 趋近 0，z 趋近正无穷时 sigma 趋近 1。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-mid-f-3",
+                    question: "Nielsen 书中使用____法（Backpropagation）一词专指通过链式法则计算梯度的高效算法。",
+                    answer: "反向传播",
+                    explanation: "反向传播算法按从输出层到输入层的顺序，利用链式法则逐层计算损失对每层权重和偏置的偏导数。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-mid-f-4",
+                    question: "交叉熵代价函数在二分类情况下可以简化为 C = -[y ln(a) + (1-y) ln(1-____)]。",
+                    answer: "a",
+                    explanation: "交叉熵衡量两个概率分布之间的距离，梯度简化为 a-y，不包含 sigma' 项，避免了学习速度变慢的问题。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-mid-f-5",
+                    question: "Mini-batch SGD 中，梯度估计的方差与批量大小 b 的关系近似为 Var 正比于 ____。",
+                    answer: "1/b",
+                    explanation: "根据中心极限定理，n 个独立样本的均值方差为 sigma^2/n。批量越大，梯度估计越精确。",
+                    difficulty: 3
+                },
+                {
+                    id: "nielsen-mid-f-6",
+                    question: "反向传播中，第 l 层的误差项与第 l+1 层误差项的递推关系涉及 ____ 的逐元素乘法。",
+                    answer: "sigma'(z^l)（或激活函数导数）",
+                    explanation: "delta^l = (W^{l+1})^T * delta^{l+1} * sigma'(z^l)，其中 sigma'(z^l) 在饱和区趋近零，这是梯度消失的直接原因。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-mid-f-7",
+                    question: "Softmax 函数的输出向量的每个元素都在 (0, 1) 范围内，且所有元素之和为____。",
+                    answer: "1",
+                    explanation: "softmax 输出为概率分布，总和为 1。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-mid-f-8",
+                    question: "____是指神经网络在训练集上表现好但在测试集上表现差的现象。",
+                    answer: "过拟合（overfitting）",
+                    explanation: "过拟合发生时模型过度记忆训练数据中的噪声和偶然模式，导致泛化能力下降。可通过正则化、数据增强、早停等方法缓解。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-mid-f-9",
+                    question: "损失函数对权重的偏导数为 dC/dw = a_in * ____。",
+                    answer: "delta（或误差项）",
+                    explanation: "梯度 = 输入信号 * 误差反馈，这个简洁公式是反向传播的核心结果。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-mid-f-10",
+                    question: "____早停法是指在训练过程中监控验证集性能，当验证集性能不再提升时停止训练。",
+                    answer: "验证集",
+                    explanation: "验证集早停法在每个 epoch 后评估验证集性能，当验证损失连续多个 epoch 不再下降时停止训练，是简单有效的正则化方法。",
+                    difficulty: 1
+                }
+            ],
+            code: [
+                {
+                    id: "nielsen-mid-code-1",
+                    question: "补全以下代码，实现 Sigmoid 激活函数及其导数。",
+                    code: "import numpy as np\n\ndef sigmoid(z):\n    return 1.0 / (1.0 + np.exp(-z))\n\ndef sigmoid_prime(z):\n    ____",
+                    answer: "return sigmoid(z) * (1 - sigmoid(z))",
+                    explanation: "sigmoid 的导数 sigma'(z) = sigma(z)(1-sigma(z))，反向传播时只需知道前向传播时的输出即可计算导数。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-mid-code-2",
+                    question: "补全以下代码，实现交叉熵损失函数的计算。",
+                    code: "import numpy as np\n\ndef cross_entropy(y_true, y_pred):\n    epsilon = 1e-12\n    y_pred = np.clip(y_pred, epsilon, 1 - epsilon)\n    loss = -np.mean(y_true * np.log(y_pred) + (1 - y_true) * np.log(____))\n    return loss",
+                    answer: "1 - y_pred",
+                    explanation: "交叉熵 C = -[y ln(a) + (1-y) ln(1-a)]，clip 防止 log(0)。",
+                    difficulty: 1
+                }
+            ]
+        },
+        final: {
+            choice: [
+                {
+                    id: "nielsen-fin-c-1",
+                    question: "反向传播算法的时间复杂度与前向传播相比如何？",
+                    options: ["远大于前向传播", "大致相同（同阶）", "无法比较", "为常数时间"],
+                    answer: 1,
+                    explanation: "反向传播本质上是前向传播的逆运算，两者涉及相同数量的矩阵乘法和逐元素操作，计算量在同一数量级。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-fin-c-2",
+                    question: "ReLU 激活函数在隐藏层中通常优于 Sigmoid 的关键原因是什么？",
+                    options: ["ReLU 输出范围更大", "ReLU 在正区间导数恒为1，不存在梯度消失问题且计算更简单", "ReLU 是线性函数", "ReLU 不需要反向传播"],
+                    answer: 1,
+                    explanation: "ReLU 在 z>0 时导数恒为1，不存在 sigmoid 的饱和区梯度消失问题。同时 ReLU 计算只需比较和取最大值，比 sigmoid 的指数运算快很多。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-fin-c-3",
+                    question: "平坦极小值相比尖锐极小值对泛化的影响有什么优势？",
+                    options: ["没有区别", "尖锐极小值泛化更好", "平坦极小值对参数扰动更鲁棒，泛化更好", "两者泛化相同"],
+                    answer: 2,
+                    explanation: "平坦极小值附近的损失曲面变化缓慢，测试集上的参数微小偏移不会导致性能大幅下降，因此泛化更好。SGD 的噪声倾向于引导到平坦极小值。",
+                    difficulty: 3
+                },
+                {
+                    id: "nielsen-fin-c-4",
+                    question: "卷积层的参数共享（Parameter Sharing）是指什么？",
+                    options: ["所有层使用相同参数", "同一个卷积核在输入的不同空间位置共享相同的权重", "输入和输出层共享参数", "不同样本共享参数"],
+                    answer: 1,
+                    explanation: "卷积核在输入的空间维度上滑动时使用完全相同的权重，一个特征检测器在整个图像上复用，大幅减少参数并增强平移不变性。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-fin-c-5",
+                    question: "Dropout 正则化的核心思想是什么？",
+                    options: ["删除某些层", "训练时随机关闭神经元，相当于训练大量不同子网络的集成", "删除训练数据", "固定神经元输出为零"],
+                    answer: 1,
+                    explanation: "Dropout 以概率 p 随机将神经元置零，相当于每次训练一个不同的子网络。这近似于多个网络的集成平均，降低过拟合。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-fin-c-6",
+                    question: "较小的 batch size 对神经网络训练有什么影响？",
+                    options: ["越大越好", "引入更多噪声，有助于泛化但训练不稳定", "不影响训练", "只影响内存使用"],
+                    answer: 1,
+                    explanation: "小 batch 的梯度估计噪声更大，起到正则化效果，有助于逃离尖锐极小值并收敛到更平坦的极小值。但过小的 batch 导致更新方向不稳定。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-fin-c-7",
+                    question: "Softmax 输出层配合交叉熵损失时，反向传播的梯度有什么特殊简化？",
+                    options: ["没有简化", "梯度恰好为预测概率减去真实标签", "需要额外的雅可比矩阵", "梯度为常数"],
+                    answer: 1,
+                    explanation: "softmax + cross-entropy 的组合使得梯度形式极其简洁：delta = a - y。这是 softmax 配合交叉熵成为多分类标准组合的重要原因。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-fin-c-8",
+                    question: "Nielsen 在书中用什么比喻来解释反向传播的直觉？",
+                    options: ["水流模型", "逐层计算每个神经元对其下一层误差的贡献程度", "随机搜索", "暴力枚举"],
+                    answer: 1,
+                    explanation: "Nielsen 用责任分配来直觉化反向传播：输出误差通过权重反向分配到每个神经元，每个神经元的 delta 衡量它对最终损失的贡献程度。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-fin-c-9",
+                    question: "使用 softmax 输出和交叉熵损失时，网络最后一层通常需要多少个输出神经元？",
+                    options: ["1个", "类别数 K", "K-1", "2K"],
+                    answer: 1,
+                    explanation: "K 分类问题中，softmax 层有 K 个输出神经元，每个对应一个类别的预测概率，经 softmax 归一化后和为 1。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-fin-c-10",
+                    question: "动量（Momentum）方法的直觉类比是什么？",
+                    options: ["模拟物理球体在损失曲面上滚动，积累速度", "模拟化学反应", "模拟生物进化", "模拟电路信号"],
+                    answer: 0,
+                    explanation: "动量方法类比物理中球体在山坡上滚动：梯度提供加速度，动量项 beta 提供惯性，球在一致方向上加速，在振荡方向上减速。",
+                    difficulty: 1
+                }
+            ],
+            fill: [
+                {
+                    id: "nielsen-fin-f-1",
+                    question: "网络第 l 层的加权输入定义为 z^l = W^l * a^{l-1} + ____。",
+                    answer: "b^l（或偏置）",
+                    explanation: "z^l = W^l * a^{l-1} + b^l 是线性变换，偏置 b 允许激活函数在输入维度上平移，增加模型表达能力。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-fin-f-2",
+                    question: "损失函数对权重的梯度 dC/dw = a_in * ____。",
+                    answer: "delta（或误差项）",
+                    explanation: "这个简洁的乘法形式是反向传播的核心结果之一，梯度 = 输入信号 * 误差反馈。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-fin-f-3",
+                    question: "Dropout 训练时，每个神经元以概率 ____ 被保留，以概率 p 被随机置零。",
+                    answer: "1-p",
+                    explanation: "Dropout 以概率 p 丢弃神经元，等价于以概率 1-p 保留。测试时输出乘以 1-p 进行缩放，使训练和推理时的期望输出一致。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-fin-f-4",
+                    question: "反向传播的关键等式：dC/db_j^l = ____。",
+                    answer: "delta_j^l",
+                    explanation: "损失对偏置的偏导数等于对应神经元的误差项，因为加权输入对偏置的偏导数为 1。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-fin-f-5",
+                    question: "____编码（One-hot Encoding）用一个长度为 K 的向量表示 K 类分类中的类别标签。",
+                    answer: "独热",
+                    explanation: "独热编码将类别标签表示为向量，对应类别的位置为1，其余为0，与 softmax 输出的概率分布形式对应。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-fin-f-6",
+                    question: "反向传播中的局部梯度概念是指：每个神经元只需要知道它____的误差项和输入激活值。",
+                    answer: "输出端（或下一层）",
+                    explanation: "反向传播的高效性在于局部计算：每层只需使用后一层传回的误差 delta 和本层前向传播时存储的激活值，即可独立计算本层梯度。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-fin-f-7",
+                    question: "Nielsen 书中用____表示网络第 l 层第 j 个神经元的激活值。",
+                    answer: "a_j^l",
+                    explanation: "a_j^l = sigma(z_j^l)，其中 a 表示 activation，上标 l 表示层号，下标 j 表示该层第 j 个神经元。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-fin-f-8",
+                    question: "____平均（Ensemble Averaging）的思想：对多个不同模型的预测取平均，可以降低泛化误差。",
+                    answer: "模型",
+                    explanation: "模型集成通过组合多个独立训练的模型来降低方差。Dropout 可视为一种隐式的集成平均。",
+                    difficulty: 2
+                },
+                {
+                    id: "nielsen-fin-f-9",
+                    question: "梯度下降的更新规则 w = w - eta*nabla C 中，eta 称为____。",
+                    answer: "学习率（learning rate）",
+                    explanation: "学习率控制每步更新的大小，太大会越过最优解导致振荡，太小则收敛极慢。实践中通常从 0.01 或 0.001 开始。",
+                    difficulty: 1
+                },
+                {
+                    id: "nielsen-fin-f-10",
+                    question: "反向传播能高效计算梯度的关键在于避免了____计算。",
+                    answer: "重复",
+                    explanation: "反向传播通过存储中间结果，沿链式法则递推复用计算，避免了对每个参数独立计算偏导数时的大量重复子表达式，大幅降低复杂度。",
+                    difficulty: 2
+                }
+            ],
+            code: [
+                {
+                    id: "nielsen-fin-code-1",
+                    question: "补全以下代码，实现反向传播中损失函数对隐藏层权重的梯度计算。",
+                    code: "import numpy as np\n\ndef backward_pass(activations, weights, biases, z_list, y_true, num_layers):\n    grads = {}\n    L = num_layers\n    delta = activations[L] - y_true  # softmax + cross-entropy\n    \n    for l in range(L, 0, -1):\n        grads[f'W{l}'] = delta @ activations[l-1].T\n        grads[f'b{l}'] = np.sum(delta, axis=1, keepdims=True)\n        if l > 1:\n            delta = (weights[l].T @ delta) * ____\n    return grads",
+                    answer: "(z_list[l-1] > 0).astype(float)",
+                    explanation: "这是 ReLU 的导数：当 z>0 时导数为1，z<=0 时导数为0。如果是 sigmoid 激活则替换为 sigmoid_prime(z_list[l-1])。",
+                    difficulty: 3
+                },
+                {
+                    id: "nielsen-fin-code-2",
+                    question: "补全以下代码，实现 Mini-batch 随机梯度下降的训练步骤。",
+                    code: "import numpy as np\n\ndef train_sgd(network, train_data, batch_size, learning_rate, epochs):\n    n = len(train_data[0])\n    for epoch in range(epochs):\n        indices = np.random.permutation(n)\n        X_shuffled = train_data[0][indices]\n        y_shuffled = train_data[1][indices]\n        \n        for start in range(0, n, batch_size):\n            end = min(start + batch_size, n)\n            X_batch = X_shuffled[start:end]\n            y_batch = y_shuffled[start:end]\n            \n            grads = network.backward(X_batch, y_batch)\n            \n            for key in grads:\n                network.params[key] -= ____",
+                    answer: "learning_rate * grads[key]",
+                    explanation: "SGD 更新规则 w = w - eta * grad，learning_rate 即 eta 控制步长，grads[key] 是对应参数的梯度。",
+                    difficulty: 2
+                }
+            ]
+        }
+    },
+
+    /* ================================================================
+     * CS224W: Machine Learning with Graphs (Stanford)
+     * Topics: GNN, knowledge graphs, graph embeddings, message passing,
+     *         graph convolution, graph attention, Node2Vec, GraphSAGE
+     * ================================================================ */
+    "CS224W ML with Graphs": {
+        courseId: "cs224w-ml-graphs",
+        domain: "dl",
+        mid: {
+            choice: [
+                {
+                    id: "cs224w-mid-c-1",
+                    question: "图神经网络（GNN）中，消息传递（Message Passing）的核心操作是什么？",
+                    options: [
+                        "对每个节点独立计算特征",
+                        "每个节点聚合其邻居节点的信息来更新自身表示",
+                        "直接对图的邻接矩阵做 SVD 分解",
+                        "使用全连接层处理图的边列表"
+                    ],
+                    answer: 1,
+                    explanation: "消息传递是 GNN 的核心范式：每个节点从其邻居处接收消息（聚合），然后结合自身信息进行更新，从而在图结构上传递和融合信息。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs224w-mid-c-2",
+                    question: "GCN（图卷积网络）的逐层传播公式 h_v^(l+1) = σ(W^(l) · MEAN({h_u^(l): u∈N[v] ∪ {v}})) 中，为什么要包含节点 v 自身？",
+                    options: [
+                        "为了增加模型参数量",
+                        "为了保留节点自身的信息，避免只有邻居信息",
+                        "为了让梯度更容易传播",
+                        "这是数学上的简化要求"
+                    ],
+                    answer: 1,
+                    explanation: "如果不加入自身信息，节点的表示只会来自邻居，完全丢失了自身特征。在 GCN 中通常通过在邻接矩阵上加单位矩阵来实现自环。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-mid-c-3",
+                    question: "Graph Attention Network (GAT) 中，注意力系数 α_ij 是如何计算的？",
+                    options: [
+                        "直接使用邻接矩阵的值",
+                        "通过可学习的注意力向量 a 对节点特征的拼接做线性变换后取 softmax",
+                        "使用固定的高斯核函数",
+                        "通过节点度数的倒数来确定"
+                    ],
+                    answer: 1,
+                    explanation: "GAT 使用可学习的注意力机制：先将节点 i 和 j 的特征拼接，通过共享的注意力向量 a 计算能量，再经 LeakyReLU 和 softmax 归一化得到注意力系数。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-mid-c-4",
+                    question: "Node2Vec 算法中参数 p 和 q 的作用分别是什么？",
+                    options: [
+                        "p 控制随机游走长度，q 控制采样数量",
+                        "p 控制返回上一节点的概率（BFS 倾向），q 控制探索远处节点的概率（DFS 倾向）",
+                        "p 是学习率，q 是正则化系数",
+                        "p 控制边的权重，q 控制节点的度"
+                    ],
+                    answer: 1,
+                    explanation: "Node2Vec 通过 p（return parameter）和 q（in-out parameter）来调节 BFS 和 DFS 的偏好：p 大倾向于 BFS 捕获局部结构，q 小倾向于 DFS 捕获全局结构。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-mid-c-5",
+                    question: "GraphSAGE 与 GCN 的关键区别是什么？",
+                    options: [
+                        "GraphSAGE 使用注意力机制而 GCN 不使用",
+                        "GraphSAGE 通过采样和聚合邻居来实现归纳学习，而 GCN 是转导式的",
+                        "GraphSAGE 只能处理有向图",
+                        "GraphSAGE 不需要节点特征"
+                    ],
+                    answer: 1,
+                    explanation: "GraphSAGE 的核心创新是 Inductive Learning：通过采样固定数量的邻居并使用可学习的聚合函数，可以为训练时未见过的新节点生成嵌入，而 GCN 需要整张图的邻接矩阵。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-mid-c-6",
+                    question: "知识图谱（Knowledge Graph）中，TransE 模型将关系建模为什么？",
+                    options: [
+                        "一个矩阵",
+                        "一个从头实体到尾实体的平移向量",
+                        "一个双线性函数",
+                        "一个注意力权重"
+                    ],
+                    answer: 1,
+                    explanation: "TransE 的核心思想是关系 r 表示为向量 r，使得 h + r ≈ t（头实体 + 关系 ≈ 尾实体），即关系被建模为向量空间中的平移操作。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs224w-mid-c-7",
+                    question: "图嵌入（Graph Embedding）方法 DeepWalk 与 Node2Vec 的主要区别是什么？",
+                    options: [
+                        "DeepWalk 使用图卷积，Node2Vec 使用全连接层",
+                        "DeepWalk 使用均匀随机游走，Node2Vec 引入有偏随机游走（p、q 参数）",
+                        "DeepWalk 只能处理有向图",
+                        "DeepWalk 不使用 Skip-gram 模型"
+                    ],
+                    answer: 1,
+                    explanation: "DeepWalk 使用无偏的均匀随机游走来生成节点序列，而 Node2Vec 通过 p 和 q 参数引入有偏随机游走，可以在 BFS 和 DFS 之间灵活切换，捕获不同类型的结构信息。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-mid-c-8",
+                    question: "在 GNN 中，图同构测试（Weisfeiler-Lehman Test）与 GNN 的表达能力有什么关系？",
+                    options: [
+                        "GNN 的表达能力完全等价于 WL 测试",
+                        "标准的消息传递 GNN 的判别能力不超过 1-WL 测试",
+                        "WL 测试比任何 GNN 都强",
+                        "两者没有关系"
+                    ],
+                    answer: 1,
+                    explanation: "Xu et al. (2019) 证明标准消息传递 GNN 的判别能力上界就是 1-WL 测试：如果两个图在 1-WL 测试中不可区分，任何 MPNN 都无法区分它们。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs224w-mid-c-9",
+                    question: "知识图谱补全任务中，评分函数 RotatE 将关系建模为什么？",
+                    options: [
+                        "实数空间中的平移",
+                        "复数空间中的旋转",
+                        "矩阵乘法",
+                        "拼接操作"
+                    ],
+                    answer: 1,
+                    explanation: "RotatE 将关系建模为复数空间中的旋转操作，即 t = h ∘ r，其中 ∘ 表逐元素乘法（Hadamard product），每个元素的模为 1，这使得模型能自然地建模对称、反对称、反转和组合关系。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs224w-mid-c-10",
+                    question: "GNN 中的过平滑（Over-smoothing）问题是指什么？",
+                    options: [
+                        "模型训练速度过快",
+                        "随着层数增加，所有节点的表示趋向相同，失去区分性",
+                        "损失函数收敛太慢",
+                        "图的邻接矩阵变得稀疏"
+                    ],
+                    answer: 1,
+                    explanation: "过平滑是 GNN 的经典问题：随着 GCN 层数增加，每个节点反复聚合邻居信息，最终所有节点的表示趋向相同的值，导致模型无法区分不同节点，通常 GNN 不超过 3-4 层。",
+                    difficulty: 2
+                }
+            ],
+            fill: [
+                {
+                    id: "cs224w-mid-f-1",
+                    question: "GNN 中的消息传递范式（Message Passing Neural Network）包含两个核心步骤：____（每个节点收集邻居信息）和____（根据收集到的信息更新自身表示）。",
+                    answer: "聚合（Aggregate）；更新（Update）",
+                    explanation: "MPNN 的核心框架由 Gilmer et al. 提出，包含消息聚合（从邻居收集信息）和节点状态更新（融合自身与邻居信息）两个步骤。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs224w-mid-f-2",
+                    question: "GCN 的谱（Spectral）方法基于图的拉普拉斯矩阵的____分解。",
+                    answer: "特征值（或特征向量）",
+                    explanation: "谱图卷积利用图拉普拉斯矩阵 L = D - A 的特征分解 L = UΛU^T，将图信号变换到频域进行卷积操作，这是图卷积的理论基础。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-mid-f-3",
+                    question: "Node2Vec 中的有偏随机游走策略通过参数 p（____参数）和 q（____参数）来控制 BFS 与 DFS 的平衡。",
+                    answer: "返回（return）；进出（in-out）",
+                    explanation: "p 控制回到前一个节点的概率（p 大则倾向 BFS），q 控制向远处探索的概率（q 小则倾向 DFS）。这种设计让 Node2Vec 能灵活捕获同质性和结构等价性。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-mid-f-4",
+                    question: "知识图谱中，TransE 的评分函数为 d(h+l, t)，即____距离。",
+                    answer: "L1 或 L2（欧氏距离/曼哈顿距离）",
+                    explanation: "TransE 使用 L1 或 L2 范数来衡量头实体加上关系向量与尾实体之间的距离，距离越小表示三元组越合理。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs224w-mid-f-5",
+                    question: "GraphSAGE 的聚合函数可以使用多种方式，常见的有____聚合、____聚合和____聚合。",
+                    answer: "均值（Mean）；最大池化（Max Pooling）；LSTM",
+                    explanation: "GraphSAGE 提出了多种可学习的聚合函数：Mean Aggregator 取均值，Max Pooling Aggregator 逐特征取最大值并经 MLP，LSTM Aggregator 按随机顺序输入邻居特征。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-mid-f-6",
+                    question: "GAT 中使用了多头注意力（Multi-head Attention），即将 K 个独立注意力头的结果进行____或____。",
+                    answer: "拼接（Concatenation）；求平均（Averaging）",
+                    explanation: "GAT 的多头注意力：隐藏层 K 个头的输出可以拼接（维度变为 K×F'）或在输出层取平均，多个独立的注意力头让模型能同时关注不同类型的信息。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-mid-f-7",
+                    question: "在图的表示学习中，Weisfeiler-Lehman (WL) 测试通过迭代地将节点标签与其邻居的____来区分图结构。",
+                    answer: "排序后的标签集合（或多重集/multiset）",
+                    explanation: "1-WL 测试每轮将每个节点的标签与其邻居标签的排序集合拼接后哈希，生成新标签。经过足够多轮后，若两图根节点标签分布不同则可区分。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs224w-mid-f-8",
+                    question: "图注意力机制中，注意力系数 α_ij 通常需要满足____性质，即对节点 i 的所有邻居 j，注意力系数之和为____。",
+                    answer: "归一化（或非负归一化）；1",
+                    explanation: "注意力系数经 softmax 归一化后，所有邻居的注意力权重之和为 1，这保证了聚合操作是加权平均，使得不同节点对当前节点的贡献具有可比性。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs224w-mid-f-9",
+                    question: "知识图谱嵌入方法 DistMult 将三元组 (h, r, t) 的评分函数定义为 h^T·diag(r)·t，它只能建模____关系，不能建模____关系。",
+                    answer: "对称；反对称",
+                    explanation: "DistMult 的评分函数 h^T diag(r) t 关于 h 和 t 对称，因此无法区分 (a,r,b) 和 (b,r,a)，即不能建模反对称关系。ComplEx 通过引入复数解决了此问题。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs224w-mid-f-10",
+                    question: "GNN 中常用的 Readout 函数（图级别任务）是将所有节点表示____得到整张图的表示。",
+                    answer: "聚合（如求和 Sum、求均值 Mean、或使用 Set2Set 等高级聚合）",
+                    explanation: "Readout 函数将图中所有节点的嵌入聚合为一个图级别的向量，简单方法如 Sum/Mean Pooling，高级方法如 Hierarchical Readout 或 Set2Set（基于注意力的聚合）。",
+                    difficulty: 2
+                }
+            ],
+            code: [
+                {
+                    id: "cs224w-mid-code-1",
+                    question: "补全以下代码，实现 GCN 的单层前向传播。",
+                    code: "import torch\nimport torch.nn as nn\nimport scipy.sparse as sp\nimport numpy as np\n\ndef gcn_layer(X, W, A_hat):\n    \"\"\"\n    X: 节点特征矩阵 [N, F_in]\n    W: 权重矩阵 [F_in, F_out]\n    A_hat: 归一化后的邻接矩阵 A_hat = D^{-1/2} (A+I) D^{-1/2}\n    \"\"\"\n    support = X @ W  # 线性变换 [N, F_out]\n    output = A_hat @ ____  # 图卷积操作\n    return output",
+                    answer: "support",
+                    explanation: "GCN 单层传播公式为 H^(l+1) = σ(Â·H^(l)·W^(l))。首先对节点特征做线性变换 support = X @ W，然后通过归一化邻接矩阵 Â 做消息聚合，即 Â @ support，实现邻居信息的加权平均。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-mid-code-2",
+                    question: "补全以下代码，实现 GraphSAGE 的均值聚合器。",
+                    code: "import torch\nimport torch.nn as nn\n\nclass MeanAggregator(nn.Module):\n    def __init__(self, in_dim, out_dim):\n        super().__init__()\n        self.linear = nn.Linear(in_dim, out_dim)\n    \n    def forward(self, self_feat, neighbor_feats):\n        \"\"\"\n        self_feat: [1, in_dim] 当前节点自身特征\n        neighbor_feats: [K, in_dim] K 个采样邻居的特征\n        \"\"\"\n        # 聚合邻居信息\n        agg = neighbor_feats.mean(dim=0, keepdim=True)  # [1, in_dim]\n        # 拼接自身特征与聚合的邻居特征\n        combined = torch.cat([self_feat, ____], dim=-1)  # [1, 2*in_dim]\n        return self.linear(combined)",
+                    answer: "agg",
+                    explanation: "GraphSAGE 的均值聚合步骤：(1) 对采样邻居取均值得到 agg；(2) 将自身特征 self_feat 与聚合结果 agg 拼接；(3) 通过线性层映射到输出维度。拼接操作是 GraphSAGE 的重要设计，保留了自身信息。",
+                    difficulty: 2
+                }
+            ]
+        },
+        final: {
+            choice: [
+                {
+                    id: "cs224w-fin-c-1",
+                    question: "在异构图（Heterogeneous Graph）上进行 GNN 学习时，核心挑战是什么？",
+                    options: [
+                        "图的规模太大",
+                        "不同类型的节点和边具有不同的特征空间和语义",
+                        "图没有环",
+                        "边的权重都为 1"
+                    ],
+                    answer: 1,
+                    explanation: "异构图包含多种节点类型和边类型，不同类型节点的特征维度和语义不同，GNN 需要设计关系特定的转换和聚合函数来处理这种多样性，如 R-GCN 使用关系特定的权重矩阵。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-fin-c-2",
+                    question: "GNN 中图级别任务（Graph Classification）与节点级别任务（Node Classification）的主要区别是什么？",
+                    options: [
+                        "没有区别，都用相同的架构",
+                        "图级别任务需要 Readout 操作将节点表示聚合为图表示，节点级别任务直接使用节点表示",
+                        "图级别任务不需要 GNN 层",
+                        "节点级别任务需要使用全连接层处理图"
+                    ],
+                    answer: 1,
+                    explanation: "节点分类直接使用 GNN 输出的每个节点的表示进行分类；图分类需要额外的 Readout（如 Sum/Mean Pooling）将所有节点表示聚合为一个图级别的向量，再做分类。",
+                    difficulty: 1
+                },
+                {
+                    id: "cs224w-fin-c-3",
+                    question: "哪项不是缓解 GNN 过平滑问题的有效方法？",
+                    options: [
+                        "使用残差连接（Skip Connections）",
+                        "使用 PairNorm 等归一化技术",
+                        "增加 GNN 层数到 50 层",
+                        "使用 DropEdge 随机丢弃部分边"
+                    ],
+                    answer: 2,
+                    explanation: "简单增加层数会加剧过平滑。有效方法包括：残差连接（SkipGCN）、PairNorm（对每层的表示做归一化）、DropEdge（随机删除边以减少信息过度传播）、JK-Net（聚合多层表示）。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-fin-c-4",
+                    question: "R-GCN（Relational GCN）如何处理多关系图中不同关系的特征？",
+                    options: [
+                        "对所有关系使用相同的权重矩阵",
+                        "为每种关系使用独立的权重矩阵 W_r，并对所有关系的变换结果求和",
+                        "忽略关系信息，只看节点特征",
+                        "对关系进行 one-hot 编码后拼接到节点特征"
+                    ],
+                    answer: 1,
+                    explanation: "R-GCN 为每种关系 r 定义独立的权重矩阵 W_r，对每种关系分别做线性变换并聚合，公式为 h_i^(l+1) = σ(Σ_{r∈N_i} (1/|N_i^r|) W_r^(l) · h_j^(l))，还使用基分解减少参数量。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs224w-fin-c-5",
+                    question: "知识图谱推理中，基于路径的方法（如 DeepPath、NBFNet）相比基于嵌入的方法（如 TransE）有什么优势？",
+                    options: [
+                        "计算速度更快",
+                        "可以提供可解释的推理路径",
+                        "不需要图的结构信息",
+                        "参数量更少"
+                    ],
+                    answer: 1,
+                    explanation: "基于路径的方法通过在知识图谱上行走来发现推理路径（如 h→r1→e1→r2→t），不仅能完成链接预测，还能给出推理过程的解释，增强可解释性，这在医疗、金融等领域非常重要。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-fin-c-6",
+                    question: "图对比学习（Graph Contrastive Learning）如 GCA 和 GraphCL 的核心思想是什么？",
+                    options: [
+                        "直接对图做有监督分类",
+                        "通过数据增强生成正样本对，让同一图的不同增强视图在嵌入空间中靠近",
+                        "使用对抗生成网络生成图",
+                        "对图的邻接矩阵做 PCA 降维"
+                    ],
+                    answer: 1,
+                    explanation: "图对比学习通过图级增强（如节点丢弃、边扰动、子图采样）生成同一图的不同视图作为正样本对，训练模型使正样本对在嵌入空间中接近、负样本对远离，实现自监督表示学习。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-fin-c-7",
+                    question: "PoolGNN（Hierarchical GNN for Graph Classification）中层级池化的目的是什么？",
+                    options: [
+                        "增加图的节点数",
+                        "逐步压缩图的规模，学习从局部到全局的层次化图表示",
+                        "删除图中不重要的边",
+                        "将图转化为完全图"
+                    ],
+                    answer: 1,
+                    explanation: "层级池化通过可学习的聚类或评分机制逐步合并节点，形成 coarser 的图，在每一层捕获不同尺度的子图结构，最终得到包含局部和全局信息的图表示，类似 CNN 中池化层的作用。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs224w-fin-c-8",
+                    question: "异质信息网络（HIN）中 Meta-path 的作用是什么？",
+                    options: [
+                        "加速图的稀疏矩阵运算",
+                        "定义不同类型节点间的语义路径模式，用于捕获高阶关系",
+                        "减少 GNN 的参数量",
+                        "将有向图转化为无向图"
+                    ],
+                    answer: 1,
+                    explanation: "Meta-path（如 Author-Paper-Author 或 Author-Paper-Venue-Paper-Author）定义了节点间的语义路径模板，HIN 模型（如 HAN）基于不同 meta-path 生成子图并分别聚合，捕获不同类型的关系语义。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-fin-c-9",
+                    question: "Graph Transformer 与传统 GNN 相比的主要创新点是什么？",
+                    options: [
+                        "完全不用注意力机制",
+                        "通过全局注意力或位置编码捕获长距离依赖，克服了 GNN 只关注局部邻域的限制",
+                        "只处理小规模图",
+                        "不需要节点特征"
+                    ],
+                    answer: 1,
+                    explanation: "传统 GNN 的感受野受限于邻居范围（K 层只能看 K 跳邻居），Graph Transformer 引入全局注意力机制（或使用图结构引导的稀疏注意力）和图位置编码（如 Laplacian 位置编码），能直接建模远距离节点间的依赖关系。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs224w-fin-c-10",
+                    question: "在 GNN 可解释性（Explainability）中，GNNExplainer 的核心思想是什么？",
+                    options: [
+                        "直接可视化所有节点的特征",
+                        "通过优化找到使模型预测变化最大的最小子图和节点特征子集",
+                        "删除所有边来找到重要节点",
+                        "使用线性模型替代 GNN"
+                    ],
+                    answer: 1,
+                    explanation: "GNNExplainer 通过优化一个边掩码和特征掩码，找到对模型预测贡献最大的子图结构和特征子集，以互信息最大化为目标，提供关于 GNN 决策依据的局部解释。",
+                    difficulty: 2
+                }
+            ],
+            fill: [
+                {
+                    id: "cs224w-fin-f-1",
+                    question: "GNN 中消息传递的通用公式可写为 h_v^(l+1) = UPDATE(h_v^(l), ____({MESSAGE(h_v^(l), h_u^(l), e_vu) : u∈N(v)}))。",
+                    answer: "AGGREGATE（聚合函数）",
+                    explanation: "MPNN 框架由 Gilmer et al. 提出：每层先对每个邻居计算消息 MESSAGE，然后用聚合函数 AGGREGATE（如求和、均值、最大值）汇总所有邻居的消息，最后用 UPDATE 函数（如 MLP）更新节点状态。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-fin-f-2",
+                    question: "知识图谱补全中，ComplEx 模型使用____空间中的嵌入来解决 DistMult 无法建模反对称关系的问题。",
+                    answer: "复数（Complex）",
+                    explanation: "ComplEx 在复数空间中嵌入实体和关系，评分函数为 Re(Σ_i h_i · r_i · t_i*)，其中 t_i* 是共轭。由于复数乘法不满足交换律的实部对称性，ComplEx 天然能建模对称和反对称关系。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs224w-fin-f-3",
+                    question: "GNN 中的 Jumping Knowledge (JK-Net) 通过____不同层的节点表示来缓解过平滑问题。",
+                    answer: "拼接（Concatenation）或聚合（如 Max/Attention 聚合）",
+                    explanation: "JK-Net 将 GNN 每一层的表示都保留，最后通过 CONCAT/MAX/ATTENTION 方式聚合所有层的信息，使模型既能利用浅层的局部信息又能利用深层的全局信息，缓解过平滑导致的信息丢失。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-fin-f-4",
+                    question: "图增强（Graph Augmentation）的常见方法包括节点丢弃（____）、边扰动（____）和子图采样（____）。",
+                    answer: "Node Dropping；Edge Perturbation；Subgraph Sampling",
+                    explanation: "这些是图对比学习中的标准增强策略：Node Dropping 随机删除节点，Edge Perturbation 随机添加/删除边，Subgraph Sampling 采样局部子图，它们都旨在保持图的语义不变性。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-fin-f-5",
+                    question: "PinSage 是 Pinterest 开发的大规模图卷积网络，它使用____采样策略来处理工业级规模的图。",
+                    answer: "随机游走邻居采样（Random Walk-based Neighbor Sampling）或 importance sampling",
+                    explanation: "PinSage 为解决工业规模图（30亿节点、180亿边）的计算问题，使用基于随机游走的邻居采样，每个节点只采样固定数量的邻居进行聚合，并采用负采样和 curriculum learning 等技巧。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-fin-f-6",
+                    question: "图神经网络中，GNN 的空间复杂度主要受____和____的影响。",
+                    answer: "图的规模（节点数/边数）；邻居采样数量（邻居数）",
+                    explanation: "GNN 需要存储所有节点的特征和中间表示，且邻居聚合需要访问连接的邻居，因此空间复杂度与图的规模成正比。采样策略（如 GraphSAGE 固定采样 K 个邻居）可以控制每层的计算和内存开销。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-fin-f-7",
+                    question: "图生成（Graph Generation）模型 GraphRNN 使用____来建模图的生成过程，将图的生成分解为节点级和边级的序列生成。",
+                    answer: "自回归序列模型（或 RNN/GRU）",
+                    explanation: "GraphRNN 将图的生成过程建模为序列问题：先用一个 RNN 生成节点的出现，再用另一个 RNN 对每个新节点生成与已有节点的边，通过 BFS 顺序确保生成过程的一致性和可重复性。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs224w-fin-f-8",
+                    question: "GNN 的 Scalability 问题中，Cluster-GCN 通过将图预处理为____来减少内存和计算开销。",
+                    answer: "小规模子图簇（Clusters / Communities）",
+                    explanation: "Cluster-GCN 首先用图聚类算法（如 METIS）将节点分为多个簇，训练时每次只在一个子图簇上做 GNN 前向和反向传播，通过交替训练不同簇来近似全图训练，大幅降低内存需求。",
+                    difficulty: 2
+                },
+                {
+                    id: "cs224w-fin-f-9",
+                    question: "异构图注意力网络 HAN 使用____注意力机制在节点级别、____注意力机制在语义级别来聚合信息。",
+                    answer: "节点级（Node-level）；语义级（Semantic-level）",
+                    explanation: "HAN 的双层注意力：第一层在每个 meta-path 子图内使用节点级注意力聚合邻居信息，第二层使用语义级注意力自动学习不同 meta-path 的重要性权重，将多个 meta-path 的表示加权聚合。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs224w-fin-f-10",
+                    question: "图神经网络在推荐系统中的应用（PinSage）中，图是由____作为节点、用户对项目的____作为边构建的。",
+                    answer: "用户和项目（物品）；交互行为（如点击、收藏、购买等）",
+                    explanation: "Pinterest 的 PinSage 构建了一个用户-项目二部图，节点是 pin（图片）和 board（画板），边是用户保存（pin-board）或相关推荐关系，GNN 在该图上学习 pin 的嵌入用于推荐。",
+                    difficulty: 1
+                }
+            ],
+            code: [
+                {
+                    id: "cs224w-fin-code-1",
+                    question: "补全以下代码，实现 Graph Attention Network 中多头注意力的计算。",
+                    code: "import torch\nimport torch.nn as nn\nimport torch.nn.functional as F\n\nclass GATLayer(nn.Module):\n    def __init__(self, in_dim, out_dim, num_heads, concat=True):\n        super().__init__()\n        self.num_heads = num_heads\n        self.concat = concat\n        self.W = nn.Linear(in_dim, out_dim * num_heads, bias=False)\n        self.a_left = nn.Parameter(torch.zeros(num_heads, out_dim))\n        self.a_right = nn.Parameter(torch.zeros(num_heads, out_dim))\n        nn.init.xavier_uniform_(self.a_left.unsqueeze(-1))\n        nn.init.xavier_uniform_(self.a_right.unsqueeze(-1))\n    \n    def forward(self, h, A_hat):\n        \"\"\"\n        h: [N, in_dim]\n        A_hat: 邻接矩阵（含自环）\n        \"\"\"\n        N = h.size(0)\n        Wh = self.W(h).view(N, self.num_heads, -1)  # [N, H, D]\n        # 计算注意力分数\n        e_left = (Wh * self.a_left).sum(dim=-1)   # [N, H]\n        e_right = (Wh * self.a_right).sum(dim=-1) # [N, H]\n        # 注意力矩阵 [N, N, H]\n        attn = e_left.unsqueeze(1) + e_right.unsqueeze(0)  # [N, N, H]\n        attn = F.leaky_relu(attn, negative_slope=0.2)\n        # 用邻接矩阵掩码\n        mask = (A_hat == 0)\n        attn.masked_fill_(mask.unsqueeze(-1), float('-inf'))\n        attn = ____  # 归一化\n        # 聚合\n        out = torch.einsum('njh,njd->nhd', attn, Wh)  # [N, H, D]\n        if self.concat:\n            return out.reshape(N, -1)  # [N, H*D]\n        else:\n            return out.mean(dim=1)  # [N, D]",
+                    answer: "F.softmax(attn, dim=1)",
+                    explanation: "GAT 的注意力计算关键步骤：(1) 对每个注意力头分别计算能量 e_ij = LeakyReLU(a_left·Wh_i + a_right·Wh_j)；(2) 用邻接矩阵掩码非邻居位置为 -inf；(3) 在 dim=1 上做 softmax 归一化得到注意力权重；(4) 用注意力权重对邻居特征做加权求和。",
+                    difficulty: 3
+                },
+                {
+                    id: "cs224w-fin-code-2",
+                    question: "补全以下代码，实现 Node2Vec 的有偏随机游走生成节点序列。",
+                    code: "import numpy as np\nimport networkx as nx\n\ndef node2vec_walk(G, start_node, walk_length, p, q):\n    \"\"\"\n    G: NetworkX 图\n    start_node: 起始节点\n    walk_length: 游走步数\n    p: 返回参数\n    q: 进出参数\n    \"\"\"\n    walk = [start_node]\n    current = start_node\n    \n    for _ in range(walk_length - 1):\        neighbors = list(G.neighbors(current))\n        if len(neighbors) == 0:\n            break\n        \n        if len(walk) == 1:\n            # 第一步：均匀采样\n            next_node = np.random.choice(neighbors)\n        else:\n            prev = walk[-2]\n            # 计算非归一化转移概率\n            probs = []\n            for n in neighbors:\n                if n == prev:\n                    probs.append(1.0 / p)\n                elif G.has_edge(n, ____):\n                    probs.append(1.0)\n                else:\n                    probs.append(1.0 / q)\n            \n            probs = np.array(probs)\n            probs /= ____  # 归一化\n            next_node = np.random.choice(neighbors, p=probs)\n        \n        walk.append(next_node)\n        current = next_node\n    \n    return walk",
+                    answer: "prev; probs.sum()",
+                    explanation: "Node2Vec 有偏随机游走的核心逻辑：(1) 若下一个节点是前一个节点（返回），概率为 1/p；(2) 若下一个节点与前一个节点直接相连（BFS 方向），概率为 1；(3) 否则（DFS 方向），概率为 1/q。最后对概率归一化后采样。这里的 G.has_edge(n, prev) 判断 n 是否与 prev 相邻。",
+                    difficulty: 3
+                }
+            ]
+        }
+    },
+
 };
