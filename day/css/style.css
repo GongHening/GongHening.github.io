@@ -1523,50 +1523,37 @@ p:last-child { margin-bottom: 0; }
   transition: transform 0.2s;
 }
 
-/* Course Quiz Section */
-.course-quiz-section {
-  margin-top: 0.875rem;
-  padding-top: 0.75rem;
-  border-top: 1px dashed var(--glass-border, rgba(0,0,0,0.08));
-}
-.course-quiz-label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--text-3, #86868b);
-  margin-bottom: 0.5rem;
-}
-.course-quiz-btns {
+/* Course Quiz Buttons (inline in footer) */
+.card-quiz-btns {
   display: flex;
-  gap: 0.5rem;
+  gap: 4px;
 }
-.course-quiz-btn {
-  flex: 1;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.8rem;
+.card-quiz-btn {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.72rem;
   font-weight: 600;
   border: 1.5px solid;
-  border-radius: var(--r-sm, 8px);
+  border-radius: var(--r-xs, 4px);
   cursor: pointer;
   transition: all 0.15s;
   background: transparent;
+  white-space: nowrap;
 }
-.course-quiz-btn--mid {
+.card-quiz-btn--mid {
   color: #6366f1;
   border-color: #6366f1;
 }
-.course-quiz-btn--mid:hover {
+.card-quiz-btn--mid:hover {
   background: #6366f1;
   color: #fff;
-  box-shadow: 0 2px 8px rgba(99,102,241,0.3);
 }
-.course-quiz-btn--final {
+.card-quiz-btn--final {
   color: #f59e0b;
   border-color: #f59e0b;
 }
-.course-quiz-btn--final:hover {
+.card-quiz-btn--final:hover {
   background: #f59e0b;
   color: #fff;
-  box-shadow: 0 2px 8px rgba(245,158,11,0.3);
 }
 
 /* Progress */

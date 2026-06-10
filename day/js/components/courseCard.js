@@ -83,6 +83,7 @@ const CourseCard = {
                 <div class="course-card-footer">
                     <span class="course-duration">${formatHours(course.h)}</span>
                     <div class="course-footer-actions">
+                        ${this.createQuizButtons(course)}
                         <button class="card-detail-btn" onclick="CourseDetail.toggle('${escapeHtml(course.u)}')">
                             <span class="card-detail-btn-text">详情</span>
                             <span class="card-detail-btn-arrow">▼</span>
@@ -92,7 +93,6 @@ const CourseCard = {
                         </a>
                     </div>
                 </div>
-                ${this.createQuizSection(course)}
             </div>
         `;
     },
@@ -109,26 +109,23 @@ const CourseCard = {
     },
 
     /**
-     * Create quiz section HTML for a course
+     * Create quiz buttons HTML for a course (inline in footer)
      * @param {Object} course - Course object
      * @returns {string} HTML string
      */
-    createQuizSection(course) {
+    createQuizButtons(course) {
         // Check if quiz data exists for this course
         var hasQuiz = typeof COURSE_QUIZ_DATA !== 'undefined' && COURSE_QUIZ_DATA[course.n];
         if (!hasQuiz) return '';
 
         return `
-            <div class="course-quiz-section">
-                <div class="course-quiz-label">📝 课程测验</div>
-                <div class="course-quiz-btns">
-                    <button class="course-quiz-btn course-quiz-btn--mid" onclick="CourseCard.startQuiz('${escapeHtml(course.n)}', 'mid')">
-                        期中测验
-                    </button>
-                    <button class="course-quiz-btn course-quiz-btn--final" onclick="CourseCard.startQuiz('${escapeHtml(course.n)}', 'final')">
-                        期末测验
-                    </button>
-                </div>
+            <div class="card-quiz-btns">
+                <button class="card-quiz-btn card-quiz-btn--mid" onclick="CourseCard.startQuiz('${escapeHtml(course.n)}', 'mid')" title="期中测验">
+                    期中
+                </button>
+                <button class="card-quiz-btn card-quiz-btn--final" onclick="CourseCard.startQuiz('${escapeHtml(course.n)}', 'final')" title="期末测验">
+                    期末
+                </button>
             </div>
         `;
     },
