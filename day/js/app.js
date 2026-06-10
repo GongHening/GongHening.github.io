@@ -75,19 +75,9 @@ const App = {
         // Initialize hero
         Hero.init();
 
-        // Initialize year progress ring
-        if (typeof YearProgress !== 'undefined') {
-            YearProgress.init();
-        }
-
         // Initialize inspirational quote
         if (typeof InspirationalQuote !== 'undefined') {
             InspirationalQuote.init();
-        }
-
-        // Initialize daily suggestions
-        if (typeof DailySuggestion !== 'undefined') {
-            DailySuggestion.init();
         }
 
         // Initialize particle field
@@ -121,19 +111,9 @@ const App = {
             Wizard.init();
         }
 
-        // Initialize history today
-        if (typeof HistoryToday !== 'undefined') {
-            HistoryToday.init();
-        }
-
         // Initialize year timeline
         if (typeof YearTimeline !== 'undefined') {
             YearTimeline.init();
-        }
-
-        // Initialize life progress
-        if (typeof LifeProgress !== 'undefined') {
-            LifeProgress.init();
         }
     },
 
@@ -393,7 +373,6 @@ const App = {
             preferences: PreferencesManager.getAll(),
             searchHistory: SearchHistoryManager.getAll(),
             notes: NotesManager.getAll(),
-            birthday: Storage.get(LifeProgress.STORAGE_KEY, null),
             exportDate: new Date().toISOString()
         };
     },
@@ -420,10 +399,6 @@ const App = {
             if (data.notes) {
                 Storage.set(NotesManager.STORAGE_KEY, data.notes);
             }
-            if (data.birthday && typeof LifeProgress !== 'undefined') {
-                Storage.set(LifeProgress.STORAGE_KEY, data.birthday);
-                LifeProgress.init();
-            }
 
             // Re-render with imported data
             Filters.applyFilters();
@@ -448,10 +423,6 @@ const App = {
             PreferencesManager.reset();
             SearchHistoryManager.clear();
             NotesManager.clearAll();
-            if (typeof LifeProgress !== 'undefined') {
-                Storage.remove(LifeProgress.STORAGE_KEY);
-                LifeProgress.init();
-            }
 
             // Re-render
             Filters.applyFilters();
