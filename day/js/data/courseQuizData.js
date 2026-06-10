@@ -17159,4 +17159,147 @@ def non_max_suppression(boxes, scores, iou_threshold=0.5):
             ]
         }
     },
+
+
+    /* ================================================================
+     * 10-405/605: ML with Large Datasets (CMU)
+     *    Topics: Spark, streaming algorithms, dimensionality reduction,
+     *            online learning, distributed optimization
+     * ================================================================ */
+    "10-405/605: ML with Large Datasets": {
+        courseId: "cmu-10405-large-datasets",
+        domain: "ml",
+        mid: {
+            choice: [
+                { id: "cmu-10405-mid-c-1", question: "Apache Spark 中，RDD 的 transformation 操作是什么类型的？", options: ["立即执行(eager)","惰性求值(lazy)","并行执行","阻塞执行"], answer: 1, explanation: "Spark RDD 的 transformation 是惰性求值的，只有遇到 action 操作时才会真正触发计算，这允许 Spark 进行执行计划优化。", difficulty: 1 },
+                { id: "cmu-10405-mid-c-2", question: "在 Count-Min Sketch 数据结构中，估计频率时取所有行的最小值是为了什么？", options: ["提高空间效率","减少过估计(overestimate)","减少欠估计(underestimate)","增加计算速度"], answer: 1, explanation: "Count-Min Sketch 通过取多个哈希桶计数的最小值来减少过估计，但永远不会产生欠估计，是一个单边误差结构。", difficulty: 2 },
+                { id: "cmu-10405-mid-c-3", question: "流算法中，Misra-Gries 算法用于解决什么问题？", options: ["频率估计","频繁项发现(Heavy Hitters)","中位数维护","集合势估计"], answer: 1, explanation: "Misra-Gries 算法用于在数据流中发现频繁项(heavy hitters)，空间复杂度为 O(1/ε)，保证找出频率超过 εn 的所有项。", difficulty: 2 },
+                { id: "cmu-10405-mid-c-4", question: "随机梯度下降(SGD)相比批量梯度下降(BGD)的主要优势是什么？", options: ["收敛到更精确的解","每次迭代计算成本更低","不需要学习率","一定能跳出局部最优"], answer: 1, explanation: "SGD 每次仅使用一个或一小批样本计算梯度，单次迭代成本远低于 BGD，适合大规模数据集。", difficulty: 1 },
+                { id: "cmu-10405-mid-c-5", question: "在分布式优化中，数据并行(Data Parallelism)的核心思想是什么？", options: ["将模型切分到不同机器","将数据切分到不同机器，每台机器维护完整模型副本","将训练数据排序后分配","将特征维度切分"], answer: 1, explanation: "数据并行将训练数据分片到多台机器，每台机器持有完整的模型参数副本，在本地数据上计算梯度后聚合更新。", difficulty: 1 },
+                { id: "cmu-10405-mid-c-6", question: "LSH(局部敏感哈希)的核心性质是什么？", options: ["相似的项目总是被哈希到不同的桶","相似的项目有更高概率被哈希到同一个桶","所有项目等概率分布到各桶","完全消除碰撞"], answer: 1, explanation: "LSH 的核心是设计哈希函数使得相似项的碰撞概率高于不相似项，从而实现近似最近邻搜索。", difficulty: 2 },
+                { id: "cmu-10405-mid-c-7", question: "Bloom Filter 判断元素不在集合中时，结论的正确性如何？", options: ["可能不正确，有假阳性","一定正确，无假阴性","可能不正确，有假阴性","一定正确，无假阳性"], answer: 1, explanation: "Bloom Filter 的关键性质：不存在假阴性(false negative)。如果判断元素不在集合中，则该元素一定不在集合中，但存在假阳性。", difficulty: 2 },
+                { id: "cmu-10405-mid-c-8", question: "在 mini-batch SGD 中，batch size 的选择对训练有什么影响？", options: ["batch 越大梯度估计越准确但单步越慢","batch 越小梯度估计越准确","batch size 不影响收敛","batch 越大越容易跳出局部最优"], answer: 0, explanation: "较大的 batch size 提供更准确的梯度估计(低方差)，但增加了每步的计算和通信成本；较小的 batch 引入噪声，有助于逃离鞍点。", difficulty: 2 },
+                { id: "cmu-10405-mid-c-9", question: "Stratified Sampling 在大数据集上的作用是什么？", options: ["将数据完全随机分割","确保每个类别在采样中有代表性的比例","减少数据存储空间","增加训练速度"], answer: 1, explanation: "分层抽样确保采样后的子集中各类别的比例与原始数据保持一致，避免因随机采样导致某些类别缺失或过少。", difficulty: 2 },
+                { id: "cmu-10405-mid-c-10", question: "在 Spark 中，persist(或 cache) 操作的作用是什么？", options: ["将数据写入磁盘","将 RDD 缓存到内存中避免重复计算","对数据进行排序","将数据序列化为 JSON"], answer: 1, explanation: "persist/cache 将 RDD 缓存到内存中，当一个 RDD 被多次使用时，避免重复从原始数据重新计算，显著提升性能。", difficulty: 1 },
+            ],
+            fill: [
+                { id: "cmu-10405-mid-f-1", question: "Spark 的核心抽象是弹性分布式数据集(RDD)，它具有____性，即数据丢失时可根据血缘关系重新计算。", answer: "容错", explanation: "RDD 的容错性是 Spark 的核心优势之一，通过记录 lineage(血缘)信息，在节点故障时能自动恢复丢失的分区。", difficulty: 1 },
+                { id: "cmu-10405-mid-f-2", question: "在 Count-Min Sketch 中，使用 k 个独立的____函数将元素映射到 d 个计数器上。", answer: "哈希", explanation: "Count-Min Sketch 使用 k 个独立的哈希函数，每个函数将元素映射到对应的计数行中，通过取最小值来估计频率。", difficulty: 2 },
+                { id: "cmu-10405-mid-f-3", question: "流算法中，Flajolet-Martin 算法使用____方法来估计不同元素的数量(cardinality)。", answer: "概率", explanation: "Flajolet-Martin 算法通过哈希函数将元素映射到比特位，观察最高位1出现的位置来估计基数，是一种概率性算法。", difficulty: 2 },
+                { id: "cmu-10405-mid-f-4", question: "SGD 的收敛性要求学习率 α_t 满足 Robbins-Monro 条件：Σα_t = ∞ 且 Σα_t² < ____。", answer: "∞", explanation: "Robbins-Monro 条件确保学习率足够大以收敛到最优点，同时衰减得足够快以抑制随机噪声的影响。", difficulty: 3 },
+                { id: "cmu-10405-mid-f-5", question: "在分布式系统中，CAP 定理指出一致性(Consistency)、可用性(Availability)和____性三者不可兼得。", answer: "分区容错", explanation: "CAP 定理表明在网络分区(partition)发生时，系统只能在一致性(C)和可用性(A)之间二选一，分区容错(P)是必须保证的。", difficulty: 2 },
+                { id: "cmu-10405-mid-f-6", question: "MinHash 算法通过随机____函数来近似 Jaccard 相似度。", answer: "排列", explanation: "MinHash 使用随机排列函数，将集合的最小哈希值作为签名，两个集合签名相同的概率恰好等于它们的 Jaccard 相似度。", difficulty: 3 },
+                { id: "cmu-10405-mid-f-7", question: "在 MapReduce 编程模型中，____阶段负责将中间结果按 key 进行分组排序。", answer: "Shuffle", explanation: "Shuffle 阶段在 Map 和 Reduce 之间，负责按照 key 进行数据分组和排序，是 MapReduce 中最耗时的阶段。", difficulty: 1 },
+                { id: "cmu-10405-mid-f-8", question: "Reservoir Sampling 可以从数据流中均匀随机地抽取 ____ 个样本，无需预先知道流的长度。", answer: "k", explanation: "蓄水池抽样算法维护大小为 k 的缓冲区，对每个新到的元素以 k/n 的概率替换，保证每个元素被选中的概率相等。", difficulty: 2 },
+                { id: "cmu-10405-mid-f-9", question: "随机投影(Random Projection)基于____引理，保证数据点之间的距离在降维后近似保持不变。", answer: "Johnson-Lindenstrauss", explanation: "JL 引理指出高维数据可以随机投影到 O(log n/ε²) 维空间，同时保持任意两点间距离的相对误差在 (1±ε) 范围内。", difficulty: 3 },
+                { id: "cmu-10405-mid-f-10", question: "在参数服务器架构中，____负责聚合来自不同 worker 的梯度更新。", answer: "Server", explanation: "参数服务器架构中，Server 节点维护全局参数，负责接收各 Worker 的梯度并执行参数更新，Worker 负责在本地数据上计算梯度。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmu-10405-mid-code-1", question: "补全以下 PySpark 代码，实现对 RDD 元素计数。", code: "from pyspark import SparkContext\nsc = SparkContext('local', 'test')\ndata = sc.parallelize([1, 2, 3, 4, 5])\ntotal = data.____().reduce(lambda a, b: a + b)\nprint(total)", answer: "map(lambda x: 1)", explanation: "将每个元素映射为1，然后通过 reduce 求和即可得到 RDD 中元素的总数。也可直接使用 data.count()。", difficulty: 1 },
+                { id: "cmu-10405-mid-code-2", question: "补全以下代码，实现简单的 Count-Min Sketch 的查询操作。", code: "import numpy as np\nimport hashlib\n\nclass CountMinSketch:\n    def __init__(self, width, depth):\n        self.width = width\n        self.depth = depth\n        self.table = np.zeros((depth, width))\n    \n    def _hash(self, item, seed):\n        h = hashlib.md5(str(seed).encode() + str(item).encode()).hexdigest()\n        return int(h, 16) % self.width\n    \n    def query(self, item):\n        return min(self.table[i][self._hash(item, i)] for i in ____)", answer: "range(self.depth)", explanation: "查询时遍历所有 depth 行，对每行使用对应哈希函数定位桶，取所有桶计数的最小值作为频率估计。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cmu-10405-fin-c-1", question: "在线学习(Online Learning)中，Follow-the-Regularized-Leader(FTRL)算法的核心思想是什么？", options: ["跟随之前所有轮中累计损失最小的决策","随机选择一个决策","只考虑上一轮的损失","使用固定的学习率"], answer: 0, explanation: "FTRL 在每一轮选择使正则化累积损失最小的决策，平衡了 exploit(利用历史信息)和 explore(探索新决策)。", difficulty: 3 },
+                { id: "cmu-10405-fin-c-2", question: "分布式 SGD 中，Downpour SGD 使用什么机制来同步不同 worker 之间的参数？", options: ["全局锁同步","异步推送拉取(pull/push)","同步 barrier","全部等待最慢的 worker"], answer: 1, explanation: "Downpour SGD (Google Brain) 使用异步参数更新，Worker 通过参数服务器异步推送梯度和拉取最新参数，无全局同步开销。", difficulty: 3 },
+                { id: "cmu-10405-fin-c-3", question: "在大规模矩阵分解中，ALS(交替最小二乘)为什么比 SVD 更适合推荐系统？", options: ["ALS 精度更高","ALS 可以处理缺失值，而 SVD 要求完整矩阵","ALS 计算更快","ALS 不需要正则化"], answer: 1, explanation: "ALS 只需在已知评分上优化，天然支持矩阵补全(missing values)，而标准 SVD 需要完整的输入矩阵。", difficulty: 2 },
+                { id: "cmu-10405-fin-c-4", question: "在特征哈希(Feature Hashing / Hashing Trick)中，维度灾难是如何被缓解的？", options: ["增加了特征维度","将高维稀疏特征映射到固定低维空间","删除不重要的特征","使用 PCA 降维"], answer: 1, explanation: "特征哈希通过哈希函数将任意维度的特征向量映射到固定维度(如 2^k 维)的空间中，无需维护特征-索引的映射表。", difficulty: 2 },
+                { id: "cmu-10405-fin-c-5", question: "Consistent Hashing 主要解决什么问题？", options: ["数据加密","分布式系统中节点增减时最小化数据迁移","提升哈希计算速度","防止哈希冲突"], answer: 1, explanation: "一致性哈希将节点和数据映射到同一个环上，当节点增减时只影响环上相邻的数据，大幅减少数据迁移量。", difficulty: 2 },
+                { id: "cmu-10405-fin-c-6", question: "在 Spark 中，窄依赖(narrow dependency)和宽依赖(wide dependency)的区别是什么？", options: ["窄依赖意味着一个分区被多个子分区依赖","宽依赖意味着 Shuffle 操作","窄依赖无法并行","宽依赖不需要网络传输"], answer: 1, explanation: "宽依赖对应 Shuffle 操作(如 reduceByKey)，需要跨节点传输数据；窄依赖(如 map)每个分区可独立处理，适合流水线并行。", difficulty: 2 },
+                { id: "cmu-10405-fin-c-7", question: "FTRL-Proximal 算法结合了 FTRL 和近端算子的好处是什么？", options: ["加速收敛","产生稀疏解(自动特征选择)","防止梯度爆炸","支持非凸优化"], answer: 1, explanation: "FTRL-Proximal 使用 L1 正则化的近端算子，能够在在线学习过程中产生稀疏的模型参数，实现自动特征选择。", difficulty: 3 },
+                { id: "cmu-10405-fin-c-8", question: "Top-K Frequent Items 问题中，Space-Saving 算法的特点是什么？", options: ["需要扫描多次数据","对被驱逐元素的计数做保守估计(加到保留在表中的元素上)","使用布隆过滤器","只能处理唯一元素"], answer: 1, explanation: "Space-Saving 算法的核心是驱逐最频繁元素时，将其计数加到新元素上，这种保守估计保证不会漏掉真正频繁的项。", difficulty: 3 },
+                { id: "cmu-10405-fin-c-9", question: "参数服务器(Parameter Server)架构中，Push-Weight 策略的作用是什么？", options: ["限制每个 worker 的上传速度","根据梯度质量或时间来调整参数同步的权重","增加网络带宽","减少内存使用"], answer: 1, explanation: "Push-Weight 根据各 worker 的梯度质量或新旧程度分配权重，使高质量的梯度更新获得更大的影响力。", difficulty: 3 },
+                { id: "cmu-10405-fin-c-10", question: "在大规模 ML 系统中，数据切分策略 Partitioning 通常如何处理倾斜数据(skewed data)？", options: ["忽略倾斜数据","使用盐值(salting)将热点 key 打散","增加更多 reducer","关闭 shuffle"], answer: 1, explanation: "盐值(salting)通过给热点 key 添加随机后缀将其分散到多个 reducer 处理，最后再合并结果，有效缓解数据倾斜问题。", difficulty: 3 },
+            ],
+            fill: [
+                { id: "cmu-10405-fin-f-1", question: "在线学习中，Regret 定义为在线算法的累计损失与____算法的最小累计损失之差。", answer: "离线最优(最优固定)", explanation: "Regret = ΣL_t(a_t) - min_a ΣL_t(a)，衡量在线算法与假设知道所有损失函数后选择的最优固定策略之间的差距。", difficulty: 3 },
+                { id: "cmu-10405-fin-f-2", question: "Spark DataFrame 的 ____ 操作类似于 SQL 的 JOIN，基于键合并两个数据集。", answer: "join", explanation: "DataFrame.join() 支持 inner、outer、left、right 等多种 join 类型，基于指定的键列合并两个 DataFrame。", difficulty: 1 },
+                { id: "cmu-10405-fin-f-3", question: "在 Bloom Filter 中，最优的哈希函数个数 k 约为 (m/n) × ____，其中 m 是位数组大小，n 是元素数量。", answer: "ln2(或0.693)", explanation: "最优哈希函数个数 k = (m/n) × ln2，此时在给定空间下假阳性率最小，约为 (1/2)^k ≈ (0.6185)^(m/n)。", difficulty: 3 },
+                { id: "cmu-10405-fin-f-4", question: "AdaGrad 通过累积历史梯度的平方来____学习率，对稀疏特征使用更大的更新步长。", answer: "自适应调整(或衰减)", explanation: "AdaGrad 将每个参数的学习率除以历史梯度平方和的平方根，频繁更新的参数学习率变小，不频繁更新的参数保持较大的学习率。", difficulty: 2 },
+                { id: "cmu-10405-fin-f-5", question: "在分布式机器学习中，AllReduce 操作将所有节点的梯度进行聚合后____到所有节点。", answer: "广播(或分发)", explanation: "AllReduce 将所有节点的计算结果聚合(如求和/平均)后，将结果广播到每个节点，是分布式训练中的核心通信原语。", difficulty: 2 },
+                { id: "cmu-10405-fin-f-6", question: "HyperLogLog 算法使用 k 个桶来估计基数，每个桶维护观察到的最大____前导零个数。", answer: "哈希值的(或比特位)", explanation: "HyperLogLog 将输入哈希后分为 k 个桶，每个桶记录哈希值二进制表示中最高位1之前的前导零最大数量，用调和平均值聚合。", difficulty: 3 },
+                { id: "cmu-10405-fin-f-7", question: "Spark 中的 ______ 操作将每个分区的数据先在本地聚合，再进行全局聚合，减少 Shuffle 开销。", answer: "reduceByKey", explanation: "reduceByKey 先在每个分区内执行本地聚合(reduce)，然后才进行 Shuffle 和全局聚合，比 groupByKey 效率高得多。", difficulty: 2 },
+                { id: "cmu-10405-fin-f-8", question: "在矩阵近似中，随机化 SVD 通过将矩阵投影到低维空间来加速分解，投影矩阵通常用____矩阵构造。", answer: "随机(高斯/Oblivious)", explanation: "随机化 SVD 使用随机高斯矩阵或结构化随机矩阵将大矩阵投影到 k 维子空间，在子空间上执行精确 SVD，大幅减少计算量。", difficulty: 3 },
+                { id: "cmu-10405-fin-f-9", question: "在流式计算中，Window-based Aggregation 的____窗口为每个元素独立维护一个固定大小的时间窗口。", answer: "滑动(或 tumbling)", explanation: "Tumbling window 将流切分为不重叠的固定大小窗口，Sliding window 则允许重叠，两者都是常见的窗口聚合策略。", difficulty: 2 },
+                { id: "cmu-10405-fin-f-10", question: "Gradient Compression 技术中，Top-K 丢弃策略只传输____的梯度分量以减少通信量。", answer: "绝对值最大(或 magnitude 最大)", explanation: "Top-K 选择梯度中绝对值最大的 K 个分量进行传输，忽略小梯度分量，在保证训练质量的同时显著降低通信成本。", difficulty: 3 },
+            ],
+            code: [
+                { id: "cmu-10405-fin-code-1", question: "补全以下 PySpark 代码，使用 map-reduce 统计文本中每个单词的出现次数。", code: "from pyspark import SparkContext\nsc = SparkContext('local', 'wordcount')\ntext = sc.parallelize(['hello world', 'hello spark'])\nword_counts = text.flatMap(lambda line: ____\\\n    .map(lambda word: (word, 1))\\\n    .reduceByKey(lambda a, b: a + b)\nprint(word_counts.collect())", answer: "line.split(' ')", explanation: "flatMap 将每行按空格拆分为单词列表，自动展平为单词流；然后 map 生成 (word, 1) 键值对，reduceByKey 累加计数。", difficulty: 1 },
+                { id: "cmu-10405-fin-code-2", question: "补全以下代码，实现 Online Gradient Descent 的一步更新。", code: "import numpy as np\n\ndef online_gd_step(w, x, y, lr, loss_grad):\n    \"\"\"w: 权重, x: 特征, y: 标签, lr: 学习率, loss_grad: 损失梯度函数\"\"\"\n    grad = loss_grad(w, x, y)\n    w_new = w - lr * ____\n    return w_new", answer: "grad", explanation: "在线梯度下降每步更新 w_new = w - lr * ∇L(w; x, y)，其中梯度仅基于当前一个样本计算，无需遍历整个数据集。", difficulty: 1 },
+            ]
+        }
+    },
+
+    /* ================================================================
+     * CS281: Statistical Learning Theory (UC Berkeley)
+     *    Topics: PAC learning, VC dimension, Rademacher complexity,
+     *            convex optimization, online learning
+     * ================================================================ */
+    "CS281: Statistical Learning Theory": {
+        courseId: "ucb-cs281-sl-theory",
+        domain: "ml",
+        mid: {
+            choice: [
+                { id: "ucb-cs281-mid-c-1", question: "PAC 学习中，假设类 H 的 sample complexity 与哪些参数有关？", options: ["仅与数据量有关","与假设类大小 |H|、精度 ε 和置信度 δ 有关","仅与特征维度有关","与假设类大小和学习率有关"], answer: 1, explanation: "PAC 学习的 sample complexity 为 O((ln|H| + ln(1/δ))/ε)，即需要的样本数随假设类大小对数增长，随精度和置信度的倒数增长。", difficulty: 2 },
+                { id: "ucb-cs281-mid-c-2", question: "VC 维度为 d 的假设类，在 n > d 个点上最多能产生多少种不同的二分(dichotomies)？", options: ["d","2^d","2^n","n^d"], answer: 2, explanation: "VC 维度为 d 意味着假设类能在某 d 个点上产生所有 2^d 种二分，但对任意 n > d 个点，最多能产生的二分数量可能不是 2^n。然而对 n 个点的二分上界是 2^n。", difficulty: 3 },
+                { id: "ucb-cs281-mid-c-3", question: "在 PAC 框架中，一个假设类 H 是可学习的，需要什么条件？", options: ["假设类大小有限即可","存在算法使得对任意分布，以高概率在多项式样本内找到低误差假设","假设类必须是凸的","只需要一致性假设即可"], answer: 1, explanation: "PAC 可学习性要求存在算法 A，对任意分布 D 和目标假设 h*，A 能在多项式样本内以至少 1-δ 的概率输出误差不超过 ε 的假设。", difficulty: 2 },
+                { id: "ucb-cs281-mid-c-4", question: "Rademacher 复杂度衡量的是什么？", options: ["模型的计算复杂度","假设类拟合随机噪声的能力","数据集的大小","假设类的时间复杂度"], answer: 1, explanation: "Rademacher 复杂度衡量假设类 H 在随机噪声标签 σ_i ∈ {±1} 上的最大拟合能力，反映了 H 的表达能力或丰富度。", difficulty: 2 },
+                { id: "ucb-cs281-mid-c-5", question: "凸函数的 subgradient 方法中，subgradient 与 gradient 的主要区别是什么？", options: ["subgradient 更难计算","subgradient 不一定是最速下降方向，因此不能保证函数值下降","subgradient 只适用于线性函数","subgradient 总是等于 gradient"], answer: 1, explanation: "subgradient 只保证 f(y) ≥ f(x) + g^T(y-x)，不保证沿负方向函数值下降，因此不能直接用于步长衰减的梯度下降。", difficulty: 2 },
+                { id: "ucb-cs281-mid-c-6", question: "在在线学习中，Hedge 算法属于哪类在线学习框架？", options: ["在线凸优化(OCO)","专家建议(Expert)框架","半在线学习","批量学习"], answer: 1, explanation: "Hedge 算法属于 Multiplicative Weights / 专家建议框架，在每轮选择专家的凸组合，根据损失更新权重。", difficulty: 2 },
+                { id: "ucb-cs281-mid-c-7", question: "对偶(Duality)在凸优化中的意义是什么？", options: ["使问题变得不可解","通过下界(弱对偶)或等价(强对偶)来分析原问题的最优性","完全消除约束","只适用于线性规划"], answer: 1, explanation: "弱对偶性给出原问题最优值的下界，强对偶性(如 Slater 条件满足时)保证原问题与对偶问题的最优值相等，是 KKT 条件的理论基础。", difficulty: 3 },
+                { id: "ucb-cs281-mid-c-8", question: "ERM(Empirical Risk Minimization) 的泛化误差上界由哪部分控制？", options: ["假设类的经验复杂度","假设类的 Rademacher 复杂度或 VC 维","训练数据的噪声","学习率的大小"], answer: 1, explanation: "ERM 的泛化界一般形式为 R(h) - R_emp(h) ≤ O(Rad(H_S)) + δ，其中 Rademacher 复杂度或 VC 维控制了假设类的复杂度惩罚项。", difficulty: 2 },
+                { id: "ucb-cs281-mid-c-9", question: "SVM 的最大间隔原理与泛化能力有什么理论联系？", options: ["大间隔意味着更好的泛化能力","大间隔意味着更差的泛化能力","间隔大小与泛化无关","只有核 SVM 才有泛化保证"], answer: 0, explanation: "大间隔分类器的 VC 维度与间隔有关而与特征维度无关，间隔越大 VC 维越低，从而泛化误差上界越紧。", difficulty: 2 },
+                { id: "ucb-cs281-mid-c-10", question: "在线凸优化(OCO)中，regret 的 sublinear 增长(如 O(√T))意味着什么？", options: ["在线算法总比离线算法好","在线算法的平均损失趋近于最佳固定决策的平均损失","在线算法无法收敛","需要无限计算资源"], answer: 1, explanation: "Sublinear regret 意味着 R_T/T → 0，即随着轮数增加，在线算法的平均每轮损失趋近于离线最优固定策略的平均损失。", difficulty: 3 },
+            ],
+            fill: [
+                { id: "ucb-cs281-mid-f-1", question: "PAC 学习中的 P 代表 Probably(概率)，A 代表 ____，即存在一个好假设的概率。", answer: "Approximately(近似正确)", explanation: "PAC = Probably Approximately Correct，其中 P 表示以高概率(1-δ)成功，A 表示输出的假设近似正确(误差≤ε)。", difficulty: 1 },
+                { id: "ucb-cs281-mid-f-2", question: "VC 维度定义为假设类 H 能 ____ shatter 的最大点集大小。", answer: "完全(或 shatter)", explanation: "VC 维是假设类能 shatter(打散)的最大点集大小，即 H 能在该点集上产生所有可能的 2^n 种标签分配。", difficulty: 2 },
+                { id: "ucb-cs281-mid-f-3", question: "在凸优化中，Slater 条件保证了强____性成立。", answer: "对偶", explanation: "Slater 条件(存在严格可行点)是保证强对偶性成立的充分条件，此时 d* = p*，且 KKT 条件是充分必要条件。", difficulty: 3 },
+                { id: "ucb-cs281-mid-f-4", question: "ERM 的泛化界中，____复杂度提供了比 VC 维更紧的数据依赖泛化界。", answer: "Rademacher", explanation: "Rademacher 复杂度是数据依赖的，它考虑了具体数据集的结构，通常给出比 VC 维(仅依赖假设类)更紧的泛化界。", difficulty: 3 },
+                { id: "ucb-cs281-mid-f-5", question: "在线学习中，____算法通过 Multiplicative Weights Update 来最小化 regret。", answer: "Hedge", explanation: "Hedge 算法维护各专家的权重，按指数权重选择策略，每轮根据损失按乘法更新权重，实现 O(√(T ln N)) 的 regret 上界。", difficulty: 2 },
+                { id: "ucb-cs281-mid-f-6", question: "KKT 条件中的互补松弛(Complementary Slackness)条件要求每对原变量和对偶变量的乘积为 ____。", answer: "零", explanation: "互补松弛条件：λ_i * g_i(x*) = 0，即如果约束不紧(有松弛)，则对应的对偶变量必须为零。", difficulty: 3 },
+                { id: "ucb-cs281-mid-f-7", question: "对于假设类 H 和分布 D，R_emp(h) 表示假设 h 在训练集上的 ____ 经验损失。", answer: "平均(或 0-1)", explanation: "R_emp(h) = (1/n) Σ 1[h(x_i) ≠ y_i]，即假设 h 在训练集上的平均损失(通常为 0-1 损失)。", difficulty: 1 },
+                { id: "ucb-cs281-mid-f-8", question: "subgradient 方法的收敛速率为 O(1/√T)，而针对强凸函数可以达到 O(____)。", answer: "1/T", explanation: "对于 L-光滑且 μ-强凸的函数，使用适当的学习率衰减策略(如 α_t = 1/(μt))，subgradient/SGD 方法可达到 O(1/T) 的收敛速率。", difficulty: 3 },
+                { id: "ucb-cs281-mid-f-9", question: "在线梯度下降(OGD)中，使用投影操作确保权重始终位于可行____内。", answer: "集(或域)", explanation: "OGD 的更新公式为 w_{t+1} = Π_K(w_t - η_t g_t)，其中 Π_K 是到凸集 K 的投影，保证更新后的权重仍在可行域内。", difficulty: 2 },
+                { id: "ucb-cs281-mid-f-10", question: "No Free Lunch 定理指出，在所有可能的____上取平均，任何学习算法的表现都相同。", answer: "数据生成分布", explanation: "NFL 定理表明不存在对所有分布都最优的学习算法，因此我们需要对数据分布做假设(bias)来获得好的泛化性能。", difficulty: 2 },
+            ],
+            code: [
+                { id: "ucb-cs281-mid-code-1", question: "补全以下代码，实现线性分类器的 0-1 损失计算。", code: "import numpy as np\n\ndef zero_one_loss(w, X, y):\n    \"\"\"w: 权重向量, X: 设计矩阵, y: 标签向量(±1)\"\"\"\n    predictions = np.sign(X @ w)\n    losses = (predictions != y).astype(float)\n    return ____", answer: "np.mean(losses)", explanation: "0-1 损失即分类错误率，先计算预测标签与真实标签的比较结果，再取平均值得到经验风险 R_emp(w)。", difficulty: 1 },
+                { id: "ucb-cs281-mid-code-2", question: "补全以下代码，实现 Hedge 算法的权重更新步骤。", code: "import numpy as np\n\ndef hedge_update(weights, losses, lr):\n    \"\"\"weights: 专家权重, losses: 各专家损失, lr: 学习率\"\"\"\n    new_weights = weights * np.exp(-lr * ____)\n    return new_weights / np.sum(new_weights)", answer: "losses", explanation: "Hedge 算法的权重更新为 w_i' = w_i * exp(-η * l_i)，然后归一化使权重和为 1。损失越大的专家权重衰减越多。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "ucb-cs281-fin-c-1", question: "PAC-Bayes 界相比传统 PAC 界的核心优势是什么？", options: ["不需要任何假设","对假设分布而不是单个假设给出泛化界，通常更紧","只适用于线性模型","不需要训练数据"], answer: 1, explanation: "PAC-Bayes 对假设空间上的概率分布给出泛化界，而非最坏情况假设，通常能获得更紧的界，且适用于假设类非常大的情况。", difficulty: 3 },
+                { id: "ucb-cs281-fin-c-2", question: "稳定性(Stability)分析与泛化的关系是什么？", options: ["不稳定的学习算法泛化更好","算法的稳定性(对单个样本的敏感度)可以推出泛化误差界","稳定性只对在线学习有意义","稳定性等价于经验风险最小化"], answer: 1, explanation: "稳定性分析通过衡量算法对训练集单个样本变化的敏感度来推导泛化界：如果算法是均匀稳定的，则泛化误差由稳定性界控制。", difficulty: 3 },
+                { id: "ucb-cs281-fin-c-3", question: "在凸优化中，mirror descent 相比标准梯度下降的优势是什么？", options: ["计算速度更快","可以利用问题的几何结构(如 KL 散度)获得更好的收敛","不需要梯度信息","适用于所有函数"], answer: 1, explanation: "Mirror descent 使用 Bregman 散度代替欧几里得距离进行更新，可以利用目标函数的几何结构(如概率单纯形)获得更优的收敛率。", difficulty: 3 },
+                { id: "ucb-cs281-fin-c-4", question: "Structural Risk Minimization(SRM) 由谁提出，其核心思想是什么？", options: ["Vapnik，最小化经验风险加上复杂度惩罚","Hinton，使用深度网络","Turing，通用计算","Bayes，概率推断"], answer: 0, explanation: "SRM 由 Vapnik 提出，核心是在假设类嵌套序列中选择使经验风险 + 复杂度惩罚之和最小的假设类，平衡拟合与泛化。", difficulty: 2 },
+                { id: "ucb-cs281-fin-c-5", question: "在在线学习中，Follow the Perturbed Leader(FPL) 算法通过什么机制来实现探索？", options: ["添加正则化项","向累计损失添加随机扰动","使用双层优化","维护多个模型"], answer: 1, explanation: "FPL 在每个决策中选择使扰动后的累计损失最小的行动，扰动的随机性实现了 explore，确定性部分实现了 exploit。", difficulty: 3 },
+                { id: "ucb-cs281-fin-c-6", question: "Kullback-Leibler 散度在 PAC-Bayes 界中起什么作用？", options: ["衡量计算复杂度","作为后验分布与先验分布之间的正则化项","衡量数据量","衡量模型大小"], answer: 1, explanation: "PAC-Bayes 界包含 KL(Q||P) 项，衡量后验分布 Q 相对于先验分布 P 的偏离程度，起到隐式正则化作用。", difficulty: 3 },
+                { id: "ucb-cs281-fin-c-7", question: "在凸优化的对偶理论中，强对偶性成立时，原问题与对偶问题的最优值有什么关系？", options: ["对偶问题总是更优","两者相等","对偶问题最多是原问题的 0.5 倍","两者没有确定关系"], answer: 1, explanation: "强对偶性意味着原问题最优值 = 对偶问题最优值(d* = p*)，此时互补松弛条件和 KKT 条件给出最优解的完整刻画。", difficulty: 2 },
+                { id: "ucb-cs281-fin-c-8", question: "在线学习中的 Adaptive Regret 要求在任意时间区间上都有低 regret，这与什么概念相关？", options: ["静态遗憾","动态遗憾(或切换遗憾)","总遗憾","累积遗憾"], answer: 1, explanation: "Adaptive Regret 要求在任意连续时间区间 [s,t] 上 regret 都是 sublinear 的，这比传统的静态遗憾更强，与动态遗憾的概念密切相关。", difficulty: 3 },
+                { id: "ucb-cs281-fin-c-9", question: "Uniform Convergence 和 Stability 是哪两种不同的泛化分析方法？", options: ["前者依赖分布无关的假设类复杂度，后者依赖算法特性","两者完全相同","前者只适用于在线学习，后者只适用于凸优化","前者是精确的，后者是近似的"], answer: 0, explanation: "Uniform Convergence 从假设类的复杂度(Rademacher/VC)出发给出分布无关的泛化界；Stability 从算法的鲁棒性出发，对特定算法给出数据依赖的界。", difficulty: 3 },
+                { id: "ucb-cs281-fin-c-10", question: "在线学习中 OMD(Online Mirror Descent) 的迭代更新公式是什么？", options: ["w_{t+1} = w_t - η_t g_t","w_{t+1} = argmin_w {η_t g_t^T w + D(w, w_t)}","w_{t+1} = argmin_w {g_t^T w}","w_{t+1} = w_t / (1 + η_t)"], answer: 1, explanation: "OMD 的更新为 w_{t+1} = argmin_w {η_t ⟨g_t, w⟩ + D_ψ(w, w_t)}，其中 D_ψ 是 Bregman 散度，将梯度步骤与镜像映射结合。", difficulty: 3 },
+            ],
+            fill: [
+                { id: "ucb-cs281-fin-f-1", question: "PAC-Bayes 定理将泛化误差分解为经验误差和后验分布 Q 与先验分布 P 之间的 ____ 散度项。", answer: "KL(或 Kullback-Leibler)", explanation: "PAC-Bayes 界：R(Q) ≤ R_emp(Q) + √((KL(Q||P) + ln(n/δ)) / (2n))，KL 散度项作为复杂度惩罚实现隐式正则化。", difficulty: 3 },
+                { id: "ucb-cs281-fin-f-2", question: "在在线凸优化中，OGD 使用投影梯度下降，投影到凸集 K 上的一般公式为 Π_K(x) = argmin_{y∈K} ____。", answer: "∥y - x∥²(或距离的平方)", explanation: "投影算子找到凸集 K 中与 x 欧几里得距离最近的点，即 Π_K(x) = argmin_{y∈K} ∥y-x∥²/2，对于常见集合有闭式解。", difficulty: 3 },
+                { id: "ucb-cs281-fin-f-3", question: "KKT 条件包含四个部分：平稳性、原始可行性、对偶可行性和____松弛。", answer: "互补", explanation: "互补松弛条件：λ_i * g_i(x*) = 0，要求在最优解处，要么约束紧(等式成立)，要么对应的对偶变量为零。", difficulty: 2 },
+                { id: "ucb-cs281-fin-f-4", question: "在 PAC 学习中，____界将假设类的 VC 维与泛化误差联系起来。", answer: "Blumer-Ehrenfeucht-Haussler(Vapnik-Chervonenkis)", explanation: "BEH(或 VC)定理证明：当 n > O(d/ε + ln(1/δ)/ε) 时，ERM 以至少 1-δ 的概率输出误差不超过 ε 的假设。", difficulty: 2 },
+                { id: "ucb-cs281-fin-f-5", question: "在线学习中，regret T_regret = Σt L(w_t) - min_{w∈K} Σt L(w) 中，min 是在 ____ 上取最小。", answer: "固定(最优固定决策/所有轮)", explanation: "传统 regret 定义中，基准是选择一个固定决策 w* 最小化所有轮的累计损失，而非允许每轮自适应地改变。", difficulty: 2 },
+                { id: "ucb-cs281-fin-f-6", question: "Strongly Convex 函数满足 f(y) ≥ f(x) + ∇f(x)^T(y-x) + μ/2 * ____。", answer: "∥y - x∥²(或距离平方)", explanation: "μ-强凸性：f(y) ≥ f(x) + ⟨∇f(x), y-x⟩ + (μ/2)∥y-x∥²，多出的二次项保证了函数具有良好的曲率，加速收敛。", difficulty: 3 },
+                { id: "ucb-cs281-fin-f-7", question: "在线学习中的 Expert 框架中，Weighted Majority 算法使用 ____ 权重来更新专家权重。", answer: "乘法(指数)", explanation: "MW 算法按指数衰减更新权重 w_i' = w_i × β^{l_i}，其中 β ∈ (0,1) 是学习参数，l_i 是专家的 0/1 损失。", difficulty: 2 },
+                { id: "ucb-cs281-fin-f-8", question: "Bregman 散度 D_ψ(x, y) = ψ(x) - ψ(y) - ∇ψ(y)^T(x-y)，当 ψ 取 ½∥·∥² 时退化为 ____ 距离。", answer: "欧几里得(或 L2)", explanation: "当 ψ(x) = ½∥x∥² 时，Bregman 散度 D_ψ(x,y) = ½∥x∥² - ½∥y∥² - ⟨y, x-y⟩ = ½∥x-y∥²，即欧几里得距离的平方。", difficulty: 3 },
+                { id: "ucb-cs281-fin-f-9", question: "在 PAC 学习中，样本复杂度 n = O(d/ε) 表明线性分类器需要的样本数与特征维度 d 成 ____ 比。", answer: "线性(正)", explanation: "对于线性分类器，VC 维为 d+1，因此样本复杂度与 d 成线性关系。这是 PAC 框架下有限维假设类的典型结果。", difficulty: 2 },
+                { id: "ucb-cs281-fin-f-10", question: "Regularization 的统计学解释中，L2 正则化等价于对参数施加____ 先验的 MAP 估计。", answer: "高斯(正态)", explanation: "L2 正则化的最优解等价于假设参数服从零均值高斯先验时的最大后验(MAP)估计，正则化系数 λ 与先验方差成反比。", difficulty: 2 },
+            ],
+            code: [
+                { id: "ucb-cs281-fin-code-1", question: "补全以下代码，实现 SVM 的 hinge loss 计算。", code: "import numpy as np\n\ndef hinge_loss(w, X, y, lam=0.1):\n    \"\"\"w: 权重, X: 数据矩阵, y: 标签(±1), lam: 正则化系数\"\"\"\n    margins = y * (X @ w)\n    losses = np.maximum(0, 1 - margins)\n    return np.mean(losses) + lam * ____", answer: "np.dot(w, w)(或 0.5 * np.linalg.norm(w)**2)", explanation: "SVM 的目标是最小化经验 hinge loss + L2 正则化项，即 (1/n)Σmax(0, 1-y_i w^T x_i) + λ∥w∥²。", difficulty: 2 },
+                { id: "ucb-cs281-fin-code-2", question: "补全以下代码，实现在线梯度下降(OGD)的一次迭代。", code: "import numpy as np\n\ndef ogd_step(w, grad, lr, K):\n    \"\"\"w: 当前权重, grad: 梯度, lr: 学习率, K: 可行集(简单约束框)\"\"\"\n    w_new = w - lr * grad\n    w_new = np.clip(w_new, ____, ____)\n    return w_new", answer: "K[0], K[1]", explanation: "OGD 在梯度下降后需要将结果投影到可行集 K 上。对于简单约束框 K = [K[0], K[1]]，投影等价于逐维度 clip 操作。", difficulty: 2 },
+            ]
+        }
+    },
+
+
 };
