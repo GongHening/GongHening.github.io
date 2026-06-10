@@ -64,16 +64,17 @@ const Hero = {
     },
 
     /**
-     * Fetch hit count from external API
+     * Fetch hit count from external API (counterapi.dev)
      * @returns {Promise<number|null>} Hit count or null
      */
     async fetchHitCount() {
-        const COUNTER_NS = 'day-ai-yourself';
-        const COUNTER_KEY = 'site-hits';
+        const WORKSPACE = 'day-ai';
+        const COUNTER_NAME = 'site-hits';
 
         try {
             const response = await fetch(
-                `https://api.countapi.xyz/hit/${COUNTER_NS}/${COUNTER_KEY}`
+                `https://api.counterapi.dev/v2/${WORKSPACE}/${COUNTER_NAME}/up`,
+                { method: 'GET' }
             );
 
             if (!response.ok) {
@@ -82,8 +83,8 @@ const Hero = {
 
             const data = await response.json();
 
-            if (data && typeof data.value === 'number') {
-                return data.value;
+            if (data && typeof data.data === 'number') {
+                return data.data;
             }
 
             return null;
