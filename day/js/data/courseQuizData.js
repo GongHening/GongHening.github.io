@@ -9505,4 +9505,4654 @@ class CountMinSketch:
             ]
         }
     }
+
+    /* ====================================================
+     * Generated: DL (1-9), NLP (10-23), CV (24-34),
+     *            RL (35-44), Agents (45-50),
+     *            Speech (52-57), Infra (58-69)
+     * (Skipped: cs236-deep-generative-models, #51 Speech&LP duplicate)
+     * ==================================================== */
+    /* ================================================================
+     * DL Courses 1-9
+     * ================================================================ */
+
+    /* --- 1. Graph Neural Networks --- */
+    "Graph Neural Networks": {
+        courseId: "graph-neural-networks",
+        domain: "dl",
+        mid: {
+            choice: [
+                { id: "gnn-mid-c-1", question: "图神经网络中消息传递（Message Passing）的核心操作是什么？", options: ["节点特征直接输出", "邻居节点特征聚合后更新当前节点", "删除所有边", "只保留自环边"], answer: 1, explanation: "消息传递机制中，每个节点从其邻居收集信息（聚合），然后结合自身信息进行更新。", difficulty: 1 },
+                { id: "gnn-mid-c-2", question: "GCN（图卷积网络）的卷积操作在什么域上进行？", options: ["时间域", "频域（拉普拉斯特征域）", "空间域", "像素域"], answer: 1, explanation: "GCN 的卷积在图的频域上定义，利用图拉普拉斯矩阵的特征分解来实现滤波操作。", difficulty: 2 },
+                { id: "gnn-mid-c-3", question: "以下哪个不是图神经网络的典型聚合函数？", options: ["求和聚合", "均值聚合", "最大池化聚合", "softmax聚合"], answer: 3, explanation: "常见的聚合函数包括求和（Sum）、均值（Mean）和最大池化（Max Pooling），softmax 不是标准的聚合函数。", difficulty: 1 },
+                { id: "gnn-mid-c-4", question: "GraphSAGE 相比 GCN 的主要改进是什么？", options: ["更深的网络", "支持归纳学习（Inductive Learning）", "不需要节点特征", "只适用于有向图"], answer: 1, explanation: "GraphSAGE 通过采样邻居并学习聚合函数，可以为未见过的新节点生成嵌入，支持归纳学习。", difficulty: 2 },
+                { id: "gnn-mid-c-5", question: "过平滑（Over-smoothing）问题在 GNN 中指的是什么？", options: ["梯度消失", "随着层数增加，所有节点表示趋于相同", "训练速度过慢", "内存溢出"], answer: 1, explanation: "过平滑是指随着 GNN 层数增加，经过多轮消息传递后，所有节点的表示逐渐收敛到相同值，失去区分性。", difficulty: 2 },
+                { id: "gnn-mid-c-6", question: "GAT（图注意力网络）中注意力系数的作用是什么？", options: ["给所有邻居相同权重", "为不同邻居学习不同的注意力权重", "完全忽略邻居信息", "只关注距离最远的节点"], answer: 1, explanation: "GAT 通过注意力机制为每个邻居分配不同的权重，让模型自适应地关注重要的邻居节点。", difficulty: 1 },
+                { id: "gnn-mid-c-7", question: "图池化（Graph Pooling）的主要目的是什么？", options: ["增加节点数量", "降低图的分辨率，提取层次化表示", "删除所有边", "增加自环"], answer: 1, explanation: "图池化通过逐步降低图的分辨率来学习图的层次化表示，类似于 CNN 中的池化操作。", difficulty: 2 },
+                { id: "gnn-mid-c-8", question: "在异构图（Heterogeneous Graph）中，不同类型的边通常需要什么处理？", options: ["忽略类型差异", "使用不同的关系特定变换矩阵", "删除所有边", "统一使用相同权重"], answer: 1, explanation: "异构图中不同类型的边代表不同的语义关系，通常需要为每种关系设计特定的变换矩阵。", difficulty: 3 },
+                { id: "gnn-mid-c-9", question: "消息传递神经网络（MPNN）框架将 GNN 的过程分为哪几个阶段？", options: ["输入-输出", "消息传递-读出", "编码-解码", "训练-推理"], answer: 1, explanation: "MPNN 框架将 GNN 分为消息传递阶段（逐层聚合邻居信息）和读出阶段（将节点表示聚合为图级表示）。", difficulty: 2 },
+                { id: "gnn-mid-c-10", question: "图同构检验中，Weisfeiler-Lehman（WL）测试与 GNN 的表达能力有什么关系？", options: ["GNN 总是更强", "GNN 的区分能力不超过 WL 测试", "两者完全无关", "WL 测试更弱"], answer: 1, explanation: "理论证明标准的消息传递 GNN 的判别能力不超过 1-WL 测试，即 GNN 无法区分 WL 测试无法区分的图。", difficulty: 3 }
+            ],
+            fill: [
+                { id: "gnn-mid-f-1", question: "图神经网络中的____（Message Passing）是指节点从邻居收集信息的过程。", answer: "消息传递", explanation: "消息传递是 GNN 的核心操作，每层中节点通过收集和聚合邻居信息来更新自身表示。", difficulty: 1 },
+                { id: "gnn-mid-f-2", question: "GCN 使用图的____矩阵（Laplacian）来进行频域卷积。", answer: "拉普拉斯", explanation: "图拉普拉斯矩阵 L = D - A 是 GCN 频域卷积的数学基础。", difficulty: 2 },
+                { id: "gnn-mid-f-3", question: "GAT 使用____（Attention）机制来为不同邻居分配不同的重要性权重。", answer: "注意力", explanation: "GAT 引入注意力机制，让每个节点自适应地为邻居分配不同的权重。", difficulty: 1 },
+                { id: "gnn-mid-f-4", question: "在图级别任务中，____（Readout）函数将节点表示聚合为图级表示。", answer: "读出", explanation: "Readout 函数将所有节点的嵌入聚合成一个固定大小的图级表示。", difficulty: 2 },
+                { id: "gnn-mid-f-5", question: "过平滑（Over-____）是 GNN 中随着层数增加导致节点表示趋同的问题。", answer: "smoothing", explanation: "Over-smoothing（过平滑）是深层 GNN 的主要挑战，多轮消息传递使所有节点表示趋于一致。", difficulty: 2 },
+                { id: "gnn-mid-f-6", question: "GraphSAGE 通过____（Sampling）邻居来控制计算复杂度。", answer: "采样", explanation: "GraphSAGE 对每个节点采样固定数量的邻居，使计算复杂度与层数而非图大小成正比。", difficulty: 2 },
+                { id: "gnn-mid-f-7", question: "在分子图预测任务中，节点通常表示____（Atoms），边表示化学键。", answer: "原子", explanation: "在分子图中，原子作为节点，化学键作为边，GNN 可以学习分子的性质表示。", difficulty: 1 },
+                { id: "gnn-mid-f-8", question: "MPNN 框架包含消息传递和____（Readout）两个主要阶段。", answer: "读出", explanation: "MPNN 先通过消息传递更新节点表示，再通过读出函数得到图级表示。", difficulty: 1 },
+                { id: "gnn-mid-f-9", question: "图卷积可以看作是谱域卷积在____域的近似。", answer: "空域", explanation: "GCN 是谱图卷积的一阶近似，将频域操作转化为空域（空间域）上高效的邻居特征变换。", difficulty: 3 },
+                { id: "gnn-mid-f-10", question: "异构图（Heterogeneous____）包含多种类型的节点和边。", answer: "Graph", explanation: "异构图包含多种节点类型和多种边类型，需要特殊的消息传递机制来处理。", difficulty: 2 }
+            ],
+            code: [
+                { id: "gnn-mid-code-1", question: "补全 GCN 单层的消息传递代码", code: "import torch\nimport torch.nn.functional as F\nfrom torch_geometric.nn import GCNConv\n\nclass GCNLayer(torch.nn.Module):\n    def __init__(self, in_channels, out_channels):\n        super().__init__()\n        self.conv = GCNConv(in_channels, out_channels)\n    \n    def forward(self, x, edge_index):\n        # GCNConv 自动完成邻域聚合和变换\n        x = self.conv(x, edge_index)\n        x = ____\n        return x", answer: "F.relu(x)", explanation: "GCN 层在卷积操作后通常使用 ReLU 激活函数引入非线性。", difficulty: 1 },
+                { id: "gnn-mid-code-2", question: "补全图级分类的读出函数代码", code: "import torch\nimport torch_geometric\nfrom torch_geometric.nn import global_mean_pool\n\ndef graph_level_readout(node_embeddings, batch):\n    \"\"\"将节点嵌入聚合为图级表示\"\"\"\n    # node_embeddings: [total_nodes, hidden_dim]\n    # batch: 每个节点属于哪个图\n    \n    # 使用全局均值池化\n    graph_embedding = ____\n    return graph_embedding  # [num_graphs, hidden_dim]", answer: "global_mean_pool(node_embeddings, batch)", explanation: "global_mean_pool 根据 batch 信息将节点分组，计算每个图的节点嵌入均值作为图级表示。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "gnn-fin-c-1", question: "GIN（Graph Isomorphism Network）相比 GCN 为什么具有更强的表达能力？", options: ["使用了更深的网络", "聚合函数使用求和而非均值，与 WL 测试等价", "使用了注意力机制", "引入了残差连接"], answer: 1, explanation: "GIN 使用可学习参数的求和聚合，理论证明其判别能力与 1-WL 测试等价，是消息传递 GNN 中表达能力最强的。", difficulty: 3 },
+                { id: "gnn-fin-c-2", question: "在图对比学习中，InfoNCE 损失的目标是什么？", options: ["最大化正样本对的相似度，最小化负样本对的相似度", "最大化所有样本的相似度", "最小化所有样本的相似度", "让节点表示全为零"], answer: 0, explanation: "InfoNCE 损失通过拉近正样本对（同一图的不同增强）推远负样本对来学习无监督图表示。", difficulty: 2 },
+                { id: "gnn-fin-c-3", question: "时空图神经网络（ST-GNN）主要用于什么类型的数据？", options: ["纯文本", "具有空间和时间依赖性的数据（如交通流）", "静态图像", "表格数据"], answer: 1, explanation: "ST-GNN 同时建模空间依赖（图结构）和时间依赖（时序变化），适用于交通预测、气象预测等任务。", difficulty: 2 },
+                { id: "gnn-fin-c-4", question: "图 Transformer 相比传统 GNN 的优势是什么？", options: ["计算更快", "可以捕获任意距离的节点间依赖", "参数更少", "不需要节点特征"], answer: 1, explanation: "图 Transformer 通过全局注意力机制可以直接建模任意两个节点之间的关系，克服了 GNN 局部感受野的限制。", difficulty: 2 },
+                { id: "gnn-fin-c-5", question: "在知识图谱补全任务中，TransE 模型的核心假设是什么？", options: ["头实体+关系=尾实体（向量加法）", "头实体×关系=尾实体", "头实体-关系=尾实体", "随机嵌入"], answer: 0, explanation: "TransE 假设 h + r ≈ t，即头实体向量加关系向量应接近尾实体向量。", difficulty: 2 },
+                { id: "gnn-fin-c-6", question: "图神经网络中的残差连接（Residual Connection）主要解决什么问题？", options: ["过拟合", "梯度消失/爆炸，使深层 GNN 训练更稳定", "内存不足", "推理速度慢"], answer: 1, explanation: "残差连接让信息可以跳过中间层直接传播，缓解深层网络的梯度问题，同时也有助于缓解过平滑。", difficulty: 2 },
+                { id: "gnn-fin-c-7", question: "在推荐系统中使用 GNN 的典型方法是什么？", options: ["将用户和商品视为图中的节点，交互作为边", "只处理文本数据", "只使用协同过滤", "不需要图结构"], answer: 0, explanation: "如 LightGCN、PinSage 等方法将用户-商品交互建模为二部图，通过 GNN 学习更高质量的推荐表示。", difficulty: 1 },
+                { id: "gnn-fin-c-8", question: "图神经网络中，边特征（Edge Features）通常在哪个阶段被使用？", options: ["只在最终输出", "消息构造或聚合阶段", "只在预处理", "不使用"], answer: 1, explanation: "边特征通常在消息构造阶段（作为消息的一部分）或聚合阶段（影响权重）被使用。", difficulty: 2 },
+                { id: "gnn-fin-c-9", question: "以下哪种方法可以缓解 GNN 的过平滑问题？", options: ["增加更多层数", "DropEdge（随机删除边）", "减小隐藏层维度", "增加训练轮数"], answer: 1, explanation: "DropEdge 随机删除部分边以减少邻居间的过度连接，从而缓解过平滑问题。其他方法如残差连接、JK-Net 也有效。", difficulty: 2 },
+                { id: "gnn-fin-c-10", question: "在药物发现中，GNN 用于分子性质预测时，图的表示方式通常是？", options: ["将分子看作像素网格", "将原子视为节点，化学键视为边", "只用SMILES字符串", "只用分子量"], answer: 1, explanation: "分子的自然图表示是原子作为节点、化学键作为边，GNN 可以直接在分子图上进行学习。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "gnn-fin-f-1", question: "GIN 使用____聚合函数，使其判别能力与 1-WL 测试等价。", answer: "求和", explanation: "GIN 的求和聚合保留了多重集（multiset）的完整信息，因此具有最强的表达能力。", difficulty: 3 },
+                { id: "gnn-fin-f-2", question: "图神经网络中的____（Pooling）操作可以提取图的层次化表示。", answer: "池化", explanation: "图池化（如 DiffPool、SAGPool）通过层次化降低图分辨率来提取多尺度表示。", difficulty: 2 },
+                { id: "gnn-fin-f-3", question: "知识图谱中的____（Embedding）方法将实体和关系映射到低维向量空间。", answer: "嵌入", explanation: "知识图谱嵌入方法如 TransE、DistMult 将实体和关系映射到连续向量空间进行推理。", difficulty: 1 },
+                { id: "gnn-fin-f-4", question: "在图对比学习中，____（Augmentation）用于生成正样本对。", answer: "数据增强", explanation: "图数据增强包括节点丢弃、边扰动、子图采样等，用于生成正样本对进行对比学习。", difficulty: 2 },
+                { id: "gnn-fin-f-5", question: "GCN 的传播公式可以简化为 ______ + A) * D_hat^(-1/2) * X * W。", answer: "I", explanation: "GCN 公式中加入自环（I + A），其中 I 是单位矩阵，确保节点也利用自身特征。", difficulty: 3 },
+                { id: "gnn-fin-f-6", question: "图神经网络在____（Social Network）分析中广泛应用，如社区检测和影响力预测。", answer: "社交网络", explanation: "GNN 天然适合社交网络分析，因为社交网络本身就是图结构数据。", difficulty: 1 },
+                { id: "gnn-fin-f-7", question: "在交通预测中，ST-GNN 使用____（Graph）来建模路口之间的空间关系。", answer: "图", explanation: "交通网络中路口作为节点，道路作为边构成图结构，ST-GNN 用图卷积建模空间依赖。", difficulty: 1 },
+                { id: "gnn-fin-f-8", question: "PinSage 是 Pinterest 开发的基于____的推荐系统。", answer: "GNN", explanation: "PinSage 是第一个将 GNN 应用于工业级推荐系统的模型，在 Pinterest 图上学习 Pin 的表示。", difficulty: 1 },
+                { id: "gnn-fin-f-9", question: "图注意力机制中，注意力系数通常通过____函数进行归一化。", answer: "softmax", explanation: "GAT 使用 softmax 将注意力得分归一化为概率分布，确保邻居权重之和为1。", difficulty: 2 },
+                { id: "gnn-fin-f-10", question: "DropEdge 通过随机删除____来缓解过平滑问题。", answer: "边", explanation: "DropEdge 在每层训练时随机删除一部分边，减少邻居间的过度信息传递。", difficulty: 2 }
+            ],
+            code: [
+                { id: "gnn-fin-code-1", question: "补全 GAT 的注意力计算代码", code: "import torch\nimport torch.nn.functional as F\n\ndef compute_attention(h_i, h_j, a_linear, a注意力):\n    \"\"\"计算节点 i 对节点 j 的注意力系数\"\"\"\n    # h_i, h_j: 节点特征\n    # a_linear: 线性变换\n    # a注意力: 注意力向量\n    \n    wh_i = a_linear(h_i)\n    wh_j = a_linear(h_j)\n    \n    # 注意力得分\n    e_ij = F.leaky_relu(wh_i + wh_j, negative_slope=0.2)\n    \n    # softmax 归一化\n    attention = ____\n    return attention", answer: "F.softmax(e_ij, dim=0)", explanation: "注意力系数通过 LeakyReLU 激活后用 softmax 归一化，确保所有邻居的权重和为1。", difficulty: 2 },
+                { id: "gnn-fin-code-2", question: "补全图分类的读出和分类代码", code: "import torch\nimport torch.nn as nn\nfrom torch_geometric.nn import global_add_pool\n\nclass GraphClassifier(nn.Module):\n    def __init__(self, hidden_dim, num_classes):\n        super().__init__()\n        self.mlp = nn.Linear(hidden_dim, num_classes)\n    \n    def forward(self, node_emb, batch, labels=None):\n        # 聚合节点为图级表示\n        graph_emb = global_add_pool(node_emb, batch)\n        \n        # 分类\n        out = self.mlp(graph_emb)\n        \n        if labels is not None:\n            loss = ____\n            return out, loss\n        return out", answer: "F.cross_entropy(out, labels)", explanation: "图分类任务使用全局池化得到图级表示后接分类头，训练时用交叉熵损失。", difficulty: 2 }
+            ]
+        }
+    },
+
+    /* --- 2. Knowledge Graphs --- */
+    "Knowledge Graphs": {
+        courseId: "knowledge-graphs",
+        domain: "dl",
+        mid: {
+            choice: [
+                { id: "kg-mid-c-1", question: "RDF（资源描述框架）的基本三元组结构是什么？", options: ["主语-谓语-宾语", "输入-输出-损失", "层-权重-偏置", "节点-边-标签"], answer: 0, explanation: "RDF 使用三元组（Subject, Predicate, Object）来表示知识，例如（爱因斯坦, 出生于, 乌尔姆）。", difficulty: 1 },
+                { id: "kg-mid-c-2", question: "OWL（Web Ontology Language）相比 RDF 的主要增强是什么？", options: ["只支持三元组", "支持丰富的本体建模和推理规则", "只支持文本数据", "不支持推理"], answer: 1, explanation: "OWL 支持类层次、属性约束、等价性、不相交性等丰富的本体建模能力，可以进行语义推理。", difficulty: 2 },
+                { id: "kg-mid-c-3", question: "SPARQL 是用于什么的查询语言？", options: ["关系数据库", "知识图谱/RDF 数据", "图像数据库", "流数据"], answer: 1, explanation: "SPARQL 是 RDF 数据的标准查询语言，类似于 SQL 在关系数据库中的角色。", difficulty: 1 },
+                { id: "kg-mid-c-4", question: "链接预测（Link Prediction）任务的目标是什么？", options: ["删除已有链接", "预测知识图谱中缺失的实体关系", "将图转换为文本", "训练语言模型"], answer: 1, explanation: "链接预测旨在发现知识图谱中尚未建模但可能正确的实体间关系（三元组补全）。", difficulty: 1 },
+                { id: "kg-mid-c-5", question: "TransE 模型中，h + r ≈ t 这个约束的几何含义是什么？", options: ["头实体沿关系向量平移后接近尾实体", "头实体和尾实体重合", "关系向量为零", "头实体乘以关系等于尾实体"], answer: 0, explanation: "TransE 将关系建模为从头实体到尾实体的平移向量，在向量空间中 h + r 应接近 t。", difficulty: 2 },
+                { id: "kg-mid-c-6", question: "知识图谱嵌入中，DistMult 和 ComplEx 的主要区别是什么？", options: ["参数量不同", "ComplEx 使用复数嵌入可以建模非对称关系", "完全相同", "ComplEx 只适用于有向图"], answer: 1, explanation: "DistMult 使用实数嵌入无法区分对称和非对称关系，ComplEx 通过复数嵌入可以建模非对称关系。", difficulty: 3 },
+                { id: "kg-mid-c-7", question: "本体（Ontology）在知识图谱中的作用是什么？", options: ["只存储数据", "定义概念层次、关系约束和推理规则", "只用于可视化", "只用于存储图像"], answer: 1, explanation: "本体定义了领域中的概念（类）、关系（属性）和约束（公理），为知识图谱提供语义模型。", difficulty: 2 },
+                { id: "kg-mid-c-8", question: "知识图谱嵌入的评分函数 h_r(t) 的目的是什么？", options: ["计算图的大小", "评估三元组 (h, r, t) 的合理性/可信度", "计算训练时间", "生成新文本"], answer: 1, explanation: "评分函数为每个三元组打分，分数越高表示该三元组越可能正确，用于链接预测和知识补全。", difficulty: 1 },
+                { id: "kg-mid-c-9", question: "在知识图谱中，RDFS（RDF Schema）提供的主要能力是什么？", options: ["复杂推理", "简单的类层次和属性定义", "深度学习", "图像识别"], answer: 1, explanation: "RDFS 提供了基本的本体建模能力，包括类（Class）层次结构和属性（Property）的域/值域定义。", difficulty: 2 },
+                { id: "kg-mid-c-10", question: "知识图谱补全和链接预测的关系是什么？", options: ["完全不同的任务", "知识图谱补全通常使用链接预测技术", "补全更简单", "预测更准确"], answer: 1, explanation: "知识图谱补全（KGC）是目标，链接预测是实现这一目标的主要技术手段，两者密切相关。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "kg-mid-f-1", question: "RDF 使用____（Triple）结构来表示知识。", answer: "三元组", explanation: "RDF 的基本数据模型是三元组（主语-谓语-宾语），这是知识图谱的最小表示单元。", difficulty: 1 },
+                { id: "kg-mid-f-2", question: "SPARQL 是专门用于查询____数据的标准语言。", answer: "RDF", explanation: "SPARQL (SPARQL Protocol and RDF Query Language) 是 W3C 标准的 RDF 查询语言。", difficulty: 1 },
+                { id: "kg-mid-f-3", question: "TransE 模型将关系建模为头实体到尾实体的____（Translation）。", answer: "平移", explanation: "TransE 的核心思想是关系可以用向量空间中的平移操作来表示：h + r ≈ t。", difficulty: 1 },
+                { id: "kg-mid-f-4", question: "知识图谱嵌入（Knowledge Graph ______）将实体和关系映射到低维向量空间。", answer: "Embedding", explanation: "知识图谱嵌入学习实体和关系的低维稠密向量表示，便于下游任务使用。", difficulty: 1 },
+                { id: "kg-mid-f-5", question: "OWL 本体支持丰富的语义表达和自动____（Reasoning）。", answer: "推理", explanation: "OWL 的公理系统支持自动推理，可以推导出新的知识或检测不一致性。", difficulty: 2 },
+                { id: "kg-mid-f-6", question: "在链接预测中，____（Negative Sampling）用于生成训练负样本。", answer: "负采样", explanation: "负采样将正确三元组的头或尾替换为随机实体来生成负样本，用于训练嵌入模型。", difficulty: 2 },
+                { id: "kg-mid-f-7", question: "RDF 的数据可以用____（Graph）结构来表示和存储。", answer: "图", explanation: "RDF 数据天然形成图结构，实体是节点，关系是边。", difficulty: 1 },
+                { id: "kg-mid-f-8", question: "知识图谱中，____（Ontology）定义了领域概念和关系的层次结构。", answer: "本体", explanation: "本体提供了知识图谱的语义模型，定义类层次、属性约束和推理规则。", difficulty: 1 },
+                { id: "kg-mid-f-9", question: "DistMult 使用双线性____函数来评分三元组。", answer: "函数", explanation: "DistMult 的评分函数为 h^T diag(r) t，是一种简单的双线性模型。", difficulty: 2 },
+                { id: "kg-mid-f-10", question: "Freebase、DBpedia 和 Wikidata 是著名的____（Knowledge Graph）实例。", answer: "知识图谱", explanation: "Freebase、DBpedia 和 Wikidata 是三大公开的大规模知识图谱，包含数十亿三元组。", difficulty: 1 }
+            ],
+            code: [
+                { id: "kg-mid-code-1", question: "补全 TransE 的评分函数代码", code: "import torch\nimport torch.nn as nn\n\nclass TransE(nn.Module):\n    def __init__(self, num_entities, num_relations, dim):\n        super().__init__()\n        self.entity_emb = nn.Embedding(num_entities, dim)\n        self.relation_emb = nn.Embedding(num_relations, dim)\n    \n    def score(self, head, relation, tail):\n        \"\"\"计算三元组的评分\"\"\"\n        h = self.entity_emb(head)\n        r = self.relation_emb(relation)\n        t = self.entity_emb(tail)\n        \n        # TransE: h + r ≈ t\n        score = -torch.norm(h + r - t, p=2, dim=1)\n        return ____", answer: "score", explanation: "TransE 使用 L2 范数的负值作为评分，距离越小（负值越大），三元组越合理。", difficulty: 2 },
+                { id: "kg-mid-code-2", question: "补全简单的 RDF 三元组查询代码", code: "class RDFGraph:\n    def __init__(self):\n        self.triples = []\n    \n    def add_triple(self, subject, predicate, obj):\n        self.triples.append((subject, predicate, obj))\n    \n    def query(self, subject=None, predicate=None, obj=None):\n        \"\"\"基于模式匹配查询三元组\"\"\"\n        results = []\n        for s, p, o in self.triples:\n            if (subject is None or s == subject) and \\\n               (predicate is None or p == predicate) and \\\n               (obj is None or o == obj):\n                results.append(____)\n        return results", answer: "(s, p, o)", explanation: "查询函数通过模式匹配筛选符合条件的三元组，返回匹配的完整三元组。", difficulty: 1 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "kg-fin-c-1", question: "RotatE 模型将关系建模为什么类型的变换？", options: ["平移", "旋转（复数空间）", "缩放", "反射"], answer: 1, explanation: "RotatE 将关系建模为复数向量空间中的旋转操作，可以自然地建模对称、反对称、逆和组合关系。", difficulty: 3 },
+                { id: "kg-fin-c-2", question: "知识图谱嵌入中的负采样策略为什么重要？", options: ["减少计算量", "影响嵌入质量，简单负采样可能导致假负例问题", "加速推理", "减少参数"], answer: 1, explanation: "负采样策略直接影响嵌入质量。简单随机采样可能采到真实正例（假负例），导致训练错误。", difficulty: 2 },
+                { id: "kg-fin-c-3", question: "基于 GNN 的知识图谱推理方法相比嵌入方法的优势是什么？", options: ["完全不需要训练", "可以利用图结构信息，具有更强的可解释性", "计算更快", "不需要实体特征"], answer: 1, explanation: "GNN 方法（如 R-GCN）通过消息传递利用图结构，推理路径更可解释，且不依赖预定义的评分函数。", difficulty: 2 },
+                { id: "kg-fin-c-4", question: "问答系统中，语义解析（Semantic Parsing）方法将自然语言转换为什么？", options: ["嵌入向量", "结构化查询（如 SPARQL）", "图像", "音频"], answer: 1, explanation: "语义解析将自然语言问题转换为结构化查询语言，可以直接在知识图谱上执行得到答案。", difficulty: 2 },
+                { id: "kg-fin-c-5", question: "知识图谱中的对称关系用 OWL 如何表示？", options: ["owl:symmetricProperty", "owl:transitiveProperty", "owl:inverseProperty", "owl:functionalProperty"], answer: 0, explanation: "owl:symmetricProperty 声明一个属性是对称的，即如果 (a, r, b) 成立则 (b, r, a) 也成立。", difficulty: 2 },
+                { id: "kg-fin-c-6", question: "在知识图谱嵌入中，评估链接预测常用的指标有哪些？", options: ["准确率和召回率", "MRR、Hits@K 和排名", "BLEU 和 ROUGE", "F1 和 AUC"], answer: 1, explanation: "链接预测常用 MRR（平均倒排名）、Hits@1/3/10 等排名指标来评估。", difficulty: 2 },
+                { id: "kg-fin-c-7", question: "知识图谱推理中的规则学习方法（如 AMIE）学习的是什么？", options: ["嵌入向量", "如果-那么形式的逻辑规则", "神经网络权重", "图结构"], answer: 1, explanation: "规则学习方法自动从知识图谱中发现逻辑规则，如 (X, born_in, Y) ∧ (Y, located_in, Z) → (X, nationality, Z)。", difficulty: 2 },
+                { id: "kg-fin-c-8", question: "RDF-star（RDF*）扩展的主要动机是什么？", options: ["加速查询", "支持对三元组本身进行注释和引用", "简化语法", "去除命名空间"], answer: 1, explanation: "RDF-star 允许将三元组作为主语或宾语，支持对陈述添加置信度、时间戳等元数据。", difficulty: 3 },
+                { id: "kg-fin-c-9", question: "知识图谱在大语言模型中的主要应用是什么？", options: ["替代 LLM", "通过检索增强生成（RAG）提供事实知识", "训练 LLM", "压缩 LLM"], answer: 1, explanation: "知识图谱可以通过 RAG 为 LLM 提供结构化的事实知识，减少幻觉并提高回答准确性。", difficulty: 1 },
+                { id: "kg-fin-c-10", question: "在多关系知识图谱中，R-GCN（Relational GCN）如何处理不同关系？", options: ["忽略关系差异", "为每种关系使用独立的变换矩阵", "合并所有关系", "随机选择关系"], answer: 1, explanation: "R-GCN 为每种关系类型维护独立的权重矩阵，在消息传递时分别处理不同类型的边。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "kg-fin-f-1", question: "RotatE 将关系建模为复数空间中的____（Rotation）。", answer: "旋转", explanation: "RotatE 用复数乘法表示旋转，t = h ⊙ r，其中 |r_i| = 1。", difficulty: 3 },
+                { id: "kg-fin-f-2", question: "知识图谱嵌入评估中，MRR 代表平均____排名（Reciprocal Rank）。", answer: "倒数", explanation: "MRR = mean(1/rank)，衡量正确答案平均排名的倒数。", difficulty: 2 },
+                { id: "kg-fin-f-3", question: "OWL 的三个公理类型中，____公理定义了类的等价关系。", answer: "等价", explanation: "EquivalentClasses 公理声明两个或多个类完全相同。", difficulty: 2 },
+                { id: "kg-fin-f-4", question: "知识图谱对齐（____）是将不同知识图谱中的等价实体进行匹配。", answer: "对齐", explanation: "知识图谱对齐（Entity Alignment）发现不同 KG 中表示同一现实实体的节点。", difficulty: 2 },
+                { id: "kg-fin-f-5", question: "R-GCN 在消息传递时为不同关系使用独立的____（Weight）矩阵。", answer: "权重", explanation: "R-GCN 为每种关系类型维护独立的变换矩阵，实现关系特定的特征变换。", difficulty: 2 },
+                { id: "kg-fin-f-6", question: "知识图谱补全中的____（Triple Classification）判断三元组是否正确。", answer: "三元组分类", explanation: "三元组分类是判断给定三元组是否为真，是知识图谱质量评估的重要任务。", difficulty: 2 },
+                { id: "kg-fin-f-7", question: "在 OWL 中，owl:transitiveProperty 表示属性具有____性。", answer: "传递", explanation: "传递属性满足：如果 (a,r,b) 和 (b,r,c) 成立，则 (a,r,c) 也成立。", difficulty: 2 },
+                { id: "kg-fin-f-8", question: "知识图谱嵌入中的____（Margin Loss）通过间隔区分正负样本。", answer: "间隔损失", explanation: "Margin Loss: max(0, margin + score_neg - score_pos)，通过间隔参数区分正负三元组。", difficulty: 2 },
+                { id: "kg-fin-f-9", question: "OpenIE（开放信息抽取）从文本中自动抽取____三元组。", answer: "关系", explanation: "OpenIE 从非结构化文本中自动抽取（主语-关系-宾语）三元组，无需预定义关系。", difficulty: 2 },
+                { id: "kg-fin-f-10", question: "Wikidata 是由____基金会维护的协作编辑知识图谱。", answer: "维基媒体", explanation: "Wikidata 是维基媒体基金会运营的自由知识库，为维基百科等项目提供结构化数据。", difficulty: 1 }
+            ],
+            code: [
+                { id: "kg-fin-code-1", question: "补全知识图谱的简单路径查询代码", code: "def find_paths(graph, start, end, max_depth=3):\n    \"\"\"在知识图谱中查找两实体间的路径\"\"\"\n    if start == end:\n        return [[start]]\n    if max_depth == 0:\n        return []\n    \n    paths = []\n    for neighbor, relation in graph.get_neighbors(start):\n        sub_paths = find_paths(graph, neighbor, end, max_depth - 1)\n        for path in sub_paths:\n            paths.append([____] + path)\n    return paths", answer: "(start, relation)", explanation: "路径查找递归地从起始实体出发，每步记录经过的关系，直到找到目标实体。", difficulty: 2 },
+                { id: "kg-fin-code-2", question: "补全负采样代码", code: "import random\n\ndef negative_sampling(pos_head, pos_tail, num_entities, num_neg=5):\n    \"\"\"对正三元组进行负采样\"\"\"\n    negatives = []\n    for _ in range(num_neg):\n        if random.random() < 0.5:\n            # 替换头实体\n            neg_head = random.randint(0, num_entities - 1)\n            while neg_head == pos_head:\n                neg_head = random.randint(0, num_entities - 1)\n            negatives.append((neg_head, pos_tail))\n        else:\n            # 替换尾实体\n            neg_tail = random.randint(0, num_entities - 1)\n            while neg_tail == ____:\n                neg_tail = random.randint(0, num_entities - 1)\n            negatives.append((pos_head, neg_tail))\n    return negatives", answer: "pos_tail", explanation: "负采样随机替换头或尾实体来生成负样本，需要确保替换后的实体不与正样本相同。", difficulty: 2 }
+            ]
+        }
+    },
+    /* --- 3. Dive into Deep Learning --- */
+    "Dive into Deep Learning": {
+        courseId: "dive-into-deep-learning",
+        domain: "dl",
+        mid: {
+            choice: [
+                { id: "d2l-mid-c-1", question: "Dive into Deep Learning 教程主要使用哪些深度学习框架？", options: ["只用 TensorFlow", "PyTorch、TensorFlow、MXNet", "只用 NumPy", "只用 JAX"], answer: 1, explanation: "D2L 教程提供 PyTorch、TensorFlow 和 MXNet 三种框架的实现代码。", difficulty: 1 },
+                { id: "d2l-mid-c-2", question: "批量归一化（Batch Normalization）的核心操作是什么？", options: ["对每个特征维度进行标准化再缩放和偏移", "删除所有参数", "只保留均值", "只保留方差"], answer: 0, explanation: "BN 对每个 mini-batch 在每个特征维度上进行归一化（减均值除标准差），然后通过可学习参数 gamma 和 beta 进行缩放和偏移。", difficulty: 2 },
+                { id: "d2l-mid-c-3", question: "Dropout 正则化在训练和推理时的行为有什么区别？", options: ["完全相同", "训练时随机丢弃神经元，推理时使用全部", "训练时不丢弃，推理时丢弃", "训练时全丢弃"], answer: 1, explanation: "训练时 Dropout 以概率 p 随机将神经元输出置零，推理时使用全部神经元但输出乘以 (1-p)。", difficulty: 2 },
+                { id: "d2l-mid-c-4", question: "Softmax 函数的输出具有什么性质？", options: ["所有值为负", "输出是非负的且总和为1", "输出为0到10之间", "输出是整数"], answer: 1, explanation: "Softmax 将任意实数向量映射为概率分布，输出非负且总和为1。", difficulty: 1 },
+                { id: "d2l-mid-c-5", question: "D2L 中介绍的 LeNet 网络是用于什么任务的经典模型？", options: ["自然语言处理", "MNIST 手写数字识别", "语音识别", "强化学习"], answer: 1, explanation: "LeNet 是 Yann LeCun 提出的经典 CNN，最初用于 MNIST 手写数字识别任务。", difficulty: 1 },
+                { id: "d2l-mid-c-6", question: "注意力机制中，Query、Key、Value 的角色分别是什么？", options: ["Q匹配K得到权重，加权V", "Q和K相同，V不同", "K匹配V得到Q", "三者完全相同"], answer: 0, explanation: "在注意力机制中，Query 与 Key 进行匹配计算注意力权重，然后对 Value 进行加权求和。", difficulty: 2 },
+                { id: "d2l-mid-c-7", question: "D2L 中介绍的 Word2Vec 的两种训练方式是什么？", options: ["CBOW 和 Skip-gram", "CNN 和 RNN", "GPT 和 BERT", "AE 和 VAE"], answer: 0, explanation: "Word2Vec 有两种训练方式：CBOW（用上下文预测中心词）和 Skip-gram（用中心词预测上下文）。", difficulty: 1 },
+                { id: "d2l-mid-c-8", question: "残差网络（ResNet）引入跳跃连接的主要目的是什么？", options: ["减少参数量", "解决深层网络的退化问题", "增加网络深度", "加速训练"], answer: 1, explanation: "跳跃连接允许梯度直接回传，缓解了深层网络中梯度消失/爆炸导致的退化问题。", difficulty: 2 },
+                { id: "d2l-mid-c-9", question: "学习率调度器（Learning Rate Scheduler）的作用是什么？", options: ["增加学习率", "在训练过程中动态调整学习率", "固定学习率", "减少 batch size"], answer: 1, explanation: "学习率调度器在训练过程中根据预设策略动态调整学习率，如余弦退火、线性衰减等。", difficulty: 1 },
+                { id: "d2l-mid-c-10", question: "D2L 中介绍的数据增强方法不包括以下哪个？", options: ["随机裁剪", "随机水平翻转", "添加高斯噪声", "修改标签"], answer: 3, explanation: "数据增强通过变换输入数据来扩充训练集，但不修改标签。常见的有裁剪、翻转、颜色抖动、噪声等。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "d2l-mid-f-1", question: "D2L 教程的全称是 Dive into Deep ______。", answer: "Learning", explanation: "Dive into Deep Learning 是一本交互式的深度学习教科书，由李沐等人编写。", difficulty: 1 },
+                { id: "d2l-mid-f-2", question: "批量归一化（Batch____）通过标准化中间层的输入来加速训练。", answer: "Normalization", explanation: "Batch Normalization 对每个 mini-batch 的特征进行标准化，加速收敛并起到正则化效果。", difficulty: 1 },
+                { id: "d2l-mid-f-3", question: "反向____（Backpropagation）是训练神经网络的核心算法。", answer: "传播", explanation: "反向传播算法从输出层到输入层逐层计算梯度，用于更新网络参数。", difficulty: 1 },
+                { id: "d2l-mid-f-4", question: "____（Overfitting）是模型在训练集上表现好但在测试集上表现差的现象。", answer: "过拟合", explanation: "过拟合指模型过度学习了训练数据的噪声和细节，导致泛化能力下降。", difficulty: 1 },
+                { id: "d2l-mid-f-5", question: "D2L 中的 AlexNet 是____（Deep Learning）历史上的里程碑模型。", answer: "深度学习", explanation: "AlexNet 在 2012 年 ImageNet 比赛中大幅领先，开启了深度学习的热潮。", difficulty: 1 },
+                { id: "d2l-mid-f-6", question: "循环神经网络（RNN）通过____（Hidden State）传递序列信息。", answer: "隐藏状态", explanation: "RNN 维护一个隐藏状态向量，在每个时间步更新并传递给下一步，捕获序列依赖。", difficulty: 1 },
+                { id: "d2l-mid-f-7", question: "D2L 中使用____（Softmax）函数将 logits 转换为概率分布。", answer: "Softmax", explanation: "Softmax 函数将原始分数转换为归一化的概率分布，用于分类任务。", difficulty: 1 },
+                { id: "d2l-mid-f-8", question: "梯度____（Gradient Clipping）用于防止训练过程中的梯度爆炸。", answer: "裁剪", explanation: "梯度裁剪将梯度范数限制在阈值内，防止梯度爆炸导致训练不稳定。", difficulty: 2 },
+                { id: "d2l-mid-f-9", question: "注意力机制的计算复杂度是序列长度的____（Quadratic）复杂度。", answer: "二次", explanation: "标准注意力需要计算所有 Query-Key 对，复杂度为 O(n^2)，其中 n 是序列长度。", difficulty: 2 },
+                { id: "d2l-mid-f-10", question: "D2L 中的序列到序列模型使用____（Encoder-Decoder）架构。", answer: "编码器-解码器", explanation: "Seq2Seq 模型使用编码器处理输入序列，解码器生成输出序列。", difficulty: 1 }
+            ],
+            code: [
+                { id: "d2l-mid-code-1", question: "补全批量归一化的前向传播代码", code: "import torch\nimport torch.nn as nn\n\nclass BatchNorm1d(nn.Module):\n    def __init__(self, num_features, eps=1e-5, momentum=0.1):\n        super().__init__()\n        self.gamma = nn.Parameter(torch.ones(num_features))\n        self.beta = nn.Parameter(torch.zeros(num_features))\n        self.eps = eps\n        self.momentum = momentum\n        self.register_buffer('running_mean', torch.zeros(num_features))\n        self.register_buffer('running_var', torch.ones(num_features))\n    \n    def forward(self, X):\n        if self.training:\n            mean = X.mean(dim=0)\n            var = X.var(dim=0, unbiased=False)\n            X_norm = (X - mean) / torch.sqrt(var + self.eps)\n            self.running_mean = (1 - self.momentum) * self.running_mean + self.momentum * mean.detach()\n            self.running_var = (1 - self.momentum) * self.running_var + self.momentum * var.detach()\n        else:\n            X_norm = (X - self.running_mean) / torch.sqrt(____)", answer: "self.running_var + self.eps", explanation: "推理时使用训练期间累积的 running_mean 和 running_var 进行归一化，加上 eps 防止除零。", difficulty: 2 },
+                { id: "d2l-mid-code-2", question: "补全 Adam 优化器的参数更新代码", code: "import numpy as np\n\ndef adam_update(params, grads, m, v, t, lr=0.001, beta1=0.9, beta2=0.999, eps=1e-8):\n    \"\"\"Adam 优化器的单步更新\"\"\"\n    for i in range(len(params)):\n        # 更新一阶矩估计\n        m[i] = beta1 * m[i] + (1 - beta1) * grads[i]\n        # 更新二阶矩估计\n        v[i] = beta2 * v[i] + (1 - beta2) * grads[i]**2\n        \n        # 偏差修正\n        m_hat = m[i] / (1 - beta1**t)\n        v_hat = v[i] / (1 - beta2**t)\n        \n        # 参数更新\n        params[i] = params[i] - ____\n    return params, m, v", answer: "lr * m_hat / (np.sqrt(v_hat) + eps)", explanation: "Adam 通过偏差修正的一阶和二阶矩估计来更新参数，自适应调整每个参数的学习率。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "d2l-fin-c-1", question: "D2L 中介绍的 Transformer 的自注意力机制相比 RNN 的优势是什么？", options: ["参数更少", "可以并行计算且直接建模长距离依赖", "训练更慢", "不需要 GPU"], answer: 1, explanation: "自注意力可以直接计算任意两个位置间的依赖关系，并且所有位置可以并行计算，不像 RNN 需要逐步递推。", difficulty: 2 },
+                { id: "d2l-fin-c-2", question: "在 D2L 中，迁移学习的 fine-tuning 策略通常是怎样的？", options: ["从头训练所有参数", "冻结预训练层，只微调新添加的层", "只微调最后一层", "删除预训练参数"], answer: 1, explanation: "Fine-tuning 通常先冻结预训练层的参数，只训练新添加的任务特定层，然后逐步解冻更多层进行微调。", difficulty: 2 },
+                { id: "d2l-fin-c-3", question: "D2L 中的 GAN 训练过程涉及哪两个网络？", options: ["编码器和解码器", "生成器和判别器", "CNN和RNN", "Q网络和V网络"], answer: 1, explanation: "GAN 由生成器（Generator）和判别器（Discriminator）组成，通过对抗训练共同优化。", difficulty: 1 },
+                { id: "d2l-fin-c-4", question: "D2L 中介绍的 BERT 预训练任务是什么？", options: ["语言建模", "掩码语言模型（MLM）和下一句预测（NSP）", "机器翻译", "图像分类"], answer: 1, explanation: "BERT 使用 MLM（随机掩码部分 token 并预测）和 NSP（判断两句是否相邻）两个预训练任务。", difficulty: 2 },
+                { id: "d2l-fin-c-5", question: "D2L 中介绍的 U-Net 架构的主要设计特点是什么？", options: ["只编码不解码", "跳跃连接连接编码器和解码器的对应层", "使用 RNN", "使用注意力机制"], answer: 1, explanation: "U-Net 通过跳跃连接将编码器的特征图直接传递给解码器对应层，保留空间细节信息。", difficulty: 2 },
+                { id: "d2l-fin-c-6", question: "D2L 中介绍的数据并行和模型并行的区别是什么？", options: ["完全相同", "数据并行切分数据，模型并行切分模型", "数据并行更慢", "模型并行不需要通信"], answer: 1, explanation: "数据并行将数据分到不同 GPU 上并行处理，模型并行将模型的不同部分放在不同 GPU 上。", difficulty: 2 },
+                { id: "d2l-fin-c-7", question: "D2L 中的注意力分数计算有哪些变体？", options: ["只有加法", "加法、点积和缩放点积", "只有乘法", "只有减法"], answer: 1, explanation: "注意力分数有加法注意力（Bahdanau）、点积注意力和缩放点积注意力（Transformer）等变体。", difficulty: 2 },
+                { id: "d2l-fin-c-8", question: "D2L 中介绍的目标检测中，IoU 的含义是什么？", options: ["交并比，衡量预测框和真实框的重叠程度", "输入输出比", "损失与优化比", "特征图尺寸"], answer: 0, explanation: "IoU（Intersection over Union）是预测边界框与真实边界框交集面积除以并集面积。", difficulty: 1 },
+                { id: "d2l-fin-c-9", question: "D2L 中介绍的 BPE（字节对编码）的作用是什么？", options: ["图像压缩", "将文本分割为子词单元", "语音编码", "视频编码"], answer: 1, explanation: "BPE 通过迭代合并最频繁的字符对来构建子词词表，在词粒度和字符粒度之间取得平衡。", difficulty: 2 },
+                { id: "d2l-fin-c-10", question: "D2L 中介绍的混合精度训练使用什么数据类型来加速计算？", options: ["只用float64", "float16和float32混合使用", "只用int8", "只用布尔类型"], answer: 1, explanation: "混合精度训练使用 float16 进行计算加速，使用 float32 维护主权重副本以保证精度。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "d2l-fin-f-1", question: "Transformer 的位置编码使用____（Sine）和余弦函数来注入位置信息。", answer: "正弦", explanation: "Transformer 使用正弦和余弦函数生成位置编码，不同频率对应不同位置。", difficulty: 2 },
+                { id: "d2l-fin-f-2", question: "D2L 中介绍的____（Attention）机制是 Transformer 的核心组件。", answer: "注意力", explanation: "自注意力机制是 Transformer 的核心，使模型能够直接建模序列中任意两个位置的依赖。", difficulty: 1 },
+                { id: "d2l-fin-f-3", question: "D2L 中的 Seq2Seq 模型在解码时通常使用____（Greedy）或束搜索来生成输出。", answer: "贪心", explanation: "贪心搜索每步选择概率最大的词，束搜索维护多个候选序列，后者质量更高但更慢。", difficulty: 2 },
+                { id: "d2l-fin-f-4", question: "D2L 中介绍的 ResNet 使用____（Skip）连接解决退化问题。", answer: "跳跃", explanation: "跳跃连接（Shortcut Connection）让梯度可以直接跨层传播，训练更深的网络。", difficulty: 1 },
+                { id: "d2l-fin-f-5", question: "D2L 中介绍的迁移学习基于____（Pre-training）和微调范式。", answer: "预训练", explanation: "先在大规模数据上预训练通用模型，再在目标任务上微调，是深度学习的标准范式。", difficulty: 1 },
+                { id: "d2l-fin-f-6", question: "D2L 中的 GAN 训练使用____（Adversarial）损失函数。", answer: "对抗", explanation: "GAN 的训练目标是生成器和判别器之间的对抗博弈，使用对抗损失。", difficulty: 1 },
+                { id: "d2l-fin-f-7", question: "D2L 中介绍的 BLEU 指标用于评估____（Translation）质量。", answer: "翻译", explanation: "BLEU 通过比较生成翻译与参考翻译的 n-gram 重叠来评估机器翻译质量。", difficulty: 1 },
+                { id: "d2l-fin-f-8", question: "D2L 中介绍的注意力机制中，缩放点积注意力使用 sqrt(d_k) 进行____（Scaling）。", answer: "缩放", explanation: "除以 sqrt(d_k) 防止点积值过大导致 softmax 梯度消失。", difficulty: 2 },
+                { id: "d2l-fin-f-9", question: "D2L 中介绍的权重衰减（____ Decay）是 L2 正则化的实现方式。", answer: "权重", explanation: "权重衰减在每次参数更新时向权重添加一个小的衰减项，防止权重过大。", difficulty: 1 },
+                { id: "d2l-fin-f-10", question: "D2L 中介绍的 Word2Vec 使用____（Negative）采样来加速训练。", answer: "负", explanation: "负采样将 softmax 转化为二分类问题，只需采样少量负样本，大幅减少计算量。", difficulty: 2 }
+            ],
+            code: [
+                { id: "d2l-fin-code-1", question: "补全多头注意力的实现代码", code: "import torch\nimport torch.nn as nn\n\nclass MultiHeadAttention(nn.Module):\n    def __init__(self, d_model, num_heads):\n        super().__init__()\n        self.num_heads = num_heads\n        self.d_k = d_model // num_heads\n        self.W_q = nn.Linear(d_model, d_model)\n        self.W_k = nn.Linear(d_model, d_model)\n        self.W_v = nn.Linear(d_model, d_model)\n        self.W_o = nn.Linear(d_model, d_model)\n    \n    def forward(self, Q, K, V, mask=None):\n        batch_size = Q.size(0)\n        Q = self.W_q(Q).view(batch_size, -1, self.num_heads, self.d_k).transpose(1, 2)\n        K = self.W_k(K).view(batch_size, -1, self.num_heads, self.d_k).transpose(1, 2)\n        V = self.W_v(V).view(batch_size, -1, self.num_heads, self.d_k).transpose(1, 2)\n        \n        # 缩放点积注意力\n        scores = torch.matmul(Q, K.transpose(-2, -1)) / (self.d_k ** 0.5)\n        if mask is not None:\n            scores = scores.masked_fill(mask == 0, -1e9)\n        attn = torch.softmax(scores, dim=-1)\n        context = torch.matmul(____, V)", answer: "attn", explanation: "注意力权重 attn 与 Value 相乘得到上下文向量，每个头独立计算后拼接输出。", difficulty: 2 },
+                { id: "d2l-fin-code-2", question: "补全 IoU 计算代码", code: "import numpy as np\n\ndef compute_iou(box1, box2):\n    \"\"\"计算两个边界框的 IoU\"\"\"\n    # box = [x1, y1, x2, y2]\n    x1 = max(box1[0], box2[0])\n    y1 = max(box1[1], box2[1])\n    x2 = min(box1[2], box2[2])\n    y2 = min(box1[3], box2[3])\n    \n    intersection = max(0, x2 - x1) * max(0, y2 - y1)\n    \n    area1 = (box1[2] - box1[0]) * (box1[3] - box1[1])\n    area2 = (box2[2] - box2[0]) * (box2[3] - box2[1])\n    union = area1 + area2 - ____\n    \n    return intersection / union if union > 0 else 0", answer: "intersection", explanation: "IoU = 交集面积 / 并集面积，其中并集 = 两个框面积之和减去交集面积。", difficulty: 1 }
+            ]
+        }
+    },
+
+    /* --- 4. TinyML & Edge AI --- */
+    "TinyML & Edge AI": {
+        courseId: "tinyml-edge-ai",
+        domain: "dl",
+        mid: {
+            choice: [
+                { id: "tinyml-mid-c-1", question: "TinyML 的核心目标是什么？", options: ["在云端运行大模型", "在微控制器等资源受限设备上运行机器学习模型", "训练更大的模型", "使用更多 GPU"], answer: 1, explanation: "TinyML 专注于在微控制器（MCU）等极低功耗设备上部署和运行 ML 模型，功耗通常在毫瓦级以下。", difficulty: 1 },
+                { id: "tinyml-mid-c-2", question: "TensorFlow Lite Micro 主要针对什么类型的设备？", options: ["云端服务器", "微控制器（如 ARM Cortex-M）", "台式电脑", "游戏主机"], answer: 1, explanation: "TFLite Micro 专为没有操作系统、RAM 在几 KB 到几 MB 级别的微控制器设计。", difficulty: 1 },
+                { id: "tinyml-mid-c-3", question: "模型量化（Quantization）在 TinyML 中的作用是什么？", options: ["增加模型精度", "减小模型大小和推理计算量", "增加参数量", "加速训练"], answer: 1, explanation: "量化将 float32 权重转换为 int8 等低精度表示，大幅减小模型体积和加速推理。", difficulty: 1 },
+                { id: "tinyml-mid-c-4", question: "在嵌入式设备上，深度学习模型通常使用什么编程语言？", options: ["Python", "C/C++", "JavaScript", "Rust"], answer: 1, explanation: "嵌入式设备通常不支持 Python 运行时，模型部署使用 C/C++ 编写推理代码。", difficulty: 1 },
+                { id: "tinyml-mid-c-5", question: "Harvard TinyML 课程中介绍的 keyword spotting 是什么任务？", options: ["图像识别", "检测特定唤醒词（如'Hey Siri'）", "文本分类", "语音合成"], answer: 1, explanation: "Keyword Spotting（关键词检测）是检测音频流中特定唤醒词的任务，是 TinyML 的典型应用。", difficulty: 1 },
+                { id: "tinyml-mid-c-6", question: "权重剪枝（Weight Pruning）的目标是什么？", options: ["增加权重", "将接近零的权重置为零以减小模型", "增加层深度", "改变激活函数"], answer: 1, explanation: "权重剪枝移除不重要的权重（接近零的），减少模型参数量和计算量，适合资源受限设备。", difficulty: 1 },
+                { id: "tinyml-mid-c-7", question: "以下哪个不是 TinyML 的典型应用场景？", options: ["语音唤醒词检测", "工业设备预测性维护", "训练 GPT-4", "健康监测"], answer: 2, explanation: "GPT-4 等大模型需要大量计算资源，不适合 TinyML 场景。TinyML 关注轻量级边缘推理。", difficulty: 1 },
+                { id: "tinyml-mid-c-8", question: "知识蒸馏（Knowledge Distillation）在 TinyML 中的角色是什么？", options: ["训练更大的模型", "用大模型（教师）指导训练小模型（学生）", "删除数据", "增加 GPU"], answer: 1, explanation: "知识蒸馏让小模型学习大模型的软标签输出，在保持较高精度的同时大幅减小模型规模。", difficulty: 2 },
+                { id: "tinyml-mid-c-9", question: "TFLite 量化感知训练（Quantization-Aware Training）的优势是什么？", options: ["不需要校准数据", "在训练时模拟量化效果，减少精度损失", "完全不需要量化", "只用于推理"], answer: 1, explanation: "QAT 在训练过程中模拟量化误差，让模型适应量化，相比训练后量化精度损失更小。", difficulty: 2 },
+                { id: "tinyml-mid-c-10", question: "在 TinyML 中，内存占用的主要来源是什么？", options: ["模型权重和激活值", "注释信息", "训练数据", "日志文件"], answer: 0, explanation: "TinyML 中内存瓶颈主要是模型权重（Flash）和中间激活值（RAM），需要精心优化。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "tinyml-mid-f-1", question: "TinyML 是在____（Microcontroller）等极低功耗设备上运行 ML 的技术。", answer: "微控制器", explanation: "TinyML 针对 RAM 在 KB~MB 级别、功耗在 mW 级别的微控制器设备。", difficulty: 1 },
+                { id: "tinyml-mid-f-2", question: "TensorFlow Lite 将模型转换为____（FlatBuffers）格式用于部署。", answer: "FlatBuffers", explanation: "TFLite 使用 FlatBuffers 序列化格式，支持零拷贝访问，适合资源受限设备。", difficulty: 2 },
+                { id: "tinyml-mid-f-3", question: "量化将 float32 权重转换为____（Integer）类型以减小模型。", answer: "整数", explanation: "INT8 量化将每个 float32 参数用 8 位整数表示，模型体积缩小约 4 倍。", difficulty: 1 },
+                { id: "tinyml-mid-f-4", question: "权重____（Pruning）通过移除不重要权重来减小模型。", answer: "剪枝", explanation: "剪枝将接近零的权重设为零并存储为稀疏矩阵，减少参数量和计算量。", difficulty: 1 },
+                { id: "tinyml-mid-f-5", question: "哈佛 TinyML 课程使用 Arduino Nano 33 ______ 作为开发板。", answer: "BLE", explanation: "Arduino Nano 33 BLE Sense 板载多种传感器和 nRF52840 MCU，是 TinyML 理想开发平台。", difficulty: 1 },
+                { id: "tinyml-mid-f-6", question: "在 TinyML 中，____（Inference）是指使用训练好的模型进行预测。", answer: "推理", explanation: "TinyML 的核心目标是在边缘设备上运行推理，而非训练。", difficulty: 1 },
+                { id: "tinyml-mid-f-7", question: "深度可分离____（Convolution）大幅减少了 CNN 的参数量和计算量。", answer: "卷积", explanation: "深度可分离卷积将标准卷积分解为逐深度和逐点卷积，计算量减少约 8-9 倍。", difficulty: 2 },
+                { id: "tinyml-mid-f-8", question: "知识蒸馏中，大模型被称为____（Teacher），小模型被称为学生。", answer: "教师", explanation: "教师模型提供软标签指导学生模型学习，学生模型在推理时更高效。", difficulty: 1 },
+                { id: "tinyml-mid-f-9", question: "TinyML 中模型的____（Latency）需要达到实时响应的要求。", answer: "延迟", explanation: "边缘设备通常要求低延迟推理（毫秒级），以实现即时响应。", difficulty: 2 },
+                { id: "tinyml-mid-f-10", question: "嵌入式设备的____（RAM）通常只有几 KB 到几 MB。", answer: "内存", explanation: "微控制器的 RAM 极其有限，需要优化模型内存占用和中间激活值存储。", difficulty: 1 }
+            ],
+            code: [
+                { id: "tinyml-mid-code-1", question: "补全 TensorFlow Lite 模型转换代码", code: "import tensorflow as tf\n\n# 加载训练好的 Keras 模型\nmodel = tf.keras.models.load_model('keyword_model.h5')\n\n# 创建 TFLite 转换器\nconverter = tf.lite.TFLiteConverter.from_keras_model(model)\n\n# 启用整数量化\nconverter.optimizations = [tf.lite.Optimize.DEFAULT]\n\ndef representative_dataset():\n    for data in calibration_data:\n        yield [data.astype(np.float32)]\n\nconverter.representative_dataset = ____\n\n# 转换模型\ntflite_model = converter.convert()", answer: "representative_dataset", explanation: "提供校准数据集让量化器统计激活值范围，实现更精确的量化。", difficulty: 2 },
+                { id: "tinyml-mid-code-2", question: "补全简单的权重剪枝代码", code: "import numpy as np\n\ndef prune_weights(weights, pruning_ratio=0.3):\n    \"\"\"基于幅度的权重剪枝\"\"\"\n    # 计算绝对值\n    abs_weights = np.abs(weights)\n    \n    # 确定阈值\n    threshold = np.percentile(abs_weights, pruning_ratio * 100)\n    \n    # 创建剪枝掩码\n    mask = abs_weights > threshold\n    \n    # 应用掩码\n    pruned_weights = weights * ____\n    sparsity = 1.0 - np.sum(mask) / mask.size\n    return pruned_weights, sparsity", answer: "mask", explanation: "基于幅度的剪枝保留绝对值大于阈值的权重，将小权重置零，掩码实现二值筛选。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "tinyml-fin-c-1", question: "在 TinyML 部署流程中，典型的步骤顺序是什么？", options: ["推理→训练→量化→部署", "训练→量化→编译→部署到设备", "部署→训练→量化", "量化→训练→部署"], answer: 1, explanation: "TinyML 部署流程：先训练模型，然后量化压缩，编译为设备可执行格式，最后部署到 MCU 上。", difficulty: 2 },
+                { id: "tinyml-fin-c-2", question: "ARM CMSIS-NN 库的主要作用是什么？", options: ["训练神经网络", "在 ARM Cortex-M 上高效执行 NN 推理", "数据预处理", "模型可视化"], answer: 1, explanation: "CMSIS-NN 是 ARM 提供的神经网络推理库，针对 Cortex-M 系列 MCU 进行了深度优化。", difficulty: 2 },
+                { id: "tinyml-fin-c-3", question: "TinyML 中，动态范围量化和全整数量化的区别是什么？", options: ["完全相同", "动态范围只量化权重，全整数还量化激活值", "动态范围更准确", "全整数更慢"], answer: 1, explanation: "动态范围量化只将权重量化为 INT8，激活值保持 float32；全整数量化将权重和激活值都量化为整数。", difficulty: 2 },
+                { id: "tinyml-fin-c-4", question: "以下哪种模型架构最适合 TinyML 应用？", options: ["GPT-4", "MobileNet/MicroNet", "VGG-16", "ResNet-152"], answer: 1, explanation: "MobileNet 和 MicroNet 是专门为资源受限设备设计的轻量级架构，参数少且计算高效。", difficulty: 1 },
+                { id: "tinyml-fin-c-5", question: "TinyML 中，flash 和 RAM 分别用于存储什么？", options: ["都存储权重", "flash 存储代码和模型权重，RAM 存储运行时数据和激活值", "RAM 存储模型", "flash 存储数据"], answer: 1, explanation: "Flash（非易失性）存储程序代码和模型权重，RAM（易失性）存储运行时变量和中间激活值。", difficulty: 2 },
+                { id: "tinyml-fin-c-6", question: "边缘AI相比云计算AI的主要优势是什么？", options: ["计算能力更强", "低延迟、隐私保护、不依赖网络", "存储更大", "模型更精确"], answer: 1, explanation: "边缘 AI 的优势在于低延迟响应、数据不出设备保护隐私、不依赖网络连接。", difficulty: 1 },
+                { id: "tinyml-fin-c-7", question: "在 TinyML 语音应用中，MFCC 特征的作用是什么？", options: ["直接使用原始音频", "将音频转换为紧凑的频谱特征表示", "压缩音频文件", "去除噪声"], answer: 1, explanation: "MFCC 将音频信号转换为紧凑的特征向量，捕获声音的频谱包络信息，是语音特征的标准表示。", difficulty: 2 },
+                { id: "tinyml-fin-c-8", question: "TinyML 模型的功耗优化通常从哪些方面入手？", options: ["只优化算法", "模型压缩、硬件优化和调度策略", "只增加电压", "只提高频率"], answer: 1, explanation: "功耗优化需要综合考虑模型层面（量化/剪枝）、硬件层面（选型）和系统层面（休眠调度）。", difficulty: 2 },
+                { id: "tinyml-fin-c-9", question: "深度可分离卷积中，逐深度卷积和逐点卷积分别做什么？", options: ["完全相同", "逐深度对每个通道独立卷积，逐点用1x1卷积融合通道", "逐深度融合通道", "逐点提取特征"], answer: 1, explanation: "逐深度卷积（Depthwise）对每个输入通道独立应用一个卷积核，逐点卷积（Pointwise）用1x1卷积融合多通道信息。", difficulty: 2 },
+                { id: "tinyml-fin-c-10", question: "TinyML 开发板选择时，以下哪个因素不重要？", options: ["RAM/Flash 大小", "支持的 ML 框架", "设备颜色", "内置传感器"], answer: 2, explanation: "开发板颜色不影响功能，选择时应关注 RAM/Flash、ML 框架支持、传感器类型和功耗等。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "tinyml-fin-f-1", question: "TinyML 中的____（Inference）延迟通常需要在毫秒级别。", answer: "推理", explanation: "TinyML 应用要求实时响应，推理延迟通常在几毫秒到几十毫秒之间。", difficulty: 1 },
+                { id: "tinyml-fin-f-2", question: "ARM Cortex-M 系列 MCU 常用于____（TinyML）部署。", answer: "TinyML", explanation: "ARM Cortex-M 系列（M0/M3/M4/M7）是 TinyML 最常用的处理器架构。", difficulty: 1 },
+                { id: "tinyml-fin-f-3", question: "在量化中，____（Symmetric）量化将浮点范围映射为对称的整数范围。", answer: "对称", explanation: "对称量化以零为中心，正负值映射到对称的整数范围，实现简单但可能浪费精度。", difficulty: 2 },
+                { id: "tinyml-fin-f-4", question: "知识蒸馏中的温度参数 T 控制软标签的____（Softness）。", answer: "软度", explanation: "温度 T 越高，softmax 输出越平滑（软），学生模型可以学到更多类别间的相似性信息。", difficulty: 2 },
+                { id: "tinyml-fin-f-5", question: "TinyML 设备的功耗通常在____（Milliwatt）级别或以下。", answer: "毫瓦", explanation: "TinyML 的目标是在毫瓦甚至微瓦级别的功耗下运行 ML 模型。", difficulty: 1 },
+                { id: "tinyml-fin-f-6", question: "MicroNet 是 Google 为____设备设计的超轻量级神经网络架构。", answer: "微控制器", explanation: "MicroNet 针对 ARM Cortex-M4 等微控制器优化，参数量可低至数千个。", difficulty: 1 },
+                { id: "tinyml-fin-f-7", question: "在 TinyML 中，____（Eternal）学习使设备在部署后继续从新数据中学习。", answer: "持续", explanation: "持续学习（Continual Learning）让边缘设备在不遗忘旧知识的前提下学习新数据。", difficulty: 3 },
+                { id: "tinyml-fin-f-8", question: "Flash 存储用于保存模型权重和____代码。", answer: "推理", explanation: "Flash 存储模型参数和推理程序代码，断电后不丢失。", difficulty: 1 },
+                { id: "tinyml-fin-f-9", question: "TinyML 中传感器数据通常需要____（Preprocessing）后才能输入模型。", answer: "预处理", explanation: "原始传感器数据需要滤波、归一化、特征提取等预处理步骤。", difficulty: 1 },
+                { id: "tinyml-fin-f-10", question: "Arduino Nano 33 BLE Sense 板载的____（IMU）传感器可用于动作识别。", answer: "IMU", explanation: "惯性测量单元（IMU）包含加速度计和陀螺仪，可用于手势识别和姿态估计。", difficulty: 1 }
+            ],
+            code: [
+                { id: "tinyml-fin-code-1", question: "补全 TFLite 推理代码", code: "import numpy as np\nimport tflite_runtime.interpreter as tflite\n\n# 加载 TFLite 模型\ninterpreter = tflite.Interpreter(model_path='model.tflite')\ninterpreter.allocate_tensors()\n\n# 获取输入输出张量\ninput_details = interpreter.get_input_details()\noutput_details = interpreter.get_output_details()\n\n# 准备输入数据\ninput_data = np.array(audio_features, dtype=np.float32)\ninterpreter.set_tensor(input_details[0]['index'], ____)\n\n# 运行推理\ninterpreter.invoke()\n\n# 获取输出\noutput = interpreter.get_tensor(output_details[0]['index'])", answer: "input_data", explanation: "TFLite 推理流程：准备输入数据，设置到输入张量，调用 invoke 执行推理，获取输出张量。", difficulty: 1 },
+                { id: "tinyml-fin-code-2", question: "补全 MFCC 特征提取的简化代码", code: "import numpy as np\n\ndef compute_mfcc(signal, sr=16000, n_mfcc=13, n_fft=512, hop_length=160):\n    \"\"\"简化版 MFCC 特征提取\"\"\"\n    # 1. 预加重\n    pre_emphasis = 0.97\n    emphasized = np.append(signal[0], signal[1:] - pre_emphasis * signal[:-1])\n    \n    # 2. 分帧加窗\n    frame_length = int(0.025 * sr)\n    n_frames = 1 + (len(emphasized) - frame_length) // hop_length\n    frames = np.zeros((n_frames, frame_length))\n    for i in range(n_frames):\n        start = i * hop_length\n        frames[i] = emphasized[start:start+frame_length] * np.hanning(frame_length)\n    \n    # 3. FFT\n    mag_frames = np.abs(np.fft.rfft(frames, n_fft))\n    \n    # 4. Mel 滤波器组\n    # ... (mel filterbank computation)\n    fbank = compute_mel_filterbank(sr, n_fft, n_mels=26)\n    filter_banks = np.dot(mag_frames, ____.T)\n    filter_banks = np.log(filter_banks + 1e-6)\n    \n    # 5. DCT 得到 MFCC\n    from scipy.fftpack import dct\n    mfcc = dct(filter_banks, type=2, axis=1, norm='ortho')[:, :n_mfcc]\n    return mfcc", answer: "fbank", explanation: "Mel 滤波器组矩阵将线性频率谱转换为 Mel 尺度谱，然后取对数并应用 DCT 得到 MFCC 特征。", difficulty: 3 }
+            ]
+        }
+    },
+
+    /* --- 5. Fastai Advanced Deep Learning --- */
+    "Fastai Advanced Deep Learning": {
+        courseId: "fastai-advanced-dl",
+        domain: "dl",
+        mid: {
+            choice: [
+                { id: "fastai-mid-c-1", question: "fastai 库的顶层 API 设计理念是什么？", options: ["完全手写所有代码", "通过高级封装让初学者也能训练好模型", "只提供文档", "只提供工具脚本"], answer: 1, explanation: "fastai 通过分层 API 设计，让初学者用几行代码就能训练模型，同时为高级用户提供完全可定制的接口。", difficulty: 1 },
+                { id: "fastai-mid-c-2", question: "fastai 中的 DataBlock API 的作用是什么？", options: ["定义模型架构", "灵活地构建数据管道（数据加载和预处理）", "管理 GPU 内存", "记录训练日志"], answer: 1, explanation: "DataBlock 是 fastai 中用于灵活构建数据管道的高层 API，支持自定义数据源、变换和数据加载器。", difficulty: 2 },
+                { id: "fastai-mid-c-3", question: "One-cycle 学习率策略的核心思想是什么？", options: ["固定学习率", "学习率先增后减，在一个周期内完成训练", "学习率持续增大", "随机变化"], answer: 1, explanation: "One-cycle 策略在训练过程中先将学习率从很小增到最大，再减回很小，配合动量变化实现快速收敛。", difficulty: 2 },
+                { id: "fastai-mid-c-4", question: "1cycle policy 中学习率和动量的变化关系是什么？", options: ["都增大", "学习率增大时动量减小，反之亦然", "完全独立", "都减小"], answer: 1, explanation: "1cycle 策略中学习率和动量反向变化：学习率增大时动量减小，学习率减小时动量增大。", difficulty: 3 },
+                { id: "fastai-mid-c-5", question: "fastai 的 Learner 对象包含哪些核心组件？", options: ["只有模型", "模型、数据、损失函数、优化器和学习率调度器", "只有数据", "只有优化器"], answer: 1, explanation: "Learner 封装了训练所需的所有组件：模型、数据加载器、损失函数、优化器和回调系统。", difficulty: 1 },
+                { id: "fastai-mid-c-6", question: "Vision Learner 在 fastai 中如何使用预训练模型？", options: ["从头训练", "加载 ImageNet 预训练权重，替换最后的分类头", "不使用预训练", "只用随机权重"], answer: 1, explanation: "fastai 的 vision_learner 加载预训练模型并用 body 参数冻结预训练层，只训练新增的 head 部分。", difficulty: 1 },
+                { id: "fastai-mid-c-7", question: "Mixed Precision Training 在 fastai 中如何启用？", options: ["需要手动实现", "通过 to_fp16() 方法自动启用", "不支持", "需要修改损失函数"], answer: 1, explanation: "fastai 通过 learn.to_fp16() 一行代码启用混合精度训练，自动处理 float16/float32 转换。", difficulty: 1 },
+                { id: "fastai-mid-c-8", question: "fastai 中的 Callback 系统的作用是什么？", options: ["记录日志", "在训练过程的各个阶段插入自定义逻辑", "管理数据", "定义模型"], answer: 1, explanation: "Callback 系统允许在训练过程的不同阶段（如每 batch/epoch 前后）注入自定义逻辑。", difficulty: 2 },
+                { id: "fastai-mid-c-9", question: "Grad-CAM 在 fastai 中用于什么目的？", options: ["训练加速", "可视化模型决策的注意力热图", "数据增强", "模型压缩"], answer: 1, explanation: "Grad-CAM 生成热力图，显示模型做出分类决策时关注图像的哪些区域，用于可解释性分析。", difficulty: 2 },
+                { id: "fastai-mid-c-10", question: "fastai 中的 Label Smoothing 的作用是什么？", options: ["增加标签数量", "软化 one-hot 标签，防止模型过度自信", "删除标签", "修改标签值"], answer: 1, explanation: "Label Smoothing 将硬标签（如 [0,0,1]）软化（如 [0.05,0.05,0.9]），防止模型对预测过度自信。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "fastai-mid-f-1", question: "fastai 库的全称是 Fast Artificial Intelligence，由____（Howard）等人创建。", answer: "Jeremy Howard", explanation: "fastai 由 Jeremy Howard 和 Sylvain Gugger 创建，旨在让深度学习更易访问。", difficulty: 1 },
+                { id: "fastai-mid-f-2", question: "fastai 的 DataBlock 使用____（Block）来定义输入和输出的处理管道。", answer: "Block", explanation: "DataBlock 通过 ItemBlock、TransformBlock 等定义数据从原始输入到模型输入的处理流程。", difficulty: 2 },
+                { id: "fastai-mid-f-3", question: "学习率____（Finder）是 fastai 中自动查找最佳学习率的工具。", answer: "查找器", explanation: "lr_find 通过在几个 batch 上快速训练并记录损失变化，帮助选择最佳学习率。", difficulty: 1 },
+                { id: "fastai-mid-f-4", question: "____（Transfer Learning）是 fastai 中利用预训练模型进行微调的核心范式。", answer: "迁移学习", explanation: "fastai 将迁移学习作为核心流程，支持在 ImageNet 预训练模型上微调到任何视觉任务。", difficulty: 1 },
+                { id: "fastai-mid-f-5", question: "fastai 的 Callback 中，Recorder 记录训练过程中的____（Loss）和指标。", answer: "损失", explanation: "Recorder callback 自动记录每个 epoch 的训练损失、验证损失和自定义指标。", difficulty: 1 },
+                { id: "fastai-mid-f-6", question: "fastai 中使用____（Progress Bar）显示训练进度和实时指标。", answer: "进度条", explanation: "fastai 默认显示 tqdm 进度条，实时显示损失、指标和学习率。", difficulty: 1 },
+                { id: "fastai-mid-f-7", question: "Label Smoothing 交叉熵损失通过平滑____（One-Hot）标签来提高泛化。", answer: "独热", explanation: "Label Smoothing 将 one-hot 标签中 1 变为 1-ε，0 变为 ε/K，防止过度自信。", difficulty: 2 },
+                { id: "fastai-mid-f-8", question: "fastai 中的 Test Time Augmentation（TTA）在____时增强输入。", answer: "推理", explanation: "TTA 在推理时对同一输入应用多种增强，然后平均预测结果，提高预测准确性。", difficulty: 2 },
+                { id: "fastai-mid-f-9", question: "fastai 支持自动____（Mixed Precision）训练以加速和节省内存。", answer: "混合精度", explanation: "通过 learn.to_fp16() 启用混合精度，使用 float16 计算和 float32 存储。", difficulty: 1 },
+                { id: "fastai-mid-f-10", question: "fastai 的 Learner 使用____（Callback）系统来扩展训练循环。", answer: "回调", explanation: "Callback 系统是 fastai 的核心扩展机制，允许在训练过程的任何阶段注入自定义逻辑。", difficulty: 2 }
+            ],
+            code: [
+                { id: "fastai-mid-code-1", question: "补全 fastai 图像分类的训练代码", code: "from fastai.vision.all import *\n\n# 1. 构建数据管道\ndls = ImageDataLoaders.from_folder(\n    path='data/dogs_vs_cats',\n    valid_pct=0.2,\n    seed=42,\n    item_tfms=Resize(224),\n    batch_tfms=aug_transforms()\n)\n\n# 2. 创建学习器\nlearn = vision_learner(\n    dls, resnet34, metrics=accuracy\n)\n\n# 3. 微调模型\n____", answer: "learn.fine_tune(5)", explanation: "vision_learner 加载预训练 ResNet34，fine_tune 方法先冻结训练 head 再解冻微调全部参数。", difficulty: 1 },
+                { id: "fastai-mid-code-2", question: "补全自定义 Callback 代码", code: "from fastai.callback.core import Callback\n\nclass GradNormCallback(Callback):\n    \"\"\"监控训练过程中的梯度范数\"\"\"\n    order = 10  # 在其他 callback 之后执行\n    \n    def after_backward(self):\n        \"\"\"在反向传播后计算梯度范数\"\"\"\n        total_norm = 0.0\n        for p in self.learn.model.parameters():\n            if p.grad is not None:\n                total_norm += p.grad.data.norm(2).item() ** 2\n        total_norm = total_norm ** 0.5\n        self.learn.recorder.log[____] = total_norm\n    \n    def after_fit(self):\n        print(f'Final grad norm: {total_norm:.4f}')", answer: "'grad_norm'", explanation: "自定义 Callback 在 after_backward 阶段计算梯度范数并记录到训练日志中。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "fastai-fin-c-1", question: "fastai 的分层学习率策略是什么？", options: ["所有层使用相同学习率", "较浅层用较小学习率，较深层用较大学习率", "随机分配学习率", "只训练最后一层"], answer: 1, explanation: "分层学习率对预训练模型的不同层使用不同学习率，越接近输入层学习率越小（冻结更少变化）。", difficulty: 2 },
+                { id: "fastai-fin-c-2", question: "Discriminative Learning Rates 在 fastai 中如何实现？", options: ["手动设置每层学习率", "通过 slice() 函数指定学习率范围", "自动搜索", "不支持"], answer: 1, explanation: "使用 learn.fine_tune(5, lr_max=slice(1e-6, 1e-3)) 为不同层设置不同学习率。", difficulty: 2 },
+                { id: "fastai-fin-c-3", question: "fastai 中的 ULMFiT 方法用于什么任务？", options: ["图像分类", "文本分类的迁移学习", "目标检测", "语音识别"], answer: 1, explanation: "ULMFiT (Universal Language Model Fine-tuning) 是 fastai 的文本分类迁移学习方法，包括语言模型预训练和分类微调。", difficulty: 2 },
+                { id: "fastai-fin-c-4", question: "fastai 的 Cosine Annealing 学习率调度的特点是什么？", options: ["线性衰减", "学习率按余弦曲线从大到小变化", "突然跳变", "固定不变"], answer: 1, explanation: "Cosine Annealing 使学习率按照余弦函数平滑衰减，在训练后期保持较小学习率进行精细调整。", difficulty: 2 },
+                { id: "fastai-fin-c-5", question: "fastai 中冻结（Freeze）和解冻（Unfreeze）的作用是什么？", options: ["保存模型", "冻结时只训练新增层，解冻后可微调所有层", "删除参数", "增加参数"], answer: 1, explanation: "冻结保护预训练层不被破坏，解冻后可以用小学习率微调全部参数以适应新任务。", difficulty: 1 },
+                { id: "fastai-fin-c-6", question: "fastai 中实现图像分割使用什么类型的模型？", options: ["ResNet", "U-Net + 预训练编码器", "MLP", "RNN"], answer: 1, explanation: "fastai 的 unet_learner 使用 U-Net 架构，支持预训练编码器进行语义分割。", difficulty: 2 },
+                { id: "fastai-fin-c-7", question: "Gradient Accumulation 在 fastai 中解决什么问题？", options: ["梯度消失", "GPU 内存不足时使用更大的有效 batch size", "训练过慢", "过拟合"], answer: 1, explanation: "梯度累积在多个小 batch 上累积梯度后再更新，等效于使用更大 batch size，但内存占用更小。", difficulty: 2 },
+                { id: "fastai-fin-c-8", question: "fastai 中的 Interpretation 类用于什么？", options: ["训练模型", "分析模型预测结果和错误", "加速推理", "数据增强"], answer: 1, explanation: "Interpretation 类提供工具分析模型预测，如混淆矩阵、最不确定样本和典型错误。", difficulty: 1 },
+                { id: "fastai-fin-c-9", question: "MixedPrecisionCallback 在 fastai 中如何工作？", options: ["只用float16", "前向传播用float16，权重更新用float32", "只用float32", "随机选择精度"], answer: 1, explanation: "混合精度训练使用 float16 进行前向和反向传播以加速计算，使用 float32 主权重副本保证精度。", difficulty: 2 },
+                { id: "fastai-fin-c-10", question: "fastai 的 vision_augment 库提供了哪些增强功能？", options: ["只做裁剪", "翻转、旋转、缩放、 warp 等几何增强", "只做颜色变换", "只做文本增强"], answer: 1, explanation: "fastai 的数据增强库提供丰富的几何和外观变换，包括翻转、旋转、缩放、warp、亮度、对比度等。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "fastai-fin-f-1", question: "fastai 的核心设计理念是通过____（Layer）API 让深度学习更易用。", answer: "分层", explanation: "fastai 提供 high-level（简单易用）和 low-level（完全可定制）两层 API。", difficulty: 1 },
+                { id: "fastai-fin-f-2", question: "ULMFiT 的三步流程是：语言模型预训练→语言模型微调→____微调。", answer: "分类器", explanation: "ULMFiT 先在大语料上预训练语言模型，再微调到目标领域，最后微调分类头。", difficulty: 2 },
+                { id: "fastai-fin-f-3", question: "fastai 中的____（Progressive Resizing）从低分辨率图像开始逐步增加分辨率。", answer: "渐进调整大小", explanation: "Progressive Resizing 先用小图快速训练，再用大图微调，加速训练并提高泛化。", difficulty: 2 },
+                { id: "fastai-fin-f-4", question: "fastai 使用____（Callback）来管理训练过程中的各种事件。", answer: "回调", explanation: "Callback 系统在训练的不同阶段（batch/epoch 开始/结束等）触发自定义逻辑。", difficulty: 1 },
+                { id: "fastai-fin-f-5", question: "fastai 的____（Learner）对象封装了模型训练的所有必要组件。", answer: "学习器", explanation: "Learner 包含数据、模型、损失、优化器和回调系统，是 fastai 训练的核心对象。", difficulty: 1 },
+                { id: "fastai-fin-f-6", question: "在 fastai 中，使用____（Slice）函数可以设置差异化学习率。", answer: "slice", explanation: "slice(1e-6, 1e-3) 为不同层设置从 1e-6 到 1e-3 的学习率范围。", difficulty: 2 },
+                { id: "fastai-fin-f-7", question: "fastai 的____（Grad-CAM）功能可以可视化模型的决策过程。", answer: "Grad-CAM", explanation: "Grad-CAM 生成类激活热力图，显示模型分类时关注的图像区域。", difficulty: 2 },
+                { id: "fastai-fin-f-8", question: "fastai 中使用____（fp16）来启用混合精度训练。", answer: "fp16", explanation: "learn.to_fp16() 使用 float16 半精度浮点数加速训练并减少内存占用。", difficulty: 1 },
+                { id: "fastai-fin-f-9", question: "fastai 的数据增强通过____（Transforms）管道实现。", answer: "变换", explanation: "Transforms 定义数据从原始格式到模型输入的转换链，包括增强和预处理。", difficulty: 1 },
+                { id: "fastai-fin-f-10", question: "fastai 中的____（Label Smoothing）通过软化标签防止过度自信。", answer: "标签平滑", explanation: "Label Smoothing 将硬标签软化为 [ε/K, ..., 1-ε+ε/K, ..., ε/K] 的形式。", difficulty: 2 }
+            ],
+            code: [
+                { id: "fastai-fin-code-1", question: "补全分层学习率微调代码", code: "from fastai.vision.all import *\n\n# 加载数据\ndls = ImageDataLoaders.from_folder(path, valid_pct=0.2, item_tfms=Resize(224))\n\n# 创建 learner\nlearn = vision_learner(dls, resnet50, metrics=accuracy)\n\n# 冻结并训练 head\nlearn.fit_one_cycle(3, 1e-3)\n\n# 解冻全部层\nlearn.unfreeze()\n\n# 分层学习率微调\nlearn.fit_one_cycle(10, ____)", answer: "slice(1e-6, 1e-4)", explanation: "slice 指定学习率范围，浅层用 1e-6，深层用 1e-4，避免破坏预训练特征。", difficulty: 2 },
+                { id: "fastai-fin-code-2", question: "补全 Test Time Augmentation 代码", code: "from fastai.vision.all import *\n\nlearn = vision_learner(dls, resnet34, metrics=accuracy)\nlearn.fine_tune(3)\n\n# 标准推理\npreds_standard = learn.get_preds(dl=test_dl)\n\n# TTA 推理\npreds_tta, targs_tta = learn.tta(\n    dl=test_dl,\n    n_aug=____,\n    use_max=True\n)\n\nprint(f'Standard accuracy: {accuracy(*preds_standard):.4f}')\nprint(f'TTA accuracy: {accuracy(*preds_tta):.4f}')", answer: "5", explanation: "TTA 对每个测试样本生成 n_aug=5 个增强版本，对预测取平均或最大值以提高准确性。", difficulty: 2 }
+            ]
+        }
+    },
+    /* --- 6. CS330: Deep Multi-Task and Meta Learning --- */
+    "CS330: Deep Multi-Task and Meta Learning": {
+        courseId: "cs330-meta-learning",
+        domain: "dl",
+        mid: {
+            choice: [
+                { id: "cs330-mid-c-1", question: "元学习（Meta-Learning）的核心思想是什么？", options: ["学习更多数据", "学习如何学习（Learning to Learn）", "学习更大的模型", "学习更多特征"], answer: 1, explanation: "元学习的目标是在多个任务上学习一种通用的学习能力，使模型能够快速适应新任务。", difficulty: 1 },
+                { id: "cs330-mid-c-2", question: "MAML 算法的目标是什么？", options: ["找到最大的模型", "找到一个好的参数初始化点，使少量梯度步骤就能适应新任务", "最大化训练损失", "减少模型参数"], answer: 1, explanation: "MAML（Model-Agnostic Meta-Learning）寻找一组对任务变化敏感的初始参数，使其在新任务上只需几步梯度更新即可达到良好性能。", difficulty: 2 },
+                { id: "cs330-mid-c-3", question: "在元学习中，support set 和 query set 分别用于什么？", options: ["都用于测试", "support set 用于适应新任务，query set 用于评估", "都用于训练", "support set 用于验证"], answer: 1, explanation: "Support set 是新任务的少量标注样本，用于让模型适应（fine-tune）；query set 用于评估适应后的性能。", difficulty: 1 },
+                { id: "cs330-mid-c-4", question: "Few-shot Learning 中的 N-way K-shot 表示什么？", options: ["N个epoch K次训练", "N个类别每个类别K个样本", "N层网络K个参数", "N个batch K个样本"], answer: 1, explanation: "N-way K-shot 表示任务包含 N 个类别，每个类别提供 K 个标注样本进行学习。", difficulty: 1 },
+                { id: "cs330-mid-c-5", question: "多任务学习（Multi-Task Learning）的主要优势是什么？", options: ["增加任务数量", "通过共享表示在相关任务间传递知识", "减少数据需求", "增加模型复杂度"], answer: 1, explanation: "多任务学习通过共享底层表示，利用任务间的相关性来提高每个任务的性能，减少过拟合。", difficulty: 1 },
+                { id: "cs330-mid-c-6", question: "MAML 的双层优化（Bi-Level Optimization）中，内层和外层分别优化什么？", options: ["内层优化数据，外层优化模型", "内层在任务上适应，外层更新元参数", "内层和外层优化相同目标", "内层训练，外层测试"], answer: 1, explanation: "MAML 内层循环在每个任务上用 few-shot 数据更新任务特定参数，外层循环汇总所有任务的梯度更新元参数。", difficulty: 3 },
+                { id: "cs330-mid-c-7", question: "Reptile 算法与 MAML 的主要区别是什么？", options: ["完全不同", "Reptile 不需要计算二阶导数，更简单", "Reptile 更复杂", "Reptile 不支持元学习"], answer: 1, explanation: "Reptile 是 MAML 的一阶近似，通过简单地将多个任务的更新参数向初始参数移动来避免计算复杂的二阶导数。", difficulty: 2 },
+                { id: "cs330-mid-c-8", question: "在元学习中，任务分布（Task Distribution）的重要性是什么？", options: ["不重要", "元学习的性能取决于训练任务分布是否涵盖测试任务", "只影响训练速度", "只影响内存"], answer: 1, explanation: "元学习假设训练和测试任务来自相同分布，如果差异过大（分布偏移），元学习效果会大幅下降。", difficulty: 2 },
+                { id: "cs330-mid-c-9", question: "Prototypical Networks 的核心思路是什么？", options: ["训练一个大网络", "为每个类别计算原型（均值嵌入），用距离度量分类", "使用注意力机制", "使用强化学习"], answer: 1, explanation: "ProtoNet 计算每个类别 support 样本嵌入的均值作为原型，用查询样本与各原型的距离进行分类。", difficulty: 2 },
+                { id: "cs330-mid-c-10", question: "课程学习（Curriculum Learning）在元学习中的作用是什么？", options: ["随机排列任务", "按从易到难的顺序安排任务训练", "减少任务数量", "增加数据量"], answer: 1, explanation: "在元学习中，从简单任务开始逐步增加难度，可以稳定训练并提高元学习的泛化能力。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cs330-mid-f-1", question: "元学习又被称为____（Learning to Learn），目标是学习快速适应新任务的能力。", answer: "学会学习", explanation: "元学习的核心是不在单个任务上优化，而是学习一种能够快速适应各种任务的学习策略。", difficulty: 1 },
+                { id: "cs330-mid-f-2", question: "MAML 的全称是 Model-____ Meta-Learning。", answer: "Agnostic", explanation: "MAML 是模型无关的元学习，可以应用于任何可微分模型（CNN、RNN等）。", difficulty: 1 },
+                { id: "cs330-mid-f-3", question: "在 few-shot 学习中，____（Support）Set 提供少量标注样本用于适应。", answer: "支持", explanation: "Support Set 是每个任务中少量的标注样本（如5个），模型根据这些样本适应新任务。", difficulty: 1 },
+                { id: "cs330-mid-f-4", question: "MAML 的优化目标是最小化元参数在所有任务上适应后的____（Loss）。", answer: "损失", explanation: "MAML 的外层优化目标是找到一组初始参数，使其在各任务上经过几步适应后的总损失最小。", difficulty: 2 },
+                { id: "cs330-mid-f-5", question: "ProtoNet 为每个类别计算 support 样本嵌入的____（Prototype）作为类中心。", answer: "原型", explanation: "原型（Prototype）是该类别所有 support 样本在嵌入空间中的均值向量。", difficulty: 2 },
+                { id: "cs330-mid-f-6", question: "元学习中的任务采样（Task____）模拟测试时的 few-shot 场景。", answer: "采样", explanation: "训练时每次采样一批任务，每个任务包含 support set 和 query set，模拟 few-shot 场景。", difficulty: 2 },
+                { id: "cs330-mid-f-7", question: "MAML 的二阶优化需要计算____（Hessian）矩阵，计算成本高。", answer: "Hessian", explanation: "MAML 需要计算参数的 Hessian 矩阵（二阶导数），这在大模型上计算开销很大。", difficulty: 3 },
+                { id: "cs330-mid-f-8", question: "多任务学习中，硬参数共享（Hard Parameter____）让所有任务共享底层网络层。", answer: "共享", explanation: "硬参数共享是最常见的多任务学习策略，所有任务共享底层特征提取器，顶层任务特定。", difficulty: 2 },
+                { id: "cs330-mid-f-9", question: "在元学习中，____（Episode）训练是指每次采样一批任务进行训练。", answer: "episodic", explanation: "Episodic Training 模拟测试条件，每个 episode 采样一个 batch 的任务，每个任务有 support 和 query set。", difficulty: 2 },
+                { id: "cs330-mid-f-10", question: "Reptile 是 MAML 的一阶近似，不需要计算____（Second-order）导数。", answer: "二阶", explanation: "Reptile 只需一阶梯度更新，避免了 MAML 中复杂的 Hessian 计算。", difficulty: 2 }
+            ],
+            code: [
+                { id: "cs330-mid-code-1", question: "补全 MAML 内层适应代码", code: "import torch\n\ndef maml_inner_loop(model, support_x, support_y, lr=0.01, steps=1):\n    \"\"\"MAML 内层循环：在 support set 上适应\"\"\"\n    # 复制模型参数\n    fast_weights = list(model.parameters())\n    \n    for _ in range(steps):\n        logits = model.functional_forward(support_x, fast_weights)\n        loss = torch.nn.functional.cross_entropy(logits, support_y)\n        \n        # 计算梯度\n        grads = torch.autograd.grad(loss, ____)\n        \n        # 更新快速权重\n        fast_weights = [w - lr * g for w, g in zip(fast_weights, grads)]\n    \n    return fast_weights", answer: "fast_weights", explanation: "MAML 内层循环对 support set 计算损失并求梯度，然后用这些梯度更新一组快速适应的权重。", difficulty: 3 },
+                { id: "cs330-mid-code-2", question: "补全 Prototypical Network 的分类代码", code: "import torch\nimport torch.nn.functional as F\n\ndef proto_net_classify(query_emb, prototypes):\n    \"\"\"基于原型网络进行分类\"\"\"\n    # query_emb: [N_query, emb_dim]\n    # prototypes: [N_way, emb_dim] - 每个类的原型\n    \n    # 计算查询样本到各原型的欧氏距离\n    dists = torch.cdist(query_emb, prototypes)\n    \n    # 转换为概率（距离越小概率越大）\n    logits = -____\n    probs = F.softmax(logits, dim=1)\n    \n    return probs", answer: "dists", explanation: "ProtoNet 用负距离作为 logits，距离越小的类获得越高的概率，然后用 softmax 归一化。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "cs330-fin-c-1", question: "MAML 在训练时需要区分（detach）什么操作以避免计算图过大？", options: ["前向传播", "内层更新后的参数梯度传播到元参数", "数据加载", "损失计算"], answer: 1, explanation: "MAML 需要在内层更新后截断计算图，只保留元参数到内层更新后损失的梯度路径，防止内存爆炸。", difficulty: 3 },
+                { id: "cs330-fin-c-2", question: "任务自适应（Task-Adaptive）元学习方法如何提高效率？", options: ["增加任务数量", "为每个任务学习特定的更新方向或学习率", "减少模型参数", "使用更大的 batch"], answer: 1, explanation: "如 Per-Finorm 和 Meta-SGD 为每个参数学习任务自适应的学习率或更新方向，加速适应过程。", difficulty: 3 },
+                { id: "cs330-fin-c-3", question: "元学习中的分布偏移（Distribution Shift）指什么问题？", options: ["GPU 内存变化", "训练任务分布与测试任务分布不一致", "学习率变化", "batch size 变化"], answer: 1, explanation: "当测试任务与训练任务分布差异很大时，元学习模型的适应能力会大幅下降。", difficulty: 2 },
+                { id: "cs330-fin-c-4", question: "在多任务学习中，负迁移（Negative Transfer）是什么？", options: ["更快的训练", "任务间的冲突导致某些任务性能下降", "正迁移加速", "数据不足"], answer: 1, explanation: "当任务之间不够相关或训练策略不当时，共享表示可能导致某些任务的性能反而下降。", difficulty: 2 },
+                { id: "cs330-fin-c-5", question: "CS330 课程中介绍的上下文适应（Contextual）方法如何工作？", options: ["忽略上下文", "通过编码 support set 生成上下文向量来调整模型行为", "增加网络层数", "使用更大的嵌入"], answer: 1, explanation: "上下文方法将 support set 编码为上下文向量，然后将此向量注入模型以调整其行为来适应新任务。", difficulty: 2 },
+                { id: "cs330-fin-c-6", question: "Implicit MAML 相比显式 MAML 的主要改进是什么？", options: ["更复杂", "无需展开内层优化的计算图，更高效", "更慢", "精度更低"], answer: 1, explanation: "Implicit MAML 通过隐式梯度计算避免了展开内层优化过程，大大减少了内存占用和计算量。", difficulty: 3 },
+                { id: "cs330-fin-c-7", question: "元学习在机器人控制中的应用有什么优势？", options: ["不需要训练数据", "少量试错就能学会新操控技能", "不需要模型", "只适用于仿真"], answer: 1, explanation: "元学习使机器人能从少量新任务交互中快速学习操控策略，减少真实环境中的试错成本。", difficulty: 1 },
+                { id: "cs330-fin-c-8", question: "在多任务学习中，动态任务优先级（Dynamic Task Prioritization）的作用是什么？", options: ["随机选任务", "根据任务难度和学习进度调整各任务的训练比例", "删除简单任务", "只训练困难任务"], answer: 1, explanation: "动态优先级根据任务的损失、进度等指标调整每个任务的采样概率和训练权重。", difficulty: 2 },
+                { id: "cs330-fin-c-9", question: "元学习中的内部表示（Internal Representation）共享有什么好处？", options: ["增加参数量", "捕获跨任务的通用特征，提高样本效率", "减少训练数据", "简化模型"], answer: 1, explanation: "共享的内部表示捕获所有任务通用的特征提取能力，使得适应新任务时只需少量样本。", difficulty: 2 },
+                { id: "cs330-fin-c-10", question: "CS330 中介绍的 RL + Meta-Learning 结合的方法是什么？", options: ["纯监督学习", "用元学习来快速学习 RL 策略", "只用模仿学习", "只用监督学习"], answer: 1, explanation: "将元学习与强化学习结合，使智能体能够通过少量交互快速学会新的 RL 策略。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cs330-fin-f-1", question: "MAML 的外层优化使用所有任务适应后的____（Query）损失来更新元参数。", answer: "查询", explanation: "外层优化基于所有任务在 query set 上的损失之和来更新初始参数。", difficulty: 2 },
+                { id: "cs330-fin-f-2", question: "在多任务学习中，任务间共享的底层网络捕获____（Generic）特征。", answer: "通用", explanation: "底层共享表示学习所有任务共有的通用特征，如边缘、纹理（视觉）或语法结构（NLP）。", difficulty: 2 },
+                { id: "cs330-fin-f-3", question: "元学习的训练过程模拟了测试时的____（Few-shot）场景。", answer: "少样本", explanation: "Episodic Training 通过在训练时采样 N-way K-shot 任务来模拟测试时的 few-shot 适应。", difficulty: 1 },
+                { id: "cs330-fin-f-4", question: "ProtoNet 使用欧氏距离或____（Cosine）相似度计算样本与原型的距离。", answer: "余弦", explanation: "ProtoNet 支持欧氏距离和余弦相似度两种距离度量方式。", difficulty: 2 },
+                { id: "cs330-fin-f-5", question: "MAML 中的____（Inner Loop）在每个任务上进行 few-shot 适应。", answer: "内层", explanation: "MAML 的内层循环在单个任务的 support set 上执行几步梯度更新。", difficulty: 1 },
+                { id: "cs330-fin-f-6", question: "多任务学习中，损失权重（Loss____）策略决定各任务损失的相对重要性。", answer: "权重", explanation: "动态损失权重（如 uncertainty weighting）根据任务难度自动调整各任务损失的权重。", difficulty: 2 },
+                { id: "cs330-fin-f-7", question: "元学习中的元参数（____）是跨任务共享的初始参数。", answer: "元参数", explanation: "元参数是需要通过元训练优化的共享初始参数，适应后变为任务特定参数。", difficulty: 2 },
+                { id: "cs330-fin-f-8", question: "在 MAML 中，内层的学习率通常很____（Small），以保持对新任务的适应性。", answer: "小", explanation: "内层使用小学习率进行几步适应，避免过拟合到新任务，同时保持元参数的信息。", difficulty: 2 },
+                { id: "cs330-fin-f-9", question: "任务相关的____（Adaptation）使模型能快速适应新任务。", answer: "适应", explanation: "快速适应是元学习的核心，模型通过少量 steps 就能在新任务上达到良好性能。", difficulty: 1 },
+                { id: "cs330-fin-f-10", question: "在元学习中，元测试（Meta-____）阶段评估模型对未见任务的适应能力。", answer: "测试", explanation: "元测试在与训练任务分布相同但不重叠的新任务上评估模型的 few-shot 学习能力。", difficulty: 1 }
+            ],
+            code: [
+                { id: "cs330-fin-code-1", question: "补全 MAML 外层优化代码", code: "import torch\n\ndef maml_outer_loop(model, meta_optimizer, tasks, lr_inner=0.01, steps_inner=1):\n    \"\"\"MAML 外层循环\"\"\"\n    meta_loss = 0\n    \n    for task in tasks:\n        support_x, support_y, query_x, query_y = task\n        \n        # 内层适应\n        fast_weights = maml_inner_loop(model, support_x, support_y, lr_inner, steps_inner)\n        \n        # 在 query set 上评估\n        query_logits = model.functional_forward(query_x, fast_weights)\n        task_loss = torch.nn.functional.cross_entropy(query_logits, query_y)\n        \n        meta_loss = meta_loss + ____\n    \n    # 平均损失\n    meta_loss = meta_loss / len(tasks)\n    \n    # 外层更新\n    meta_optimizer.zero_grad()\n    meta_loss.backward()\n    meta_optimizer.step()", answer: "task_loss", explanation: "外层循环累积所有任务在 query set 上的损失，取平均后反向传播更新元参数。", difficulty: 3 },
+                { id: "cs330-fin-code-2", question: "补全 few-shot 任务采样代码", code: "import random\nimport numpy as np\n\ndef sample_few_shot_task(dataset, n_way=5, k_shot=5, q_query=15):\n    \"\"\"采样一个 N-way K-shot 任务\"\"\"\n    # 随机选择 N 个类别\n    all_classes = list(dataset.class_to_idx.keys())\n    selected_classes = random.sample(all_classes, ____)\n    \n    support_x, support_y = [], []\n    query_x, query_y = [], []\n    \n    for i, cls in enumerate(selected_classes):\n        class_samples = dataset.get_samples(cls)\n        random.shuffle(class_samples)\n        \n        # Support set\n        support_x.extend(class_samples[:k_shot])\n        support_y.extend([i] * k_shot)\n        \n        # Query set\n        query_x.extend(class_samples[k_shot:k_shot + q_query])\n        query_y.extend([i] * q_query)\n    \n    return (support_x, support_y, query_x, query_y)", answer: "n_way", explanation: "从数据集中随机采样 n_way 个类别，每个类别取 k_shot 个 support 样本和 q_query 个 query 样本。", difficulty: 2 }
+            ]
+        }
+    },
+
+    /* --- 7. CS 182: Designing Deep Neural Networks --- */
+    "CS 182: Designing Deep Neural Networks": {
+        courseId: "cs182-designing-nn",
+        domain: "dl",
+        mid: {
+            choice: [
+                { id: "cs182-mid-c-1", question: "CS 182 课程中讨论的深度网络设计原则包括什么？", options: ["只关注层数", "网络宽度、深度、跳跃连接和归一化的综合考虑", "只用CNN", "只用RNN"], answer: 1, explanation: "CS 182 强调综合考虑网络宽度、深度、跳跃连接、归一化等多种设计原则。", difficulty: 1 },
+                { id: "cs182-mid-c-2", question: "VAE（变分自编码器）的 ELBO（Evidence Lower Bound）由哪两部分组成？", options: ["分类损失和回归损失", "重建损失和 KL 散度正则项", "对抗损失和循环损失", "对比损失和排序损失"], answer: 1, explanation: "ELBO = 重建损失（负对数似然）+ KL 散度（后验与先验的偏差），VAE 最大化 ELBO。", difficulty: 2 },
+                { id: "cs182-mid-c-3", question: "在 VAE 中，重参数化技巧（Reparameterization Trick）解决了什么问题？", options: ["过拟合", "使采样操作可微分以支持反向传播", "内存不足", "训练速度慢"], answer: 1, explanation: "从分布中采样不可微，重参数化将 z = mu + sigma * epsilon，使采样可通过 epsilon 反向传播。", difficulty: 2 },
+                { id: "cs182-mid-c-4", question: "Transformer 中 Multi-Head Attention 的作用是什么？", options: ["减少参数量", "让模型在不同表示子空间中关注不同位置的信息", "加速训练", "减少层数"], answer: 1, explanation: "多头注意力将 Q/K/V 投影到多个子空间，在每个子空间独立计算注意力，捕获不同类型的依赖。", difficulty: 2 },
+                { id: "cs182-mid-c-5", question: "残差连接（Residual Connection）的数学形式是什么？", options: ["y = f(x)", "y = x + f(x)", "y = f(x) * x", "y = f(x) - x"], answer: 1, explanation: "残差连接将输入直接加到层的输出上：y = x + f(x)，使梯度可以跳过层直接传播。", difficulty: 1 },
+                { id: "cs182-mid-c-6", question: "Layer Normalization 相比 Batch Normalization 的优势是什么？", options: ["效果完全相同", "不依赖 batch size，适合变长序列和小 batch", "更简单", "训练更慢"], answer: 1, explanation: "LayerNorm 对单个样本的所有特征维度归一化，不依赖 batch 中其他样本，适合 NLP 和小 batch 场景。", difficulty: 2 },
+                { id: "cs182-mid-c-7", question: "CNN 中感受野（Receptive Field）的概念是什么？", options: ["输出特征图的大小", "输出层神经元在输入层能看到的区域大小", "参数数量", "计算量"], answer: 1, explanation: "感受野指输出特征图上一个像素对应的输入图像区域大小，深层网络的感受野更大。", difficulty: 2 },
+                { id: "cs182-mid-c-8", question: "Squeeze-and-Excitation (SE) 模块的作用是什么？", options: ["减少参数", "自适应地重新校准通道间特征响应", "增加深度", "减少宽度"], answer: 1, explanation: "SE 模块通过全局平均池化和全连接层学习通道注意力，自适应调整各通道的重要性权重。", difficulty: 2 },
+                { id: "cs182-mid-c-9", question: "数据增强为什么能提高模型泛化能力？", options: ["增加了模型参数", "通过变换增加训练数据多样性，减少过拟合", "减少了训练数据", "增加了模型深度"], answer: 1, explanation: "数据增强通过变换生成多样化的训练样本，使模型学到更鲁棒的特征，降低对特定模式的依赖。", difficulty: 1 },
+                { id: "cs182-mid-c-10", question: "Weight Decay 在深度网络训练中的作用是什么？", options: ["加速训练", "通过惩罚大权重防止过拟合", "增加学习率", "减少层数"], answer: 1, explanation: "Weight Decay（L2 正则化）在损失函数中添加权重平方和的惩罚项，限制权重大小以防止过拟合。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "cs182-mid-f-1", question: "VAE 的损失函数包含重建损失和____（KL）散度两部分。", answer: "KL", explanation: "VAE 最大化 ELBO = 重建损失 - KL(q(z|x) || p(z))，KL 项迫使隐空间接近标准正态分布。", difficulty: 2 },
+                { id: "cs182-mid-f-2", question: "Transformer 使用位置____（Encoding）来注入序列中的位置信息。", answer: "编码", explanation: "Transformer 不使用递归，需要通过位置编码告诉模型每个 token 在序列中的位置。", difficulty: 1 },
+                { id: "cs182-mid-f-3", question: "Batch____（Normalization）对每个 mini-batch 的特征维度进行归一化。", answer: "Norm", explanation: "BatchNorm 沿 batch 维度计算均值和方差来归一化激活值。", difficulty: 1 },
+                { id: "cs182-mid-f-4", question: "残差网络通过____（Skip）连接解决了深层网络的退化问题。", answer: "跳跃", explanation: "跳跃连接让输入信号直接传递到输出，使梯度可以跨层传播。", difficulty: 1 },
+                { id: "cs182-mid-f-5", question: "在 CNN 中，____（Pooling）操作降低特征图的空间分辨率。", answer: "池化", explanation: "池化（最大池化或平均池化）降低特征图尺寸，增加平移不变性并减少计算量。", difficulty: 1 },
+                { id: "cs182-mid-f-6", question: "SE 模块中的____（Squeeze）操作使用全局平均池化压缩空间信息。", answer: "压缩", explanation: "Squeeze 操作将 HxWxC 的特征图压缩为 1x1xC，聚合每个通道的全局信息。", difficulty: 2 },
+                { id: "cs182-mid-f-7", question: "VAE 的隐空间被正则化为接近标准____（Gaussian）分布。", answer: "高斯", explanation: "VAE 通过 KL 散度正则化隐空间，使其接近标准正态分布 N(0,I)，方便采样生成。", difficulty: 2 },
+                { id: "cs182-mid-f-8", question: "深度可分离卷积将标准卷积分解为逐____（Depthwise）和逐点卷积。", answer: "深度", explanation: "Depthwise Conv 对每个输入通道独立卷积，Pointwise Conv 用 1x1 卷积融合通道。", difficulty: 2 },
+                { id: "cs182-mid-f-9", question: "Transformer 的前馈网络（FFN）通常使用____（GELU）或 ReLU 激活函数。", answer: "GELU", explanation: "现代 Transformer（如 GPT）常用 GELU 作为 FFN 的激活函数，比 ReLU 更平滑。", difficulty: 2 },
+                { id: "cs182-mid-f-10", question: "Dropout 在训练时随机将神经元输出置零以防止____（Overfitting）。", answer: "过拟合", explanation: "Dropout 通过随机丢弃神经元来减少共适应，起到正则化作用。", difficulty: 1 }
+            ],
+            code: [
+                { id: "cs182-mid-code-1", question: "补全 VAE 的重参数化采样代码", code: "import torch\n\ndef reparameterize(mu, log_var):\n    \"\"\"重参数化技巧：使采样可微分\"\"\"\n    # 计算标准差\n    std = torch.exp(0.5 * ____)\n    \n    # 从标准正态分布采样\n    eps = torch.randn_like(std)\n    \n    # 重参数化\n    z = mu + eps * std\n    return z", answer: "log_var", explanation: "log_var 是对数方差，exp(0.5 * log_var) 得到标准差，这是重参数化的核心公式。", difficulty: 2 },
+                { id: "cs182-mid-code-2", question: "补全 Layer Normalization 代码", code: "import torch\nimport torch.nn as nn\n\nclass LayerNorm(nn.Module):\n    def __init__(self, features, eps=1e-6):\n        super().__init__()\n        self.gamma = nn.Parameter(torch.ones(features))\n        self.beta = nn.Parameter(torch.zeros(features))\n        self.eps = eps\n    \n    def forward(self, x):\n        # x: [batch, seq_len, features]\n        mean = x.mean(dim=-1, keepdim=True)\n        var = x.var(dim=-1, keepdim=True, unbiased=False)\n        x_norm = (x - mean) / torch.sqrt(____)\n        return self.gamma * x_norm + self.beta", answer: "var + self.eps", explanation: "LayerNorm 沿最后一个维度（特征维度）计算均值和方差进行归一化，加上 eps 防止除零。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "cs182-fin-c-1", question: "EfficientNet 的核心思想是什么？", options: ["只增加深度", "同时缩放网络宽度、深度和输入分辨率", "只增加宽度", "只使用更深的网络"], answer: 1, explanation: "EfficientNet 使用复合缩放方法同时优化宽度、深度和分辨率三个维度，平衡准确率和效率。", difficulty: 2 },
+                { id: "cs182-fin-c-2", question: "NAS（神经架构搜索）在设计深度网络中的作用是什么？", options: ["手动设计架构", "自动搜索最优的网络架构", "删除现有架构", "只搜索超参数"], answer: 1, explanation: "NAS 通过自动化方法在搜索空间中找到最优的网络架构，减少人工设计的试错成本。", difficulty: 2 },
+                { id: "cs182-fin-c-3", question: "DenseNet 与 ResNet 的主要区别是什么？", options: ["完全相同", "DenseNet 将所有前面层的特征图拼接而非相加", "DenseNet 更浅", "DenseNet 不使用跳跃连接"], answer: 1, explanation: "DenseNet 将前面每一层的输出在通道维度上拼接作为输入，促进特征重用。", difficulty: 2 },
+                { id: "cs182-fin-c-4", question: "混合精度训练中，Loss Scaling 的作用是什么？", options: ["缩放学习率", "放大损失值以避免 float16 梯度下溢", "缩放输入", "缩放输出"], answer: 1, explanation: "Loss Scaling 将损失乘以一个大数使梯度值进入 float16 的可表示范围，防止下溢。", difficulty: 3 },
+                { id: "cs182-fin-c-5", question: "知识蒸馏中，温度参数 T 的作用是什么？", options: ["控制训练速度", "使教师模型输出更平滑的概率分布", "控制层数", "控制参数量"], answer: 1, explanation: "高温 T 使 softmax 输出更平滑（软标签），暴露更多类别间的关系信息给学生模型。", difficulty: 2 },
+                { id: "cs182-fin-c-6", question: "Patch Embedding 在 Vision Transformer 中的作用是什么？", options: ["直接处理像素", "将图像分割为 patch 并嵌入为向量序列", "增加图像分辨率", "减少通道数"], answer: 1, explanation: "ViT 将图像分割为固定大小的 patch，每个 patch 通过线性投影嵌入为向量，作为 Transformer 的输入序列。", difficulty: 2 },
+                { id: "cs182-fin-c-7", question: "Group Normalization 相比 Batch Normalization 的优势是什么？", options: ["完全相同", "将通道分组归一化，不依赖 batch size", "更简单", "效果更差"], answer: 1, explanation: "GroupNorm 将通道分成若干组，在每组内归一化，不依赖 batch size，适合小 batch 场景。", difficulty: 2 },
+                { id: "cs182-fin-c-8", question: "深度网络中的梯度消失问题如何通过设计来缓解？", options: ["增加参数量", "使用残差连接、归一化和合适的激活函数", "减少数据量", "只使用全连接层"], answer: 1, explanation: "残差连接提供梯度捷径，归一化稳定训练，ReLU 等激活函数避免饱和，共同缓解梯度消失。", difficulty: 2 },
+                { id: "cs182-fin-c-9", question: "Depthwise Separable Convolution 在哪个著名架构中被广泛使用？", options: ["VGG-16", "MobileNet", "AlexNet", "LeNet"], answer: 1, explanation: "MobileNet 系列大量使用深度可分离卷积来大幅减少计算量和参数量，适合移动端部署。", difficulty: 1 },
+                { id: "cs182-fin-c-10", question: "在设计深度网络时，为什么通常选择 2 的幂次作为通道数（如 64, 128, 256）？", options: ["纯属巧合", "GPU 硬件对 2 的幂次尺寸计算更高效", "数学上必须", "避免溢出"], answer: 1, explanation: "GPU 的 CUDA 核心和内存对齐优化使 2 的幂次维度的张量操作更高效。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cs182-fin-f-1", question: "EfficientNet 通过复合缩放同时优化宽度、____和输入分辨率。", answer: "深度", explanation: "EfficientNet 的复合缩放公式：d = alpha^phi, w = beta^phi, r = gamma^phi，同时缩放三个维度。", difficulty: 2 },
+                { id: "cs182-fin-f-2", question: "Vision Transformer（ViT）将图像分割为固定大小的____（Patch）。", answer: "patch", explanation: "ViT 将 HxW 图像分割为 (H/P)x(W/P) 个 PxP 的 patch，每个 patch 嵌入为一个向量。", difficulty: 1 },
+                { id: "cs182-fin-f-3", question: "DenseNet 的密集连接促进了特征的____（Reuse）和梯度传播。", answer: "重用", explanation: "密集连接让每一层都能直接访问前面所有层的特征图，促进特征重用。", difficulty: 2 },
+                { id: "cs182-fin-f-4", question: "NAS 通过搜索空间定义、搜索策略和____（Evaluation）来自动设计架构。", answer: "评估", explanation: "NAS 需要定义搜索空间（候选操作）、搜索策略（RL/进化）和评估策略（权重共享）。", difficulty: 2 },
+                { id: "cs182-fin-f-5", question: "Swish 激活函数定义为 x * sigmoid(____)。", answer: "x", explanation: "Swish(x) = x * sigmoid(beta*x)，是一种自门控激活函数，比 ReLU 在深层网络中效果更好。", difficulty: 2 },
+                { id: "cs182-fin-f-6", question: "DropPath（Stochastic Depth）在训练时随机丢弃整个____（Layer）。", answer: "层", explanation: "DropPath 随机跳过某些层的计算，起到正则化作用，有助于训练非常深的网络。", difficulty: 2 },
+                { id: "cs182-fin-f-7", question: "ConvNeXt 通过借鉴____（Transformer）的设计理念改进了纯 CNN 架构。", answer: "Transformer", explanation: "ConvNeXt 将 ViT 的设计理念（如大卷积核、LayerNorm、GELU）引入 CNN，提升了性能。", difficulty: 2 },
+                { id: "cs182-fin-f-8", question: "在深度网络设计中，瓶颈（____）结构通过降维减少计算量。", answer: "瓶颈", explanation: "Bottleneck 使用 1x1 卷积先降维再升维，减少大卷积核的计算量。", difficulty: 2 },
+                { id: "cs182-fin-f-9", question: "模型压缩的四个主要方向是量化、剪枝、____和低秩分解。", answer: "蒸馏", explanation: "模型压缩技术包括量化（低精度）、剪枝（移除参数）、蒸馏（大模型教小模型）和低秩分解。", difficulty: 2 },
+                { id: "cs182-fin-f-10", question: "Patch____（Embedding）层将图像 patch 线性投影为向量。", answer: "嵌入", explanation: "Patch Embedding 是一个线性投影层，将每个 patch 的像素值映射为一个 d 维向量。", difficulty: 1 }
+            ],
+            code: [
+                { id: "cs182-fin-code-1", question: "补全 VAE 的损失函数代码", code: "import torch\nimport torch.nn.functional as F\n\ndef vae_loss(recon_x, x, mu, log_var):\n    \"\"\"VAE 损失 = 重建损失 + KL 散度\"\"\"\n    # 重建损失（二元交叉熵或 MSE）\n    recon_loss = F.binary_cross_entropy(recon_x, x, reduction='sum')\n    \n    # KL 散度：-0.5 * sum(1 + log(sigma^2) - mu^2 - sigma^2)\n    kl_loss = -0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp())\n    \n    return ____", answer: "recon_loss + kl_loss", explanation: "VAE 的总损失是重建损失（确保解码质量）和 KL 散度（正则化隐空间）之和。", difficulty: 2 },
+                { id: "cs182-fin-code-2", question: "补全 Patch Embedding 代码", code: "import torch\nimport torch.nn as nn\n\nclass PatchEmbedding(nn.Module):\n    def __init__(self, img_size=224, patch_size=16, in_channels=3, embed_dim=768):\n        super().__init__()\n        self.patch_size = patch_size\n        self.num_patches = (img_size // patch_size) ** 2\n        \n        # 用卷积实现 patch 分割和嵌入\n        self.proj = nn.Conv2d(\n            in_channels, embed_dim,\n            kernel_size=patch_size,\n            stride=patch_size\n        )\n    \n    def forward(self, x):\n        # x: [B, C, H, W]\n        x = self.proj(x)  # [B, embed_dim, H/P, W/P]\n        x = x.flatten(2).transpose(1, 2)  # [B, num_patches, embed_dim]\n        return ____", answer: "x", explanation: "Patch Embedding 用卷积将图像分割为 patch 并投影为向量序列，最终输出 [B, num_patches, embed_dim]。", difficulty: 2 }
+            ]
+        }
+    },
+    /* --- 8. CS 294-158: Deep Unsupervised Learning --- */
+    "CS 294-158: Deep Unsupervised Learning": {
+        courseId: "cs294-158-deep-unsupervised",
+        domain: "dl",
+        mid: {
+            choice: [
+                { id: "cs294-mid-c-1", question: "无监督学习的核心目标是什么？", options: ["学习标签到数据的映射", "发现数据的潜在结构和分布", "分类已知类别", "回归预测"], answer: 1, explanation: "无监督学习在没有标签的情况下发现数据的内在结构、模式和分布。", difficulty: 1 },
+                { id: "cs294-mid-c-2", question: "VAE 的隐空间为什么需要正则化？", options: ["加速训练", "使隐空间连续平滑，便于采样和插值", "增加参数", "减少层数"], answer: 1, explanation: "KL 散度正则化使隐空间接近标准正态分布，确保隐空间连续且有意义，便于生成新样本。", difficulty: 2 },
+                { id: "cs294-mid-c-3", question: "GAN 训练中模式坍塌（Mode Collapse）的表现是什么？", options: ["生成样本质量下降", "生成器只生成少数几种样本", "判别器过强", "训练不稳定"], answer: 1, explanation: "模式坍塌指生成器学会只生成少数几种样本（如只生成一种人脸），无法覆盖完整的数据分布。", difficulty: 2 },
+                { id: "cs294-mid-c-4", question: "归一化流（Normalizing Flow）的基本原理是什么？", options: ["对抗训练", "通过一系列可逆变换将简单分布映射为复杂分布", "自编码", "对比学习"], answer: 1, explanation: "归一化流通过一系列可逆且雅可比行列式易计算的变换，将高斯分布逐步变换为目标分布。", difficulty: 2 },
+                { id: "cs294-mid-c-5", question: "自回归模型（如 PixelRNN）生成数据的特点是什么？", options: ["并行生成", "逐个变量地条件生成", "只生成一个样本", "不使用概率模型"], answer: 1, explanation: "自回归模型将联合分布分解为条件分布的乘积，逐个生成数据维度，如逐像素生成图像。", difficulty: 2 },
+                { id: "cs294-mid-c-6", question: "扩散模型（Diffusion Model）的训练目标是什么？", options: ["学习判别器", "学习去噪函数（预测噪声）", "学习编码器", "学习策略"], answer: 1, explanation: "扩散模型训练网络预测每个时间步添加的噪声，反向过程中用预测的噪声逐步去噪生成样本。", difficulty: 2 },
+                { id: "cs294-mid-c-7", question: "能量模型（Energy-Based Model）如何定义概率？", options: ["直接输出概率", "通过能量函数定义未归一化概率，再用对比散度训练", "不定义概率", "只用最大似然"], answer: 1, explanation: "EBM 通过能量函数 E(x) 定义 p(x) = exp(-E(x))/Z，训练时通过对比散度近似梯度。", difficulty: 3 },
+                { id: "cs294-mid-c-8", question: "自监督对比学习（如 SimCLR）中，正样本对是什么？", options: ["不同图像", "同一图像的不同增强视图", "同一图像的同一视图", "不同类别的图像"], answer: 1, explanation: "对比学习的正样本对是同一图像经过不同数据增强得到的两个视图，负样本是不同图像。", difficulty: 1 },
+                { id: "cs294-mid-c-9", question: "GAN 的训练中，判别器的损失函数通常是什么形式？", options: ["MSE 损失", "二元交叉熵（区分真假样本）", "交叉熵分类", "KL 散度"], answer: 1, explanation: "判别器使用二元交叉熵损失来区分真实样本和生成样本。", difficulty: 1 },
+                { id: "cs294-mid-c-10", question: "DDPM 的前向过程的数学形式是什么？", options: ["x_{t-1} = x_t - noise", "x_t = sqrt(alpha_t) * x_{t-1} + sqrt(1-alpha_t) * noise", "x_t = x_{t-1} + noise", "x_t = x_0"], answer: 1, explanation: "DDPM 的前向过程是马尔可夫链：x_t = sqrt(alpha_t) * x_{t-1} + sqrt(1-alpha_t) * epsilon。", difficulty: 3 }
+            ],
+            fill: [
+                { id: "cs294-mid-f-1", question: "VAE 的全称是变分____（Auto-Encoder）。", answer: "自编码", explanation: "VAE 结合了自编码器和变分推断，在隐空间上施加概率分布约束。", difficulty: 1 },
+                { id: "cs294-mid-f-2", question: "GAN 由生成器（____）和判别器两个网络对抗训练。", answer: "Generator", explanation: "Generator 生成假样本，Discriminator 区分真假，两者通过对抗训练共同优化。", difficulty: 1 },
+                { id: "cs294-mid-f-3", question: "归一化流使用一系列可逆____（Transformation）进行概率密度估计。", answer: "变换", explanation: "每一步变换必须可逆且雅可比行列式可计算，常用变换包括耦合层和自回归变换。", difficulty: 2 },
+                { id: "cs294-mid-f-4", question: "DDPM 的反向过程学习条件概率 p(x_{t-1}|____)。", answer: "x_t", explanation: "反向过程的每一步预测 p(x_{t-1}|x_t)，从噪声逐步恢复到数据分布。", difficulty: 2 },
+                { id: "cs294-mid-f-5", question: "Score Matching 估计的是数据分布的____（Score）函数。", answer: "分数", explanation: "Score 函数是 log p(x) 对 x 的梯度，指导数据密度的上升方向。", difficulty: 3 },
+                { id: "cs294-mid-f-6", question: "对比学习通过拉近正样本对、推远____（Negative）样本来学习表示。", answer: "负", explanation: "对比损失最大化正样本对的相似度，最小化负样本对的相似度。", difficulty: 1 },
+                { id: "cs294-mid-f-7", question: "自回归模型将联合分布分解为条件分布的____（Product）。", answer: "乘积", explanation: "p(x1,...,xn) = p(x1)*p(x2|x1)*...*p(xn|x1,...,x{n-1})，链式分解为条件分布的乘积。", difficulty: 2 },
+                { id: "cs294-mid-f-8", question: "Wasserstein GAN 使用____距离替代 JS 散度作为训练目标。", answer: "Wasserstein", explanation: "WGAN 用 Wasserstein 距离（Earth Mover's Distance）作为损失，训练更稳定。", difficulty: 3 },
+                { id: "cs294-mid-f-9", question: "变分推断通过最大化____（ELBO）来近似后验分布。", answer: "ELBO", explanation: "Evidence Lower Bound 是对数似然的下界，变分推断通过最大化 ELBO 来近似后验。", difficulty: 2 },
+                { id: "cs294-mid-f-10", question: "噪声条件评分网络（NCSN）通过在不同噪声级别训练来估计____函数。", answer: "分数", explanation: "NCSN 训练模型在不同噪声水平下估计分数函数，然后通过退火 Langevin 动力学采样。", difficulty: 3 }
+            ],
+            code: [
+                { id: "cs294-mid-code-1", question: "补全 VAE 的编码器和解码器前向传播代码", code: "import torch\nimport torch.nn as nn\n\nclass VAE(nn.Module):\n    def __init__(self, input_dim, hidden_dim, latent_dim):\n        super().__init__()\n        self.encoder = nn.Sequential(\n            nn.Linear(input_dim, hidden_dim),\n            nn.ReLU(),\n            nn.Linear(hidden_dim, hidden_dim),\n            nn.ReLU()\n        )\n        self.mu_layer = nn.Linear(hidden_dim, latent_dim)\n        self.logvar_layer = nn.Linear(hidden_dim, latent_dim)\n        self.decoder = nn.Sequential(\n            nn.Linear(latent_dim, hidden_dim),\n            nn.ReLU(),\n            nn.Linear(hidden_dim, input_dim),\n            nn.Sigmoid()\n        )\n    \n    def encode(self, x):\n        h = self.encoder(x)\n        return self.mu_layer(h), self.logvar_layer(h)\n    \n    def decode(self, z):\n        return ____\n        \n    def forward(self, x):\n        mu, log_var = self.encode(x)\n        z = reparameterize(mu, log_var)\n        recon = self.decode(z)\n        return recon, mu, log_var", answer: "self.decoder(z)", explanation: "解码器将隐变量 z 映射回数据空间，生成重建样本。", difficulty: 1 },
+                { id: "cs294-mid-code-2", question: "补全 GAN 判别器损失代码", code: "import torch\nimport torch.nn as nn\n\ndef discriminator_loss(real_output, fake_output):\n    \"\"\"计算判别器损失\"\"\"\n    bce = nn.BCEWithLogitsLoss()\n    \n    real_labels = torch.ones_like(real_output)\n    fake_labels = torch.zeros_like(fake_output)\n    \n    real_loss = bce(real_output, ____)\n    fake_loss = bce(fake_output, fake_labels)\n    \n    return (real_loss + fake_loss) / 2", answer: "real_labels", explanation: "判别器损失：真实样本应输出 1（真），生成样本应输出 0（假），使用二元交叉熵。", difficulty: 1 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "cs294-fin-c-1", question: "StyleGAN 的风格混合（Style Mixing）是如何实现的？", options: ["修改损失函数", "在不同层注入不同的风格向量", "增加数据增强", "使用更大的 batch"], answer: 1, explanation: "StyleGAN 通过 AdaIN 在不同分辨率层注入不同风格向量，低层控制姿态/形状，高层控制颜色/纹理。", difficulty: 3 },
+                { id: "cs294-fin-c-2", question: "扩散模型的 ODE 公式化（Flow Matching）相比 SDE 的优势是什么？", options: ["完全相同", "ODE 路径更确定，采样更高效", "更简单但更慢", "只适用于图像"], answer: 1, explanation: "Flow Matching 将扩散过程表述为 ODE，路径更确定，可以用更少步数采样，提高效率。", difficulty: 3 },
+                { id: "cs294-fin-c-3", question: "VQ-VAE（向量量化 VAE）与标准 VAE 的主要区别是什么？", options: ["完全相同", "VQ-VAE 使用离散隐空间（码本），标准 VAE 使用连续隐空间", "VQ-VAE 不需要解码器", "VQ-VAE 不需要编码器"], answer: 1, explanation: "VQ-VAE 将连续隐向量量化为码本中的最近向量，使用离散隐变量而非连续高斯分布。", difficulty: 2 },
+                { id: "cs294-fin-c-4", question: "Denoising Diffusion Probabilistic Model (DDPM) 与 Score-Based Model 的统一观点是什么？", options: ["完全不同的框架", "DDPM 可以看作是分数函数估计在特定噪声调度下的实例", "只有数学等价", "不相关"], answer: 1, explanation: "Song et al. 证明 DDPM 的噪声预测等价于在特定噪声水平下估计分数函数，统一了两大框架。", difficulty: 3 },
+                { id: "cs294-fin-c-5", question: "扩散模型的 Classifier-Free Guidance 如何控制生成内容？", options: ["需要额外的分类器", "通过无条件和条件预测的加权组合控制生成", "修改损失函数", "改变模型架构"], answer: 1, explanation: "CFG 通过线性组合有条件和无条件预测来增强条件信号，权重越大条件控制越强。", difficulty: 3 },
+                { id: "cs294-fin-c-6", question: "VAE 中的 Posterior Collapse 问题是什么？", options: ["后验分布过拟合", "解码器太强导致 KL 散度退化为零，隐变量被忽略", "过拟合", "欠拟合"], answer: 1, explanation: "当解码器足够强大时，KL 项可能退化为零，隐变量 z 不携带信息，解码器直接忽略 z。", difficulty: 3 },
+                { id: "cs294-fin-c-7", question: "对比学习中，InfoNCE 损失的温度参数的作用是什么？", options: ["控制学习率", "控制负样本的区分度", "控制模型大小", "控制数据量"], answer: 1, explanation: "温度参数 t 影响 softmax 的锐度，较低温度使模型更关注困难负样本，较高温度使分布更平滑。", difficulty: 2 },
+                { id: "cs294-fin-c-8", question: "隐扩散模型（Latent Diffusion Model）为什么在隐空间而非像素空间做扩散？", options: ["更简单", "隐空间维度更低，计算效率更高", "效果更差", "不需要编码器"], answer: 1, explanation: "LDM 在 VAE 的低维隐空间做扩散，减少计算量同时保持生成质量，Stable Diffusion 就基于此。", difficulty: 2 },
+                { id: "cs294-fin-c-9", question: "RealNVP 中的仿射耦合层有什么关键特性？", options: ["非可逆", "雅可比行列式易于计算（对角矩阵）", "不需要参数", "训练不稳定"], answer: 1, explanation: "仿射耦合层是可逆的，且雅可比行列式是对角矩阵，行列式计算高效，只需 O(d) 复杂度。", difficulty: 3 },
+                { id: "cs294-fin-c-10", question: "DDIM（去噪扩散隐模型）相比 DDPM 的主要改进是什么？", options: ["生成质量更好", "支持确定性采样和更少步数的加速采样", "训练更快", "模型更小"], answer: 1, explanation: "DDIM 将 DDPM 的随机采样过程变为确定性过程，支持跳步采样，可以用 10-50 步替代 1000 步。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cs294-fin-f-1", question: "GAN 的训练目标是生成器和判别器之间的____（Adversarial）博弈。", answer: "对抗", explanation: "生成器试图欺骗判别器，判别器试图区分真假，两者通过 minimax 博弈共同优化。", difficulty: 1 },
+                { id: "cs294-fin-f-2", question: "扩散模型的反向过程从____（Noise）开始逐步去噪。", answer: "噪声", explanation: "反向过程从标准高斯噪声 x_T 开始，逐步应用学习到的去噪步骤，最终生成数据。", difficulty: 1 },
+                { id: "cs294-fin-f-3", question: "Flow 模型通过可逆____（Coupling）层保证变换的可逆性。", answer: "耦合", explanation: "耦合层将输入分为两部分，一部分不变，另一部分被第一部分仿射变换，确保可逆。", difficulty: 2 },
+                { id: "cs294-fin-f-4", question: "VAE 中的 KL 散度项迫使后验分布接近标准____（Prior）分布。", answer: "先验", explanation: "VAE 通常假设先验 p(z) 为标准正态分布，KL 项使 q(z|x) 接近这个先验。", difficulty: 2 },
+                { id: "cs294-fin-f-5", question: "WGAN 用 Wasserstein 距离替代 JS____（Divergence）作为训练目标。", answer: "散度", explanation: "WGAN 用 Wasserstein 距离替代 JS 散度，解决了训练不稳定和模式坍塌问题。", difficulty: 2 },
+                { id: "cs294-fin-f-6", question: "扩散模型中的____（Noise Schedule）控制前向过程的噪声添加速率。", answer: "噪声调度", explanation: "噪声调度（如线性、余弦）决定每个时间步添加多少噪声，影响生成质量和采样效率。", difficulty: 2 },
+                { id: "cs294-fin-f-7", question: "VQ-VAE 使用向量____（Quantization）将连续隐向量映射为离散码本条目。", answer: "量化", explanation: "VQ 层将编码器输出的连续向量通过最近邻搜索映射为码本中的离散向量。", difficulty: 2 },
+                { id: "cs294-fin-f-8", question: "StyleGAN 中的映射网络将隐码 z 映射到中间隐空间____（W）。", answer: "W", explanation: "映射网络 f: Z -> W 将初始隐空间映射到解纠缠更好的中间空间 W，控制不同层的风格。", difficulty: 3 },
+                { id: "cs294-fin-f-9", question: "Classifier-Free Guidance 通过调节____（Scale）参数控制条件生成的强度。", answer: "引导", explanation: "引导尺度 w 控制条件信号的强度，w=0 为无条件生成，w 越大条件约束越强。", difficulty: 2 },
+                { id: "cs294-fin-f-10", question: "自回归模型的逐像素生成过程无法____（Parallelize），导致生成速度慢。", answer: "并行化", explanation: "自回归模型每个像素依赖前面所有像素，无法并行生成，这是其主要效率瓶颈。", difficulty: 2 }
+            ],
+            code: [
+                { id: "cs294-fin-code-1", question: "补全 DDPM 的前向扩散代码", code: "import torch\nimport numpy as np\n\ndef forward_diffusion(x_0, t, noise_schedule, num_timesteps=1000):\n    \"\"\"在时间步 t 对 x_0 添加噪声\"\"\"\n    # 获取 alpha_bar_t\n    alphas_cumprod = noise_schedule\n    alpha_bar_t = alphas_cumprod[t]\n    \n    # 采样噪声\n    noise = torch.randn_like(x_0)\n    \n    # x_t = sqrt(alpha_bar_t) * x_0 + sqrt(1 - alpha_bar_t) * noise\n    x_t = torch.sqrt(alpha_bar_t) * x_0 + torch.sqrt(____) * noise\n    \n    return x_t, noise", answer: "1 - alpha_bar_t", explanation: "DDPM 前向过程：x_t = sqrt(alpha_bar_t)*x_0 + sqrt(1-alpha_bar_t)*epsilon，保留信号比例随 t 减小。", difficulty: 2 },
+                { id: "cs294-fin-code-2", question: "补全 InfoNCE 对比损失代码", code: "import torch\nimport torch.nn.functional as F\n\ndef info_nce_loss(z1, z2, temperature=0.5):\n    \"\"\"InfoNCE 对比损失\"\"\"\n    batch_size = z1.shape[0]\n    \n    # L2 归一化\n    z1 = F.normalize(z1, dim=1)\n    z2 = F.normalize(z2, dim=1)\n    \n    # 计算相似度矩阵\n    sim = torch.mm(z1, z2.t()) / ____\n    \n    # 正样本对的标签（对角线）\n    labels = torch.arange(batch_size, device=z1.device)\n    \n    # 交叉熵损失\n    loss = (F.cross_entropy(sim, labels) + F.cross_entropy(sim.t(), labels)) / 2\n    return loss", answer: "temperature", explanation: "InfoNCE 使用温度参数缩放相似度，温度越低区分度越高，损失是两个方向交叉熵的平均。", difficulty: 2 }
+            ]
+        }
+    },
+    /* --- 9. 10-707: Topics in Deep Learning (CMU) --- */
+    "10-707: Topics in Deep Learning": {
+        courseId: "10-707-topics-dl",
+        domain: "dl",
+        mid: {
+            choice: [
+                { id: "cmudl-mid-c-1", question: "CMU 10-707 课程涵盖的深度学习主题不包括以下哪个？", options: ["生成模型", "强化学习", "量子计算", "表示学习"], answer: 2, explanation: "10-707 涵盖生成模型、表示学习、元学习等深度学习前沿主题，但不包括量子计算。", difficulty: 1 },
+                { id: "cmudl-mid-c-2", question: "卷积神经网络的参数共享机制指什么？", options: ["每个像素用不同参数", "不同空间位置共享相同的卷积核参数", "每层使用不同参数", "不共享参数"], answer: 1, explanation: "CNN 中同一个卷积核在输入的不同空间位置共享参数，大幅减少参数量并增强平移不变性。", difficulty: 1 },
+                { id: "cmudl-mid-c-3", question: "RNN 中的梯度消失问题如何通过 LSTM 解决？", options: ["增加层数", "使用门控机制和细胞状态维护长期记忆", "减少参数", "使用更大的学习率"], answer: 1, explanation: "LSTM 通过遗忘门、输入门和输出门控制信息流动，细胞状态提供梯度的直接通路，缓解梯度消失。", difficulty: 2 },
+                { id: "cmudl-mid-c-4", question: "课程中介绍的 Sequence-to-Sequence 架构主要用于什么任务？", options: ["图像分类", "一个序列到另一个序列的转换（如翻译）", "回归预测", "聚类"], answer: 1, explanation: "Seq2Seq 架构使用编码器-解码器结构处理变长序列到变长序列的映射，典型应用于机器翻译。", difficulty: 1 },
+                { id: "cmudl-mid-c-5", question: "变分自编码器（VAE）和生成对抗网络（GAN）的主要区别是什么？", options: ["完全相同", "VAE 使用概率框架最大似然，GAN 使用对抗训练", "VAE 不需要生成器", "GAN 不需要判别器"], answer: 1, explanation: "VAE 最大化数据的变分下界（ELBO），GAN 通过生成器和判别器的对抗训练隐式学习分布。", difficulty: 2 },
+                { id: "cmudl-mid-c-6", question: "Batch Normalization 为什么能加速训练？", options: ["增加参数", "减少内部协变量偏移，使每层输入分布更稳定", "减少层数", "增大 batch"], answer: 1, explanation: "BN 通过标准化每层的输入分布来减少内部协变量偏移，使优化过程更稳定，允许更大学习率。", difficulty: 2 },
+                { id: "cmudl-mid-c-7", question: "课程中讨论的表示学习（Representation Learning）的目标是什么？", options: ["手工设计特征", "自动学习数据的有效低维表示", "增加数据维度", "减少训练数据"], answer: 1, explanation: "表示学习旨在自动发现数据的有用表示（特征），替代手工特征工程，提高下游任务性能。", difficulty: 1 },
+                { id: "cmudl-mid-c-8", question: "注意力机制的本质操作是什么？", options: ["排序", "基于查询和键的匹配对值进行加权求和", "拼接", "取最大值"], answer: 1, explanation: "注意力通过对查询（Query）和键（Key）的匹配程度进行 softmax 归一化，然后对值（Value）加权求和。", difficulty: 2 },
+                { id: "cmudl-mid-c-9", question: "深度学习中数据增强（Data Augmentation）的主要目的是什么？", options: ["减少数据量", "增加训练数据多样性以提高泛化能力", "加速训练", "减少参数"], answer: 1, explanation: "数据增强通过对原始数据施加变换来生成多样化的训练样本，帮助模型泛化到未见数据。", difficulty: 1 },
+                { id: "cmudl-mid-c-10", question: "梯度裁剪（Gradient Clipping）的主要作用是什么？", options: ["加速训练", "防止梯度爆炸导致训练不稳定", "减少参数", "增加精度"], answer: 1, explanation: "梯度裁剪将梯度范数限制在阈值内，防止梯度爆炸导致参数更新过大，稳定 RNN 等模型训练。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cmudl-mid-f-1", question: "CNN 通过局部感受野和____（Weight）共享实现高效的空间特征提取。", answer: "权重", explanation: "权重共享使同一个卷积核在不同位置共享参数，大幅减少参数量。", difficulty: 1 },
+                { id: "cmudl-mid-f-2", question: "LSTM 使用遗忘门、输入门和____门（Output Gate）控制信息流。", answer: "输出", explanation: "LSTM 的三个门分别控制遗忘旧信息、写入新信息和输出当前信息。", difficulty: 1 },
+                { id: "cmudl-mid-f-3", question: "反向传播算法通过____（Chain Rule）链式法则计算梯度。", answer: "链式", explanation: "反向传播利用链式法则从输出层到输入层逐层计算损失对每个参数的梯度。", difficulty: 1 },
+                { id: "cmudl-mid-f-4", question: "Dropout 在训练时以概率 p 将神经元输出____（Zero）。", answer: "置零", explanation: "Dropout 随机将神经元输出设为零，防止共适应，起到正则化作用。", difficulty: 1 },
+                { id: "cmudl-mid-f-5", question: "GAN 的训练目标是最小化____（Minimax）博弈。", answer: "极小极大", explanation: "GAN 的训练是 min_G max_D V(D,G) 的极小极大博弈。", difficulty: 2 },
+                { id: "cmudl-mid-f-6", question: "VAE 中的重参数化技巧使用辅助____（Noise/Epsilon）变量使采样可微分。", answer: "噪声", explanation: "z = mu + sigma * eps，其中 eps ~ N(0,I)，梯度通过 eps 反传到 mu 和 sigma。", difficulty: 2 },
+                { id: "cmudl-mid-f-7", question: "深度学习中的学习率____（Scheduler）在训练过程中动态调整学习率。", answer: "调度器", explanation: "学习率调度器按预设策略调整学习率，如余弦退火、阶梯衰减等。", difficulty: 1 },
+                { id: "cmudl-mid-f-8", question: "Transformer 的自注意力复杂度是序列长度的____（Quadratic）复杂度。", answer: "二次", explanation: "自注意力需要计算 n*n 的注意力矩阵，复杂度为 O(n^2*d)。", difficulty: 2 },
+                { id: "cmudl-mid-f-9", question: "课程中介绍的 ResNet 通过残差学习解决了深层网络的____（Degradation）问题。", answer: "退化", explanation: "退化问题指网络加深后训练误差反而增大（非过拟合），残差学习解决了这一问题。", difficulty: 2 },
+                { id: "cmudl-mid-f-10", question: "序列建模中，Teacher Forcing 在训练时使用真实____（Target）作为解码器输入。", answer: "目标", explanation: "Teacher Forcing 将真实标签作为解码器下一步的输入，加速训练收敛。", difficulty: 2 }
+            ],
+            code: [
+                { id: "cmudl-mid-code-1", question: "补全 LSTM 单元的核心计算代码", code: "import torch\nimport torch.nn as nn\n\ndef lstm_cell(x, h_prev, c_prev, W_ih, W_hh, b_ih, b_hh):\n    \"\"\"LSTM 单元计算\"\"\"\n    # 合并输入和隐藏状态的线性变换\n    gates = torch.mm(x, W_ih) + torch.mm(h_prev, W_hh)\n    \n    # 分割为四个门\n    i_gate = torch.sigmoid(gates[:, :hidden_size])         # 输入门\n    f_gate = torch.sigmoid(gates[:, hidden_size:2*hidden_size])  # 遗忘门\n    g_gate = torch.tanh(gates[:, 2*hidden_size:3*hidden_size])   # 候选值\n    o_gate = torch.sigmoid(gates[:, 3*hidden_size:])       # 输出门\n    \n    # 更新细胞状态\n    c_new = f_gate * ____ + i_gate * g_gate\n    \n    # 计算新隐藏状态\n    h_new = o_gate * torch.tanh(c_new)\n    \n    return h_new, c_new", answer: "c_prev", explanation: "LSTM 的细胞状态更新：c_new = f_gate * c_prev + i_gate * g_gate，遗忘旧信息并加入新信息。", difficulty: 2 },
+                { id: "cmudl-mid-code-2", question: "补全简单的 CNN 卷积层前向传播代码", code: "import torch\nimport torch.nn as nn\n\nclass SimpleConv2d(nn.Module):\n    def __init__(self, in_channels, out_channels, kernel_size, stride=1, padding=0):\n        super().__init__()\n        self.weight = nn.Parameter(torch.randn(out_channels, in_channels, kernel_size, kernel_size))\n        self.bias = nn.Parameter(torch.zeros(out_channels))\n    \n    def forward(self, x):\n        # x: [B, C_in, H, W]\n        # 使用 unfold 提取 patch 然后矩阵乘法\n        batch_size = x.shape[0]\n        x_unfold = torch.nn.functional.unfold(\n            x, kernel_size=self.weight.shape[2],\n            stride=1, padding=0\n        )\n        # x_unfold: [B, C_in*k*k, L]\n        out = torch.einsum('bcr,ocr->bo', x_unfold, ___.reshape(-1, self.weight.shape[1] * self.weight.shape[2] * self.weight.shape[3]))\n        return out + self.bias.view(1, -1, 1, 1)", answer: "self.weight", explanation: "卷积运算通过 unfold 提取局部 patch，然后与权重张量进行矩阵乘法实现。", difficulty: 3 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "cmudl-fin-c-1", question: "课程中讨论的 World Models 的核心思想是什么？", options: ["物理模拟", "在隐空间中学习环境模型并在此模型中进行规划/学习", "图像处理", "语音识别"], answer: 1, explanation: "World Models 学习环境的压缩表示（VAE），在学到的隐空间模型（RNN）中进行规划和强化学习。", difficulty: 2 },
+                { id: "cmudl-fin-c-2", question: "课程中介绍的 Neural Radiance Fields (NeRF) 使用什么技术渲染3D场景？", options: ["光栅化", "体渲染（Volume Rendering）+ 神经网络", "光线追踪", "深度图"], answer: 1, explanation: "NeRF 用 MLP 表示连续的辐射场，通过体渲染沿光线积分得到2D图像。", difficulty: 2 },
+                { id: "cmudl-fin-c-3", question: "课程中讨论的 Contrastive Predictive Coding (CPC) 如何学习表示？", options: ["监督学习", "预测未来表示并对比正负样本", "分类任务", "回归任务"], answer: 1, explanation: "CPC 通过预测未来时间步的潜在表示，拉近正样本对推远负样本对来学习无监督表示。", difficulty: 2 },
+                { id: "cmudl-fin-c-4", question: "课程中介绍的 Non-Local Neural Networks 的核心操作是什么？", options: ["局部卷积", "全局自注意力操作捕获长距离依赖", "池化", "批归一化"], answer: 1, explanation: "Non-Local 模块将自注意力引入 CNN，让每个位置可以直接聚合全局信息。", difficulty: 2 },
+                { id: "cmudl-fin-c-5", question: "课程中讨论的 Normalizing Flows 的可逆性约束有什么影响？", options: ["没有影响", "限制了模型架构的选择但允许精确似然计算", "只影响速度", "只影响精度"], answer: 1, explanation: "可逆性约束限制了层的设计（需要可逆且雅可比易算），但允许精确计算数据的对数似然。", difficulty: 3 },
+                { id: "cmudl-fin-c-6", question: "课程中介绍的 Slot Attention 的设计目的是什么？", options: ["加速训练", "将场景分解为多个物体的表示（对象发现）", "图像分类", "文本生成"], answer: 1, explanation: "Slot Attention 通过竞争机制将场景自动分解为多个 slot，每个 slot 关注一个物体，实现无监督对象发现。", difficulty: 3 },
+                { id: "cmudl-fin-c-7", question: "课程中讨论的 Masked Autoencoders (MAE) 的预训练策略是什么？",选项: ["全量输入", "随机掩码大部分 patch 让模型重建", "只用标签", "对比学习"], answer: 1, explanation: "MAE 随机掩码 75% 的图像 patch，训练模型从可见 patch 重建被掩码的 patch。", difficulty: 2 },
+                { id: "cmudl-fin-c-8", question: "课程中介绍的 DALL-E 和 CLIP 的共同点是什么？", options: ["都用于音频", "都连接了视觉和语言模态", "都是纯视觉模型", "都是纯文本模型"], answer: 1, explanation: "DALL-E 和 CLIP 都将图像和文本对齐到共享的表示空间，实现跨模态理解和生成。", difficulty: 1 },
+                { id: "cmudl-fin-c-9", question: "课程中讨论的 Self-Supervised Learning 为什么不需要人工标签？", options: ["不需要数据", "从数据自身构造伪标签（如预测旋转、拼图等）", "只用无标签数据的统计量", "使用强化学习"], answer: 1, explanation: "自监督学习通过设计前置任务（如预测旋转、掩码重建、对比学习）从数据本身生成监督信号。", difficulty: 1 },
+                { id: "cmudl-fin-c-10", question: "课程中讨论的 Vision-Language Pre-training 的典型预训练目标是什么？", options: ["只做分类", "图像-文本对齐（对比学习）和掩码语言建模", "只做分割", "只做检测"], answer: 1, explanation: "CLIP 使用对比学习对齐图文对，ALBEF 等同时使用对比学习和 MLM 进行预训练。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cmudl-fin-f-1", question: "课程中讨论的 NeRF 使用位置编码将坐标映射到高维空间以捕获____（High-frequency）细节。", answer: "高频", explanation: "位置编码将 (x,y,z) 映射为 [sin(2^k*x), cos(2^k*x)] 的高维表示，帮助 MLP 学习高频细节。", difficulty: 3 },
+                { id: "cmudl-fin-f-2", question: "Masked Autoencoder 中随机掩码约____% 的图像 patch。", answer: "75", explanation: "MAE 掩码大部分 patch（75%），只用可见的 25% 进行重建，比 BERT 的 15% 掩码率高得多。", difficulty: 2 },
+                { id: "cmudl-fin-f-3", question: "CLIP 使用对比学习将图像和文本映射到共享的____（Embedding）空间。", answer: "嵌入", explanation: "CLIP 通过对比损失将图像编码器和文本编码器的输出对齐到同一嵌入空间。", difficulty: 1 },
+                { id: "cmudl-fin-f-4", question: "课程中讨论的 Data-Parallel 和 Model-____ 训练是分布式训练的两大范式。", answer: "Parallel", explanation: "数据并行在不同 GPU 上切分数据，模型并行在不同 GPU 上切分模型。", difficulty: 2 },
+                { id: "cmudl-fin-f-5", question: "课程中介绍的 World Models 使用 VAE 作为视觉____（Encoder）。", answer: "编码器", explanation: "World Models 的视觉模块使用 VAE 将高维图像压缩为低维隐表示。", difficulty: 2 },
+                { id: "cmudl-fin-f-6", question: "Slot Attention 通过竞争机制实现对场景的无监督____（Disentanglement）。", answer: "解纠缠", explanation: "Slot Attention 让不同的 slot 竞争关注不同的物体区域，实现对象级别的解纠缠表示。", difficulty: 3 },
+                { id: "cmudl-fin-f-7", question: "课程中讨论的 Contrastive Learning 通过拉近正样本对和推远____样本对来学习表示。", answer: "负", explanation: "对比学习通过区分正负样本对来学习区分性的表示。", difficulty: 1 },
+                { id: "cmudl-fin-f-8", question: "NeRF 的体渲染公式通过沿光线积分____（Color）和密度得到像素值。", answer: "颜色", explanation: "NeRF 对每条光线采样点，查询网络得到颜色和密度，然后通过体渲染积分得到最终颜色。", difficulty: 3 },
+                { id: "cmudl-fin-f-9", question: "课程中讨论的 Vision Transformer 将图像分割为固定大小的____（Patch）。", answer: "patch", explanation: "ViT 将图像分割为 patch 序列，每个 patch 嵌入为向量后输入 Transformer。", difficulty: 1 },
+                { id: "cmudl-fin-f-10", question: "课程中介绍的混合精度训练使用 float16 和 float32 的____（Mixed）策略。", answer: "混合", explanation: "混合精度训练在前向/反向传播中使用 float16 加速，维护 float32 主权重保证精度。", difficulty: 1 }
+            ],
+            code: [
+                { id: "cmudl-fin-code-1", question: "补全注意力机制的实现代码", code: "import torch\nimport torch.nn.functional as F\nimport math\n\ndef scaled_dot_product_attention(Q, K, V, mask=None):\n    \"\"\"缩放点积注意力\"\"\"\n    d_k = Q.size(-1)\n    \n    # 计算注意力分数\n    scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(____)\n    \n    if mask is not None:\n        scores = scores.masked_fill(mask == 0, -1e9)\n    \n    # softmax 归一化\n    attn_weights = F.softmax(scores, dim=-1)\n    \n    # 加权求和\n    output = torch.matmul(attn_weights, V)\n    return output, attn_weights", answer: "d_k", explanation: "除以 sqrt(d_k) 缩放点积值，防止维度过大导致 softmax 梯度消失。", difficulty: 2 },
+                { id: "cmudl-fin-code-2", question: "补全简单的自编码器训练代码", code: "import torch\nimport torch.nn as nn\n\nclass Autoencoder(nn.Module):\n    def __init__(self, input_dim, hidden_dim, latent_dim):\n        super().__init__()\n        self.encoder = nn.Sequential(\n            nn.Linear(input_dim, hidden_dim), nn.ReLU(),\n            nn.Linear(hidden_dim, latent_dim)\n        )\n        self.decoder = nn.Sequential(\n            nn.Linear(latent_dim, hidden_dim), nn.ReLU(),\n            nn.Linear(hidden_dim, input_dim), nn.Sigmoid()\n        )\n    \n    def forward(self, x):\n        z = self.encoder(x)\n        x_recon = self.decoder(____)\n        return x_recon, z\n\ndef ae_loss(x, x_recon):\n    return nn.functional.mse_loss(x_recon, x)", answer: "z", explanation: "自编码器通过编码器将输入压缩为隐表示 z，再通过解码器从 z 重建输入。", difficulty: 1 }
+            ]
+        }
+    },
+    /* ================================================================
+     * NLP Courses 10-23
+     * ================================================================ */
+
+    /* --- 10. CS224N NLP with Deep Learning --- */
+    "CS224N NLP with Deep Learning": {
+        courseId: "cs224n-nlp-deep-learning",
+        domain: "nlp",
+        mid: {
+            choice: [
+                { id: "cs224n-mid-c-1", question: "Word2Vec 的 Skip-gram 模型的目标是什么？", options: ["预测下一个词", "给定中心词预测上下文词", "分类情感", "翻译句子"], answer: 1, explanation: "Skip-gram 以中心词为输入，预测其周围上下文窗口中的词，学习词的分布式表示。", difficulty: 1 },
+                { id: "cs224n-mid-c-2", question: "Transformer 的自注意力机制相比 RNN 的主要优势是什么？", options: ["参数更少", "可以并行计算且直接捕获长距离依赖", "训练更简单", "不需要GPU"], answer: 1, explanation: "自注意力可以并行计算所有位置间的依赖关系，不受序列长度限制，直接捕获长距离依赖。", difficulty: 1 },
+                { id: "cs224n-mid-c-3", question: "BERT 的双向编码器如何实现上下文相关的词表示？", options: ["只看左边上下文", "同时利用左右两侧的上下文", "只看右边上下文", "不使用上下文"], answer: 1, explanation: "BERT 使用 Transformer 编码器同时访问左右上下文，为每个词生成上下文相关的表示。", difficulty: 1 },
+                { id: "cs224n-mid-c-4", question: "GloVe 词向量的学习目标是什么？", options: ["预测上下文", "分解全局词-词共现矩阵", "分类任务", "序列标注"], answer: 1, explanation: "GloVe 通过对全局词-词共现矩阵进行加权最小二乘分解来学习词向量，结合了全局统计和局部上下文。", difficulty: 2 },
+                { id: "cs224n-mid-c-5", question: "命名实体识别（NER）在 NLP 中的任务是什么？", options: ["翻译", "识别文本中的人名、地名、机构名等实体", "情感分析", "文本生成"], answer: 1, explanation: "NER 识别文本中的命名实体（人名、地名、组织名等）并分类，是信息抽取的基础任务。", difficulty: 1 },
+                { id: "cs224n-mid-c-6", question: "负采样（Negative Sampling）在 Word2Vec 训练中的作用是什么？", options: ["增加正样本", "将 softmax 简化为二分类以加速训练", "增加词汇量", "减少模型参数"], answer: 1, explanation: "负采样将大规模 softmax 转化为二分类问题，只需少量负样本，大幅减少计算量。", difficulty: 2 },
+                { id: "cs224n-mid-c-7", question: "CS224N 中介绍的依存句法分析（Dependency Parsing）的输出是什么？", options: ["词性标注", "词与词之间的依存关系树", "命名实体", "情感标签"], answer: 1, explanation: "依存句法分析输出一个树结构，标注词与词之间的语法依存关系（如主语、谓语、宾语）。", difficulty: 2 },
+                { id: "cs224n-mid-c-8", question: "序列到序列（Seq2Seq）模型中的注意力机制解决了什么问题？", options: ["过拟合", "编码器瓶颈（将变长序列压缩为固定长度向量）", "训练速度", "参数量"], answer: 1, explanation: "注意力机制允许解码器在每一步直接关注编码器的不同位置，打破了固定长度瓶颈。", difficulty: 2 },
+                { id: "cs224n-mid-c-9", question: "CS224N 中介绍的神经机器翻译（NMT）的评估指标 BLEU 衡量什么？", options: ["训练速度", "生成翻译与参考翻译的 n-gram 重叠", "模型大小", "推理速度"], answer: 1, explanation: "BLEU 衡量生成翻译与参考翻译之间的 n-gram 重叠度，值越高表示翻译质量越好。", difficulty: 1 },
+                { id: "cs224n-mid-c-10", question: "预训练语言模型的两种主要范式是什么？", options: ["监督和无监督", "自编码（BERT）和自回归（GPT）", "分类和回归", "判别和生成"], answer: 1, explanation: "BERT 采用自编码范式（掩码语言模型），GPT 采用自回归范式（因果语言模型），各有优劣。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cs224n-mid-f-1", question: "Word2Vec 的两种训练模式是 CBOW 和____（Skip-gram）。", answer: "Skip-gram", explanation: "CBOW 用上下文预测中心词，Skip-gram 用中心词预测上下文，后者通常效果更好。", difficulty: 1 },
+                { id: "cs224n-mid-f-2", question: "Transformer 使用多头____（Attention）机制捕获不同类型的依赖关系。", answer: "注意力", explanation: "多头注意力将 Q/K/V 投影到多个子空间，每个子空间捕获不同类型的依赖。", difficulty: 1 },
+                { id: "cs224n-mid-f-3", question: "BERT 的预训练任务包括掩码语言模型（MLM）和____（Next Sentence Prediction）。", answer: "下一句预测", explanation: "NSP 任务判断两个句子是否在原文中相邻，帮助模型理解句子间关系。", difficulty: 1 },
+                { id: "cs224n-mid-f-4", question: "CS224N 中介绍的词向量的____（Analogy）测试评估语义和语法关系。", answer: "类比", explanation: "词向量类比测试如 king - man + woman = queen，评估词向量捕获语义关系的能力。", difficulty: 1 },
+                { id: "cs224n-mid-f-5", question: "依存句法分析中，每个词只有一个____（Head），构成树结构。", answer: "核心词", explanation: "在依存树中，每个词（除根节点外）恰好有一个核心词（head），形成有根树。", difficulty: 2 },
+                { id: "cs224n-mid-f-6", question: "CS224N 中介绍的注意力权重通过____（Softmax）函数进行归一化。", answer: "softmax", explanation: "注意力权重通过 softmax 归一化为概率分布，确保权重之和为1。", difficulty: 1 },
+                { id: "cs224n-mid-f-7", question: "BLEU 指标使用 n-gram 精度和____（Brevity Penalty）惩罚过短翻译。", answer: "简短惩罚", explanation: "BLEU 对过短的翻译施加简短惩罚（BP），避免生成极短但精度高的翻译。", difficulty: 2 },
+                { id: "cs224n-mid-f-8", question: "CS224N 中介绍的词性标注（POS Tagging）为每个词分配____（Category）标签。", answer: "语法类别", explanation: "POS 标注为每个词分配语法类别（名词、动词、形容词等），是 NLP 的基础任务。", difficulty: 1 },
+                { id: "cs224n-mid-f-9", question: "CS224N 课程中，____（GloVe）词向量结合了全局统计和局部上下文信息。", answer: "GloVe", explanation: "GloVe (Global Vectors) 通过分解全局共现矩阵学习词向量，兼顾全局和局部信息。", difficulty: 1 },
+                { id: "cs224n-mid-f-10", question: "自注意力的计算复杂度为 O(n^2 * ____)，其中 n 是序列长度。", answer: "d", explanation: "自注意力计算 Q*K^T 得到 n*n 矩阵，再与 V 相乘，总复杂度 O(n^2*d)。", difficulty: 2 }
+            ],
+            code: [
+                { id: "cs224n-mid-code-1", question: "补全 Word2Vec Skip-gram 的损失函数代码", code: "import torch\nimport torch.nn.functional as F\n\ndef skipgram_loss(center_word_emb, context_words_emb, negative_samples_emb):\n    \"\"\"Skip-gram 负采样损失\"\"\"\n    # 正样本损失：中心词与上下文词的点积\n    pos_score = torch.sum(center_word_emb * context_words_emb, dim=1)\n    pos_loss = F.logsigmoid(pos_score)\n    \n    # 负样本损失\n    neg_score = torch.bmm(negative_samples_emb, center_word_emb.unsqueeze(2)).squeeze()\n    neg_loss = F.logsigmoid(____).sum(dim=1)\n    \n    return -(pos_loss + neg_loss).mean()", answer: "-neg_score", explanation: "负采样损失：最大化正样本对的点积，最小化负样本对的点积。", difficulty: 2 },
+                { id: "cs224n-mid-code-2", question: "补全多头注意力的分割和拼接代码", code: "import torch\nimport torch.nn as nn\n\nclass MultiHeadAttention(nn.Module):\n    def __init__(self, d_model, num_heads):\n        super().__init__()\n        self.num_heads = num_heads\n        self.d_k = d_model // num_heads\n        self.W_q = nn.Linear(d_model, d_model)\n        self.W_k = nn.Linear(d_model, d_model)\n        self.W_v = nn.Linear(d_model, d_model)\n        self.W_o = nn.Linear(d_model, d_model)\n    \n    def forward(self, Q, K, V):\n        batch_size = Q.size(0)\n        \n        # 线性投影并分割为多头\n        Q = self.W_q(Q).view(batch_size, -1, self.num_heads, self.d_k).transpose(1, 2)\n        K = self.W_k(K).view(batch_size, -1, self.num_heads, self.d_k).transpose(1, 2)\n        V = self.W_v(V).view(batch_size, -1, self.num_heads, self.d_k).transpose(1, 2)\n        \n        # 注意力计算... (省略)\n        attn_output = ...  # [batch, heads, seq_len, d_k]\n        \n        # 拼接多头并输出投影\n        attn_output = attn_output.transpose(1, 2).contiguous().view(batch_size, -1, self.num_heads * self.d_k)\n        output = ____\n        return output", answer: "self.W_o(attn_output)", explanation: "多头注意力最后通过输出投影矩阵 W_o 将拼接后的多头表示映射回原始维度。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "cs224n-fin-c-1", question: "BERT 的 [CLS] token 在下游任务中如何使用？", options: ["不使用", "作为整个序列的表示用于分类任务", "只用于预训练", "被丢弃"], answer: 1, explanation: "BERT 在输入前添加 [CLS] token，其最终隐藏状态作为整个序列的聚合表示用于分类。", difficulty: 1 },
+                { id: "cs224n-fin-c-2", question: "CS224N 中讨论的 prompt-based learning 的核心思想是什么？", options: ["从头训练", "通过设计模板将下游任务转化为预训练目标的形式", "只使用无监督学习", "不需要微调"], answer: 1, explanation: "Prompt-based learning 通过设计输入模板，使下游任务（如分类）转化为语言模型的填空或续写任务。", difficulty: 2 },
+                { id: "cs224n-fin-c-3", question: "CS224N 中讨论的关系分类（Relation Extraction）的目标是什么？", options: ["命名实体识别", "判断两个实体之间的语义关系", "情感分析", "文本摘要"], answer: 1, explanation: "关系抽取判断文本中两个实体之间存在何种语义关系（如出生于、工作于等）。", difficulty: 1 },
+                { id: "cs224n-fin-c-4", question: "CS224N 课程中介绍的 Pointer Network 如何处理变长输出？", options: ["固定输出长度", "从输入序列中选择位置作为输出", "使用固定词表", "只输出分类"], answer: 1, explanation: "Pointer Network 通过注意力机制直接从输入序列中选择位置（pointer），处理变长输出。", difficulty: 2 },
+                { id: "cs224n-fin-c-5", question: "CS224N 中讨论的 Attention Is All You Need 论文的核心贡献是什么？", options: ["提出 RNN", "提出纯注意力的 Transformer 架构", "提出 CNN", "提出 GAN"], answer: 1, explanation: "该论文提出了完全基于注意力机制的 Transformer 架构，彻底摆脱了 RNN/CNN。", difficulty: 1 },
+                { id: "cs224n-fin-c-6", question: "CS224N 中讨论的 XLNet 相比 BERT 的改进是什么？", options: ["完全相同", "使用排列语言模型避免预训练-微调不一致", "使用更少参数", "更短的训练时间"], answer: 1, explanation: "XLNet 使用排列语言模型，对所有可能的排列进行自回归训练，同时获得双向上下文。", difficulty: 3 },
+                { id: "cs224n-fin-c-7", question: "CS224N 中讨论的语义角色标注（SRL）的任务是什么？", options: ["情感分析", "识别句子中谁对谁做了什么", "机器翻译", "文本分类"], answer: 1, explanation: "SRL 识别谓词（动作）的论元结构，确定谁（Agent）对谁（Patient）做了什么动作。", difficulty: 2 },
+                { id: "cs224n-fin-c-8", question: "CS224N 中讨论的机器阅读理解通常使用什么类型的模型？", options: ["纯 CNN", "基于注意力的编码器-解码器", "纯 MLP", "纯 RNN"], answer: 1, explanation: "阅读理解使用注意力机制让模型关注上下文中的相关部分来回答问题。", difficulty: 2 },
+                { id: "cs224n-fin-c-9", question: "CS224N 中讨论的自然语言推理（NLI）的任务是什么？", options: ["翻译", "判断前提和假设之间的蕴含/矛盾/中立关系", "情感分析", "摘要"], answer: 1, explanation: "NLI 判断给定前提是否蕴含、矛盾或与假设中立。", difficulty: 1 },
+                { id: "cs224n-fin-c-10", question: "CS224N 中讨论的词向量评估方法包括内在评估和什么评估？",options: ["不需要评估", "外在评估（下游任务性能）", "只评估速度", "只评估参数"], answer: 1, explanation: "内在评估测试词向量的语义/语法性质（如类比任务），外在评估测试在下游 NLP 任务中的表现。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cs224n-fin-f-1", question: "BERT 的掩码语言模型（____）随机掩码部分 token 并预测。", answer: "MLM", explanation: "MLM 是 BERT 的主要预训练任务，随机掩码 15% 的 token，其中 80% 替换为 [MASK]，10% 随机替换，10% 保持不变。", difficulty: 1 },
+                { id: "cs224n-fin-f-2", question: "GPT 系列使用自回归（____）语言模型进行预训练。", answer: "自回归", explanation: "GPT 通过预测下一个 token 进行自回归训练，适合文本生成任务。", difficulty: 1 },
+                { id: "cs224n-fin-f-3", question: "CS224N 中介绍的 ____（Beam Search）在解码时维护多个候选序列。", answer: "束搜索", explanation: "Beam Search 在每步维护 top-k 候选序列，平衡生成质量和搜索效率。", difficulty: 2 },
+                { id: "cs224n-fin-f-4", question: "CS224N 中讨论的 _____（SQuAD）是著名的阅读理解数据集。", answer: "SQuAD", explanation: "Stanford Question Answering Dataset 是大规模阅读理解数据集，要求从段落中找到答案片段。", difficulty: 1 },
+                { id: "cs224n-fin-f-5", question: "CS224N 中介绍的 WordNet 提供了丰富的____（Synonym）和上位关系。", answer: "同义词", explanation: "WordNet 是一个语义词典，提供同义词集、上下位关系等丰富的词汇语义信息。", difficulty: 1 },
+                { id: "cs224n-fin-f-6", question: "CS224N 中讨论的 ________（Attention）可视化可以帮助理解模型决策。", answer: "注意力", explanation: "注意力权重可视化展示模型在做决策时关注输入的哪些部分，提高可解释性。", difficulty: 1 },
+                { id: "cs224n-fin-f-7", question: "CS224N 课程中讨论的 ____（Perplexity）是语言模型评估指标。", answer: "困惑度", explanation: "Perplexity = exp(loss)，衡量模型对测试数据的不确定性，越低表示模型越好。", difficulty: 2 },
+                { id: "cs224n-fin-f-8", question: "CS224N 中讨论的 Subword 分词方法包括 BPE 和 ______。", answer: "WordPiece", explanation: "BPE（字节对编码）和 WordPiece 是常用的子词分词算法，在词粒度和字符粒度间平衡。", difficulty: 2 },
+                { id: "cs224n-fin-f-9", question: "CS224N 中讨论的语义相似度计算通常使用____（Cosine）相似度。", answer: "余弦", explanation: "余弦相似度衡量两个向量方向的相似性，是计算语义相似度的标准方法。", difficulty: 1 },
+                { id: "cs224n-fin-f-10", question: "CS224N 中讨论的 Seq2Seq 模型在解码时通常使用____（Teacher Forcing）。", answer: "teacher forcing", explanation: "Teacher Forcing 在训练时将真实标签作为解码器的输入，加速收敛。", difficulty: 2 }
+            ],
+            code: [
+                { id: "cs224n-fin-code-1", question: "补全 BERT 的 MLM 预训练损失代码", code: "import torch\nimport torch.nn as nn\nimport torch.nn.functional as F\n\nclass BertForMLM(nn.Module):\n    def __init__(self, bert_model, vocab_size):\n        super().__init__()\n        self.bert = bert_model\n        self.mlm_head = nn.Linear(bert_model.config.hidden_size, vocab_size)\n    \n    def forward(self, input_ids, attention_mask, labels=None):\n        outputs = self.bert(input_ids, attention_mask=attention_mask)\n        sequence_output = outputs.last_hidden_state\n        \n        # MLM 预测\n        logits = self.mlm_head(sequence_output)\n        \n        if labels is not None:\n            # 只计算被掩码位置的损失\n            loss = F.cross_entropy(\n                logits.view(-1, logits.size(-1)),\n                ___.view(-1),\n                ignore_index=-100\n            )\n            return loss, logits\n        return logits", answer: "labels", explanation: "MLM 损失只在被掩码的位置（labels != -100）计算交叉熵。", difficulty: 2 },
+                { id: "cs224n-fin-code-2", question: "补全余弦相似度计算代码", code: "import torch\nimport torch.nn.functional as F\n\ndef cosine_similarity_matrix(embeddings_a, embeddings_b):\n    \"\"\"计算两组嵌入之间的余弦相似度矩阵\"\"\"\n    # L2 归一化\n    a_norm = F.normalize(embeddings_a, p=2, dim=1)\n    b_norm = F.normalize(embeddings_b, p=2, dim=1)\n    \n    # 余弦相似度矩阵\n    similarity = torch.mm(a_norm, ___.t())\n    return similarity  # [num_a, num_b]", answer: "b_norm", explanation: "余弦相似度 = dot(a,b) / (||a|| * ||b||)，L2归一化后直接矩阵相乘即可。", difficulty: 1 }
+            ]
+        }
+    },
+
+    /* --- 11. NLP Specialization (DeepLearning.AI) --- */
+    "NLP Specialization": {
+        courseId: "nlp-specialization-deeplearningai",
+        domain: "nlp",
+        mid: {
+            choice: [
+                { id: "nlp-spec-mid-c-1", question: "情感分析（Sentiment Analysis）的核心任务是什么？", options: ["翻译文本", "判断文本表达的是正面还是负面情感", "提取关键词", "文本摘要"], answer: 1, explanation: "情感分析判断文本的情感极性（正面/负面/中性），是 NLP 最常见的应用之一。", difficulty: 1 },
+                { id: "nlp-spec-mid-c-2", question: "注意力机制中，缩放因子 sqrt(d_k) 的作用是什么？", options: ["加速训练", "防止点积值过大导致 softmax 梯度消失", "增加参数", "减少内存"], answer: 1, explanation: "当 d_k 较大时，点积值可能很大，导致 softmax 输出接近 one-hot，梯度消失。缩放因子缓解此问题。", difficulty: 2 },
+                { id: "nlp-spec-mid-c-3", question: "Neural Machine Translation（NMT）中，Encoder-Decoder 架构各负责什么？",options: ["都负责生成", "Encoder 编码源语言，Decoder 生成目标语言", "都负责编码", "Encoder 生成，Decoder 编码"], answer: 1, explanation: "Encoder 将源语言句子编码为上下文向量，Decoder 基于上下文和已生成的词逐步生成目标语言翻译。", difficulty: 1 },
+                { id: "nlp-spec-mid-c-4", question: "注意力权重的计算公式 attention(Q,K,V) 中，Q、K、V 分别是什么？", options: ["查询、键、值", "质量、知识、价值", "量、关键、值", "全部相同"], answer: 0, explanation: "Q (Query) 与 K (Key) 匹配得到注意力权重，对 V (Value) 加权求和得到输出。", difficulty: 1 },
+                { id: "nlp-spec-mid-c-5", question: "机器翻译中的 BLEU 分数越高代表什么？", options: ["翻译质量越差", "翻译质量越好", "训练越慢", "模型越大"], answer: 1, explanation: "BLEU 分数衡量生成翻译与参考翻译的匹配度，分越高表示翻译越接近参考翻译。", difficulty: 1 },
+                { id: "nlp-spec-mid-c-6", question: "Transformer 中 Positional Encoding 的必要性是什么？", options: ["不必要", "Transformer 没有循环结构，需要显式注入位置信息", "加速训练", "减少参数"], answer: 1, explanation: "Transformer 的自注意力是排列不变的，不包含位置信息，需要位置编码告诉模型 token 的顺序。", difficulty: 2 },
+                { id: "nlp-spec-mid-c-7", question: "Dropout 在 NLP 模型中通常应用在什么位置？", options: ["只在输入层", "注意力权重、嵌入层和全连接层后", "只在输出层", "不使用"], answer: 1, explanation: "Dropout 应用于注意力权重、嵌入层和前馈网络的多个位置以防止过拟合。", difficulty: 2 },
+                { id: "nlp-spec-mid-c-8", question: "Beam Search 解码相比 Greedy Search 的优势是什么？", options: ["完全相同", "维护多个候选序列，更可能找到全局最优", "更简单", "更快速"], answer: 1, explanation: "Beam Search 在每步维护 top-k 候选序列，比贪心搜索更可能找到全局最优翻译。", difficulty: 2 },
+                { id: "nlp-spec-mid-c-9", question: "词嵌入的维度选择通常在什么范围？", options: ["1-2维", "50-300维", "10000-100000维", "只用one-hot"], answer: 1, explanation: "词嵌入维度通常在 50-300 之间，GloVe 常用 300 维，BERT 使用 768 维。", difficulty: 1 },
+                { id: "nlp-spec-mid-c-10", question: "课程中介绍的文本预处理步骤通常包括什么？", options: ["只做分词", "分词、去除停用词、词干提取、向量化", "只做向量化", "只做去噪"], answer: 1, explanation: "NLP 文本预处理通常包括分词、去除停用词、词干化/词形还原、向量化等步骤。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "nlp-spec-mid-f-1", question: "注意力机制的输出是 Value 的____（Weighted）求和。", answer: "加权", explanation: "注意力输出 = sum(attention_weight_i * value_i)，是所有 Value 按注意力权重的加权和。", difficulty: 1 },
+                { id: "nlp-spec-mid-f-2", question: "BLEU 分数通过计算生成翻译和参考翻译的 n-gram____（Overlap）来评估。", answer: "重叠", explanation: "BLEU 计算 1-gram 到 4-gram 的精确度并取几何平均，衡量翻译的词汇和短语匹配度。", difficulty: 1 },
+                { id: "nlp-spec-mid-f-3", question: "情感分析可以使用基于词典的方法或基于____（Deep Learning）的方法。", answer: "深度学习", explanation: "传统方法使用情感词典匹配，深度学习方法使用 CNN/RNN/Transformer 自动学习特征。", difficulty: 1 },
+                { id: "nlp-spec-mid-f-4", question: "Transformer 的前馈网络（FFN）通常有两层线性变换和一个____（ReLU/GELU）激活。", answer: "激活函数", explanation: "FFN: Linear(d_model, d_ff) -> Activation -> Linear(d_ff, d_model)，提供非线性变换。", difficulty: 2 },
+                { id: "nlp-spec-mid-f-5", question: "课程中介绍的 Attention 在机器翻译中对齐源语言和____语言的词。", answer: "目标", explanation: "注意力权重可视化可以展示源语言和目标语言词之间的对齐关系。", difficulty: 1 },
+                { id: "nlp-spec-mid-f-6", question: "Transformer 使用残差连接和层____（Normalization）来稳定训练。", answer: "归一化", explanation: "每个子层（注意力/FFN）后都有残差连接和层归一化，稳定深层训练。", difficulty: 1 },
+                { id: "nlp-spec-mid-f-7", question: "子词分词方法如 BPE 将文本分割为____（Subword）单元。", answer: "子词", explanation: "BPE 迭代合并最频繁的字符对来构建子词词表，平衡词粒度和字符粒度。", difficulty: 1 },
+                { id: "nlp-spec-mid-f-8", question: "在翻译任务中，____（Greedy）解码每步选择概率最大的词。", answer: "贪心", explanation: "贪心解码每步选最高概率的词，速度快但可能不是全局最优。", difficulty: 1 },
+                { id: "nlp-spec-mid-f-9", question: "课程中讨论的 Word Embedding 将词映射到低维____（Continuous）向量空间。", answer: "连续", explanation: "词嵌入将离散的词映射为低维连续向量，使语义相近的词在向量空间中距离近。", difficulty: 1 },
+                { id: "nlp-spec-mid-f-10", question: "Transformer 的位置编码使用正弦和____（Cosine）函数。", answer: "余弦", explanation: "PE(pos,2i) = sin(pos/10000^(2i/d)), PE(pos,2i+1) = cos(pos/10000^(2i/d))。", difficulty: 2 }
+            ],
+            code: [
+                { id: "nlp-spec-mid-code-1", question: "补全注意力计算代码", code: "import torch\nimport torch.nn.functional as F\nimport math\n\ndef attention(Q, K, V, mask=None):\n    \"\"\"缩放点积注意力\"\"\"\n    d_k = Q.size(-1)\n    scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(d_k)\n    \n    if mask is not None:\n        scores = scores.masked_fill(mask == 0, ____)\n    \n    attn_weights = F.softmax(scores, dim=-1)\n    return torch.matmul(attn_weights, V)", answer: "-1e9", explanation: "被掩码的位置填充一个很大的负数，softmax 后权重接近 0，相当于忽略这些位置。", difficulty: 2 },
+                { id: "nlp-spec-mid-code-2", question: "补全简单的文本向量化（TF-IDF）代码", code: "import numpy as np\nfrom collections import Counter\n\ndef compute_tfidf(documents):\n    \"\"\"计算 TF-IDF 向量\"\"\"\n    # 词表\n    vocab = list(set(word for doc in documents for word in doc))\n    N = len(documents)\n    \n    tfidf_matrix = np.zeros((N, len(vocab)))\n    \n    for i, doc in enumerate(documents):\n        word_counts = Counter(doc)\n        doc_len = len(doc)\n        for j, word in enumerate(vocab):\n            tf = word_counts[word] / doc_len\n            df = sum(1 for d in documents if word in d)\n            idf = np.log(N / ____)\n            tfidf_matrix[i, j] = tf * idf\n    \n    return tfidf_matrix", answer: "(1 + df)", explanation: "IDF = log(N / (1+df))，分母加 1 防止除零，常见词的 IDF 值低，稀有词的 IDF 值高。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "nlp-spec-fin-c-1", question: "课程中讨论的多头注意力与单头注意力相比的优势是什么？", options: ["参数更少", "可以同时关注不同表示子空间的信息", "训练更慢", "不需要GPU"], answer: 1, explanation: "多头注意力让模型在不同子空间中学习不同类型的依赖关系，增强表达能力。", difficulty: 1 },
+                { id: "nlp-spec-fin-c-2", question: "课程中讨论的 Sequence-to-Sequence 模型使用什么损失函数训练？", options: ["MSE", "交叉熵损失", "对比损失", "对抗损失"], answer: 1, explanation: "Seq2Seq 模型使用交叉熵损失训练解码器的每个时间步预测，最小化负对数似然。", difficulty: 1 },
+                { id: "nlp-spec-fin-c-3", question: "课程中讨论的 BERT 微调用于情感分析时如何使用 [CLS] token？", options: ["忽略", "取 [CLS] 的最终表示接分类头", "只用于分隔", "作为填充"], answer: 1, explanation: "[CLS] token 的最终隐藏状态聚合了整个序列的信息，用于序列级分类任务。", difficulty: 1 },
+                { id: "nlp-spec-fin-c-4", question: "课程中讨论的注意力掩码（Attention Mask）的作用是什么？", options: ["增加速度", "防止模型关注填充位置和未来位置", "增加参数", "减少内存"], answer: 1, explanation: "填充掩码防止关注 padding token，因果掩码防止解码器看到未来位置的 token。", difficulty: 2 },
+                { id: "nlp-spec-fin-c-5", question: "课程中讨论的迁移学习在 NLP 中的典型流程是什么？", options: ["只用小数据集训练", "在大规模语料上预训练，再在目标任务上微调", "只做数据增强", "只用规则方法"], answer: 1, explanation: "NLP 迁移学习的标准流程是在大规模语料上预训练语言模型，再用少量标注数据微调。", difficulty: 1 },
+                { id: "nlp-spec-fin-c-6", question: "课程中讨论的解码策略中，Top-k 和 Top-p 采样的区别是什么？", options: ["完全相同", "Top-k 固定选 k 个，Top-p 选择概率和达到 p 的最小集合", "Top-k 更好", "Top-p 更快"], answer: 1, explanation: "Top-k 从概率最高的 k 个 token 中采样，Top-p（核采样）从累积概率达到 p 的最小 token 集合中采样。", difficulty: 2 },
+                { id: "nlp-spec-fin-c-7", question: "课程中讨论的 Masked Language Model 训练时，被选中的 token 有几种替换方式？", options: ["1种", "3种（80% [MASK]、10% 随机、10% 不变）", "2种", "所有都替换为 [MASK]"], answer: 1, explanation: "BERT 的 MLM 训练中，选中的 token 80% 替换为 [MASK]，10% 替换为随机词，10% 保持不变。", difficulty: 2 },
+                { id: "nlp-spec-fin-c-8", question: "课程中讨论的层归一化（Layer Normalization）的计算维度是什么？", options: ["沿 batch 维度", "沿特征维度", "沿序列维度", "沿头维度"], answer: 1, explanation: "LayerNorm 沿最后一个维度（特征维度）计算均值和方差进行归一化，不依赖 batch。", difficulty: 2 },
+                { id: "nlp-spec-fin-c-9", question: "课程中讨论的 Seq2Seq + Attention 模型在推理时如何处理？", options: ["并行生成", "自回归逐步生成，每步使用注意力关注编码器输出", "一步生成", "不需要注意力"], answer: 1, explanation: "推理时解码器逐 token 生成，每步的注意力基于当前查询关注编码器输出的不同位置。", difficulty: 2 },
+                { id: "nlp-spec-fin-c-10", question: "课程中讨论的困惑度（Perplexity）的计算公式是什么？", options: ["1/loss", "exp(loss)", "loss^2", "log(loss)"], answer: 1, explanation: "Perplexity = exp(NLL / N) = exp(cross_entropy_loss)，衡量模型对每个词的平均困惑程度。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "nlp-spec-fin-f-1", question: "Transformer 的编码器由 N 层____（Self-Attention）和 FFN 组成。", answer: "自注意力", explanation: "每层编码器包含多头自注意力和前馈网络两个子层，每个子层都有残差连接和层归一化。", difficulty: 1 },
+                { id: "nlp-spec-fin-f-2", question: "课程中讨论的 BERT 使用 WordPiece____（Tokenization）进行分词。", answer: "分词", explanation: "WordPiece 将词拆分为子词单元，未见过的词被拆分为更小的子词组合。", difficulty: 2 },
+                { id: "nlp-spec-fin-f-3", question: "课程中讨论的注意力掩码中，因果掩码用于解码器以防止____（Look-ahead）。", answer: "偷看", explanation: "因果掩码（下三角矩阵）确保解码器每步只能看到当前及之前位置的 token。", difficulty: 2 },
+                { id: "nlp-spec-fin-f-4", question: "课程中讨论的预训练语言模型使用大规模____（Corpus）数据。", answer: "语料", explanation: "BERT 在 BooksCorpus 和 Wikipedia 上预训练，GPT 在 WebText 上预训练。", difficulty: 1 },
+                { id: "nlp-spec-fin-f-5", question: "课程中讨论的文本分类任务可以使用 CNN、RNN 或____（Transformer）模型。", answer: "Transformer", explanation: "三种架构都适用于文本分类，Transformer 通常效果最好但计算量最大。", difficulty: 1 },
+                { id: "nlp-spec-fin-f-6", question: "课程中讨论的注意力分数的计算有加法注意力和____（Dot-Product）注意力。", answer: "点积", explanation: "加法注意力使用前馈网络计算分数，点积注意力直接用矩阵乘法计算，更高效。", difficulty: 2 },
+                { id: "nlp-spec-fin-f-7", question: "课程中讨论的机器翻译评估中，____（METEOR）指标考虑了同义词匹配。", answer: "METEOR", explanation: "METEOR 考虑同义词、词干匹配和释义，比 BLEU 更贴近人类判断。", difficulty: 2 },
+                { id: "nlp-spec-fin-f-8", question: "课程中讨论的 Transformer 的解码器在训练时使用____（Teacher Forcing）。", answer: "teacher forcing", explanation: "训练时解码器的输入是真实的目标序列，而非自己的预测，加速收敛。", difficulty: 1 },
+                { id: "nlp-spec-fin-f-9", question: "课程中讨论的词嵌入的相似度可以用余弦相似度或____（Euclidean）距离衡量。", answer: "欧氏", explanation: "余弦相似度衡量方向相似性，欧氏距离衡量绝对距离，都可以用来衡量词嵌入相似度。", difficulty: 1 },
+                { id: "nlp-spec-fin-f-10", question: "课程中讨论的注意力可视化对模型的____（Interpretability）有重要意义。", answer: "可解释性", explanation: "注意力权重可视化帮助理解模型的决策过程，判断模型是否关注了正确的信息。", difficulty: 1 }
+            ],
+            code: [
+                { id: "nlp-spec-fin-code-1", question: "补全简化的 Seq2Seq 解码器代码", code: "import torch\nimport torch.nn as nn\n\nclass SimpleDecoder(nn.Module):\n    def __init__(self, vocab_size, embed_dim, hidden_dim):\n        super().__init__()\n        self.embedding = nn.Embedding(vocab_size, embed_dim)\n        self.rnn = nn.GRU(embed_dim + hidden_dim, hidden_dim, batch_first=True)\n        self.output_proj = nn.Linear(hidden_dim, vocab_size)\n        self.attn = nn.Linear(hidden_dim * 2, hidden_dim)\n        self.v = nn.Linear(hidden_dim, 1)\n    \n    def attention(self, hidden, encoder_outputs):\n        src_len = encoder_outputs.shape[1]\n        hidden_expanded = hidden.unsqueeze(1).repeat(1, src_len, 1)\n        energy = torch.tanh(self.attn(torch.cat([hidden_expanded, encoder_outputs], dim=2)))\n        attention = self.v(energy).squeeze(2)\n        return torch.softmax(____, dim=1)", answer: "attention", explanation: "注意力能量通过 tanh 激活和线性变换计算，最后用 softmax 归一化为权重。", difficulty: 2 },
+                { id: "nlp-spec-fin-code-2", question: "补全简单的 GRU 语言模型前向传播代码", code: "import torch\nimport torch.nn as nn\n\nclass GRULanguageModel(nn.Module):\n    def __init__(self, vocab_size, embed_dim, hidden_dim):\n        super().__init__()\n        self.embedding = nn.Embedding(vocab_size, embed_dim)\n        self.gru = nn.GRU(embed_dim, hidden_dim, batch_first=True)\n        self.fc = nn.Linear(hidden_dim, vocab_size)\n    \n    def forward(self, x, hidden=None):\n        embedded = self.embedding(x)\n        output, hidden = self.gru(embedded, hidden)\n        logits = self.fc(____)\n        return logits, hidden", answer: "output", explanation: "GRU 编码器输出每个时间步的隐藏状态，通过线性层映射为词表大小的 logits。", difficulty: 1 }
+            ]
+        }
+    },
+
+    /* --- 12. Hugging Face NLP Course --- */
+    "Hugging Face NLP Course": {
+        courseId: "huggingface-nlp-course",
+        domain: "nlp",
+        mid: {
+            choice: [
+                { id: "hf-mid-c-1", question: "Hugging Face Transformers 库的核心组件是什么？", options: ["只提供数据集", "预训练模型、分词器和 API 接口", "只提供训练脚本", "只提供可视化工具"], answer: 1, explanation: "Transformers 库提供数千种预训练模型、配套分词器和简洁的 API 接口。", difficulty: 1 },
+                { id: "hf-mid-c-2", question: "Hugging Face Datasets 库的主要功能是什么？", options: ["训练模型", "高效加载、处理和共享数据集", "模型部署", "超参数搜索"], answer: 1, explanation: "Datasets 库提供高效的数据加载和预处理功能，支持流式处理和与 Hub 的无缝集成。", difficulty: 1 },
+                { id: "hf-mid-c-3", question: "Hugging Face Hub 的作用是什么？", options: ["只训练模型", "分享和发现预训练模型、数据集和 Spaces", "只存储代码", "只提供 API"], answer: 1, explanation: "Hugging Face Hub 是一个平台，用于分享和发现预训练模型、数据集和交互式应用（Spaces）。", difficulty: 1 },
+                { id: "hf-mid-c-4", question: "Trainer API 的作用是什么？", options: ["只做数据预处理", "简化模型训练循环，自动处理训练、评估和保存", "只做推理", "只做超参数搜索"], answer: 1, explanation: "Trainer 封装了完整的训练循环，包括优化器、学习率调度、评估、日志和模型保存。", difficulty: 1 },
+                { id: "hf-mid-c-5", question: "Pipeline API 的主要优势是什么？", options: ["更灵活", "用一行代码完成常见的 NLP 任务（如分类、翻译）", "更快", "更省内存"], answer: 1, explanation: "Pipeline API 封装了预处理、模型推理和后处理的完整流程，一行代码即可使用。", difficulty: 1 },
+                { id: "hf-mid-c-6", question: "Tokenizers 库的主要功能是什么？", options: ["只做分词", "高效的文本分词、编码和解码", "只做预处理", "只做后处理"], answer: 1, explanation: "Tokenizers 库用 Rust 实现，提供高效的分词（BPE/WordPiece/Unigram）、编码和解码功能。", difficulty: 1 },
+                { id: "hf-mid-c-7", question: "在 Hugging Face 中，微调预训练模型的标准流程是什么？", options: ["从头训练", "加载预训练模型 → 替换任务头 → 用 Trainer 微调", "只用 pipeline", "只用 tokenizer"], answer: 1, explanation: "标准微调流程：加载预训练模型和分词器，配置任务头，准备数据，使用 Trainer 微调。", difficulty: 1 },
+                { id: "hf-mid-c-8", question: "Hugging Face 的 Accelerate 库解决什么问题？", options: ["数据增强", "简化多 GPU/TPU 分布式训练的代码", "模型压缩", "超参数搜索"], answer: 1, explanation: "Accelerate 让分布式训练代码与单 GPU 代码几乎相同，自动处理设备放置和分布式策略。", difficulty: 2 },
+                { id: "hf-mid-c-9", question: "PEFT（参数高效微调）方法如 LoRA 的优势是什么？",options: ["效果相同", "只训练少量新增参数，减少显存和时间", "完全不训练", "增加所有参数"], answer: 1, explanation: "LoRA 等 PEFT 方法只训练少量低秩分解参数，大幅减少微调的计算和存储成本。", difficulty: 2 },
+                { id: "hf-mid-c-10", question: "Hugging Face 模型格式 safetensors 的优势是什么？", options: ["更小", "安全（无任意代码执行）且加载更快", "更慢", "更大"], answer: 1, explanation: "safetensors 格式只存储张量数据，不允许任意代码执行，比 pickle 更安全且加载更快。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "hf-mid-f-1", question: "Hugging Face 的 ____（Transformers）库提供了数千种预训练模型。", answer: "Transformers", explanation: "Transformers 是 Hugging Face 的核心库，支持 BERT、GPT、T5 等主流模型。", difficulty: 1 },
+                { id: "hf-mid-f-2", question: "Hugging Face Hub 上可以找到预训练模型、数据集和____（Spaces）。", answer: "Spaces", explanation: "Spaces 是 Hugging Face 的应用托管平台，支持 Gradio 和 Streamlit 应用。", difficulty: 1 },
+                { id: "hf-mid-f-3", question: "使用 Pipeline 进行情感分析只需创建一个情感分析____（Pipeline）对象。", answer: "pipeline", explanation: "from transformers import pipeline; classifier = pipeline('sentiment-analysis') 即可使用。", difficulty: 1 },
+                { id: "hf-mid-f-4", question: "Trainer 类需要一个 Training____（Arguments）来配置训练超参数。", answer: "Arguments", explanation: "TrainingArguments 指定输出目录、学习率、batch size、epoch 等训练配置。", difficulty: 1 },
+                { id: "hf-mid-f-5", question: "Hugging Face 的 Tokenizers 使用 Rust 编写以实现高效的____（Tokenization）。", answer: "分词", explanation: "Tokenizers 用 Rust 实现核心分词逻辑，比纯 Python 实现快数十倍。", difficulty: 1 },
+                { id: "hf-mid-f-6", question: "在 Hugging Face 中，push_to_hub 可以将模型____（Upload）到 Hub。", answer: "上传", explanation: "model.push_to_hub('model-name') 将模型和分词器上传到 Hugging Face Hub。", difficulty: 1 },
+                { id: "hf-mid-f-7", question: "LoRA 通过低秩____（Decomposition）将大矩阵分解为两个小矩阵。", answer: "分解", explanation: "LoRA 将权重更新矩阵 W 分解为 BA（B: d×r, A: r×d），只训练低秩矩阵 B 和 A。", difficulty: 2 },
+                { id: "hf-mid-f-8", question: "Hugging Face 的 Evaluate 库用于标准化模型____（Evaluation）。", answer: "评估", explanation: "Evaluate 库提供标准化的评估指标和工具，简化模型评估流程。", difficulty: 1 },
+                { id: "hf-mid-f-9", question: "Hugging Face 的 Optimum 库用于模型推理____（Optimization）。", answer: "优化", explanation: "Optimum 提供 ONNX Runtime、TensorRT 等推理优化后端的支持。", difficulty: 2 },
+                { id: "hf-mid-f-10", question: "Hugging Face 的 AutoModel 可以自动加载与分词器匹配的模型____（Architecture）。", answer: "架构", explanation: "AutoModel 自动根据模型配置选择正确的模型架构进行加载。", difficulty: 1 }
+            ],
+            code: [
+                { id: "hf-mid-code-1", question: "补全使用 Pipeline 进行文本分类的代码", code: "from transformers import pipeline\n\n# 创建情感分析管道\nclassifier = pipeline('sentiment-analysis')\n\n# 预测\nresult = classifier('I love using Hugging Face!')\nprint(result)\n# [{'label': 'POSITIVE', 'score': 0.9998}]\n\n# 批量预测\nresults = classifier([\n    'This is great!',\n    'This is terrible!',\n    ____\n])", answer: "'I feel neutral about this.'", explanation: "Pipeline 支持单条和批量文本的情感分析输入。", difficulty: 1 },
+                { id: "hf-mid-code-2", question: "补全使用 Trainer 微调模型的代码", code: "from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer\nfrom datasets import load_metric\n\n# 加载模型\nmodel = AutoModelForSequenceClassification.from_pretrained(\n    'bert-base-uncased', num_labels=2\n)\n\n# 训练参数\ntraining_args = TrainingArguments(\n    output_dir='./results',\n    num_train_epochs=3,\n    per_device_train_batch_size=16,\n    evaluation_strategy='epoch',\n    learning_rate=____,\n    weight_decay=0.01\n)\n\n# 创建 Trainer\ntrainer = Trainer(\n    model=model,\n    args=training_args,\n    train_dataset=train_dataset,\n    eval_dataset=eval_dataset,\n)\n\ntrainer.train()", answer: "2e-5", explanation: "BERT 微调通常使用较小的学习率（2e-5 到 5e-5），避免破坏预训练表示。", difficulty: 1 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "hf-fin-c-1", question: "Hugging Face 的 Diffusers 库主要用于什么任务？", options: ["NLP", "图像生成（扩散模型）", "语音识别", "推荐系统"], answer: 1, explanation: "Diffusers 库提供 Stable Diffusion 等扩散模型的实现，用于图像和视频生成。", difficulty: 1 },
+                { id: "hf-fin-c-2", question: "使用 Hugging Face 微调 BERT 进行 NER 时，需要选择什么类型的任务头？", options: ["分类头", "Token 分类头（每个 token 一个标签）", "序列分类头", "生成头"], answer: 1, explanation: "NER 是 token 级任务，需要为每个 token 预测标签，使用 token 分类头。", difficulty: 2 },
+                { id: "hf-fin-c-3", question: "Hugging Face 中数据集的 map 方法有什么优势？", options: ["只用于过滤", "支持批量和并行处理的惰性数据变换", "只用于排序", "只用于切片"], answer: 1, explanation: "map 方法支持 batched=True 的批量处理和 num_proc 多进程并行，且是惰性执行的。", difficulty: 2 },
+                { id: "hf-fin-c-4", question: "Hugging Face 的 PEFT 库支持哪些参数高效微调方法？", options: ["只支持 LoRA", "LoRA、QLoRA、Prefix Tuning、Adapter 等", "不支持 PEFT", "只支持全量微调"], answer: 1, explanation: "PEFT 库集成了 LoRA、QLoRA、Prefix Tuning、Prompt Tuning、Adapter 等多种方法。", difficulty: 1 },
+                { id: "hf-fin-c-5", question: "Hugging Face 的 TGI（Text Generation Inference）的主要作用是什么？", options: ["训练模型", "高效的大模型推理服务", "数据处理", "模型压缩"], answer: 1, explanation: "TGI 是 Hugging Face 的大语言模型推理服务器，支持连续批处理和量化推理。", difficulty: 1 },
+                { id: "hf-fin-c-6", question: "使用 Hugging Face 进行文本生成时，generate 方法支持哪些解码策略？", options: ["只支持贪心", "贪心、Beam Search、Top-k、Top-p、Temperature 等", "只支持采样", "只支持 Beam Search"], answer: 1, explanation: "generate 方法支持多种解码策略，可以通过参数灵活配置。", difficulty: 2 },
+                { id: "hf-fin-c-7", question: "Hugging Face 的 tokenizers 库中，BPE 分词器的训练过程是什么？", options: ["直接使用预定义词表", "从字符级别开始迭代合并最频繁的对", "从词级别开始拆分", "不需要训练"], answer: 1, explanation: "BPE 训练从字符级开始，每次合并最频繁的相邻对，直到达到目标词表大小。", difficulty: 2 },
+                { id: "hf-fin-c-8", question: "Hugging Face 模型的 save_pretrained 和 from_pretrained 的关系是什么？", options: ["完全无关", "save 保存模型，from_pretrained 加载同格式模型", "save 更快", "from_pretrained 只加载权重"], answer: 1, explanation: "save_pretrained 将模型权重和配置保存到目录，from_pretrained 从同一目录加载恢复模型。", difficulty: 1 },
+                { id: "hf-fin-c-9", question: "Hugging Face 的 DeepSpeed 集成的主要优势是什么？", options: ["单 GPU 加速", "支持 ZeRO 优化的大规模分布式训练", "数据增强", "模型可视化"], answer: 1, explanation: "DeepSpeed 的 ZeRO 优化器将参数、梯度和优化器状态分片到多个 GPU，支持训练超大模型。", difficulty: 2 },
+                { id: "hf-fin-c-10", question: "Hugging Face 模型卡片（Model Card）的作用是什么？", options: ["只展示图片", "记录模型信息、用法、局限性和训练细节", "只记录代码", "只记录数据"], answer: 1, explanation: "Model Card 是模型的文档，包含模型描述、训练细节、评估结果、用法示例和已知局限。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "hf-fin-f-1", question: "Hugging Face 的 ____（AutoClass）可以自动选择正确的模型类。", answer: "AutoClass", explanation: "AutoModel、AutoTokenizer 等自动类根据模型名或配置选择正确的实现。", difficulty: 1 },
+                { id: "hf-fin-f-2", question: "Hugging Face 的 ____（Datasets）库支持流式（Streaming）处理大数据集。", answer: "Datasets", explanation: "流式模式不下载整个数据集到内存，而是按需加载，适合处理 TB 级数据。", difficulty: 2 },
+                { id: "hf-fin-f-3", question: "LoRA 中的 ____（Rank）参数控制新增参数的数量。", answer: "秩", explanation: "秩 r 越大，LoRA 的表达能力越强但参数越多，通常 r=8 或 16 即可。", difficulty: 2 },
+                { id: "hf-fin-f-4", question: "Hugging Face Spaces 支持使用 ____（Gradio）或 Streamlit 构建交互应用。", answer: "Gradio", explanation: "Spaces 支持 Gradio 和 Streamlit 两种框架来构建和分享机器学习应用。", difficulty: 1 },
+                { id: "hf-fin-f-5", question: "Hugging Face 的 Tokenizers 支持 BPE、____（WordPiece）和 Unigram 分词算法。", answer: "WordPiece", explanation: "Tokenizers 实现了多种主流分词算法，BERT 用 WordPiece，GPT 用 BPE。", difficulty: 1 },
+                { id: "hf-fin-f-6", question: "Hugging Face 的 ____（Accelerate）库简化了多 GPU 分布式训练。", answer: "Accelerate", explanation: "Accelerate 让分布式训练代码与单 GPU 代码几乎相同，自动处理设备放置。", difficulty: 1 },
+                { id: "hf-fin-f-7", question: "Hugging Face 模型的 ____（Config）文件存储模型的超参数配置。", answer: "Config", explanation: "config.json 记录模型的层数、维度、注意力头数等架构配置信息。", difficulty: 1 },
+                { id: "hf-fin-f-8", question: "使用 Hugging Face 微调时，通常使用 AdamW 优化器和线性____（Scheduler）。", answer: "调度器", explanation: "微调常用 AdamW + 线性学习率预热和衰减的调度策略。", difficulty: 2 },
+                { id: "hf-fin-f-9", question: "Hugging Face Hub 的 ____（Tags）帮助发现和组织模型。", answer: "标签", explanation: "标签如 language:en、task:translation 帮助用户按语言和任务发现模型。", difficulty: 1 },
+                { id: "hf-fin-f-10", question: "Hugging Face 的 Optimum 支持 ____（ONNX）格式的模型推理优化。", answer: "ONNX", explanation: "Optimum 支持将模型转换为 ONNX 格式，并使用 ONNX Runtime 加速推理。", difficulty: 2 }
+            ],
+            code: [
+                { id: "hf-fin-code-1", question: "补全使用 Hugging Face 进行 NER 的代码", code: "from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline\n\n# 加载预训练的 NER 模型\ntokenizer = AutoTokenizer.from_pretrained('dbmdz/bert-large-cased-finetuned-conll03-english')\nmodel = AutoModelForTokenClassification.from_pretrained('dbmdz/bert-large-cased-finetuned-conll03-english')\n\n# 创建 NER 管道\nner_pipeline = pipeline('ner', model=model, tokenizer=tokenizer, ____=True)\n\n# 预测\nresults = ner_pipeline('Hugging Face is based in New York City.')\nfor r in results:\n    print(f\"{r['word']}: {r['entity']} ({r['score']:.3f})\")", answer: "aggregation_strategy", explanation: "aggregation_strategy='simple' 将子词 token 的预测合并为完整的实体。", difficulty: 2 },
+                { id: "hf-fin-code-2", question: "补全使用 PEFT 库添加 LoRA 适配器的代码", code: "from transformers import AutoModelForCausalLM\nfrom peft import LoraConfig, get_peft_model, TaskType\n\n# 加载基础模型\nmodel = AutoModelForCausalLM.from_pretrained('meta-llama/Llama-2-7b-hf')\n\n# 配置 LoRA\nlora_config = LoraConfig(\n    task_type=TaskType.CAUSAL_LM,\n    r=____,\n    lora_alpha=32,\n    lora_dropout=0.1,\n    target_modules=['q_proj', 'v_proj']\n)\n\n# 应用 LoRA\npeft_model = get_peft_model(model, lora_config)\npeft_model.print_trainable_parameters()", answer: "16", explanation: "LoRA 的秩 r 控制新增参数量，通常 8-64 之间，r=16 是常用选择。", difficulty: 2 }
+            ]
+        }
+    },
+    /* --- 13. CS324 Large Language Models --- */
+    "CS324 Large Language Models": {
+        courseId: "cs324-llms",
+        domain: "nlp",
+        mid: {
+            choice: [
+                { id: "cs324-mid-c-1", question: "GPT-3 的核心创新是什么？", options: ["新架构", "大规模少样本学习（In-Context Learning）", "新的训练目标", "更小的模型"], answer: 1, explanation: "GPT-3 展示了大规模语言模型可以通过上下文学习（few-shot/zero-shot）完成各种任务。", difficulty: 1 },
+                { id: "cs324-mid-c-2", question: "缩放定律（Scaling Laws）在 LLM 中描述什么关系？", options: ["参数与速度", "模型性能随参数量、数据量和计算量的幂律增长", "损失与时间", "准确率与学习率"], answer: 1, explanation: "Kaplan et al. 发现 LLM 的测试损失随 N（参数量）、D（数据量）、C（计算量）呈幂律下降。", difficulty: 2 },
+                { id: "cs324-mid-c-3", question: "上下文学习（In-Context Learning）的特点是什么？", options: ["需要微调", "模型通过提示中的示例学习新任务，无需梯度更新", "需要额外的训练", "只能做分类"], answer: 1, explanation: "ICL 让模型在推理时通过 prompt 中的少量示例理解任务，无需参数更新。", difficulty: 1 },
+                { id: "cs324-mid-c-4", question: "大语言模型面临的主要挑战不包括以下哪个？", options: ["幻觉", "计算成本", "缺乏训练数据", "偏见和有害输出"], answer: 2, explanation: "LLM 的主要挑战包括幻觉、计算成本高、偏见和安全问题，但不是缺乏数据。", difficulty: 1 },
+                { id: "cs324-mid-c-5", question: "Chain-of-Thought (CoT) 提示如何提升 LLM 推理能力？", options: ["增加参数", "引导模型展示中间推理步骤", "使用更多数据", "减小模型"], answer: 1, explanation: "CoT 通过在提示中展示逐步推理过程，引导模型生成更准确的推理链。", difficulty: 1 },
+                { id: "cs324-mid-c-6", question: "LLM 中的幻觉（Hallucination）指什么？", options: ["训练失败", "生成看似合理但事实上不正确的内容", "过度拟合", "推理太慢"], answer: 1, explanation: "幻觉指模型生成与事实不符或无中生有的内容，是 LLM 部署的主要风险之一。", difficulty: 1 },
+                { id: "cs324-mid-c-7", question: "GPT 系列模型使用什么类型的注意力掩码？", options: ["双向注意力", "因果（单向）注意力", "无掩码", "随机掩码"], answer: 1, explanation: "GPT 使用因果注意力掩码，每个位置只能看到之前的 token，适合自回归生成。", difficulty: 2 },
+                { id: "cs324-mid-c-8", question: "LLM 的 Token 效率问题指什么？", options: ["分词太慢", "某些语言/代码的 token 效率低，需要更多 token 表示相同信息", "内存不足", "模型太大"], answer: 1, explanation: "不同语言和领域的 token 效率差异很大，非英语文本可能需要更多 token 表示相同语义。", difficulty: 2 },
+                { id: "cs324-mid-c-9", question: "模型对齐（Alignment）在 LLM 中的目标是什么？", options: ["加速训练", "使模型行为符合人类意图和价值观", "减少参数", "增加上下文长度"], answer: 1, explanation: "对齐确保 LLM 的行为、输出和价值观与人类意图保持一致，减少有害输出。", difficulty: 1 },
+                { id: "cs324-mid-c-10", question: "InstructGPT 中 RLHF 的三个步骤是什么？", options: ["预训练→推理→部署", "监督微调→奖励模型训练→RL 优化", "数据收集→训练→评估", "编码→解码→评估"], answer: 1, explanation: "RLHF：先 SFT 微调，再训练奖励模型，最后用 PPO 算法优化策略模型。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cs324-mid-f-1", question: "GPT-3 有 1750亿（____ Billion）参数。", answer: "175", explanation: "GPT-3 是当时最大的语言模型，拥有 175B 参数，在 45TB 文本上训练。", difficulty: 1 },
+                { id: "cs324-mid-f-2", question: "大语言模型的缩放定律表明性能随计算量呈____（Power Law）增长。", answer: "幂律", explanation: "缩放定律 L(N) ~ N^(-alpha)，L(D) ~ D^(-beta)，表明投入更多计算可以持续提升性能。", difficulty: 2 },
+                { id: "cs324-mid-f-3", question: "Chain-of-____（Thought）提示引导模型展示中间推理步骤。", answer: "Thought", explanation: "CoT 提示通过展示推理链让模型学会分步思考，显著提升复杂推理能力。", difficulty: 1 },
+                { id: "cs324-mid-f-4", question: "LLM 中的____（Hallucination）是指生成不准确或虚假的内容。", answer: "幻觉", explanation: "幻觉是 LLM 的主要挑战之一，模型可能生成看似自信但事实上错误的内容。", difficulty: 1 },
+                { id: "cs324-mid-f-5", question: "RLHF 通过____（Reinforcement Learning）从人类反馈中优化模型。", answer: "强化学习", explanation: "RLHF 使用人类偏好训练奖励模型，然后用 PPO 等 RL 算法优化语言模型策略。", difficulty: 1 },
+                { id: "cs324-mid-f-6", question: "LLM 的上下文窗口（____）限制了输入的最大长度。", answer: "窗口", explanation: "上下文窗口决定了模型能处理的最大 token 数，GPT-4 支持 128K。", difficulty: 1 },
+                { id: "cs324-mid-f-7", question: "GPT-3 的 Few-shot 学习不需要____（Gradient）更新。", answer: "梯度", explanation: "Few-shot ICL 通过 prompt 中的示例学习，无需反向传播和参数更新。", difficulty: 2 },
+                { id: "cs324-mid-f-8", question: "LLM 的知识截止（____）日期限制了其知识的时间范围。", answer: "截止", explanation: "LLM 的训练数据有截止日期，之后发生的事情模型不知道，可能导致过时信息。", difficulty: 1 },
+                { id: "cs324-mid-f-9", question: "LLM 中的对齐税（Alignment____）指对齐可能导致的某些能力下降。", answer: "税", explanation: "对齐过程可能在某些基准上降低模型性能，这种现象被称为对齐税。", difficulty: 3 },
+                { id: "cs324-mid-f-10", question: "Prompt Engineering 是通过设计有效的____来引导 LLM 输出的技巧。", answer: "提示", explanation: "Prompt Engineering 通过精心设计输入提示来引导 LLM 生成所需输出。", difficulty: 1 }
+            ],
+            code: [
+                { id: "cs324-mid-code-1", question: "补全 GPT-2 文本生成代码", code: "from transformers import GPT2LMHeadModel, GPT2Tokenizer\n\nmodel = GPT2LMHeadModel.from_pretrained('gpt2')\ntokenizer = GPT2Tokenizer.from_pretrained('gpt2')\n\ninput_text = \"The future of artificial intelligence is\"\ninput_ids = tokenizer.encode(input_text, return_tensors='pt')\n\n# 生成文本\noutput = model.generate(\n    input_ids,\n    max_length=100,\n    num_beams=5,\n    no_repeat_ngram_size=2,\n    ____=True\n)\n\nprint(tokenizer.decode(output[0], skip_special_tokens=True))", answer: "early_stopping", explanation: "early_stopping=True 在 beam search 中当所有候选序列都生成 EOS token 时提前停止。", difficulty: 2 },
+                { id: "cs324-mid-code-2", question: "补全 Chain-of-Thought 提示示例", code: "# Zero-shot CoT\nprompt_zero_shot = \"\"\"Q: Roger has 5 tennis balls. He buys 2 more cans of tennis balls. Each can has 3 tennis balls. How many tennis balls does he have now?\nA: Let's think step by step.\n\"\"\"\n\n# Few-shot CoT\nprompt_few_shot = \"\"\"Q: Alice has 3 apples. She buys 2 bags with 4 apples each. How many does she have?\nA: Alice starts with 3 apples. She buys 2 bags * 4 apples = 8 apples. Total = 3 + 8 = 11 apples.\n\nQ: Roger has 5 tennis balls. He buys 2 cans of 3 each. How many now?\nA: \"\"\"\n\n# The model should then output:\nexpected = \"Roger starts with 5. He buys 2 * 3 = 6 balls. Total = 5 + 6 = ____\"", answer: "11", explanation: "CoT 提示通过提供带推理步骤的示例，引导模型展示中间计算过程。", difficulty: 1 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "cs324-fin-c-1", question: "课程中讨论的 Chinchilla 缩放定律对参数量和数据量的建议是什么？", options: ["参数越多越好", "数据量应与参数量成比例增长", "数据量不重要", "参数量应固定"], answer: 1, explanation: "Chinchilla 证明在固定计算预算下，参数量和数据量应等比例缩放以获得最佳性能。", difficulty: 2 },
+                { id: "cs324-fin-c-2", question: "课程中讨论的 Mixture of Experts (MoE) 如何在增加容量的同时控制计算量？", options: ["删除参数", "每次推理只激活部分专家网络", "使用更小的模型", "减少层数"], answer: 1, explanation: "MoE 将 FFN 替换为多个专家网络，每次只选择 top-k 个专家激活，增加参数但不成比例增加计算。", difficulty: 2 },
+                { id: "cs324-fin-c-3", question: "课程中讨论的 Retrieval-Augmented Generation (RAG) 的优势是什么？", options: ["减小模型", "结合检索和生成减少幻觉并提供最新信息", "不需要外部知识", "只做检索"], answer: 1, explanation: "RAG 从外部知识库检索相关信息作为上下文输入 LLM，减少幻觉并提供可验证的信息。", difficulty: 2 },
+                { id: "cs324-fin-c-4", question: "课程中讨论的模型蒸馏在 LLM 中的应用是什么？", options: ["训练更大的模型", "用大模型的输出训练小模型", "删除数据", "增加参数"], answer: 1, explanation: "知识蒸馏用大模型（教师）的软标签输出训练小模型（学生），在保持能力的同时减少计算。", difficulty: 2 },
+                { id: "cs324-fin-c-5", question: "课程中讨论的 Constitutional AI (CAI) 的核心思想是什么？",options: ["人工标注所有输出", "用原则引导 AI 自我改进", "不需要人类参与", "只做分类"], answer: 1, explanation: "CAI 让 AI 根据一组原则自我评估和改进输出，减少人工标注需求。", difficulty: 2 },
+                { id: "cs324-fin-c-6", question: "课程中讨论的 Mixture of Agents 方法的核心思路是什么？", options: ["使用单一模型", "多个 LLM 协作生成更好的输出", "只用一个模型", "减少模型数量"], answer: 1, explanation: "MoA 让多个不同的 LLM 协作，通过多轮讨论和评审生成更准确的输出。", difficulty: 2 },
+                { id: "cs324-fin-c-7", question: "课程中讨论的 LoRA 微调为什么比全量微调更高效？", options: ["完全相同", "只训练低秩分解的少量新增参数", "不需要数据", "只修改偏差"], answer: 1, explanation: "LoRA 冻结原模型参数，只训练低秩矩阵 A 和 B，参数量大幅减少但效果接近全量微调。", difficulty: 2 },
+                { id: "cs324-fin-c-8", question: "课程中讨论的 Constitutional AI 的 Critique-Revision 循环是什么？", options: ["只做一次", "AI 自我批评输出并根据原则修改", "人工修改", "随机修改"], answer: 1, explanation: "CAI 让模型根据宪法原则对自己的输出进行批评，然后根据批评修改输出，循环改进。", difficulty: 2 },
+                { id: "cs324-fin-c-9", question: "课程中讨论的 RLHF 中，PPO 算法的主要优势是什么？", options: ["最简单", "on-policy 算法，适合 LLM 的在线学习", "off-policy", "不需要奖励模型"], answer: 1, explanation: "PPO 是一种稳定的 on-policy 强化学习算法，适合在 LLM 微调中使用。", difficulty: 2 },
+                { id: "cs324-fin-c-10", question: "课程中讨论的 LLM 的涌现能力（Emergent Abilities）指什么？", options: ["始终存在的能力", "只在模型达到一定规模后才出现的能力", "训练失败", "所有模型都有的能力"], answer: 1, explanation: "涌现能力是指在小模型中不存在但在大模型中突然出现的能力，如 few-shot 学习和 CoT 推理。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cs324-fin-f-1", question: "InstructGPT 的训练流程是 SFT → 奖励模型 → RLHF。", answer: "SFT", explanation: "InstructGPT 先用监督微调（SFT）建立基线，再训练奖励模型，最后用 RLHF 优化。", difficulty: 1 },
+                { id: "cs324-fin-f-2", question: "Chinchilla 缩放定律建议数据量约为参数量的____倍。", answer: "20", explanation: "Chinchilla 建议每个参数约需 20 个 token，即 70B 参数模型需要约 1.4T token 训练。", difficulty: 2 },
+                { id: "cs324-fin-f-3", question: "LLM 的 Prompt Injection 是一种针对____（LLM）的安全攻击。", answer: "大语言模型", explanation: "Prompt Injection 通过精心构造的输入来操纵 LLM 的行为，绕过安全限制。", difficulty: 2 },
+                { id: "cs324-fin-f-4", question: "课程中讨论的 Quantization 将 LLM 的权重从 float16 降低到____（INT4/INT8）精度。", answer: "INT4/INT8", explanation: "量化大幅减少 LLM 的内存占用和推理延迟，使其能在消费级硬件上运行。", difficulty: 2 },
+                { id: "cs324-fin-f-5", question: "课程中讨论的 PPO 使用 Clipped____Objective 来限制策略更新幅度。", answer: "代理", explanation: "PPO 通过裁剪代理目标函数限制策略更新步长，防止过大的策略变化。", difficulty: 3 },
+                { id: "cs324-fin-f-6", question: "课程中讨论的 DPO（Direct Preference Optimization）相比 RLHF 更____（Simple），因为它不需要奖励模型。", answer: "简单", explanation: "DPO 直接从偏好数据优化策略，跳过了训练奖励模型和 RL 训练的步骤。", difficulty: 2 },
+                { id: "cs324-fin-f-7", question: "LLM 的 Context____（Window）决定了模型一次能处理的最大 token 数。", answer: "窗口", explanation: "更大的上下文窗口允许处理更长的文档和更复杂的对话。", difficulty: 1 },
+                { id: "cs324-fin-f-8", question: "课程中讨论的 Self-Instruct 方法用 LLM 自身生成____（Training）数据。", answer: "训练", explanation: "Self-Instruct 让 LLM 根据少量种子指令生成大量新的指令-输出对用于微调。", difficulty: 2 },
+                { id: "cs324-fin-f-9", question: "课程中讨论的 Red Teaming 是对 LLM 进行安全____（Testing）的方法。", answer: "测试", explanation: "Red Teaming 通过模拟攻击者尝试发现 LLM 的安全漏洞和有害行为。", difficulty: 1 },
+                { id: "cs324-fin-f-10", question: "课程中讨论的 LLM 的 Cost-Performance ____（Tradeoff）涉及计算成本和模型性能的平衡。", answer: "权衡", explanation: "在部署 LLM 时需要在计算成本（推理延迟、GPU 内存）和模型性能之间权衡。", difficulty: 2 }
+            ],
+            code: [
+                { id: "cs324-fin-code-1", question: "补全使用 Hugging Face 加载量化模型的代码", code: "from transformers import AutoModelForCausalLM, BitsAndBytesConfig\nimport torch\n\n# 4-bit 量化配置\nbnb_config = BitsAndBytesConfig(\n    load_in_4bit=True,\n    bnb_4bit_quant_type='nf4',\n    bnb_4bit_compute_dtype=torch.float16,\n    bnb_4bit_use_double_quant=____,\n)\n\n# 加载量化模型\nmodel = AutoModelForCausalLM.from_pretrained(\n    'meta-llama/Llama-2-7b-hf',\n    quantization_config=bnb_config,\n    device_map='auto'\n)", answer: "True", explanation: "double_quant 对量化常数再次量化，进一步减少内存占用约 0.4GB/参数。", difficulty: 3 },
+                { id: "cs324-fin-code-2", question: "补全 RAG 检索增强生成的简化代码", code: "from transformers import pipeline\nfrom sentence_transformers import SentenceTransformer\nimport numpy as np\n\ndef rag_generate(query, documents, generator_pipeline):\n    \"\"\"简化的 RAG 流程\"\"\"\n    # 1. 检索相关文档\n    embedder = SentenceTransformer('all-MiniLM-L6-v2')\n    doc_embeddings = embedder.encode(documents)\n    query_embedding = embedder.encode([query])\n    \n    # 计算相似度\n    similarities = np.dot(doc_embeddings, query_embedding.T).squeeze()\n    top_k_indices = np.argsort(similarities)[-3:][::-1]\n    retrieved_docs = [documents[i] for i in ____]\n    \n    # 2. 构建 prompt 并生成\n    context = '\\n'.join(retrieved_docs)\n    prompt = f\"Context: {context}\\n\\nQuestion: {query}\\nAnswer:\"\n    \n    result = generator_pipeline(prompt, max_new_tokens=200)\n    return result[0]['generated_text']", answer: "top_k_indices", explanation: "RAG 先检索最相关的文档（top-k），将它们作为上下文输入 LLM 进行生成。", difficulty: 2 }
+            ]
+        }
+    },
+    /* --- 14. Generative AI with LLMs --- */
+    "Generative AI with LLMs": {
+        courseId: "generative-ai-llms-deeplearningai",
+        domain: "nlp",
+        mid: {
+            choice: [
+                { id: "gai-llm-mid-c-1", question: "生成式 AI 中 Transformer 架构的自注意力机制如何处理序列数据？", options: ["逐个元素处理", "并行计算所有位置间的依赖关系", "随机采样", "只处理相邻元素"], answer: 1, explanation: "自注意力机制并行计算序列中所有位置对之间的关系，捕获全局依赖。", difficulty: 1 },
+                { id: "gai-llm-mid-c-2", question: "RLHF 中奖励模型的训练数据来自什么？", options: ["自动生成", "人类对模型输出的偏好排序", "随机标签", "预训练数据"], answer: 1, explanation: "奖励模型在人类标注的偏好数据上训练，学习预测人类对不同输出的偏好排序。", difficulty: 1 },
+                { id: "gai-llm-mid-c-3", question: "Prompt Engineering 的 Few-shot prompting 是什么？", options: ["零样本", "在提示中提供几个输入-输出示例", "只用一个示例", "不需要示例"], answer: 1, explanation: "Few-shot prompting 在提示中包含几个示例，帮助模型理解任务格式和预期输出。", difficulty: 1 },
+                { id: "gai-llm-mid-c-4", question: "LoRA 微调的核心思想是什么？", options: ["全量微调", "在预训练权重旁边添加低秩分解矩阵", "删除所有参数", "从头训练"], answer: 1, explanation: "LoRA 冻结原模型权重，添加低秩矩阵 A 和 B 来近似权重更新，大幅减少可训练参数。", difficulty: 2 },
+                { id: "gai-llm-mid-c-5", question: "大语言模型中 Self-Attention 的 Query、Key、Value 分别对应什么角色？", options: ["训练、验证、测试", "查询、键、值", "输入、输出、损失", "编码、解码、损失"], answer: 1, explanation: "Query 与 Key 匹配计算注意力权重，对 Value 进行加权求和。", difficulty: 1 },
+                { id: "gai-llm-mid-c-6", question: "LLM 的 Temperature 参数如何影响生成结果？", options: ["不影响", "温度越高生成越随机多样，越低越确定", "只影响速度", "只影响长度"], answer: 1, explanation: "Temperature 缩放 logits，高温增加随机性（多样性），低温减少随机性（确定性）。", difficulty: 1 },
+                { id: "gai-llm-mid-c-7", question: "Transformer 中的 Masked Self-Attention 用于什么？", options: ["编码器", "解码器（防止看到未来 token）", "预训练", "微调"], answer: 1, explanation: "解码器使用因果掩码防止注意力关注未来位置，确保自回归生成的正确性。", difficulty: 2 },
+                { id: "gai-llm-mid-c-8", question: "DPO（Direct Preference Optimization）的核心优势是什么？", options: ["需要更多数据", "直接从偏好数据优化策略，不需要奖励模型和 RL", "需要更多 GPU", "效果更差"], answer: 1, explanation: "DPO 将 RLHF 的三步流程简化为一步，直接从偏好数据优化策略模型。", difficulty: 2 },
+                { id: "gai-llm-mid-c-9", question: "课程中讨论的 Red Teaming 的目的是什么？", options: ["训练模型", "发现 LLM 的安全漏洞和有害行为", "部署模型", "评估性能"], answer: 1, explanation: "Red Teaming 模拟恶意用户尝试发现和修复 LLM 的安全漏洞。", difficulty: 1 },
+                { id: "gai-llm-mid-c-10", question: "课程中讨论的 Tokenization 在 LLM 中的作用是什么？", options: ["图像处理", "将文本分割为模型可处理的子词单元", "训练模型", "评估模型"], answer: 1, explanation: "Tokenization 将原始文本分割为 BPE/WordPiece 等子词单元，是 LLM 处理文本的第一步。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "gai-llm-mid-f-1", question: "Transformer 架构由____（Encoder）和解码器两部分组成。", answer: "编码器", explanation: "标准 Transformer 包含编码器（处理输入）和解码器（生成输出），BERT 用编码器，GPT 用解码器。", difficulty: 1 },
+                { id: "gai-llm-mid-f-2", question: "RLHF 的全称是 Reinforcement Learning from Human____。", answer: "Feedback", explanation: "RLHF 使用人类反馈（偏好标注）来训练奖励模型，进而优化语言模型。", difficulty: 1 },
+                { id: "gai-llm-mid-f-3", question: "Temperature 参数控制 softmax 输出的____（Sharpness）程度。", answer: "锐度", explanation: "温度影响概率分布的锐度：低温使分布更尖锐（更确定），高温使分布更平滑。", difficulty: 2 },
+                { id: "gai-llm-mid-f-4", question: "Prompt Engineering 的 Zero-shot prompting 不提供任何____（Example）。", answer: "示例", explanation: "Zero-shot 只给出任务描述，不提供示例，依赖模型的预训练知识。", difficulty: 1 },
+                { id: "gai-llm-mid-f-5", question: "课程中讨论的 Fine-tuning 是在预训练模型基础上进行____（Task）特定的训练。", answer: "任务", explanation: "微调在预训练模型基础上用目标任务数据继续训练，使模型适应特定任务。", difficulty: 1 },
+                { id: "gai-llm-mid-f-6", question: "LLM 中的 Top-p（Nucleus）采样从累积概率达到 p 的最____（Smallest）token 集合中采样。", answer: "小", explanation: "Top-p 选择累积概率刚好超过 p 的最小 token 集合，自适应调整候选集大小。", difficulty: 2 },
+                { id: "gai-llm-mid-f-7", question: "课程中讨论的 Quantization 将模型权重从高精度降低到____（Lower）精度。", answer: "更低", explanation: "量化（如 INT8/INT4）减少权重位数，降低模型大小和推理延迟。", difficulty: 2 },
+                { id: "gai-llm-mid-f-8", question: "课程中讨论的 Alignment 通过____（SFT）和 RLHF 等技术实现。", answer: "SFT", explanation: "监督微调（SFT）是 Alignment 的第一步，让模型学会遵循指令。", difficulty: 1 },
+                { id: "gai-llm-mid-f-9", question: "课程中讨论的 Safety Guardrails 用于防止 LLM 生成____（Harmful）内容。", answer: "有害", explanation: "安全护栏包括内容过滤、输出审核等机制，防止 LLM 生成有害或不安全的输出。", difficulty: 1 },
+                { id: "gai-llm-mid-f-10", question: "课程中讨论的 Context Window 是 LLM 一次能处理的最大____（Token）数量。", answer: "token", explanation: "上下文窗口限制了输入+输出的总 token 数，影响模型处理长文本的能力。", difficulty: 1 }
+            ],
+            code: [
+                { id: "gai-llm-mid-code-1", question: "补全缩放点积注意力的实现", code: "import torch
+import torch.nn.functional as F
+import math
+
+def scaled_dot_product_attention(Q, K, V, mask=None):
+    d_k = Q.size(-1)
+    scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(d_k)
+    if mask is not None:
+        scores = scores.masked_fill(mask == 0, -1e9)
+    weights = F.softmax(scores, dim=-1)
+    return torch.matmul(____, V)", answer: "weights", explanation: "注意力权重与 Value 相乘得到加权上下文输出。", difficulty: 1 },
+                { id: "gai-llm-mid-code-2", question: "补全 Top-p 采样代码", code: "import torch
+import torch.nn.functional as F
+
+def top_p_sampling(logits, p=0.9):
+    probs = F.softmax(logits, dim=-1)
+    sorted_probs, sorted_indices = torch.sort(probs, descending=True)
+    cumulative_probs = torch.cumsum(sorted_probs, dim=-1)
+    
+    # 移除累积概率超过 p 的 token
+    sorted_mask = cumulative_probs - sorted_probs > p
+    sorted_probs[sorted_mask] = 0.0
+    
+    # 重新归一化
+    sorted_probs = sorted_probs / sorted_probs.sum()
+    
+    # 采样
+    next_token = torch.multinomial(sorted_probs, ____)", answer: "1", explanation: "torch.multinomial 从归一化的概率分布中采样一个 token。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "gai-llm-fin-c-1", question: "课程中讨论的 RLHF 中 PPO 算法的裁剪机制如何工作？", options: ["不裁剪", "限制策略比率在 [1-eps, 1+eps] 范围内", "裁剪损失值", "裁剪梯度"], answer: 1, explanation: "PPO 将策略比率 r(theta) 裁剪在 [1-eps, 1+eps] 范围内，防止过大的策略更新。", difficulty: 2 },
+                { id: "gai-llm-fin-c-2", question: "课程中讨论的 Instruction Tuning 的目标是什么？", options: ["从头训练", "使 LLM 更好地遵循人类指令", "减小模型", "加速推理"], answer: 1, explanation: "Instruction Tuning 在多样化的指令-输出对上微调 LLM，提升其遵循指令的能力。", difficulty: 1 },
+                { id: "gai-llm-fin-c-3", question: "课程中讨论的 LLM 的 Self-Play 方法如何提升能力？", options: ["与人类对弈", "模型与自身博弈发现新的策略和知识", "与随机模型对弈", "不需要交互"], answer: 1, explanation: "Self-Play 让模型与自身（或其变体）对弈/辩论，通过对抗和合作产生更优质的训练数据。", difficulty: 2 },
+                { id: "gai-llm-fin-c-4", question: "课程中讨论的 Mixture of Experts 在 Transformer 的哪个部分应用？", options: ["注意力层", "前馈网络（FFN）层", "嵌入层", "输出层"], answer: 1, explanation: "MoE 通常替换 Transformer 的 FFN 层，每层有多个专家 FFN，只激活 top-k 个。", difficulty: 2 },
+                { id: "gai-llm-fin-c-5", question: "课程中讨论的 Constitutional AI 如何减少人工标注需求？", options: ["完全不需要标注", "AI 根据原则自我评估和修改输出", "只标注少量数据", "使用规则引擎"], answer: 1, explanation: "CAI 让 AI 根据一组宪法原则自我评估输出质量，减少人工标注需求。", difficulty: 2 },
+                { id: "gai-llm-fin-c-6", question: "课程中讨论的 DPO 相比 RLHF 减少了哪些步骤？", options: ["完全相同", "去掉了奖励模型训练和 PPO 训练", "去掉了 SFT", "去掉了数据收集"], answer: 1, explanation: "DPO 直接从偏好数据优化策略，跳过了训练奖励模型和 RL 训练两个步骤。", difficulty: 2 },
+                { id: "gai-llm-fin-c-7", question: "课程中讨论的 KV Cache 在 LLM 推理中解决什么问题？", options: ["训练不稳定", "缓存已计算的 Key-Value 避免重复计算", "内存不足", "梯度消失"], answer: 1, explanation: "KV Cache 在自回归生成中缓存已计算的 K 和 V 矩阵，避免每步重新计算所有位置的注意力。", difficulty: 2 },
+                { id: "gai-llm-fin-c-8", question: "课程中讨论的 Speculative Decoding 的优势是什么？", options: ["生成更长文本", "用小模型草拟+大模型验证加速推理", "减小模型", "增加参数"], answer: 1, explanation: "Speculative Decoding 用小模型快速生成草稿，大模型并行验证，加速生成同时保持质量。", difficulty: 3 },
+                { id: "gai-llm-fin-c-9", question: "课程中讨论的 Reward Hacking 在 RLHF 中指什么问题？",选项: ["模型更好", "模型学会利用奖励模型的弱点获取高分而非真正改善质量", "训练失败", "奖励太高"], answer: 1, explanation: "Reward Hacking 指模型找到获取高奖励的捷径而非真正改善输出质量。", difficulty: 2 },
+                { id: "gai-llm-fin-c-10", question: "课程中讨论的 LLM Evaluation 的挑战包括哪些？", options: ["没有挑战", "标准基准可能过拟合、评估不全面、缺乏真实场景测试", "太简单", "不需要评估"], answer: 1, explanation: "LLM 评估面临基准饱和、评估指标与人类判断不一致、缺乏真实场景测试等挑战。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "gai-llm-fin-f-1", question: "课程中讨论的 Reward Model 训练使用____（Bradley-Terry）偏好模型。", answer: "Bradley-Terry", explanation: "Bradley-Terry 模型将偏好概率建模为两个输出奖励差值的 sigmoid 函数。", difficulty: 3 },
+                { id: "gai-llm-fin-f-2", question: "课程中讨论的 RLHF 中 KL 散度约束防止模型____（Diverge）过远。", answer: "偏离", explanation: "KL 惩罚项防止 RL 训练使策略偏离 SFT 模型太远，保持语言质量。", difficulty: 2 },
+                { id: "gai-llm-fin-f-3", question: "课程中讨论的 LLM 的 Chain-of-Thought 通过展示____（Reasoning）过程提升推理。", answer: "推理", explanation: "CoT 让模型生成中间推理步骤，帮助解决需要多步推理的复杂问题。", difficulty: 1 },
+                { id: "gai-llm-fin-f-4", question: "课程中讨论的 RAG 中的____（Retrieval）模块负责从外部知识库检索相关信息。", answer: "检索", explanation: "检索模块使用向量搜索等方法从知识库中找到与查询相关的文档片段。", difficulty: 1 },
+                { id: "gai-llm-fin-f-5", question: "课程中讨论的 RLHF 使用 PPO（Proximal Policy____）算法优化策略。", answer: "优化", explanation: "PPO 通过裁剪代理目标函数实现稳定的策略优化。", difficulty: 1 },
+                { id: "gai-llm-fin-f-6", question: "课程中讨论的 Instruction Following 是评估 LLM ______（Capability）的重要维度。", answer: "能力", explanation: "指令遵循能力衡量 LLM 按照人类指令执行各种任务的能力。", difficulty: 1 },
+                { id: "gai-llm-fin-f-7", question: "课程中讨论的 LLM 的 Safety Alignment 需要平衡有用性和____（Harmlessness）。", answer: "无害性", explanation: "安全对齐的三个维度是有用性（Helpful）、诚实性（Honest）和无害性（Harmless）。", difficulty: 2 },
+                { id: "gai-llm-fin-f-8", question: "课程中讨论的 Model Merging 将多个____（Fine-tuned）模型合并为一个。", answer: "微调", explanation: "模型合并通过加权平均等方法将多个专长模型合并为一个综合模型。", difficulty: 2 },
+                { id: "gai-llm-fin-f-9", question: "课程中讨论的 Guardrails 在 LLM 输入和输出端添加安全____（Filters）。", answer: "过滤器", explanation: "Guardrails 在输入端过滤恶意请求，在输出端过滤有害内容。", difficulty: 1 },
+                { id: "gai-llm-fin-f-10", question: "课程中讨论的 Synthetic Data 使用 LLM 生成____（Training）数据来扩充训练集。", answer: "训练", explanation: "合成数据用 LLM 生成高质量的训练样本，补充稀缺领域的人工标注数据。", difficulty: 2 }
+            ],
+            code: [
+                { id: "gai-llm-fin-code-1", question: "补全 DPO 损失函数的实现", code: "import torch
+import torch.nn.functional as F
+
+def dpo_loss(policy_chosen_logps, policy_rejected_logps, reference_chosen_logps, reference_rejected_logps, beta=0.1):
+    """DPO 损失函数"""
+    # 计算隐式奖励
+    chosen_rewards = beta * (policy_chosen_logps - reference_chosen_logps)
+    rejected_rewards = beta * (policy_rejected_logps - reference_rejected_logps)
+    
+    # DPO 损失
+    loss = -F.logsigmoid(____)
+    return loss.mean()", answer: "chosen_rewards - rejected_rewards", explanation: "DPO 损失最大化 chosen 和 rejected 的隐式奖励差异，即偏好 chosen 输出。", difficulty: 3 },
+                { id: "gai-llm-fin-code-2", question: "补全 KV Cache 推理代码", code: "import torch
+
+class CachedAttention:
+    def __init__(self):
+        self.k_cache = None
+        self.v_cache = None
+    
+    def forward(self, Q, K, V, use_cache=True):
+        if use_cache and self.k_cache is not None:
+            K = torch.cat([self.k_cache, K], dim=2)
+            V = torch.cat([self.v_cache, V], dim=2)
+        
+        if use_cache:
+            self.k_cache = K.detach()
+            self.v_cache = ____
+        
+        scores = torch.matmul(Q, K.transpose(-2, -1)) / (Q.size(-1) ** 0.5)
+        attn = torch.softmax(scores, dim=-1)
+        return torch.matmul(attn, V)", answer: "V.detach()", explanation: "KV Cache 保存已计算的 K 和 V，在自回归生成时只需计算新 token 的 Q/K/V 并拼接。", difficulty: 2 }
+            ]
+        }
+    },
+    /* --- 15. CS25 Transformers United V6 --- */
+    "CS25 Transformers United V6": {
+        courseId: "cs25-transformers",
+        domain: "nlp",
+        mid: {
+            choice: [
+                { id: "cs25-mid-c-1", question: "CS25 课程中讨论的多模态 Transformer 的核心挑战是什么？", options: ["只处理文本", "对齐和融合不同模态（视觉、语言、音频）的信息", "只处理图像", "只处理音频"], answer: 1, explanation: "多模态 Transformer 需要解决不同模态间的对齐、融合和交互问题。", difficulty: 1 },
+                { id: "cs25-mid-c-2", question: "Flash Attention 的主要优化目标是什么？", options: ["增加参数", "减少 GPU 内存占用并加速注意力计算", "增加精度", "减少层数"], answer: 1, explanation: "Flash Attention 通过分块计算和减少 HBM 访问来加速注意力并减少内存占用。", difficulty: 2 },
+                { id: "cs25-mid-c-3", question: "课程中讨论的 Efficient Transformer 方法有哪些？", options: ["只有更大模型", "稀疏注意力、线性注意力、分组查询注意力等", "只有更深的网络", "只有更多数据"], answer: 1, explanation: "Efficient Transformer 通过稀疏化、近似和分块计算降低标准注意力的二次复杂度。", difficulty: 2 },
+                { id: "cs25-mid-c-4", question: "Grouped Query Attention (GQA) 相比 Multi-Head Attention 的改进是什么？", options: ["更多头", "多个 Query 头共享一组 Key-Value 头，减少 KV Cache", "更少层", "更大模型"], answer: 1, explanation: "GQA 让多个 Query 头共享同一组 KV 头，在保持质量的同时减少 KV Cache 内存。", difficulty: 2 },
+                { id: "cs25-mid-c-5", question: "课程中讨论的 Vision Transformer (ViT) 如何处理图像？", options: ["使用 CNN", "将图像分割为 patch 序列后输入 Transformer", "使用 RNN", "直接处理像素"], answer: 1, explanation: "ViT 将图像分割为固定大小的 patch，线性投影为向量序列后输入标准 Transformer。", difficulty: 1 },
+                { id: "cs25-mid-c-6", question: "CLIP 的训练方式是什么？", options: ["监督学习", "对比学习对齐图像和文本嵌入", "强化学习", "无监督学习"], answer: 1, explanation: "CLIP 在 4 亿图文对上进行对比学习，对齐图像编码器和文本编码器的输出。", difficulty: 1 },
+                { id: "cs25-mid-c-7", question: "课程中讨论的 Transformer 的推理优化中，KV Cache 的作用是什么？", options: ["增加计算", "缓存已计算的 K/V 避免重复计算", "减少参数", "增加层数"], answer: 1, explanation: "KV Cache 在自回归生成时存储已计算的 K 和 V，避免每步重新计算。", difficulty: 2 },
+                { id: "cs25-mid-c-8", question: "课程中讨论的 Mixture of Depths 的思想是什么？", options: ["增加深度", "不同 token 动态选择不同数量的层进行计算", "减少宽度", "固定深度"], answer: 1, explanation: "MoD 让不同 token 根据复杂度动态跳过某些层的计算，简单 token 不需要全部层。", difficulty: 3 },
+                { id: "cs25-mid-c-9", question: "课程中讨论的 Prefix Tuning 的主要优势是什么？", options: ["效果最好", "只优化前缀向量，冻结原始模型参数", "不需要数据", "只做推理"], answer: 1, explanation: "Prefix Tuning 在输入前添加可训练的前缀向量，冻结模型参数，减少微调成本。", difficulty: 2 },
+                { id: "cs25-mid-c-10", question: "课程中讨论的 Inference Scaling 中 Test-Time Compute 指什么？", options: ["训练时增加计算", "推理时分配更多计算资源提升输出质量", "减少计算", "不需要计算"], answer: 1, explanation: "Test-Time Compute 在推理时通过多次采样、验证或搜索来提升输出质量。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cs25-mid-f-1", question: "Flash Attention 通过分块（____）计算减少了 GPU HBM 访问。", answer: "分块", explanation: "Flash Attention 将 Q/K/V 分块加载到 SRAM，在 SRAM 内完成注意力计算。", difficulty: 2 },
+                { id: "cs25-mid-f-2", question: "Vision Transformer 将图像分割为固定大小的____（Patch）后输入。", answer: "patch", explanation: "ViT 将 HxW 图像分为 (H/P)x(W/P) 个 PxP patch，每个 patch 嵌入为向量。", difficulty: 1 },
+                { id: "cs25-mid-f-3", question: "GQA 中多个 Query 头共享一组____（Key-Value）头。", answer: "KV", explanation: "GQA 通过分组共享 KV 头减少 KV Cache 大小，MHA 所有头独立，MQA 所有头共享。", difficulty: 2 },
+                { id: "cs25-mid-f-4", question: "课程中讨论的____（Linear）Attention 将复杂度降低为 O(n)。", answer: "线性", explanation: "线性注意力通过核近似避免显式计算 n*n 注意力矩阵，将复杂度降低为线性。", difficulty: 3 },
+                { id: "cs25-mid-f-5", question: "CLIP 使用对比学习将图像和文本对齐到共享的____（Embedding）空间。", answer: "嵌入", explanation: "CLIP 的对比损失最大化匹配图文对的相似度，最小化不匹配对的相似度。", difficulty: 1 },
+                { id: "cs25-mid-f-6", question: "课程中讨论的 Speculative Decoding 用小模型____（Draft）候选序列。", answer: "草拟", explanation: "小模型快速生成草稿 token，大模型并行验证，接受正确的部分。", difficulty: 2 },
+                { id: "cs25-mid-f-7", question: "Prefix Tuning 在输入序列前添加可训练的____（Prefix）向量。", answer: "前缀", explanation: "前缀向量作为虚拟 token 参与注意力计算，引导模型行为。", difficulty: 2 },
+                { id: "cs25-mid-f-8", question: "课程中讨论的 Cross-Modal Attention 实现不同____（Modality）间的信息交互。", answer: "模态", explanation: "交叉注意力让一个模态（如文本）查询另一个模态（如图像）的信息。", difficulty: 2 },
+                { id: "cs25-mid-f-9", question: "RoPE（旋转位置编码）通过____（Rotation）矩阵编码位置信息。", answer: "旋转", explanation: "RoPE 将位置信息编码为旋转矩阵，使注意力分数自然地依赖于相对位置。", difficulty: 3 },
+                { id: "cs25-mid-f-10", question: "课程中讨论的 Long Context 处理方法包括滑动窗口和____（Sparse）注意力。", answer: "稀疏", explanation: "稀疏注意力只计算部分位置对，降低长序列处理的计算成本。", difficulty: 2 }
+            ],
+            code: [
+                { id: "cs25-mid-code-1", question: "补全 GQA 的 KV 头共享代码", code: "import torch
+import torch.nn as nn
+
+class GroupedQueryAttention(nn.Module):
+    def __init__(self, d_model, num_heads, num_kv_heads):
+        super().__init__()
+        self.num_heads = num_heads
+        self.num_kv_heads = num_kv_heads
+        self.num_groups = num_heads // num_kv_heads
+        self.d_k = d_model // num_heads
+        
+        self.W_q = nn.Linear(d_model, d_model)
+        self.W_k = nn.Linear(d_model, num_kv_heads * self.d_k)
+        self.W_v = nn.Linear(d_model, num_kv_heads * self.d_k)
+    
+    def forward(self, Q, K, V):
+        Q = self.W_q(Q).view(-1, self.num_heads, self.d_k)
+        K = self.W_k(K).view(-1, self.num_kv_heads, self.d_k)
+        V = self.W_v(V).view(-1, self.num_kv_heads, self.d_k)
+        
+        # 扩展 KV 头以匹配 Query 头数量
+        K = K.repeat_interleave(self.num_groups, dim=1)
+        V = ____
+        
+        scores = torch.matmul(Q, K.transpose(-2, -1)) / (self.d_k ** 0.5)
+        attn = torch.softmax(scores, dim=-1)
+        return torch.matmul(attn, V)", answer: "V.repeat_interleave(self.num_groups, dim=1)", explanation: "GQA 将每个 KV 头重复 num_groups 次以匹配 Query 头数量，实现分组共享。", difficulty: 2 },
+                { id: "cs25-mid-code-2", question: "补全 ViT 的 Patch Embedding 代码", code: "import torch
+import torch.nn as nn
+
+class PatchEmbedding(nn.Module):
+    def __init__(self, img_size=224, patch_size=16, in_chans=3, embed_dim=768):
+        super().__init__()
+        self.num_patches = (img_size // patch_size) ** 2
+        self.proj = nn.Conv2d(in_chans, embed_dim, kernel_size=patch_size, stride=patch_size)
+        self.cls_token = nn.Parameter(torch.zeros(1, 1, embed_dim))
+        self.pos_embed = nn.Parameter(torch.zeros(1, self.num_patches + 1, embed_dim))
+    
+    def forward(self, x):
+        B = x.shape[0]
+        x = self.proj(x).flatten(2).transpose(1, 2)  # [B, num_patches, embed_dim]
+        cls_tokens = self.cls_token.expand(B, -1, -1)
+        x = torch.cat([____, x], dim=1)
+        x = x + self.pos_embed
+        return x", answer: "cls_tokens", explanation: "ViT 在 patch 序列前拼接一个可学习的 CLS token，其最终表示用于分类。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "cs25-fin-c-1", question: "课程中讨论的 Sliding Window Attention 如何处理长序列？", options: ["不处理", "每个 token 只关注局部窗口内的 token", "全连接注意力", "随机关注"], answer: 1, explanation: "滑动窗口限制注意力范围在固定大小的窗口内，将复杂度从 O(n^2) 降为 O(n*w)。", difficulty: 2 },
+                { id: "cs25-fin-c-2", question: "课程中讨论的 LoRA 为什么对 Q/K/V 投影矩阵特别有效？", options: ["对所有层效果相同", "注意力层的权重更新具有低秩特性", "只对 Q 有效", "对 FFN 效果更好"], answer: 1, explanation: "研究表明微调时注意力投影矩阵的更新近似低秩，LoRA 的低秩假设正好匹配。", difficulty: 2 },
+                { id: "cs25-fin-c-3", question: "课程中讨论的 Scaling Laws 对 LLM 开发的指导意义是什么？",options: ["无意义", "帮助预测不同规模模型的性能，指导资源分配", "只用于学术研究", "只适用于小模型"], answer: 1, explanation: "缩放定律帮助研究者在训练前预测不同模型规模的性能，优化计算资源分配。", difficulty: 2 },
+                { id: "cs25-fin-c-4", question: "课程中讨论的 Diffusion Transformer 的创新点是什么？", options: ["使用 RNN", "用 Transformer 替代 U-Net 作为扩散模型的骨干", "使用 CNN", "不需要扩散"], answer: 1, explanation: "DiT 用 Transformer 替代 U-Net 作为扩散模型的去噪网络，如 Sora 使用的架构。", difficulty: 2 },
+                { id: "cs25-fin-c-5", question: "课程中讨论的 Reward Model 在 RLHF 中如何训练？", options: ["用强化学习", "在人类偏好比较数据上训练", "用监督学习", "不需要训练"], answer: 1, explanation: "奖励模型在人类标注的偏好对上训练，学习预测哪个输出更受人类偏好。", difficulty: 2 },
+                { id: "cs25-fin-c-6", question: "课程中讨论的 Mixture of Depths 如何决定哪些 token 跳过某些层？",options: ["随机决定", "用路由器根据 token 的路由得分决定", "所有都跳过", "所有都执行"], answer: 1, explanation: "MoD 使用轻量级路由器为每个 token 计算路由得分，得分低的 token 跳过该层。", difficulty: 3 },
+                { id: "cs25-fin-c-7", question: "课程中讨论的 Multi-Query Attention (MQA) 和 GQA 的区别是什么？", options: ["完全相同", "MQA 所有头共享一个 KV，GQA 每组共享一个 KV", "MQA 更好", "GQA 不需要 KV"], answer: 1, explanation: "MQA 让所有 Q 头共享一组 KV，GQA 是 MHA 和 MQA 的折中，每组 Q 共享一组 KV。", difficulty: 2 },
+                { id: "cs25-fin-c-8", question: "课程中讨论的 LLM 的 Emergent Abilities 指什么？",options: ["始终存在的能力", "只在模型达到特定规模后突然出现的能力", "退化的能力", "可预测的能力"], answer: 1, explanation: "涌现能力是在小模型中不存在但在大模型中突然出现的能力。", difficulty: 2 },
+                { id: "cs25-fin-c-9", question: "课程中讨论的 Adapter Tuning 在 Transformer 的什么位置插入小模块？", options: ["只在输入层", "每层的注意力和 FFN 之后", "只在输出层", "不在任何位置"], answer: 1, explanation: "Adapter 在 Transformer 每层的子层之后插入小型瓶颈网络，只训练 Adapter 参数。", difficulty: 2 },
+                { id: "cs25-fin-c-10", question: "课程中讨论的 Parallel Attention and FFN 的优势是什么？",options: ["完全相同", "将注意力和 FFN 并行计算减少延迟", "增加精度", "增加参数"], answer: 1, explanation: "并行计算注意力和 FFN 可以减少序列依赖，降低推理延迟。", difficulty: 3 }
+            ],
+            fill: [
+                { id: "cs25-fin-f-1", question: "Flash Attention 通过减少对高带宽____（Memory/HBM）的访问来加速计算。", answer: "内存", explanation: "Flash Attention 利用 SRAM 的高带宽，减少对 HBM 的读写次数。", difficulty: 2 },
+                { id: "cs25-fin-f-2", question: "RoPE（旋转位置编码）通过旋转查询和____（Key）向量来编码相对位置。", answer: "键", explanation: "RoPE 对 Q 和 K 应用位置相关的旋转矩阵，使注意力分数自然反映相对位置。", difficulty: 3 },
+                { id: "cs25-fin-f-3", question: "课程中讨论的____（KV）Cache 是 LLM 推理的关键优化技术。", answer: "KV", explanation: "KV Cache 存储已计算的 Key-Value 矩阵，避免自回归生成时重复计算。", difficulty: 1 },
+                { id: "cs25-fin-f-4", question: "课程中讨论的 Mixture of Experts 使用____（Gating）网络选择专家。", answer: "门控", explanation: "门控网络根据输入为每个专家分配权重，选择 top-k 个专家进行计算。", difficulty: 2 },
+                { id: "cs25-fin-f-5", question: "课程中讨论的 Prefix Tuning 在每层注意力中添加可训练的____（Prefix）键值对。", answer: "前缀", explanation: "每层的注意力都有独立的可训练前缀 KV 对，控制每层的行为。", difficulty: 2 },
+                { id: "cs25-fin-f-6", question: "CLIP 的对比损失包括图像到文本和文本到图像两个____（Direction）的对比。", answer: "方向", explanation: "CLIP 的对称对比损失同时优化 I2T 和 T2I 两个方向的匹配。", difficulty: 2 },
+                { id: "cs25-fin-f-7", question: "课程中讨论的 Flash Attention 2 进一步优化了____（Parallelism）以提高 GPU 利用率。", answer: "并行度", explanation: "Flash Attention 2 改进了并行策略，在序列长度维度上增加了并行性。", difficulty: 3 },
+                { id: "cs25-fin-f-8", question: "课程中讨论的 LLM 的 Capability Elicitation 评估模型的各种____（Ability）。", answer: "能力", explanation: "能力诱导评估测试模型在不同任务上的能力，如推理、代码、数学等。", difficulty: 1 },
+                { id: "cs25-fin-f-9", question: "课程中讨论的 QLoRA 将量化的____（Base）模型与 LoRA 微调结合。", answer: "基础", explanation: "QLoRA 量化基础模型到 4-bit，然后在其上添加可训练的 LoRA 适配器。", difficulty: 2 },
+                { id: "cs25-fin-f-10", question: "课程中讨论的 Structured Pruning 移除整个____（Head/Layer/Neuron）而非单个权重。", answer: "注意力头/层/神经元", explanation: "结构化剪枝移除完整的结构组件，减少实际计算量，而非仅移除个别权重。", difficulty: 2 }
+            ],
+            code: [
+                { id: "cs25-fin-code-1", question: "补全 RoPE 位置编码的实现代码", code: "import torch
+import math
+
+def precompute_rope_freqs(dim, max_seq_len, theta=10000.0):
+    """预计算 RoPE 的频率"""
+    freqs = 1.0 / (theta ** (torch.arange(0, dim, 2).float() / dim))
+    t = torch.arange(max_seq_len).float()
+    freqs = torch.outer(t, freqs)
+    return torch.polar(torch.ones_like(freqs), freqs)
+
+def apply_rope(x, freqs):
+    """应用旋转位置编码"""
+    x_complex = torch.view_as_complex(x.float().reshape(*x.shape[:-1], -1, 2))
+    x_rotated = x_complex * freqs
+    return torch.view_as_real(x_rotated).reshape(*x.shape)", answer: "freqs", explanation: "RoPE 通过复数乘法实现旋转，将位置信息编码到 Q 和 K 中。", difficulty: 3 },
+                { id: "cs25-fin-code-2", question: "补全 LoRA 层的实现代码", code: "import torch
+import torch.nn as nn
+
+class LoRALinear(nn.Module):
+    def __init__(self, original_linear, r=16, alpha=32):
+        super().__init__()
+        self.original = original_linear
+        self.original.weight.requires_grad_(False)
+        
+        d_in = original_linear.in_features
+        d_out = original_linear.out_features
+        
+        # LoRA 矩阵
+        self.lora_A = nn.Parameter(torch.randn(d_in, r) * 0.01)
+        self.lora_B = nn.Parameter(torch.zeros(r, d_out))
+        self.scaling = alpha / r
+    
+    def forward(self, x):
+        # 原始输出 + LoRA 输出
+        original_out = self.original(x)
+        lora_out = (x @ self.lora_A @ self.lora_B) * self.scaling
+        return original_out + ____", answer: "lora_out", explanation: "LoRA 输出 = 原始线性变换 + 缩放的低秩更新，只训练 lora_A 和 lora_B。", difficulty: 2 }
+            ]
+        }
+    },
+    /* --- 17. Text Mining and Analytics (UIUC) --- */
+    "Text Mining and Analytics": {
+        courseId: "text-mining-analytics-uiuc",
+        domain: "nlp",
+        mid: {
+            choice: [
+                { id: "tma-mid-c-1", question: "主题模型（Topic Model）的核心目标是什么？", options: ["分类文本", "自动发现文档集合中的潜在主题", "情感分析", "机器翻译"], answer: 1, explanation: "主题模型如 LDA 自动从文档集合中发现隐藏的主题结构。", difficulty: 1 },
+                { id: "tma-mid-c-2", question: "LDA（隐狄利克雷分配）的基本假设是什么？", options: ["每个文档只有一个主题", "每个文档是多个主题的混合，每个主题是词的分布", "每个词只有一个主题", "不需要假设"], answer: 1, explanation: "LDA 假设每个文档由多个主题混合生成，每个主题是词汇表上的一个概率分布。", difficulty: 2 },
+                { id: "tma-mid-c-3", question: "TF-IDF 中 IDF 的作用是什么？", options: ["计算词频", "降低常见词的权重，提升稀有词的重要性", "增加常见词权重", "只计算词频"], answer: 1, explanation: "IDF 对在很多文档中出现的常见词降低权重，突出在少数文档中出现的区分性词汇。", difficulty: 1 },
+                { id: "tma-mid-c-4", question: "文本分类中，朴素贝叶斯分类器的基本假设是什么？", options: ["特征高度相关", "特征之间条件独立", "不需要假设", "特征完全相同"], answer: 1, explanation: "朴素贝叶斯假设特征（词）在给定类别下条件独立，简化了联合概率的计算。", difficulty: 2 },
+                { id: "tma-mid-c-5", question: "信息检索中的 BM25 比 TF-IDF 改进了什么？",options: ["完全相同", "考虑了文档长度和词频饱和度", "使用深度学习", "不需要词频"], answer: 1, explanation: "BM25 引入文档长度归一化和词频饱和函数，比 TF-IDF 更准确。", difficulty: 2 },
+                { id: "tma-mid-c-6", question: "情感词典在情感分析中的作用是什么？", options: ["训练模型", "基于预定义的情感词汇匹配判断情感极性", "翻译文本", "提取关键词"], answer: 1, explanation: "情感词典包含带有情感极性的词汇列表，通过匹配统计判断文本情感。", difficulty: 1 },
+                { id: "tma-mid-c-7", question: "词嵌入（Word Embedding）相比 one-hot 编码的优势是什么？", options: ["维度更高", "捕获语义关系，维度更低", "完全相同", "不需要训练"], answer: 1, explanation: "词嵌入将词映射为低维稠密向量，语义相似的词距离近，捕获语义关系。", difficulty: 1 },
+                { id: "tma-mid-c-8", question: "文本摘要的两种主要方法是什么？",options: ["翻译和分类", "抽取式和生成式", "分类和聚类", "翻译和摘要"], answer: 1, explanation: "抽取式从原文中选取关键句子组成摘要，生成式用自然语言生成新句子。", difficulty: 1 },
+                { id: "tma-mid-c-9", question: "命名实体识别（NER）在信息抽取中的作用是什么？", options: ["分类文本", "从文本中识别和分类人名、地名、机构名等实体", "翻译文本", "生成摘要"], answer: 1, explanation: "NER 是信息抽取的基础任务，识别文本中具有特定意义的实体。", difficulty: 1 },
+                { id: "tma-mid-c-10", question: "N-gram 模型中，增大 N 的优势和劣势分别是什么？", options: ["无变化", "捕获更长的依赖但增加稀疏性", "减少稀疏性", "只增加速度"], answer: 1, explanation: "更大的 N 能捕获更长的上下文依赖，但数据稀疏性增加，需要更多训练数据。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "tma-mid-f-1", question: "LDA 的全称是 Latent____（Dirichlet Allocation）。", answer: "Dirichlet", explanation: "LDA 使用狄利克雷先验分布来建模文档-主题和主题-词的概率分布。", difficulty: 1 },
+                { id: "tma-mid-f-2", question: "TF-IDF 结合了词频（TF）和____（Inverse Document Frequency）。", answer: "逆文档频率", explanation: "TF-IDF = TF * IDF，TF 衡量词在文档中的重要性，IDF 衡量词在整个语料中的区分能力。", difficulty: 1 },
+                { id: "tma-mid-f-3", question: "文本预处理中的____（Stemming）将词还原为词干形式。", answer: "词干提取", explanation: "Stemming 通过规则将 running/runs 还原为 run，Porter Stemmer 是常用算法。", difficulty: 1 },
+                { id: "tma-mid-f-4", question: "信息检索中的____（Precision）衡量检索结果中相关文档的比例。", answer: "精确率", explanation: "Precision = 相关且检索到的文档数 / 检索到的文档总数。", difficulty: 1 },
+                { id: "tma-mid-f-5", question: "文本分类中的 Bag of Words 模型忽略了词的____（Order）。", answer: "顺序", explanation: "BoW 只统计词的频率，不考虑词在文档中的位置和顺序信息。", difficulty: 1 },
+                { id: "tma-mid-f-6", question: "LDA 中的____（Gibbs）采样是一种常用的近似推断方法。", answer: "Gibbs", explanation: "Gibbs 采样通过迭代采样每个变量的条件分布来近似后验分布。", difficulty: 2 },
+                { id: "tma-mid-f-7", question: "文本挖掘中的____（Collocation）识别发现经常共现的词组。", answer: "搭配", explanation: "搭配如 New York、machine learning 是经常一起出现的词组。", difficulty: 1 },
+                { id: "tma-mid-f-8", question: "情感分析可以分为文档级、句子级和____（Aspect）级。", answer: "方面", explanation: "方面级情感分析识别文本中对特定方面（如食物质量、服务态度）的情感。", difficulty: 2 },
+                { id: "tma-mid-f-9", question: "信息抽取包括实体抽取、关系抽取和____（Event）抽取。", answer: "事件", explanation: "事件抽取从文本中识别事件及其参与者、时间、地点等要素。", difficulty: 2 },
+                { id: "tma-mid-f-10", question: "LSA（潜在语义分析）通过____（SVD）分解文档-词矩阵。", answer: "SVD", explanation: "LSA 对文档-词矩阵进行奇异值分解，将高维稀疏表示降维到低维稠密空间。", difficulty: 2 }
+            ],
+            code: [
+                { id: "tma-mid-code-1", question: "补全 TF-IDF 计算代码", code: "import numpy as np\nfrom collections import Counter\n\ndef tfidf(documents):\n    # 构建词汇表\n    vocab = sorted(set(w for doc in documents for w in doc))\n    N = len(documents)\n    \n    tfidf_matrix = np.zeros((N, len(vocab)))\n    for i, doc in enumerate(documents):\n        word_counts = Counter(doc)\n        for j, word in enumerate(vocab):\n            tf = word_counts[word] / len(doc)\n            df = sum(1 for d in documents if word in d)\n            idf = np.log((N + 1) / (____ + 1)) + 1\n            tfidf_matrix[i, j] = tf * idf\n    return tfidf_matrix", answer: "df", explanation: "平滑 IDF 公式 log((N+1)/(df+1)) + 1 防止 df=0 时除零，常见词 IDF 接近 1。", difficulty: 2 },
+                { id: "tma-mid-code-2", question: "补全简单的余弦相似度文本匹配代码", code: "import numpy as np\n\ndef cosine_similarity(vec1, vec2):\n    dot_product = np.dot(vec1, vec2)\n    norm1 = np.linalg.norm(vec1)\n    norm2 = np.linalg.norm(vec2)\n    return dot_product / (norm1 * norm2 + ____)\n\n# 使用示例\ntfidf_matrix = compute_tfidf(documents)\nsim = cosine_similarity(tfidf_matrix[0], tfidf_matrix[1])", answer: "1e-8", explanation: "添加小常数防止分母为零（当某个向量全为零时）。", difficulty: 1 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "tma-fin-c-1", question: "LDA 模型中，主题数 K 如何选择？", options: ["固定为1", "通过困惑度（Perplexity）或主题一致性（Coherence）评估选择", "随机选择", "不需要选择"], answer: 1, explanation: "主题数 K 通常通过困惑度、主题一致性或经验确定，需要在主题粒度和泛化性间平衡。", difficulty: 2 },
+                { id: "tma-fin-c-2", question: "Word2Vec 的 Skip-gram 和 CBOW 的主要区别是什么？", options: ["完全相同", "Skip-gram 用中心词预测上下文，CBOW 用上下文预测中心词", "Skip-gram 更快", "CBOW 效果更好"], answer: 1, explanation: "Skip-gram 以中心词为输入预测上下文词，CBOW 以上下文词为输入预测中心词。", difficulty: 1 },
+                { id: "tma-fin-c-3", question: "PageRank 算法在 Web 搜索中的作用是什么？", options: ["文本分类", "根据网页链接结构评估网页的重要性", "情感分析", "关键词提取"], answer: 1, explanation: "PageRank 通过网页间的链接关系迭代计算每个网页的重要性得分。", difficulty: 1 },
+                { id: "tma-fin-c-4", question: "课程中讨论的 EM 算法在 LDA 推断中的作用是什么？", options: ["训练词向量", "迭代优化文档-主题和主题-词分布的参数估计", "分类文本", "情感分析"], answer: 1, explanation: "EM 算法通过 E 步（估计隐变量）和 M 步（更新参数）迭代优化 LDA 的参数。", difficulty: 2 },
+                { id: "tma-fin-c-5", question: "课程中讨论的 Pointwise Mutual Information (PMI) 用于什么？",options: ["文本分类", "衡量两个词的共现显著性", "情感分析", "摘要"], answer: 1, explanation: "PMI 衡量两个词的共现概率与独立假设下期望共现概率的比值，用于发现有意义的词对。", difficulty: 2 },
+                { id: "tma-fin-c-6", question: "课程中讨论的 Latent Semantic Analysis (LSA) 的局限性是什么？", options: ["没有局限", "无法捕获非线性语义关系", "太复杂", "只适用于英文"], answer: 1, explanation: "LSA 基于线性 SVD，无法捕获词之间的非线性语义关系。", difficulty: 2 },
+                { id: "tma-fin-c-7", question: "课程中讨论的 Pointwise Hitting Time 在图上文本挖掘中的作用是什么？",options: ["文本分类", "基于随机游走的文本相关性度量", "情感分析", "翻译"], answer: 1, explanation: "基于随机游走的方法在文本图上度量词或文档间的连通性和相关性。", difficulty: 3 },
+                { id: "tma-fin-c-8", question: "课程中讨论的 Sentiment Prediction 中的 Negation 处理为什么重要？",options: ["不重要", "否定词反转情感极性（如'not good'）", "增加词汇量", "加速计算"], answer: 1, explanation: "否定词改变情感极性，不处理否定会导致错误的情感判断。", difficulty: 2 },
+                { id: "tma-fin-c-9", question: "课程中讨论的 Cross-Lingual Text Mining 的挑战是什么？",options: ["没有挑战", "不同语言的文本对齐和跨语言表示学习", "只需要翻译", "只需要词典"], answer: 1, explanation: "跨语言文本挖掘需要解决语言间的语义对齐和多语言表示学习问题。", difficulty: 2 },
+                { id: "tma-fin-c-10", question: "课程中讨论的 Aspect-Based Sentiment Analysis 的核心步骤是什么？",options: ["只做情感分类", "先提取方面词，再对每个方面判断情感", "只做方面提取", "不需要提取"], answer: 1, explanation: "ABSA 先识别文本中的方面（属性），再分别判断对每个方面的情感极性。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "tma-fin-f-1", question: "LDA 的训练通常使用变分____（Inference）或 Gibbs 采样。", answer: "推断", explanation: "LDA 的后验推断没有解析解，需要使用变分推断或 Gibbs 采样等近似方法。", difficulty: 2 },
+                { id: "tma-fin-f-2", question: "文本挖掘中，____（Collocation）分析发现经常共现的词组（如 New York）。", answer: "搭配", explanation: "搭配识别帮助发现有意义的多词表达，提高文本理解质量。", difficulty: 1 },
+                { id: "tma-fin-f-3", question: "LSA 通过奇异值分解（SVD）将文档-词矩阵降维到潜在____（Semantic）空间。", answer: "语义", explanation: "SVD 将高维稀疏的文档-词矩阵分解为低维稠密的语义空间表示。", difficulty: 2 },
+                { id: "tma-fin-f-4", question: "课程中讨论的 Topic Coherence 用于评估主题模型的____（Quality）。", answer: "质量", explanation: "主题一致性衡量主题内词的语义连贯程度，是评估主题模型好坏的常用指标。", difficulty: 2 },
+                { id: "tma-fin-f-5", question: "信息检索中的 MAP 代表 Mean____（Average）Precision。", answer: "平均", explanation: "MAP 是多个查询的平均精确率，综合衡量检索系统的整体性能。", difficulty: 2 },
+                { id: "tma-fin-f-6", question: "文本分类中的____（SVM）支持向量机是一种经典的分类算法。", answer: "SVM", explanation: "SVM 通过找到最大间隔超平面来分类，在小样本文本分类中效果很好。", difficulty: 1 },
+                { id: "tma-fin-f-7", question: "课程中讨论的 Topic Detection and Tracking (TDT) 用于实时发现新____（Topic）。", answer: "话题", explanation: "TDT 系统实时监测新闻流，自动发现新话题并跟踪话题的演变。", difficulty: 2 },
+                { id: "tma-fin-f-8", question: "课程中讨论的 Sentiment Lexicon 方法依赖人工构建的____（Dictionary）。", answer: "词典", explanation: "情感词典包含标注了情感极性和强度的词汇列表，基于规则匹配判断情感。", difficulty: 1 },
+                { id: "tma-fin-f-9", question: "课程中讨论的 Semi-supervised Learning 在文本挖掘中利用少量____（Labeled）和大量无标签数据。", answer: "标注", explanation: "半监督学习结合少量标注数据和大量无标签数据来提升分类性能。", difficulty: 2 },
+                { id: "tma-fin-f-10", question: "课程中讨论的 Document Clustering 将文档自动分组为有意义的____（Cluster）。", answer: "簇", explanation: "文档聚类将语义相似的文档自动分组，用于主题发现和信息组织。", difficulty: 1 }
+            ],
+            code: [
+                { id: "tma-fin-code-1", question: "补全简单的 LDA 主题推断代码（Gibbs 采样步骤）", code: "import numpy as np\n\ndef gibbs_sample_lda(documents, vocab_size, n_topics, n_iter=100):\n    \"\"\"简化的 Gibbs 采样 LDA\"\"\"\n    # 初始化\n    n_docs = len(documents)\n    doc_topic_count = np.zeros((n_docs, n_topics))\n    topic_word_count = np.zeros((n_topics, vocab_size))\n    \n    # 为每个词随机分配主题\n    assignments = []\n    for doc_idx, doc in enumerate(documents):\n        doc_assignments = []\n        for word in doc:\n            topic = np.random.randint(n_topics)\n            doc_assignments.append(topic)\n            doc_topic_count[doc_idx, topic] += 1\n            topic_word_count[topic, word] += 1\n        assignments.append(doc_assignments)\n    \n    # Gibbs 采样迭代\n    for iteration in range(n_iter):\n        for doc_idx, doc in enumerate(documents):\n            for word_idx, word in enumerate(doc):\n                # 移除当前分配\n                old_topic = assignments[doc_idx][word_idx]\n                doc_topic_count[doc_idx, old_topic] -= 1\n                topic_word_count[old_topic, word] -= 1\n                \n                # 计算每个主题的概率\n                probs = (doc_topic_count[doc_idx] + 0.1) * (topic_word_count[:, word] + 0.1)\n                probs /= probs.sum()\n                \n                # 采样新主题\n                new_topic = np.random.choice(n_topics, p=____)\n                assignments[doc_idx][word_idx] = new_topic\n                doc_topic_count[doc_idx, new_topic] += 1\n                topic_word_count[new_topic, word] += 1\n    \n    return doc_topic_count, topic_word_count, assignments", answer: "probs", explanation: "Gibbs 采样根据当前其他词的主题分配，采样每个词的新主题。", difficulty: 3 },
+                { id: "tma-fin-code-2", question: "补全 BM25 评分函数", code: "import numpy as np\n\ndef bm25_score(query, document, avg_dl, k1=1.5, b=0.75):\n    \"\"\"BM25 评分函数\"\"\"\n    score = 0\n    dl = len(document)\n    \n    for term in query:\n        if term in document:\n            tf = document.count(term)\n            df = get_df(term)  # 假设已有函数\n            idf = np.log((N - df + 0.5) / (df + 0.5) + 1)\n            \n            # BM25 的 TF 饱和因子\n            tf_norm = (tf * (k1 + 1)) / (tf + k1 * (1 - b + b * ____))\n            score += idf * tf_norm\n    \n    return score", answer: "dl / avg_dl", explanation: "BM25 的文档长度归一化因子：dl/avg_dl，b 控制归一化的强度。", difficulty: 3 }
+            ]
+        }
+    },
+
+    /* --- 18. CS276 Information Retrieval --- */
+    "CS276 Information Retrieval": {
+        courseId: "cs276-information-retrieval",
+        domain: "nlp",
+        mid: {
+            choice: [
+                { id: "cs276-mid-c-1", question: "信息检索系统的核心评价指标是什么？", options: ["训练速度", "相关性（Relevance）——检索结果与查询的相关程度", "模型大小", "推理时间"], answer: 1, explanation: "IR 系统的核心目标是检索与用户查询相关的文档，相关性是最重要的评价标准。", difficulty: 1 },
+                { id: "cs276-mid-c-2", question: "倒排索引（Inverted Index）的结构是什么？",options: ["文档→词", "词→包含该词的文档列表", "词→文档编号", "文档→主题"], answer: 1, explanation: "倒排索引将每个词映射到包含该词的文档列表，支持高效的关键词查询。", difficulty: 1 },
+                { id: "cs276-mid-c-3", question: "PageRank 的核心思想是什么？",options: ["文本匹配", "被更多重要网页链接的网页更重要", "关键词频率", "网页大小"], answer: 1, explanation: "PageRank 基于链接分析，从重要网页获得链接的网页本身也更权威。", difficulty: 1 },
+                { id: "cs276-mid-c-4", question: "IR 系统中的查询扩展（Query Expansion）的目的是什么？",options: ["缩短查询", "添加相关词以提高召回率", "删除词", "只用一个词"], answer: 1, explanation: "查询扩展在原始查询中添加同义词或相关词，帮助检索到更多相关文档。", difficulty: 2 },
+                { id: "cs276-mid-c-5", question: "搜索系统中，Precision 和 Recall 的权衡关系是什么？", options: ["互相独立", "通常一个增加会导致另一个减少", "总是同时增加", "总是同时减少"], answer: 1, explanation: "提高召回率通常会检索更多文档导致精确率下降，反之亦然。", difficulty: 1 },
+                { id: "cs276-mid-c-6", question: "语言模型在信息检索中的应用是什么？", options: ["只用于翻译", "计算查询由文档生成的概率作为相关性得分", "只用于分类", "不使用"], answer: 1, explanation: "查询似然模型计算 P(query|document)，用语言模型估计文档生成查询的概率。", difficulty: 2 },
+                { id: "cs276-mid-c-7", question: "Web 搜索引擎中，链接分析方法除了 PageRank 还有什么？",options: ["TF-IDF", "HITS（Hubs and Authorities）", "LDA", "Word2Vec"], answer: 1, explanation: "HITS 算法将网页分为 Hub（链接源）和 Authority（链接目标）两种角色。", difficulty: 2 },
+                { id: "cs276-mid-c-8", question: "信息检索中的停用词（Stop Words）处理的目的是什么？",options: ["增加词汇量", "移除高频无区分力的词以减少索引大小", "增加索引大小", "提高召回率"], answer: 1, explanation: "停用词（如 the、is、at）出现频率极高但区分力弱，移除可以减少索引大小。", difficulty: 1 },
+                { id: "cs276-mid-c-9", question: "搜索引擎中的拼写纠正（Spell Correction）通常使用什么方法？",options: ["词典匹配", "编辑距离（Edit Distance）", "深度学习", "随机替换"], answer: 1, explanation: "编辑距离计算将一个词转换为另一个词所需的最少操作次数，用于查找最接近的正确拼写。", difficulty: 1 },
+                { id: "cs276-mid-c-10", question: "IR 系统中的文档表示通常使用什么模型？", options: ["图像模型", "向量空间模型（VSM）", "关系模型", "图模型"], answer: 1, explanation: "向量空间模型将文档和查询表示为词项权重向量，通过余弦相似度衡量相关性。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "cs276-mid-f-1", question: "倒排索引由词典（____）和倒排列表（Postings List）组成。", answer: "词汇表", explanation: "词汇表包含所有不重复的词项，每个词项指向其倒排列表。", difficulty: 1 },
+                { id: "cs276-mid-f-2", question: "TF-IDF 的 IDF 公式为 log(N/____)。", answer: "df", explanation: "IDF = log(N/df)，其中 N 是文档总数，df 是包含该词的文档数。", difficulty: 1 },
+                { id: "cs276-mid-f-3", question: "信息检索中，NDCG 衡量排序结果的____（Ranking）质量。", answer: "排序", explanation: "NDCG 衡量搜索结果排序的质量，将相关性更高的文档排在前面得分更高。", difficulty: 2 },
+                { id: "cs276-mid-f-4", question: "搜索引擎中的查询日志（____）可以用于查询建议和趋势分析。", answer: "查询日志", explanation: "查询日志记录用户的搜索历史，可用于查询补全、推荐和热门话题发现。", difficulty: 1 },
+                { id: "cs276-mid-f-5", question: "LSH（局部敏感哈希）用于高效近似____（Nearest Neighbor）搜索。", answer: "最近邻", explanation: "LSH 将相似的项映射到同一个桶中，实现 sub-linear 时间的近似最近邻搜索。", difficulty: 2 },
+                { id: "cs276-mid-f-6", question: "Web 爬虫（____）是搜索引擎获取网页数据的程序。", answer: "爬虫", explanation: "Web Crawler 沿着链接自动下载网页，是搜索引擎构建索引的数据来源。", difficulty: 1 },
+                { id: "cs276-mid-f-7", question: "BM25 中的 k1 参数控制词频的____（Saturation）程度。", answer: "饱和", explanation: "k1 控制 TF 的饱和度，k1 越大词频的贡献增长越快，越大 k1 对高频词越敏感。", difficulty: 2 },
+                { id: "cs276-mid-f-8", question: "课程中讨论的搜索结果的 Snippet 生成需要选择与查询____的句子。", answer: "相关", explanation: "摘要片段选择与查询最相关的句子，帮助用户快速判断文档的相关性。", difficulty: 1 },
+                { id: "cs276-mid-f-9", question: "PageRank 通过迭代计算直到____（Converge）得到稳定排名。", answer: "收敛", explanation: "PageRank 迭代更新每个网页的 PR 值直到收敛到稳态分布。", difficulty: 2 },
+                { id: "cs276-mid-f-10", question: "信息检索中的评估通常使用 TREC____（Track）的标准测试集。", answer: "评测", explanation: "TREC（Text REtrieval Conference）提供标准评测集和评测方法。", difficulty: 1 }
+            ],
+            code: [
+                { id: "cs276-mid-code-1", question: "补全倒排索引构建代码", code: "from collections import defaultdict\n\ndef build_inverted_index(documents):\n    \"\"\"构建倒排索引\"\"\"\n    index = defaultdict(list)\n    \n    for doc_id, doc in enumerate(documents):\n        for term in doc:\n            if doc_id not in index[term]:\n                index[term].append(____)\n    \n    return index\n\ndef search(query_terms, index):\n    \"\"\"布尔检索：AND 查询\"\"\"\n    if not query_terms:\n        return set()\n    result = set(index[query_terms[0]])\n    for term in query_terms[1:]:\n        result = result & set(index[term])\n    return result", answer: "doc_id", explanation: "倒排索引将每个词项映射到包含该词的文档 ID 列表。", difficulty: 1 },
+                { id: "cs276-mid-code-2", question: "补全 PageRank 迭代计算代码", code: "import numpy as np\n\ndef page_rank(graph, d=0.85, max_iter=100, tol=1e-6):\n    \"\"\"PageRank 迭代算法\"\"\"\n    n = len(graph)\n    pr = np.ones(n) / n\n    \n    for _ in range(max_iter):\n        new_pr = np.zeros(n)\n        for node in range(n):\n            # 收集所有链接到 node 的网页\n            inlinks = [p for p in range(n) if node in graph[p]]\n            for inlink in inlinks:\n                new_pr[node] += pr[inlink] / len(graph[inlink])\n            new_pr[node] = (1 - d) / n + d * ____\n        \n        if np.abs(new_pr - pr).sum() < tol:\n            break\n        pr = new_pr\n    \n    return pr", answer: "new_pr[node]", explanation: "PageRank 公式：PR(p) = (1-d)/N + d * sum(PR(i)/L(i))，其中 L(i) 是 i 的出链数。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "cs276-fin-c-1", question: "课程中讨论的语义检索（Semantic Retrieval）相比关键词检索的优势是什么？", options: ["更简单", "理解查询意图，匹配语义相似但关键词不同的文档", "更快", "不需要索引"], answer: 1, explanation: "语义检索通过理解查询和文档的含义进行匹配，克服了关键词匹配的词汇不匹配问题。", difficulty: 2 },
+                { id: "cs276-fin-c-2", question: "课程中讨论的 Learning to Rank 方法的优势是什么？",options: ["更简单", "利用机器学习自动学习最优排序函数", "不需要特征", "只做分类"], answer: 1, explanation: "LTR 将排序问题转化为机器学习问题，自动学习查询和文档特征的最优组合方式。", difficulty: 2 },
+                { id: "cs276-fin-c-3", question: "课程中讨论的 Cross-Lingual IR 的核心挑战是什么？",options: ["没有挑战", "不同语言间的查询和文档语义对齐", "只需要翻译", "不需要处理"], answer: 1, explanation: "跨语言检索需要将不同语言的查询和文档映射到可比较的语义空间。", difficulty: 2 },
+                { id: "cs276-fin-c-4", question: "课程中讨论的 Federated Search 指什么？", options: ["隐私保护", "从多个异构数据源联合检索并合并结果", "只搜索一个源", "不使用索引"], answer: 1, explanation: "联邦搜索从多个不同数据源检索结果，合并排序后返回统一的结果列表。", difficulty: 2 },
+                { id: "cs276-fin-c-5", question: "课程中讨论的 Knowledge Graph 在搜索中的作用是什么？", options: ["只存储数据", "提供结构化知识增强搜索理解和展示", "替代搜索引擎", "只用于分类"], answer: 1, explanation: "知识图谱帮助搜索引擎理解实体关系，提供知识卡片和结构化搜索结果。", difficulty: 1 },
+                { id: "cs276-fin-c-6", question: "课程中讨论的 Dense Retrieval 使用什么方法检索文档？",options: ["关键词匹配", "双编码器将查询和文档编码为稠密向量后近似搜索", "布尔查询", "只用 TF-IDF"], answer: 1, explanation: "Dense Retrieval 用双编码器将查询和文档编码为稠密向量，通过向量相似度检索。", difficulty: 2 },
+                { id: "cs276-fin-c-7", question: "课程中讨论的 Cascade Ranking 的设计目的是什么？",options: ["提高质量", "分层逐步筛选，减少计算成本同时保持质量", "增加计算", "只做排序"], answer: 1, explanation: "级联排序先用简单快速的模型筛选，再用复杂精确的模型精排。", difficulty: 2 },
+                { id: "cs276-fin-c-8", question: "课程中讨论的 Evaluation Metrics 中 MRR 衡量什么？",options: ["文档质量", "第一个相关结果的排名倒数", "召回率", "精确率"], answer: 1, explanation: "MRR（Mean Reciprocal Rank）关注第一个相关结果出现的位置，值越高越好。", difficulty: 2 },
+                { id: "cs276-fin-c-9", question: "课程中讨论的 Neural IR 的主要方法有哪些？",options: ["只有 TF-IDF", "双编码器、交叉编码器和序列到序列模型", "只有 BM25", "只有关键词匹配"], answer: 1, explanation: "Neural IR 包括 Bi-Encoder（快速检索）、Cross-Encoder（精排）和 Seq2Seq（查询生成）等。", difficulty: 2 },
+                { id: "cs276-fin-c-10", question: "课程中讨论的 Web Search 的个性化面临的隐私挑战是什么？",options: ["没有挑战", "用户数据收集可能侵犯隐私，需要平衡个性化和隐私", "不需要个性化", "只用公开数据"], answer: 1, explanation: "个性化搜索需要用户数据，但过度收集可能侵犯隐私，需要差分隐私等保护措施。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cs276-fin-f-1", question: "课程中讨论的 Two-Stage Retrieval 先用____（Retriever）召回候选，再用 Ranker 精排。", answer: "检索器", explanation: "第一阶段用高效检索器从海量文档中召回候选集，第二阶段用精确排序模型精排。", difficulty: 2 },
+                { id: "cs276-fin-f-2", question: "课程中讨论的 Approximate Nearest Neighbor (ANN) 搜索牺牲少量精度换取速度____（Improvement）。", answer: "提升", explanation: "ANN 方法（如 HNSW、FAISS）在精度略有损失的情况下大幅加速向量检索。", difficulty: 2 },
+                { id: "cs276-fin-f-3", question: "课程中讨论的 Query Understanding 包括意图识别和____（Expansion）。", answer: "扩展", explanation: "查询理解包括意图分类、实体识别、拼写纠错和查询扩展等。", difficulty: 2 },
+                { id: "cs276-fin-f-4", question: "课程中讨论的 BM25 是 Okapi BM25 的简称，Okapi 是____（System）的名称。", answer: "系统", explanation: "Okapi BM25 得名于参与 TREC 评测的 Okapi 信息检索系统。", difficulty: 1 },
+                { id: "cs276-fin-f-5", question: "课程中讨论的 Search Result Diversification 旨在减少结果的____（Redundancy）。", answer: "冗余", explanation: "结果多样化确保检索结果覆盖查询的不同意图和方面，减少信息冗余。", difficulty: 2 },
+                { id: "cs276-fin-f-6", question: "课程中讨论的 Pseudo Relevance Feedback 使用初始检索结果的____（Top）文档进行查询扩展。", answer: "顶部", explanation: "PRF 假设初始检索结果的 top 文档相关，用其词汇扩展查询。", difficulty: 2 },
+                { id: "cs276-fin-f-7", question: "课程中讨论的 Web Spam Detection 识别试图操纵搜索排名的____（Web）页面。", answer: "网页", explanation: "Web Spam 包括链接农场、关键词堆砌等试图人为提升排名的作弊行为。", difficulty: 1 },
+                { id: "cs276-fin-f-8", question: "课程中讨论的 Vertical Search 专注于特定____（Domain）的搜索。", answer: "领域", explanation: "垂直搜索专注于特定领域（如学术、购物、图片），比通用搜索更专业。", difficulty: 1 },
+                { id: "cs276-fin-f-9", question: "课程中讨论的 Search Interface Design 影响用户的____（Experience）和效率。", answer: "体验", explanation: "搜索界面设计包括查询框、结果展示、过滤器等，直接影响用户体验。", difficulty: 1 },
+                { id: "cs276-fin-f-10", question: "课程中讨论的 Index Construction 使用____（Indexer）程序构建倒排索引。", answer: "索引器", explanation: "索引器将文档集合处理为倒排索引，通常包含词项提取、权重计算和索引压缩。", difficulty: 1 }
+            ],
+            code: [
+                { id: "cs276-fin-code-1", question: "补全向量空间模型的检索代码", code: "import numpy as np\n\ndef vector_space_retrieval(query_tfidf, doc_tfidf_matrix):\n    \"\"\"基于向量空间模型的检索\"\"\"\n    # 计算查询与所有文档的余弦相似度\n    similarities = np.zeros(doc_tfidf_matrix.shape[0])\n    query_norm = np.linalg.norm(query_tfidf)\n    \n    for i in range(doc_tfidf_matrix.shape[0]):\n        doc_norm = np.linalg.norm(doc_tfidf_matrix[i])\n        if query_norm > 0 and doc_norm > 0:\n            similarities[i] = np.dot(query_tfidf, doc_tfidf_matrix[i]) / (query_norm * ____)\n    \n    # 按相似度排序\n    ranked_indices = np.argsort(similarities)[::-1]\n    return ranked_indices, similarities[ranked_indices]", answer: "doc_norm", explanation: "余弦相似度 = dot(q,d) / (||q|| * ||d||)，衡量两个向量方向的相似性。", difficulty: 1 },
+                { id: "cs276-fin-code-2", question: "补全 NDCG 计算代码", code: "import numpy as np\n\ndef dcg(relevances, k):\n    \"\"\"计算 DCG@k\"\"\"\n    relevances = np.array(relevances[:k])\n    if len(relevances) == 0:\n        return 0.0\n    return relevances[0] + np.sum(relevances[1:] / np.log2(np.arange(2, len(relevances) + 1)))\n\ndef ndcg(relevances, k):\n    \"\"\"计算 NDCG@k\"\"\"\n    actual_dcg = dcg(relevances, k)\n    ideal_relevances = sorted(relevances, reverse=True)\n    ideal_dcg = dcg(ideal_relevances, ____)\n    return actual_dcg / ideal_dcg if ideal_dcg > 0 else 0.0", answer: "k", explanation: "NDCG = DCG / IDCG，IDCG 是理想排序下的 DCG，作为归一化基准。", difficulty: 2 }
+            ]
+        }
+    },
+
+    /* --- 19. Speech and Language Processing (Jurafsky) --- */
+    "Speech and Language Processing": {
+        courseId: "speech-language-processing-jurafsky",
+        domain: "nlp",
+        mid: {
+            choice: [
+                { id: "slp-mid-c-1", question: "NLP 中的词法分析（Lexical Analysis）包括哪些任务？", options: ["翻译", "分词、词性标注和词形还原", "情感分析", "文本摘要"], answer: 1, explanation: "词法分析处理词级别的任务，包括分词（Tokenization）、词性标注（POS Tagging）和词形还原（Lemmatization）。", difficulty: 1 },
+                { id: "slp-mid-c-2", question: "N-gram 语言模型如何计算句子概率？", options: ["直接计算", "通过条件概率的链式分解：P(w1)*P(w2|w1)*...*P(wn|w1...wn-1)", "使用深度学习", "只用统计"], answer: 1, explanation: "N-gram 模型将句子概率分解为条件概率的乘积，每个词只依赖前面 N-1 个词。", difficulty: 2 },
+                { id: "slp-mid-c-3", question: "NLP 中的句法分析（Parsing）的目标是什么？", options: ["情感分析", "构建句子的语法结构树", "翻译", "摘要"], answer: 1, explanation: "句法分析识别句子的语法结构，生成成分句法树或依存句法树。", difficulty: 1 },
+                { id: "slp-mid-c-4", question: "语言模型中的困惑度（Perplexity）越低代表什么？", options: ["模型越差", "模型对文本的预测能力越强", "数据越多", "参数越少"], answer: 1, explanation: "困惑度 = 2^交叉熵，衡量模型对下一个词的不确定性，越低表示模型预测越准确。", difficulty: 1 },
+                { id: "slp-mid-c-5", question: "有限状态自动机（FSA）在 NLP 中的应用是什么？", options: ["训练深度模型", "词法分析和简单模式匹配", "文本生成", "情感分析"], answer: 1, explanation: "FSA/正则表达式用于分词、命名实体识别等基于规则的词法分析任务。", difficulty: 2 },
+                { id: "slp-mid-c-6", question: "HMM（隐马尔可夫模型）在 NLP 中的典型应用是什么？",options: ["文本生成", "词性标注和语音识别", "机器翻译", "图像分类"], answer: 1, explanation: "HMM 通过建模隐状态（如词性标签）的转移和观测（如词）的发射概率，用于序列标注。", difficulty: 2 },
+                { id: "slp-mid-c-7", question: "正则化技术如 L2 正则化在 NLP 模型中的作用是什么？", options: ["加速训练", "防止过拟合", "增加参数", "减少数据"], answer: 1, explanation: "L2 正则化（权重衰减）通过惩罚大权重来防止模型过拟合训练数据。", difficulty: 1 },
+                { id: "slp-mid-c-8", question: "信息抽取中的三元组抽取任务是什么？",options: ["分类", "从文本中抽取（实体-关系-实体）三元组", "翻译", "摘要"], answer: 1, explanation: "三元组抽取从文本中识别实体对及其关系，如（爱因斯坦, 出生于, 乌尔姆）。", difficulty: 1 },
+                { id: "slp-mid-c-9", question: "序列标注任务中，CRF 相比 HMM 的优势是什么？", options: ["更简单", "可以使用更丰富的特征，不需要严格的独立性假设", "更慢", "需要更少数据"], answer: 1, explanation: "CRF 使用对数线性模型，可以利用任意特征，不假设观测独立性。", difficulty: 2 },
+                { id: "slp-mid-c-10", question: "最大熵模型在 NLP 中的核心思想是什么？", options: ["最小化熵", "在满足已知约束条件下选择最不确定（最大熵）的分布", "最大化似然", "最小化参数"], answer: 1, explanation: "最大熵模型在已知特征约束下选择熵最大的分布，避免引入不必要的假设。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "slp-mid-f-1", question: "NLP 中的____（Tokenization）是将文本分割为词或子词单元的过程。", answer: "分词", explanation: "分词是 NLP 的第一步，将连续文本分割为离散的处理单元。", difficulty: 1 },
+                { id: "slp-mid-f-2", question: "N-gram 模型中，bigram 表示 N=____。", answer: "2", explanation: "Unigram (N=1), Bigram (N=2), Trigram (N=3)。", difficulty: 1 },
+                { id: "slp-mid-f-3", question: "语言模型的困惑度等于 2 的交叉____（Entropy）次方。", answer: "熵", explanation: "Perplexity = 2^H = 2^(-sum(p*log2(p)))，衡量模型的不确定性。", difficulty: 2 },
+                { id: "slp-mid-f-4", question: "HMM 的两个基本假设是齐次马尔可夫假设和观测____（Independence）假设。", answer: "独立", explanation: "齐次假设：当前状态只依赖前一个状态；观测独立假设：当前观测只依赖当前状态。", difficulty: 2 },
+                { id: "slp-mid-f-5", question: "CRF 的全称是条件____（Random）Field。", answer: "随机场", explanation: "CRF 是判别式概率图模型，直接建模条件概率 P(标签|观测)。", difficulty: 2 },
+                { id: "slp-mid-f-6", question: "NLP 中的____（Lemmatization）将词还原为词典中的标准形式。", answer: "词形还原", explanation: "Lemmatization 比 stemming 更精确，使用词典和语法分析还原到标准形式。", difficulty: 1 },
+                { id: "slp-mid-f-7", question: "课程中讨论的句子的成分结构用____（Constituency）句法树表示。", answer: "成分", explanation: "成分句法分析将句子分解为嵌套的短语结构（NP, VP 等）。", difficulty: 1 },
+                { id: "slp-mid-f-8", question: "课程中讨论的语义角色标注识别谓词的____（Argument）结构。", answer: "论元", explanation: "SRL 识别谓词的施事（Agent）、受事（Patient）等语义角色。", difficulty: 2 },
+                { id: "slp-mid-f-9", question: "课程中讨论的____（Discourse）分析理解句子之间的连贯关系。", answer: "语篇", explanation: "语篇分析理解文本中句子间的逻辑关系（因果、转折、顺承等）。", difficulty: 2 },
+                { id: "slp-mid-f-10", question: "课程中讨论的语义分析将句子映射到____（Logical）形式表示。", answer: "逻辑", explanation: "语义分析将自然语言转换为逻辑表达式（如一阶谓词逻辑）以支持推理。", difficulty: 2 }
+            ],
+            code: [
+                { id: "slp-mid-code-1", question: "补全简单的 Bigram 语言模型代码", code: "from collections import defaultdict, Counter\n\nclass BigramModel:\n    def __init__(self):\n        self.bigram_counts = defaultdict(Counter)\n        self.unigram_counts = Counter()\n    \n    def train(self, sentences):\n        for sent in sentences:\n            for i in range(len(sent) - 1):\n                self.bigram_counts[sent[i]][sent[i+1]] += 1\n                self.unigram_counts[sent[i]] += 1\n        self.unigram_counts[sent[-1]] += 1\n    \n    def probability(self, word, context):\n        if self.unigram_counts[context] == 0:\n            return 0\n        return self.bigram_counts[context][word] / ____", answer: "self.unigram_counts[context]", explanation: "P(w_i|w_{i-1}) = count(w_{i-1}, w_i) / count(w_{i-1})", difficulty: 1 },
+                { id: "slp-mid-code-2", question: "补全编辑距离计算代码", code: "import numpy as np\n\ndef edit_distance(s1, s2):\n    m, n = len(s1), len(s2)\n    dp = np.zeros((m + 1, n + 1), dtype=int)\n    \n    for i in range(m + 1):\n        dp[i][0] = i\n    for j in range(n + 1):\n        dp[0][j] = j\n    \n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if s1[i-1] == s2[j-1]:\n                dp[i][j] = dp[i-1][j-1]\n            else:\n                dp[i][j] = 1 + min(\n                    dp[i-1][j],    # 删除\n                    dp[i][j-1],    # 插入\n                    ____            # 替换\n                )\n    return dp[m][n]", answer: "dp[i-1][j-1]", explanation: "编辑距离动态规划：替换操作对应 dp[i-1][j-1] + 1。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "slp-fin-c-1", question: "课程中讨论的 NLP 系统的 Pipeline 方法是什么？", options: ["端到端训练", "按顺序串联多个独立的处理模块", "只用一个模型", "并行处理"], answer: 1, explanation: "Pipeline 方法将 NLP 任务分解为多个独立模块（分词→POS→NER→关系抽取），依次处理。", difficulty: 1 },
+                { id: "slp-fin-c-2", question: "课程中讨论的 Word Sense Disambiguation 的目标是什么？",options: ["分词", "确定多义词在上下文中的正确含义", "翻译", "摘要"], answer: 1, explanation: "WSD 在给定上下文中确定多义词的正确含义（如 bank 河岸/银行）。", difficulty: 2 },
+                { id: "slp-fin-c-3", question: "课程中讨论的 Coreference Resolution 的任务是什么？", options: ["情感分析", "识别文本中指代同一实体的不同表述", "翻译", "分类"], answer: 1, explanation: "共指消解识别文本中指向同一实体的不同表述（如 he/John/the president）。", difficulty: 2 },
+                { id: "slp-fin-c-4", question: "课程中讨论的 Statistical MT 和 Neural MT 的主要区别是什么？",options: ["完全相同", "SMT 基于短语翻译表，NMT 使用端到端神经网络", "SMT 更好", "NMT 不需要数据"], answer: 1, explanation: "统计机器翻译使用短语对齐和语言模型，神经机器翻译使用编码器-解码器端到端训练。", difficulty: 2 },
+                { id: "slp-fin-c-5", question: "课程中讨论的 Dialog Systems 分为哪两种类型？", options: ["搜索和推荐", "任务型和开放式对话", "分类和生成", "翻译和摘要"], answer: 1, explanation: "任务型对话系统完成特定目标（如订票），开放式对话系统进行自由交流。", difficulty: 1 },
+                { id: "slp-fin-c-6", question: "课程中讨论的 Question Answering 系统的工作流程是什么？",options: ["直接回答", "理解问题→检索相关段落→抽取答案", "只检索", "只分类"], answer: 1, explanation: "QA 系统先理解问题类型和意图，然后检索或阅读相关文档，最后抽取或生成答案。", difficulty: 2 },
+                { id: "slp-fin-c-7", question: "课程中讨论的 Text Classification 的经典方法和深度学习方法各有什么代表？", options: ["只有深度学习", "NB/SVM 和 CNN/RNN/Transformer", "只有 NB", "只有 SVM"], answer: 1, explanation: "经典方法包括朴素贝叶斯和 SVM，深度学习方法包括 TextCNN、BiLSTM 和 Transformer。", difficulty: 1 },
+                { id: "slp-fin-c-8", question: "课程中讨论的 Summarization 的评估指标 ROUGE 衡量什么？",options: ["分类精度", "生成摘要与参考摘要的 n-gram 重叠", "翻译质量", "情感极性"], answer: 1, explanation: "ROUGE 衡量生成摘要与参考摘要之间的 n-gram 重叠，ROUGE-1/2/L 分别衡量不同粒度。", difficulty: 1 },
+                { id: "slp-fin-c-9", question: "课程中讨论的 Pragmatics 分析什么层面的语言信息？", options: ["词汇层面", "语境中的隐含意义和交际意图", "语法结构", "语音特征"], answer: 1, explanation: "语用学分析说话者在特定语境中的意图和隐含意义，超越字面含义。", difficulty: 2 },
+                { id: "slp-fin-c-10", question: "课程中讨论的 NLP 中的 Transfer Learning 方法如何工作？", options: ["不需要预训练", "在大规模数据上预训练通用表示，再在目标任务上微调", "只做特征工程", "不需要微调"], answer: 1, explanation: "迁移学习利用在大规模数据上学到的通用语言表示，迁移到数据稀缺的下游任务。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "slp-fin-f-1", question: "课程中讨论的____（Syntax）分析关注句子的语法结构。", answer: "句法", explanation: "句法分析识别句子的语法结构，包括成分结构和依存关系。", difficulty: 1 },
+                { id: "slp-fin-f-2", question: "课程中讨论的____（Semantics）分析关注句子的含义。", answer: "语义", explanation: "语义分析理解句子的字面含义，将其映射到形式化的意义表示。", difficulty: 1 },
+                { id: "slp-fin-f-3", question: "课程中讨论的 POS Tagging 为每个词分配____（Grammatical）类别标签。", answer: "语法", explanation: "POS 标注分配名词、动词、形容词等语法类别标签。", difficulty: 1 },
+                { id: "slp-fin-f-4", question: "课程中讨论的____（Morphology）研究词的内部结构。", answer: "形态学", explanation: "形态学研究词的构成规则，如前缀、后缀、词根的组合。", difficulty: 2 },
+                { id: "slp-fin-f-5", question: "课程中讨论的 Beam Search 在解码时维护 top-____ 个候选序列。", answer: "k", explanation: "Beam Search 维护 k 个最佳候选序列，平衡搜索质量和效率。", difficulty: 1 },
+                { id: "slp-fin-f-6", question: "课程中讨论的____（Phonetics）研究语音的产生和感知。", answer: "语音学", explanation: "语音学研究语音的物理属性，包括发音方式和声学特征。", difficulty: 1 },
+                { id: "slp-fin-f-7", question: "课程中讨论的 Named Entity Recognition 识别文本中的____（Entity）类型。", answer: "实体", explanation: "NER 识别人名、地名、机构名等命名实体并分类。", difficulty: 1 },
+                { id: "slp-fin-f-8", question: "课程中讨论的 Sentiment Analysis 通常分为正面、____（Negative）和中性三类。", answer: "负面", explanation: "情感分析最简单的设置是将情感分为正面、负面和中性三类。", difficulty: 1 },
+                { id: "slp-fin-f-9", question: "课程中讨论的____（Chunking）识别文本中的短语结构。", answer: "分块", explanation: "Chunking（浅层句法分析）识别名词短语、动词短语等基础短语结构。", difficulty: 1 },
+                { id: "slp-fin-f-10", question: "课程中讨论的 Language Model 的核心任务是预测下一个____（Token）。", answer: "token", explanation: "语言建模的目标是给定前面的词预测下一个最可能的词。", difficulty: 1 }
+            ],
+            code: [
+                { id: "slp-fin-code-1", question: "补全简单的 HMM 维特比解码代码", code: "import numpy as np\n\ndef viterbi(observations, states, trans_prob, emit_prob, init_prob):\n    \"\"\"HMM 维特比算法\"\"\"\n    n_states = len(states)\n    n_obs = len(observations)\n    \n    # dp[t][s] = 在时间步 t 处于状态 s 的最大概率\n    dp = np.zeros((n_obs, n_states))\n    backptr = np.zeros((n_obs, n_states), dtype=int)\n    \n    # 初始化\n    for s in range(n_states):\n        dp[0][s] = init_prob[s] * emit_prob[s][observations[0]]\n    \n    # 递推\n    for t in range(1, n_obs):\n        for s in range(n_states):\n            candidates = [dp[t-1][s2] * trans_prob[s2][s] for s2 in range(n_states)]\n            backptr[t][s] = np.argmax(candidates)\n            dp[t][s] = candidates[backptr[t][s]] * ____\n    \n    # 回溯\n    best_path = [np.argmax(dp[-1])]\n    for t in range(n_obs - 1, 0, -1):\n        best_path.insert(0, backptr[t][best_path[0]])\n    \n    return best_path", answer: "emit_prob[s][observations[t]]", explanation: "维特比算法在每步为每个状态找到最优前驱，结合发射概率更新。", difficulty: 3 },
+                { id: "slp-fin-code-2", question: "补全简单的朴素贝叶斯文本分类器代码", code: "from collections import defaultdict, Counter\nimport math\n\nclass NaiveBayesClassifier:\n    def __init__(self):\n        self.class_counts = Counter()\n        self.word_counts = defaultdict(Counter)\n        self.vocab = set()\n    \n    def train(self, texts, labels):\n        for text, label in zip(texts, labels):\n            self.class_counts[label] += 1\n            for word in text:\n                self.word_counts[label][word] += 1\n                self.vocab.add(word)\n        self.total = sum(self.class_counts.values())\n    \n    def predict(self, text):\n        scores = {}\n        for cls in self.class_counts:\n            log_prob = math.log(self.class_counts[cls] / self.total)\n            total_words = sum(self.word_counts[cls].values())\n            for word in text:\n                count = self.word_counts[cls][word]\n                log_prob += math.log((count + 1) / (____ + len(self.vocab)))\n            scores[cls] = log_prob\n        return max(scores, key=scores.get)", answer: "total_words", explanation: "拉普拉斯平滑：(count+1)/(total_words+|V|)，防止零概率问题。", difficulty: 2 }
+            ]
+        }
+    },
+
+    /* --- 20. 11-747: Neural Nets for NLP (CMU) --- */
+    "11-747: Neural Nets for NLP": {
+        courseId: "11-747-neural-nets-nlp",
+        domain: "nlp",
+        mid: {
+            choice: [
+                { id: "cmu-nlp-mid-c-1", question: "CMU 11-747 课程中讨论的 LLM 时代 NLP 的主要范式转变是什么？", options: ["更多规则方法", "从任务特定模型到通用大模型+微调/提示", "更大词表", "更少数据"], answer: 1, explanation: "NLP 从为每个任务设计特定模型转向使用通用 LLM 通过提示和微调完成各种任务。", difficulty: 1 },
+                { id: "cmu-nlp-mid-c-2", question: "LoRA（Low-Rank Adaptation）的低秩假设基于什么观察？", options: ["随机观察", "微调时的权重更新矩阵具有低秩特性", "所有矩阵都是低秩的", "训练数据是低秩的"], answer: 1, explanation: "研究发现微调时权重更新矩阵的有效秩很低，因此可以用低秩分解近似。", difficulty: 2 },
+                { id: "cmu-nlp-mid-c-3", question: "RAG（检索增强生成）在 LLM 中的作用是什么？",options: ["训练模型", "从外部知识库检索信息增强生成", "减少模型大小", "加速训练"], answer: 1, explanation: "RAG 在生成时检索相关外部知识作为上下文，减少幻觉并提供最新信息。", difficulty: 1 },
+                { id: "cmu-nlp-mid-c-4", question: "课程中讨论的参数高效微调（PEFT）方法的目标是什么？", options: ["全量微调", "只训练少量参数达到接近全量微调的效果", "不训练任何参数", "增加所有参数"], answer: 1, explanation: "PEFT 方法如 LoRA、Prefix Tuning 只训练少量新增参数，大幅降低微调成本。", difficulty: 1 },
+                { id: "cmu-nlp-mid-c-5", question: "课程中讨论的 Prompt Tuning 和 Prefix Tuning 的区别是什么？", options: ["完全相同", "Prompt Tuning 只调输入层前缀，Prefix Tuning 每层都添加前缀", "Prompt Tuning 更好", "Prefix Tuning 不需要训练"], answer: 1, explanation: "Prompt Tuning 只在输入嵌入层添加可训练前缀，Prefix Tuning 在每层注意力中添加。", difficulty: 2 },
+                { id: "cmu-nlp-mid-c-6", question: "课程中讨论的 Instruction Tuning 的数据格式是什么？",options: ["纯文本", "（指令, 输入, 输出）三元组", "（输入, 输出）对", "只有标签"], answer: 1, explanation: "Instruction Tuning 使用包含任务描述（指令）、输入和期望输出的结构化数据。", difficulty: 1 },
+                { id: "cmu-nlp-mid-c-7", question: "课程中讨论的 Self-Instruct 方法的核心思想是什么？",options: ["人工标注", "让 LLM 自己生成训练数据", "删除数据", "使用合成数据"], answer: 1, explanation: "Self-Instruct 让 LLM 根据种子指令生成新的指令-输入-输出三元组用于微调。", difficulty: 2 },
+                { id: "cmu-nlp-mid-c-8", question: "课程中讨论的 Mixture of Agents 方法的核心优势是什么？",options: ["更简单", "多个 LLM 协作产生更好的输出", "参数更少", "推理更快"], answer: 1, explanation: "MoA 让多个 LLM 分工协作，通过多轮讨论和聚合产生更高质量的输出。", difficulty: 2 },
+                { id: "cmu-nlp-mid-c-9", question: "课程中讨论的 Knowledge Distillation 在 LLM 中的目标是什么？",options: ["训练大模型", "将大模型的知识压缩到小模型中", "增加参数", "删除数据"], answer: 1, explanation: "蒸馏用大模型的输出（软标签或推理链）训练小模型，在保持能力的同时减小规模。", difficulty: 1 },
+                { id: "cmu-nlp-mid-c-10", question: "课程中讨论的 Tool Use / Function Calling 在 LLM 中的作用是什么？",options: ["只做文本生成", "让 LLM 调用外部工具/API 扩展能力", "不需要工具", "只做分类"], answer: 1, explanation: "Tool Use 让 LLM 生成结构化调用来使用外部工具（搜索、计算器、API等），扩展能力边界。", difficulty: 1 }
+            ],
+            fill: [
+                { id: "cmu-nlp-mid-f-1", question: "LoRA 通过低秩____（Decomposition）将权重更新矩阵分解为两个小矩阵。", answer: "分解", explanation: "LoRA 将 ΔW = BA，其中 B∈R^{d×r}, A∈R^{r×d}，r << d。", difficulty: 2 },
+                { id: "cmu-nlp-mid-f-2", question: "RAG 的全称是 Retrieval-____（Augmented）Generation。", answer: "增强", explanation: "RAG 通过检索外部知识来增强 LLM 的生成过程。", difficulty: 1 },
+                { id: "cmu-nlp-mid-f-3", question: "课程中讨论的 PEFT 代表 Parameter-____（Efficient）Fine-Tuning。", answer: "高效", explanation: "PEFT 方法通过只更新少量参数来高效微调大模型。", difficulty: 1 },
+                { id: "cmu-nlp-mid-f-4", question: "课程中讨论的____（Alignment）通过 SFT 和 RLHF 使 LLM 更有用和安全。", answer: "对齐", explanation: "对齐确保 LLM 的行为符合人类意图，包括有用性、诚实性和安全性。", difficulty: 1 },
+                { id: "cmu-nlp-mid-f-5", question: "课程中讨论的 Prompt Engineering 通过设计有效的____（Prompt）引导 LLM 输出。", answer: "提示", explanation: "精心设计的提示可以显著提升 LLM 在特定任务上的表现。", difficulty: 1 },
+                { id: "cmu-nlp-mid-f-6", question: "课程中讨论的 LLM 的 Context Window 限制了输入的最大____（Token）数量。", answer: "token", explanation: "上下文窗口限制了模型一次能处理的最大 token 数，影响长文本处理。", difficulty: 1 },
+                { id: "cmu-nlp-mid-f-7", question: "课程中讨论的____（In-Context）Learning 让模型通过示例学习新任务。", answer: "上下文", explanation: "ICL 在推理时通过 prompt 中的示例学习任务，无需梯度更新。", difficulty: 1 },
+                { id: "cmu-nlp-mid-f-8", question: "课程中讨论的 Chain-of-Thought 通过展示____（Step-by-step）推理提升性能。", answer: "逐步", explanation: "CoT 让模型展示中间推理步骤，帮助解决需要多步推理的复杂问题。", difficulty: 1 },
+                { id: "cmu-nlp-mid-f-9", question: "课程中讨论的 Synthetic Data 用于扩充____（Training）数据。", answer: "训练", explanation: "合成数据用 LLM 生成额外的训练样本，特别是在标注数据稀缺的领域。", difficulty: 2 },
+                { id: "cmu-nlp-mid-f-10", question: "课程中讨论的 Reward Model 在 RLHF 中预测人类的____（Preference）。", answer: "偏好", explanation: "奖励模型学习预测人类对不同输出的偏好排序，作为 RL 优化的信号。", difficulty: 1 }
+            ],
+            code: [
+                { id: "cmu-nlp-mid-code-1", question: "补全 LoRA 层的实现", code: "import torch\nimport torch.nn as nn\n\nclass LoRALinear(nn.Module):\n    def __init__(self, original_linear, r=8, alpha=16):\n        super().__init__()\n        self.original = original_linear\n        self.original.weight.requires_grad_(False)\n        d_in, d_out = original_linear.in_features, original_linear.out_features\n        \n        self.lora_A = nn.Parameter(torch.randn(d_in, r) * 0.01)\n        self.lora_B = nn.Parameter(torch.zeros(r, d_out))\n        self.scaling = alpha / r\n    \n    def forward(self, x):\n        original_out = self.original(x)\n        lora_out = (x @ self.lora_A @ self.lora_B) * ____\n        return original_out + lora_out", answer: "self.scaling", explanation: "LoRA 输出加上缩放后的低秩更新，scaling = alpha/r 控制更新幅度。", difficulty: 2 },
+                { id: "cmu-nlp-mid-code-2", question: "补全 RAG 的检索增强代码", code: "def rag_generate(query, retriever, generator, top_k=3):\n    \"\"\"RAG 生成流程\"\"\"\n    # 1. 检索相关文档\n    retrieved_docs = retriever.retrieve(query, k=____)\n    \n    # 2. 构建增强提示\n    context = '\\n'.join([doc.text for doc in retrieved_docs])\n    prompt = f\"Based on the following context:\\n{context}\\n\\nAnswer the question: {query}\\n\"\n    \n    # 3. 生成回答\n    response = generator.generate(prompt)\n    return response, retrieved_docs", answer: "top_k", explanation: "RAG 先检索 top_k 个相关文档，将它们作为上下文输入 LLM 生成回答。", difficulty: 2 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "cmu-nlp-fin-c-1", question: "课程中讨论的 DPO 相比 RLHF 的主要优势是什么？", options: ["效果更好", "不需要训练奖励模型，训练流程更简单", "需要更多数据", "推理更慢"], answer: 1, explanation: "DPO 直接从偏好数据优化策略，跳过了奖励模型训练和 RL 训练。", difficulty: 2 },
+                { id: "cmu-nlp-fin-c-2", question: "课程中讨论的 Constitutional AI 如何工作？", options: ["人工标注", "AI 根据原则自我评估和修改输出", "只用规则", "不需要原则"], answer: 1, explanation: "CAI 让 AI 根据一组宪法原则（如'无害'）自我评估输出并修改。", difficulty: 2 },
+                { id: "cmu-nlp-fin-c-3", question: "课程中讨论的 Mixture of Experts 的路由机制如何工作？",options: ["随机路由", "门控网络为每个 token 选择 top-k 个专家", "所有专家都激活", "固定路由"], answer: 1, explanation: "MoE 用门控网络为每个输入 token 计算专家权重，只激活 top-k 个专家。", difficulty: 2 },
+                { id: "cmu-nlp-fin-c-4", question: "课程中讨论的 Scaling Laws 对模型训练的指导意义是什么？", options: ["无意义", "帮助在训练前预测不同规模的性能", "只适用于小模型", "只评估速度"], answer: 1, explanation: "缩放定律帮助研究者在训练前估算不同模型规模的性能，指导资源分配。", difficulty: 2 },
+                { id: "cmu-nlp-fin-c-5", question: "课程中讨论的 Reasoning Models（如 o1）的核心创新是什么？", options: ["更大的模型", "在推理时进行深度思考（长思维链）", "更小的模型", "更快的推理"], answer: 1, explanation: "Reasoning Models 在推理时生成长思维链，通过深度思考提升复杂推理能力。", difficulty: 2 },
+                { id: "cmu-nlp-fin-c-6", question: "课程中讨论的 AI Agents 的核心能力包括什么？",options: ["只生成文本", "规划、工具使用、记忆和反思", "只做分类", "只做翻译"], answer: 1, explanation: "AI Agent 具备规划、工具调用、外部记忆和自我反思等能力。", difficulty: 1 },
+                { id: "cmu-nlp-fin-c-7", question: "课程中讨论的 Agentic RAG 相比传统 RAG 的优势是什么？",options: ["完全相同", "Agent 可以自主决定何时检索、检索什么、如何使用结果", "更简单", "不需要检索"], answer: 1, explanation: "Agentic RAG 让 LLM Agent 自主管理检索过程，包括查询重构和结果验证。", difficulty: 2 },
+                { id: "cmu-nlp-fin-c-8", question: "课程中讨论的 Model Collapse 指什么问题？",options: ["训练成功", "模型在合成数据上训练导致多样性退化", "推理失败", "数据太多"], answer: 1, explanation: "Model Collapse 指模型在自身生成的数据上训练会导致分布退化和多样性丧失。", difficulty: 2 },
+                { id: "cmu-nlp-fin-c-9", question: "课程中讨论的 Multimodal LLM 如何处理图像输入？",options: ["忽略图像", "视觉编码器提取特征后与文本 token 拼接", "只处理文本", "只用 CNN"], answer: 1, explanation: "多模态 LLM 用视觉编码器（如 ViT）提取图像特征，通过投影层对齐到文本嵌入空间。", difficulty: 2 },
+                { id: "cmu-nlp-fin-c-10", question: "课程中讨论的 Test-Time Compute Scaling 的含义是什么？",options: ["训练时增加计算", "推理时分配更多计算以提升输出质量", "减少计算", "不需要计算"], answer: 1, explanation: "推理时扩展计算（如多次采样、验证、搜索）可以提升输出质量。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cmu-nlp-fin-f-1", question: "课程中讨论的____（RLHF）通过人类反馈训练奖励模型来优化 LLM。", answer: "RLHF", explanation: "RLHF 使用人类偏好数据训练奖励模型，然后用 PPO 优化语言模型。", difficulty: 1 },
+                { id: "cmu-nlp-fin-f-2", question: "课程中讨论的 DPO 的全称是 Direct Preference____。", answer: "Optimization", explanation: "DPO 直接从偏好数据优化策略模型，不需要单独训练奖励模型。", difficulty: 1 },
+                { id: "cmu-nlp-fin-f-3", question: "课程中讨论的 LLM 的 Emergent Abilities 指在特定____（Scale）后突然出现的能力。", answer: "规模", explanation: "涌现能力只在模型达到一定规模（如参数量超过阈值）后才出现。", difficulty: 2 },
+                { id: "cmu-nlp-fin-f-4", question: "课程中讨论的____（Chain-of-Thought）推理通过展示中间步骤提升 LLM 推理能力。", answer: "思维链", explanation: "CoT 引导模型逐步推理，对数学、逻辑等需要多步推理的任务特别有效。", difficulty: 1 },
+                { id: "cmu-nlp-fin-f-5", question: "课程中讨论的 AI Agent 的规划能力（____）帮助制定和执行复杂任务的步骤。", answer: "规划", explanation: "规划能力让 Agent 将复杂任务分解为可执行的步骤序列。", difficulty: 1 },
+                { id: "cmu-nlp-fin-f-6", question: "课程中讨论的 Function Calling 让 LLM 生成结构化的____（API）调用。", answer: "API", explanation: "Function Calling 让 LLM 生成 JSON 格式的函数调用来使用外部工具。", difficulty: 1 },
+                { id: "cmu-nlp-fin-f-7", question: "课程中讨论的 LLM 的幻觉（____）问题是生成不准确信息的挑战。", answer: "幻觉", explanation: "LLM 可能生成看似合理但事实上错误的内容，这是部署的主要挑战之一。", difficulty: 1 },
+                { id: "cmu-nlp-fin-f-8", question: "课程中讨论的 Knowledge Distillation 用大模型（____）指导小模型学习。", answer: "教师", explanation: "教师模型提供软标签或推理链，帮助学生模型学习大模型的知识。", difficulty: 1 },
+                { id: "cmu-nlp-fin-f-9", question: "课程中讨论的 Multi-Agent System 多个 Agent 协作完成复杂____（Task）。", answer: "任务", explanation: "多 Agent 系统让多个专门化的 Agent 分工协作，各自负责子任务。", difficulty: 1 },
+                { id: "cmu-nlp-fin-f-10", question: "课程中讨论的 LLM 的安全对齐需要平衡 Helpfulness 和____（Harmlessness）。", answer: "无害性", explanation: "对齐的三要素是有用性、诚实性和无害性（HHH）。", difficulty: 1 }
+            ],
+            code: [
+                { id: "cmu-nlp-fin-code-1", question: "补全 DPO 训练损失代码", code: "import torch\nimport torch.nn.functional as F\n\ndef dpo_loss(policy_chosen_logps, policy_rejected_logps, ref_chosen_logps, ref_rejected_logps, beta=0.1):\n    chosen_rewards = beta * (policy_chosen_logps - ref_chosen_logps)\n    rejected_rewards = beta * (policy_rejected_logps - ref_rejected_logps)\n    loss = -F.logsigmoid(____).mean()\n    return loss", answer: "chosen_rewards - rejected_rewards", explanation: "DPO 损失最大化 chosen 和 rejected 的隐式奖励差，偏好 chosen 输出。", difficulty: 3 },
+                { id: "cmu-nlp-fin-code-2", question: "补全简单的 Agent 工具调用代码", code: "import json\n\ndef agent_tool_call(llm, query, available_tools):\n    \"\"\"Agent 工具调用流程\"\"\"\n    # 构建包含工具描述的提示\n    tools_desc = json.dumps([t['description'] for t in available_tools], ensure_ascii=False)\n    prompt = f\"Tools: {tools_desc}\\n\\nQuery: {query}\\n\\nIf you need a tool, output JSON: {{'tool': name, 'args': {{...}}}}\\nOtherwise, answer directly:\\n\"\n    \n    response = llm.generate(prompt)\n    \n    try:\n        tool_call = json.loads(response)\n        # 执行工具\n        tool = next(t for t in available_tools if t['name'] == tool_call['tool'])\n        result = tool['function'](**tool_call['args'])\n        # 用结果生成回答\n        final_prompt = f\"Tool result: {result}\\nAnswer the original question: {query}\\n\"\n        return llm.generate(____)\n    except json.JSONDecodeError:\n        return response", answer: "final_prompt", explanation: "Agent 先判断是否需要工具，需要时调用工具获取结果，再用结果生成最终回答。", difficulty: 2 }
+            ]
+        }
+    },
+    "CS231n Deep Learning for CV": {
+        courseId: "cs231n-deep-learning-cv",
+        domain: "cv",
+        mid: {
+            choice: [
+                { id: "cs231n-mid-c-1", question: "CS231n 课程的核心主题是什么？", options: ["NLP", "图像分类和视觉识别的深度学习", "语音识别", "强化学习"], answer: 1, explanation: "CS231n 是 Stanford 的经典课程，专注于用深度学习（特别是 CNN）进行图像识别。", difficulty: 1 },
+                { id: "cs231n-mid-c-2", question: "卷积神经网络的三个核心操作是什么？", options: ["RNN-LSTM-GRU", "卷积-池化-全连接", "编码-解码-损失", "采样-量化-蒸馏"], answer: 1, explanation: "CNN 通过卷积提取特征、池化降维、全连接层分类的三层结构处理图像。", difficulty: 1 },
+                { id: "cs231n-mid-c-3", question: "数据增强（Data Augmentation）在 CV 中的典型方法有哪些？", options: ["只做裁剪", "随机裁剪、翻转、颜色抖动、旋转等", "只加噪声", "只做归一化"], answer: 1, explanation: "CV 数据增强包括几何变换（裁剪、翻转、旋转）和外观变换（颜色抖动、亮度调整）。", difficulty: 1 },
+                { id: "cs231n-mid-c-4", question: "迁移学习（Transfer Learning）在 CV 中为什么有效？", options: ["不有效", "预训练模型学到的低层特征（边缘、纹理）具有通用性", "参数更少", "不需要数据"], answer: 1, explanation: "在 ImageNet 上预训练的 CNN 学到的低层特征对各种视觉任务都有用。", difficulty: 2 },
+                { id: "cs231n-mid-c-5", question: "目标检测中的 IoU（Intersection over Union）衡量什么？",options: ["分类精度", "预测框与真实框的重叠程度", "训练速度", "模型大小"], answer: 1, explanation: "IoU = 交集面积 / 并集面积，衡量预测边界框与真实框的重叠程度。", difficulty: 1 },
+                { id: "cs231n-mid-c-6", question: "Batch Normalization 的作用是什么？", options: ["增加参数", "标准化中间层激活值加速训练", "减少数据", "增加深度"], answer: 1, explanation: "BN 标准化每层的激活值分布，加速收敛并起到正则化作用。", difficulty: 1 },
+                { id: "cs231n-mid-c-7", question: "ResNet 的核心创新是什么？", options: ["更深的网络", "残差连接解决深层网络退化问题", "更宽的网络", "更多的参数"], answer: 1, explanation: "ResNet 通过跳跃连接让网络学习残差函数 F(x) = H(x) - x，解决退化问题。", difficulty: 1 },
+                { id: "cs231n-mid-c-8", question: "反向传播算法的核心步骤是什么？", options: ["前向传播", "链式法则计算梯度", "初始化参数", "数据预处理"], answer: 1, explanation: "反向传播利用链式法则从输出层到输入层逐层计算损失对参数的梯度。", difficulty: 1 },
+                { id: "cs231n-mid-c-9", question: "CS231n 中讨论的反卷积（Transposed Convolution）用于什么？",options: ["特征提取", "上采样恢复空间分辨率", "降维", "分类"], answer: 1, explanation: "反卷积（转置卷积）将低分辨率特征图上采样为高分辨率，用于分割和生成任务。", difficulty: 2 },
+                { id: "cs231n-mid-c-10", question: "Softmax 交叉熵损失的梯度形式是什么？", options: ["p_i - y_i", "p_i * y_i", "y_i / p_i", "p_i + y_i"], answer: 0, explanation: "Softmax 交叉熵的梯度为 p_i - y_i（预测概率减真实标签），形式简洁优雅。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cs231n-mid-f-1", question: "CS231n 课程的全称是 Convolutional Neural Networks for Visual____。", answer: "Recognition", explanation: "CS231n 专注于用 CNN 进行视觉识别，包括分类、检测、分割等任务。", difficulty: 1 },
+                { id: "cs231n-mid-f-2", question: "CNN 中的池化（Pooling）操作通过____（Subsample）降低特征图分辨率。", answer: "降采样", explanation: "池化将特征图尺寸减小（如 2x 最大池化将尺寸减半），减少计算量。", difficulty: 1 },
+                { id: "cs231n-mid-f-3", question: "ReLU 激活函数的公式是 max(0, ____)。", answer: "x", explanation: "ReLU(x) = max(0, x)，将负值置零，引入非线性并缓解梯度消失。", difficulty: 1 },
+                { id: "cs231n-mid-f-4", question: "卷积层的参数量计算为：(kernel_size^2 * in_channels * ____ + bias) * out_channels。", answer: "out_channels", explanation: "每个输出通道有一个 kernel_size^2 * in_channels 大小的卷积核。", difficulty: 2 },
+                { id: "cs231n-mid-f-5", question: "CS231n 中讨论的 SVM 损失函数也被称为____（Hinge）损失。", answer: "hinge", explanation: "Hinge Loss: max(0, s_j - s_y + 1)，SVM 使用 hinge loss 进行分类。", difficulty: 2 },
+                { id: "cs231n-mid-f-6", question: "Dropout 在训练时以概率 p 将神经元输出____（Zero）。", answer: "置零", explanation: "Dropout 随机将神经元输出设为零，推理时使用全部神经元但输出乘以 (1-p)。", difficulty: 1 },
+                { id: "cs231n-mid-f-7", question: "目标检测中，非极大值抑制（NMS）用于去除____（Redundant）候选框。", answer: "冗余", explanation: "NMS 对重叠度高的候选框只保留得分最高的，去除冗余检测框。", difficulty: 2 },
+                { id: "cs231n-mid-f-8", question: "梯度裁剪（Gradient Clipping）防止梯度____（Explosion）。", answer: "爆炸", explanation: "梯度裁剪将梯度范数限制在阈值内，防止梯度爆炸导致训练不稳定。", difficulty: 1 },
+                { id: "cs231n-mid-f-9", question: "CS231n 中讨论的 AlexNet 在 2012 年 ImageNet 比赛中取得____（Breakthrough）成绩。", answer: "突破性", explanation: "AlexNet 将 ImageNet 错误率从 26% 降到 15%，开启了深度学习在 CV 中的热潮。", difficulty: 1 },
+                { id: "cs231n-mid-f-10", question: "图像分类中的 Top-5 准确率指预测的前5个类别中包含正确类别的____（Rate）。", answer: "比率", explanation: "Top-5 准确率比 Top-1 宽松，允许模型在前 5 个预测中包含正确答案。", difficulty: 1 }
+            ],
+            code: [
+                { id: "cs231n-mid-code-1", question: "补全卷积前向传播代码", code: "import numpy as np
+
+def conv_forward(x, W, b, stride=1, pad=1):
+    """简单的 2D 卷积前向传播"""
+    N, C, H, W_in = x.shape
+    F, C, HH, WW = W.shape
+    H_out = (H + 2*pad - HH) // stride + 1
+    W_out = (W_in + 2*pad - WW) // stride + 1
+    
+    x_pad = np.pad(x, ((0,0),(0,0),(pad,pad),(pad,pad)), mode='constant')
+    out = np.zeros((N, F, H_out, W_out))
+    
+    for n in range(N):
+        for f in range(F):
+            for i in range(H_out):
+                for j in range(W_out):
+                    region = x_pad[n, :, i*stride:i*stride+HH, j*stride:j*stride+WW]
+                    out[n, f, i, j] = np.sum(region * W[f]) + ____
+    return out", answer: "b[f]", explanation: "卷积操作：对每个位置提取局部区域，与卷积核做元素乘法求和，加上偏置。", difficulty: 2 },
+                { id: "cs231n-mid-code-2", question: "补全 ReLU 反向传播代码", code: "import numpy as np
+
+def relu_backward(dout, x):
+    """ReLU 的反向传播"""
+    dx = dout.copy()
+    dx[x <= 0] = ____
+    return dx", answer: "0", explanation: "ReLU 的反向传播：正数位置梯度直接传递，负数位置梯度为零。", difficulty: 1 }
+            ]
+        },
+        final: {
+            choice: [
+                { id: "cs231n-fin-c-1", question: "CS231n 中讨论的 U-Net 架构为什么适合语义分割？", options: ["参数少", "编码器-解码器结构+跳跃连接保留空间细节", "更快", "更简单"], answer: 1, explanation: "U-Net 通过跳跃连接将编码器的高分辨率特征传递给解码器，保留精确的空间位置信息。", difficulty: 2 },
+                { id: "cs231n-fin-c-2", question: "CS231n 中讨论的 FPN（Feature Pyramid Network）的作用是什么？", options: ["分类", "构建多尺度特征金字塔以检测不同大小的物体", "分割", "生成"], answer: 1, explanation: "FPN 自上而下融合多层特征，生成多尺度特征图，增强多尺度物体检测。", difficulty: 2 },
+                { id: "cs231n-fin-c-3", question: "CS231n 中讨论的注意力机制在 CV 中的应用包括什么？",options: ["不适用", "自注意力捕获全局依赖、通道/空间注意力增强特征", "只用于文本", "只用于分割"], answer: 1, explanation: "CV 中的注意力包括自注意力（ViT）、通道注意力（SE-Net）和空间注意力。", difficulty: 2 },
+                { id: "cs231n-fin-c-4", question: "CS231n 中讨论的对比学习（Contrastive Learning）在 CV 中如何学习表示？", options: ["监督学习", "拉近同一图像的不同增强视图，推远不同图像", "分类", "回归"], answer: 1, explanation: "SimCLR 等对比学习方法通过数据增强生成正样本对，学习视觉表示。", difficulty: 2 },
+                { id: "cs231n-fin-c-5", question: "CS231n 中讨论的 Vision Transformer (ViT) 的核心思想是什么？",options: ["使用 CNN", "将图像分割为 patch 序列后输入 Transformer", "使用 RNN", "只做分类"], answer: 1, explanation: "ViT 将图像分割为固定大小的 patch，嵌入为向量序列后输入标准 Transformer。", difficulty: 2 },
+                { id: "cs231n-fin-c-6", question: "CS231n 中讨论的 GAN 在图像生成中的优势是什么？",options: ["更简单", "生成的图像质量高且逼真", "更慢", "更小"], answer: 1, explanation: "GAN 通过对抗训练学习数据分布，生成高度逼真的图像。", difficulty: 1 },
+                { id: "cs231n-fin-c-7", question: "CS231n 中讨论的自监督预训练（如 MAE）如何在视觉中工作？",options: ["需要标签", "掩码大部分 patch 让模型重建，学习通用视觉表示", "只做分类", "不需要数据"], answer: 1, explanation: "MAE 随机掩码 75% 的图像 patch，训练模型从可见 patch 重建被掩码的 patch。", difficulty: 2 },
+                { id: "cs231n-fin-c-8", question: "CS231n 中讨论的语义分割和实例分割的区别是什么？", options: ["完全相同", "语义分割不区分同类物体实例，实例分割区分", "语义分割更好", "实例分割更简单"], answer: 1, explanation: "语义分割为每个像素分配类别标签（不区分同类实例），实例分割还区分同一类的不同实例。", difficulty: 2 },
+                { id: "cs231n-fin-c-9", question: "CS231n 中讨论的 Diffusion Model 相比 GAN 的优势是什么？", options: ["更简单", "训练更稳定，多样性更好，不出现模式坍塌", "更快", "参数更少"], answer: 1, explanation: "扩散模型通过去噪过程生成图像，训练更稳定，生成多样性更好。", difficulty: 2 },
+                { id: "cs231n-fin-c-10", question: "CS231n 中讨论的 CLIP 如何连接视觉和语言？", options: ["只处理图像", "对比学习对齐图像和文本嵌入到共享空间", "只处理文本", "不连接"], answer: 1, explanation: "CLIP 在 4 亿图文对上进行对比学习，将图像和文本对齐到共享嵌入空间。", difficulty: 2 }
+            ],
+            fill: [
+                { id: "cs231n-fin-f-1", question: "CS231n 中讨论的 ResNet 残差学习的目标是学习恒等____（Mapping）的偏差。", answer: "映射", explanation: "ResNet 学习 F(x) = H(x) - x，即相对于恒等映射的偏差（残差），比直接学习 H(x) 更容易。", difficulty: 2 },
+                { id: "cs231n-fin-f-2", question: "目标检测中的 Anchor-Free 方法直接预测物体的____（Center）和边界。", answer: "中心", explanation: "Anchor-Free 方法（如 FCOS）直接预测物体中心点和边界偏移，不需要预设 anchor。", difficulty: 2 },
+                { id: "cs231n-fin-f-3", question: "CS231n 中讨论的 NMS 使用 IoU 阈值去除____（Overlap）框。", answer: "重叠", explanation: "NMS 保留得分最高框，移除与其 IoU 超过阈值的其他框。", difficulty: 1 },
+                { id: "cs231n-fin-f-4", question: "CS231n 中讨论的 Focal Loss 解决类别____（Imbalance）问题。", answer: "不均衡", explanation: "Focal Loss 降低容易分类样本的权重，让模型更关注困难样本。", difficulty: 2 },
+                { id: "cs231n-fin-f-5", question: "CS231n 中讨论的 Siamese Network 用于____（Metric）学习。", answer: "度量", explanation: "Siamese Network 学习输入对的相似度度量，用于验证和识别任务。", difficulty: 2 },
+                { id: "cs231n-fin-f-6", question: "CS231n 中讨论的 Spatial Transformer Network 实现可微分的____（Transform）。", answer: "空间变换", explanation: "STN 学习空间变换参数（缩放、旋转、裁剪），使变换过程可微分。", difficulty: 3 },
+                { id: "cs231n-fin-f-7", question: "CS231n 中讨论的 Grad-CAM 生成类____（Activation）热力图。", answer: "激活", explanation: "Grad-CAM 利用最后卷积层的梯度加权激活图，可视化模型关注区域。", difficulty: 2 },
+                { id: "cs231n-fin-f-8", question: "CS231n 中讨论的 Weight Decay 等价于 L2____（Regularization）。", answer: "正则化", explanation: "Weight Decay 在每次更新时向权重添加衰减项，等价于在损失中加入 L2 正则项。", difficulty: 2 },
+                { id: "cs231n-fin-f-9", question: "CS231n 中讨论的 Stochastic Depth 通过随机丢弃整个____（Layer）来正则化。", answer: "层", explanation: "Stochastic Depth 在训练时随机跳过某些层的计算，起正则化和加速训练的作用。", difficulty: 2 },
+                { id: "cs231n-fin-f-10", question: "CS231n 中讨论的 GAN 的训练目标是 minimax 博弈：min_G max_D V(D, ____)。", answer: "G", explanation: "GAN 的训练目标 min_G max_D V(D,G)，生成器 G 最小化，判别器 D 最大化。", difficulty: 2 }
+            ],
+            code: [
+                { id: "cs231n-fin-code-1", question: "补全 Softmax 损失函数代码", code: "import numpy as np
+
+def softmax_loss(scores, y):
+    """Softmax 交叉熵损失"""
+    N = scores.shape[0]
+    # 数值稳定的 softmax
+    shifted_scores = scores - np.max(scores, axis=1, keepdims=True)
+    exp_scores = np.exp(shifted_scores)
+    probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
+    
+    # 交叉熵损失
+    loss = -np.log(probs[np.arange(N), ____])
+    return np.mean(loss)", answer: "y", explanation: "交叉熵损失取正确类别的预测概率的负对数：-log(p_y)。", difficulty: 1 },
+                { id: "cs231n-fin-code-2", question: "补全 NMS（非极大值抑制）代码", code: "import numpy as np
+
+def non_max_suppression(boxes, scores, iou_threshold=0.5):
+    """非极大值抑制"""
+    indices = scores.argsort()[::-1]
+    keep = []
+    
+    while len(indices) > 0:
+        current = indices[0]
+        keep.append(current)
+        
+        if len(indices) == 1:
+            break
+        
+        remaining = indices[1:]
+        # 计算 IoU
+        ious = compute_iou(boxes[current], boxes[remaining])
+        
+        # 保留 IoU 小于阈值的
+        indices = remaining[ious < ____]
+    
+    return keep", answer: "iou_threshold", explanation: "NMS 迭代选择得分最高的框，移除与其 IoU 超过阈值的框。", difficulty: 2 }
+            ]
+        }
+    },
+    "CS 185/285 Deep RL": {
+        courseId: "ucb-deep-rl", domain: "rl",
+        mid: {
+            choice: [
+                { id: "ucbdeeprl-mid-c-1", question: "在Q-learning中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Q-learning是CS 185/285 Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "ucbdeeprl-mid-c-2", question: "在DQN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DQN是CS 185/285 Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "ucbdeeprl-mid-c-3", question: "在PPO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PPO是CS 185/285 Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "ucbdeeprl-mid-c-4", question: "在Actor-Critic中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Actor-Critic是CS 185/285 Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "ucbdeeprl-mid-c-5", question: "在探索-利用中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "探索-利用是CS 185/285 Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "ucbdeeprl-mid-c-6", question: "在TRPO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "TRPO是CS 185/285 Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "ucbdeeprl-mid-c-7", question: "在SAC中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SAC是CS 185/285 Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "ucbdeeprl-mid-c-8", question: "在Model-Based RL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Model-Based RL是CS 185/285 Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "ucbdeeprl-mid-c-9", question: "在Policy Gradient定理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Policy Gradient定理是CS 185/285 Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "ucbdeeprl-mid-c-10", question: "在策略梯度中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "策略梯度是CS 185/285 Deep RL课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "ucbdeeprl-mid-f-1", question: "CS 185/285 Deep RL中，____（Q-learning）是一个核心概念。", answer: "Q-learning", explanation: "Q-learning是CS 185/285 Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "ucbdeeprl-mid-f-2", question: "CS 185/285 Deep RL中，____（DQN）是一个核心概念。", answer: "DQN", explanation: "DQN是CS 185/285 Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "ucbdeeprl-mid-f-3", question: "CS 185/285 Deep RL中，____（PPO）是一个核心概念。", answer: "PPO", explanation: "PPO是CS 185/285 Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "ucbdeeprl-mid-f-4", question: "CS 185/285 Deep RL中，____（Actor-Critic）是一个核心概念。", answer: "Actor-Critic", explanation: "Actor-Critic是CS 185/285 Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "ucbdeeprl-mid-f-5", question: "CS 185/285 Deep RL中，____（探索-利用）是一个核心概念。", answer: "探索-利用", explanation: "探索-利用是CS 185/285 Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "ucbdeeprl-mid-f-6", question: "CS 185/285 Deep RL中，____（TRPO）是一个核心概念。", answer: "TRPO", explanation: "TRPO是CS 185/285 Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "ucbdeeprl-mid-f-7", question: "CS 185/285 Deep RL中，____（SAC）是一个核心概念。", answer: "SAC", explanation: "SAC是CS 185/285 Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "ucbdeeprl-mid-f-8", question: "CS 185/285 Deep RL中，____（Model-Based RL）是一个核心概念。", answer: "Model-Based RL", explanation: "Model-Based RL是CS 185/285 Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "ucbdeeprl-mid-f-9", question: "CS 185/285 Deep RL中，____（Policy Gradient定理）是一个核心概念。", answer: "Policy Gradient定理", explanation: "Policy Gradient定理是CS 185/285 Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "ucbdeeprl-mid-f-10", question: "CS 185/285 Deep RL中，____（策略梯度）是一个核心概念。", answer: "策略梯度", explanation: "策略梯度是CS 185/285 Deep RL的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "ucbdeeprl-mid-code-1", question: "补全策略梯度相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是策略梯度的核心计算。", difficulty: 2 },
+                { id: "ucbdeeprl-mid-code-2", question: "补全策略梯度相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是策略梯度的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "ucbdeeprl-fin-c-1", question: "在Q-learning中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Q-learning是CS 185/285 Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "ucbdeeprl-fin-c-2", question: "在DQN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DQN是CS 185/285 Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "ucbdeeprl-fin-c-3", question: "在PPO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PPO是CS 185/285 Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "ucbdeeprl-fin-c-4", question: "在Actor-Critic中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Actor-Critic是CS 185/285 Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "ucbdeeprl-fin-c-5", question: "在探索-利用中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "探索-利用是CS 185/285 Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "ucbdeeprl-fin-c-6", question: "在TRPO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "TRPO是CS 185/285 Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "ucbdeeprl-fin-c-7", question: "在SAC中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SAC是CS 185/285 Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "ucbdeeprl-fin-c-8", question: "在Model-Based RL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Model-Based RL是CS 185/285 Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "ucbdeeprl-fin-c-9", question: "在Policy Gradient定理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Policy Gradient定理是CS 185/285 Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "ucbdeeprl-fin-c-10", question: "在策略梯度中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "策略梯度是CS 185/285 Deep RL课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "ucbdeeprl-fin-f-1", question: "CS 185/285 Deep RL中，____（Q-learning）是一个核心概念。", answer: "Q-learning", explanation: "Q-learning是CS 185/285 Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "ucbdeeprl-fin-f-2", question: "CS 185/285 Deep RL中，____（DQN）是一个核心概念。", answer: "DQN", explanation: "DQN是CS 185/285 Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "ucbdeeprl-fin-f-3", question: "CS 185/285 Deep RL中，____（PPO）是一个核心概念。", answer: "PPO", explanation: "PPO是CS 185/285 Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "ucbdeeprl-fin-f-4", question: "CS 185/285 Deep RL中，____（Actor-Critic）是一个核心概念。", answer: "Actor-Critic", explanation: "Actor-Critic是CS 185/285 Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "ucbdeeprl-fin-f-5", question: "CS 185/285 Deep RL中，____（探索-利用）是一个核心概念。", answer: "探索-利用", explanation: "探索-利用是CS 185/285 Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "ucbdeeprl-fin-f-6", question: "CS 185/285 Deep RL中，____（TRPO）是一个核心概念。", answer: "TRPO", explanation: "TRPO是CS 185/285 Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "ucbdeeprl-fin-f-7", question: "CS 185/285 Deep RL中，____（SAC）是一个核心概念。", answer: "SAC", explanation: "SAC是CS 185/285 Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "ucbdeeprl-fin-f-8", question: "CS 185/285 Deep RL中，____（Model-Based RL）是一个核心概念。", answer: "Model-Based RL", explanation: "Model-Based RL是CS 185/285 Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "ucbdeeprl-fin-f-9", question: "CS 185/285 Deep RL中，____（Policy Gradient定理）是一个核心概念。", answer: "Policy Gradient定理", explanation: "Policy Gradient定理是CS 185/285 Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "ucbdeeprl-fin-f-10", question: "CS 185/285 Deep RL中，____（策略梯度）是一个核心概念。", answer: "策略梯度", explanation: "策略梯度是CS 185/285 Deep RL的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "ucbdeeprl-fin-code-1", question: "补全策略梯度相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是策略梯度的核心计算。", difficulty: 2 },
+                { id: "ucbdeeprl-fin-code-2", question: "补全策略梯度相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是策略梯度的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "RL Specialization": {
+        courseId: "rl-specialization-alberta", domain: "rl",
+        mid: {
+            choice: [
+                { id: "rlspeciali-mid-c-1", question: "在值函数中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "值函数是RL Specialization课程的重要主题。", difficulty: 2 },
+                { id: "rlspeciali-mid-c-2", question: "在TD学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "TD学习是RL Specialization课程的重要主题。", difficulty: 3 },
+                { id: "rlspeciali-mid-c-3", question: "在策略梯度中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "策略梯度是RL Specialization课程的重要主题。", difficulty: 1 },
+                { id: "rlspeciali-mid-c-4", question: "在多臂老虎机中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多臂老虎机是RL Specialization课程的重要主题。", difficulty: 2 },
+                { id: "rlspeciali-mid-c-5", question: "在Bellman方程中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Bellman方程是RL Specialization课程的重要主题。", difficulty: 3 },
+                { id: "rlspeciali-mid-c-6", question: "在SARSA中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SARSA是RL Specialization课程的重要主题。", difficulty: 1 },
+                { id: "rlspeciali-mid-c-7", question: "在Q-learning中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Q-learning是RL Specialization课程的重要主题。", difficulty: 2 },
+                { id: "rlspeciali-mid-c-8", question: "在Monte Carlo中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Monte Carlo是RL Specialization课程的重要主题。", difficulty: 3 },
+                { id: "rlspeciali-mid-c-9", question: "在值迭代中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "值迭代是RL Specialization课程的重要主题。", difficulty: 1 },
+                { id: "rlspeciali-mid-c-10", question: "在MDP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MDP是RL Specialization课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "rlspeciali-mid-f-1", question: "RL Specialization中，____（值函数）是一个核心概念。", answer: "值函数", explanation: "值函数是RL Specialization的核心内容之一。", difficulty: 2 },
+                { id: "rlspeciali-mid-f-2", question: "RL Specialization中，____（TD学习）是一个核心概念。", answer: "TD学习", explanation: "TD学习是RL Specialization的核心内容之一。", difficulty: 3 },
+                { id: "rlspeciali-mid-f-3", question: "RL Specialization中，____（策略梯度）是一个核心概念。", answer: "策略梯度", explanation: "策略梯度是RL Specialization的核心内容之一。", difficulty: 1 },
+                { id: "rlspeciali-mid-f-4", question: "RL Specialization中，____（多臂老虎机）是一个核心概念。", answer: "多臂老虎机", explanation: "多臂老虎机是RL Specialization的核心内容之一。", difficulty: 2 },
+                { id: "rlspeciali-mid-f-5", question: "RL Specialization中，____（Bellman方程）是一个核心概念。", answer: "Bellman方程", explanation: "Bellman方程是RL Specialization的核心内容之一。", difficulty: 3 },
+                { id: "rlspeciali-mid-f-6", question: "RL Specialization中，____（SARSA）是一个核心概念。", answer: "SARSA", explanation: "SARSA是RL Specialization的核心内容之一。", difficulty: 1 },
+                { id: "rlspeciali-mid-f-7", question: "RL Specialization中，____（Q-learning）是一个核心概念。", answer: "Q-learning", explanation: "Q-learning是RL Specialization的核心内容之一。", difficulty: 2 },
+                { id: "rlspeciali-mid-f-8", question: "RL Specialization中，____（Monte Carlo）是一个核心概念。", answer: "Monte Carlo", explanation: "Monte Carlo是RL Specialization的核心内容之一。", difficulty: 3 },
+                { id: "rlspeciali-mid-f-9", question: "RL Specialization中，____（值迭代）是一个核心概念。", answer: "值迭代", explanation: "值迭代是RL Specialization的核心内容之一。", difficulty: 1 },
+                { id: "rlspeciali-mid-f-10", question: "RL Specialization中，____（MDP）是一个核心概念。", answer: "MDP", explanation: "MDP是RL Specialization的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "rlspeciali-mid-code-1", question: "补全MDP相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是MDP的核心计算。", difficulty: 2 },
+                { id: "rlspeciali-mid-code-2", question: "补全MDP相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是MDP的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "rlspeciali-fin-c-1", question: "在值函数中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "值函数是RL Specialization课程的重要主题。", difficulty: 2 },
+                { id: "rlspeciali-fin-c-2", question: "在TD学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "TD学习是RL Specialization课程的重要主题。", difficulty: 3 },
+                { id: "rlspeciali-fin-c-3", question: "在策略梯度中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "策略梯度是RL Specialization课程的重要主题。", difficulty: 1 },
+                { id: "rlspeciali-fin-c-4", question: "在多臂老虎机中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多臂老虎机是RL Specialization课程的重要主题。", difficulty: 2 },
+                { id: "rlspeciali-fin-c-5", question: "在Bellman方程中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Bellman方程是RL Specialization课程的重要主题。", difficulty: 3 },
+                { id: "rlspeciali-fin-c-6", question: "在SARSA中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SARSA是RL Specialization课程的重要主题。", difficulty: 1 },
+                { id: "rlspeciali-fin-c-7", question: "在Q-learning中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Q-learning是RL Specialization课程的重要主题。", difficulty: 2 },
+                { id: "rlspeciali-fin-c-8", question: "在Monte Carlo中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Monte Carlo是RL Specialization课程的重要主题。", difficulty: 3 },
+                { id: "rlspeciali-fin-c-9", question: "在值迭代中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "值迭代是RL Specialization课程的重要主题。", difficulty: 1 },
+                { id: "rlspeciali-fin-c-10", question: "在MDP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MDP是RL Specialization课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "rlspeciali-fin-f-1", question: "RL Specialization中，____（值函数）是一个核心概念。", answer: "值函数", explanation: "值函数是RL Specialization的核心内容之一。", difficulty: 2 },
+                { id: "rlspeciali-fin-f-2", question: "RL Specialization中，____（TD学习）是一个核心概念。", answer: "TD学习", explanation: "TD学习是RL Specialization的核心内容之一。", difficulty: 3 },
+                { id: "rlspeciali-fin-f-3", question: "RL Specialization中，____（策略梯度）是一个核心概念。", answer: "策略梯度", explanation: "策略梯度是RL Specialization的核心内容之一。", difficulty: 1 },
+                { id: "rlspeciali-fin-f-4", question: "RL Specialization中，____（多臂老虎机）是一个核心概念。", answer: "多臂老虎机", explanation: "多臂老虎机是RL Specialization的核心内容之一。", difficulty: 2 },
+                { id: "rlspeciali-fin-f-5", question: "RL Specialization中，____（Bellman方程）是一个核心概念。", answer: "Bellman方程", explanation: "Bellman方程是RL Specialization的核心内容之一。", difficulty: 3 },
+                { id: "rlspeciali-fin-f-6", question: "RL Specialization中，____（SARSA）是一个核心概念。", answer: "SARSA", explanation: "SARSA是RL Specialization的核心内容之一。", difficulty: 1 },
+                { id: "rlspeciali-fin-f-7", question: "RL Specialization中，____（Q-learning）是一个核心概念。", answer: "Q-learning", explanation: "Q-learning是RL Specialization的核心内容之一。", difficulty: 2 },
+                { id: "rlspeciali-fin-f-8", question: "RL Specialization中，____（Monte Carlo）是一个核心概念。", answer: "Monte Carlo", explanation: "Monte Carlo是RL Specialization的核心内容之一。", difficulty: 3 },
+                { id: "rlspeciali-fin-f-9", question: "RL Specialization中，____（值迭代）是一个核心概念。", answer: "值迭代", explanation: "值迭代是RL Specialization的核心内容之一。", difficulty: 1 },
+                { id: "rlspeciali-fin-f-10", question: "RL Specialization中，____（MDP）是一个核心概念。", answer: "MDP", explanation: "MDP是RL Specialization的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "rlspeciali-fin-code-1", question: "补全MDP相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是MDP的核心计算。", difficulty: 2 },
+                { id: "rlspeciali-fin-code-2", question: "补全MDP相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是MDP的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "CS234 Reinforcement Learning": {
+        courseId: "cs234-rl", domain: "rl",
+        mid: {
+            choice: [
+                { id: "cs234rl-mid-c-1", question: "在值函数逼近中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "值函数逼近是CS234 Reinforcement Learning课程的重要主题。", difficulty: 2 },
+                { id: "cs234rl-mid-c-2", question: "在策略优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "策略优化是CS234 Reinforcement Learning课程的重要主题。", difficulty: 3 },
+                { id: "cs234rl-mid-c-3", question: "在模型基RL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型基RL是CS234 Reinforcement Learning课程的重要主题。", difficulty: 1 },
+                { id: "cs234rl-mid-c-4", question: "在离线RL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "离线RL是CS234 Reinforcement Learning课程的重要主题。", difficulty: 2 },
+                { id: "cs234rl-mid-c-5", question: "在UCB中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "UCB是CS234 Reinforcement Learning课程的重要主题。", difficulty: 3 },
+                { id: "cs234rl-mid-c-6", question: "在策略梯度中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "策略梯度是CS234 Reinforcement Learning课程的重要主题。", difficulty: 1 },
+                { id: "cs234rl-mid-c-7", question: "在Actor-Critic中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Actor-Critic是CS234 Reinforcement Learning课程的重要主题。", difficulty: 2 },
+                { id: "cs234rl-mid-c-8", question: "在DQN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DQN是CS234 Reinforcement Learning课程的重要主题。", difficulty: 3 },
+                { id: "cs234rl-mid-c-9", question: "在PPO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PPO是CS234 Reinforcement Learning课程的重要主题。", difficulty: 1 },
+                { id: "cs234rl-mid-c-10", question: "在探索与利用中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "探索与利用是CS234 Reinforcement Learning课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cs234rl-mid-f-1", question: "CS234 Reinforcement Learning中，____（值函数逼近）是一个核心概念。", answer: "值函数逼近", explanation: "值函数逼近是CS234 Reinforcement Learning的核心内容之一。", difficulty: 2 },
+                { id: "cs234rl-mid-f-2", question: "CS234 Reinforcement Learning中，____（策略优化）是一个核心概念。", answer: "策略优化", explanation: "策略优化是CS234 Reinforcement Learning的核心内容之一。", difficulty: 3 },
+                { id: "cs234rl-mid-f-3", question: "CS234 Reinforcement Learning中，____（模型基RL）是一个核心概念。", answer: "模型基RL", explanation: "模型基RL是CS234 Reinforcement Learning的核心内容之一。", difficulty: 1 },
+                { id: "cs234rl-mid-f-4", question: "CS234 Reinforcement Learning中，____（离线RL）是一个核心概念。", answer: "离线RL", explanation: "离线RL是CS234 Reinforcement Learning的核心内容之一。", difficulty: 2 },
+                { id: "cs234rl-mid-f-5", question: "CS234 Reinforcement Learning中，____（UCB）是一个核心概念。", answer: "UCB", explanation: "UCB是CS234 Reinforcement Learning的核心内容之一。", difficulty: 3 },
+                { id: "cs234rl-mid-f-6", question: "CS234 Reinforcement Learning中，____（策略梯度）是一个核心概念。", answer: "策略梯度", explanation: "策略梯度是CS234 Reinforcement Learning的核心内容之一。", difficulty: 1 },
+                { id: "cs234rl-mid-f-7", question: "CS234 Reinforcement Learning中，____（Actor-Critic）是一个核心概念。", answer: "Actor-Critic", explanation: "Actor-Critic是CS234 Reinforcement Learning的核心内容之一。", difficulty: 2 },
+                { id: "cs234rl-mid-f-8", question: "CS234 Reinforcement Learning中，____（DQN）是一个核心概念。", answer: "DQN", explanation: "DQN是CS234 Reinforcement Learning的核心内容之一。", difficulty: 3 },
+                { id: "cs234rl-mid-f-9", question: "CS234 Reinforcement Learning中，____（PPO）是一个核心概念。", answer: "PPO", explanation: "PPO是CS234 Reinforcement Learning的核心内容之一。", difficulty: 1 },
+                { id: "cs234rl-mid-f-10", question: "CS234 Reinforcement Learning中，____（探索与利用）是一个核心概念。", answer: "探索与利用", explanation: "探索与利用是CS234 Reinforcement Learning的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cs234rl-mid-code-1", question: "补全探索与利用相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是探索与利用的核心计算。", difficulty: 2 },
+                { id: "cs234rl-mid-code-2", question: "补全探索与利用相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是探索与利用的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cs234rl-fin-c-1", question: "在值函数逼近中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "值函数逼近是CS234 Reinforcement Learning课程的重要主题。", difficulty: 2 },
+                { id: "cs234rl-fin-c-2", question: "在策略优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "策略优化是CS234 Reinforcement Learning课程的重要主题。", difficulty: 3 },
+                { id: "cs234rl-fin-c-3", question: "在模型基RL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型基RL是CS234 Reinforcement Learning课程的重要主题。", difficulty: 1 },
+                { id: "cs234rl-fin-c-4", question: "在离线RL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "离线RL是CS234 Reinforcement Learning课程的重要主题。", difficulty: 2 },
+                { id: "cs234rl-fin-c-5", question: "在UCB中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "UCB是CS234 Reinforcement Learning课程的重要主题。", difficulty: 3 },
+                { id: "cs234rl-fin-c-6", question: "在策略梯度中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "策略梯度是CS234 Reinforcement Learning课程的重要主题。", difficulty: 1 },
+                { id: "cs234rl-fin-c-7", question: "在Actor-Critic中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Actor-Critic是CS234 Reinforcement Learning课程的重要主题。", difficulty: 2 },
+                { id: "cs234rl-fin-c-8", question: "在DQN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DQN是CS234 Reinforcement Learning课程的重要主题。", difficulty: 3 },
+                { id: "cs234rl-fin-c-9", question: "在PPO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PPO是CS234 Reinforcement Learning课程的重要主题。", difficulty: 1 },
+                { id: "cs234rl-fin-c-10", question: "在探索与利用中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "探索与利用是CS234 Reinforcement Learning课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cs234rl-fin-f-1", question: "CS234 Reinforcement Learning中，____（值函数逼近）是一个核心概念。", answer: "值函数逼近", explanation: "值函数逼近是CS234 Reinforcement Learning的核心内容之一。", difficulty: 2 },
+                { id: "cs234rl-fin-f-2", question: "CS234 Reinforcement Learning中，____（策略优化）是一个核心概念。", answer: "策略优化", explanation: "策略优化是CS234 Reinforcement Learning的核心内容之一。", difficulty: 3 },
+                { id: "cs234rl-fin-f-3", question: "CS234 Reinforcement Learning中，____（模型基RL）是一个核心概念。", answer: "模型基RL", explanation: "模型基RL是CS234 Reinforcement Learning的核心内容之一。", difficulty: 1 },
+                { id: "cs234rl-fin-f-4", question: "CS234 Reinforcement Learning中，____（离线RL）是一个核心概念。", answer: "离线RL", explanation: "离线RL是CS234 Reinforcement Learning的核心内容之一。", difficulty: 2 },
+                { id: "cs234rl-fin-f-5", question: "CS234 Reinforcement Learning中，____（UCB）是一个核心概念。", answer: "UCB", explanation: "UCB是CS234 Reinforcement Learning的核心内容之一。", difficulty: 3 },
+                { id: "cs234rl-fin-f-6", question: "CS234 Reinforcement Learning中，____（策略梯度）是一个核心概念。", answer: "策略梯度", explanation: "策略梯度是CS234 Reinforcement Learning的核心内容之一。", difficulty: 1 },
+                { id: "cs234rl-fin-f-7", question: "CS234 Reinforcement Learning中，____（Actor-Critic）是一个核心概念。", answer: "Actor-Critic", explanation: "Actor-Critic是CS234 Reinforcement Learning的核心内容之一。", difficulty: 2 },
+                { id: "cs234rl-fin-f-8", question: "CS234 Reinforcement Learning中，____（DQN）是一个核心概念。", answer: "DQN", explanation: "DQN是CS234 Reinforcement Learning的核心内容之一。", difficulty: 3 },
+                { id: "cs234rl-fin-f-9", question: "CS234 Reinforcement Learning中，____（PPO）是一个核心概念。", answer: "PPO", explanation: "PPO是CS234 Reinforcement Learning的核心内容之一。", difficulty: 1 },
+                { id: "cs234rl-fin-f-10", question: "CS234 Reinforcement Learning中，____（探索与利用）是一个核心概念。", answer: "探索与利用", explanation: "探索与利用是CS234 Reinforcement Learning的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cs234rl-fin-code-1", question: "补全探索与利用相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是探索与利用的核心计算。", difficulty: 2 },
+                { id: "cs234rl-fin-code-2", question: "补全探索与利用相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是探索与利用的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "6.S091 Deep RL": {
+        courseId: "mit-deep-rl", domain: "rl",
+        mid: {
+            choice: [
+                { id: "mitdeeprl-mid-c-1", question: "在PPO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PPO是6.S091 Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "mitdeeprl-mid-c-2", question: "在模仿学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模仿学习是6.S091 Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "mitdeeprl-mid-c-3", question: "在逆强化学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "逆强化学习是6.S091 Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "mitdeeprl-mid-c-4", question: "在SAC中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SAC是6.S091 Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "mitdeeprl-mid-c-5", question: "在GAIL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GAIL是6.S091 Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "mitdeeprl-mid-c-6", question: "在DDPG中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DDPG是6.S091 Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "mitdeeprl-mid-c-7", question: "在多智能体RL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多智能体RL是6.S091 Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "mitdeeprl-mid-c-8", question: "在奖励塑形中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "奖励塑形是6.S091 Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "mitdeeprl-mid-c-9", question: "在经验回放中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "经验回放是6.S091 Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "mitdeeprl-mid-c-10", question: "在DQN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DQN是6.S091 Deep RL课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "mitdeeprl-mid-f-1", question: "6.S091 Deep RL中，____（PPO）是一个核心概念。", answer: "PPO", explanation: "PPO是6.S091 Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "mitdeeprl-mid-f-2", question: "6.S091 Deep RL中，____（模仿学习）是一个核心概念。", answer: "模仿学习", explanation: "模仿学习是6.S091 Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "mitdeeprl-mid-f-3", question: "6.S091 Deep RL中，____（逆强化学习）是一个核心概念。", answer: "逆强化学习", explanation: "逆强化学习是6.S091 Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "mitdeeprl-mid-f-4", question: "6.S091 Deep RL中，____（SAC）是一个核心概念。", answer: "SAC", explanation: "SAC是6.S091 Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "mitdeeprl-mid-f-5", question: "6.S091 Deep RL中，____（GAIL）是一个核心概念。", answer: "GAIL", explanation: "GAIL是6.S091 Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "mitdeeprl-mid-f-6", question: "6.S091 Deep RL中，____（DDPG）是一个核心概念。", answer: "DDPG", explanation: "DDPG是6.S091 Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "mitdeeprl-mid-f-7", question: "6.S091 Deep RL中，____（多智能体RL）是一个核心概念。", answer: "多智能体RL", explanation: "多智能体RL是6.S091 Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "mitdeeprl-mid-f-8", question: "6.S091 Deep RL中，____（奖励塑形）是一个核心概念。", answer: "奖励塑形", explanation: "奖励塑形是6.S091 Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "mitdeeprl-mid-f-9", question: "6.S091 Deep RL中，____（经验回放）是一个核心概念。", answer: "经验回放", explanation: "经验回放是6.S091 Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "mitdeeprl-mid-f-10", question: "6.S091 Deep RL中，____（DQN）是一个核心概念。", answer: "DQN", explanation: "DQN是6.S091 Deep RL的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "mitdeeprl-mid-code-1", question: "补全DQN相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是DQN的核心计算。", difficulty: 2 },
+                { id: "mitdeeprl-mid-code-2", question: "补全DQN相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是DQN的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "mitdeeprl-fin-c-1", question: "在PPO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PPO是6.S091 Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "mitdeeprl-fin-c-2", question: "在模仿学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模仿学习是6.S091 Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "mitdeeprl-fin-c-3", question: "在逆强化学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "逆强化学习是6.S091 Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "mitdeeprl-fin-c-4", question: "在SAC中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SAC是6.S091 Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "mitdeeprl-fin-c-5", question: "在GAIL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GAIL是6.S091 Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "mitdeeprl-fin-c-6", question: "在DDPG中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DDPG是6.S091 Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "mitdeeprl-fin-c-7", question: "在多智能体RL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多智能体RL是6.S091 Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "mitdeeprl-fin-c-8", question: "在奖励塑形中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "奖励塑形是6.S091 Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "mitdeeprl-fin-c-9", question: "在经验回放中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "经验回放是6.S091 Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "mitdeeprl-fin-c-10", question: "在DQN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DQN是6.S091 Deep RL课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "mitdeeprl-fin-f-1", question: "6.S091 Deep RL中，____（PPO）是一个核心概念。", answer: "PPO", explanation: "PPO是6.S091 Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "mitdeeprl-fin-f-2", question: "6.S091 Deep RL中，____（模仿学习）是一个核心概念。", answer: "模仿学习", explanation: "模仿学习是6.S091 Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "mitdeeprl-fin-f-3", question: "6.S091 Deep RL中，____（逆强化学习）是一个核心概念。", answer: "逆强化学习", explanation: "逆强化学习是6.S091 Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "mitdeeprl-fin-f-4", question: "6.S091 Deep RL中，____（SAC）是一个核心概念。", answer: "SAC", explanation: "SAC是6.S091 Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "mitdeeprl-fin-f-5", question: "6.S091 Deep RL中，____（GAIL）是一个核心概念。", answer: "GAIL", explanation: "GAIL是6.S091 Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "mitdeeprl-fin-f-6", question: "6.S091 Deep RL中，____（DDPG）是一个核心概念。", answer: "DDPG", explanation: "DDPG是6.S091 Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "mitdeeprl-fin-f-7", question: "6.S091 Deep RL中，____（多智能体RL）是一个核心概念。", answer: "多智能体RL", explanation: "多智能体RL是6.S091 Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "mitdeeprl-fin-f-8", question: "6.S091 Deep RL中，____（奖励塑形）是一个核心概念。", answer: "奖励塑形", explanation: "奖励塑形是6.S091 Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "mitdeeprl-fin-f-9", question: "6.S091 Deep RL中，____（经验回放）是一个核心概念。", answer: "经验回放", explanation: "经验回放是6.S091 Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "mitdeeprl-fin-f-10", question: "6.S091 Deep RL中，____（DQN）是一个核心概念。", answer: "DQN", explanation: "DQN是6.S091 Deep RL的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "mitdeeprl-fin-code-1", question: "补全DQN相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是DQN的核心计算。", difficulty: 2 },
+                { id: "mitdeeprl-fin-code-2", question: "补全DQN相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是DQN的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Multi-Agent RL": {
+        courseId: "multi-agent-rl", domain: "rl",
+        mid: {
+            choice: [
+                { id: "multiagent-mid-c-1", question: "在合作中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "合作是Multi-Agent RL课程的重要主题。", difficulty: 2 },
+                { id: "multiagent-mid-c-2", question: "在竞争中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "竞争是Multi-Agent RL课程的重要主题。", difficulty: 3 },
+                { id: "multiagent-mid-c-3", question: "在通信中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "通信是Multi-Agent RL课程的重要主题。", difficulty: 1 },
+                { id: "multiagent-mid-c-4", question: "在信用分配中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "信用分配是Multi-Agent RL课程的重要主题。", difficulty: 2 },
+                { id: "multiagent-mid-c-5", question: "在QMIX中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "QMIX是Multi-Agent RL课程的重要主题。", difficulty: 3 },
+                { id: "multiagent-mid-c-6", question: "在MADDPG中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MADDPG是Multi-Agent RL课程的重要主题。", difficulty: 1 },
+                { id: "multiagent-mid-c-7", question: "在均场博弈中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "均场博弈是Multi-Agent RL课程的重要主题。", difficulty: 2 },
+                { id: "multiagent-mid-c-8", question: "在非平稳性中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "非平稳性是Multi-Agent RL课程的重要主题。", difficulty: 3 },
+                { id: "multiagent-mid-c-9", question: "在CTDE中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CTDE是Multi-Agent RL课程的重要主题。", difficulty: 1 },
+                { id: "multiagent-mid-c-10", question: "在博弈论中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "博弈论是Multi-Agent RL课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "multiagent-mid-f-1", question: "Multi-Agent RL中，____（合作）是一个核心概念。", answer: "合作", explanation: "合作是Multi-Agent RL的核心内容之一。", difficulty: 2 },
+                { id: "multiagent-mid-f-2", question: "Multi-Agent RL中，____（竞争）是一个核心概念。", answer: "竞争", explanation: "竞争是Multi-Agent RL的核心内容之一。", difficulty: 3 },
+                { id: "multiagent-mid-f-3", question: "Multi-Agent RL中，____（通信）是一个核心概念。", answer: "通信", explanation: "通信是Multi-Agent RL的核心内容之一。", difficulty: 1 },
+                { id: "multiagent-mid-f-4", question: "Multi-Agent RL中，____（信用分配）是一个核心概念。", answer: "信用分配", explanation: "信用分配是Multi-Agent RL的核心内容之一。", difficulty: 2 },
+                { id: "multiagent-mid-f-5", question: "Multi-Agent RL中，____（QMIX）是一个核心概念。", answer: "QMIX", explanation: "QMIX是Multi-Agent RL的核心内容之一。", difficulty: 3 },
+                { id: "multiagent-mid-f-6", question: "Multi-Agent RL中，____（MADDPG）是一个核心概念。", answer: "MADDPG", explanation: "MADDPG是Multi-Agent RL的核心内容之一。", difficulty: 1 },
+                { id: "multiagent-mid-f-7", question: "Multi-Agent RL中，____（均场博弈）是一个核心概念。", answer: "均场博弈", explanation: "均场博弈是Multi-Agent RL的核心内容之一。", difficulty: 2 },
+                { id: "multiagent-mid-f-8", question: "Multi-Agent RL中，____（非平稳性）是一个核心概念。", answer: "非平稳性", explanation: "非平稳性是Multi-Agent RL的核心内容之一。", difficulty: 3 },
+                { id: "multiagent-mid-f-9", question: "Multi-Agent RL中，____（CTDE）是一个核心概念。", answer: "CTDE", explanation: "CTDE是Multi-Agent RL的核心内容之一。", difficulty: 1 },
+                { id: "multiagent-mid-f-10", question: "Multi-Agent RL中，____（博弈论）是一个核心概念。", answer: "博弈论", explanation: "博弈论是Multi-Agent RL的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "multiagent-mid-code-1", question: "补全博弈论相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是博弈论的核心计算。", difficulty: 2 },
+                { id: "multiagent-mid-code-2", question: "补全博弈论相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是博弈论的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "multiagent-fin-c-1", question: "在合作中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "合作是Multi-Agent RL课程的重要主题。", difficulty: 2 },
+                { id: "multiagent-fin-c-2", question: "在竞争中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "竞争是Multi-Agent RL课程的重要主题。", difficulty: 3 },
+                { id: "multiagent-fin-c-3", question: "在通信中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "通信是Multi-Agent RL课程的重要主题。", difficulty: 1 },
+                { id: "multiagent-fin-c-4", question: "在信用分配中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "信用分配是Multi-Agent RL课程的重要主题。", difficulty: 2 },
+                { id: "multiagent-fin-c-5", question: "在QMIX中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "QMIX是Multi-Agent RL课程的重要主题。", difficulty: 3 },
+                { id: "multiagent-fin-c-6", question: "在MADDPG中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MADDPG是Multi-Agent RL课程的重要主题。", difficulty: 1 },
+                { id: "multiagent-fin-c-7", question: "在均场博弈中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "均场博弈是Multi-Agent RL课程的重要主题。", difficulty: 2 },
+                { id: "multiagent-fin-c-8", question: "在非平稳性中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "非平稳性是Multi-Agent RL课程的重要主题。", difficulty: 3 },
+                { id: "multiagent-fin-c-9", question: "在CTDE中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CTDE是Multi-Agent RL课程的重要主题。", difficulty: 1 },
+                { id: "multiagent-fin-c-10", question: "在博弈论中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "博弈论是Multi-Agent RL课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "multiagent-fin-f-1", question: "Multi-Agent RL中，____（合作）是一个核心概念。", answer: "合作", explanation: "合作是Multi-Agent RL的核心内容之一。", difficulty: 2 },
+                { id: "multiagent-fin-f-2", question: "Multi-Agent RL中，____（竞争）是一个核心概念。", answer: "竞争", explanation: "竞争是Multi-Agent RL的核心内容之一。", difficulty: 3 },
+                { id: "multiagent-fin-f-3", question: "Multi-Agent RL中，____（通信）是一个核心概念。", answer: "通信", explanation: "通信是Multi-Agent RL的核心内容之一。", difficulty: 1 },
+                { id: "multiagent-fin-f-4", question: "Multi-Agent RL中，____（信用分配）是一个核心概念。", answer: "信用分配", explanation: "信用分配是Multi-Agent RL的核心内容之一。", difficulty: 2 },
+                { id: "multiagent-fin-f-5", question: "Multi-Agent RL中，____（QMIX）是一个核心概念。", answer: "QMIX", explanation: "QMIX是Multi-Agent RL的核心内容之一。", difficulty: 3 },
+                { id: "multiagent-fin-f-6", question: "Multi-Agent RL中，____（MADDPG）是一个核心概念。", answer: "MADDPG", explanation: "MADDPG是Multi-Agent RL的核心内容之一。", difficulty: 1 },
+                { id: "multiagent-fin-f-7", question: "Multi-Agent RL中，____（均场博弈）是一个核心概念。", answer: "均场博弈", explanation: "均场博弈是Multi-Agent RL的核心内容之一。", difficulty: 2 },
+                { id: "multiagent-fin-f-8", question: "Multi-Agent RL中，____（非平稳性）是一个核心概念。", answer: "非平稳性", explanation: "非平稳性是Multi-Agent RL的核心内容之一。", difficulty: 3 },
+                { id: "multiagent-fin-f-9", question: "Multi-Agent RL中，____（CTDE）是一个核心概念。", answer: "CTDE", explanation: "CTDE是Multi-Agent RL的核心内容之一。", difficulty: 1 },
+                { id: "multiagent-fin-f-10", question: "Multi-Agent RL中，____（博弈论）是一个核心概念。", answer: "博弈论", explanation: "博弈论是Multi-Agent RL的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "multiagent-fin-code-1", question: "补全博弈论相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是博弈论的核心计算。", difficulty: 2 },
+                { id: "multiagent-fin-code-2", question: "补全博弈论相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是博弈论的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Offline Reinforcement Learning": {
+        courseId: "offline-rl", domain: "rl",
+        mid: {
+            choice: [
+                { id: "offlinerl-mid-c-1", question: "在保守Q学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "保守Q学习是Offline Reinforcement Learning课程的重要主题。", difficulty: 2 },
+                { id: "offlinerl-mid-c-2", question: "在策略约束中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "策略约束是Offline Reinforcement Learning课程的重要主题。", difficulty: 3 },
+                { id: "offlinerl-mid-c-3", question: "在数据增强中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据增强是Offline Reinforcement Learning课程的重要主题。", difficulty: 1 },
+                { id: "offlinerl-mid-c-4", question: "在行为克隆中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "行为克隆是Offline Reinforcement Learning课程的重要主题。", difficulty: 2 },
+                { id: "offlinerl-mid-c-5", question: "在CQL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CQL是Offline Reinforcement Learning课程的重要主题。", difficulty: 3 },
+                { id: "offlinerl-mid-c-6", question: "在BCQ中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "BCQ是Offline Reinforcement Learning课程的重要主题。", difficulty: 1 },
+                { id: "offlinerl-mid-c-7", question: "在IQL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "IQL是Offline Reinforcement Learning课程的重要主题。", difficulty: 2 },
+                { id: "offlinerl-mid-c-8", question: "在Decision Transformer中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Decision Transformer是Offline Reinforcement Learning课程的重要主题。", difficulty: 3 },
+                { id: "offlinerl-mid-c-9", question: "在分布外动作中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "分布外动作是Offline Reinforcement Learning课程的重要主题。", difficulty: 1 },
+                { id: "offlinerl-mid-c-10", question: "在离线RL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "离线RL是Offline Reinforcement Learning课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "offlinerl-mid-f-1", question: "Offline Reinforcement Learning中，____（保守Q学习）是一个核心概念。", answer: "保守Q学习", explanation: "保守Q学习是Offline Reinforcement Learning的核心内容之一。", difficulty: 2 },
+                { id: "offlinerl-mid-f-2", question: "Offline Reinforcement Learning中，____（策略约束）是一个核心概念。", answer: "策略约束", explanation: "策略约束是Offline Reinforcement Learning的核心内容之一。", difficulty: 3 },
+                { id: "offlinerl-mid-f-3", question: "Offline Reinforcement Learning中，____（数据增强）是一个核心概念。", answer: "数据增强", explanation: "数据增强是Offline Reinforcement Learning的核心内容之一。", difficulty: 1 },
+                { id: "offlinerl-mid-f-4", question: "Offline Reinforcement Learning中，____（行为克隆）是一个核心概念。", answer: "行为克隆", explanation: "行为克隆是Offline Reinforcement Learning的核心内容之一。", difficulty: 2 },
+                { id: "offlinerl-mid-f-5", question: "Offline Reinforcement Learning中，____（CQL）是一个核心概念。", answer: "CQL", explanation: "CQL是Offline Reinforcement Learning的核心内容之一。", difficulty: 3 },
+                { id: "offlinerl-mid-f-6", question: "Offline Reinforcement Learning中，____（BCQ）是一个核心概念。", answer: "BCQ", explanation: "BCQ是Offline Reinforcement Learning的核心内容之一。", difficulty: 1 },
+                { id: "offlinerl-mid-f-7", question: "Offline Reinforcement Learning中，____（IQL）是一个核心概念。", answer: "IQL", explanation: "IQL是Offline Reinforcement Learning的核心内容之一。", difficulty: 2 },
+                { id: "offlinerl-mid-f-8", question: "Offline Reinforcement Learning中，____（Decision Transformer）是一个核心概念。", answer: "Decision Transformer", explanation: "Decision Transformer是Offline Reinforcement Learning的核心内容之一。", difficulty: 3 },
+                { id: "offlinerl-mid-f-9", question: "Offline Reinforcement Learning中，____（分布外动作）是一个核心概念。", answer: "分布外动作", explanation: "分布外动作是Offline Reinforcement Learning的核心内容之一。", difficulty: 1 },
+                { id: "offlinerl-mid-f-10", question: "Offline Reinforcement Learning中，____（离线RL）是一个核心概念。", answer: "离线RL", explanation: "离线RL是Offline Reinforcement Learning的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "offlinerl-mid-code-1", question: "补全离线RL相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是离线RL的核心计算。", difficulty: 2 },
+                { id: "offlinerl-mid-code-2", question: "补全离线RL相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是离线RL的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "offlinerl-fin-c-1", question: "在保守Q学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "保守Q学习是Offline Reinforcement Learning课程的重要主题。", difficulty: 2 },
+                { id: "offlinerl-fin-c-2", question: "在策略约束中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "策略约束是Offline Reinforcement Learning课程的重要主题。", difficulty: 3 },
+                { id: "offlinerl-fin-c-3", question: "在数据增强中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据增强是Offline Reinforcement Learning课程的重要主题。", difficulty: 1 },
+                { id: "offlinerl-fin-c-4", question: "在行为克隆中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "行为克隆是Offline Reinforcement Learning课程的重要主题。", difficulty: 2 },
+                { id: "offlinerl-fin-c-5", question: "在CQL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CQL是Offline Reinforcement Learning课程的重要主题。", difficulty: 3 },
+                { id: "offlinerl-fin-c-6", question: "在BCQ中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "BCQ是Offline Reinforcement Learning课程的重要主题。", difficulty: 1 },
+                { id: "offlinerl-fin-c-7", question: "在IQL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "IQL是Offline Reinforcement Learning课程的重要主题。", difficulty: 2 },
+                { id: "offlinerl-fin-c-8", question: "在Decision Transformer中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Decision Transformer是Offline Reinforcement Learning课程的重要主题。", difficulty: 3 },
+                { id: "offlinerl-fin-c-9", question: "在分布外动作中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "分布外动作是Offline Reinforcement Learning课程的重要主题。", difficulty: 1 },
+                { id: "offlinerl-fin-c-10", question: "在离线RL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "离线RL是Offline Reinforcement Learning课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "offlinerl-fin-f-1", question: "Offline Reinforcement Learning中，____（保守Q学习）是一个核心概念。", answer: "保守Q学习", explanation: "保守Q学习是Offline Reinforcement Learning的核心内容之一。", difficulty: 2 },
+                { id: "offlinerl-fin-f-2", question: "Offline Reinforcement Learning中，____（策略约束）是一个核心概念。", answer: "策略约束", explanation: "策略约束是Offline Reinforcement Learning的核心内容之一。", difficulty: 3 },
+                { id: "offlinerl-fin-f-3", question: "Offline Reinforcement Learning中，____（数据增强）是一个核心概念。", answer: "数据增强", explanation: "数据增强是Offline Reinforcement Learning的核心内容之一。", difficulty: 1 },
+                { id: "offlinerl-fin-f-4", question: "Offline Reinforcement Learning中，____（行为克隆）是一个核心概念。", answer: "行为克隆", explanation: "行为克隆是Offline Reinforcement Learning的核心内容之一。", difficulty: 2 },
+                { id: "offlinerl-fin-f-5", question: "Offline Reinforcement Learning中，____（CQL）是一个核心概念。", answer: "CQL", explanation: "CQL是Offline Reinforcement Learning的核心内容之一。", difficulty: 3 },
+                { id: "offlinerl-fin-f-6", question: "Offline Reinforcement Learning中，____（BCQ）是一个核心概念。", answer: "BCQ", explanation: "BCQ是Offline Reinforcement Learning的核心内容之一。", difficulty: 1 },
+                { id: "offlinerl-fin-f-7", question: "Offline Reinforcement Learning中，____（IQL）是一个核心概念。", answer: "IQL", explanation: "IQL是Offline Reinforcement Learning的核心内容之一。", difficulty: 2 },
+                { id: "offlinerl-fin-f-8", question: "Offline Reinforcement Learning中，____（Decision Transformer）是一个核心概念。", answer: "Decision Transformer", explanation: "Decision Transformer是Offline Reinforcement Learning的核心内容之一。", difficulty: 3 },
+                { id: "offlinerl-fin-f-9", question: "Offline Reinforcement Learning中，____（分布外动作）是一个核心概念。", answer: "分布外动作", explanation: "分布外动作是Offline Reinforcement Learning的核心内容之一。", difficulty: 1 },
+                { id: "offlinerl-fin-f-10", question: "Offline Reinforcement Learning中，____（离线RL）是一个核心概念。", answer: "离线RL", explanation: "离线RL是Offline Reinforcement Learning的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "offlinerl-fin-code-1", question: "补全离线RL相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是离线RL的核心计算。", difficulty: 2 },
+                { id: "offlinerl-fin-code-2", question: "补全离线RL相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是离线RL的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "RLHF: RL from Human Feedback": {
+        courseId: "rlhf", domain: "rl",
+        mid: {
+            choice: [
+                { id: "rlhf-mid-c-1", question: "在PPO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PPO是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 2 },
+                { id: "rlhf-mid-c-2", question: "在DPO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DPO是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 3 },
+                { id: "rlhf-mid-c-3", question: "在奖励模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "奖励模型是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 1 },
+                { id: "rlhf-mid-c-4", question: "在偏好学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "偏好学习是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 2 },
+                { id: "rlhf-mid-c-5", question: "在KL约束中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "KL约束是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 3 },
+                { id: "rlhf-mid-c-6", question: "在Reward Hacking中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Reward Hacking是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 1 },
+                { id: "rlhf-mid-c-7", question: "在HHH原则中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "HHH原则是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 2 },
+                { id: "rlhf-mid-c-8", question: "在Bradley-Terry中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Bradley-Terry是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 3 },
+                { id: "rlhf-mid-c-9", question: "在SFT中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SFT是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 1 },
+                { id: "rlhf-mid-c-10", question: "在RLHF中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "RLHF是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "rlhf-mid-f-1", question: "RLHF: RL from Human Feedback中，____（PPO）是一个核心概念。", answer: "PPO", explanation: "PPO是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 2 },
+                { id: "rlhf-mid-f-2", question: "RLHF: RL from Human Feedback中，____（DPO）是一个核心概念。", answer: "DPO", explanation: "DPO是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 3 },
+                { id: "rlhf-mid-f-3", question: "RLHF: RL from Human Feedback中，____（奖励模型）是一个核心概念。", answer: "奖励模型", explanation: "奖励模型是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 1 },
+                { id: "rlhf-mid-f-4", question: "RLHF: RL from Human Feedback中，____（偏好学习）是一个核心概念。", answer: "偏好学习", explanation: "偏好学习是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 2 },
+                { id: "rlhf-mid-f-5", question: "RLHF: RL from Human Feedback中，____（KL约束）是一个核心概念。", answer: "KL约束", explanation: "KL约束是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 3 },
+                { id: "rlhf-mid-f-6", question: "RLHF: RL from Human Feedback中，____（Reward Hacking）是一个核心概念。", answer: "Reward Hacking", explanation: "Reward Hacking是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 1 },
+                { id: "rlhf-mid-f-7", question: "RLHF: RL from Human Feedback中，____（HHH原则）是一个核心概念。", answer: "HHH原则", explanation: "HHH原则是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 2 },
+                { id: "rlhf-mid-f-8", question: "RLHF: RL from Human Feedback中，____（Bradley-Terry）是一个核心概念。", answer: "Bradley-Terry", explanation: "Bradley-Terry是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 3 },
+                { id: "rlhf-mid-f-9", question: "RLHF: RL from Human Feedback中，____（SFT）是一个核心概念。", answer: "SFT", explanation: "SFT是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 1 },
+                { id: "rlhf-mid-f-10", question: "RLHF: RL from Human Feedback中，____（RLHF）是一个核心概念。", answer: "RLHF", explanation: "RLHF是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "rlhf-mid-code-1", question: "补全RLHF相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是RLHF的核心计算。", difficulty: 2 },
+                { id: "rlhf-mid-code-2", question: "补全RLHF相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是RLHF的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "rlhf-fin-c-1", question: "在PPO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PPO是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 2 },
+                { id: "rlhf-fin-c-2", question: "在DPO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DPO是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 3 },
+                { id: "rlhf-fin-c-3", question: "在奖励模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "奖励模型是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 1 },
+                { id: "rlhf-fin-c-4", question: "在偏好学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "偏好学习是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 2 },
+                { id: "rlhf-fin-c-5", question: "在KL约束中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "KL约束是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 3 },
+                { id: "rlhf-fin-c-6", question: "在Reward Hacking中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Reward Hacking是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 1 },
+                { id: "rlhf-fin-c-7", question: "在HHH原则中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "HHH原则是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 2 },
+                { id: "rlhf-fin-c-8", question: "在Bradley-Terry中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Bradley-Terry是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 3 },
+                { id: "rlhf-fin-c-9", question: "在SFT中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SFT是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 1 },
+                { id: "rlhf-fin-c-10", question: "在RLHF中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "RLHF是RLHF: RL from Human Feedback课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "rlhf-fin-f-1", question: "RLHF: RL from Human Feedback中，____（PPO）是一个核心概念。", answer: "PPO", explanation: "PPO是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 2 },
+                { id: "rlhf-fin-f-2", question: "RLHF: RL from Human Feedback中，____（DPO）是一个核心概念。", answer: "DPO", explanation: "DPO是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 3 },
+                { id: "rlhf-fin-f-3", question: "RLHF: RL from Human Feedback中，____（奖励模型）是一个核心概念。", answer: "奖励模型", explanation: "奖励模型是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 1 },
+                { id: "rlhf-fin-f-4", question: "RLHF: RL from Human Feedback中，____（偏好学习）是一个核心概念。", answer: "偏好学习", explanation: "偏好学习是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 2 },
+                { id: "rlhf-fin-f-5", question: "RLHF: RL from Human Feedback中，____（KL约束）是一个核心概念。", answer: "KL约束", explanation: "KL约束是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 3 },
+                { id: "rlhf-fin-f-6", question: "RLHF: RL from Human Feedback中，____（Reward Hacking）是一个核心概念。", answer: "Reward Hacking", explanation: "Reward Hacking是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 1 },
+                { id: "rlhf-fin-f-7", question: "RLHF: RL from Human Feedback中，____（HHH原则）是一个核心概念。", answer: "HHH原则", explanation: "HHH原则是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 2 },
+                { id: "rlhf-fin-f-8", question: "RLHF: RL from Human Feedback中，____（Bradley-Terry）是一个核心概念。", answer: "Bradley-Terry", explanation: "Bradley-Terry是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 3 },
+                { id: "rlhf-fin-f-9", question: "RLHF: RL from Human Feedback中，____（SFT）是一个核心概念。", answer: "SFT", explanation: "SFT是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 1 },
+                { id: "rlhf-fin-f-10", question: "RLHF: RL from Human Feedback中，____（RLHF）是一个核心概念。", answer: "RLHF", explanation: "RLHF是RLHF: RL from Human Feedback的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "rlhf-fin-code-1", question: "补全RLHF相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是RLHF的核心计算。", difficulty: 2 },
+                { id: "rlhf-fin-code-2", question: "补全RLHF相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是RLHF的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "CS238: Decision Making under Uncertainty": {
+        courseId: "cs238-decision-making", domain: "rl",
+        mid: {
+            choice: [
+                { id: "cs238decis-mid-c-1", question: "在POMDP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "POMDP是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 2 },
+                { id: "cs238decis-mid-c-2", question: "在贝叶斯规划中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "贝叶斯规划是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 3 },
+                { id: "cs238decis-mid-c-3", question: "在在线学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "在线学习是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 1 },
+                { id: "cs238decis-mid-c-4", question: "在鲁棒决策中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "鲁棒决策是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 2 },
+                { id: "cs238decis-mid-c-5", question: "在MCTS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MCTS是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 3 },
+                { id: "cs238decis-mid-c-6", question: "在信念状态中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "信念状态是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 1 },
+                { id: "cs238decis-mid-c-7", question: "在鲁棒MDP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "鲁棒MDP是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 2 },
+                { id: "cs238decis-mid-c-8", question: "在安全约束中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "安全约束是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 3 },
+                { id: "cs238decis-mid-c-9", question: "在决策理论中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "决策理论是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 1 },
+                { id: "cs238decis-mid-c-10", question: "在MDP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MDP是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cs238decis-mid-f-1", question: "CS238: Decision Making under Uncertainty中，____（POMDP）是一个核心概念。", answer: "POMDP", explanation: "POMDP是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 2 },
+                { id: "cs238decis-mid-f-2", question: "CS238: Decision Making under Uncertainty中，____（贝叶斯规划）是一个核心概念。", answer: "贝叶斯规划", explanation: "贝叶斯规划是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 3 },
+                { id: "cs238decis-mid-f-3", question: "CS238: Decision Making under Uncertainty中，____（在线学习）是一个核心概念。", answer: "在线学习", explanation: "在线学习是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 1 },
+                { id: "cs238decis-mid-f-4", question: "CS238: Decision Making under Uncertainty中，____（鲁棒决策）是一个核心概念。", answer: "鲁棒决策", explanation: "鲁棒决策是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 2 },
+                { id: "cs238decis-mid-f-5", question: "CS238: Decision Making under Uncertainty中，____（MCTS）是一个核心概念。", answer: "MCTS", explanation: "MCTS是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 3 },
+                { id: "cs238decis-mid-f-6", question: "CS238: Decision Making under Uncertainty中，____（信念状态）是一个核心概念。", answer: "信念状态", explanation: "信念状态是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 1 },
+                { id: "cs238decis-mid-f-7", question: "CS238: Decision Making under Uncertainty中，____（鲁棒MDP）是一个核心概念。", answer: "鲁棒MDP", explanation: "鲁棒MDP是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 2 },
+                { id: "cs238decis-mid-f-8", question: "CS238: Decision Making under Uncertainty中，____（安全约束）是一个核心概念。", answer: "安全约束", explanation: "安全约束是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 3 },
+                { id: "cs238decis-mid-f-9", question: "CS238: Decision Making under Uncertainty中，____（决策理论）是一个核心概念。", answer: "决策理论", explanation: "决策理论是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 1 },
+                { id: "cs238decis-mid-f-10", question: "CS238: Decision Making under Uncertainty中，____（MDP）是一个核心概念。", answer: "MDP", explanation: "MDP是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cs238decis-mid-code-1", question: "补全MDP相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是MDP的核心计算。", difficulty: 2 },
+                { id: "cs238decis-mid-code-2", question: "补全MDP相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是MDP的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cs238decis-fin-c-1", question: "在POMDP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "POMDP是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 2 },
+                { id: "cs238decis-fin-c-2", question: "在贝叶斯规划中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "贝叶斯规划是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 3 },
+                { id: "cs238decis-fin-c-3", question: "在在线学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "在线学习是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 1 },
+                { id: "cs238decis-fin-c-4", question: "在鲁棒决策中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "鲁棒决策是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 2 },
+                { id: "cs238decis-fin-c-5", question: "在MCTS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MCTS是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 3 },
+                { id: "cs238decis-fin-c-6", question: "在信念状态中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "信念状态是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 1 },
+                { id: "cs238decis-fin-c-7", question: "在鲁棒MDP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "鲁棒MDP是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 2 },
+                { id: "cs238decis-fin-c-8", question: "在安全约束中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "安全约束是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 3 },
+                { id: "cs238decis-fin-c-9", question: "在决策理论中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "决策理论是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 1 },
+                { id: "cs238decis-fin-c-10", question: "在MDP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MDP是CS238: Decision Making under Uncertainty课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cs238decis-fin-f-1", question: "CS238: Decision Making under Uncertainty中，____（POMDP）是一个核心概念。", answer: "POMDP", explanation: "POMDP是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 2 },
+                { id: "cs238decis-fin-f-2", question: "CS238: Decision Making under Uncertainty中，____（贝叶斯规划）是一个核心概念。", answer: "贝叶斯规划", explanation: "贝叶斯规划是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 3 },
+                { id: "cs238decis-fin-f-3", question: "CS238: Decision Making under Uncertainty中，____（在线学习）是一个核心概念。", answer: "在线学习", explanation: "在线学习是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 1 },
+                { id: "cs238decis-fin-f-4", question: "CS238: Decision Making under Uncertainty中，____（鲁棒决策）是一个核心概念。", answer: "鲁棒决策", explanation: "鲁棒决策是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 2 },
+                { id: "cs238decis-fin-f-5", question: "CS238: Decision Making under Uncertainty中，____（MCTS）是一个核心概念。", answer: "MCTS", explanation: "MCTS是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 3 },
+                { id: "cs238decis-fin-f-6", question: "CS238: Decision Making under Uncertainty中，____（信念状态）是一个核心概念。", answer: "信念状态", explanation: "信念状态是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 1 },
+                { id: "cs238decis-fin-f-7", question: "CS238: Decision Making under Uncertainty中，____（鲁棒MDP）是一个核心概念。", answer: "鲁棒MDP", explanation: "鲁棒MDP是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 2 },
+                { id: "cs238decis-fin-f-8", question: "CS238: Decision Making under Uncertainty中，____（安全约束）是一个核心概念。", answer: "安全约束", explanation: "安全约束是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 3 },
+                { id: "cs238decis-fin-f-9", question: "CS238: Decision Making under Uncertainty中，____（决策理论）是一个核心概念。", answer: "决策理论", explanation: "决策理论是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 1 },
+                { id: "cs238decis-fin-f-10", question: "CS238: Decision Making under Uncertainty中，____（MDP）是一个核心概念。", answer: "MDP", explanation: "MDP是CS238: Decision Making under Uncertainty的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cs238decis-fin-code-1", question: "补全MDP相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是MDP的核心计算。", difficulty: 2 },
+                { id: "cs238decis-fin-code-2", question: "补全MDP相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是MDP的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "10-703: Deep RL": {
+        courseId: "cmu-deep-rl", domain: "rl",
+        mid: {
+            choice: [
+                { id: "cmudeeprl-mid-c-1", question: "在PPO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PPO是10-703: Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "cmudeeprl-mid-c-2", question: "在模仿学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模仿学习是10-703: Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "cmudeeprl-mid-c-3", question: "在模型基RL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型基RL是10-703: Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "cmudeeprl-mid-c-4", question: "在HER中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "HER是10-703: Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "cmudeeprl-mid-c-5", question: "在DDPG中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DDPG是10-703: Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "cmudeeprl-mid-c-6", question: "在SAC中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SAC是10-703: Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "cmudeeprl-mid-c-7", question: "在DAgger中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DAgger是10-703: Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "cmudeeprl-mid-c-8", question: "在Rainbow中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Rainbow是10-703: Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "cmudeeprl-mid-c-9", question: "在优先经验回放中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "优先经验回放是10-703: Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "cmudeeprl-mid-c-10", question: "在DQN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DQN是10-703: Deep RL课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cmudeeprl-mid-f-1", question: "10-703: Deep RL中，____（PPO）是一个核心概念。", answer: "PPO", explanation: "PPO是10-703: Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "cmudeeprl-mid-f-2", question: "10-703: Deep RL中，____（模仿学习）是一个核心概念。", answer: "模仿学习", explanation: "模仿学习是10-703: Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "cmudeeprl-mid-f-3", question: "10-703: Deep RL中，____（模型基RL）是一个核心概念。", answer: "模型基RL", explanation: "模型基RL是10-703: Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "cmudeeprl-mid-f-4", question: "10-703: Deep RL中，____（HER）是一个核心概念。", answer: "HER", explanation: "HER是10-703: Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "cmudeeprl-mid-f-5", question: "10-703: Deep RL中，____（DDPG）是一个核心概念。", answer: "DDPG", explanation: "DDPG是10-703: Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "cmudeeprl-mid-f-6", question: "10-703: Deep RL中，____（SAC）是一个核心概念。", answer: "SAC", explanation: "SAC是10-703: Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "cmudeeprl-mid-f-7", question: "10-703: Deep RL中，____（DAgger）是一个核心概念。", answer: "DAgger", explanation: "DAgger是10-703: Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "cmudeeprl-mid-f-8", question: "10-703: Deep RL中，____（Rainbow）是一个核心概念。", answer: "Rainbow", explanation: "Rainbow是10-703: Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "cmudeeprl-mid-f-9", question: "10-703: Deep RL中，____（优先经验回放）是一个核心概念。", answer: "优先经验回放", explanation: "优先经验回放是10-703: Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "cmudeeprl-mid-f-10", question: "10-703: Deep RL中，____（DQN）是一个核心概念。", answer: "DQN", explanation: "DQN是10-703: Deep RL的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmudeeprl-mid-code-1", question: "补全DQN相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是DQN的核心计算。", difficulty: 2 },
+                { id: "cmudeeprl-mid-code-2", question: "补全DQN相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是DQN的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cmudeeprl-fin-c-1", question: "在PPO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PPO是10-703: Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "cmudeeprl-fin-c-2", question: "在模仿学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模仿学习是10-703: Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "cmudeeprl-fin-c-3", question: "在模型基RL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型基RL是10-703: Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "cmudeeprl-fin-c-4", question: "在HER中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "HER是10-703: Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "cmudeeprl-fin-c-5", question: "在DDPG中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DDPG是10-703: Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "cmudeeprl-fin-c-6", question: "在SAC中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SAC是10-703: Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "cmudeeprl-fin-c-7", question: "在DAgger中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DAgger是10-703: Deep RL课程的重要主题。", difficulty: 2 },
+                { id: "cmudeeprl-fin-c-8", question: "在Rainbow中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Rainbow是10-703: Deep RL课程的重要主题。", difficulty: 3 },
+                { id: "cmudeeprl-fin-c-9", question: "在优先经验回放中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "优先经验回放是10-703: Deep RL课程的重要主题。", difficulty: 1 },
+                { id: "cmudeeprl-fin-c-10", question: "在DQN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "DQN是10-703: Deep RL课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cmudeeprl-fin-f-1", question: "10-703: Deep RL中，____（PPO）是一个核心概念。", answer: "PPO", explanation: "PPO是10-703: Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "cmudeeprl-fin-f-2", question: "10-703: Deep RL中，____（模仿学习）是一个核心概念。", answer: "模仿学习", explanation: "模仿学习是10-703: Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "cmudeeprl-fin-f-3", question: "10-703: Deep RL中，____（模型基RL）是一个核心概念。", answer: "模型基RL", explanation: "模型基RL是10-703: Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "cmudeeprl-fin-f-4", question: "10-703: Deep RL中，____（HER）是一个核心概念。", answer: "HER", explanation: "HER是10-703: Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "cmudeeprl-fin-f-5", question: "10-703: Deep RL中，____（DDPG）是一个核心概念。", answer: "DDPG", explanation: "DDPG是10-703: Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "cmudeeprl-fin-f-6", question: "10-703: Deep RL中，____（SAC）是一个核心概念。", answer: "SAC", explanation: "SAC是10-703: Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "cmudeeprl-fin-f-7", question: "10-703: Deep RL中，____（DAgger）是一个核心概念。", answer: "DAgger", explanation: "DAgger是10-703: Deep RL的核心内容之一。", difficulty: 2 },
+                { id: "cmudeeprl-fin-f-8", question: "10-703: Deep RL中，____（Rainbow）是一个核心概念。", answer: "Rainbow", explanation: "Rainbow是10-703: Deep RL的核心内容之一。", difficulty: 3 },
+                { id: "cmudeeprl-fin-f-9", question: "10-703: Deep RL中，____（优先经验回放）是一个核心概念。", answer: "优先经验回放", explanation: "优先经验回放是10-703: Deep RL的核心内容之一。", difficulty: 1 },
+                { id: "cmudeeprl-fin-f-10", question: "10-703: Deep RL中，____（DQN）是一个核心概念。", answer: "DQN", explanation: "DQN是10-703: Deep RL的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmudeeprl-fin-code-1", question: "补全DQN相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是DQN的核心计算。", difficulty: 2 },
+                { id: "cmudeeprl-fin-code-2", question: "补全DQN相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是DQN的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "16-745: Optimal Control and RL": {
+        courseId: "cmu-optimal-control-rl", domain: "rl",
+        mid: {
+            choice: [
+                { id: "cmuoptimal-mid-c-1", question: "在MPC中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MPC是16-745: Optimal Control and RL课程的重要主题。", difficulty: 2 },
+                { id: "cmuoptimal-mid-c-2", question: "在轨迹优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "轨迹优化是16-745: Optimal Control and RL课程的重要主题。", difficulty: 3 },
+                { id: "cmuoptimal-mid-c-3", question: "在策略搜索中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "策略搜索是16-745: Optimal Control and RL课程的重要主题。", difficulty: 1 },
+                { id: "cmuoptimal-mid-c-4", question: "在iLQR中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "iLQR是16-745: Optimal Control and RL课程的重要主题。", difficulty: 2 },
+                { id: "cmuoptimal-mid-c-5", question: "在MPPI中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MPPI是16-745: Optimal Control and RL课程的重要主题。", difficulty: 3 },
+                { id: "cmuoptimal-mid-c-6", question: "在PILCO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PILCO是16-745: Optimal Control and RL课程的重要主题。", difficulty: 1 },
+                { id: "cmuoptimal-mid-c-7", question: "在Riccati方程中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Riccati方程是16-745: Optimal Control and RL课程的重要主题。", difficulty: 2 },
+                { id: "cmuoptimal-mid-c-8", question: "在约束优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "约束优化是16-745: Optimal Control and RL课程的重要主题。", difficulty: 3 },
+                { id: "cmuoptimal-mid-c-9", question: "在机器人控制中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "机器人控制是16-745: Optimal Control and RL课程的重要主题。", difficulty: 1 },
+                { id: "cmuoptimal-mid-c-10", question: "在LQR中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "LQR是16-745: Optimal Control and RL课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cmuoptimal-mid-f-1", question: "16-745: Optimal Control and RL中，____（MPC）是一个核心概念。", answer: "MPC", explanation: "MPC是16-745: Optimal Control and RL的核心内容之一。", difficulty: 2 },
+                { id: "cmuoptimal-mid-f-2", question: "16-745: Optimal Control and RL中，____（轨迹优化）是一个核心概念。", answer: "轨迹优化", explanation: "轨迹优化是16-745: Optimal Control and RL的核心内容之一。", difficulty: 3 },
+                { id: "cmuoptimal-mid-f-3", question: "16-745: Optimal Control and RL中，____（策略搜索）是一个核心概念。", answer: "策略搜索", explanation: "策略搜索是16-745: Optimal Control and RL的核心内容之一。", difficulty: 1 },
+                { id: "cmuoptimal-mid-f-4", question: "16-745: Optimal Control and RL中，____（iLQR）是一个核心概念。", answer: "iLQR", explanation: "iLQR是16-745: Optimal Control and RL的核心内容之一。", difficulty: 2 },
+                { id: "cmuoptimal-mid-f-5", question: "16-745: Optimal Control and RL中，____（MPPI）是一个核心概念。", answer: "MPPI", explanation: "MPPI是16-745: Optimal Control and RL的核心内容之一。", difficulty: 3 },
+                { id: "cmuoptimal-mid-f-6", question: "16-745: Optimal Control and RL中，____（PILCO）是一个核心概念。", answer: "PILCO", explanation: "PILCO是16-745: Optimal Control and RL的核心内容之一。", difficulty: 1 },
+                { id: "cmuoptimal-mid-f-7", question: "16-745: Optimal Control and RL中，____（Riccati方程）是一个核心概念。", answer: "Riccati方程", explanation: "Riccati方程是16-745: Optimal Control and RL的核心内容之一。", difficulty: 2 },
+                { id: "cmuoptimal-mid-f-8", question: "16-745: Optimal Control and RL中，____（约束优化）是一个核心概念。", answer: "约束优化", explanation: "约束优化是16-745: Optimal Control and RL的核心内容之一。", difficulty: 3 },
+                { id: "cmuoptimal-mid-f-9", question: "16-745: Optimal Control and RL中，____（机器人控制）是一个核心概念。", answer: "机器人控制", explanation: "机器人控制是16-745: Optimal Control and RL的核心内容之一。", difficulty: 1 },
+                { id: "cmuoptimal-mid-f-10", question: "16-745: Optimal Control and RL中，____（LQR）是一个核心概念。", answer: "LQR", explanation: "LQR是16-745: Optimal Control and RL的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmuoptimal-mid-code-1", question: "补全LQR相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是LQR的核心计算。", difficulty: 2 },
+                { id: "cmuoptimal-mid-code-2", question: "补全LQR相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是LQR的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cmuoptimal-fin-c-1", question: "在MPC中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MPC是16-745: Optimal Control and RL课程的重要主题。", difficulty: 2 },
+                { id: "cmuoptimal-fin-c-2", question: "在轨迹优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "轨迹优化是16-745: Optimal Control and RL课程的重要主题。", difficulty: 3 },
+                { id: "cmuoptimal-fin-c-3", question: "在策略搜索中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "策略搜索是16-745: Optimal Control and RL课程的重要主题。", difficulty: 1 },
+                { id: "cmuoptimal-fin-c-4", question: "在iLQR中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "iLQR是16-745: Optimal Control and RL课程的重要主题。", difficulty: 2 },
+                { id: "cmuoptimal-fin-c-5", question: "在MPPI中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MPPI是16-745: Optimal Control and RL课程的重要主题。", difficulty: 3 },
+                { id: "cmuoptimal-fin-c-6", question: "在PILCO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PILCO是16-745: Optimal Control and RL课程的重要主题。", difficulty: 1 },
+                { id: "cmuoptimal-fin-c-7", question: "在Riccati方程中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Riccati方程是16-745: Optimal Control and RL课程的重要主题。", difficulty: 2 },
+                { id: "cmuoptimal-fin-c-8", question: "在约束优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "约束优化是16-745: Optimal Control and RL课程的重要主题。", difficulty: 3 },
+                { id: "cmuoptimal-fin-c-9", question: "在机器人控制中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "机器人控制是16-745: Optimal Control and RL课程的重要主题。", difficulty: 1 },
+                { id: "cmuoptimal-fin-c-10", question: "在LQR中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "LQR是16-745: Optimal Control and RL课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cmuoptimal-fin-f-1", question: "16-745: Optimal Control and RL中，____（MPC）是一个核心概念。", answer: "MPC", explanation: "MPC是16-745: Optimal Control and RL的核心内容之一。", difficulty: 2 },
+                { id: "cmuoptimal-fin-f-2", question: "16-745: Optimal Control and RL中，____（轨迹优化）是一个核心概念。", answer: "轨迹优化", explanation: "轨迹优化是16-745: Optimal Control and RL的核心内容之一。", difficulty: 3 },
+                { id: "cmuoptimal-fin-f-3", question: "16-745: Optimal Control and RL中，____（策略搜索）是一个核心概念。", answer: "策略搜索", explanation: "策略搜索是16-745: Optimal Control and RL的核心内容之一。", difficulty: 1 },
+                { id: "cmuoptimal-fin-f-4", question: "16-745: Optimal Control and RL中，____（iLQR）是一个核心概念。", answer: "iLQR", explanation: "iLQR是16-745: Optimal Control and RL的核心内容之一。", difficulty: 2 },
+                { id: "cmuoptimal-fin-f-5", question: "16-745: Optimal Control and RL中，____（MPPI）是一个核心概念。", answer: "MPPI", explanation: "MPPI是16-745: Optimal Control and RL的核心内容之一。", difficulty: 3 },
+                { id: "cmuoptimal-fin-f-6", question: "16-745: Optimal Control and RL中，____（PILCO）是一个核心概念。", answer: "PILCO", explanation: "PILCO是16-745: Optimal Control and RL的核心内容之一。", difficulty: 1 },
+                { id: "cmuoptimal-fin-f-7", question: "16-745: Optimal Control and RL中，____（Riccati方程）是一个核心概念。", answer: "Riccati方程", explanation: "Riccati方程是16-745: Optimal Control and RL的核心内容之一。", difficulty: 2 },
+                { id: "cmuoptimal-fin-f-8", question: "16-745: Optimal Control and RL中，____（约束优化）是一个核心概念。", answer: "约束优化", explanation: "约束优化是16-745: Optimal Control and RL的核心内容之一。", difficulty: 3 },
+                { id: "cmuoptimal-fin-f-9", question: "16-745: Optimal Control and RL中，____（机器人控制）是一个核心概念。", answer: "机器人控制", explanation: "机器人控制是16-745: Optimal Control and RL的核心内容之一。", difficulty: 1 },
+                { id: "cmuoptimal-fin-f-10", question: "16-745: Optimal Control and RL中，____（LQR）是一个核心概念。", answer: "LQR", explanation: "LQR是16-745: Optimal Control and RL的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmuoptimal-fin-code-1", question: "补全LQR相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是LQR的核心计算。", difficulty: 2 },
+                { id: "cmuoptimal-fin-code-2", question: "补全LQR相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是LQR的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "AI Agents and Agentic AI": {
+        courseId: "ai-agents-agentic", domain: "agents",
+        mid: {
+            choice: [
+                { id: "aiagentsag-mid-c-1", question: "在LangGraph中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "LangGraph是AI Agents and Agentic AI课程的重要主题。", difficulty: 2 },
+                { id: "aiagentsag-mid-c-2", question: "在工具使用中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "工具使用是AI Agents and Agentic AI课程的重要主题。", difficulty: 3 },
+                { id: "aiagentsag-mid-c-3", question: "在规划中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "规划是AI Agents and Agentic AI课程的重要主题。", difficulty: 1 },
+                { id: "aiagentsag-mid-c-4", question: "在记忆中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "记忆是AI Agents and Agentic AI课程的重要主题。", difficulty: 2 },
+                { id: "aiagentsag-mid-c-5", question: "在ReAct中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "ReAct是AI Agents and Agentic AI课程的重要主题。", difficulty: 3 },
+                { id: "aiagentsag-mid-c-6", question: "在反思中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "反思是AI Agents and Agentic AI课程的重要主题。", difficulty: 1 },
+                { id: "aiagentsag-mid-c-7", question: "在多Agent中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多Agent是AI Agents and Agentic AI课程的重要主题。", difficulty: 2 },
+                { id: "aiagentsag-mid-c-8", question: "在状态机中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "状态机是AI Agents and Agentic AI课程的重要主题。", difficulty: 3 },
+                { id: "aiagentsag-mid-c-9", question: "在人机协作中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "人机协作是AI Agents and Agentic AI课程的重要主题。", difficulty: 1 },
+                { id: "aiagentsag-mid-c-10", question: "在Agent架构中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Agent架构是AI Agents and Agentic AI课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "aiagentsag-mid-f-1", question: "AI Agents and Agentic AI中，____（LangGraph）是一个核心概念。", answer: "LangGraph", explanation: "LangGraph是AI Agents and Agentic AI的核心内容之一。", difficulty: 2 },
+                { id: "aiagentsag-mid-f-2", question: "AI Agents and Agentic AI中，____（工具使用）是一个核心概念。", answer: "工具使用", explanation: "工具使用是AI Agents and Agentic AI的核心内容之一。", difficulty: 3 },
+                { id: "aiagentsag-mid-f-3", question: "AI Agents and Agentic AI中，____（规划）是一个核心概念。", answer: "规划", explanation: "规划是AI Agents and Agentic AI的核心内容之一。", difficulty: 1 },
+                { id: "aiagentsag-mid-f-4", question: "AI Agents and Agentic AI中，____（记忆）是一个核心概念。", answer: "记忆", explanation: "记忆是AI Agents and Agentic AI的核心内容之一。", difficulty: 2 },
+                { id: "aiagentsag-mid-f-5", question: "AI Agents and Agentic AI中，____（ReAct）是一个核心概念。", answer: "ReAct", explanation: "ReAct是AI Agents and Agentic AI的核心内容之一。", difficulty: 3 },
+                { id: "aiagentsag-mid-f-6", question: "AI Agents and Agentic AI中，____（反思）是一个核心概念。", answer: "反思", explanation: "反思是AI Agents and Agentic AI的核心内容之一。", difficulty: 1 },
+                { id: "aiagentsag-mid-f-7", question: "AI Agents and Agentic AI中，____（多Agent）是一个核心概念。", answer: "多Agent", explanation: "多Agent是AI Agents and Agentic AI的核心内容之一。", difficulty: 2 },
+                { id: "aiagentsag-mid-f-8", question: "AI Agents and Agentic AI中，____（状态机）是一个核心概念。", answer: "状态机", explanation: "状态机是AI Agents and Agentic AI的核心内容之一。", difficulty: 3 },
+                { id: "aiagentsag-mid-f-9", question: "AI Agents and Agentic AI中，____（人机协作）是一个核心概念。", answer: "人机协作", explanation: "人机协作是AI Agents and Agentic AI的核心内容之一。", difficulty: 1 },
+                { id: "aiagentsag-mid-f-10", question: "AI Agents and Agentic AI中，____（Agent架构）是一个核心概念。", answer: "Agent架构", explanation: "Agent架构是AI Agents and Agentic AI的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "aiagentsag-mid-code-1", question: "补全Agent架构相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Agent架构的核心计算。", difficulty: 2 },
+                { id: "aiagentsag-mid-code-2", question: "补全Agent架构相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Agent架构的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "aiagentsag-fin-c-1", question: "在LangGraph中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "LangGraph是AI Agents and Agentic AI课程的重要主题。", difficulty: 2 },
+                { id: "aiagentsag-fin-c-2", question: "在工具使用中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "工具使用是AI Agents and Agentic AI课程的重要主题。", difficulty: 3 },
+                { id: "aiagentsag-fin-c-3", question: "在规划中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "规划是AI Agents and Agentic AI课程的重要主题。", difficulty: 1 },
+                { id: "aiagentsag-fin-c-4", question: "在记忆中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "记忆是AI Agents and Agentic AI课程的重要主题。", difficulty: 2 },
+                { id: "aiagentsag-fin-c-5", question: "在ReAct中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "ReAct是AI Agents and Agentic AI课程的重要主题。", difficulty: 3 },
+                { id: "aiagentsag-fin-c-6", question: "在反思中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "反思是AI Agents and Agentic AI课程的重要主题。", difficulty: 1 },
+                { id: "aiagentsag-fin-c-7", question: "在多Agent中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多Agent是AI Agents and Agentic AI课程的重要主题。", difficulty: 2 },
+                { id: "aiagentsag-fin-c-8", question: "在状态机中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "状态机是AI Agents and Agentic AI课程的重要主题。", difficulty: 3 },
+                { id: "aiagentsag-fin-c-9", question: "在人机协作中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "人机协作是AI Agents and Agentic AI课程的重要主题。", difficulty: 1 },
+                { id: "aiagentsag-fin-c-10", question: "在Agent架构中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Agent架构是AI Agents and Agentic AI课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "aiagentsag-fin-f-1", question: "AI Agents and Agentic AI中，____（LangGraph）是一个核心概念。", answer: "LangGraph", explanation: "LangGraph是AI Agents and Agentic AI的核心内容之一。", difficulty: 2 },
+                { id: "aiagentsag-fin-f-2", question: "AI Agents and Agentic AI中，____（工具使用）是一个核心概念。", answer: "工具使用", explanation: "工具使用是AI Agents and Agentic AI的核心内容之一。", difficulty: 3 },
+                { id: "aiagentsag-fin-f-3", question: "AI Agents and Agentic AI中，____（规划）是一个核心概念。", answer: "规划", explanation: "规划是AI Agents and Agentic AI的核心内容之一。", difficulty: 1 },
+                { id: "aiagentsag-fin-f-4", question: "AI Agents and Agentic AI中，____（记忆）是一个核心概念。", answer: "记忆", explanation: "记忆是AI Agents and Agentic AI的核心内容之一。", difficulty: 2 },
+                { id: "aiagentsag-fin-f-5", question: "AI Agents and Agentic AI中，____（ReAct）是一个核心概念。", answer: "ReAct", explanation: "ReAct是AI Agents and Agentic AI的核心内容之一。", difficulty: 3 },
+                { id: "aiagentsag-fin-f-6", question: "AI Agents and Agentic AI中，____（反思）是一个核心概念。", answer: "反思", explanation: "反思是AI Agents and Agentic AI的核心内容之一。", difficulty: 1 },
+                { id: "aiagentsag-fin-f-7", question: "AI Agents and Agentic AI中，____（多Agent）是一个核心概念。", answer: "多Agent", explanation: "多Agent是AI Agents and Agentic AI的核心内容之一。", difficulty: 2 },
+                { id: "aiagentsag-fin-f-8", question: "AI Agents and Agentic AI中，____（状态机）是一个核心概念。", answer: "状态机", explanation: "状态机是AI Agents and Agentic AI的核心内容之一。", difficulty: 3 },
+                { id: "aiagentsag-fin-f-9", question: "AI Agents and Agentic AI中，____（人机协作）是一个核心概念。", answer: "人机协作", explanation: "人机协作是AI Agents and Agentic AI的核心内容之一。", difficulty: 1 },
+                { id: "aiagentsag-fin-f-10", question: "AI Agents and Agentic AI中，____（Agent架构）是一个核心概念。", answer: "Agent架构", explanation: "Agent架构是AI Agents and Agentic AI的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "aiagentsag-fin-code-1", question: "补全Agent架构相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Agent架构的核心计算。", difficulty: 2 },
+                { id: "aiagentsag-fin-code-2", question: "补全Agent架构相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Agent架构的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Building Agentic RAG with LLMs": {
+        courseId: "agentic-rag", domain: "agents",
+        mid: {
+            choice: [
+                { id: "agenticrag-mid-c-1", question: "在检索增强中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "检索增强是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 2 },
+                { id: "agenticrag-mid-c-2", question: "在查询重构中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "查询重构是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 3 },
+                { id: "agenticrag-mid-c-3", question: "在结果验证中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "结果验证是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 1 },
+                { id: "agenticrag-mid-c-4", question: "在多步推理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多步推理是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 2 },
+                { id: "agenticrag-mid-c-5", question: "在向量数据库中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "向量数据库是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 3 },
+                { id: "agenticrag-mid-c-6", question: "在嵌入中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "嵌入是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 1 },
+                { id: "agenticrag-mid-c-7", question: "在重排序中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "重排序是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 2 },
+                { id: "agenticrag-mid-c-8", question: "在查询分解中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "查询分解是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 3 },
+                { id: "agenticrag-mid-c-9", question: "在自适应检索中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自适应检索是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 1 },
+                { id: "agenticrag-mid-c-10", question: "在Agentic RAG中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Agentic RAG是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "agenticrag-mid-f-1", question: "Building Agentic RAG with LLMs中，____（检索增强）是一个核心概念。", answer: "检索增强", explanation: "检索增强是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 2 },
+                { id: "agenticrag-mid-f-2", question: "Building Agentic RAG with LLMs中，____（查询重构）是一个核心概念。", answer: "查询重构", explanation: "查询重构是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 3 },
+                { id: "agenticrag-mid-f-3", question: "Building Agentic RAG with LLMs中，____（结果验证）是一个核心概念。", answer: "结果验证", explanation: "结果验证是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 1 },
+                { id: "agenticrag-mid-f-4", question: "Building Agentic RAG with LLMs中，____（多步推理）是一个核心概念。", answer: "多步推理", explanation: "多步推理是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 2 },
+                { id: "agenticrag-mid-f-5", question: "Building Agentic RAG with LLMs中，____（向量数据库）是一个核心概念。", answer: "向量数据库", explanation: "向量数据库是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 3 },
+                { id: "agenticrag-mid-f-6", question: "Building Agentic RAG with LLMs中，____（嵌入）是一个核心概念。", answer: "嵌入", explanation: "嵌入是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 1 },
+                { id: "agenticrag-mid-f-7", question: "Building Agentic RAG with LLMs中，____（重排序）是一个核心概念。", answer: "重排序", explanation: "重排序是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 2 },
+                { id: "agenticrag-mid-f-8", question: "Building Agentic RAG with LLMs中，____（查询分解）是一个核心概念。", answer: "查询分解", explanation: "查询分解是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 3 },
+                { id: "agenticrag-mid-f-9", question: "Building Agentic RAG with LLMs中，____（自适应检索）是一个核心概念。", answer: "自适应检索", explanation: "自适应检索是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 1 },
+                { id: "agenticrag-mid-f-10", question: "Building Agentic RAG with LLMs中，____（Agentic RAG）是一个核心概念。", answer: "Agentic RAG", explanation: "Agentic RAG是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "agenticrag-mid-code-1", question: "补全Agentic RAG相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Agentic RAG的核心计算。", difficulty: 2 },
+                { id: "agenticrag-mid-code-2", question: "补全Agentic RAG相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Agentic RAG的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "agenticrag-fin-c-1", question: "在检索增强中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "检索增强是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 2 },
+                { id: "agenticrag-fin-c-2", question: "在查询重构中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "查询重构是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 3 },
+                { id: "agenticrag-fin-c-3", question: "在结果验证中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "结果验证是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 1 },
+                { id: "agenticrag-fin-c-4", question: "在多步推理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多步推理是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 2 },
+                { id: "agenticrag-fin-c-5", question: "在向量数据库中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "向量数据库是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 3 },
+                { id: "agenticrag-fin-c-6", question: "在嵌入中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "嵌入是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 1 },
+                { id: "agenticrag-fin-c-7", question: "在重排序中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "重排序是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 2 },
+                { id: "agenticrag-fin-c-8", question: "在查询分解中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "查询分解是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 3 },
+                { id: "agenticrag-fin-c-9", question: "在自适应检索中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自适应检索是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 1 },
+                { id: "agenticrag-fin-c-10", question: "在Agentic RAG中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Agentic RAG是Building Agentic RAG with LLMs课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "agenticrag-fin-f-1", question: "Building Agentic RAG with LLMs中，____（检索增强）是一个核心概念。", answer: "检索增强", explanation: "检索增强是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 2 },
+                { id: "agenticrag-fin-f-2", question: "Building Agentic RAG with LLMs中，____（查询重构）是一个核心概念。", answer: "查询重构", explanation: "查询重构是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 3 },
+                { id: "agenticrag-fin-f-3", question: "Building Agentic RAG with LLMs中，____（结果验证）是一个核心概念。", answer: "结果验证", explanation: "结果验证是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 1 },
+                { id: "agenticrag-fin-f-4", question: "Building Agentic RAG with LLMs中，____（多步推理）是一个核心概念。", answer: "多步推理", explanation: "多步推理是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 2 },
+                { id: "agenticrag-fin-f-5", question: "Building Agentic RAG with LLMs中，____（向量数据库）是一个核心概念。", answer: "向量数据库", explanation: "向量数据库是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 3 },
+                { id: "agenticrag-fin-f-6", question: "Building Agentic RAG with LLMs中，____（嵌入）是一个核心概念。", answer: "嵌入", explanation: "嵌入是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 1 },
+                { id: "agenticrag-fin-f-7", question: "Building Agentic RAG with LLMs中，____（重排序）是一个核心概念。", answer: "重排序", explanation: "重排序是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 2 },
+                { id: "agenticrag-fin-f-8", question: "Building Agentic RAG with LLMs中，____（查询分解）是一个核心概念。", answer: "查询分解", explanation: "查询分解是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 3 },
+                { id: "agenticrag-fin-f-9", question: "Building Agentic RAG with LLMs中，____（自适应检索）是一个核心概念。", answer: "自适应检索", explanation: "自适应检索是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 1 },
+                { id: "agenticrag-fin-f-10", question: "Building Agentic RAG with LLMs中，____（Agentic RAG）是一个核心概念。", answer: "Agentic RAG", explanation: "Agentic RAG是Building Agentic RAG with LLMs的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "agenticrag-fin-code-1", question: "补全Agentic RAG相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Agentic RAG的核心计算。", difficulty: 2 },
+                { id: "agenticrag-fin-code-2", question: "补全Agentic RAG相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Agentic RAG的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "LangGraph for Agent Workflows": {
+        courseId: "langgraph-agents", domain: "agents",
+        mid: {
+            choice: [
+                { id: "langgrapha-mid-c-1", question: "在状态机中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "状态机是LangGraph for Agent Workflows课程的重要主题。", difficulty: 2 },
+                { id: "langgrapha-mid-c-2", question: "在工具编排中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "工具编排是LangGraph for Agent Workflows课程的重要主题。", difficulty: 3 },
+                { id: "langgrapha-mid-c-3", question: "在人机协作中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "人机协作是LangGraph for Agent Workflows课程的重要主题。", difficulty: 1 },
+                { id: "langgrapha-mid-c-4", question: "在工作流中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "工作流是LangGraph for Agent Workflows课程的重要主题。", difficulty: 2 },
+                { id: "langgrapha-mid-c-5", question: "在节点中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "节点是LangGraph for Agent Workflows课程的重要主题。", difficulty: 3 },
+                { id: "langgrapha-mid-c-6", question: "在边中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "边是LangGraph for Agent Workflows课程的重要主题。", difficulty: 1 },
+                { id: "langgrapha-mid-c-7", question: "在条件路由中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "条件路由是LangGraph for Agent Workflows课程的重要主题。", difficulty: 2 },
+                { id: "langgrapha-mid-c-8", question: "在持久化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "持久化是LangGraph for Agent Workflows课程的重要主题。", difficulty: 3 },
+                { id: "langgrapha-mid-c-9", question: "在流式输出中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "流式输出是LangGraph for Agent Workflows课程的重要主题。", difficulty: 1 },
+                { id: "langgrapha-mid-c-10", question: "在LangGraph中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "LangGraph是LangGraph for Agent Workflows课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "langgrapha-mid-f-1", question: "LangGraph for Agent Workflows中，____（状态机）是一个核心概念。", answer: "状态机", explanation: "状态机是LangGraph for Agent Workflows的核心内容之一。", difficulty: 2 },
+                { id: "langgrapha-mid-f-2", question: "LangGraph for Agent Workflows中，____（工具编排）是一个核心概念。", answer: "工具编排", explanation: "工具编排是LangGraph for Agent Workflows的核心内容之一。", difficulty: 3 },
+                { id: "langgrapha-mid-f-3", question: "LangGraph for Agent Workflows中，____（人机协作）是一个核心概念。", answer: "人机协作", explanation: "人机协作是LangGraph for Agent Workflows的核心内容之一。", difficulty: 1 },
+                { id: "langgrapha-mid-f-4", question: "LangGraph for Agent Workflows中，____（工作流）是一个核心概念。", answer: "工作流", explanation: "工作流是LangGraph for Agent Workflows的核心内容之一。", difficulty: 2 },
+                { id: "langgrapha-mid-f-5", question: "LangGraph for Agent Workflows中，____（节点）是一个核心概念。", answer: "节点", explanation: "节点是LangGraph for Agent Workflows的核心内容之一。", difficulty: 3 },
+                { id: "langgrapha-mid-f-6", question: "LangGraph for Agent Workflows中，____（边）是一个核心概念。", answer: "边", explanation: "边是LangGraph for Agent Workflows的核心内容之一。", difficulty: 1 },
+                { id: "langgrapha-mid-f-7", question: "LangGraph for Agent Workflows中，____（条件路由）是一个核心概念。", answer: "条件路由", explanation: "条件路由是LangGraph for Agent Workflows的核心内容之一。", difficulty: 2 },
+                { id: "langgrapha-mid-f-8", question: "LangGraph for Agent Workflows中，____（持久化）是一个核心概念。", answer: "持久化", explanation: "持久化是LangGraph for Agent Workflows的核心内容之一。", difficulty: 3 },
+                { id: "langgrapha-mid-f-9", question: "LangGraph for Agent Workflows中，____（流式输出）是一个核心概念。", answer: "流式输出", explanation: "流式输出是LangGraph for Agent Workflows的核心内容之一。", difficulty: 1 },
+                { id: "langgrapha-mid-f-10", question: "LangGraph for Agent Workflows中，____（LangGraph）是一个核心概念。", answer: "LangGraph", explanation: "LangGraph是LangGraph for Agent Workflows的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "langgrapha-mid-code-1", question: "补全LangGraph相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是LangGraph的核心计算。", difficulty: 2 },
+                { id: "langgrapha-mid-code-2", question: "补全LangGraph相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是LangGraph的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "langgrapha-fin-c-1", question: "在状态机中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "状态机是LangGraph for Agent Workflows课程的重要主题。", difficulty: 2 },
+                { id: "langgrapha-fin-c-2", question: "在工具编排中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "工具编排是LangGraph for Agent Workflows课程的重要主题。", difficulty: 3 },
+                { id: "langgrapha-fin-c-3", question: "在人机协作中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "人机协作是LangGraph for Agent Workflows课程的重要主题。", difficulty: 1 },
+                { id: "langgrapha-fin-c-4", question: "在工作流中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "工作流是LangGraph for Agent Workflows课程的重要主题。", difficulty: 2 },
+                { id: "langgrapha-fin-c-5", question: "在节点中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "节点是LangGraph for Agent Workflows课程的重要主题。", difficulty: 3 },
+                { id: "langgrapha-fin-c-6", question: "在边中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "边是LangGraph for Agent Workflows课程的重要主题。", difficulty: 1 },
+                { id: "langgrapha-fin-c-7", question: "在条件路由中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "条件路由是LangGraph for Agent Workflows课程的重要主题。", difficulty: 2 },
+                { id: "langgrapha-fin-c-8", question: "在持久化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "持久化是LangGraph for Agent Workflows课程的重要主题。", difficulty: 3 },
+                { id: "langgrapha-fin-c-9", question: "在流式输出中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "流式输出是LangGraph for Agent Workflows课程的重要主题。", difficulty: 1 },
+                { id: "langgrapha-fin-c-10", question: "在LangGraph中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "LangGraph是LangGraph for Agent Workflows课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "langgrapha-fin-f-1", question: "LangGraph for Agent Workflows中，____（状态机）是一个核心概念。", answer: "状态机", explanation: "状态机是LangGraph for Agent Workflows的核心内容之一。", difficulty: 2 },
+                { id: "langgrapha-fin-f-2", question: "LangGraph for Agent Workflows中，____（工具编排）是一个核心概念。", answer: "工具编排", explanation: "工具编排是LangGraph for Agent Workflows的核心内容之一。", difficulty: 3 },
+                { id: "langgrapha-fin-f-3", question: "LangGraph for Agent Workflows中，____（人机协作）是一个核心概念。", answer: "人机协作", explanation: "人机协作是LangGraph for Agent Workflows的核心内容之一。", difficulty: 1 },
+                { id: "langgrapha-fin-f-4", question: "LangGraph for Agent Workflows中，____（工作流）是一个核心概念。", answer: "工作流", explanation: "工作流是LangGraph for Agent Workflows的核心内容之一。", difficulty: 2 },
+                { id: "langgrapha-fin-f-5", question: "LangGraph for Agent Workflows中，____（节点）是一个核心概念。", answer: "节点", explanation: "节点是LangGraph for Agent Workflows的核心内容之一。", difficulty: 3 },
+                { id: "langgrapha-fin-f-6", question: "LangGraph for Agent Workflows中，____（边）是一个核心概念。", answer: "边", explanation: "边是LangGraph for Agent Workflows的核心内容之一。", difficulty: 1 },
+                { id: "langgrapha-fin-f-7", question: "LangGraph for Agent Workflows中，____（条件路由）是一个核心概念。", answer: "条件路由", explanation: "条件路由是LangGraph for Agent Workflows的核心内容之一。", difficulty: 2 },
+                { id: "langgrapha-fin-f-8", question: "LangGraph for Agent Workflows中，____（持久化）是一个核心概念。", answer: "持久化", explanation: "持久化是LangGraph for Agent Workflows的核心内容之一。", difficulty: 3 },
+                { id: "langgrapha-fin-f-9", question: "LangGraph for Agent Workflows中，____（流式输出）是一个核心概念。", answer: "流式输出", explanation: "流式输出是LangGraph for Agent Workflows的核心内容之一。", difficulty: 1 },
+                { id: "langgrapha-fin-f-10", question: "LangGraph for Agent Workflows中，____（LangGraph）是一个核心概念。", answer: "LangGraph", explanation: "LangGraph是LangGraph for Agent Workflows的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "langgrapha-fin-code-1", question: "补全LangGraph相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是LangGraph的核心计算。", difficulty: 2 },
+                { id: "langgrapha-fin-code-2", question: "补全LangGraph相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是LangGraph的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "CrewAI Multi-Agent Systems": {
+        courseId: "crewai-multi-agent", domain: "agents",
+        mid: {
+            choice: [
+                { id: "crewaimult-mid-c-1", question: "在角色分配中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "角色分配是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 2 },
+                { id: "crewaimult-mid-c-2", question: "在协作策略中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "协作策略是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 3 },
+                { id: "crewaimult-mid-c-3", question: "在任务分解中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "任务分解是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 1 },
+                { id: "crewaimult-mid-c-4", question: "在流程编排中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "流程编排是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 2 },
+                { id: "crewaimult-mid-c-5", question: "在Agent角色中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Agent角色是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 3 },
+                { id: "crewaimult-mid-c-6", question: "在工具共享中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "工具共享是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 1 },
+                { id: "crewaimult-mid-c-7", question: "在任务委派中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "任务委派是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 2 },
+                { id: "crewaimult-mid-c-8", question: "在顺序执行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "顺序执行是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 3 },
+                { id: "crewaimult-mid-c-9", question: "在并行执行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行执行是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 1 },
+                { id: "crewaimult-mid-c-10", question: "在多智能体中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多智能体是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "crewaimult-mid-f-1", question: "CrewAI Multi-Agent Systems中，____（角色分配）是一个核心概念。", answer: "角色分配", explanation: "角色分配是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 2 },
+                { id: "crewaimult-mid-f-2", question: "CrewAI Multi-Agent Systems中，____（协作策略）是一个核心概念。", answer: "协作策略", explanation: "协作策略是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 3 },
+                { id: "crewaimult-mid-f-3", question: "CrewAI Multi-Agent Systems中，____（任务分解）是一个核心概念。", answer: "任务分解", explanation: "任务分解是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 1 },
+                { id: "crewaimult-mid-f-4", question: "CrewAI Multi-Agent Systems中，____（流程编排）是一个核心概念。", answer: "流程编排", explanation: "流程编排是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 2 },
+                { id: "crewaimult-mid-f-5", question: "CrewAI Multi-Agent Systems中，____（Agent角色）是一个核心概念。", answer: "Agent角色", explanation: "Agent角色是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 3 },
+                { id: "crewaimult-mid-f-6", question: "CrewAI Multi-Agent Systems中，____（工具共享）是一个核心概念。", answer: "工具共享", explanation: "工具共享是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 1 },
+                { id: "crewaimult-mid-f-7", question: "CrewAI Multi-Agent Systems中，____（任务委派）是一个核心概念。", answer: "任务委派", explanation: "任务委派是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 2 },
+                { id: "crewaimult-mid-f-8", question: "CrewAI Multi-Agent Systems中，____（顺序执行）是一个核心概念。", answer: "顺序执行", explanation: "顺序执行是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 3 },
+                { id: "crewaimult-mid-f-9", question: "CrewAI Multi-Agent Systems中，____（并行执行）是一个核心概念。", answer: "并行执行", explanation: "并行执行是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 1 },
+                { id: "crewaimult-mid-f-10", question: "CrewAI Multi-Agent Systems中，____（多智能体）是一个核心概念。", answer: "多智能体", explanation: "多智能体是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "crewaimult-mid-code-1", question: "补全多智能体相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是多智能体的核心计算。", difficulty: 2 },
+                { id: "crewaimult-mid-code-2", question: "补全多智能体相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是多智能体的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "crewaimult-fin-c-1", question: "在角色分配中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "角色分配是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 2 },
+                { id: "crewaimult-fin-c-2", question: "在协作策略中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "协作策略是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 3 },
+                { id: "crewaimult-fin-c-3", question: "在任务分解中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "任务分解是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 1 },
+                { id: "crewaimult-fin-c-4", question: "在流程编排中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "流程编排是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 2 },
+                { id: "crewaimult-fin-c-5", question: "在Agent角色中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Agent角色是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 3 },
+                { id: "crewaimult-fin-c-6", question: "在工具共享中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "工具共享是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 1 },
+                { id: "crewaimult-fin-c-7", question: "在任务委派中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "任务委派是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 2 },
+                { id: "crewaimult-fin-c-8", question: "在顺序执行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "顺序执行是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 3 },
+                { id: "crewaimult-fin-c-9", question: "在并行执行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行执行是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 1 },
+                { id: "crewaimult-fin-c-10", question: "在多智能体中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多智能体是CrewAI Multi-Agent Systems课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "crewaimult-fin-f-1", question: "CrewAI Multi-Agent Systems中，____（角色分配）是一个核心概念。", answer: "角色分配", explanation: "角色分配是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 2 },
+                { id: "crewaimult-fin-f-2", question: "CrewAI Multi-Agent Systems中，____（协作策略）是一个核心概念。", answer: "协作策略", explanation: "协作策略是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 3 },
+                { id: "crewaimult-fin-f-3", question: "CrewAI Multi-Agent Systems中，____（任务分解）是一个核心概念。", answer: "任务分解", explanation: "任务分解是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 1 },
+                { id: "crewaimult-fin-f-4", question: "CrewAI Multi-Agent Systems中，____（流程编排）是一个核心概念。", answer: "流程编排", explanation: "流程编排是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 2 },
+                { id: "crewaimult-fin-f-5", question: "CrewAI Multi-Agent Systems中，____（Agent角色）是一个核心概念。", answer: "Agent角色", explanation: "Agent角色是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 3 },
+                { id: "crewaimult-fin-f-6", question: "CrewAI Multi-Agent Systems中，____（工具共享）是一个核心概念。", answer: "工具共享", explanation: "工具共享是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 1 },
+                { id: "crewaimult-fin-f-7", question: "CrewAI Multi-Agent Systems中，____（任务委派）是一个核心概念。", answer: "任务委派", explanation: "任务委派是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 2 },
+                { id: "crewaimult-fin-f-8", question: "CrewAI Multi-Agent Systems中，____（顺序执行）是一个核心概念。", answer: "顺序执行", explanation: "顺序执行是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 3 },
+                { id: "crewaimult-fin-f-9", question: "CrewAI Multi-Agent Systems中，____（并行执行）是一个核心概念。", answer: "并行执行", explanation: "并行执行是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 1 },
+                { id: "crewaimult-fin-f-10", question: "CrewAI Multi-Agent Systems中，____（多智能体）是一个核心概念。", answer: "多智能体", explanation: "多智能体是CrewAI Multi-Agent Systems的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "crewaimult-fin-code-1", question: "补全多智能体相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是多智能体的核心计算。", difficulty: 2 },
+                { id: "crewaimult-fin-code-2", question: "补全多智能体相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是多智能体的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Agentic Design Patterns": {
+        courseId: "agentic-design-patterns", domain: "agents",
+        mid: {
+            choice: [
+                { id: "agenticdes-mid-c-1", question: "在规划中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "规划是Agentic Design Patterns课程的重要主题。", difficulty: 2 },
+                { id: "agenticdes-mid-c-2", question: "在反思中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "反思是Agentic Design Patterns课程的重要主题。", difficulty: 3 },
+                { id: "agenticdes-mid-c-3", question: "在工具使用中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "工具使用是Agentic Design Patterns课程的重要主题。", difficulty: 1 },
+                { id: "agenticdes-mid-c-4", question: "在多Agent协作中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多Agent协作是Agentic Design Patterns课程的重要主题。", difficulty: 2 },
+                { id: "agenticdes-mid-c-5", question: "在思维链中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "思维链是Agentic Design Patterns课程的重要主题。", difficulty: 3 },
+                { id: "agenticdes-mid-c-6", question: "在自我批评中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自我批评是Agentic Design Patterns课程的重要主题。", difficulty: 1 },
+                { id: "agenticdes-mid-c-7", question: "在迭代改进中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "迭代改进是Agentic Design Patterns课程的重要主题。", difficulty: 2 },
+                { id: "agenticdes-mid-c-8", question: "在任务分解中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "任务分解是Agentic Design Patterns课程的重要主题。", difficulty: 3 },
+                { id: "agenticdes-mid-c-9", question: "在上下文管理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "上下文管理是Agentic Design Patterns课程的重要主题。", difficulty: 1 },
+                { id: "agenticdes-mid-c-10", question: "在ReAct中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "ReAct是Agentic Design Patterns课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "agenticdes-mid-f-1", question: "Agentic Design Patterns中，____（规划）是一个核心概念。", answer: "规划", explanation: "规划是Agentic Design Patterns的核心内容之一。", difficulty: 2 },
+                { id: "agenticdes-mid-f-2", question: "Agentic Design Patterns中，____（反思）是一个核心概念。", answer: "反思", explanation: "反思是Agentic Design Patterns的核心内容之一。", difficulty: 3 },
+                { id: "agenticdes-mid-f-3", question: "Agentic Design Patterns中，____（工具使用）是一个核心概念。", answer: "工具使用", explanation: "工具使用是Agentic Design Patterns的核心内容之一。", difficulty: 1 },
+                { id: "agenticdes-mid-f-4", question: "Agentic Design Patterns中，____（多Agent协作）是一个核心概念。", answer: "多Agent协作", explanation: "多Agent协作是Agentic Design Patterns的核心内容之一。", difficulty: 2 },
+                { id: "agenticdes-mid-f-5", question: "Agentic Design Patterns中，____（思维链）是一个核心概念。", answer: "思维链", explanation: "思维链是Agentic Design Patterns的核心内容之一。", difficulty: 3 },
+                { id: "agenticdes-mid-f-6", question: "Agentic Design Patterns中，____（自我批评）是一个核心概念。", answer: "自我批评", explanation: "自我批评是Agentic Design Patterns的核心内容之一。", difficulty: 1 },
+                { id: "agenticdes-mid-f-7", question: "Agentic Design Patterns中，____（迭代改进）是一个核心概念。", answer: "迭代改进", explanation: "迭代改进是Agentic Design Patterns的核心内容之一。", difficulty: 2 },
+                { id: "agenticdes-mid-f-8", question: "Agentic Design Patterns中，____（任务分解）是一个核心概念。", answer: "任务分解", explanation: "任务分解是Agentic Design Patterns的核心内容之一。", difficulty: 3 },
+                { id: "agenticdes-mid-f-9", question: "Agentic Design Patterns中，____（上下文管理）是一个核心概念。", answer: "上下文管理", explanation: "上下文管理是Agentic Design Patterns的核心内容之一。", difficulty: 1 },
+                { id: "agenticdes-mid-f-10", question: "Agentic Design Patterns中，____（ReAct）是一个核心概念。", answer: "ReAct", explanation: "ReAct是Agentic Design Patterns的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "agenticdes-mid-code-1", question: "补全ReAct相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是ReAct的核心计算。", difficulty: 2 },
+                { id: "agenticdes-mid-code-2", question: "补全ReAct相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是ReAct的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "agenticdes-fin-c-1", question: "在规划中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "规划是Agentic Design Patterns课程的重要主题。", difficulty: 2 },
+                { id: "agenticdes-fin-c-2", question: "在反思中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "反思是Agentic Design Patterns课程的重要主题。", difficulty: 3 },
+                { id: "agenticdes-fin-c-3", question: "在工具使用中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "工具使用是Agentic Design Patterns课程的重要主题。", difficulty: 1 },
+                { id: "agenticdes-fin-c-4", question: "在多Agent协作中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多Agent协作是Agentic Design Patterns课程的重要主题。", difficulty: 2 },
+                { id: "agenticdes-fin-c-5", question: "在思维链中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "思维链是Agentic Design Patterns课程的重要主题。", difficulty: 3 },
+                { id: "agenticdes-fin-c-6", question: "在自我批评中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自我批评是Agentic Design Patterns课程的重要主题。", difficulty: 1 },
+                { id: "agenticdes-fin-c-7", question: "在迭代改进中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "迭代改进是Agentic Design Patterns课程的重要主题。", difficulty: 2 },
+                { id: "agenticdes-fin-c-8", question: "在任务分解中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "任务分解是Agentic Design Patterns课程的重要主题。", difficulty: 3 },
+                { id: "agenticdes-fin-c-9", question: "在上下文管理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "上下文管理是Agentic Design Patterns课程的重要主题。", difficulty: 1 },
+                { id: "agenticdes-fin-c-10", question: "在ReAct中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "ReAct是Agentic Design Patterns课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "agenticdes-fin-f-1", question: "Agentic Design Patterns中，____（规划）是一个核心概念。", answer: "规划", explanation: "规划是Agentic Design Patterns的核心内容之一。", difficulty: 2 },
+                { id: "agenticdes-fin-f-2", question: "Agentic Design Patterns中，____（反思）是一个核心概念。", answer: "反思", explanation: "反思是Agentic Design Patterns的核心内容之一。", difficulty: 3 },
+                { id: "agenticdes-fin-f-3", question: "Agentic Design Patterns中，____（工具使用）是一个核心概念。", answer: "工具使用", explanation: "工具使用是Agentic Design Patterns的核心内容之一。", difficulty: 1 },
+                { id: "agenticdes-fin-f-4", question: "Agentic Design Patterns中，____（多Agent协作）是一个核心概念。", answer: "多Agent协作", explanation: "多Agent协作是Agentic Design Patterns的核心内容之一。", difficulty: 2 },
+                { id: "agenticdes-fin-f-5", question: "Agentic Design Patterns中，____（思维链）是一个核心概念。", answer: "思维链", explanation: "思维链是Agentic Design Patterns的核心内容之一。", difficulty: 3 },
+                { id: "agenticdes-fin-f-6", question: "Agentic Design Patterns中，____（自我批评）是一个核心概念。", answer: "自我批评", explanation: "自我批评是Agentic Design Patterns的核心内容之一。", difficulty: 1 },
+                { id: "agenticdes-fin-f-7", question: "Agentic Design Patterns中，____（迭代改进）是一个核心概念。", answer: "迭代改进", explanation: "迭代改进是Agentic Design Patterns的核心内容之一。", difficulty: 2 },
+                { id: "agenticdes-fin-f-8", question: "Agentic Design Patterns中，____（任务分解）是一个核心概念。", answer: "任务分解", explanation: "任务分解是Agentic Design Patterns的核心内容之一。", difficulty: 3 },
+                { id: "agenticdes-fin-f-9", question: "Agentic Design Patterns中，____（上下文管理）是一个核心概念。", answer: "上下文管理", explanation: "上下文管理是Agentic Design Patterns的核心内容之一。", difficulty: 1 },
+                { id: "agenticdes-fin-f-10", question: "Agentic Design Patterns中，____（ReAct）是一个核心概念。", answer: "ReAct", explanation: "ReAct是Agentic Design Patterns的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "agenticdes-fin-code-1", question: "补全ReAct相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是ReAct的核心计算。", difficulty: 2 },
+                { id: "agenticdes-fin-code-2", question: "补全ReAct相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是ReAct的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Building AI Agents with AutoGen": {
+        courseId: "autogen-agents", domain: "agents",
+        mid: {
+            choice: [
+                { id: "autogenage-mid-c-1", question: "在多Agent对话中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多Agent对话是Building AI Agents with AutoGen课程的重要主题。", difficulty: 2 },
+                { id: "autogenage-mid-c-2", question: "在代码生成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "代码生成是Building AI Agents with AutoGen课程的重要主题。", difficulty: 3 },
+                { id: "autogenage-mid-c-3", question: "在工具使用中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "工具使用是Building AI Agents with AutoGen课程的重要主题。", difficulty: 1 },
+                { id: "autogenage-mid-c-4", question: "在人机协作中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "人机协作是Building AI Agents with AutoGen课程的重要主题。", difficulty: 2 },
+                { id: "autogenage-mid-c-5", question: "在会话模式中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "会话模式是Building AI Agents with AutoGen课程的重要主题。", difficulty: 3 },
+                { id: "autogenage-mid-c-6", question: "在代理角色中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "代理角色是Building AI Agents with AutoGen课程的重要主题。", difficulty: 1 },
+                { id: "autogenage-mid-c-7", question: "在代码执行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "代码执行是Building AI Agents with AutoGen课程的重要主题。", difficulty: 2 },
+                { id: "autogenage-mid-c-8", question: "在群聊中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "群聊是Building AI Agents with AutoGen课程的重要主题。", difficulty: 3 },
+                { id: "autogenage-mid-c-9", question: "在嵌套对话中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "嵌套对话是Building AI Agents with AutoGen课程的重要主题。", difficulty: 1 },
+                { id: "autogenage-mid-c-10", question: "在AutoGen中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "AutoGen是Building AI Agents with AutoGen课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "autogenage-mid-f-1", question: "Building AI Agents with AutoGen中，____（多Agent对话）是一个核心概念。", answer: "多Agent对话", explanation: "多Agent对话是Building AI Agents with AutoGen的核心内容之一。", difficulty: 2 },
+                { id: "autogenage-mid-f-2", question: "Building AI Agents with AutoGen中，____（代码生成）是一个核心概念。", answer: "代码生成", explanation: "代码生成是Building AI Agents with AutoGen的核心内容之一。", difficulty: 3 },
+                { id: "autogenage-mid-f-3", question: "Building AI Agents with AutoGen中，____（工具使用）是一个核心概念。", answer: "工具使用", explanation: "工具使用是Building AI Agents with AutoGen的核心内容之一。", difficulty: 1 },
+                { id: "autogenage-mid-f-4", question: "Building AI Agents with AutoGen中，____（人机协作）是一个核心概念。", answer: "人机协作", explanation: "人机协作是Building AI Agents with AutoGen的核心内容之一。", difficulty: 2 },
+                { id: "autogenage-mid-f-5", question: "Building AI Agents with AutoGen中，____（会话模式）是一个核心概念。", answer: "会话模式", explanation: "会话模式是Building AI Agents with AutoGen的核心内容之一。", difficulty: 3 },
+                { id: "autogenage-mid-f-6", question: "Building AI Agents with AutoGen中，____（代理角色）是一个核心概念。", answer: "代理角色", explanation: "代理角色是Building AI Agents with AutoGen的核心内容之一。", difficulty: 1 },
+                { id: "autogenage-mid-f-7", question: "Building AI Agents with AutoGen中，____（代码执行）是一个核心概念。", answer: "代码执行", explanation: "代码执行是Building AI Agents with AutoGen的核心内容之一。", difficulty: 2 },
+                { id: "autogenage-mid-f-8", question: "Building AI Agents with AutoGen中，____（群聊）是一个核心概念。", answer: "群聊", explanation: "群聊是Building AI Agents with AutoGen的核心内容之一。", difficulty: 3 },
+                { id: "autogenage-mid-f-9", question: "Building AI Agents with AutoGen中，____（嵌套对话）是一个核心概念。", answer: "嵌套对话", explanation: "嵌套对话是Building AI Agents with AutoGen的核心内容之一。", difficulty: 1 },
+                { id: "autogenage-mid-f-10", question: "Building AI Agents with AutoGen中，____（AutoGen）是一个核心概念。", answer: "AutoGen", explanation: "AutoGen是Building AI Agents with AutoGen的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "autogenage-mid-code-1", question: "补全AutoGen相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是AutoGen的核心计算。", difficulty: 2 },
+                { id: "autogenage-mid-code-2", question: "补全AutoGen相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是AutoGen的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "autogenage-fin-c-1", question: "在多Agent对话中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多Agent对话是Building AI Agents with AutoGen课程的重要主题。", difficulty: 2 },
+                { id: "autogenage-fin-c-2", question: "在代码生成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "代码生成是Building AI Agents with AutoGen课程的重要主题。", difficulty: 3 },
+                { id: "autogenage-fin-c-3", question: "在工具使用中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "工具使用是Building AI Agents with AutoGen课程的重要主题。", difficulty: 1 },
+                { id: "autogenage-fin-c-4", question: "在人机协作中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "人机协作是Building AI Agents with AutoGen课程的重要主题。", difficulty: 2 },
+                { id: "autogenage-fin-c-5", question: "在会话模式中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "会话模式是Building AI Agents with AutoGen课程的重要主题。", difficulty: 3 },
+                { id: "autogenage-fin-c-6", question: "在代理角色中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "代理角色是Building AI Agents with AutoGen课程的重要主题。", difficulty: 1 },
+                { id: "autogenage-fin-c-7", question: "在代码执行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "代码执行是Building AI Agents with AutoGen课程的重要主题。", difficulty: 2 },
+                { id: "autogenage-fin-c-8", question: "在群聊中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "群聊是Building AI Agents with AutoGen课程的重要主题。", difficulty: 3 },
+                { id: "autogenage-fin-c-9", question: "在嵌套对话中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "嵌套对话是Building AI Agents with AutoGen课程的重要主题。", difficulty: 1 },
+                { id: "autogenage-fin-c-10", question: "在AutoGen中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "AutoGen是Building AI Agents with AutoGen课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "autogenage-fin-f-1", question: "Building AI Agents with AutoGen中，____（多Agent对话）是一个核心概念。", answer: "多Agent对话", explanation: "多Agent对话是Building AI Agents with AutoGen的核心内容之一。", difficulty: 2 },
+                { id: "autogenage-fin-f-2", question: "Building AI Agents with AutoGen中，____（代码生成）是一个核心概念。", answer: "代码生成", explanation: "代码生成是Building AI Agents with AutoGen的核心内容之一。", difficulty: 3 },
+                { id: "autogenage-fin-f-3", question: "Building AI Agents with AutoGen中，____（工具使用）是一个核心概念。", answer: "工具使用", explanation: "工具使用是Building AI Agents with AutoGen的核心内容之一。", difficulty: 1 },
+                { id: "autogenage-fin-f-4", question: "Building AI Agents with AutoGen中，____（人机协作）是一个核心概念。", answer: "人机协作", explanation: "人机协作是Building AI Agents with AutoGen的核心内容之一。", difficulty: 2 },
+                { id: "autogenage-fin-f-5", question: "Building AI Agents with AutoGen中，____（会话模式）是一个核心概念。", answer: "会话模式", explanation: "会话模式是Building AI Agents with AutoGen的核心内容之一。", difficulty: 3 },
+                { id: "autogenage-fin-f-6", question: "Building AI Agents with AutoGen中，____（代理角色）是一个核心概念。", answer: "代理角色", explanation: "代理角色是Building AI Agents with AutoGen的核心内容之一。", difficulty: 1 },
+                { id: "autogenage-fin-f-7", question: "Building AI Agents with AutoGen中，____（代码执行）是一个核心概念。", answer: "代码执行", explanation: "代码执行是Building AI Agents with AutoGen的核心内容之一。", difficulty: 2 },
+                { id: "autogenage-fin-f-8", question: "Building AI Agents with AutoGen中，____（群聊）是一个核心概念。", answer: "群聊", explanation: "群聊是Building AI Agents with AutoGen的核心内容之一。", difficulty: 3 },
+                { id: "autogenage-fin-f-9", question: "Building AI Agents with AutoGen中，____（嵌套对话）是一个核心概念。", answer: "嵌套对话", explanation: "嵌套对话是Building AI Agents with AutoGen的核心内容之一。", difficulty: 1 },
+                { id: "autogenage-fin-f-10", question: "Building AI Agents with AutoGen中，____（AutoGen）是一个核心概念。", answer: "AutoGen", explanation: "AutoGen是Building AI Agents with AutoGen的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "autogenage-fin-code-1", question: "补全AutoGen相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是AutoGen的核心计算。", difficulty: 2 },
+                { id: "autogenage-fin-code-2", question: "补全AutoGen相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是AutoGen的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Automatic Speech Recognition": {
+        courseId: "cmu-asr", domain: "speech",
+        mid: {
+            choice: [
+                { id: "cmuasr-mid-c-1", question: "在CTC中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CTC是Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+                { id: "cmuasr-mid-c-2", question: "在端到端ASR中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "端到端ASR是Automatic Speech Recognition课程的重要主题。", difficulty: 3 },
+                { id: "cmuasr-mid-c-3", question: "在声学模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "声学模型是Automatic Speech Recognition课程的重要主题。", difficulty: 1 },
+                { id: "cmuasr-mid-c-4", question: "在语言模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "语言模型是Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+                { id: "cmuasr-mid-c-5", question: "在声学特征中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "声学特征是Automatic Speech Recognition课程的重要主题。", difficulty: 3 },
+                { id: "cmuasr-mid-c-6", question: "在维特比解码中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "维特比解码是Automatic Speech Recognition课程的重要主题。", difficulty: 1 },
+                { id: "cmuasr-mid-c-7", question: "在混合HMM-DNN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "混合HMM-DNN是Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+                { id: "cmuasr-mid-c-8", question: "在注意力机制中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "注意力机制是Automatic Speech Recognition课程的重要主题。", difficulty: 3 },
+                { id: "cmuasr-mid-c-9", question: "在序列到序列中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "序列到序列是Automatic Speech Recognition课程的重要主题。", difficulty: 1 },
+                { id: "cmuasr-mid-c-10", question: "在HMM中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "HMM是Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cmuasr-mid-f-1", question: "Automatic Speech Recognition中，____（CTC）是一个核心概念。", answer: "CTC", explanation: "CTC是Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+                { id: "cmuasr-mid-f-2", question: "Automatic Speech Recognition中，____（端到端ASR）是一个核心概念。", answer: "端到端ASR", explanation: "端到端ASR是Automatic Speech Recognition的核心内容之一。", difficulty: 3 },
+                { id: "cmuasr-mid-f-3", question: "Automatic Speech Recognition中，____（声学模型）是一个核心概念。", answer: "声学模型", explanation: "声学模型是Automatic Speech Recognition的核心内容之一。", difficulty: 1 },
+                { id: "cmuasr-mid-f-4", question: "Automatic Speech Recognition中，____（语言模型）是一个核心概念。", answer: "语言模型", explanation: "语言模型是Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+                { id: "cmuasr-mid-f-5", question: "Automatic Speech Recognition中，____（声学特征）是一个核心概念。", answer: "声学特征", explanation: "声学特征是Automatic Speech Recognition的核心内容之一。", difficulty: 3 },
+                { id: "cmuasr-mid-f-6", question: "Automatic Speech Recognition中，____（维特比解码）是一个核心概念。", answer: "维特比解码", explanation: "维特比解码是Automatic Speech Recognition的核心内容之一。", difficulty: 1 },
+                { id: "cmuasr-mid-f-7", question: "Automatic Speech Recognition中，____（混合HMM-DNN）是一个核心概念。", answer: "混合HMM-DNN", explanation: "混合HMM-DNN是Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+                { id: "cmuasr-mid-f-8", question: "Automatic Speech Recognition中，____（注意力机制）是一个核心概念。", answer: "注意力机制", explanation: "注意力机制是Automatic Speech Recognition的核心内容之一。", difficulty: 3 },
+                { id: "cmuasr-mid-f-9", question: "Automatic Speech Recognition中，____（序列到序列）是一个核心概念。", answer: "序列到序列", explanation: "序列到序列是Automatic Speech Recognition的核心内容之一。", difficulty: 1 },
+                { id: "cmuasr-mid-f-10", question: "Automatic Speech Recognition中，____（HMM）是一个核心概念。", answer: "HMM", explanation: "HMM是Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmuasr-mid-code-1", question: "补全HMM相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是HMM的核心计算。", difficulty: 2 },
+                { id: "cmuasr-mid-code-2", question: "补全HMM相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是HMM的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cmuasr-fin-c-1", question: "在CTC中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CTC是Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+                { id: "cmuasr-fin-c-2", question: "在端到端ASR中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "端到端ASR是Automatic Speech Recognition课程的重要主题。", difficulty: 3 },
+                { id: "cmuasr-fin-c-3", question: "在声学模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "声学模型是Automatic Speech Recognition课程的重要主题。", difficulty: 1 },
+                { id: "cmuasr-fin-c-4", question: "在语言模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "语言模型是Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+                { id: "cmuasr-fin-c-5", question: "在声学特征中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "声学特征是Automatic Speech Recognition课程的重要主题。", difficulty: 3 },
+                { id: "cmuasr-fin-c-6", question: "在维特比解码中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "维特比解码是Automatic Speech Recognition课程的重要主题。", difficulty: 1 },
+                { id: "cmuasr-fin-c-7", question: "在混合HMM-DNN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "混合HMM-DNN是Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+                { id: "cmuasr-fin-c-8", question: "在注意力机制中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "注意力机制是Automatic Speech Recognition课程的重要主题。", difficulty: 3 },
+                { id: "cmuasr-fin-c-9", question: "在序列到序列中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "序列到序列是Automatic Speech Recognition课程的重要主题。", difficulty: 1 },
+                { id: "cmuasr-fin-c-10", question: "在HMM中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "HMM是Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cmuasr-fin-f-1", question: "Automatic Speech Recognition中，____（CTC）是一个核心概念。", answer: "CTC", explanation: "CTC是Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+                { id: "cmuasr-fin-f-2", question: "Automatic Speech Recognition中，____（端到端ASR）是一个核心概念。", answer: "端到端ASR", explanation: "端到端ASR是Automatic Speech Recognition的核心内容之一。", difficulty: 3 },
+                { id: "cmuasr-fin-f-3", question: "Automatic Speech Recognition中，____（声学模型）是一个核心概念。", answer: "声学模型", explanation: "声学模型是Automatic Speech Recognition的核心内容之一。", difficulty: 1 },
+                { id: "cmuasr-fin-f-4", question: "Automatic Speech Recognition中，____（语言模型）是一个核心概念。", answer: "语言模型", explanation: "语言模型是Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+                { id: "cmuasr-fin-f-5", question: "Automatic Speech Recognition中，____（声学特征）是一个核心概念。", answer: "声学特征", explanation: "声学特征是Automatic Speech Recognition的核心内容之一。", difficulty: 3 },
+                { id: "cmuasr-fin-f-6", question: "Automatic Speech Recognition中，____（维特比解码）是一个核心概念。", answer: "维特比解码", explanation: "维特比解码是Automatic Speech Recognition的核心内容之一。", difficulty: 1 },
+                { id: "cmuasr-fin-f-7", question: "Automatic Speech Recognition中，____（混合HMM-DNN）是一个核心概念。", answer: "混合HMM-DNN", explanation: "混合HMM-DNN是Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+                { id: "cmuasr-fin-f-8", question: "Automatic Speech Recognition中，____（注意力机制）是一个核心概念。", answer: "注意力机制", explanation: "注意力机制是Automatic Speech Recognition的核心内容之一。", difficulty: 3 },
+                { id: "cmuasr-fin-f-9", question: "Automatic Speech Recognition中，____（序列到序列）是一个核心概念。", answer: "序列到序列", explanation: "序列到序列是Automatic Speech Recognition的核心内容之一。", difficulty: 1 },
+                { id: "cmuasr-fin-f-10", question: "Automatic Speech Recognition中，____（HMM）是一个核心概念。", answer: "HMM", explanation: "HMM是Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmuasr-fin-code-1", question: "补全HMM相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是HMM的核心计算。", difficulty: 2 },
+                { id: "cmuasr-fin-code-2", question: "补全HMM相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是HMM的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Deep Learning for Speech": {
+        courseId: "dl-speech", domain: "speech",
+        mid: {
+            choice: [
+                { id: "dlspeech-mid-c-1", question: "在注意力中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "注意力是Deep Learning for Speech课程的重要主题。", difficulty: 2 },
+                { id: "dlspeech-mid-c-2", question: "在CTC中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CTC是Deep Learning for Speech课程的重要主题。", difficulty: 3 },
+                { id: "dlspeech-mid-c-3", question: "在端到端模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "端到端模型是Deep Learning for Speech课程的重要主题。", difficulty: 1 },
+                { id: "dlspeech-mid-c-4", question: "在语音特征中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "语音特征是Deep Learning for Speech课程的重要主题。", difficulty: 2 },
+                { id: "dlspeech-mid-c-5", question: "在MFCC中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MFCC是Deep Learning for Speech课程的重要主题。", difficulty: 3 },
+                { id: "dlspeech-mid-c-6", question: "在波形模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "波形模型是Deep Learning for Speech课程的重要主题。", difficulty: 1 },
+                { id: "dlspeech-mid-c-7", question: "在频谱图中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "频谱图是Deep Learning for Speech课程的重要主题。", difficulty: 2 },
+                { id: "dlspeech-mid-c-8", question: "在BiLSTM中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "BiLSTM是Deep Learning for Speech课程的重要主题。", difficulty: 3 },
+                { id: "dlspeech-mid-c-9", question: "在端到端训练中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "端到端训练是Deep Learning for Speech课程的重要主题。", difficulty: 1 },
+                { id: "dlspeech-mid-c-10", question: "在RNN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "RNN是Deep Learning for Speech课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "dlspeech-mid-f-1", question: "Deep Learning for Speech中，____（注意力）是一个核心概念。", answer: "注意力", explanation: "注意力是Deep Learning for Speech的核心内容之一。", difficulty: 2 },
+                { id: "dlspeech-mid-f-2", question: "Deep Learning for Speech中，____（CTC）是一个核心概念。", answer: "CTC", explanation: "CTC是Deep Learning for Speech的核心内容之一。", difficulty: 3 },
+                { id: "dlspeech-mid-f-3", question: "Deep Learning for Speech中，____（端到端模型）是一个核心概念。", answer: "端到端模型", explanation: "端到端模型是Deep Learning for Speech的核心内容之一。", difficulty: 1 },
+                { id: "dlspeech-mid-f-4", question: "Deep Learning for Speech中，____（语音特征）是一个核心概念。", answer: "语音特征", explanation: "语音特征是Deep Learning for Speech的核心内容之一。", difficulty: 2 },
+                { id: "dlspeech-mid-f-5", question: "Deep Learning for Speech中，____（MFCC）是一个核心概念。", answer: "MFCC", explanation: "MFCC是Deep Learning for Speech的核心内容之一。", difficulty: 3 },
+                { id: "dlspeech-mid-f-6", question: "Deep Learning for Speech中，____（波形模型）是一个核心概念。", answer: "波形模型", explanation: "波形模型是Deep Learning for Speech的核心内容之一。", difficulty: 1 },
+                { id: "dlspeech-mid-f-7", question: "Deep Learning for Speech中，____（频谱图）是一个核心概念。", answer: "频谱图", explanation: "频谱图是Deep Learning for Speech的核心内容之一。", difficulty: 2 },
+                { id: "dlspeech-mid-f-8", question: "Deep Learning for Speech中，____（BiLSTM）是一个核心概念。", answer: "BiLSTM", explanation: "BiLSTM是Deep Learning for Speech的核心内容之一。", difficulty: 3 },
+                { id: "dlspeech-mid-f-9", question: "Deep Learning for Speech中，____（端到端训练）是一个核心概念。", answer: "端到端训练", explanation: "端到端训练是Deep Learning for Speech的核心内容之一。", difficulty: 1 },
+                { id: "dlspeech-mid-f-10", question: "Deep Learning for Speech中，____（RNN）是一个核心概念。", answer: "RNN", explanation: "RNN是Deep Learning for Speech的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "dlspeech-mid-code-1", question: "补全RNN相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是RNN的核心计算。", difficulty: 2 },
+                { id: "dlspeech-mid-code-2", question: "补全RNN相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是RNN的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "dlspeech-fin-c-1", question: "在注意力中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "注意力是Deep Learning for Speech课程的重要主题。", difficulty: 2 },
+                { id: "dlspeech-fin-c-2", question: "在CTC中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CTC是Deep Learning for Speech课程的重要主题。", difficulty: 3 },
+                { id: "dlspeech-fin-c-3", question: "在端到端模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "端到端模型是Deep Learning for Speech课程的重要主题。", difficulty: 1 },
+                { id: "dlspeech-fin-c-4", question: "在语音特征中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "语音特征是Deep Learning for Speech课程的重要主题。", difficulty: 2 },
+                { id: "dlspeech-fin-c-5", question: "在MFCC中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MFCC是Deep Learning for Speech课程的重要主题。", difficulty: 3 },
+                { id: "dlspeech-fin-c-6", question: "在波形模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "波形模型是Deep Learning for Speech课程的重要主题。", difficulty: 1 },
+                { id: "dlspeech-fin-c-7", question: "在频谱图中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "频谱图是Deep Learning for Speech课程的重要主题。", difficulty: 2 },
+                { id: "dlspeech-fin-c-8", question: "在BiLSTM中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "BiLSTM是Deep Learning for Speech课程的重要主题。", difficulty: 3 },
+                { id: "dlspeech-fin-c-9", question: "在端到端训练中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "端到端训练是Deep Learning for Speech课程的重要主题。", difficulty: 1 },
+                { id: "dlspeech-fin-c-10", question: "在RNN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "RNN是Deep Learning for Speech课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "dlspeech-fin-f-1", question: "Deep Learning for Speech中，____（注意力）是一个核心概念。", answer: "注意力", explanation: "注意力是Deep Learning for Speech的核心内容之一。", difficulty: 2 },
+                { id: "dlspeech-fin-f-2", question: "Deep Learning for Speech中，____（CTC）是一个核心概念。", answer: "CTC", explanation: "CTC是Deep Learning for Speech的核心内容之一。", difficulty: 3 },
+                { id: "dlspeech-fin-f-3", question: "Deep Learning for Speech中，____（端到端模型）是一个核心概念。", answer: "端到端模型", explanation: "端到端模型是Deep Learning for Speech的核心内容之一。", difficulty: 1 },
+                { id: "dlspeech-fin-f-4", question: "Deep Learning for Speech中，____（语音特征）是一个核心概念。", answer: "语音特征", explanation: "语音特征是Deep Learning for Speech的核心内容之一。", difficulty: 2 },
+                { id: "dlspeech-fin-f-5", question: "Deep Learning for Speech中，____（MFCC）是一个核心概念。", answer: "MFCC", explanation: "MFCC是Deep Learning for Speech的核心内容之一。", difficulty: 3 },
+                { id: "dlspeech-fin-f-6", question: "Deep Learning for Speech中，____（波形模型）是一个核心概念。", answer: "波形模型", explanation: "波形模型是Deep Learning for Speech的核心内容之一。", difficulty: 1 },
+                { id: "dlspeech-fin-f-7", question: "Deep Learning for Speech中，____（频谱图）是一个核心概念。", answer: "频谱图", explanation: "频谱图是Deep Learning for Speech的核心内容之一。", difficulty: 2 },
+                { id: "dlspeech-fin-f-8", question: "Deep Learning for Speech中，____（BiLSTM）是一个核心概念。", answer: "BiLSTM", explanation: "BiLSTM是Deep Learning for Speech的核心内容之一。", difficulty: 3 },
+                { id: "dlspeech-fin-f-9", question: "Deep Learning for Speech中，____（端到端训练）是一个核心概念。", answer: "端到端训练", explanation: "端到端训练是Deep Learning for Speech的核心内容之一。", difficulty: 1 },
+                { id: "dlspeech-fin-f-10", question: "Deep Learning for Speech中，____（RNN）是一个核心概念。", answer: "RNN", explanation: "RNN是Deep Learning for Speech的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "dlspeech-fin-code-1", question: "补全RNN相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是RNN的核心计算。", difficulty: 2 },
+                { id: "dlspeech-fin-code-2", question: "补全RNN相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是RNN的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Neural Text-to-Speech": {
+        courseId: "neural-tts", domain: "speech",
+        mid: {
+            choice: [
+                { id: "neuraltts-mid-c-1", question: "在WaveNet中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "WaveNet是Neural Text-to-Speech课程的重要主题。", difficulty: 2 },
+                { id: "neuraltts-mid-c-2", question: "在声码器中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "声码器是Neural Text-to-Speech课程的重要主题。", difficulty: 3 },
+                { id: "neuraltts-mid-c-3", question: "在自回归TTS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自回归TTS是Neural Text-to-Speech课程的重要主题。", difficulty: 1 },
+                { id: "neuraltts-mid-c-4", question: "在非自回归TTS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "非自回归TTS是Neural Text-to-Speech课程的重要主题。", difficulty: 2 },
+                { id: "neuraltts-mid-c-5", question: "在梅尔频谱中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "梅尔频谱是Neural Text-to-Speech课程的重要主题。", difficulty: 3 },
+                { id: "neuraltts-mid-c-6", question: "在并行WaveNet中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行WaveNet是Neural Text-to-Speech课程的重要主题。", difficulty: 1 },
+                { id: "neuraltts-mid-c-7", question: "在Vocoder中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Vocoder是Neural Text-to-Speech课程的重要主题。", difficulty: 2 },
+                { id: "neuraltts-mid-c-8", question: "在注意力对齐中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "注意力对齐是Neural Text-to-Speech课程的重要主题。", difficulty: 3 },
+                { id: "neuraltts-mid-c-9", question: "在多说话人中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多说话人是Neural Text-to-Speech课程的重要主题。", difficulty: 1 },
+                { id: "neuraltts-mid-c-10", question: "在Tacotron中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Tacotron是Neural Text-to-Speech课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "neuraltts-mid-f-1", question: "Neural Text-to-Speech中，____（WaveNet）是一个核心概念。", answer: "WaveNet", explanation: "WaveNet是Neural Text-to-Speech的核心内容之一。", difficulty: 2 },
+                { id: "neuraltts-mid-f-2", question: "Neural Text-to-Speech中，____（声码器）是一个核心概念。", answer: "声码器", explanation: "声码器是Neural Text-to-Speech的核心内容之一。", difficulty: 3 },
+                { id: "neuraltts-mid-f-3", question: "Neural Text-to-Speech中，____（自回归TTS）是一个核心概念。", answer: "自回归TTS", explanation: "自回归TTS是Neural Text-to-Speech的核心内容之一。", difficulty: 1 },
+                { id: "neuraltts-mid-f-4", question: "Neural Text-to-Speech中，____（非自回归TTS）是一个核心概念。", answer: "非自回归TTS", explanation: "非自回归TTS是Neural Text-to-Speech的核心内容之一。", difficulty: 2 },
+                { id: "neuraltts-mid-f-5", question: "Neural Text-to-Speech中，____（梅尔频谱）是一个核心概念。", answer: "梅尔频谱", explanation: "梅尔频谱是Neural Text-to-Speech的核心内容之一。", difficulty: 3 },
+                { id: "neuraltts-mid-f-6", question: "Neural Text-to-Speech中，____（并行WaveNet）是一个核心概念。", answer: "并行WaveNet", explanation: "并行WaveNet是Neural Text-to-Speech的核心内容之一。", difficulty: 1 },
+                { id: "neuraltts-mid-f-7", question: "Neural Text-to-Speech中，____（Vocoder）是一个核心概念。", answer: "Vocoder", explanation: "Vocoder是Neural Text-to-Speech的核心内容之一。", difficulty: 2 },
+                { id: "neuraltts-mid-f-8", question: "Neural Text-to-Speech中，____（注意力对齐）是一个核心概念。", answer: "注意力对齐", explanation: "注意力对齐是Neural Text-to-Speech的核心内容之一。", difficulty: 3 },
+                { id: "neuraltts-mid-f-9", question: "Neural Text-to-Speech中，____（多说话人）是一个核心概念。", answer: "多说话人", explanation: "多说话人是Neural Text-to-Speech的核心内容之一。", difficulty: 1 },
+                { id: "neuraltts-mid-f-10", question: "Neural Text-to-Speech中，____（Tacotron）是一个核心概念。", answer: "Tacotron", explanation: "Tacotron是Neural Text-to-Speech的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "neuraltts-mid-code-1", question: "补全Tacotron相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Tacotron的核心计算。", difficulty: 2 },
+                { id: "neuraltts-mid-code-2", question: "补全Tacotron相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Tacotron的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "neuraltts-fin-c-1", question: "在WaveNet中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "WaveNet是Neural Text-to-Speech课程的重要主题。", difficulty: 2 },
+                { id: "neuraltts-fin-c-2", question: "在声码器中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "声码器是Neural Text-to-Speech课程的重要主题。", difficulty: 3 },
+                { id: "neuraltts-fin-c-3", question: "在自回归TTS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自回归TTS是Neural Text-to-Speech课程的重要主题。", difficulty: 1 },
+                { id: "neuraltts-fin-c-4", question: "在非自回归TTS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "非自回归TTS是Neural Text-to-Speech课程的重要主题。", difficulty: 2 },
+                { id: "neuraltts-fin-c-5", question: "在梅尔频谱中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "梅尔频谱是Neural Text-to-Speech课程的重要主题。", difficulty: 3 },
+                { id: "neuraltts-fin-c-6", question: "在并行WaveNet中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行WaveNet是Neural Text-to-Speech课程的重要主题。", difficulty: 1 },
+                { id: "neuraltts-fin-c-7", question: "在Vocoder中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Vocoder是Neural Text-to-Speech课程的重要主题。", difficulty: 2 },
+                { id: "neuraltts-fin-c-8", question: "在注意力对齐中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "注意力对齐是Neural Text-to-Speech课程的重要主题。", difficulty: 3 },
+                { id: "neuraltts-fin-c-9", question: "在多说话人中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多说话人是Neural Text-to-Speech课程的重要主题。", difficulty: 1 },
+                { id: "neuraltts-fin-c-10", question: "在Tacotron中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Tacotron是Neural Text-to-Speech课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "neuraltts-fin-f-1", question: "Neural Text-to-Speech中，____（WaveNet）是一个核心概念。", answer: "WaveNet", explanation: "WaveNet是Neural Text-to-Speech的核心内容之一。", difficulty: 2 },
+                { id: "neuraltts-fin-f-2", question: "Neural Text-to-Speech中，____（声码器）是一个核心概念。", answer: "声码器", explanation: "声码器是Neural Text-to-Speech的核心内容之一。", difficulty: 3 },
+                { id: "neuraltts-fin-f-3", question: "Neural Text-to-Speech中，____（自回归TTS）是一个核心概念。", answer: "自回归TTS", explanation: "自回归TTS是Neural Text-to-Speech的核心内容之一。", difficulty: 1 },
+                { id: "neuraltts-fin-f-4", question: "Neural Text-to-Speech中，____（非自回归TTS）是一个核心概念。", answer: "非自回归TTS", explanation: "非自回归TTS是Neural Text-to-Speech的核心内容之一。", difficulty: 2 },
+                { id: "neuraltts-fin-f-5", question: "Neural Text-to-Speech中，____（梅尔频谱）是一个核心概念。", answer: "梅尔频谱", explanation: "梅尔频谱是Neural Text-to-Speech的核心内容之一。", difficulty: 3 },
+                { id: "neuraltts-fin-f-6", question: "Neural Text-to-Speech中，____（并行WaveNet）是一个核心概念。", answer: "并行WaveNet", explanation: "并行WaveNet是Neural Text-to-Speech的核心内容之一。", difficulty: 1 },
+                { id: "neuraltts-fin-f-7", question: "Neural Text-to-Speech中，____（Vocoder）是一个核心概念。", answer: "Vocoder", explanation: "Vocoder是Neural Text-to-Speech的核心内容之一。", difficulty: 2 },
+                { id: "neuraltts-fin-f-8", question: "Neural Text-to-Speech中，____（注意力对齐）是一个核心概念。", answer: "注意力对齐", explanation: "注意力对齐是Neural Text-to-Speech的核心内容之一。", difficulty: 3 },
+                { id: "neuraltts-fin-f-9", question: "Neural Text-to-Speech中，____（多说话人）是一个核心概念。", answer: "多说话人", explanation: "多说话人是Neural Text-to-Speech的核心内容之一。", difficulty: 1 },
+                { id: "neuraltts-fin-f-10", question: "Neural Text-to-Speech中，____（Tacotron）是一个核心概念。", answer: "Tacotron", explanation: "Tacotron是Neural Text-to-Speech的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "neuraltts-fin-code-1", question: "补全Tacotron相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Tacotron的核心计算。", difficulty: 2 },
+                { id: "neuraltts-fin-code-2", question: "补全Tacotron相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Tacotron的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Whisper & Open-Source ASR": {
+        courseId: "whisper-asr", domain: "speech",
+        mid: {
+            choice: [
+                { id: "whisperasr-mid-c-1", question: "在多语言中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多语言是Whisper & Open-Source ASR课程的重要主题。", difficulty: 2 },
+                { id: "whisperasr-mid-c-2", question: "在端到端ASR中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "端到端ASR是Whisper & Open-Source ASR课程的重要主题。", difficulty: 3 },
+                { id: "whisperasr-mid-c-3", question: "在自监督学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自监督学习是Whisper & Open-Source ASR课程的重要主题。", difficulty: 1 },
+                { id: "whisperasr-mid-c-4", question: "在弱监督中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "弱监督是Whisper & Open-Source ASR课程的重要主题。", difficulty: 2 },
+                { id: "whisperasr-mid-c-5", question: "在编码器-解码器中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "编码器-解码器是Whisper & Open-Source ASR课程的重要主题。", difficulty: 3 },
+                { id: "whisperasr-mid-c-6", question: "在多任务训练中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多任务训练是Whisper & Open-Source ASR课程的重要主题。", difficulty: 1 },
+                { id: "whisperasr-mid-c-7", question: "在零样本中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "零样本是Whisper & Open-Source ASR课程的重要主题。", difficulty: 2 },
+                { id: "whisperasr-mid-c-8", question: "在多语言ASR中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多语言ASR是Whisper & Open-Source ASR课程的重要主题。", difficulty: 3 },
+                { id: "whisperasr-mid-c-9", question: "在音频预处理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "音频预处理是Whisper & Open-Source ASR课程的重要主题。", difficulty: 1 },
+                { id: "whisperasr-mid-c-10", question: "在Whisper中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Whisper是Whisper & Open-Source ASR课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "whisperasr-mid-f-1", question: "Whisper & Open-Source ASR中，____（多语言）是一个核心概念。", answer: "多语言", explanation: "多语言是Whisper & Open-Source ASR的核心内容之一。", difficulty: 2 },
+                { id: "whisperasr-mid-f-2", question: "Whisper & Open-Source ASR中，____（端到端ASR）是一个核心概念。", answer: "端到端ASR", explanation: "端到端ASR是Whisper & Open-Source ASR的核心内容之一。", difficulty: 3 },
+                { id: "whisperasr-mid-f-3", question: "Whisper & Open-Source ASR中，____（自监督学习）是一个核心概念。", answer: "自监督学习", explanation: "自监督学习是Whisper & Open-Source ASR的核心内容之一。", difficulty: 1 },
+                { id: "whisperasr-mid-f-4", question: "Whisper & Open-Source ASR中，____（弱监督）是一个核心概念。", answer: "弱监督", explanation: "弱监督是Whisper & Open-Source ASR的核心内容之一。", difficulty: 2 },
+                { id: "whisperasr-mid-f-5", question: "Whisper & Open-Source ASR中，____（编码器-解码器）是一个核心概念。", answer: "编码器-解码器", explanation: "编码器-解码器是Whisper & Open-Source ASR的核心内容之一。", difficulty: 3 },
+                { id: "whisperasr-mid-f-6", question: "Whisper & Open-Source ASR中，____（多任务训练）是一个核心概念。", answer: "多任务训练", explanation: "多任务训练是Whisper & Open-Source ASR的核心内容之一。", difficulty: 1 },
+                { id: "whisperasr-mid-f-7", question: "Whisper & Open-Source ASR中，____（零样本）是一个核心概念。", answer: "零样本", explanation: "零样本是Whisper & Open-Source ASR的核心内容之一。", difficulty: 2 },
+                { id: "whisperasr-mid-f-8", question: "Whisper & Open-Source ASR中，____（多语言ASR）是一个核心概念。", answer: "多语言ASR", explanation: "多语言ASR是Whisper & Open-Source ASR的核心内容之一。", difficulty: 3 },
+                { id: "whisperasr-mid-f-9", question: "Whisper & Open-Source ASR中，____（音频预处理）是一个核心概念。", answer: "音频预处理", explanation: "音频预处理是Whisper & Open-Source ASR的核心内容之一。", difficulty: 1 },
+                { id: "whisperasr-mid-f-10", question: "Whisper & Open-Source ASR中，____（Whisper）是一个核心概念。", answer: "Whisper", explanation: "Whisper是Whisper & Open-Source ASR的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "whisperasr-mid-code-1", question: "补全Whisper相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Whisper的核心计算。", difficulty: 2 },
+                { id: "whisperasr-mid-code-2", question: "补全Whisper相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Whisper的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "whisperasr-fin-c-1", question: "在多语言中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多语言是Whisper & Open-Source ASR课程的重要主题。", difficulty: 2 },
+                { id: "whisperasr-fin-c-2", question: "在端到端ASR中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "端到端ASR是Whisper & Open-Source ASR课程的重要主题。", difficulty: 3 },
+                { id: "whisperasr-fin-c-3", question: "在自监督学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自监督学习是Whisper & Open-Source ASR课程的重要主题。", difficulty: 1 },
+                { id: "whisperasr-fin-c-4", question: "在弱监督中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "弱监督是Whisper & Open-Source ASR课程的重要主题。", difficulty: 2 },
+                { id: "whisperasr-fin-c-5", question: "在编码器-解码器中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "编码器-解码器是Whisper & Open-Source ASR课程的重要主题。", difficulty: 3 },
+                { id: "whisperasr-fin-c-6", question: "在多任务训练中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多任务训练是Whisper & Open-Source ASR课程的重要主题。", difficulty: 1 },
+                { id: "whisperasr-fin-c-7", question: "在零样本中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "零样本是Whisper & Open-Source ASR课程的重要主题。", difficulty: 2 },
+                { id: "whisperasr-fin-c-8", question: "在多语言ASR中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多语言ASR是Whisper & Open-Source ASR课程的重要主题。", difficulty: 3 },
+                { id: "whisperasr-fin-c-9", question: "在音频预处理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "音频预处理是Whisper & Open-Source ASR课程的重要主题。", difficulty: 1 },
+                { id: "whisperasr-fin-c-10", question: "在Whisper中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Whisper是Whisper & Open-Source ASR课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "whisperasr-fin-f-1", question: "Whisper & Open-Source ASR中，____（多语言）是一个核心概念。", answer: "多语言", explanation: "多语言是Whisper & Open-Source ASR的核心内容之一。", difficulty: 2 },
+                { id: "whisperasr-fin-f-2", question: "Whisper & Open-Source ASR中，____（端到端ASR）是一个核心概念。", answer: "端到端ASR", explanation: "端到端ASR是Whisper & Open-Source ASR的核心内容之一。", difficulty: 3 },
+                { id: "whisperasr-fin-f-3", question: "Whisper & Open-Source ASR中，____（自监督学习）是一个核心概念。", answer: "自监督学习", explanation: "自监督学习是Whisper & Open-Source ASR的核心内容之一。", difficulty: 1 },
+                { id: "whisperasr-fin-f-4", question: "Whisper & Open-Source ASR中，____（弱监督）是一个核心概念。", answer: "弱监督", explanation: "弱监督是Whisper & Open-Source ASR的核心内容之一。", difficulty: 2 },
+                { id: "whisperasr-fin-f-5", question: "Whisper & Open-Source ASR中，____（编码器-解码器）是一个核心概念。", answer: "编码器-解码器", explanation: "编码器-解码器是Whisper & Open-Source ASR的核心内容之一。", difficulty: 3 },
+                { id: "whisperasr-fin-f-6", question: "Whisper & Open-Source ASR中，____（多任务训练）是一个核心概念。", answer: "多任务训练", explanation: "多任务训练是Whisper & Open-Source ASR的核心内容之一。", difficulty: 1 },
+                { id: "whisperasr-fin-f-7", question: "Whisper & Open-Source ASR中，____（零样本）是一个核心概念。", answer: "零样本", explanation: "零样本是Whisper & Open-Source ASR的核心内容之一。", difficulty: 2 },
+                { id: "whisperasr-fin-f-8", question: "Whisper & Open-Source ASR中，____（多语言ASR）是一个核心概念。", answer: "多语言ASR", explanation: "多语言ASR是Whisper & Open-Source ASR的核心内容之一。", difficulty: 3 },
+                { id: "whisperasr-fin-f-9", question: "Whisper & Open-Source ASR中，____（音频预处理）是一个核心概念。", answer: "音频预处理", explanation: "音频预处理是Whisper & Open-Source ASR的核心内容之一。", difficulty: 1 },
+                { id: "whisperasr-fin-f-10", question: "Whisper & Open-Source ASR中，____（Whisper）是一个核心概念。", answer: "Whisper", explanation: "Whisper是Whisper & Open-Source ASR的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "whisperasr-fin-code-1", question: "补全Whisper相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Whisper的核心计算。", difficulty: 2 },
+                { id: "whisperasr-fin-code-2", question: "补全Whisper相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Whisper的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Voice Cloning & TTS": {
+        courseId: "voice-cloning-tts", domain: "speech",
+        mid: {
+            choice: [
+                { id: "voicecloni-mid-c-1", question: "在TTS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "TTS是Voice Cloning & TTS课程的重要主题。", difficulty: 2 },
+                { id: "voicecloni-mid-c-2", question: "在说话人嵌入中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "说话人嵌入是Voice Cloning & TTS课程的重要主题。", difficulty: 3 },
+                { id: "voicecloni-mid-c-3", question: "在零样本语音克隆中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "零样本语音克隆是Voice Cloning & TTS课程的重要主题。", difficulty: 1 },
+                { id: "voicecloni-mid-c-4", question: "在跨语言合成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "跨语言合成是Voice Cloning & TTS课程的重要主题。", difficulty: 2 },
+                { id: "voicecloni-mid-c-5", question: "在自回归生成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自回归生成是Voice Cloning & TTS课程的重要主题。", difficulty: 3 },
+                { id: "voicecloni-mid-c-6", question: "在非自回归生成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "非自回归生成是Voice Cloning & TTS课程的重要主题。", difficulty: 1 },
+                { id: "voicecloni-mid-c-7", question: "在声码器中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "声码器是Voice Cloning & TTS课程的重要主题。", difficulty: 2 },
+                { id: "voicecloni-mid-c-8", question: "在音色转换中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "音色转换是Voice Cloning & TTS课程的重要主题。", difficulty: 3 },
+                { id: "voicecloni-mid-c-9", question: "在少样本克隆中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "少样本克隆是Voice Cloning & TTS课程的重要主题。", difficulty: 1 },
+                { id: "voicecloni-mid-c-10", question: "在VITS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "VITS是Voice Cloning & TTS课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "voicecloni-mid-f-1", question: "Voice Cloning & TTS中，____（TTS）是一个核心概念。", answer: "TTS", explanation: "TTS是Voice Cloning & TTS的核心内容之一。", difficulty: 2 },
+                { id: "voicecloni-mid-f-2", question: "Voice Cloning & TTS中，____（说话人嵌入）是一个核心概念。", answer: "说话人嵌入", explanation: "说话人嵌入是Voice Cloning & TTS的核心内容之一。", difficulty: 3 },
+                { id: "voicecloni-mid-f-3", question: "Voice Cloning & TTS中，____（零样本语音克隆）是一个核心概念。", answer: "零样本语音克隆", explanation: "零样本语音克隆是Voice Cloning & TTS的核心内容之一。", difficulty: 1 },
+                { id: "voicecloni-mid-f-4", question: "Voice Cloning & TTS中，____（跨语言合成）是一个核心概念。", answer: "跨语言合成", explanation: "跨语言合成是Voice Cloning & TTS的核心内容之一。", difficulty: 2 },
+                { id: "voicecloni-mid-f-5", question: "Voice Cloning & TTS中，____（自回归生成）是一个核心概念。", answer: "自回归生成", explanation: "自回归生成是Voice Cloning & TTS的核心内容之一。", difficulty: 3 },
+                { id: "voicecloni-mid-f-6", question: "Voice Cloning & TTS中，____（非自回归生成）是一个核心概念。", answer: "非自回归生成", explanation: "非自回归生成是Voice Cloning & TTS的核心内容之一。", difficulty: 1 },
+                { id: "voicecloni-mid-f-7", question: "Voice Cloning & TTS中，____（声码器）是一个核心概念。", answer: "声码器", explanation: "声码器是Voice Cloning & TTS的核心内容之一。", difficulty: 2 },
+                { id: "voicecloni-mid-f-8", question: "Voice Cloning & TTS中，____（音色转换）是一个核心概念。", answer: "音色转换", explanation: "音色转换是Voice Cloning & TTS的核心内容之一。", difficulty: 3 },
+                { id: "voicecloni-mid-f-9", question: "Voice Cloning & TTS中，____（少样本克隆）是一个核心概念。", answer: "少样本克隆", explanation: "少样本克隆是Voice Cloning & TTS的核心内容之一。", difficulty: 1 },
+                { id: "voicecloni-mid-f-10", question: "Voice Cloning & TTS中，____（VITS）是一个核心概念。", answer: "VITS", explanation: "VITS是Voice Cloning & TTS的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "voicecloni-mid-code-1", question: "补全VITS相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是VITS的核心计算。", difficulty: 2 },
+                { id: "voicecloni-mid-code-2", question: "补全VITS相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是VITS的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "voicecloni-fin-c-1", question: "在TTS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "TTS是Voice Cloning & TTS课程的重要主题。", difficulty: 2 },
+                { id: "voicecloni-fin-c-2", question: "在说话人嵌入中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "说话人嵌入是Voice Cloning & TTS课程的重要主题。", difficulty: 3 },
+                { id: "voicecloni-fin-c-3", question: "在零样本语音克隆中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "零样本语音克隆是Voice Cloning & TTS课程的重要主题。", difficulty: 1 },
+                { id: "voicecloni-fin-c-4", question: "在跨语言合成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "跨语言合成是Voice Cloning & TTS课程的重要主题。", difficulty: 2 },
+                { id: "voicecloni-fin-c-5", question: "在自回归生成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自回归生成是Voice Cloning & TTS课程的重要主题。", difficulty: 3 },
+                { id: "voicecloni-fin-c-6", question: "在非自回归生成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "非自回归生成是Voice Cloning & TTS课程的重要主题。", difficulty: 1 },
+                { id: "voicecloni-fin-c-7", question: "在声码器中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "声码器是Voice Cloning & TTS课程的重要主题。", difficulty: 2 },
+                { id: "voicecloni-fin-c-8", question: "在音色转换中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "音色转换是Voice Cloning & TTS课程的重要主题。", difficulty: 3 },
+                { id: "voicecloni-fin-c-9", question: "在少样本克隆中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "少样本克隆是Voice Cloning & TTS课程的重要主题。", difficulty: 1 },
+                { id: "voicecloni-fin-c-10", question: "在VITS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "VITS是Voice Cloning & TTS课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "voicecloni-fin-f-1", question: "Voice Cloning & TTS中，____（TTS）是一个核心概念。", answer: "TTS", explanation: "TTS是Voice Cloning & TTS的核心内容之一。", difficulty: 2 },
+                { id: "voicecloni-fin-f-2", question: "Voice Cloning & TTS中，____（说话人嵌入）是一个核心概念。", answer: "说话人嵌入", explanation: "说话人嵌入是Voice Cloning & TTS的核心内容之一。", difficulty: 3 },
+                { id: "voicecloni-fin-f-3", question: "Voice Cloning & TTS中，____（零样本语音克隆）是一个核心概念。", answer: "零样本语音克隆", explanation: "零样本语音克隆是Voice Cloning & TTS的核心内容之一。", difficulty: 1 },
+                { id: "voicecloni-fin-f-4", question: "Voice Cloning & TTS中，____（跨语言合成）是一个核心概念。", answer: "跨语言合成", explanation: "跨语言合成是Voice Cloning & TTS的核心内容之一。", difficulty: 2 },
+                { id: "voicecloni-fin-f-5", question: "Voice Cloning & TTS中，____（自回归生成）是一个核心概念。", answer: "自回归生成", explanation: "自回归生成是Voice Cloning & TTS的核心内容之一。", difficulty: 3 },
+                { id: "voicecloni-fin-f-6", question: "Voice Cloning & TTS中，____（非自回归生成）是一个核心概念。", answer: "非自回归生成", explanation: "非自回归生成是Voice Cloning & TTS的核心内容之一。", difficulty: 1 },
+                { id: "voicecloni-fin-f-7", question: "Voice Cloning & TTS中，____（声码器）是一个核心概念。", answer: "声码器", explanation: "声码器是Voice Cloning & TTS的核心内容之一。", difficulty: 2 },
+                { id: "voicecloni-fin-f-8", question: "Voice Cloning & TTS中，____（音色转换）是一个核心概念。", answer: "音色转换", explanation: "音色转换是Voice Cloning & TTS的核心内容之一。", difficulty: 3 },
+                { id: "voicecloni-fin-f-9", question: "Voice Cloning & TTS中，____（少样本克隆）是一个核心概念。", answer: "少样本克隆", explanation: "少样本克隆是Voice Cloning & TTS的核心内容之一。", difficulty: 1 },
+                { id: "voicecloni-fin-f-10", question: "Voice Cloning & TTS中，____（VITS）是一个核心概念。", answer: "VITS", explanation: "VITS是Voice Cloning & TTS的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "voicecloni-fin-code-1", question: "补全VITS相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是VITS的核心计算。", difficulty: 2 },
+                { id: "voicecloni-fin-code-2", question: "补全VITS相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是VITS的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "6.345: Automatic Speech Recognition": {
+        courseId: "mit-asr", domain: "speech",
+        mid: {
+            choice: [
+                { id: "mitasr-mid-c-1", question: "在声学建模中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "声学建模是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+                { id: "mitasr-mid-c-2", question: "在语音特征中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "语音特征是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 3 },
+                { id: "mitasr-mid-c-3", question: "在解码算法中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "解码算法是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 1 },
+                { id: "mitasr-mid-c-4", question: "在语言模型集成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "语言模型集成是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+                { id: "mitasr-mid-c-5", question: "在Mel滤波器中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Mel滤波器是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 3 },
+                { id: "mitasr-mid-c-6", question: "在声学模型训练中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "声学模型训练是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 1 },
+                { id: "mitasr-mid-c-7", question: "在解码图中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "解码图是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+                { id: "mitasr-mid-c-8", question: "在发音词典中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "发音词典是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 3 },
+                { id: "mitasr-mid-c-9", question: "在N-gram语言模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "N-gram语言模型是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 1 },
+                { id: "mitasr-mid-c-10", question: "在HMM中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "HMM是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "mitasr-mid-f-1", question: "6.345: Automatic Speech Recognition中，____（声学建模）是一个核心概念。", answer: "声学建模", explanation: "声学建模是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+                { id: "mitasr-mid-f-2", question: "6.345: Automatic Speech Recognition中，____（语音特征）是一个核心概念。", answer: "语音特征", explanation: "语音特征是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 3 },
+                { id: "mitasr-mid-f-3", question: "6.345: Automatic Speech Recognition中，____（解码算法）是一个核心概念。", answer: "解码算法", explanation: "解码算法是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 1 },
+                { id: "mitasr-mid-f-4", question: "6.345: Automatic Speech Recognition中，____（语言模型集成）是一个核心概念。", answer: "语言模型集成", explanation: "语言模型集成是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+                { id: "mitasr-mid-f-5", question: "6.345: Automatic Speech Recognition中，____（Mel滤波器）是一个核心概念。", answer: "Mel滤波器", explanation: "Mel滤波器是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 3 },
+                { id: "mitasr-mid-f-6", question: "6.345: Automatic Speech Recognition中，____（声学模型训练）是一个核心概念。", answer: "声学模型训练", explanation: "声学模型训练是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 1 },
+                { id: "mitasr-mid-f-7", question: "6.345: Automatic Speech Recognition中，____（解码图）是一个核心概念。", answer: "解码图", explanation: "解码图是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+                { id: "mitasr-mid-f-8", question: "6.345: Automatic Speech Recognition中，____（发音词典）是一个核心概念。", answer: "发音词典", explanation: "发音词典是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 3 },
+                { id: "mitasr-mid-f-9", question: "6.345: Automatic Speech Recognition中，____（N-gram语言模型）是一个核心概念。", answer: "N-gram语言模型", explanation: "N-gram语言模型是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 1 },
+                { id: "mitasr-mid-f-10", question: "6.345: Automatic Speech Recognition中，____（HMM）是一个核心概念。", answer: "HMM", explanation: "HMM是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "mitasr-mid-code-1", question: "补全HMM相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是HMM的核心计算。", difficulty: 2 },
+                { id: "mitasr-mid-code-2", question: "补全HMM相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是HMM的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "mitasr-fin-c-1", question: "在声学建模中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "声学建模是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+                { id: "mitasr-fin-c-2", question: "在语音特征中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "语音特征是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 3 },
+                { id: "mitasr-fin-c-3", question: "在解码算法中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "解码算法是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 1 },
+                { id: "mitasr-fin-c-4", question: "在语言模型集成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "语言模型集成是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+                { id: "mitasr-fin-c-5", question: "在Mel滤波器中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Mel滤波器是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 3 },
+                { id: "mitasr-fin-c-6", question: "在声学模型训练中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "声学模型训练是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 1 },
+                { id: "mitasr-fin-c-7", question: "在解码图中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "解码图是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+                { id: "mitasr-fin-c-8", question: "在发音词典中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "发音词典是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 3 },
+                { id: "mitasr-fin-c-9", question: "在N-gram语言模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "N-gram语言模型是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 1 },
+                { id: "mitasr-fin-c-10", question: "在HMM中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "HMM是6.345: Automatic Speech Recognition课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "mitasr-fin-f-1", question: "6.345: Automatic Speech Recognition中，____（声学建模）是一个核心概念。", answer: "声学建模", explanation: "声学建模是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+                { id: "mitasr-fin-f-2", question: "6.345: Automatic Speech Recognition中，____（语音特征）是一个核心概念。", answer: "语音特征", explanation: "语音特征是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 3 },
+                { id: "mitasr-fin-f-3", question: "6.345: Automatic Speech Recognition中，____（解码算法）是一个核心概念。", answer: "解码算法", explanation: "解码算法是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 1 },
+                { id: "mitasr-fin-f-4", question: "6.345: Automatic Speech Recognition中，____（语言模型集成）是一个核心概念。", answer: "语言模型集成", explanation: "语言模型集成是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+                { id: "mitasr-fin-f-5", question: "6.345: Automatic Speech Recognition中，____（Mel滤波器）是一个核心概念。", answer: "Mel滤波器", explanation: "Mel滤波器是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 3 },
+                { id: "mitasr-fin-f-6", question: "6.345: Automatic Speech Recognition中，____（声学模型训练）是一个核心概念。", answer: "声学模型训练", explanation: "声学模型训练是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 1 },
+                { id: "mitasr-fin-f-7", question: "6.345: Automatic Speech Recognition中，____（解码图）是一个核心概念。", answer: "解码图", explanation: "解码图是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+                { id: "mitasr-fin-f-8", question: "6.345: Automatic Speech Recognition中，____（发音词典）是一个核心概念。", answer: "发音词典", explanation: "发音词典是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 3 },
+                { id: "mitasr-fin-f-9", question: "6.345: Automatic Speech Recognition中，____（N-gram语言模型）是一个核心概念。", answer: "N-gram语言模型", explanation: "N-gram语言模型是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 1 },
+                { id: "mitasr-fin-f-10", question: "6.345: Automatic Speech Recognition中，____（HMM）是一个核心概念。", answer: "HMM", explanation: "HMM是6.345: Automatic Speech Recognition的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "mitasr-fin-code-1", question: "补全HMM相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是HMM的核心计算。", difficulty: 2 },
+                { id: "mitasr-fin-code-2", question: "补全HMM相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是HMM的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Made With ML": {
+        courseId: "madewithml-mlops", domain: "infra",
+        mid: {
+            choice: [
+                { id: "madewithml-mid-c-1", question: "在CI/CD中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CI/CD是Made With ML课程的重要主题。", difficulty: 2 },
+                { id: "madewithml-mid-c-2", question: "在监控中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "监控是Made With ML课程的重要主题。", difficulty: 3 },
+                { id: "madewithml-mid-c-3", question: "在数据管道中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据管道是Made With ML课程的重要主题。", difficulty: 1 },
+                { id: "madewithml-mid-c-4", question: "在模型部署中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型部署是Made With ML课程的重要主题。", difficulty: 2 },
+                { id: "madewithml-mid-c-5", question: "在实验追踪中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "实验追踪是Made With ML课程的重要主题。", difficulty: 3 },
+                { id: "madewithml-mid-c-6", question: "在A/B测试中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "A/B测试是Made With ML课程的重要主题。", difficulty: 1 },
+                { id: "madewithml-mid-c-7", question: "在特征存储中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "特征存储是Made With ML课程的重要主题。", difficulty: 2 },
+                { id: "madewithml-mid-c-8", question: "在模型版本控制中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型版本控制是Made With ML课程的重要主题。", difficulty: 3 },
+                { id: "madewithml-mid-c-9", question: "在生产监控中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "生产监控是Made With ML课程的重要主题。", difficulty: 1 },
+                { id: "madewithml-mid-c-10", question: "在MLOps中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MLOps是Made With ML课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "madewithml-mid-f-1", question: "Made With ML中，____（CI/CD）是一个核心概念。", answer: "CI/CD", explanation: "CI/CD是Made With ML的核心内容之一。", difficulty: 2 },
+                { id: "madewithml-mid-f-2", question: "Made With ML中，____（监控）是一个核心概念。", answer: "监控", explanation: "监控是Made With ML的核心内容之一。", difficulty: 3 },
+                { id: "madewithml-mid-f-3", question: "Made With ML中，____（数据管道）是一个核心概念。", answer: "数据管道", explanation: "数据管道是Made With ML的核心内容之一。", difficulty: 1 },
+                { id: "madewithml-mid-f-4", question: "Made With ML中，____（模型部署）是一个核心概念。", answer: "模型部署", explanation: "模型部署是Made With ML的核心内容之一。", difficulty: 2 },
+                { id: "madewithml-mid-f-5", question: "Made With ML中，____（实验追踪）是一个核心概念。", answer: "实验追踪", explanation: "实验追踪是Made With ML的核心内容之一。", difficulty: 3 },
+                { id: "madewithml-mid-f-6", question: "Made With ML中，____（A/B测试）是一个核心概念。", answer: "A/B测试", explanation: "A/B测试是Made With ML的核心内容之一。", difficulty: 1 },
+                { id: "madewithml-mid-f-7", question: "Made With ML中，____（特征存储）是一个核心概念。", answer: "特征存储", explanation: "特征存储是Made With ML的核心内容之一。", difficulty: 2 },
+                { id: "madewithml-mid-f-8", question: "Made With ML中，____（模型版本控制）是一个核心概念。", answer: "模型版本控制", explanation: "模型版本控制是Made With ML的核心内容之一。", difficulty: 3 },
+                { id: "madewithml-mid-f-9", question: "Made With ML中，____（生产监控）是一个核心概念。", answer: "生产监控", explanation: "生产监控是Made With ML的核心内容之一。", difficulty: 1 },
+                { id: "madewithml-mid-f-10", question: "Made With ML中，____（MLOps）是一个核心概念。", answer: "MLOps", explanation: "MLOps是Made With ML的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "madewithml-mid-code-1", question: "补全MLOps相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是MLOps的核心计算。", difficulty: 2 },
+                { id: "madewithml-mid-code-2", question: "补全MLOps相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是MLOps的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "madewithml-fin-c-1", question: "在CI/CD中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CI/CD是Made With ML课程的重要主题。", difficulty: 2 },
+                { id: "madewithml-fin-c-2", question: "在监控中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "监控是Made With ML课程的重要主题。", difficulty: 3 },
+                { id: "madewithml-fin-c-3", question: "在数据管道中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据管道是Made With ML课程的重要主题。", difficulty: 1 },
+                { id: "madewithml-fin-c-4", question: "在模型部署中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型部署是Made With ML课程的重要主题。", difficulty: 2 },
+                { id: "madewithml-fin-c-5", question: "在实验追踪中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "实验追踪是Made With ML课程的重要主题。", difficulty: 3 },
+                { id: "madewithml-fin-c-6", question: "在A/B测试中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "A/B测试是Made With ML课程的重要主题。", difficulty: 1 },
+                { id: "madewithml-fin-c-7", question: "在特征存储中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "特征存储是Made With ML课程的重要主题。", difficulty: 2 },
+                { id: "madewithml-fin-c-8", question: "在模型版本控制中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型版本控制是Made With ML课程的重要主题。", difficulty: 3 },
+                { id: "madewithml-fin-c-9", question: "在生产监控中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "生产监控是Made With ML课程的重要主题。", difficulty: 1 },
+                { id: "madewithml-fin-c-10", question: "在MLOps中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MLOps是Made With ML课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "madewithml-fin-f-1", question: "Made With ML中，____（CI/CD）是一个核心概念。", answer: "CI/CD", explanation: "CI/CD是Made With ML的核心内容之一。", difficulty: 2 },
+                { id: "madewithml-fin-f-2", question: "Made With ML中，____（监控）是一个核心概念。", answer: "监控", explanation: "监控是Made With ML的核心内容之一。", difficulty: 3 },
+                { id: "madewithml-fin-f-3", question: "Made With ML中，____（数据管道）是一个核心概念。", answer: "数据管道", explanation: "数据管道是Made With ML的核心内容之一。", difficulty: 1 },
+                { id: "madewithml-fin-f-4", question: "Made With ML中，____（模型部署）是一个核心概念。", answer: "模型部署", explanation: "模型部署是Made With ML的核心内容之一。", difficulty: 2 },
+                { id: "madewithml-fin-f-5", question: "Made With ML中，____（实验追踪）是一个核心概念。", answer: "实验追踪", explanation: "实验追踪是Made With ML的核心内容之一。", difficulty: 3 },
+                { id: "madewithml-fin-f-6", question: "Made With ML中，____（A/B测试）是一个核心概念。", answer: "A/B测试", explanation: "A/B测试是Made With ML的核心内容之一。", difficulty: 1 },
+                { id: "madewithml-fin-f-7", question: "Made With ML中，____（特征存储）是一个核心概念。", answer: "特征存储", explanation: "特征存储是Made With ML的核心内容之一。", difficulty: 2 },
+                { id: "madewithml-fin-f-8", question: "Made With ML中，____（模型版本控制）是一个核心概念。", answer: "模型版本控制", explanation: "模型版本控制是Made With ML的核心内容之一。", difficulty: 3 },
+                { id: "madewithml-fin-f-9", question: "Made With ML中，____（生产监控）是一个核心概念。", answer: "生产监控", explanation: "生产监控是Made With ML的核心内容之一。", difficulty: 1 },
+                { id: "madewithml-fin-f-10", question: "Made With ML中，____（MLOps）是一个核心概念。", answer: "MLOps", explanation: "MLOps是Made With ML的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "madewithml-fin-code-1", question: "补全MLOps相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是MLOps的核心计算。", difficulty: 2 },
+                { id: "madewithml-fin-code-2", question: "补全MLOps相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是MLOps的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Full Stack Deep Learning": {
+        courseId: "fsdl", domain: "infra",
+        mid: {
+            choice: [
+                { id: "fsdl-mid-c-1", question: "在测试中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "测试是Full Stack Deep Learning课程的重要主题。", difficulty: 2 },
+                { id: "fsdl-mid-c-2", question: "在数据管理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据管理是Full Stack Deep Learning课程的重要主题。", difficulty: 3 },
+                { id: "fsdl-mid-c-3", question: "在系统设计中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "系统设计是Full Stack Deep Learning课程的重要主题。", difficulty: 1 },
+                { id: "fsdl-mid-c-4", question: "在生产ML中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "生产ML是Full Stack Deep Learning课程的重要主题。", difficulty: 2 },
+                { id: "fsdl-mid-c-5", question: "在模型服务中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型服务是Full Stack Deep Learning课程的重要主题。", difficulty: 3 },
+                { id: "fsdl-mid-c-6", question: "在数据质量中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据质量是Full Stack Deep Learning课程的重要主题。", difficulty: 1 },
+                { id: "fsdl-mid-c-7", question: "在监控告警中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "监控告警是Full Stack Deep Learning课程的重要主题。", difficulty: 2 },
+                { id: "fsdl-mid-c-8", question: "在持续集成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "持续集成是Full Stack Deep Learning课程的重要主题。", difficulty: 3 },
+                { id: "fsdl-mid-c-9", question: "在模型更新中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型更新是Full Stack Deep Learning课程的重要主题。", difficulty: 1 },
+                { id: "fsdl-mid-c-10", question: "在部署中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "部署是Full Stack Deep Learning课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "fsdl-mid-f-1", question: "Full Stack Deep Learning中，____（测试）是一个核心概念。", answer: "测试", explanation: "测试是Full Stack Deep Learning的核心内容之一。", difficulty: 2 },
+                { id: "fsdl-mid-f-2", question: "Full Stack Deep Learning中，____（数据管理）是一个核心概念。", answer: "数据管理", explanation: "数据管理是Full Stack Deep Learning的核心内容之一。", difficulty: 3 },
+                { id: "fsdl-mid-f-3", question: "Full Stack Deep Learning中，____（系统设计）是一个核心概念。", answer: "系统设计", explanation: "系统设计是Full Stack Deep Learning的核心内容之一。", difficulty: 1 },
+                { id: "fsdl-mid-f-4", question: "Full Stack Deep Learning中，____（生产ML）是一个核心概念。", answer: "生产ML", explanation: "生产ML是Full Stack Deep Learning的核心内容之一。", difficulty: 2 },
+                { id: "fsdl-mid-f-5", question: "Full Stack Deep Learning中，____（模型服务）是一个核心概念。", answer: "模型服务", explanation: "模型服务是Full Stack Deep Learning的核心内容之一。", difficulty: 3 },
+                { id: "fsdl-mid-f-6", question: "Full Stack Deep Learning中，____（数据质量）是一个核心概念。", answer: "数据质量", explanation: "数据质量是Full Stack Deep Learning的核心内容之一。", difficulty: 1 },
+                { id: "fsdl-mid-f-7", question: "Full Stack Deep Learning中，____（监控告警）是一个核心概念。", answer: "监控告警", explanation: "监控告警是Full Stack Deep Learning的核心内容之一。", difficulty: 2 },
+                { id: "fsdl-mid-f-8", question: "Full Stack Deep Learning中，____（持续集成）是一个核心概念。", answer: "持续集成", explanation: "持续集成是Full Stack Deep Learning的核心内容之一。", difficulty: 3 },
+                { id: "fsdl-mid-f-9", question: "Full Stack Deep Learning中，____（模型更新）是一个核心概念。", answer: "模型更新", explanation: "模型更新是Full Stack Deep Learning的核心内容之一。", difficulty: 1 },
+                { id: "fsdl-mid-f-10", question: "Full Stack Deep Learning中，____（部署）是一个核心概念。", answer: "部署", explanation: "部署是Full Stack Deep Learning的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "fsdl-mid-code-1", question: "补全部署相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是部署的核心计算。", difficulty: 2 },
+                { id: "fsdl-mid-code-2", question: "补全部署相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是部署的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "fsdl-fin-c-1", question: "在测试中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "测试是Full Stack Deep Learning课程的重要主题。", difficulty: 2 },
+                { id: "fsdl-fin-c-2", question: "在数据管理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据管理是Full Stack Deep Learning课程的重要主题。", difficulty: 3 },
+                { id: "fsdl-fin-c-3", question: "在系统设计中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "系统设计是Full Stack Deep Learning课程的重要主题。", difficulty: 1 },
+                { id: "fsdl-fin-c-4", question: "在生产ML中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "生产ML是Full Stack Deep Learning课程的重要主题。", difficulty: 2 },
+                { id: "fsdl-fin-c-5", question: "在模型服务中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型服务是Full Stack Deep Learning课程的重要主题。", difficulty: 3 },
+                { id: "fsdl-fin-c-6", question: "在数据质量中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据质量是Full Stack Deep Learning课程的重要主题。", difficulty: 1 },
+                { id: "fsdl-fin-c-7", question: "在监控告警中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "监控告警是Full Stack Deep Learning课程的重要主题。", difficulty: 2 },
+                { id: "fsdl-fin-c-8", question: "在持续集成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "持续集成是Full Stack Deep Learning课程的重要主题。", difficulty: 3 },
+                { id: "fsdl-fin-c-9", question: "在模型更新中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型更新是Full Stack Deep Learning课程的重要主题。", difficulty: 1 },
+                { id: "fsdl-fin-c-10", question: "在部署中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "部署是Full Stack Deep Learning课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "fsdl-fin-f-1", question: "Full Stack Deep Learning中，____（测试）是一个核心概念。", answer: "测试", explanation: "测试是Full Stack Deep Learning的核心内容之一。", difficulty: 2 },
+                { id: "fsdl-fin-f-2", question: "Full Stack Deep Learning中，____（数据管理）是一个核心概念。", answer: "数据管理", explanation: "数据管理是Full Stack Deep Learning的核心内容之一。", difficulty: 3 },
+                { id: "fsdl-fin-f-3", question: "Full Stack Deep Learning中，____（系统设计）是一个核心概念。", answer: "系统设计", explanation: "系统设计是Full Stack Deep Learning的核心内容之一。", difficulty: 1 },
+                { id: "fsdl-fin-f-4", question: "Full Stack Deep Learning中，____（生产ML）是一个核心概念。", answer: "生产ML", explanation: "生产ML是Full Stack Deep Learning的核心内容之一。", difficulty: 2 },
+                { id: "fsdl-fin-f-5", question: "Full Stack Deep Learning中，____（模型服务）是一个核心概念。", answer: "模型服务", explanation: "模型服务是Full Stack Deep Learning的核心内容之一。", difficulty: 3 },
+                { id: "fsdl-fin-f-6", question: "Full Stack Deep Learning中，____（数据质量）是一个核心概念。", answer: "数据质量", explanation: "数据质量是Full Stack Deep Learning的核心内容之一。", difficulty: 1 },
+                { id: "fsdl-fin-f-7", question: "Full Stack Deep Learning中，____（监控告警）是一个核心概念。", answer: "监控告警", explanation: "监控告警是Full Stack Deep Learning的核心内容之一。", difficulty: 2 },
+                { id: "fsdl-fin-f-8", question: "Full Stack Deep Learning中，____（持续集成）是一个核心概念。", answer: "持续集成", explanation: "持续集成是Full Stack Deep Learning的核心内容之一。", difficulty: 3 },
+                { id: "fsdl-fin-f-9", question: "Full Stack Deep Learning中，____（模型更新）是一个核心概念。", answer: "模型更新", explanation: "模型更新是Full Stack Deep Learning的核心内容之一。", difficulty: 1 },
+                { id: "fsdl-fin-f-10", question: "Full Stack Deep Learning中，____（部署）是一个核心概念。", answer: "部署", explanation: "部署是Full Stack Deep Learning的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "fsdl-fin-code-1", question: "补全部署相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是部署的核心计算。", difficulty: 2 },
+                { id: "fsdl-fin-code-2", question: "补全部署相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是部署的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "ML Engineering for Production": {
+        courseId: "mleap-deeplearningai", domain: "infra",
+        mid: {
+            choice: [
+                { id: "mleapdeepl-mid-c-1", question: "在模型服务中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型服务是ML Engineering for Production课程的重要主题。", difficulty: 2 },
+                { id: "mleapdeepl-mid-c-2", question: "在特征工程中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "特征工程是ML Engineering for Production课程的重要主题。", difficulty: 3 },
+                { id: "mleapdeepl-mid-c-3", question: "在监控中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "监控是ML Engineering for Production课程的重要主题。", difficulty: 1 },
+                { id: "mleapdeepl-mid-c-4", question: "在A/B测试中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "A/B测试是ML Engineering for Production课程的重要主题。", difficulty: 2 },
+                { id: "mleapdeepl-mid-c-5", question: "在数据验证中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据验证是ML Engineering for Production课程的重要主题。", difficulty: 3 },
+                { id: "mleapdeepl-mid-c-6", question: "在模型版本化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型版本化是ML Engineering for Production课程的重要主题。", difficulty: 1 },
+                { id: "mleapdeepl-mid-c-7", question: "在在线推理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "在线推理是ML Engineering for Production课程的重要主题。", difficulty: 2 },
+                { id: "mleapdeepl-mid-c-8", question: "在批处理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "批处理是ML Engineering for Production课程的重要主题。", difficulty: 3 },
+                { id: "mleapdeepl-mid-c-9", question: "在数据漂移检测中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据漂移检测是ML Engineering for Production课程的重要主题。", difficulty: 1 },
+                { id: "mleapdeepl-mid-c-10", question: "在数据管道中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据管道是ML Engineering for Production课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "mleapdeepl-mid-f-1", question: "ML Engineering for Production中，____（模型服务）是一个核心概念。", answer: "模型服务", explanation: "模型服务是ML Engineering for Production的核心内容之一。", difficulty: 2 },
+                { id: "mleapdeepl-mid-f-2", question: "ML Engineering for Production中，____（特征工程）是一个核心概念。", answer: "特征工程", explanation: "特征工程是ML Engineering for Production的核心内容之一。", difficulty: 3 },
+                { id: "mleapdeepl-mid-f-3", question: "ML Engineering for Production中，____（监控）是一个核心概念。", answer: "监控", explanation: "监控是ML Engineering for Production的核心内容之一。", difficulty: 1 },
+                { id: "mleapdeepl-mid-f-4", question: "ML Engineering for Production中，____（A/B测试）是一个核心概念。", answer: "A/B测试", explanation: "A/B测试是ML Engineering for Production的核心内容之一。", difficulty: 2 },
+                { id: "mleapdeepl-mid-f-5", question: "ML Engineering for Production中，____（数据验证）是一个核心概念。", answer: "数据验证", explanation: "数据验证是ML Engineering for Production的核心内容之一。", difficulty: 3 },
+                { id: "mleapdeepl-mid-f-6", question: "ML Engineering for Production中，____（模型版本化）是一个核心概念。", answer: "模型版本化", explanation: "模型版本化是ML Engineering for Production的核心内容之一。", difficulty: 1 },
+                { id: "mleapdeepl-mid-f-7", question: "ML Engineering for Production中，____（在线推理）是一个核心概念。", answer: "在线推理", explanation: "在线推理是ML Engineering for Production的核心内容之一。", difficulty: 2 },
+                { id: "mleapdeepl-mid-f-8", question: "ML Engineering for Production中，____（批处理）是一个核心概念。", answer: "批处理", explanation: "批处理是ML Engineering for Production的核心内容之一。", difficulty: 3 },
+                { id: "mleapdeepl-mid-f-9", question: "ML Engineering for Production中，____（数据漂移检测）是一个核心概念。", answer: "数据漂移检测", explanation: "数据漂移检测是ML Engineering for Production的核心内容之一。", difficulty: 1 },
+                { id: "mleapdeepl-mid-f-10", question: "ML Engineering for Production中，____（数据管道）是一个核心概念。", answer: "数据管道", explanation: "数据管道是ML Engineering for Production的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "mleapdeepl-mid-code-1", question: "补全数据管道相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是数据管道的核心计算。", difficulty: 2 },
+                { id: "mleapdeepl-mid-code-2", question: "补全数据管道相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是数据管道的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "mleapdeepl-fin-c-1", question: "在模型服务中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型服务是ML Engineering for Production课程的重要主题。", difficulty: 2 },
+                { id: "mleapdeepl-fin-c-2", question: "在特征工程中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "特征工程是ML Engineering for Production课程的重要主题。", difficulty: 3 },
+                { id: "mleapdeepl-fin-c-3", question: "在监控中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "监控是ML Engineering for Production课程的重要主题。", difficulty: 1 },
+                { id: "mleapdeepl-fin-c-4", question: "在A/B测试中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "A/B测试是ML Engineering for Production课程的重要主题。", difficulty: 2 },
+                { id: "mleapdeepl-fin-c-5", question: "在数据验证中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据验证是ML Engineering for Production课程的重要主题。", difficulty: 3 },
+                { id: "mleapdeepl-fin-c-6", question: "在模型版本化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型版本化是ML Engineering for Production课程的重要主题。", difficulty: 1 },
+                { id: "mleapdeepl-fin-c-7", question: "在在线推理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "在线推理是ML Engineering for Production课程的重要主题。", difficulty: 2 },
+                { id: "mleapdeepl-fin-c-8", question: "在批处理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "批处理是ML Engineering for Production课程的重要主题。", difficulty: 3 },
+                { id: "mleapdeepl-fin-c-9", question: "在数据漂移检测中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据漂移检测是ML Engineering for Production课程的重要主题。", difficulty: 1 },
+                { id: "mleapdeepl-fin-c-10", question: "在数据管道中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据管道是ML Engineering for Production课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "mleapdeepl-fin-f-1", question: "ML Engineering for Production中，____（模型服务）是一个核心概念。", answer: "模型服务", explanation: "模型服务是ML Engineering for Production的核心内容之一。", difficulty: 2 },
+                { id: "mleapdeepl-fin-f-2", question: "ML Engineering for Production中，____（特征工程）是一个核心概念。", answer: "特征工程", explanation: "特征工程是ML Engineering for Production的核心内容之一。", difficulty: 3 },
+                { id: "mleapdeepl-fin-f-3", question: "ML Engineering for Production中，____（监控）是一个核心概念。", answer: "监控", explanation: "监控是ML Engineering for Production的核心内容之一。", difficulty: 1 },
+                { id: "mleapdeepl-fin-f-4", question: "ML Engineering for Production中，____（A/B测试）是一个核心概念。", answer: "A/B测试", explanation: "A/B测试是ML Engineering for Production的核心内容之一。", difficulty: 2 },
+                { id: "mleapdeepl-fin-f-5", question: "ML Engineering for Production中，____（数据验证）是一个核心概念。", answer: "数据验证", explanation: "数据验证是ML Engineering for Production的核心内容之一。", difficulty: 3 },
+                { id: "mleapdeepl-fin-f-6", question: "ML Engineering for Production中，____（模型版本化）是一个核心概念。", answer: "模型版本化", explanation: "模型版本化是ML Engineering for Production的核心内容之一。", difficulty: 1 },
+                { id: "mleapdeepl-fin-f-7", question: "ML Engineering for Production中，____（在线推理）是一个核心概念。", answer: "在线推理", explanation: "在线推理是ML Engineering for Production的核心内容之一。", difficulty: 2 },
+                { id: "mleapdeepl-fin-f-8", question: "ML Engineering for Production中，____（批处理）是一个核心概念。", answer: "批处理", explanation: "批处理是ML Engineering for Production的核心内容之一。", difficulty: 3 },
+                { id: "mleapdeepl-fin-f-9", question: "ML Engineering for Production中，____（数据漂移检测）是一个核心概念。", answer: "数据漂移检测", explanation: "数据漂移检测是ML Engineering for Production的核心内容之一。", difficulty: 1 },
+                { id: "mleapdeepl-fin-f-10", question: "ML Engineering for Production中，____（数据管道）是一个核心概念。", answer: "数据管道", explanation: "数据管道是ML Engineering for Production的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "mleapdeepl-fin-code-1", question: "补全数据管道相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是数据管道的核心计算。", difficulty: 2 },
+                { id: "mleapdeepl-fin-code-2", question: "补全数据管道相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是数据管道的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "TensorFlow Developer Certificate": {
+        courseId: "tf-developer-cert", domain: "infra",
+        mid: {
+            choice: [
+                { id: "tfdevelope-mid-c-1", question: "在CNN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CNN是TensorFlow Developer Certificate课程的重要主题。", difficulty: 2 },
+                { id: "tfdevelope-mid-c-2", question: "在NLP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "NLP是TensorFlow Developer Certificate课程的重要主题。", difficulty: 3 },
+                { id: "tfdevelope-mid-c-3", question: "在部署中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "部署是TensorFlow Developer Certificate课程的重要主题。", difficulty: 1 },
+                { id: "tfdevelope-mid-c-4", question: "在TFLite中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "TFLite是TensorFlow Developer Certificate课程的重要主题。", difficulty: 2 },
+                { id: "tfdevelope-mid-c-5", question: "在Keras中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Keras是TensorFlow Developer Certificate课程的重要主题。", difficulty: 3 },
+                { id: "tfdevelope-mid-c-6", question: "在序列模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "序列模型是TensorFlow Developer Certificate课程的重要主题。", difficulty: 1 },
+                { id: "tfdevelope-mid-c-7", question: "在图像增强中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "图像增强是TensorFlow Developer Certificate课程的重要主题。", difficulty: 2 },
+                { id: "tfdevelope-mid-c-8", question: "在SavedModel中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SavedModel是TensorFlow Developer Certificate课程的重要主题。", difficulty: 3 },
+                { id: "tfdevelope-mid-c-9", question: "在迁移学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "迁移学习是TensorFlow Developer Certificate课程的重要主题。", difficulty: 1 },
+                { id: "tfdevelope-mid-c-10", question: "在TensorFlow中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "TensorFlow是TensorFlow Developer Certificate课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "tfdevelope-mid-f-1", question: "TensorFlow Developer Certificate中，____（CNN）是一个核心概念。", answer: "CNN", explanation: "CNN是TensorFlow Developer Certificate的核心内容之一。", difficulty: 2 },
+                { id: "tfdevelope-mid-f-2", question: "TensorFlow Developer Certificate中，____（NLP）是一个核心概念。", answer: "NLP", explanation: "NLP是TensorFlow Developer Certificate的核心内容之一。", difficulty: 3 },
+                { id: "tfdevelope-mid-f-3", question: "TensorFlow Developer Certificate中，____（部署）是一个核心概念。", answer: "部署", explanation: "部署是TensorFlow Developer Certificate的核心内容之一。", difficulty: 1 },
+                { id: "tfdevelope-mid-f-4", question: "TensorFlow Developer Certificate中，____（TFLite）是一个核心概念。", answer: "TFLite", explanation: "TFLite是TensorFlow Developer Certificate的核心内容之一。", difficulty: 2 },
+                { id: "tfdevelope-mid-f-5", question: "TensorFlow Developer Certificate中，____（Keras）是一个核心概念。", answer: "Keras", explanation: "Keras是TensorFlow Developer Certificate的核心内容之一。", difficulty: 3 },
+                { id: "tfdevelope-mid-f-6", question: "TensorFlow Developer Certificate中，____（序列模型）是一个核心概念。", answer: "序列模型", explanation: "序列模型是TensorFlow Developer Certificate的核心内容之一。", difficulty: 1 },
+                { id: "tfdevelope-mid-f-7", question: "TensorFlow Developer Certificate中，____（图像增强）是一个核心概念。", answer: "图像增强", explanation: "图像增强是TensorFlow Developer Certificate的核心内容之一。", difficulty: 2 },
+                { id: "tfdevelope-mid-f-8", question: "TensorFlow Developer Certificate中，____（SavedModel）是一个核心概念。", answer: "SavedModel", explanation: "SavedModel是TensorFlow Developer Certificate的核心内容之一。", difficulty: 3 },
+                { id: "tfdevelope-mid-f-9", question: "TensorFlow Developer Certificate中，____（迁移学习）是一个核心概念。", answer: "迁移学习", explanation: "迁移学习是TensorFlow Developer Certificate的核心内容之一。", difficulty: 1 },
+                { id: "tfdevelope-mid-f-10", question: "TensorFlow Developer Certificate中，____（TensorFlow）是一个核心概念。", answer: "TensorFlow", explanation: "TensorFlow是TensorFlow Developer Certificate的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "tfdevelope-mid-code-1", question: "补全TensorFlow相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是TensorFlow的核心计算。", difficulty: 2 },
+                { id: "tfdevelope-mid-code-2", question: "补全TensorFlow相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是TensorFlow的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "tfdevelope-fin-c-1", question: "在CNN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CNN是TensorFlow Developer Certificate课程的重要主题。", difficulty: 2 },
+                { id: "tfdevelope-fin-c-2", question: "在NLP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "NLP是TensorFlow Developer Certificate课程的重要主题。", difficulty: 3 },
+                { id: "tfdevelope-fin-c-3", question: "在部署中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "部署是TensorFlow Developer Certificate课程的重要主题。", difficulty: 1 },
+                { id: "tfdevelope-fin-c-4", question: "在TFLite中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "TFLite是TensorFlow Developer Certificate课程的重要主题。", difficulty: 2 },
+                { id: "tfdevelope-fin-c-5", question: "在Keras中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Keras是TensorFlow Developer Certificate课程的重要主题。", difficulty: 3 },
+                { id: "tfdevelope-fin-c-6", question: "在序列模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "序列模型是TensorFlow Developer Certificate课程的重要主题。", difficulty: 1 },
+                { id: "tfdevelope-fin-c-7", question: "在图像增强中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "图像增强是TensorFlow Developer Certificate课程的重要主题。", difficulty: 2 },
+                { id: "tfdevelope-fin-c-8", question: "在SavedModel中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SavedModel是TensorFlow Developer Certificate课程的重要主题。", difficulty: 3 },
+                { id: "tfdevelope-fin-c-9", question: "在迁移学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "迁移学习是TensorFlow Developer Certificate课程的重要主题。", difficulty: 1 },
+                { id: "tfdevelope-fin-c-10", question: "在TensorFlow中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "TensorFlow是TensorFlow Developer Certificate课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "tfdevelope-fin-f-1", question: "TensorFlow Developer Certificate中，____（CNN）是一个核心概念。", answer: "CNN", explanation: "CNN是TensorFlow Developer Certificate的核心内容之一。", difficulty: 2 },
+                { id: "tfdevelope-fin-f-2", question: "TensorFlow Developer Certificate中，____（NLP）是一个核心概念。", answer: "NLP", explanation: "NLP是TensorFlow Developer Certificate的核心内容之一。", difficulty: 3 },
+                { id: "tfdevelope-fin-f-3", question: "TensorFlow Developer Certificate中，____（部署）是一个核心概念。", answer: "部署", explanation: "部署是TensorFlow Developer Certificate的核心内容之一。", difficulty: 1 },
+                { id: "tfdevelope-fin-f-4", question: "TensorFlow Developer Certificate中，____（TFLite）是一个核心概念。", answer: "TFLite", explanation: "TFLite是TensorFlow Developer Certificate的核心内容之一。", difficulty: 2 },
+                { id: "tfdevelope-fin-f-5", question: "TensorFlow Developer Certificate中，____（Keras）是一个核心概念。", answer: "Keras", explanation: "Keras是TensorFlow Developer Certificate的核心内容之一。", difficulty: 3 },
+                { id: "tfdevelope-fin-f-6", question: "TensorFlow Developer Certificate中，____（序列模型）是一个核心概念。", answer: "序列模型", explanation: "序列模型是TensorFlow Developer Certificate的核心内容之一。", difficulty: 1 },
+                { id: "tfdevelope-fin-f-7", question: "TensorFlow Developer Certificate中，____（图像增强）是一个核心概念。", answer: "图像增强", explanation: "图像增强是TensorFlow Developer Certificate的核心内容之一。", difficulty: 2 },
+                { id: "tfdevelope-fin-f-8", question: "TensorFlow Developer Certificate中，____（SavedModel）是一个核心概念。", answer: "SavedModel", explanation: "SavedModel是TensorFlow Developer Certificate的核心内容之一。", difficulty: 3 },
+                { id: "tfdevelope-fin-f-9", question: "TensorFlow Developer Certificate中，____（迁移学习）是一个核心概念。", answer: "迁移学习", explanation: "迁移学习是TensorFlow Developer Certificate的核心内容之一。", difficulty: 1 },
+                { id: "tfdevelope-fin-f-10", question: "TensorFlow Developer Certificate中，____（TensorFlow）是一个核心概念。", answer: "TensorFlow", explanation: "TensorFlow是TensorFlow Developer Certificate的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "tfdevelope-fin-code-1", question: "补全TensorFlow相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是TensorFlow的核心计算。", difficulty: 2 },
+                { id: "tfdevelope-fin-code-2", question: "补全TensorFlow相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是TensorFlow的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Ultra-Scale Distributed Training": {
+        courseId: "ultra-scale-distributed", domain: "infra",
+        mid: {
+            choice: [
+                { id: "ultrascale-mid-c-1", question: "在模型并行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型并行是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 2 },
+                { id: "ultrascale-mid-c-2", question: "在流水线并行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "流水线并行是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 3 },
+                { id: "ultrascale-mid-c-3", question: "在ZeRO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "ZeRO是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 1 },
+                { id: "ultrascale-mid-c-4", question: "在混合并行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "混合并行是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 2 },
+                { id: "ultrascale-mid-c-5", question: "在AllReduce中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "AllReduce是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 3 },
+                { id: "ultrascale-mid-c-6", question: "在张量并行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "张量并行是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 1 },
+                { id: "ultrascale-mid-c-7", question: "在梯度累积中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "梯度累积是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 2 },
+                { id: "ultrascale-mid-c-8", question: "在通信优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "通信优化是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 3 },
+                { id: "ultrascale-mid-c-9", question: "在容错训练中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "容错训练是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 1 },
+                { id: "ultrascale-mid-c-10", question: "在数据并行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据并行是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "ultrascale-mid-f-1", question: "Ultra-Scale Distributed Training中，____（模型并行）是一个核心概念。", answer: "模型并行", explanation: "模型并行是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 2 },
+                { id: "ultrascale-mid-f-2", question: "Ultra-Scale Distributed Training中，____（流水线并行）是一个核心概念。", answer: "流水线并行", explanation: "流水线并行是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 3 },
+                { id: "ultrascale-mid-f-3", question: "Ultra-Scale Distributed Training中，____（ZeRO）是一个核心概念。", answer: "ZeRO", explanation: "ZeRO是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 1 },
+                { id: "ultrascale-mid-f-4", question: "Ultra-Scale Distributed Training中，____（混合并行）是一个核心概念。", answer: "混合并行", explanation: "混合并行是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 2 },
+                { id: "ultrascale-mid-f-5", question: "Ultra-Scale Distributed Training中，____（AllReduce）是一个核心概念。", answer: "AllReduce", explanation: "AllReduce是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 3 },
+                { id: "ultrascale-mid-f-6", question: "Ultra-Scale Distributed Training中，____（张量并行）是一个核心概念。", answer: "张量并行", explanation: "张量并行是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 1 },
+                { id: "ultrascale-mid-f-7", question: "Ultra-Scale Distributed Training中，____（梯度累积）是一个核心概念。", answer: "梯度累积", explanation: "梯度累积是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 2 },
+                { id: "ultrascale-mid-f-8", question: "Ultra-Scale Distributed Training中，____（通信优化）是一个核心概念。", answer: "通信优化", explanation: "通信优化是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 3 },
+                { id: "ultrascale-mid-f-9", question: "Ultra-Scale Distributed Training中，____（容错训练）是一个核心概念。", answer: "容错训练", explanation: "容错训练是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 1 },
+                { id: "ultrascale-mid-f-10", question: "Ultra-Scale Distributed Training中，____（数据并行）是一个核心概念。", answer: "数据并行", explanation: "数据并行是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "ultrascale-mid-code-1", question: "补全数据并行相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是数据并行的核心计算。", difficulty: 2 },
+                { id: "ultrascale-mid-code-2", question: "补全数据并行相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是数据并行的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "ultrascale-fin-c-1", question: "在模型并行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "模型并行是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 2 },
+                { id: "ultrascale-fin-c-2", question: "在流水线并行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "流水线并行是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 3 },
+                { id: "ultrascale-fin-c-3", question: "在ZeRO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "ZeRO是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 1 },
+                { id: "ultrascale-fin-c-4", question: "在混合并行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "混合并行是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 2 },
+                { id: "ultrascale-fin-c-5", question: "在AllReduce中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "AllReduce是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 3 },
+                { id: "ultrascale-fin-c-6", question: "在张量并行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "张量并行是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 1 },
+                { id: "ultrascale-fin-c-7", question: "在梯度累积中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "梯度累积是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 2 },
+                { id: "ultrascale-fin-c-8", question: "在通信优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "通信优化是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 3 },
+                { id: "ultrascale-fin-c-9", question: "在容错训练中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "容错训练是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 1 },
+                { id: "ultrascale-fin-c-10", question: "在数据并行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据并行是Ultra-Scale Distributed Training课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "ultrascale-fin-f-1", question: "Ultra-Scale Distributed Training中，____（模型并行）是一个核心概念。", answer: "模型并行", explanation: "模型并行是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 2 },
+                { id: "ultrascale-fin-f-2", question: "Ultra-Scale Distributed Training中，____（流水线并行）是一个核心概念。", answer: "流水线并行", explanation: "流水线并行是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 3 },
+                { id: "ultrascale-fin-f-3", question: "Ultra-Scale Distributed Training中，____（ZeRO）是一个核心概念。", answer: "ZeRO", explanation: "ZeRO是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 1 },
+                { id: "ultrascale-fin-f-4", question: "Ultra-Scale Distributed Training中，____（混合并行）是一个核心概念。", answer: "混合并行", explanation: "混合并行是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 2 },
+                { id: "ultrascale-fin-f-5", question: "Ultra-Scale Distributed Training中，____（AllReduce）是一个核心概念。", answer: "AllReduce", explanation: "AllReduce是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 3 },
+                { id: "ultrascale-fin-f-6", question: "Ultra-Scale Distributed Training中，____（张量并行）是一个核心概念。", answer: "张量并行", explanation: "张量并行是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 1 },
+                { id: "ultrascale-fin-f-7", question: "Ultra-Scale Distributed Training中，____（梯度累积）是一个核心概念。", answer: "梯度累积", explanation: "梯度累积是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 2 },
+                { id: "ultrascale-fin-f-8", question: "Ultra-Scale Distributed Training中，____（通信优化）是一个核心概念。", answer: "通信优化", explanation: "通信优化是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 3 },
+                { id: "ultrascale-fin-f-9", question: "Ultra-Scale Distributed Training中，____（容错训练）是一个核心概念。", answer: "容错训练", explanation: "容错训练是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 1 },
+                { id: "ultrascale-fin-f-10", question: "Ultra-Scale Distributed Training中，____（数据并行）是一个核心概念。", answer: "数据并行", explanation: "数据并行是Ultra-Scale Distributed Training的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "ultrascale-fin-code-1", question: "补全数据并行相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是数据并行的核心计算。", difficulty: 2 },
+                { id: "ultrascale-fin-code-2", question: "补全数据并行相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是数据并行的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Efficient ML Systems": {
+        courseId: "efficient-ml-systems-mit", domain: "infra",
+        mid: {
+            choice: [
+                { id: "efficientm-mid-c-1", question: "在剪枝中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "剪枝是Efficient ML Systems课程的重要主题。", difficulty: 2 },
+                { id: "efficientm-mid-c-2", question: "在蒸馏中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "蒸馏是Efficient ML Systems课程的重要主题。", difficulty: 3 },
+                { id: "efficientm-mid-c-3", question: "在NAS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "NAS是Efficient ML Systems课程的重要主题。", difficulty: 1 },
+                { id: "efficientm-mid-c-4", question: "在推理优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "推理优化是Efficient ML Systems课程的重要主题。", difficulty: 2 },
+                { id: "efficientm-mid-c-5", question: "在INT8中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "INT8是Efficient ML Systems课程的重要主题。", difficulty: 3 },
+                { id: "efficientm-mid-c-6", question: "在稀疏化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "稀疏化是Efficient ML Systems课程的重要主题。", difficulty: 1 },
+                { id: "efficientm-mid-c-7", question: "在知识蒸馏中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "知识蒸馏是Efficient ML Systems课程的重要主题。", difficulty: 2 },
+                { id: "efficientm-mid-c-8", question: "在自动化搜索中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自动化搜索是Efficient ML Systems课程的重要主题。", difficulty: 3 },
+                { id: "efficientm-mid-c-9", question: "在编译优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "编译优化是Efficient ML Systems课程的重要主题。", difficulty: 1 },
+                { id: "efficientm-mid-c-10", question: "在量化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "量化是Efficient ML Systems课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "efficientm-mid-f-1", question: "Efficient ML Systems中，____（剪枝）是一个核心概念。", answer: "剪枝", explanation: "剪枝是Efficient ML Systems的核心内容之一。", difficulty: 2 },
+                { id: "efficientm-mid-f-2", question: "Efficient ML Systems中，____（蒸馏）是一个核心概念。", answer: "蒸馏", explanation: "蒸馏是Efficient ML Systems的核心内容之一。", difficulty: 3 },
+                { id: "efficientm-mid-f-3", question: "Efficient ML Systems中，____（NAS）是一个核心概念。", answer: "NAS", explanation: "NAS是Efficient ML Systems的核心内容之一。", difficulty: 1 },
+                { id: "efficientm-mid-f-4", question: "Efficient ML Systems中，____（推理优化）是一个核心概念。", answer: "推理优化", explanation: "推理优化是Efficient ML Systems的核心内容之一。", difficulty: 2 },
+                { id: "efficientm-mid-f-5", question: "Efficient ML Systems中，____（INT8）是一个核心概念。", answer: "INT8", explanation: "INT8是Efficient ML Systems的核心内容之一。", difficulty: 3 },
+                { id: "efficientm-mid-f-6", question: "Efficient ML Systems中，____（稀疏化）是一个核心概念。", answer: "稀疏化", explanation: "稀疏化是Efficient ML Systems的核心内容之一。", difficulty: 1 },
+                { id: "efficientm-mid-f-7", question: "Efficient ML Systems中，____（知识蒸馏）是一个核心概念。", answer: "知识蒸馏", explanation: "知识蒸馏是Efficient ML Systems的核心内容之一。", difficulty: 2 },
+                { id: "efficientm-mid-f-8", question: "Efficient ML Systems中，____（自动化搜索）是一个核心概念。", answer: "自动化搜索", explanation: "自动化搜索是Efficient ML Systems的核心内容之一。", difficulty: 3 },
+                { id: "efficientm-mid-f-9", question: "Efficient ML Systems中，____（编译优化）是一个核心概念。", answer: "编译优化", explanation: "编译优化是Efficient ML Systems的核心内容之一。", difficulty: 1 },
+                { id: "efficientm-mid-f-10", question: "Efficient ML Systems中，____（量化）是一个核心概念。", answer: "量化", explanation: "量化是Efficient ML Systems的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "efficientm-mid-code-1", question: "补全量化相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是量化的核心计算。", difficulty: 2 },
+                { id: "efficientm-mid-code-2", question: "补全量化相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是量化的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "efficientm-fin-c-1", question: "在剪枝中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "剪枝是Efficient ML Systems课程的重要主题。", difficulty: 2 },
+                { id: "efficientm-fin-c-2", question: "在蒸馏中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "蒸馏是Efficient ML Systems课程的重要主题。", difficulty: 3 },
+                { id: "efficientm-fin-c-3", question: "在NAS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "NAS是Efficient ML Systems课程的重要主题。", difficulty: 1 },
+                { id: "efficientm-fin-c-4", question: "在推理优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "推理优化是Efficient ML Systems课程的重要主题。", difficulty: 2 },
+                { id: "efficientm-fin-c-5", question: "在INT8中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "INT8是Efficient ML Systems课程的重要主题。", difficulty: 3 },
+                { id: "efficientm-fin-c-6", question: "在稀疏化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "稀疏化是Efficient ML Systems课程的重要主题。", difficulty: 1 },
+                { id: "efficientm-fin-c-7", question: "在知识蒸馏中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "知识蒸馏是Efficient ML Systems课程的重要主题。", difficulty: 2 },
+                { id: "efficientm-fin-c-8", question: "在自动化搜索中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自动化搜索是Efficient ML Systems课程的重要主题。", difficulty: 3 },
+                { id: "efficientm-fin-c-9", question: "在编译优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "编译优化是Efficient ML Systems课程的重要主题。", difficulty: 1 },
+                { id: "efficientm-fin-c-10", question: "在量化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "量化是Efficient ML Systems课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "efficientm-fin-f-1", question: "Efficient ML Systems中，____（剪枝）是一个核心概念。", answer: "剪枝", explanation: "剪枝是Efficient ML Systems的核心内容之一。", difficulty: 2 },
+                { id: "efficientm-fin-f-2", question: "Efficient ML Systems中，____（蒸馏）是一个核心概念。", answer: "蒸馏", explanation: "蒸馏是Efficient ML Systems的核心内容之一。", difficulty: 3 },
+                { id: "efficientm-fin-f-3", question: "Efficient ML Systems中，____（NAS）是一个核心概念。", answer: "NAS", explanation: "NAS是Efficient ML Systems的核心内容之一。", difficulty: 1 },
+                { id: "efficientm-fin-f-4", question: "Efficient ML Systems中，____（推理优化）是一个核心概念。", answer: "推理优化", explanation: "推理优化是Efficient ML Systems的核心内容之一。", difficulty: 2 },
+                { id: "efficientm-fin-f-5", question: "Efficient ML Systems中，____（INT8）是一个核心概念。", answer: "INT8", explanation: "INT8是Efficient ML Systems的核心内容之一。", difficulty: 3 },
+                { id: "efficientm-fin-f-6", question: "Efficient ML Systems中，____（稀疏化）是一个核心概念。", answer: "稀疏化", explanation: "稀疏化是Efficient ML Systems的核心内容之一。", difficulty: 1 },
+                { id: "efficientm-fin-f-7", question: "Efficient ML Systems中，____（知识蒸馏）是一个核心概念。", answer: "知识蒸馏", explanation: "知识蒸馏是Efficient ML Systems的核心内容之一。", difficulty: 2 },
+                { id: "efficientm-fin-f-8", question: "Efficient ML Systems中，____（自动化搜索）是一个核心概念。", answer: "自动化搜索", explanation: "自动化搜索是Efficient ML Systems的核心内容之一。", difficulty: 3 },
+                { id: "efficientm-fin-f-9", question: "Efficient ML Systems中，____（编译优化）是一个核心概念。", answer: "编译优化", explanation: "编译优化是Efficient ML Systems的核心内容之一。", difficulty: 1 },
+                { id: "efficientm-fin-f-10", question: "Efficient ML Systems中，____（量化）是一个核心概念。", answer: "量化", explanation: "量化是Efficient ML Systems的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "efficientm-fin-code-1", question: "补全量化相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是量化的核心计算。", difficulty: 2 },
+                { id: "efficientm-fin-code-2", question: "补全量化相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是量化的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "CUDA Programming": {
+        courseId: "cuda-programming-nvidia", domain: "infra",
+        mid: {
+            choice: [
+                { id: "cudaprogra-mid-c-1", question: "在GPU计算中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GPU计算是CUDA Programming课程的重要主题。", difficulty: 2 },
+                { id: "cudaprogra-mid-c-2", question: "在并行编程中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行编程是CUDA Programming课程的重要主题。", difficulty: 3 },
+                { id: "cudaprogra-mid-c-3", question: "在内存优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "内存优化是CUDA Programming课程的重要主题。", difficulty: 1 },
+                { id: "cudaprogra-mid-c-4", question: "在核函数中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "核函数是CUDA Programming课程的重要主题。", difficulty: 2 },
+                { id: "cudaprogra-mid-c-5", question: "在线程层次中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "线程层次是CUDA Programming课程的重要主题。", difficulty: 3 },
+                { id: "cudaprogra-mid-c-6", question: "在共享内存中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "共享内存是CUDA Programming课程的重要主题。", difficulty: 1 },
+                { id: "cudaprogra-mid-c-7", question: "在Warp中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Warp是CUDA Programming课程的重要主题。", difficulty: 2 },
+                { id: "cudaprogra-mid-c-8", question: "在内存合并中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "内存合并是CUDA Programming课程的重要主题。", difficulty: 3 },
+                { id: "cudaprogra-mid-c-9", question: "在流式处理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "流式处理是CUDA Programming课程的重要主题。", difficulty: 1 },
+                { id: "cudaprogra-mid-c-10", question: "在CUDA中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CUDA是CUDA Programming课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cudaprogra-mid-f-1", question: "CUDA Programming中，____（GPU计算）是一个核心概念。", answer: "GPU计算", explanation: "GPU计算是CUDA Programming的核心内容之一。", difficulty: 2 },
+                { id: "cudaprogra-mid-f-2", question: "CUDA Programming中，____（并行编程）是一个核心概念。", answer: "并行编程", explanation: "并行编程是CUDA Programming的核心内容之一。", difficulty: 3 },
+                { id: "cudaprogra-mid-f-3", question: "CUDA Programming中，____（内存优化）是一个核心概念。", answer: "内存优化", explanation: "内存优化是CUDA Programming的核心内容之一。", difficulty: 1 },
+                { id: "cudaprogra-mid-f-4", question: "CUDA Programming中，____（核函数）是一个核心概念。", answer: "核函数", explanation: "核函数是CUDA Programming的核心内容之一。", difficulty: 2 },
+                { id: "cudaprogra-mid-f-5", question: "CUDA Programming中，____（线程层次）是一个核心概念。", answer: "线程层次", explanation: "线程层次是CUDA Programming的核心内容之一。", difficulty: 3 },
+                { id: "cudaprogra-mid-f-6", question: "CUDA Programming中，____（共享内存）是一个核心概念。", answer: "共享内存", explanation: "共享内存是CUDA Programming的核心内容之一。", difficulty: 1 },
+                { id: "cudaprogra-mid-f-7", question: "CUDA Programming中，____（Warp）是一个核心概念。", answer: "Warp", explanation: "Warp是CUDA Programming的核心内容之一。", difficulty: 2 },
+                { id: "cudaprogra-mid-f-8", question: "CUDA Programming中，____（内存合并）是一个核心概念。", answer: "内存合并", explanation: "内存合并是CUDA Programming的核心内容之一。", difficulty: 3 },
+                { id: "cudaprogra-mid-f-9", question: "CUDA Programming中，____（流式处理）是一个核心概念。", answer: "流式处理", explanation: "流式处理是CUDA Programming的核心内容之一。", difficulty: 1 },
+                { id: "cudaprogra-mid-f-10", question: "CUDA Programming中，____（CUDA）是一个核心概念。", answer: "CUDA", explanation: "CUDA是CUDA Programming的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cudaprogra-mid-code-1", question: "补全CUDA相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是CUDA的核心计算。", difficulty: 2 },
+                { id: "cudaprogra-mid-code-2", question: "补全CUDA相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是CUDA的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cudaprogra-fin-c-1", question: "在GPU计算中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GPU计算是CUDA Programming课程的重要主题。", difficulty: 2 },
+                { id: "cudaprogra-fin-c-2", question: "在并行编程中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行编程是CUDA Programming课程的重要主题。", difficulty: 3 },
+                { id: "cudaprogra-fin-c-3", question: "在内存优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "内存优化是CUDA Programming课程的重要主题。", difficulty: 1 },
+                { id: "cudaprogra-fin-c-4", question: "在核函数中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "核函数是CUDA Programming课程的重要主题。", difficulty: 2 },
+                { id: "cudaprogra-fin-c-5", question: "在线程层次中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "线程层次是CUDA Programming课程的重要主题。", difficulty: 3 },
+                { id: "cudaprogra-fin-c-6", question: "在共享内存中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "共享内存是CUDA Programming课程的重要主题。", difficulty: 1 },
+                { id: "cudaprogra-fin-c-7", question: "在Warp中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Warp是CUDA Programming课程的重要主题。", difficulty: 2 },
+                { id: "cudaprogra-fin-c-8", question: "在内存合并中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "内存合并是CUDA Programming课程的重要主题。", difficulty: 3 },
+                { id: "cudaprogra-fin-c-9", question: "在流式处理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "流式处理是CUDA Programming课程的重要主题。", difficulty: 1 },
+                { id: "cudaprogra-fin-c-10", question: "在CUDA中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CUDA是CUDA Programming课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cudaprogra-fin-f-1", question: "CUDA Programming中，____（GPU计算）是一个核心概念。", answer: "GPU计算", explanation: "GPU计算是CUDA Programming的核心内容之一。", difficulty: 2 },
+                { id: "cudaprogra-fin-f-2", question: "CUDA Programming中，____（并行编程）是一个核心概念。", answer: "并行编程", explanation: "并行编程是CUDA Programming的核心内容之一。", difficulty: 3 },
+                { id: "cudaprogra-fin-f-3", question: "CUDA Programming中，____（内存优化）是一个核心概念。", answer: "内存优化", explanation: "内存优化是CUDA Programming的核心内容之一。", difficulty: 1 },
+                { id: "cudaprogra-fin-f-4", question: "CUDA Programming中，____（核函数）是一个核心概念。", answer: "核函数", explanation: "核函数是CUDA Programming的核心内容之一。", difficulty: 2 },
+                { id: "cudaprogra-fin-f-5", question: "CUDA Programming中，____（线程层次）是一个核心概念。", answer: "线程层次", explanation: "线程层次是CUDA Programming的核心内容之一。", difficulty: 3 },
+                { id: "cudaprogra-fin-f-6", question: "CUDA Programming中，____（共享内存）是一个核心概念。", answer: "共享内存", explanation: "共享内存是CUDA Programming的核心内容之一。", difficulty: 1 },
+                { id: "cudaprogra-fin-f-7", question: "CUDA Programming中，____（Warp）是一个核心概念。", answer: "Warp", explanation: "Warp是CUDA Programming的核心内容之一。", difficulty: 2 },
+                { id: "cudaprogra-fin-f-8", question: "CUDA Programming中，____（内存合并）是一个核心概念。", answer: "内存合并", explanation: "内存合并是CUDA Programming的核心内容之一。", difficulty: 3 },
+                { id: "cudaprogra-fin-f-9", question: "CUDA Programming中，____（流式处理）是一个核心概念。", answer: "流式处理", explanation: "流式处理是CUDA Programming的核心内容之一。", difficulty: 1 },
+                { id: "cudaprogra-fin-f-10", question: "CUDA Programming中，____（CUDA）是一个核心概念。", answer: "CUDA", explanation: "CUDA是CUDA Programming的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cudaprogra-fin-code-1", question: "补全CUDA相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是CUDA的核心计算。", difficulty: 2 },
+                { id: "cudaprogra-fin-code-2", question: "补全CUDA相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是CUDA的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "JAX for Machine Learning": {
+        courseId: "jax-ml-google", domain: "infra",
+        mid: {
+            choice: [
+                { id: "jaxmlgoogl-mid-c-1", question: "在XLA中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "XLA是JAX for Machine Learning课程的重要主题。", difficulty: 2 },
+                { id: "jaxmlgoogl-mid-c-2", question: "在TPU中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "TPU是JAX for Machine Learning课程的重要主题。", difficulty: 3 },
+                { id: "jaxmlgoogl-mid-c-3", question: "在函数变换中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "函数变换是JAX for Machine Learning课程的重要主题。", difficulty: 1 },
+                { id: "jaxmlgoogl-mid-c-4", question: "在自动微分中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自动微分是JAX for Machine Learning课程的重要主题。", difficulty: 2 },
+                { id: "jaxmlgoogl-mid-c-5", question: "在vmap中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "vmap是JAX for Machine Learning课程的重要主题。", difficulty: 3 },
+                { id: "jaxmlgoogl-mid-c-6", question: "在pmap中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "pmap是JAX for Machine Learning课程的重要主题。", difficulty: 1 },
+                { id: "jaxmlgoogl-mid-c-7", question: "在jit中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "jit是JAX for Machine Learning课程的重要主题。", difficulty: 2 },
+                { id: "jaxmlgoogl-mid-c-8", question: "在纯函数中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "纯函数是JAX for Machine Learning课程的重要主题。", difficulty: 3 },
+                { id: "jaxmlgoogl-mid-c-9", question: "在函数式编程中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "函数式编程是JAX for Machine Learning课程的重要主题。", difficulty: 1 },
+                { id: "jaxmlgoogl-mid-c-10", question: "在JAX中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "JAX是JAX for Machine Learning课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "jaxmlgoogl-mid-f-1", question: "JAX for Machine Learning中，____（XLA）是一个核心概念。", answer: "XLA", explanation: "XLA是JAX for Machine Learning的核心内容之一。", difficulty: 2 },
+                { id: "jaxmlgoogl-mid-f-2", question: "JAX for Machine Learning中，____（TPU）是一个核心概念。", answer: "TPU", explanation: "TPU是JAX for Machine Learning的核心内容之一。", difficulty: 3 },
+                { id: "jaxmlgoogl-mid-f-3", question: "JAX for Machine Learning中，____（函数变换）是一个核心概念。", answer: "函数变换", explanation: "函数变换是JAX for Machine Learning的核心内容之一。", difficulty: 1 },
+                { id: "jaxmlgoogl-mid-f-4", question: "JAX for Machine Learning中，____（自动微分）是一个核心概念。", answer: "自动微分", explanation: "自动微分是JAX for Machine Learning的核心内容之一。", difficulty: 2 },
+                { id: "jaxmlgoogl-mid-f-5", question: "JAX for Machine Learning中，____（vmap）是一个核心概念。", answer: "vmap", explanation: "vmap是JAX for Machine Learning的核心内容之一。", difficulty: 3 },
+                { id: "jaxmlgoogl-mid-f-6", question: "JAX for Machine Learning中，____（pmap）是一个核心概念。", answer: "pmap", explanation: "pmap是JAX for Machine Learning的核心内容之一。", difficulty: 1 },
+                { id: "jaxmlgoogl-mid-f-7", question: "JAX for Machine Learning中，____（jit）是一个核心概念。", answer: "jit", explanation: "jit是JAX for Machine Learning的核心内容之一。", difficulty: 2 },
+                { id: "jaxmlgoogl-mid-f-8", question: "JAX for Machine Learning中，____（纯函数）是一个核心概念。", answer: "纯函数", explanation: "纯函数是JAX for Machine Learning的核心内容之一。", difficulty: 3 },
+                { id: "jaxmlgoogl-mid-f-9", question: "JAX for Machine Learning中，____（函数式编程）是一个核心概念。", answer: "函数式编程", explanation: "函数式编程是JAX for Machine Learning的核心内容之一。", difficulty: 1 },
+                { id: "jaxmlgoogl-mid-f-10", question: "JAX for Machine Learning中，____（JAX）是一个核心概念。", answer: "JAX", explanation: "JAX是JAX for Machine Learning的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "jaxmlgoogl-mid-code-1", question: "补全JAX相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是JAX的核心计算。", difficulty: 2 },
+                { id: "jaxmlgoogl-mid-code-2", question: "补全JAX相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是JAX的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "jaxmlgoogl-fin-c-1", question: "在XLA中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "XLA是JAX for Machine Learning课程的重要主题。", difficulty: 2 },
+                { id: "jaxmlgoogl-fin-c-2", question: "在TPU中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "TPU是JAX for Machine Learning课程的重要主题。", difficulty: 3 },
+                { id: "jaxmlgoogl-fin-c-3", question: "在函数变换中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "函数变换是JAX for Machine Learning课程的重要主题。", difficulty: 1 },
+                { id: "jaxmlgoogl-fin-c-4", question: "在自动微分中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自动微分是JAX for Machine Learning课程的重要主题。", difficulty: 2 },
+                { id: "jaxmlgoogl-fin-c-5", question: "在vmap中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "vmap是JAX for Machine Learning课程的重要主题。", difficulty: 3 },
+                { id: "jaxmlgoogl-fin-c-6", question: "在pmap中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "pmap是JAX for Machine Learning课程的重要主题。", difficulty: 1 },
+                { id: "jaxmlgoogl-fin-c-7", question: "在jit中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "jit是JAX for Machine Learning课程的重要主题。", difficulty: 2 },
+                { id: "jaxmlgoogl-fin-c-8", question: "在纯函数中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "纯函数是JAX for Machine Learning课程的重要主题。", difficulty: 3 },
+                { id: "jaxmlgoogl-fin-c-9", question: "在函数式编程中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "函数式编程是JAX for Machine Learning课程的重要主题。", difficulty: 1 },
+                { id: "jaxmlgoogl-fin-c-10", question: "在JAX中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "JAX是JAX for Machine Learning课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "jaxmlgoogl-fin-f-1", question: "JAX for Machine Learning中，____（XLA）是一个核心概念。", answer: "XLA", explanation: "XLA是JAX for Machine Learning的核心内容之一。", difficulty: 2 },
+                { id: "jaxmlgoogl-fin-f-2", question: "JAX for Machine Learning中，____（TPU）是一个核心概念。", answer: "TPU", explanation: "TPU是JAX for Machine Learning的核心内容之一。", difficulty: 3 },
+                { id: "jaxmlgoogl-fin-f-3", question: "JAX for Machine Learning中，____（函数变换）是一个核心概念。", answer: "函数变换", explanation: "函数变换是JAX for Machine Learning的核心内容之一。", difficulty: 1 },
+                { id: "jaxmlgoogl-fin-f-4", question: "JAX for Machine Learning中，____（自动微分）是一个核心概念。", answer: "自动微分", explanation: "自动微分是JAX for Machine Learning的核心内容之一。", difficulty: 2 },
+                { id: "jaxmlgoogl-fin-f-5", question: "JAX for Machine Learning中，____（vmap）是一个核心概念。", answer: "vmap", explanation: "vmap是JAX for Machine Learning的核心内容之一。", difficulty: 3 },
+                { id: "jaxmlgoogl-fin-f-6", question: "JAX for Machine Learning中，____（pmap）是一个核心概念。", answer: "pmap", explanation: "pmap是JAX for Machine Learning的核心内容之一。", difficulty: 1 },
+                { id: "jaxmlgoogl-fin-f-7", question: "JAX for Machine Learning中，____（jit）是一个核心概念。", answer: "jit", explanation: "jit是JAX for Machine Learning的核心内容之一。", difficulty: 2 },
+                { id: "jaxmlgoogl-fin-f-8", question: "JAX for Machine Learning中，____（纯函数）是一个核心概念。", answer: "纯函数", explanation: "纯函数是JAX for Machine Learning的核心内容之一。", difficulty: 3 },
+                { id: "jaxmlgoogl-fin-f-9", question: "JAX for Machine Learning中，____（函数式编程）是一个核心概念。", answer: "函数式编程", explanation: "函数式编程是JAX for Machine Learning的核心内容之一。", difficulty: 1 },
+                { id: "jaxmlgoogl-fin-f-10", question: "JAX for Machine Learning中，____（JAX）是一个核心概念。", answer: "JAX", explanation: "JAX是JAX for Machine Learning的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "jaxmlgoogl-fin-code-1", question: "补全JAX相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是JAX的核心计算。", difficulty: 2 },
+                { id: "jaxmlgoogl-fin-code-2", question: "补全JAX相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是JAX的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "vLLM & LLM Inference Optimization": {
+        courseId: "vllm-inference", domain: "infra",
+        mid: {
+            choice: [
+                { id: "vllminfere-mid-c-1", question: "在PagedAttention中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PagedAttention是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 2 },
+                { id: "vllminfere-mid-c-2", question: "在连续批处理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "连续批处理是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 3 },
+                { id: "vllminfere-mid-c-3", question: "在量化推理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "量化推理是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 1 },
+                { id: "vllminfere-mid-c-4", question: "在KV Cache中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "KV Cache是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 2 },
+                { id: "vllminfere-mid-c-5", question: "在张量并行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "张量并行是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 3 },
+                { id: "vllminfere-mid-c-6", question: "在采样优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "采样优化是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 1 },
+                { id: "vllminfere-mid-c-7", question: "在前缀缓存中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "前缀缓存是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 2 },
+                { id: "vllminfere-mid-c-8", question: "在投机解码中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "投机解码是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 3 },
+                { id: "vllminfere-mid-c-9", question: "在内存管理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "内存管理是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 1 },
+                { id: "vllminfere-mid-c-10", question: "在vLLM中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "vLLM是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "vllminfere-mid-f-1", question: "vLLM & LLM Inference Optimization中，____（PagedAttention）是一个核心概念。", answer: "PagedAttention", explanation: "PagedAttention是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 2 },
+                { id: "vllminfere-mid-f-2", question: "vLLM & LLM Inference Optimization中，____（连续批处理）是一个核心概念。", answer: "连续批处理", explanation: "连续批处理是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 3 },
+                { id: "vllminfere-mid-f-3", question: "vLLM & LLM Inference Optimization中，____（量化推理）是一个核心概念。", answer: "量化推理", explanation: "量化推理是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 1 },
+                { id: "vllminfere-mid-f-4", question: "vLLM & LLM Inference Optimization中，____（KV Cache）是一个核心概念。", answer: "KV Cache", explanation: "KV Cache是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 2 },
+                { id: "vllminfere-mid-f-5", question: "vLLM & LLM Inference Optimization中，____（张量并行）是一个核心概念。", answer: "张量并行", explanation: "张量并行是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 3 },
+                { id: "vllminfere-mid-f-6", question: "vLLM & LLM Inference Optimization中，____（采样优化）是一个核心概念。", answer: "采样优化", explanation: "采样优化是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 1 },
+                { id: "vllminfere-mid-f-7", question: "vLLM & LLM Inference Optimization中，____（前缀缓存）是一个核心概念。", answer: "前缀缓存", explanation: "前缀缓存是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 2 },
+                { id: "vllminfere-mid-f-8", question: "vLLM & LLM Inference Optimization中，____（投机解码）是一个核心概念。", answer: "投机解码", explanation: "投机解码是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 3 },
+                { id: "vllminfere-mid-f-9", question: "vLLM & LLM Inference Optimization中，____（内存管理）是一个核心概念。", answer: "内存管理", explanation: "内存管理是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 1 },
+                { id: "vllminfere-mid-f-10", question: "vLLM & LLM Inference Optimization中，____（vLLM）是一个核心概念。", answer: "vLLM", explanation: "vLLM是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "vllminfere-mid-code-1", question: "补全vLLM相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是vLLM的核心计算。", difficulty: 2 },
+                { id: "vllminfere-mid-code-2", question: "补全vLLM相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是vLLM的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "vllminfere-fin-c-1", question: "在PagedAttention中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PagedAttention是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 2 },
+                { id: "vllminfere-fin-c-2", question: "在连续批处理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "连续批处理是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 3 },
+                { id: "vllminfere-fin-c-3", question: "在量化推理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "量化推理是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 1 },
+                { id: "vllminfere-fin-c-4", question: "在KV Cache中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "KV Cache是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 2 },
+                { id: "vllminfere-fin-c-5", question: "在张量并行中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "张量并行是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 3 },
+                { id: "vllminfere-fin-c-6", question: "在采样优化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "采样优化是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 1 },
+                { id: "vllminfere-fin-c-7", question: "在前缀缓存中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "前缀缓存是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 2 },
+                { id: "vllminfere-fin-c-8", question: "在投机解码中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "投机解码是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 3 },
+                { id: "vllminfere-fin-c-9", question: "在内存管理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "内存管理是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 1 },
+                { id: "vllminfere-fin-c-10", question: "在vLLM中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "vLLM是vLLM & LLM Inference Optimization课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "vllminfere-fin-f-1", question: "vLLM & LLM Inference Optimization中，____（PagedAttention）是一个核心概念。", answer: "PagedAttention", explanation: "PagedAttention是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 2 },
+                { id: "vllminfere-fin-f-2", question: "vLLM & LLM Inference Optimization中，____（连续批处理）是一个核心概念。", answer: "连续批处理", explanation: "连续批处理是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 3 },
+                { id: "vllminfere-fin-f-3", question: "vLLM & LLM Inference Optimization中，____（量化推理）是一个核心概念。", answer: "量化推理", explanation: "量化推理是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 1 },
+                { id: "vllminfere-fin-f-4", question: "vLLM & LLM Inference Optimization中，____（KV Cache）是一个核心概念。", answer: "KV Cache", explanation: "KV Cache是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 2 },
+                { id: "vllminfere-fin-f-5", question: "vLLM & LLM Inference Optimization中，____（张量并行）是一个核心概念。", answer: "张量并行", explanation: "张量并行是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 3 },
+                { id: "vllminfere-fin-f-6", question: "vLLM & LLM Inference Optimization中，____（采样优化）是一个核心概念。", answer: "采样优化", explanation: "采样优化是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 1 },
+                { id: "vllminfere-fin-f-7", question: "vLLM & LLM Inference Optimization中，____（前缀缓存）是一个核心概念。", answer: "前缀缓存", explanation: "前缀缓存是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 2 },
+                { id: "vllminfere-fin-f-8", question: "vLLM & LLM Inference Optimization中，____（投机解码）是一个核心概念。", answer: "投机解码", explanation: "投机解码是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 3 },
+                { id: "vllminfere-fin-f-9", question: "vLLM & LLM Inference Optimization中，____（内存管理）是一个核心概念。", answer: "内存管理", explanation: "内存管理是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 1 },
+                { id: "vllminfere-fin-f-10", question: "vLLM & LLM Inference Optimization中，____（vLLM）是一个核心概念。", answer: "vLLM", explanation: "vLLM是vLLM & LLM Inference Optimization的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "vllminfere-fin-code-1", question: "补全vLLM相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是vLLM的核心计算。", difficulty: 2 },
+                { id: "vllminfere-fin-code-2", question: "补全vLLM相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是vLLM的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Docker & Kubernetes for ML": {
+        courseId: "docker-k8s-ml", domain: "infra",
+        mid: {
+            choice: [
+                { id: "dockerk8sm-mid-c-1", question: "在K8s中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "K8s是Docker & Kubernetes for ML课程的重要主题。", difficulty: 2 },
+                { id: "dockerk8sm-mid-c-2", question: "在GPU集群中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GPU集群是Docker & Kubernetes for ML课程的重要主题。", difficulty: 3 },
+                { id: "dockerk8sm-mid-c-3", question: "在容器化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "容器化是Docker & Kubernetes for ML课程的重要主题。", difficulty: 1 },
+                { id: "dockerk8sm-mid-c-4", question: "在编排中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "编排是Docker & Kubernetes for ML课程的重要主题。", difficulty: 2 },
+                { id: "dockerk8sm-mid-c-5", question: "在Dockerfile中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Dockerfile是Docker & Kubernetes for ML课程的重要主题。", difficulty: 3 },
+                { id: "dockerk8sm-mid-c-6", question: "在Pod中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Pod是Docker & Kubernetes for ML课程的重要主题。", difficulty: 1 },
+                { id: "dockerk8sm-mid-c-7", question: "在Service中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Service是Docker & Kubernetes for ML课程的重要主题。", difficulty: 2 },
+                { id: "dockerk8sm-mid-c-8", question: "在Helm中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Helm是Docker & Kubernetes for ML课程的重要主题。", difficulty: 3 },
+                { id: "dockerk8sm-mid-c-9", question: "在GPU调度中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GPU调度是Docker & Kubernetes for ML课程的重要主题。", difficulty: 1 },
+                { id: "dockerk8sm-mid-c-10", question: "在Docker中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Docker是Docker & Kubernetes for ML课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "dockerk8sm-mid-f-1", question: "Docker & Kubernetes for ML中，____（K8s）是一个核心概念。", answer: "K8s", explanation: "K8s是Docker & Kubernetes for ML的核心内容之一。", difficulty: 2 },
+                { id: "dockerk8sm-mid-f-2", question: "Docker & Kubernetes for ML中，____（GPU集群）是一个核心概念。", answer: "GPU集群", explanation: "GPU集群是Docker & Kubernetes for ML的核心内容之一。", difficulty: 3 },
+                { id: "dockerk8sm-mid-f-3", question: "Docker & Kubernetes for ML中，____（容器化）是一个核心概念。", answer: "容器化", explanation: "容器化是Docker & Kubernetes for ML的核心内容之一。", difficulty: 1 },
+                { id: "dockerk8sm-mid-f-4", question: "Docker & Kubernetes for ML中，____（编排）是一个核心概念。", answer: "编排", explanation: "编排是Docker & Kubernetes for ML的核心内容之一。", difficulty: 2 },
+                { id: "dockerk8sm-mid-f-5", question: "Docker & Kubernetes for ML中，____（Dockerfile）是一个核心概念。", answer: "Dockerfile", explanation: "Dockerfile是Docker & Kubernetes for ML的核心内容之一。", difficulty: 3 },
+                { id: "dockerk8sm-mid-f-6", question: "Docker & Kubernetes for ML中，____（Pod）是一个核心概念。", answer: "Pod", explanation: "Pod是Docker & Kubernetes for ML的核心内容之一。", difficulty: 1 },
+                { id: "dockerk8sm-mid-f-7", question: "Docker & Kubernetes for ML中，____（Service）是一个核心概念。", answer: "Service", explanation: "Service是Docker & Kubernetes for ML的核心内容之一。", difficulty: 2 },
+                { id: "dockerk8sm-mid-f-8", question: "Docker & Kubernetes for ML中，____（Helm）是一个核心概念。", answer: "Helm", explanation: "Helm是Docker & Kubernetes for ML的核心内容之一。", difficulty: 3 },
+                { id: "dockerk8sm-mid-f-9", question: "Docker & Kubernetes for ML中，____（GPU调度）是一个核心概念。", answer: "GPU调度", explanation: "GPU调度是Docker & Kubernetes for ML的核心内容之一。", difficulty: 1 },
+                { id: "dockerk8sm-mid-f-10", question: "Docker & Kubernetes for ML中，____（Docker）是一个核心概念。", answer: "Docker", explanation: "Docker是Docker & Kubernetes for ML的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "dockerk8sm-mid-code-1", question: "补全Docker相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Docker的核心计算。", difficulty: 2 },
+                { id: "dockerk8sm-mid-code-2", question: "补全Docker相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Docker的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "dockerk8sm-fin-c-1", question: "在K8s中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "K8s是Docker & Kubernetes for ML课程的重要主题。", difficulty: 2 },
+                { id: "dockerk8sm-fin-c-2", question: "在GPU集群中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GPU集群是Docker & Kubernetes for ML课程的重要主题。", difficulty: 3 },
+                { id: "dockerk8sm-fin-c-3", question: "在容器化中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "容器化是Docker & Kubernetes for ML课程的重要主题。", difficulty: 1 },
+                { id: "dockerk8sm-fin-c-4", question: "在编排中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "编排是Docker & Kubernetes for ML课程的重要主题。", difficulty: 2 },
+                { id: "dockerk8sm-fin-c-5", question: "在Dockerfile中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Dockerfile是Docker & Kubernetes for ML课程的重要主题。", difficulty: 3 },
+                { id: "dockerk8sm-fin-c-6", question: "在Pod中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Pod是Docker & Kubernetes for ML课程的重要主题。", difficulty: 1 },
+                { id: "dockerk8sm-fin-c-7", question: "在Service中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Service是Docker & Kubernetes for ML课程的重要主题。", difficulty: 2 },
+                { id: "dockerk8sm-fin-c-8", question: "在Helm中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Helm是Docker & Kubernetes for ML课程的重要主题。", difficulty: 3 },
+                { id: "dockerk8sm-fin-c-9", question: "在GPU调度中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GPU调度是Docker & Kubernetes for ML课程的重要主题。", difficulty: 1 },
+                { id: "dockerk8sm-fin-c-10", question: "在Docker中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Docker是Docker & Kubernetes for ML课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "dockerk8sm-fin-f-1", question: "Docker & Kubernetes for ML中，____（K8s）是一个核心概念。", answer: "K8s", explanation: "K8s是Docker & Kubernetes for ML的核心内容之一。", difficulty: 2 },
+                { id: "dockerk8sm-fin-f-2", question: "Docker & Kubernetes for ML中，____（GPU集群）是一个核心概念。", answer: "GPU集群", explanation: "GPU集群是Docker & Kubernetes for ML的核心内容之一。", difficulty: 3 },
+                { id: "dockerk8sm-fin-f-3", question: "Docker & Kubernetes for ML中，____（容器化）是一个核心概念。", answer: "容器化", explanation: "容器化是Docker & Kubernetes for ML的核心内容之一。", difficulty: 1 },
+                { id: "dockerk8sm-fin-f-4", question: "Docker & Kubernetes for ML中，____（编排）是一个核心概念。", answer: "编排", explanation: "编排是Docker & Kubernetes for ML的核心内容之一。", difficulty: 2 },
+                { id: "dockerk8sm-fin-f-5", question: "Docker & Kubernetes for ML中，____（Dockerfile）是一个核心概念。", answer: "Dockerfile", explanation: "Dockerfile是Docker & Kubernetes for ML的核心内容之一。", difficulty: 3 },
+                { id: "dockerk8sm-fin-f-6", question: "Docker & Kubernetes for ML中，____（Pod）是一个核心概念。", answer: "Pod", explanation: "Pod是Docker & Kubernetes for ML的核心内容之一。", difficulty: 1 },
+                { id: "dockerk8sm-fin-f-7", question: "Docker & Kubernetes for ML中，____（Service）是一个核心概念。", answer: "Service", explanation: "Service是Docker & Kubernetes for ML的核心内容之一。", difficulty: 2 },
+                { id: "dockerk8sm-fin-f-8", question: "Docker & Kubernetes for ML中，____（Helm）是一个核心概念。", answer: "Helm", explanation: "Helm是Docker & Kubernetes for ML的核心内容之一。", difficulty: 3 },
+                { id: "dockerk8sm-fin-f-9", question: "Docker & Kubernetes for ML中，____（GPU调度）是一个核心概念。", answer: "GPU调度", explanation: "GPU调度是Docker & Kubernetes for ML的核心内容之一。", difficulty: 1 },
+                { id: "dockerk8sm-fin-f-10", question: "Docker & Kubernetes for ML中，____（Docker）是一个核心概念。", answer: "Docker", explanation: "Docker是Docker & Kubernetes for ML的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "dockerk8sm-fin-code-1", question: "补全Docker相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Docker的核心计算。", difficulty: 2 },
+                { id: "dockerk8sm-fin-code-2", question: "补全Docker相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Docker的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "15-418/618: Parallel Computer Architecture": {
+        courseId: "cmu-parallel-arch", domain: "infra",
+        mid: {
+            choice: [
+                { id: "cmuparalle-mid-c-1", question: "在GPU中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GPU是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 2 },
+                { id: "cmuparalle-mid-c-2", question: "在缓存一致性中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "缓存一致性是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 3 },
+                { id: "cmuparalle-mid-c-3", question: "在多线程中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多线程是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 1 },
+                { id: "cmuparalle-mid-c-4", question: "在SIMD中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SIMD是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 2 },
+                { id: "cmuparalle-mid-c-5", question: "在Amdahl定律中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Amdahl定律是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 3 },
+                { id: "cmuparalle-mid-c-6", question: "在GPU架构中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GPU架构是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 1 },
+                { id: "cmuparalle-mid-c-7", question: "在内存层次中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "内存层次是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 2 },
+                { id: "cmuparalle-mid-c-8", question: "在同步原语中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "同步原语是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 3 },
+                { id: "cmuparalle-mid-c-9", question: "在并行算法中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行算法是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 1 },
+                { id: "cmuparalle-mid-c-10", question: "在并行计算中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行计算是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cmuparalle-mid-f-1", question: "15-418/618: Parallel Computer Architecture中，____（GPU）是一个核心概念。", answer: "GPU", explanation: "GPU是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 2 },
+                { id: "cmuparalle-mid-f-2", question: "15-418/618: Parallel Computer Architecture中，____（缓存一致性）是一个核心概念。", answer: "缓存一致性", explanation: "缓存一致性是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 3 },
+                { id: "cmuparalle-mid-f-3", question: "15-418/618: Parallel Computer Architecture中，____（多线程）是一个核心概念。", answer: "多线程", explanation: "多线程是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 1 },
+                { id: "cmuparalle-mid-f-4", question: "15-418/618: Parallel Computer Architecture中，____（SIMD）是一个核心概念。", answer: "SIMD", explanation: "SIMD是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 2 },
+                { id: "cmuparalle-mid-f-5", question: "15-418/618: Parallel Computer Architecture中，____（Amdahl定律）是一个核心概念。", answer: "Amdahl定律", explanation: "Amdahl定律是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 3 },
+                { id: "cmuparalle-mid-f-6", question: "15-418/618: Parallel Computer Architecture中，____（GPU架构）是一个核心概念。", answer: "GPU架构", explanation: "GPU架构是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 1 },
+                { id: "cmuparalle-mid-f-7", question: "15-418/618: Parallel Computer Architecture中，____（内存层次）是一个核心概念。", answer: "内存层次", explanation: "内存层次是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 2 },
+                { id: "cmuparalle-mid-f-8", question: "15-418/618: Parallel Computer Architecture中，____（同步原语）是一个核心概念。", answer: "同步原语", explanation: "同步原语是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 3 },
+                { id: "cmuparalle-mid-f-9", question: "15-418/618: Parallel Computer Architecture中，____（并行算法）是一个核心概念。", answer: "并行算法", explanation: "并行算法是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 1 },
+                { id: "cmuparalle-mid-f-10", question: "15-418/618: Parallel Computer Architecture中，____（并行计算）是一个核心概念。", answer: "并行计算", explanation: "并行计算是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmuparalle-mid-code-1", question: "补全并行计算相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是并行计算的核心计算。", difficulty: 2 },
+                { id: "cmuparalle-mid-code-2", question: "补全并行计算相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是并行计算的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cmuparalle-fin-c-1", question: "在GPU中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GPU是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 2 },
+                { id: "cmuparalle-fin-c-2", question: "在缓存一致性中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "缓存一致性是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 3 },
+                { id: "cmuparalle-fin-c-3", question: "在多线程中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多线程是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 1 },
+                { id: "cmuparalle-fin-c-4", question: "在SIMD中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SIMD是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 2 },
+                { id: "cmuparalle-fin-c-5", question: "在Amdahl定律中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Amdahl定律是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 3 },
+                { id: "cmuparalle-fin-c-6", question: "在GPU架构中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GPU架构是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 1 },
+                { id: "cmuparalle-fin-c-7", question: "在内存层次中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "内存层次是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 2 },
+                { id: "cmuparalle-fin-c-8", question: "在同步原语中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "同步原语是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 3 },
+                { id: "cmuparalle-fin-c-9", question: "在并行算法中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行算法是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 1 },
+                { id: "cmuparalle-fin-c-10", question: "在并行计算中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行计算是15-418/618: Parallel Computer Architecture课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cmuparalle-fin-f-1", question: "15-418/618: Parallel Computer Architecture中，____（GPU）是一个核心概念。", answer: "GPU", explanation: "GPU是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 2 },
+                { id: "cmuparalle-fin-f-2", question: "15-418/618: Parallel Computer Architecture中，____（缓存一致性）是一个核心概念。", answer: "缓存一致性", explanation: "缓存一致性是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 3 },
+                { id: "cmuparalle-fin-f-3", question: "15-418/618: Parallel Computer Architecture中，____（多线程）是一个核心概念。", answer: "多线程", explanation: "多线程是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 1 },
+                { id: "cmuparalle-fin-f-4", question: "15-418/618: Parallel Computer Architecture中，____（SIMD）是一个核心概念。", answer: "SIMD", explanation: "SIMD是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 2 },
+                { id: "cmuparalle-fin-f-5", question: "15-418/618: Parallel Computer Architecture中，____（Amdahl定律）是一个核心概念。", answer: "Amdahl定律", explanation: "Amdahl定律是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 3 },
+                { id: "cmuparalle-fin-f-6", question: "15-418/618: Parallel Computer Architecture中，____（GPU架构）是一个核心概念。", answer: "GPU架构", explanation: "GPU架构是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 1 },
+                { id: "cmuparalle-fin-f-7", question: "15-418/618: Parallel Computer Architecture中，____（内存层次）是一个核心概念。", answer: "内存层次", explanation: "内存层次是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 2 },
+                { id: "cmuparalle-fin-f-8", question: "15-418/618: Parallel Computer Architecture中，____（同步原语）是一个核心概念。", answer: "同步原语", explanation: "同步原语是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 3 },
+                { id: "cmuparalle-fin-f-9", question: "15-418/618: Parallel Computer Architecture中，____（并行算法）是一个核心概念。", answer: "并行算法", explanation: "并行算法是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 1 },
+                { id: "cmuparalle-fin-f-10", question: "15-418/618: Parallel Computer Architecture中，____（并行计算）是一个核心概念。", answer: "并行计算", explanation: "并行计算是15-418/618: Parallel Computer Architecture的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmuparalle-fin-code-1", question: "补全并行计算相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是并行计算的核心计算。", difficulty: 2 },
+                { id: "cmuparalle-fin-code-2", question: "补全并行计算相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是并行计算的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "CS149: Parallel Computing": {
+        courseId: "cs149-parallel", domain: "infra",
+        mid: {
+            choice: [
+                { id: "cs149paral-mid-c-1", question: "在GPU中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GPU是CS149: Parallel Computing课程的重要主题。", difficulty: 2 },
+                { id: "cs149paral-mid-c-2", question: "在CUDA中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CUDA是CS149: Parallel Computing课程的重要主题。", difficulty: 3 },
+                { id: "cs149paral-mid-c-3", question: "在OpenCL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "OpenCL是CS149: Parallel Computing课程的重要主题。", difficulty: 1 },
+                { id: "cs149paral-mid-c-4", question: "在并行算法中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行算法是CS149: Parallel Computing课程的重要主题。", difficulty: 2 },
+                { id: "cs149paral-mid-c-5", question: "在PRAM模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PRAM模型是CS149: Parallel Computing课程的重要主题。", difficulty: 3 },
+                { id: "cs149paral-mid-c-6", question: "在工作窃取中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "工作窃取是CS149: Parallel Computing课程的重要主题。", difficulty: 1 },
+                { id: "cs149paral-mid-c-7", question: "在并行归约中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行归约是CS149: Parallel Computing课程的重要主题。", difficulty: 2 },
+                { id: "cs149paral-mid-c-8", question: "在MapReduce中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MapReduce是CS149: Parallel Computing课程的重要主题。", difficulty: 3 },
+                { id: "cs149paral-mid-c-9", question: "在并行排序中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行排序是CS149: Parallel Computing课程的重要主题。", difficulty: 1 },
+                { id: "cs149paral-mid-c-10", question: "在并行架构中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行架构是CS149: Parallel Computing课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cs149paral-mid-f-1", question: "CS149: Parallel Computing中，____（GPU）是一个核心概念。", answer: "GPU", explanation: "GPU是CS149: Parallel Computing的核心内容之一。", difficulty: 2 },
+                { id: "cs149paral-mid-f-2", question: "CS149: Parallel Computing中，____（CUDA）是一个核心概念。", answer: "CUDA", explanation: "CUDA是CS149: Parallel Computing的核心内容之一。", difficulty: 3 },
+                { id: "cs149paral-mid-f-3", question: "CS149: Parallel Computing中，____（OpenCL）是一个核心概念。", answer: "OpenCL", explanation: "OpenCL是CS149: Parallel Computing的核心内容之一。", difficulty: 1 },
+                { id: "cs149paral-mid-f-4", question: "CS149: Parallel Computing中，____（并行算法）是一个核心概念。", answer: "并行算法", explanation: "并行算法是CS149: Parallel Computing的核心内容之一。", difficulty: 2 },
+                { id: "cs149paral-mid-f-5", question: "CS149: Parallel Computing中，____（PRAM模型）是一个核心概念。", answer: "PRAM模型", explanation: "PRAM模型是CS149: Parallel Computing的核心内容之一。", difficulty: 3 },
+                { id: "cs149paral-mid-f-6", question: "CS149: Parallel Computing中，____（工作窃取）是一个核心概念。", answer: "工作窃取", explanation: "工作窃取是CS149: Parallel Computing的核心内容之一。", difficulty: 1 },
+                { id: "cs149paral-mid-f-7", question: "CS149: Parallel Computing中，____（并行归约）是一个核心概念。", answer: "并行归约", explanation: "并行归约是CS149: Parallel Computing的核心内容之一。", difficulty: 2 },
+                { id: "cs149paral-mid-f-8", question: "CS149: Parallel Computing中，____（MapReduce）是一个核心概念。", answer: "MapReduce", explanation: "MapReduce是CS149: Parallel Computing的核心内容之一。", difficulty: 3 },
+                { id: "cs149paral-mid-f-9", question: "CS149: Parallel Computing中，____（并行排序）是一个核心概念。", answer: "并行排序", explanation: "并行排序是CS149: Parallel Computing的核心内容之一。", difficulty: 1 },
+                { id: "cs149paral-mid-f-10", question: "CS149: Parallel Computing中，____（并行架构）是一个核心概念。", answer: "并行架构", explanation: "并行架构是CS149: Parallel Computing的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cs149paral-mid-code-1", question: "补全并行架构相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是并行架构的核心计算。", difficulty: 2 },
+                { id: "cs149paral-mid-code-2", question: "补全并行架构相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是并行架构的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cs149paral-fin-c-1", question: "在GPU中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GPU是CS149: Parallel Computing课程的重要主题。", difficulty: 2 },
+                { id: "cs149paral-fin-c-2", question: "在CUDA中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CUDA是CS149: Parallel Computing课程的重要主题。", difficulty: 3 },
+                { id: "cs149paral-fin-c-3", question: "在OpenCL中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "OpenCL是CS149: Parallel Computing课程的重要主题。", difficulty: 1 },
+                { id: "cs149paral-fin-c-4", question: "在并行算法中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行算法是CS149: Parallel Computing课程的重要主题。", difficulty: 2 },
+                { id: "cs149paral-fin-c-5", question: "在PRAM模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PRAM模型是CS149: Parallel Computing课程的重要主题。", difficulty: 3 },
+                { id: "cs149paral-fin-c-6", question: "在工作窃取中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "工作窃取是CS149: Parallel Computing课程的重要主题。", difficulty: 1 },
+                { id: "cs149paral-fin-c-7", question: "在并行归约中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行归约是CS149: Parallel Computing课程的重要主题。", difficulty: 2 },
+                { id: "cs149paral-fin-c-8", question: "在MapReduce中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "MapReduce是CS149: Parallel Computing课程的重要主题。", difficulty: 3 },
+                { id: "cs149paral-fin-c-9", question: "在并行排序中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行排序是CS149: Parallel Computing课程的重要主题。", difficulty: 1 },
+                { id: "cs149paral-fin-c-10", question: "在并行架构中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "并行架构是CS149: Parallel Computing课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cs149paral-fin-f-1", question: "CS149: Parallel Computing中，____（GPU）是一个核心概念。", answer: "GPU", explanation: "GPU是CS149: Parallel Computing的核心内容之一。", difficulty: 2 },
+                { id: "cs149paral-fin-f-2", question: "CS149: Parallel Computing中，____（CUDA）是一个核心概念。", answer: "CUDA", explanation: "CUDA是CS149: Parallel Computing的核心内容之一。", difficulty: 3 },
+                { id: "cs149paral-fin-f-3", question: "CS149: Parallel Computing中，____（OpenCL）是一个核心概念。", answer: "OpenCL", explanation: "OpenCL是CS149: Parallel Computing的核心内容之一。", difficulty: 1 },
+                { id: "cs149paral-fin-f-4", question: "CS149: Parallel Computing中，____（并行算法）是一个核心概念。", answer: "并行算法", explanation: "并行算法是CS149: Parallel Computing的核心内容之一。", difficulty: 2 },
+                { id: "cs149paral-fin-f-5", question: "CS149: Parallel Computing中，____（PRAM模型）是一个核心概念。", answer: "PRAM模型", explanation: "PRAM模型是CS149: Parallel Computing的核心内容之一。", difficulty: 3 },
+                { id: "cs149paral-fin-f-6", question: "CS149: Parallel Computing中，____（工作窃取）是一个核心概念。", answer: "工作窃取", explanation: "工作窃取是CS149: Parallel Computing的核心内容之一。", difficulty: 1 },
+                { id: "cs149paral-fin-f-7", question: "CS149: Parallel Computing中，____（并行归约）是一个核心概念。", answer: "并行归约", explanation: "并行归约是CS149: Parallel Computing的核心内容之一。", difficulty: 2 },
+                { id: "cs149paral-fin-f-8", question: "CS149: Parallel Computing中，____（MapReduce）是一个核心概念。", answer: "MapReduce", explanation: "MapReduce是CS149: Parallel Computing的核心内容之一。", difficulty: 3 },
+                { id: "cs149paral-fin-f-9", question: "CS149: Parallel Computing中，____（并行排序）是一个核心概念。", answer: "并行排序", explanation: "并行排序是CS149: Parallel Computing的核心内容之一。", difficulty: 1 },
+                { id: "cs149paral-fin-f-10", question: "CS149: Parallel Computing中，____（并行架构）是一个核心概念。", answer: "并行架构", explanation: "并行架构是CS149: Parallel Computing的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cs149paral-fin-code-1", question: "补全并行架构相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是并行架构的核心计算。", difficulty: 2 },
+                { id: "cs149paral-fin-code-2", question: "补全并行架构相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是并行架构的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+
+    "How Transformer LLMs Work": {
+        courseId: "how-transformer-llms-work", domain: "nlp",
+        mid: {
+            choice: [
+                { id: "howtransfo-mid-c-1", question: "在自注意力中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自注意力是How Transformer LLMs Work课程的重要主题。", difficulty: 2 },
+                { id: "howtransfo-mid-c-2", question: "在位置编码中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "位置编码是How Transformer LLMs Work课程的重要主题。", difficulty: 3 },
+                { id: "howtransfo-mid-c-3", question: "在多头注意力中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多头注意力是How Transformer LLMs Work课程的重要主题。", difficulty: 1 },
+                { id: "howtransfo-mid-c-4", question: "在因果掩码中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "因果掩码是How Transformer LLMs Work课程的重要主题。", difficulty: 2 },
+                { id: "howtransfo-mid-c-5", question: "在KV Cache中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "KV Cache是How Transformer LLMs Work课程的重要主题。", difficulty: 3 },
+                { id: "howtransfo-mid-c-6", question: "在RoPE中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "RoPE是How Transformer LLMs Work课程的重要主题。", difficulty: 1 },
+                { id: "howtransfo-mid-c-7", question: "在GELU中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GELU是How Transformer LLMs Work课程的重要主题。", difficulty: 2 },
+                { id: "howtransfo-mid-c-8", question: "在LayerNorm中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "LayerNorm是How Transformer LLMs Work课程的重要主题。", difficulty: 3 },
+                { id: "howtransfo-mid-c-9", question: "在Softmax中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Softmax是How Transformer LLMs Work课程的重要主题。", difficulty: 1 },
+                { id: "howtransfo-mid-c-10", question: "在Transformer中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Transformer是How Transformer LLMs Work课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "howtransfo-mid-f-1", question: "How Transformer LLMs Work中，____（自注意力）是一个核心概念。", answer: "自注意力", explanation: "自注意力是How Transformer LLMs Work的核心内容之一。", difficulty: 2 },
+                { id: "howtransfo-mid-f-2", question: "How Transformer LLMs Work中，____（位置编码）是一个核心概念。", answer: "位置编码", explanation: "位置编码是How Transformer LLMs Work的核心内容之一。", difficulty: 3 },
+                { id: "howtransfo-mid-f-3", question: "How Transformer LLMs Work中，____（多头注意力）是一个核心概念。", answer: "多头注意力", explanation: "多头注意力是How Transformer LLMs Work的核心内容之一。", difficulty: 1 },
+                { id: "howtransfo-mid-f-4", question: "How Transformer LLMs Work中，____（因果掩码）是一个核心概念。", answer: "因果掩码", explanation: "因果掩码是How Transformer LLMs Work的核心内容之一。", difficulty: 2 },
+                { id: "howtransfo-mid-f-5", question: "How Transformer LLMs Work中，____（KV Cache）是一个核心概念。", answer: "KV Cache", explanation: "KV Cache是How Transformer LLMs Work的核心内容之一。", difficulty: 3 },
+                { id: "howtransfo-mid-f-6", question: "How Transformer LLMs Work中，____（RoPE）是一个核心概念。", answer: "RoPE", explanation: "RoPE是How Transformer LLMs Work的核心内容之一。", difficulty: 1 },
+                { id: "howtransfo-mid-f-7", question: "How Transformer LLMs Work中，____（GELU）是一个核心概念。", answer: "GELU", explanation: "GELU是How Transformer LLMs Work的核心内容之一。", difficulty: 2 },
+                { id: "howtransfo-mid-f-8", question: "How Transformer LLMs Work中，____（LayerNorm）是一个核心概念。", answer: "LayerNorm", explanation: "LayerNorm是How Transformer LLMs Work的核心内容之一。", difficulty: 3 },
+                { id: "howtransfo-mid-f-9", question: "How Transformer LLMs Work中，____（Softmax）是一个核心概念。", answer: "Softmax", explanation: "Softmax是How Transformer LLMs Work的核心内容之一。", difficulty: 1 },
+                { id: "howtransfo-mid-f-10", question: "How Transformer LLMs Work中，____（Transformer）是一个核心概念。", answer: "Transformer", explanation: "Transformer是How Transformer LLMs Work的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "howtransfo-mid-code-1", question: "补全Transformer相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Transformer的核心计算。", difficulty: 2 },
+                { id: "howtransfo-mid-code-2", question: "补全Transformer相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Transformer的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "howtransfo-fin-c-1", question: "在自注意力中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自注意力是How Transformer LLMs Work课程的重要主题。", difficulty: 2 },
+                { id: "howtransfo-fin-c-2", question: "在位置编码中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "位置编码是How Transformer LLMs Work课程的重要主题。", difficulty: 3 },
+                { id: "howtransfo-fin-c-3", question: "在多头注意力中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多头注意力是How Transformer LLMs Work课程的重要主题。", difficulty: 1 },
+                { id: "howtransfo-fin-c-4", question: "在因果掩码中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "因果掩码是How Transformer LLMs Work课程的重要主题。", difficulty: 2 },
+                { id: "howtransfo-fin-c-5", question: "在KV Cache中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "KV Cache是How Transformer LLMs Work课程的重要主题。", difficulty: 3 },
+                { id: "howtransfo-fin-c-6", question: "在RoPE中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "RoPE是How Transformer LLMs Work课程的重要主题。", difficulty: 1 },
+                { id: "howtransfo-fin-c-7", question: "在GELU中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "GELU是How Transformer LLMs Work课程的重要主题。", difficulty: 2 },
+                { id: "howtransfo-fin-c-8", question: "在LayerNorm中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "LayerNorm是How Transformer LLMs Work课程的重要主题。", difficulty: 3 },
+                { id: "howtransfo-fin-c-9", question: "在Softmax中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Softmax是How Transformer LLMs Work课程的重要主题。", difficulty: 1 },
+                { id: "howtransfo-fin-c-10", question: "在Transformer中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Transformer是How Transformer LLMs Work课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "howtransfo-fin-f-1", question: "How Transformer LLMs Work中，____（自注意力）是一个核心概念。", answer: "自注意力", explanation: "自注意力是How Transformer LLMs Work的核心内容之一。", difficulty: 2 },
+                { id: "howtransfo-fin-f-2", question: "How Transformer LLMs Work中，____（位置编码）是一个核心概念。", answer: "位置编码", explanation: "位置编码是How Transformer LLMs Work的核心内容之一。", difficulty: 3 },
+                { id: "howtransfo-fin-f-3", question: "How Transformer LLMs Work中，____（多头注意力）是一个核心概念。", answer: "多头注意力", explanation: "多头注意力是How Transformer LLMs Work的核心内容之一。", difficulty: 1 },
+                { id: "howtransfo-fin-f-4", question: "How Transformer LLMs Work中，____（因果掩码）是一个核心概念。", answer: "因果掩码", explanation: "因果掩码是How Transformer LLMs Work的核心内容之一。", difficulty: 2 },
+                { id: "howtransfo-fin-f-5", question: "How Transformer LLMs Work中，____（KV Cache）是一个核心概念。", answer: "KV Cache", explanation: "KV Cache是How Transformer LLMs Work的核心内容之一。", difficulty: 3 },
+                { id: "howtransfo-fin-f-6", question: "How Transformer LLMs Work中，____（RoPE）是一个核心概念。", answer: "RoPE", explanation: "RoPE是How Transformer LLMs Work的核心内容之一。", difficulty: 1 },
+                { id: "howtransfo-fin-f-7", question: "How Transformer LLMs Work中，____（GELU）是一个核心概念。", answer: "GELU", explanation: "GELU是How Transformer LLMs Work的核心内容之一。", difficulty: 2 },
+                { id: "howtransfo-fin-f-8", question: "How Transformer LLMs Work中，____（LayerNorm）是一个核心概念。", answer: "LayerNorm", explanation: "LayerNorm是How Transformer LLMs Work的核心内容之一。", difficulty: 3 },
+                { id: "howtransfo-fin-f-9", question: "How Transformer LLMs Work中，____（Softmax）是一个核心概念。", answer: "Softmax", explanation: "Softmax是How Transformer LLMs Work的核心内容之一。", difficulty: 1 },
+                { id: "howtransfo-fin-f-10", question: "How Transformer LLMs Work中，____（Transformer）是一个核心概念。", answer: "Transformer", explanation: "Transformer是How Transformer LLMs Work的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "howtransfo-fin-code-1", question: "补全Transformer相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Transformer的核心计算。", difficulty: 2 },
+                { id: "howtransfo-fin-code-2", question: "补全Transformer相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是Transformer的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "11-711: Advanced NLP": {
+        courseId: "cmu-advanced-nlp", domain: "nlp",
+        mid: {
+            choice: [
+                { id: "cmuadvance-mid-c-1", question: "在关系抽取中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "关系抽取是11-711: Advanced NLP课程的重要主题。", difficulty: 2 },
+                { id: "cmuadvance-mid-c-2", question: "在指代消解中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "指代消解是11-711: Advanced NLP课程的重要主题。", difficulty: 3 },
+                { id: "cmuadvance-mid-c-3", question: "在AMR中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "AMR是11-711: Advanced NLP课程的重要主题。", difficulty: 1 },
+                { id: "cmuadvance-mid-c-4", question: "在低资源NLP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "低资源NLP是11-711: Advanced NLP课程的重要主题。", difficulty: 2 },
+                { id: "cmuadvance-mid-c-5", question: "在跨语言迁移中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "跨语言迁移是11-711: Advanced NLP课程的重要主题。", difficulty: 3 },
+                { id: "cmuadvance-mid-c-6", question: "在结构化预测中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "结构化预测是11-711: Advanced NLP课程的重要主题。", difficulty: 1 },
+                { id: "cmuadvance-mid-c-7", question: "在文档级NLP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "文档级NLP是11-711: Advanced NLP课程的重要主题。", difficulty: 2 },
+                { id: "cmuadvance-mid-c-8", question: "在数据增强中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据增强是11-711: Advanced NLP课程的重要主题。", difficulty: 3 },
+                { id: "cmuadvance-mid-c-9", question: "在评估偏差中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "评估偏差是11-711: Advanced NLP课程的重要主题。", difficulty: 1 },
+                { id: "cmuadvance-mid-c-10", question: "在语义解析中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "语义解析是11-711: Advanced NLP课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cmuadvance-mid-f-1", question: "11-711: Advanced NLP中，____（关系抽取）是一个核心概念。", answer: "关系抽取", explanation: "关系抽取是11-711: Advanced NLP的核心内容之一。", difficulty: 2 },
+                { id: "cmuadvance-mid-f-2", question: "11-711: Advanced NLP中，____（指代消解）是一个核心概念。", answer: "指代消解", explanation: "指代消解是11-711: Advanced NLP的核心内容之一。", difficulty: 3 },
+                { id: "cmuadvance-mid-f-3", question: "11-711: Advanced NLP中，____（AMR）是一个核心概念。", answer: "AMR", explanation: "AMR是11-711: Advanced NLP的核心内容之一。", difficulty: 1 },
+                { id: "cmuadvance-mid-f-4", question: "11-711: Advanced NLP中，____（低资源NLP）是一个核心概念。", answer: "低资源NLP", explanation: "低资源NLP是11-711: Advanced NLP的核心内容之一。", difficulty: 2 },
+                { id: "cmuadvance-mid-f-5", question: "11-711: Advanced NLP中，____（跨语言迁移）是一个核心概念。", answer: "跨语言迁移", explanation: "跨语言迁移是11-711: Advanced NLP的核心内容之一。", difficulty: 3 },
+                { id: "cmuadvance-mid-f-6", question: "11-711: Advanced NLP中，____（结构化预测）是一个核心概念。", answer: "结构化预测", explanation: "结构化预测是11-711: Advanced NLP的核心内容之一。", difficulty: 1 },
+                { id: "cmuadvance-mid-f-7", question: "11-711: Advanced NLP中，____（文档级NLP）是一个核心概念。", answer: "文档级NLP", explanation: "文档级NLP是11-711: Advanced NLP的核心内容之一。", difficulty: 2 },
+                { id: "cmuadvance-mid-f-8", question: "11-711: Advanced NLP中，____（数据增强）是一个核心概念。", answer: "数据增强", explanation: "数据增强是11-711: Advanced NLP的核心内容之一。", difficulty: 3 },
+                { id: "cmuadvance-mid-f-9", question: "11-711: Advanced NLP中，____（评估偏差）是一个核心概念。", answer: "评估偏差", explanation: "评估偏差是11-711: Advanced NLP的核心内容之一。", difficulty: 1 },
+                { id: "cmuadvance-mid-f-10", question: "11-711: Advanced NLP中，____（语义解析）是一个核心概念。", answer: "语义解析", explanation: "语义解析是11-711: Advanced NLP的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmuadvance-mid-code-1", question: "补全语义解析相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是语义解析的核心计算。", difficulty: 2 },
+                { id: "cmuadvance-mid-code-2", question: "补全语义解析相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是语义解析的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cmuadvance-fin-c-1", question: "在关系抽取中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "关系抽取是11-711: Advanced NLP课程的重要主题。", difficulty: 2 },
+                { id: "cmuadvance-fin-c-2", question: "在指代消解中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "指代消解是11-711: Advanced NLP课程的重要主题。", difficulty: 3 },
+                { id: "cmuadvance-fin-c-3", question: "在AMR中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "AMR是11-711: Advanced NLP课程的重要主题。", difficulty: 1 },
+                { id: "cmuadvance-fin-c-4", question: "在低资源NLP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "低资源NLP是11-711: Advanced NLP课程的重要主题。", difficulty: 2 },
+                { id: "cmuadvance-fin-c-5", question: "在跨语言迁移中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "跨语言迁移是11-711: Advanced NLP课程的重要主题。", difficulty: 3 },
+                { id: "cmuadvance-fin-c-6", question: "在结构化预测中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "结构化预测是11-711: Advanced NLP课程的重要主题。", difficulty: 1 },
+                { id: "cmuadvance-fin-c-7", question: "在文档级NLP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "文档级NLP是11-711: Advanced NLP课程的重要主题。", difficulty: 2 },
+                { id: "cmuadvance-fin-c-8", question: "在数据增强中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "数据增强是11-711: Advanced NLP课程的重要主题。", difficulty: 3 },
+                { id: "cmuadvance-fin-c-9", question: "在评估偏差中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "评估偏差是11-711: Advanced NLP课程的重要主题。", difficulty: 1 },
+                { id: "cmuadvance-fin-c-10", question: "在语义解析中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "语义解析是11-711: Advanced NLP课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cmuadvance-fin-f-1", question: "11-711: Advanced NLP中，____（关系抽取）是一个核心概念。", answer: "关系抽取", explanation: "关系抽取是11-711: Advanced NLP的核心内容之一。", difficulty: 2 },
+                { id: "cmuadvance-fin-f-2", question: "11-711: Advanced NLP中，____（指代消解）是一个核心概念。", answer: "指代消解", explanation: "指代消解是11-711: Advanced NLP的核心内容之一。", difficulty: 3 },
+                { id: "cmuadvance-fin-f-3", question: "11-711: Advanced NLP中，____（AMR）是一个核心概念。", answer: "AMR", explanation: "AMR是11-711: Advanced NLP的核心内容之一。", difficulty: 1 },
+                { id: "cmuadvance-fin-f-4", question: "11-711: Advanced NLP中，____（低资源NLP）是一个核心概念。", answer: "低资源NLP", explanation: "低资源NLP是11-711: Advanced NLP的核心内容之一。", difficulty: 2 },
+                { id: "cmuadvance-fin-f-5", question: "11-711: Advanced NLP中，____（跨语言迁移）是一个核心概念。", answer: "跨语言迁移", explanation: "跨语言迁移是11-711: Advanced NLP的核心内容之一。", difficulty: 3 },
+                { id: "cmuadvance-fin-f-6", question: "11-711: Advanced NLP中，____（结构化预测）是一个核心概念。", answer: "结构化预测", explanation: "结构化预测是11-711: Advanced NLP的核心内容之一。", difficulty: 1 },
+                { id: "cmuadvance-fin-f-7", question: "11-711: Advanced NLP中，____（文档级NLP）是一个核心概念。", answer: "文档级NLP", explanation: "文档级NLP是11-711: Advanced NLP的核心内容之一。", difficulty: 2 },
+                { id: "cmuadvance-fin-f-8", question: "11-711: Advanced NLP中，____（数据增强）是一个核心概念。", answer: "数据增强", explanation: "数据增强是11-711: Advanced NLP的核心内容之一。", difficulty: 3 },
+                { id: "cmuadvance-fin-f-9", question: "11-711: Advanced NLP中，____（评估偏差）是一个核心概念。", answer: "评估偏差", explanation: "评估偏差是11-711: Advanced NLP的核心内容之一。", difficulty: 1 },
+                { id: "cmuadvance-fin-f-10", question: "11-711: Advanced NLP中，____（语义解析）是一个核心概念。", answer: "语义解析", explanation: "语义解析是11-711: Advanced NLP的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmuadvance-fin-code-1", question: "补全语义解析相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是语义解析的核心计算。", difficulty: 2 },
+                { id: "cmuadvance-fin-code-2", question: "补全语义解析相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是语义解析的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "6.806/6.864: NLP": {
+        courseId: "mit-nlp", domain: "nlp",
+        mid: {
+            choice: [
+                { id: "mitnlp-mid-c-1", question: "在机器翻译中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "机器翻译是6.806/6.864: NLP课程的重要主题。", difficulty: 2 },
+                { id: "mitnlp-mid-c-2", question: "在注意力机制中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "注意力机制是6.806/6.864: NLP课程的重要主题。", difficulty: 3 },
+                { id: "mitnlp-mid-c-3", question: "在预训练模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "预训练模型是6.806/6.864: NLP课程的重要主题。", difficulty: 1 },
+                { id: "mitnlp-mid-c-4", question: "在Beam Search中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Beam Search是6.806/6.864: NLP课程的重要主题。", difficulty: 2 },
+                { id: "mitnlp-mid-c-5", question: "在词嵌入中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "词嵌入是6.806/6.864: NLP课程的重要主题。", difficulty: 3 },
+                { id: "mitnlp-mid-c-6", question: "在子词分词中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "子词分词是6.806/6.864: NLP课程的重要主题。", difficulty: 1 },
+                { id: "mitnlp-mid-c-7", question: "在位置编码中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "位置编码是6.806/6.864: NLP课程的重要主题。", difficulty: 2 },
+                { id: "mitnlp-mid-c-8", question: "在迁移学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "迁移学习是6.806/6.864: NLP课程的重要主题。", difficulty: 3 },
+                { id: "mitnlp-mid-c-9", question: "在困惑度中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "困惑度是6.806/6.864: NLP课程的重要主题。", difficulty: 1 },
+                { id: "mitnlp-mid-c-10", question: "在语言建模中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "语言建模是6.806/6.864: NLP课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "mitnlp-mid-f-1", question: "6.806/6.864: NLP中，____（机器翻译）是一个核心概念。", answer: "机器翻译", explanation: "机器翻译是6.806/6.864: NLP的核心内容之一。", difficulty: 2 },
+                { id: "mitnlp-mid-f-2", question: "6.806/6.864: NLP中，____（注意力机制）是一个核心概念。", answer: "注意力机制", explanation: "注意力机制是6.806/6.864: NLP的核心内容之一。", difficulty: 3 },
+                { id: "mitnlp-mid-f-3", question: "6.806/6.864: NLP中，____（预训练模型）是一个核心概念。", answer: "预训练模型", explanation: "预训练模型是6.806/6.864: NLP的核心内容之一。", difficulty: 1 },
+                { id: "mitnlp-mid-f-4", question: "6.806/6.864: NLP中，____（Beam Search）是一个核心概念。", answer: "Beam Search", explanation: "Beam Search是6.806/6.864: NLP的核心内容之一。", difficulty: 2 },
+                { id: "mitnlp-mid-f-5", question: "6.806/6.864: NLP中，____（词嵌入）是一个核心概念。", answer: "词嵌入", explanation: "词嵌入是6.806/6.864: NLP的核心内容之一。", difficulty: 3 },
+                { id: "mitnlp-mid-f-6", question: "6.806/6.864: NLP中，____（子词分词）是一个核心概念。", answer: "子词分词", explanation: "子词分词是6.806/6.864: NLP的核心内容之一。", difficulty: 1 },
+                { id: "mitnlp-mid-f-7", question: "6.806/6.864: NLP中，____（位置编码）是一个核心概念。", answer: "位置编码", explanation: "位置编码是6.806/6.864: NLP的核心内容之一。", difficulty: 2 },
+                { id: "mitnlp-mid-f-8", question: "6.806/6.864: NLP中，____（迁移学习）是一个核心概念。", answer: "迁移学习", explanation: "迁移学习是6.806/6.864: NLP的核心内容之一。", difficulty: 3 },
+                { id: "mitnlp-mid-f-9", question: "6.806/6.864: NLP中，____（困惑度）是一个核心概念。", answer: "困惑度", explanation: "困惑度是6.806/6.864: NLP的核心内容之一。", difficulty: 1 },
+                { id: "mitnlp-mid-f-10", question: "6.806/6.864: NLP中，____（语言建模）是一个核心概念。", answer: "语言建模", explanation: "语言建模是6.806/6.864: NLP的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "mitnlp-mid-code-1", question: "补全语言建模相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是语言建模的核心计算。", difficulty: 2 },
+                { id: "mitnlp-mid-code-2", question: "补全语言建模相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是语言建模的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "mitnlp-fin-c-1", question: "在机器翻译中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "机器翻译是6.806/6.864: NLP课程的重要主题。", difficulty: 2 },
+                { id: "mitnlp-fin-c-2", question: "在注意力机制中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "注意力机制是6.806/6.864: NLP课程的重要主题。", difficulty: 3 },
+                { id: "mitnlp-fin-c-3", question: "在预训练模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "预训练模型是6.806/6.864: NLP课程的重要主题。", difficulty: 1 },
+                { id: "mitnlp-fin-c-4", question: "在Beam Search中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Beam Search是6.806/6.864: NLP课程的重要主题。", difficulty: 2 },
+                { id: "mitnlp-fin-c-5", question: "在词嵌入中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "词嵌入是6.806/6.864: NLP课程的重要主题。", difficulty: 3 },
+                { id: "mitnlp-fin-c-6", question: "在子词分词中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "子词分词是6.806/6.864: NLP课程的重要主题。", difficulty: 1 },
+                { id: "mitnlp-fin-c-7", question: "在位置编码中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "位置编码是6.806/6.864: NLP课程的重要主题。", difficulty: 2 },
+                { id: "mitnlp-fin-c-8", question: "在迁移学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "迁移学习是6.806/6.864: NLP课程的重要主题。", difficulty: 3 },
+                { id: "mitnlp-fin-c-9", question: "在困惑度中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "困惑度是6.806/6.864: NLP课程的重要主题。", difficulty: 1 },
+                { id: "mitnlp-fin-c-10", question: "在语言建模中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "语言建模是6.806/6.864: NLP课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "mitnlp-fin-f-1", question: "6.806/6.864: NLP中，____（机器翻译）是一个核心概念。", answer: "机器翻译", explanation: "机器翻译是6.806/6.864: NLP的核心内容之一。", difficulty: 2 },
+                { id: "mitnlp-fin-f-2", question: "6.806/6.864: NLP中，____（注意力机制）是一个核心概念。", answer: "注意力机制", explanation: "注意力机制是6.806/6.864: NLP的核心内容之一。", difficulty: 3 },
+                { id: "mitnlp-fin-f-3", question: "6.806/6.864: NLP中，____（预训练模型）是一个核心概念。", answer: "预训练模型", explanation: "预训练模型是6.806/6.864: NLP的核心内容之一。", difficulty: 1 },
+                { id: "mitnlp-fin-f-4", question: "6.806/6.864: NLP中，____（Beam Search）是一个核心概念。", answer: "Beam Search", explanation: "Beam Search是6.806/6.864: NLP的核心内容之一。", difficulty: 2 },
+                { id: "mitnlp-fin-f-5", question: "6.806/6.864: NLP中，____（词嵌入）是一个核心概念。", answer: "词嵌入", explanation: "词嵌入是6.806/6.864: NLP的核心内容之一。", difficulty: 3 },
+                { id: "mitnlp-fin-f-6", question: "6.806/6.864: NLP中，____（子词分词）是一个核心概念。", answer: "子词分词", explanation: "子词分词是6.806/6.864: NLP的核心内容之一。", difficulty: 1 },
+                { id: "mitnlp-fin-f-7", question: "6.806/6.864: NLP中，____（位置编码）是一个核心概念。", answer: "位置编码", explanation: "位置编码是6.806/6.864: NLP的核心内容之一。", difficulty: 2 },
+                { id: "mitnlp-fin-f-8", question: "6.806/6.864: NLP中，____（迁移学习）是一个核心概念。", answer: "迁移学习", explanation: "迁移学习是6.806/6.864: NLP的核心内容之一。", difficulty: 3 },
+                { id: "mitnlp-fin-f-9", question: "6.806/6.864: NLP中，____（困惑度）是一个核心概念。", answer: "困惑度", explanation: "困惑度是6.806/6.864: NLP的核心内容之一。", difficulty: 1 },
+                { id: "mitnlp-fin-f-10", question: "6.806/6.864: NLP中，____（语言建模）是一个核心概念。", answer: "语言建模", explanation: "语言建模是6.806/6.864: NLP的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "mitnlp-fin-code-1", question: "补全语言建模相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是语言建模的核心计算。", difficulty: 2 },
+                { id: "mitnlp-fin-code-2", question: "补全语言建模相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是语言建模的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "CS 288: NLP": {
+        courseId: "ucb-nlp", domain: "nlp",
+        mid: {
+            choice: [
+                { id: "ucbnlp-mid-c-1", question: "在依存分析中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "依存分析是CS 288: NLP课程的重要主题。", difficulty: 2 },
+                { id: "ucbnlp-mid-c-2", question: "在Transition-Based解析中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Transition-Based解析是CS 288: NLP课程的重要主题。", difficulty: 3 },
+                { id: "ucbnlp-mid-c-3", question: "在Graph-Based解析中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Graph-Based解析是CS 288: NLP课程的重要主题。", difficulty: 1 },
+                { id: "ucbnlp-mid-c-4", question: "在CKY算法中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CKY算法是CS 288: NLP课程的重要主题。", difficulty: 2 },
+                { id: "ucbnlp-mid-c-5", question: "在Neural Parsing中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Neural Parsing是CS 288: NLP课程的重要主题。", difficulty: 3 },
+                { id: "ucbnlp-mid-c-6", question: "在序列标注中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "序列标注是CS 288: NLP课程的重要主题。", difficulty: 1 },
+                { id: "ucbnlp-mid-c-7", question: "在结构化预测中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "结构化预测是CS 288: NLP课程的重要主题。", difficulty: 2 },
+                { id: "ucbnlp-mid-c-8", question: "在PCFG中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PCFG是CS 288: NLP课程的重要主题。", difficulty: 3 },
+                { id: "ucbnlp-mid-c-9", question: "在Biaffine Parser中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Biaffine Parser是CS 288: NLP课程的重要主题。", difficulty: 1 },
+                { id: "ucbnlp-mid-c-10", question: "在句法分析中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "句法分析是CS 288: NLP课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "ucbnlp-mid-f-1", question: "CS 288: NLP中，____（依存分析）是一个核心概念。", answer: "依存分析", explanation: "依存分析是CS 288: NLP的核心内容之一。", difficulty: 2 },
+                { id: "ucbnlp-mid-f-2", question: "CS 288: NLP中，____（Transition-Based解析）是一个核心概念。", answer: "Transition-Based解析", explanation: "Transition-Based解析是CS 288: NLP的核心内容之一。", difficulty: 3 },
+                { id: "ucbnlp-mid-f-3", question: "CS 288: NLP中，____（Graph-Based解析）是一个核心概念。", answer: "Graph-Based解析", explanation: "Graph-Based解析是CS 288: NLP的核心内容之一。", difficulty: 1 },
+                { id: "ucbnlp-mid-f-4", question: "CS 288: NLP中，____（CKY算法）是一个核心概念。", answer: "CKY算法", explanation: "CKY算法是CS 288: NLP的核心内容之一。", difficulty: 2 },
+                { id: "ucbnlp-mid-f-5", question: "CS 288: NLP中，____（Neural Parsing）是一个核心概念。", answer: "Neural Parsing", explanation: "Neural Parsing是CS 288: NLP的核心内容之一。", difficulty: 3 },
+                { id: "ucbnlp-mid-f-6", question: "CS 288: NLP中，____（序列标注）是一个核心概念。", answer: "序列标注", explanation: "序列标注是CS 288: NLP的核心内容之一。", difficulty: 1 },
+                { id: "ucbnlp-mid-f-7", question: "CS 288: NLP中，____（结构化预测）是一个核心概念。", answer: "结构化预测", explanation: "结构化预测是CS 288: NLP的核心内容之一。", difficulty: 2 },
+                { id: "ucbnlp-mid-f-8", question: "CS 288: NLP中，____（PCFG）是一个核心概念。", answer: "PCFG", explanation: "PCFG是CS 288: NLP的核心内容之一。", difficulty: 3 },
+                { id: "ucbnlp-mid-f-9", question: "CS 288: NLP中，____（Biaffine Parser）是一个核心概念。", answer: "Biaffine Parser", explanation: "Biaffine Parser是CS 288: NLP的核心内容之一。", difficulty: 1 },
+                { id: "ucbnlp-mid-f-10", question: "CS 288: NLP中，____（句法分析）是一个核心概念。", answer: "句法分析", explanation: "句法分析是CS 288: NLP的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "ucbnlp-mid-code-1", question: "补全句法分析相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是句法分析的核心计算。", difficulty: 2 },
+                { id: "ucbnlp-mid-code-2", question: "补全句法分析相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是句法分析的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "ucbnlp-fin-c-1", question: "在依存分析中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "依存分析是CS 288: NLP课程的重要主题。", difficulty: 2 },
+                { id: "ucbnlp-fin-c-2", question: "在Transition-Based解析中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Transition-Based解析是CS 288: NLP课程的重要主题。", difficulty: 3 },
+                { id: "ucbnlp-fin-c-3", question: "在Graph-Based解析中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Graph-Based解析是CS 288: NLP课程的重要主题。", difficulty: 1 },
+                { id: "ucbnlp-fin-c-4", question: "在CKY算法中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CKY算法是CS 288: NLP课程的重要主题。", difficulty: 2 },
+                { id: "ucbnlp-fin-c-5", question: "在Neural Parsing中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Neural Parsing是CS 288: NLP课程的重要主题。", difficulty: 3 },
+                { id: "ucbnlp-fin-c-6", question: "在序列标注中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "序列标注是CS 288: NLP课程的重要主题。", difficulty: 1 },
+                { id: "ucbnlp-fin-c-7", question: "在结构化预测中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "结构化预测是CS 288: NLP课程的重要主题。", difficulty: 2 },
+                { id: "ucbnlp-fin-c-8", question: "在PCFG中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PCFG是CS 288: NLP课程的重要主题。", difficulty: 3 },
+                { id: "ucbnlp-fin-c-9", question: "在Biaffine Parser中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Biaffine Parser是CS 288: NLP课程的重要主题。", difficulty: 1 },
+                { id: "ucbnlp-fin-c-10", question: "在句法分析中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "句法分析是CS 288: NLP课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "ucbnlp-fin-f-1", question: "CS 288: NLP中，____（依存分析）是一个核心概念。", answer: "依存分析", explanation: "依存分析是CS 288: NLP的核心内容之一。", difficulty: 2 },
+                { id: "ucbnlp-fin-f-2", question: "CS 288: NLP中，____（Transition-Based解析）是一个核心概念。", answer: "Transition-Based解析", explanation: "Transition-Based解析是CS 288: NLP的核心内容之一。", difficulty: 3 },
+                { id: "ucbnlp-fin-f-3", question: "CS 288: NLP中，____（Graph-Based解析）是一个核心概念。", answer: "Graph-Based解析", explanation: "Graph-Based解析是CS 288: NLP的核心内容之一。", difficulty: 1 },
+                { id: "ucbnlp-fin-f-4", question: "CS 288: NLP中，____（CKY算法）是一个核心概念。", answer: "CKY算法", explanation: "CKY算法是CS 288: NLP的核心内容之一。", difficulty: 2 },
+                { id: "ucbnlp-fin-f-5", question: "CS 288: NLP中，____（Neural Parsing）是一个核心概念。", answer: "Neural Parsing", explanation: "Neural Parsing是CS 288: NLP的核心内容之一。", difficulty: 3 },
+                { id: "ucbnlp-fin-f-6", question: "CS 288: NLP中，____（序列标注）是一个核心概念。", answer: "序列标注", explanation: "序列标注是CS 288: NLP的核心内容之一。", difficulty: 1 },
+                { id: "ucbnlp-fin-f-7", question: "CS 288: NLP中，____（结构化预测）是一个核心概念。", answer: "结构化预测", explanation: "结构化预测是CS 288: NLP的核心内容之一。", difficulty: 2 },
+                { id: "ucbnlp-fin-f-8", question: "CS 288: NLP中，____（PCFG）是一个核心概念。", answer: "PCFG", explanation: "PCFG是CS 288: NLP的核心内容之一。", difficulty: 3 },
+                { id: "ucbnlp-fin-f-9", question: "CS 288: NLP中，____（Biaffine Parser）是一个核心概念。", answer: "Biaffine Parser", explanation: "Biaffine Parser是CS 288: NLP的核心内容之一。", difficulty: 1 },
+                { id: "ucbnlp-fin-f-10", question: "CS 288: NLP中，____（句法分析）是一个核心概念。", answer: "句法分析", explanation: "句法分析是CS 288: NLP的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "ucbnlp-fin-code-1", question: "补全句法分析相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是句法分析的核心计算。", difficulty: 2 },
+                { id: "ucbnlp-fin-code-2", question: "补全句法分析相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是句法分析的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "6.8300 Advances in CV": {
+        courseId: "mit-advances-cv", domain: "cv",
+        mid: {
+            choice: [
+                { id: "mitadvance-mid-c-1", question: "在扩散模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "扩散模型是6.8300 Advances in CV课程的重要主题。", difficulty: 2 },
+                { id: "mitadvance-mid-c-2", question: "在多视图几何中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多视图几何是6.8300 Advances in CV课程的重要主题。", difficulty: 3 },
+                { id: "mitadvance-mid-c-3", question: "在3D重建中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "3D重建是6.8300 Advances in CV课程的重要主题。", difficulty: 1 },
+                { id: "mitadvance-mid-c-4", question: "在神经渲染中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "神经渲染是6.8300 Advances in CV课程的重要主题。", difficulty: 2 },
+                { id: "mitadvance-mid-c-5", question: "在体渲染中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "体渲染是6.8300 Advances in CV课程的重要主题。", difficulty: 3 },
+                { id: "mitadvance-mid-c-6", question: "在3D Gaussian Splatting中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "3D Gaussian Splatting是6.8300 Advances in CV课程的重要主题。", difficulty: 1 },
+                { id: "mitadvance-mid-c-7", question: "在新视角合成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "新视角合成是6.8300 Advances in CV课程的重要主题。", difficulty: 2 },
+                { id: "mitadvance-mid-c-8", question: "在隐式表示中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "隐式表示是6.8300 Advances in CV课程的重要主题。", difficulty: 3 },
+                { id: "mitadvance-mid-c-9", question: "在相机标定中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "相机标定是6.8300 Advances in CV课程的重要主题。", difficulty: 1 },
+                { id: "mitadvance-mid-c-10", question: "在NeRF中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "NeRF是6.8300 Advances in CV课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "mitadvance-mid-f-1", question: "6.8300 Advances in CV中，____（扩散模型）是一个核心概念。", answer: "扩散模型", explanation: "扩散模型是6.8300 Advances in CV的核心内容之一。", difficulty: 2 },
+                { id: "mitadvance-mid-f-2", question: "6.8300 Advances in CV中，____（多视图几何）是一个核心概念。", answer: "多视图几何", explanation: "多视图几何是6.8300 Advances in CV的核心内容之一。", difficulty: 3 },
+                { id: "mitadvance-mid-f-3", question: "6.8300 Advances in CV中，____（3D重建）是一个核心概念。", answer: "3D重建", explanation: "3D重建是6.8300 Advances in CV的核心内容之一。", difficulty: 1 },
+                { id: "mitadvance-mid-f-4", question: "6.8300 Advances in CV中，____（神经渲染）是一个核心概念。", answer: "神经渲染", explanation: "神经渲染是6.8300 Advances in CV的核心内容之一。", difficulty: 2 },
+                { id: "mitadvance-mid-f-5", question: "6.8300 Advances in CV中，____（体渲染）是一个核心概念。", answer: "体渲染", explanation: "体渲染是6.8300 Advances in CV的核心内容之一。", difficulty: 3 },
+                { id: "mitadvance-mid-f-6", question: "6.8300 Advances in CV中，____（3D Gaussian Splatting）是一个核心概念。", answer: "3D Gaussian Splatting", explanation: "3D Gaussian Splatting是6.8300 Advances in CV的核心内容之一。", difficulty: 1 },
+                { id: "mitadvance-mid-f-7", question: "6.8300 Advances in CV中，____（新视角合成）是一个核心概念。", answer: "新视角合成", explanation: "新视角合成是6.8300 Advances in CV的核心内容之一。", difficulty: 2 },
+                { id: "mitadvance-mid-f-8", question: "6.8300 Advances in CV中，____（隐式表示）是一个核心概念。", answer: "隐式表示", explanation: "隐式表示是6.8300 Advances in CV的核心内容之一。", difficulty: 3 },
+                { id: "mitadvance-mid-f-9", question: "6.8300 Advances in CV中，____（相机标定）是一个核心概念。", answer: "相机标定", explanation: "相机标定是6.8300 Advances in CV的核心内容之一。", difficulty: 1 },
+                { id: "mitadvance-mid-f-10", question: "6.8300 Advances in CV中，____（NeRF）是一个核心概念。", answer: "NeRF", explanation: "NeRF是6.8300 Advances in CV的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "mitadvance-mid-code-1", question: "补全NeRF相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是NeRF的核心计算。", difficulty: 2 },
+                { id: "mitadvance-mid-code-2", question: "补全NeRF相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是NeRF的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "mitadvance-fin-c-1", question: "在扩散模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "扩散模型是6.8300 Advances in CV课程的重要主题。", difficulty: 2 },
+                { id: "mitadvance-fin-c-2", question: "在多视图几何中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多视图几何是6.8300 Advances in CV课程的重要主题。", difficulty: 3 },
+                { id: "mitadvance-fin-c-3", question: "在3D重建中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "3D重建是6.8300 Advances in CV课程的重要主题。", difficulty: 1 },
+                { id: "mitadvance-fin-c-4", question: "在神经渲染中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "神经渲染是6.8300 Advances in CV课程的重要主题。", difficulty: 2 },
+                { id: "mitadvance-fin-c-5", question: "在体渲染中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "体渲染是6.8300 Advances in CV课程的重要主题。", difficulty: 3 },
+                { id: "mitadvance-fin-c-6", question: "在3D Gaussian Splatting中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "3D Gaussian Splatting是6.8300 Advances in CV课程的重要主题。", difficulty: 1 },
+                { id: "mitadvance-fin-c-7", question: "在新视角合成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "新视角合成是6.8300 Advances in CV课程的重要主题。", difficulty: 2 },
+                { id: "mitadvance-fin-c-8", question: "在隐式表示中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "隐式表示是6.8300 Advances in CV课程的重要主题。", difficulty: 3 },
+                { id: "mitadvance-fin-c-9", question: "在相机标定中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "相机标定是6.8300 Advances in CV课程的重要主题。", difficulty: 1 },
+                { id: "mitadvance-fin-c-10", question: "在NeRF中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "NeRF是6.8300 Advances in CV课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "mitadvance-fin-f-1", question: "6.8300 Advances in CV中，____（扩散模型）是一个核心概念。", answer: "扩散模型", explanation: "扩散模型是6.8300 Advances in CV的核心内容之一。", difficulty: 2 },
+                { id: "mitadvance-fin-f-2", question: "6.8300 Advances in CV中，____（多视图几何）是一个核心概念。", answer: "多视图几何", explanation: "多视图几何是6.8300 Advances in CV的核心内容之一。", difficulty: 3 },
+                { id: "mitadvance-fin-f-3", question: "6.8300 Advances in CV中，____（3D重建）是一个核心概念。", answer: "3D重建", explanation: "3D重建是6.8300 Advances in CV的核心内容之一。", difficulty: 1 },
+                { id: "mitadvance-fin-f-4", question: "6.8300 Advances in CV中，____（神经渲染）是一个核心概念。", answer: "神经渲染", explanation: "神经渲染是6.8300 Advances in CV的核心内容之一。", difficulty: 2 },
+                { id: "mitadvance-fin-f-5", question: "6.8300 Advances in CV中，____（体渲染）是一个核心概念。", answer: "体渲染", explanation: "体渲染是6.8300 Advances in CV的核心内容之一。", difficulty: 3 },
+                { id: "mitadvance-fin-f-6", question: "6.8300 Advances in CV中，____（3D Gaussian Splatting）是一个核心概念。", answer: "3D Gaussian Splatting", explanation: "3D Gaussian Splatting是6.8300 Advances in CV的核心内容之一。", difficulty: 1 },
+                { id: "mitadvance-fin-f-7", question: "6.8300 Advances in CV中，____（新视角合成）是一个核心概念。", answer: "新视角合成", explanation: "新视角合成是6.8300 Advances in CV的核心内容之一。", difficulty: 2 },
+                { id: "mitadvance-fin-f-8", question: "6.8300 Advances in CV中，____（隐式表示）是一个核心概念。", answer: "隐式表示", explanation: "隐式表示是6.8300 Advances in CV的核心内容之一。", difficulty: 3 },
+                { id: "mitadvance-fin-f-9", question: "6.8300 Advances in CV中，____（相机标定）是一个核心概念。", answer: "相机标定", explanation: "相机标定是6.8300 Advances in CV的核心内容之一。", difficulty: 1 },
+                { id: "mitadvance-fin-f-10", question: "6.8300 Advances in CV中，____（NeRF）是一个核心概念。", answer: "NeRF", explanation: "NeRF是6.8300 Advances in CV的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "mitadvance-fin-code-1", question: "补全NeRF相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是NeRF的核心计算。", difficulty: 2 },
+                { id: "mitadvance-fin-code-2", question: "补全NeRF相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是NeRF的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "CNN for Detection & Segmentation": {
+        courseId: "cnn-detection-segmentation", domain: "cv",
+        mid: {
+            choice: [
+                { id: "cnndetecti-mid-c-1", question: "在R-CNN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "R-CNN是CNN for Detection & Segmentation课程的重要主题。", difficulty: 2 },
+                { id: "cnndetecti-mid-c-2", question: "在U-Net中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "U-Net是CNN for Detection & Segmentation课程的重要主题。", difficulty: 3 },
+                { id: "cnndetecti-mid-c-3", question: "在语义分割中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "语义分割是CNN for Detection & Segmentation课程的重要主题。", difficulty: 1 },
+                { id: "cnndetecti-mid-c-4", question: "在实例分割中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "实例分割是CNN for Detection & Segmentation课程的重要主题。", difficulty: 2 },
+                { id: "cnndetecti-mid-c-5", question: "在Focal Loss中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Focal Loss是CNN for Detection & Segmentation课程的重要主题。", difficulty: 3 },
+                { id: "cnndetecti-mid-c-6", question: "在FPN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "FPN是CNN for Detection & Segmentation课程的重要主题。", difficulty: 1 },
+                { id: "cnndetecti-mid-c-7", question: "在NMS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "NMS是CNN for Detection & Segmentation课程的重要主题。", difficulty: 2 },
+                { id: "cnndetecti-mid-c-8", question: "在Anchor中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Anchor是CNN for Detection & Segmentation课程的重要主题。", difficulty: 3 },
+                { id: "cnndetecti-mid-c-9", question: "在PANet中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PANet是CNN for Detection & Segmentation课程的重要主题。", difficulty: 1 },
+                { id: "cnndetecti-mid-c-10", question: "在YOLO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "YOLO是CNN for Detection & Segmentation课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cnndetecti-mid-f-1", question: "CNN for Detection & Segmentation中，____（R-CNN）是一个核心概念。", answer: "R-CNN", explanation: "R-CNN是CNN for Detection & Segmentation的核心内容之一。", difficulty: 2 },
+                { id: "cnndetecti-mid-f-2", question: "CNN for Detection & Segmentation中，____（U-Net）是一个核心概念。", answer: "U-Net", explanation: "U-Net是CNN for Detection & Segmentation的核心内容之一。", difficulty: 3 },
+                { id: "cnndetecti-mid-f-3", question: "CNN for Detection & Segmentation中，____（语义分割）是一个核心概念。", answer: "语义分割", explanation: "语义分割是CNN for Detection & Segmentation的核心内容之一。", difficulty: 1 },
+                { id: "cnndetecti-mid-f-4", question: "CNN for Detection & Segmentation中，____（实例分割）是一个核心概念。", answer: "实例分割", explanation: "实例分割是CNN for Detection & Segmentation的核心内容之一。", difficulty: 2 },
+                { id: "cnndetecti-mid-f-5", question: "CNN for Detection & Segmentation中，____（Focal Loss）是一个核心概念。", answer: "Focal Loss", explanation: "Focal Loss是CNN for Detection & Segmentation的核心内容之一。", difficulty: 3 },
+                { id: "cnndetecti-mid-f-6", question: "CNN for Detection & Segmentation中，____（FPN）是一个核心概念。", answer: "FPN", explanation: "FPN是CNN for Detection & Segmentation的核心内容之一。", difficulty: 1 },
+                { id: "cnndetecti-mid-f-7", question: "CNN for Detection & Segmentation中，____（NMS）是一个核心概念。", answer: "NMS", explanation: "NMS是CNN for Detection & Segmentation的核心内容之一。", difficulty: 2 },
+                { id: "cnndetecti-mid-f-8", question: "CNN for Detection & Segmentation中，____（Anchor）是一个核心概念。", answer: "Anchor", explanation: "Anchor是CNN for Detection & Segmentation的核心内容之一。", difficulty: 3 },
+                { id: "cnndetecti-mid-f-9", question: "CNN for Detection & Segmentation中，____（PANet）是一个核心概念。", answer: "PANet", explanation: "PANet是CNN for Detection & Segmentation的核心内容之一。", difficulty: 1 },
+                { id: "cnndetecti-mid-f-10", question: "CNN for Detection & Segmentation中，____（YOLO）是一个核心概念。", answer: "YOLO", explanation: "YOLO是CNN for Detection & Segmentation的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cnndetecti-mid-code-1", question: "补全YOLO相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是YOLO的核心计算。", difficulty: 2 },
+                { id: "cnndetecti-mid-code-2", question: "补全YOLO相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是YOLO的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cnndetecti-fin-c-1", question: "在R-CNN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "R-CNN是CNN for Detection & Segmentation课程的重要主题。", difficulty: 2 },
+                { id: "cnndetecti-fin-c-2", question: "在U-Net中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "U-Net是CNN for Detection & Segmentation课程的重要主题。", difficulty: 3 },
+                { id: "cnndetecti-fin-c-3", question: "在语义分割中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "语义分割是CNN for Detection & Segmentation课程的重要主题。", difficulty: 1 },
+                { id: "cnndetecti-fin-c-4", question: "在实例分割中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "实例分割是CNN for Detection & Segmentation课程的重要主题。", difficulty: 2 },
+                { id: "cnndetecti-fin-c-5", question: "在Focal Loss中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Focal Loss是CNN for Detection & Segmentation课程的重要主题。", difficulty: 3 },
+                { id: "cnndetecti-fin-c-6", question: "在FPN中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "FPN是CNN for Detection & Segmentation课程的重要主题。", difficulty: 1 },
+                { id: "cnndetecti-fin-c-7", question: "在NMS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "NMS是CNN for Detection & Segmentation课程的重要主题。", difficulty: 2 },
+                { id: "cnndetecti-fin-c-8", question: "在Anchor中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Anchor是CNN for Detection & Segmentation课程的重要主题。", difficulty: 3 },
+                { id: "cnndetecti-fin-c-9", question: "在PANet中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PANet是CNN for Detection & Segmentation课程的重要主题。", difficulty: 1 },
+                { id: "cnndetecti-fin-c-10", question: "在YOLO中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "YOLO是CNN for Detection & Segmentation课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cnndetecti-fin-f-1", question: "CNN for Detection & Segmentation中，____（R-CNN）是一个核心概念。", answer: "R-CNN", explanation: "R-CNN是CNN for Detection & Segmentation的核心内容之一。", difficulty: 2 },
+                { id: "cnndetecti-fin-f-2", question: "CNN for Detection & Segmentation中，____（U-Net）是一个核心概念。", answer: "U-Net", explanation: "U-Net是CNN for Detection & Segmentation的核心内容之一。", difficulty: 3 },
+                { id: "cnndetecti-fin-f-3", question: "CNN for Detection & Segmentation中，____（语义分割）是一个核心概念。", answer: "语义分割", explanation: "语义分割是CNN for Detection & Segmentation的核心内容之一。", difficulty: 1 },
+                { id: "cnndetecti-fin-f-4", question: "CNN for Detection & Segmentation中，____（实例分割）是一个核心概念。", answer: "实例分割", explanation: "实例分割是CNN for Detection & Segmentation的核心内容之一。", difficulty: 2 },
+                { id: "cnndetecti-fin-f-5", question: "CNN for Detection & Segmentation中，____（Focal Loss）是一个核心概念。", answer: "Focal Loss", explanation: "Focal Loss是CNN for Detection & Segmentation的核心内容之一。", difficulty: 3 },
+                { id: "cnndetecti-fin-f-6", question: "CNN for Detection & Segmentation中，____（FPN）是一个核心概念。", answer: "FPN", explanation: "FPN是CNN for Detection & Segmentation的核心内容之一。", difficulty: 1 },
+                { id: "cnndetecti-fin-f-7", question: "CNN for Detection & Segmentation中，____（NMS）是一个核心概念。", answer: "NMS", explanation: "NMS是CNN for Detection & Segmentation的核心内容之一。", difficulty: 2 },
+                { id: "cnndetecti-fin-f-8", question: "CNN for Detection & Segmentation中，____（Anchor）是一个核心概念。", answer: "Anchor", explanation: "Anchor是CNN for Detection & Segmentation的核心内容之一。", difficulty: 3 },
+                { id: "cnndetecti-fin-f-9", question: "CNN for Detection & Segmentation中，____（PANet）是一个核心概念。", answer: "PANet", explanation: "PANet是CNN for Detection & Segmentation的核心内容之一。", difficulty: 1 },
+                { id: "cnndetecti-fin-f-10", question: "CNN for Detection & Segmentation中，____（YOLO）是一个核心概念。", answer: "YOLO", explanation: "YOLO是CNN for Detection & Segmentation的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cnndetecti-fin-code-1", question: "补全YOLO相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是YOLO的核心计算。", difficulty: 2 },
+                { id: "cnndetecti-fin-code-2", question: "补全YOLO相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是YOLO的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "YOLO Object Detection": {
+        courseId: "yolo-object-detection", domain: "cv",
+        mid: {
+            choice: [
+                { id: "yoloobject-mid-c-1", question: "在实时检测中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "实时检测是YOLO Object Detection课程的重要主题。", difficulty: 2 },
+                { id: "yoloobject-mid-c-2", question: "在目标检测中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "目标检测是YOLO Object Detection课程的重要主题。", difficulty: 3 },
+                { id: "yoloobject-mid-c-3", question: "在Anchor-Free中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Anchor-Free是YOLO Object Detection课程的重要主题。", difficulty: 1 },
+                { id: "yoloobject-mid-c-4", question: "在端到端检测中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "端到端检测是YOLO Object Detection课程的重要主题。", difficulty: 2 },
+                { id: "yoloobject-mid-c-5", question: "在Darknet中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Darknet是YOLO Object Detection课程的重要主题。", difficulty: 3 },
+                { id: "yoloobject-mid-c-6", question: "在Mosaic增强中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Mosaic增强是YOLO Object Detection课程的重要主题。", difficulty: 1 },
+                { id: "yoloobject-mid-c-7", question: "在Soft-NMS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Soft-NMS是YOLO Object Detection课程的重要主题。", difficulty: 2 },
+                { id: "yoloobject-mid-c-8", question: "在CIoU中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CIoU是YOLO Object Detection课程的重要主题。", difficulty: 3 },
+                { id: "yoloobject-mid-c-9", question: "在解耦头中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "解耦头是YOLO Object Detection课程的重要主题。", difficulty: 1 },
+                { id: "yoloobject-mid-c-10", question: "在YOLOv8中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "YOLOv8是YOLO Object Detection课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "yoloobject-mid-f-1", question: "YOLO Object Detection中，____（实时检测）是一个核心概念。", answer: "实时检测", explanation: "实时检测是YOLO Object Detection的核心内容之一。", difficulty: 2 },
+                { id: "yoloobject-mid-f-2", question: "YOLO Object Detection中，____（目标检测）是一个核心概念。", answer: "目标检测", explanation: "目标检测是YOLO Object Detection的核心内容之一。", difficulty: 3 },
+                { id: "yoloobject-mid-f-3", question: "YOLO Object Detection中，____（Anchor-Free）是一个核心概念。", answer: "Anchor-Free", explanation: "Anchor-Free是YOLO Object Detection的核心内容之一。", difficulty: 1 },
+                { id: "yoloobject-mid-f-4", question: "YOLO Object Detection中，____（端到端检测）是一个核心概念。", answer: "端到端检测", explanation: "端到端检测是YOLO Object Detection的核心内容之一。", difficulty: 2 },
+                { id: "yoloobject-mid-f-5", question: "YOLO Object Detection中，____（Darknet）是一个核心概念。", answer: "Darknet", explanation: "Darknet是YOLO Object Detection的核心内容之一。", difficulty: 3 },
+                { id: "yoloobject-mid-f-6", question: "YOLO Object Detection中，____（Mosaic增强）是一个核心概念。", answer: "Mosaic增强", explanation: "Mosaic增强是YOLO Object Detection的核心内容之一。", difficulty: 1 },
+                { id: "yoloobject-mid-f-7", question: "YOLO Object Detection中，____（Soft-NMS）是一个核心概念。", answer: "Soft-NMS", explanation: "Soft-NMS是YOLO Object Detection的核心内容之一。", difficulty: 2 },
+                { id: "yoloobject-mid-f-8", question: "YOLO Object Detection中，____（CIoU）是一个核心概念。", answer: "CIoU", explanation: "CIoU是YOLO Object Detection的核心内容之一。", difficulty: 3 },
+                { id: "yoloobject-mid-f-9", question: "YOLO Object Detection中，____（解耦头）是一个核心概念。", answer: "解耦头", explanation: "解耦头是YOLO Object Detection的核心内容之一。", difficulty: 1 },
+                { id: "yoloobject-mid-f-10", question: "YOLO Object Detection中，____（YOLOv8）是一个核心概念。", answer: "YOLOv8", explanation: "YOLOv8是YOLO Object Detection的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "yoloobject-mid-code-1", question: "补全YOLOv8相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是YOLOv8的核心计算。", difficulty: 2 },
+                { id: "yoloobject-mid-code-2", question: "补全YOLOv8相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是YOLOv8的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "yoloobject-fin-c-1", question: "在实时检测中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "实时检测是YOLO Object Detection课程的重要主题。", difficulty: 2 },
+                { id: "yoloobject-fin-c-2", question: "在目标检测中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "目标检测是YOLO Object Detection课程的重要主题。", difficulty: 3 },
+                { id: "yoloobject-fin-c-3", question: "在Anchor-Free中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Anchor-Free是YOLO Object Detection课程的重要主题。", difficulty: 1 },
+                { id: "yoloobject-fin-c-4", question: "在端到端检测中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "端到端检测是YOLO Object Detection课程的重要主题。", difficulty: 2 },
+                { id: "yoloobject-fin-c-5", question: "在Darknet中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Darknet是YOLO Object Detection课程的重要主题。", difficulty: 3 },
+                { id: "yoloobject-fin-c-6", question: "在Mosaic增强中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Mosaic增强是YOLO Object Detection课程的重要主题。", difficulty: 1 },
+                { id: "yoloobject-fin-c-7", question: "在Soft-NMS中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Soft-NMS是YOLO Object Detection课程的重要主题。", difficulty: 2 },
+                { id: "yoloobject-fin-c-8", question: "在CIoU中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CIoU是YOLO Object Detection课程的重要主题。", difficulty: 3 },
+                { id: "yoloobject-fin-c-9", question: "在解耦头中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "解耦头是YOLO Object Detection课程的重要主题。", difficulty: 1 },
+                { id: "yoloobject-fin-c-10", question: "在YOLOv8中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "YOLOv8是YOLO Object Detection课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "yoloobject-fin-f-1", question: "YOLO Object Detection中，____（实时检测）是一个核心概念。", answer: "实时检测", explanation: "实时检测是YOLO Object Detection的核心内容之一。", difficulty: 2 },
+                { id: "yoloobject-fin-f-2", question: "YOLO Object Detection中，____（目标检测）是一个核心概念。", answer: "目标检测", explanation: "目标检测是YOLO Object Detection的核心内容之一。", difficulty: 3 },
+                { id: "yoloobject-fin-f-3", question: "YOLO Object Detection中，____（Anchor-Free）是一个核心概念。", answer: "Anchor-Free", explanation: "Anchor-Free是YOLO Object Detection的核心内容之一。", difficulty: 1 },
+                { id: "yoloobject-fin-f-4", question: "YOLO Object Detection中，____（端到端检测）是一个核心概念。", answer: "端到端检测", explanation: "端到端检测是YOLO Object Detection的核心内容之一。", difficulty: 2 },
+                { id: "yoloobject-fin-f-5", question: "YOLO Object Detection中，____（Darknet）是一个核心概念。", answer: "Darknet", explanation: "Darknet是YOLO Object Detection的核心内容之一。", difficulty: 3 },
+                { id: "yoloobject-fin-f-6", question: "YOLO Object Detection中，____（Mosaic增强）是一个核心概念。", answer: "Mosaic增强", explanation: "Mosaic增强是YOLO Object Detection的核心内容之一。", difficulty: 1 },
+                { id: "yoloobject-fin-f-7", question: "YOLO Object Detection中，____（Soft-NMS）是一个核心概念。", answer: "Soft-NMS", explanation: "Soft-NMS是YOLO Object Detection的核心内容之一。", difficulty: 2 },
+                { id: "yoloobject-fin-f-8", question: "YOLO Object Detection中，____（CIoU）是一个核心概念。", answer: "CIoU", explanation: "CIoU是YOLO Object Detection的核心内容之一。", difficulty: 3 },
+                { id: "yoloobject-fin-f-9", question: "YOLO Object Detection中，____（解耦头）是一个核心概念。", answer: "解耦头", explanation: "解耦头是YOLO Object Detection的核心内容之一。", difficulty: 1 },
+                { id: "yoloobject-fin-f-10", question: "YOLO Object Detection中，____（YOLOv8）是一个核心概念。", answer: "YOLOv8", explanation: "YOLOv8是YOLO Object Detection的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "yoloobject-fin-code-1", question: "补全YOLOv8相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是YOLOv8的核心计算。", difficulty: 2 },
+                { id: "yoloobject-fin-code-2", question: "补全YOLOv8相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是YOLOv8的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Neural Radiance Fields": {
+        courseId: "nerf-various", domain: "cv",
+        mid: {
+            choice: [
+                { id: "nerfvariou-mid-c-1", question: "在3D重建中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "3D重建是Neural Radiance Fields课程的重要主题。", difficulty: 2 },
+                { id: "nerfvariou-mid-c-2", question: "在体渲染中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "体渲染是Neural Radiance Fields课程的重要主题。", difficulty: 3 },
+                { id: "nerfvariou-mid-c-3", question: "在隐式表示中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "隐式表示是Neural Radiance Fields课程的重要主题。", difficulty: 1 },
+                { id: "nerfvariou-mid-c-4", question: "在新视角合成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "新视角合成是Neural Radiance Fields课程的重要主题。", difficulty: 2 },
+                { id: "nerfvariou-mid-c-5", question: "在位置编码中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "位置编码是Neural Radiance Fields课程的重要主题。", difficulty: 3 },
+                { id: "nerfvariou-mid-c-6", question: "在分层采样中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "分层采样是Neural Radiance Fields课程的重要主题。", difficulty: 1 },
+                { id: "nerfvariou-mid-c-7", question: "在辐射场中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "辐射场是Neural Radiance Fields课程的重要主题。", difficulty: 2 },
+                { id: "nerfvariou-mid-c-8", question: "在密度中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "密度是Neural Radiance Fields课程的重要主题。", difficulty: 3 },
+                { id: "nerfvariou-mid-c-9", question: "在相机位姿中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "相机位姿是Neural Radiance Fields课程的重要主题。", difficulty: 1 },
+                { id: "nerfvariou-mid-c-10", question: "在NeRF中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "NeRF是Neural Radiance Fields课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "nerfvariou-mid-f-1", question: "Neural Radiance Fields中，____（3D重建）是一个核心概念。", answer: "3D重建", explanation: "3D重建是Neural Radiance Fields的核心内容之一。", difficulty: 2 },
+                { id: "nerfvariou-mid-f-2", question: "Neural Radiance Fields中，____（体渲染）是一个核心概念。", answer: "体渲染", explanation: "体渲染是Neural Radiance Fields的核心内容之一。", difficulty: 3 },
+                { id: "nerfvariou-mid-f-3", question: "Neural Radiance Fields中，____（隐式表示）是一个核心概念。", answer: "隐式表示", explanation: "隐式表示是Neural Radiance Fields的核心内容之一。", difficulty: 1 },
+                { id: "nerfvariou-mid-f-4", question: "Neural Radiance Fields中，____（新视角合成）是一个核心概念。", answer: "新视角合成", explanation: "新视角合成是Neural Radiance Fields的核心内容之一。", difficulty: 2 },
+                { id: "nerfvariou-mid-f-5", question: "Neural Radiance Fields中，____（位置编码）是一个核心概念。", answer: "位置编码", explanation: "位置编码是Neural Radiance Fields的核心内容之一。", difficulty: 3 },
+                { id: "nerfvariou-mid-f-6", question: "Neural Radiance Fields中，____（分层采样）是一个核心概念。", answer: "分层采样", explanation: "分层采样是Neural Radiance Fields的核心内容之一。", difficulty: 1 },
+                { id: "nerfvariou-mid-f-7", question: "Neural Radiance Fields中，____（辐射场）是一个核心概念。", answer: "辐射场", explanation: "辐射场是Neural Radiance Fields的核心内容之一。", difficulty: 2 },
+                { id: "nerfvariou-mid-f-8", question: "Neural Radiance Fields中，____（密度）是一个核心概念。", answer: "密度", explanation: "密度是Neural Radiance Fields的核心内容之一。", difficulty: 3 },
+                { id: "nerfvariou-mid-f-9", question: "Neural Radiance Fields中，____（相机位姿）是一个核心概念。", answer: "相机位姿", explanation: "相机位姿是Neural Radiance Fields的核心内容之一。", difficulty: 1 },
+                { id: "nerfvariou-mid-f-10", question: "Neural Radiance Fields中，____（NeRF）是一个核心概念。", answer: "NeRF", explanation: "NeRF是Neural Radiance Fields的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "nerfvariou-mid-code-1", question: "补全NeRF相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是NeRF的核心计算。", difficulty: 2 },
+                { id: "nerfvariou-mid-code-2", question: "补全NeRF相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是NeRF的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "nerfvariou-fin-c-1", question: "在3D重建中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "3D重建是Neural Radiance Fields课程的重要主题。", difficulty: 2 },
+                { id: "nerfvariou-fin-c-2", question: "在体渲染中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "体渲染是Neural Radiance Fields课程的重要主题。", difficulty: 3 },
+                { id: "nerfvariou-fin-c-3", question: "在隐式表示中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "隐式表示是Neural Radiance Fields课程的重要主题。", difficulty: 1 },
+                { id: "nerfvariou-fin-c-4", question: "在新视角合成中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "新视角合成是Neural Radiance Fields课程的重要主题。", difficulty: 2 },
+                { id: "nerfvariou-fin-c-5", question: "在位置编码中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "位置编码是Neural Radiance Fields课程的重要主题。", difficulty: 3 },
+                { id: "nerfvariou-fin-c-6", question: "在分层采样中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "分层采样是Neural Radiance Fields课程的重要主题。", difficulty: 1 },
+                { id: "nerfvariou-fin-c-7", question: "在辐射场中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "辐射场是Neural Radiance Fields课程的重要主题。", difficulty: 2 },
+                { id: "nerfvariou-fin-c-8", question: "在密度中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "密度是Neural Radiance Fields课程的重要主题。", difficulty: 3 },
+                { id: "nerfvariou-fin-c-9", question: "在相机位姿中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "相机位姿是Neural Radiance Fields课程的重要主题。", difficulty: 1 },
+                { id: "nerfvariou-fin-c-10", question: "在NeRF中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "NeRF是Neural Radiance Fields课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "nerfvariou-fin-f-1", question: "Neural Radiance Fields中，____（3D重建）是一个核心概念。", answer: "3D重建", explanation: "3D重建是Neural Radiance Fields的核心内容之一。", difficulty: 2 },
+                { id: "nerfvariou-fin-f-2", question: "Neural Radiance Fields中，____（体渲染）是一个核心概念。", answer: "体渲染", explanation: "体渲染是Neural Radiance Fields的核心内容之一。", difficulty: 3 },
+                { id: "nerfvariou-fin-f-3", question: "Neural Radiance Fields中，____（隐式表示）是一个核心概念。", answer: "隐式表示", explanation: "隐式表示是Neural Radiance Fields的核心内容之一。", difficulty: 1 },
+                { id: "nerfvariou-fin-f-4", question: "Neural Radiance Fields中，____（新视角合成）是一个核心概念。", answer: "新视角合成", explanation: "新视角合成是Neural Radiance Fields的核心内容之一。", difficulty: 2 },
+                { id: "nerfvariou-fin-f-5", question: "Neural Radiance Fields中，____（位置编码）是一个核心概念。", answer: "位置编码", explanation: "位置编码是Neural Radiance Fields的核心内容之一。", difficulty: 3 },
+                { id: "nerfvariou-fin-f-6", question: "Neural Radiance Fields中，____（分层采样）是一个核心概念。", answer: "分层采样", explanation: "分层采样是Neural Radiance Fields的核心内容之一。", difficulty: 1 },
+                { id: "nerfvariou-fin-f-7", question: "Neural Radiance Fields中，____（辐射场）是一个核心概念。", answer: "辐射场", explanation: "辐射场是Neural Radiance Fields的核心内容之一。", difficulty: 2 },
+                { id: "nerfvariou-fin-f-8", question: "Neural Radiance Fields中，____（密度）是一个核心概念。", answer: "密度", explanation: "密度是Neural Radiance Fields的核心内容之一。", difficulty: 3 },
+                { id: "nerfvariou-fin-f-9", question: "Neural Radiance Fields中，____（相机位姿）是一个核心概念。", answer: "相机位姿", explanation: "相机位姿是Neural Radiance Fields的核心内容之一。", difficulty: 1 },
+                { id: "nerfvariou-fin-f-10", question: "Neural Radiance Fields中，____（NeRF）是一个核心概念。", answer: "NeRF", explanation: "NeRF是Neural Radiance Fields的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "nerfvariou-fin-code-1", question: "补全NeRF相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是NeRF的核心计算。", difficulty: 2 },
+                { id: "nerfvariou-fin-code-2", question: "补全NeRF相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是NeRF的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "CS131: Computer Vision Foundations": {
+        courseId: "cs131-cv-foundations", domain: "cv",
+        mid: {
+            choice: [
+                { id: "cs131cvfou-mid-c-1", question: "在图像分割中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "图像分割是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 2 },
+                { id: "cs131cvfou-mid-c-2", question: "在光流中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "光流是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 3 },
+                { id: "cs131cvfou-mid-c-3", question: "在立体视觉中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "立体视觉是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 1 },
+                { id: "cs131cvfou-mid-c-4", question: "在相机模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "相机模型是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 2 },
+                { id: "cs131cvfou-mid-c-5", question: "在Harris角点中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Harris角点是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 3 },
+                { id: "cs131cvfou-mid-c-6", question: "在SIFT中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SIFT是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 1 },
+                { id: "cs131cvfou-mid-c-7", question: "在HOG中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "HOG是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 2 },
+                { id: "cs131cvfou-mid-c-8", question: "在Canny中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Canny是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 3 },
+                { id: "cs131cvfou-mid-c-9", question: "在图像金字塔中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "图像金字塔是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 1 },
+                { id: "cs131cvfou-mid-c-10", question: "在特征检测中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "特征检测是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cs131cvfou-mid-f-1", question: "CS131: Computer Vision Foundations中，____（图像分割）是一个核心概念。", answer: "图像分割", explanation: "图像分割是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 2 },
+                { id: "cs131cvfou-mid-f-2", question: "CS131: Computer Vision Foundations中，____（光流）是一个核心概念。", answer: "光流", explanation: "光流是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 3 },
+                { id: "cs131cvfou-mid-f-3", question: "CS131: Computer Vision Foundations中，____（立体视觉）是一个核心概念。", answer: "立体视觉", explanation: "立体视觉是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 1 },
+                { id: "cs131cvfou-mid-f-4", question: "CS131: Computer Vision Foundations中，____（相机模型）是一个核心概念。", answer: "相机模型", explanation: "相机模型是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 2 },
+                { id: "cs131cvfou-mid-f-5", question: "CS131: Computer Vision Foundations中，____（Harris角点）是一个核心概念。", answer: "Harris角点", explanation: "Harris角点是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 3 },
+                { id: "cs131cvfou-mid-f-6", question: "CS131: Computer Vision Foundations中，____（SIFT）是一个核心概念。", answer: "SIFT", explanation: "SIFT是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 1 },
+                { id: "cs131cvfou-mid-f-7", question: "CS131: Computer Vision Foundations中，____（HOG）是一个核心概念。", answer: "HOG", explanation: "HOG是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 2 },
+                { id: "cs131cvfou-mid-f-8", question: "CS131: Computer Vision Foundations中，____（Canny）是一个核心概念。", answer: "Canny", explanation: "Canny是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 3 },
+                { id: "cs131cvfou-mid-f-9", question: "CS131: Computer Vision Foundations中，____（图像金字塔）是一个核心概念。", answer: "图像金字塔", explanation: "图像金字塔是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 1 },
+                { id: "cs131cvfou-mid-f-10", question: "CS131: Computer Vision Foundations中，____（特征检测）是一个核心概念。", answer: "特征检测", explanation: "特征检测是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cs131cvfou-mid-code-1", question: "补全特征检测相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是特征检测的核心计算。", difficulty: 2 },
+                { id: "cs131cvfou-mid-code-2", question: "补全特征检测相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是特征检测的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cs131cvfou-fin-c-1", question: "在图像分割中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "图像分割是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 2 },
+                { id: "cs131cvfou-fin-c-2", question: "在光流中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "光流是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 3 },
+                { id: "cs131cvfou-fin-c-3", question: "在立体视觉中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "立体视觉是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 1 },
+                { id: "cs131cvfou-fin-c-4", question: "在相机模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "相机模型是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 2 },
+                { id: "cs131cvfou-fin-c-5", question: "在Harris角点中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Harris角点是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 3 },
+                { id: "cs131cvfou-fin-c-6", question: "在SIFT中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SIFT是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 1 },
+                { id: "cs131cvfou-fin-c-7", question: "在HOG中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "HOG是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 2 },
+                { id: "cs131cvfou-fin-c-8", question: "在Canny中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Canny是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 3 },
+                { id: "cs131cvfou-fin-c-9", question: "在图像金字塔中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "图像金字塔是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 1 },
+                { id: "cs131cvfou-fin-c-10", question: "在特征检测中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "特征检测是CS131: Computer Vision Foundations课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cs131cvfou-fin-f-1", question: "CS131: Computer Vision Foundations中，____（图像分割）是一个核心概念。", answer: "图像分割", explanation: "图像分割是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 2 },
+                { id: "cs131cvfou-fin-f-2", question: "CS131: Computer Vision Foundations中，____（光流）是一个核心概念。", answer: "光流", explanation: "光流是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 3 },
+                { id: "cs131cvfou-fin-f-3", question: "CS131: Computer Vision Foundations中，____（立体视觉）是一个核心概念。", answer: "立体视觉", explanation: "立体视觉是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 1 },
+                { id: "cs131cvfou-fin-f-4", question: "CS131: Computer Vision Foundations中，____（相机模型）是一个核心概念。", answer: "相机模型", explanation: "相机模型是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 2 },
+                { id: "cs131cvfou-fin-f-5", question: "CS131: Computer Vision Foundations中，____（Harris角点）是一个核心概念。", answer: "Harris角点", explanation: "Harris角点是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 3 },
+                { id: "cs131cvfou-fin-f-6", question: "CS131: Computer Vision Foundations中，____（SIFT）是一个核心概念。", answer: "SIFT", explanation: "SIFT是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 1 },
+                { id: "cs131cvfou-fin-f-7", question: "CS131: Computer Vision Foundations中，____（HOG）是一个核心概念。", answer: "HOG", explanation: "HOG是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 2 },
+                { id: "cs131cvfou-fin-f-8", question: "CS131: Computer Vision Foundations中，____（Canny）是一个核心概念。", answer: "Canny", explanation: "Canny是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 3 },
+                { id: "cs131cvfou-fin-f-9", question: "CS131: Computer Vision Foundations中，____（图像金字塔）是一个核心概念。", answer: "图像金字塔", explanation: "图像金字塔是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 1 },
+                { id: "cs131cvfou-fin-f-10", question: "CS131: Computer Vision Foundations中，____（特征检测）是一个核心概念。", answer: "特征检测", explanation: "特征检测是CS131: Computer Vision Foundations的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cs131cvfou-fin-code-1", question: "补全特征检测相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是特征检测的核心计算。", difficulty: 2 },
+                { id: "cs131cvfou-fin-code-2", question: "补全特征检测相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是特征检测的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "CS 280: Computer Vision": {
+        courseId: "cs280-cv-ucb", domain: "cv",
+        mid: {
+            choice: [
+                { id: "cs280cvucb-mid-c-1", question: "在3D重建中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "3D重建是CS 280: Computer Vision课程的重要主题。", difficulty: 2 },
+                { id: "cs280cvucb-mid-c-2", question: "在场景理解中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "场景理解是CS 280: Computer Vision课程的重要主题。", difficulty: 3 },
+                { id: "cs280cvucb-mid-c-3", question: "在多视图几何中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多视图几何是CS 280: Computer Vision课程的重要主题。", difficulty: 1 },
+                { id: "cs280cvucb-mid-c-4", question: "在深度估计中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "深度估计是CS 280: Computer Vision课程的重要主题。", difficulty: 2 },
+                { id: "cs280cvucb-mid-c-5", question: "在PointNet中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PointNet是CS 280: Computer Vision课程的重要主题。", difficulty: 3 },
+                { id: "cs280cvucb-mid-c-6", question: "在VQA中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "VQA是CS 280: Computer Vision课程的重要主题。", difficulty: 1 },
+                { id: "cs280cvucb-mid-c-7", question: "在场景图中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "场景图是CS 280: Computer Vision课程的重要主题。", difficulty: 2 },
+                { id: "cs280cvucb-mid-c-8", question: "在自监督学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自监督学习是CS 280: Computer Vision课程的重要主题。", difficulty: 3 },
+                { id: "cs280cvucb-mid-c-9", question: "在CLIP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CLIP是CS 280: Computer Vision课程的重要主题。", difficulty: 1 },
+                { id: "cs280cvucb-mid-c-10", question: "在目标识别中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "目标识别是CS 280: Computer Vision课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cs280cvucb-mid-f-1", question: "CS 280: Computer Vision中，____（3D重建）是一个核心概念。", answer: "3D重建", explanation: "3D重建是CS 280: Computer Vision的核心内容之一。", difficulty: 2 },
+                { id: "cs280cvucb-mid-f-2", question: "CS 280: Computer Vision中，____（场景理解）是一个核心概念。", answer: "场景理解", explanation: "场景理解是CS 280: Computer Vision的核心内容之一。", difficulty: 3 },
+                { id: "cs280cvucb-mid-f-3", question: "CS 280: Computer Vision中，____（多视图几何）是一个核心概念。", answer: "多视图几何", explanation: "多视图几何是CS 280: Computer Vision的核心内容之一。", difficulty: 1 },
+                { id: "cs280cvucb-mid-f-4", question: "CS 280: Computer Vision中，____（深度估计）是一个核心概念。", answer: "深度估计", explanation: "深度估计是CS 280: Computer Vision的核心内容之一。", difficulty: 2 },
+                { id: "cs280cvucb-mid-f-5", question: "CS 280: Computer Vision中，____（PointNet）是一个核心概念。", answer: "PointNet", explanation: "PointNet是CS 280: Computer Vision的核心内容之一。", difficulty: 3 },
+                { id: "cs280cvucb-mid-f-6", question: "CS 280: Computer Vision中，____（VQA）是一个核心概念。", answer: "VQA", explanation: "VQA是CS 280: Computer Vision的核心内容之一。", difficulty: 1 },
+                { id: "cs280cvucb-mid-f-7", question: "CS 280: Computer Vision中，____（场景图）是一个核心概念。", answer: "场景图", explanation: "场景图是CS 280: Computer Vision的核心内容之一。", difficulty: 2 },
+                { id: "cs280cvucb-mid-f-8", question: "CS 280: Computer Vision中，____（自监督学习）是一个核心概念。", answer: "自监督学习", explanation: "自监督学习是CS 280: Computer Vision的核心内容之一。", difficulty: 3 },
+                { id: "cs280cvucb-mid-f-9", question: "CS 280: Computer Vision中，____（CLIP）是一个核心概念。", answer: "CLIP", explanation: "CLIP是CS 280: Computer Vision的核心内容之一。", difficulty: 1 },
+                { id: "cs280cvucb-mid-f-10", question: "CS 280: Computer Vision中，____（目标识别）是一个核心概念。", answer: "目标识别", explanation: "目标识别是CS 280: Computer Vision的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cs280cvucb-mid-code-1", question: "补全目标识别相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是目标识别的核心计算。", difficulty: 2 },
+                { id: "cs280cvucb-mid-code-2", question: "补全目标识别相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是目标识别的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cs280cvucb-fin-c-1", question: "在3D重建中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "3D重建是CS 280: Computer Vision课程的重要主题。", difficulty: 2 },
+                { id: "cs280cvucb-fin-c-2", question: "在场景理解中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "场景理解是CS 280: Computer Vision课程的重要主题。", difficulty: 3 },
+                { id: "cs280cvucb-fin-c-3", question: "在多视图几何中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多视图几何是CS 280: Computer Vision课程的重要主题。", difficulty: 1 },
+                { id: "cs280cvucb-fin-c-4", question: "在深度估计中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "深度估计是CS 280: Computer Vision课程的重要主题。", difficulty: 2 },
+                { id: "cs280cvucb-fin-c-5", question: "在PointNet中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "PointNet是CS 280: Computer Vision课程的重要主题。", difficulty: 3 },
+                { id: "cs280cvucb-fin-c-6", question: "在VQA中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "VQA是CS 280: Computer Vision课程的重要主题。", difficulty: 1 },
+                { id: "cs280cvucb-fin-c-7", question: "在场景图中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "场景图是CS 280: Computer Vision课程的重要主题。", difficulty: 2 },
+                { id: "cs280cvucb-fin-c-8", question: "在自监督学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自监督学习是CS 280: Computer Vision课程的重要主题。", difficulty: 3 },
+                { id: "cs280cvucb-fin-c-9", question: "在CLIP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CLIP是CS 280: Computer Vision课程的重要主题。", difficulty: 1 },
+                { id: "cs280cvucb-fin-c-10", question: "在目标识别中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "目标识别是CS 280: Computer Vision课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cs280cvucb-fin-f-1", question: "CS 280: Computer Vision中，____（3D重建）是一个核心概念。", answer: "3D重建", explanation: "3D重建是CS 280: Computer Vision的核心内容之一。", difficulty: 2 },
+                { id: "cs280cvucb-fin-f-2", question: "CS 280: Computer Vision中，____（场景理解）是一个核心概念。", answer: "场景理解", explanation: "场景理解是CS 280: Computer Vision的核心内容之一。", difficulty: 3 },
+                { id: "cs280cvucb-fin-f-3", question: "CS 280: Computer Vision中，____（多视图几何）是一个核心概念。", answer: "多视图几何", explanation: "多视图几何是CS 280: Computer Vision的核心内容之一。", difficulty: 1 },
+                { id: "cs280cvucb-fin-f-4", question: "CS 280: Computer Vision中，____（深度估计）是一个核心概念。", answer: "深度估计", explanation: "深度估计是CS 280: Computer Vision的核心内容之一。", difficulty: 2 },
+                { id: "cs280cvucb-fin-f-5", question: "CS 280: Computer Vision中，____（PointNet）是一个核心概念。", answer: "PointNet", explanation: "PointNet是CS 280: Computer Vision的核心内容之一。", difficulty: 3 },
+                { id: "cs280cvucb-fin-f-6", question: "CS 280: Computer Vision中，____（VQA）是一个核心概念。", answer: "VQA", explanation: "VQA是CS 280: Computer Vision的核心内容之一。", difficulty: 1 },
+                { id: "cs280cvucb-fin-f-7", question: "CS 280: Computer Vision中，____（场景图）是一个核心概念。", answer: "场景图", explanation: "场景图是CS 280: Computer Vision的核心内容之一。", difficulty: 2 },
+                { id: "cs280cvucb-fin-f-8", question: "CS 280: Computer Vision中，____（自监督学习）是一个核心概念。", answer: "自监督学习", explanation: "自监督学习是CS 280: Computer Vision的核心内容之一。", difficulty: 3 },
+                { id: "cs280cvucb-fin-f-9", question: "CS 280: Computer Vision中，____（CLIP）是一个核心概念。", answer: "CLIP", explanation: "CLIP是CS 280: Computer Vision的核心内容之一。", difficulty: 1 },
+                { id: "cs280cvucb-fin-f-10", question: "CS 280: Computer Vision中，____（目标识别）是一个核心概念。", answer: "目标识别", explanation: "目标识别是CS 280: Computer Vision的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cs280cvucb-fin-code-1", question: "补全目标识别相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是目标识别的核心计算。", difficulty: 2 },
+                { id: "cs280cvucb-fin-code-2", question: "补全目标识别相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是目标识别的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "16-824: Visual Learning": {
+        courseId: "cmu-visual-learning", domain: "cv",
+        mid: {
+            choice: [
+                { id: "cmuvisuall-mid-c-1", question: "在CLIP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CLIP是16-824: Visual Learning课程的重要主题。", difficulty: 2 },
+                { id: "cmuvisuall-mid-c-2", question: "在SAM中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SAM是16-824: Visual Learning课程的重要主题。", difficulty: 3 },
+                { id: "cmuvisuall-mid-c-3", question: "在视觉基础模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "视觉基础模型是16-824: Visual Learning课程的重要主题。", difficulty: 1 },
+                { id: "cmuvisuall-mid-c-4", question: "在多模态学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多模态学习是16-824: Visual Learning课程的重要主题。", difficulty: 2 },
+                { id: "cmuvisuall-mid-c-5", question: "在Prompt Tuning中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Prompt Tuning是16-824: Visual Learning课程的重要主题。", difficulty: 3 },
+                { id: "cmuvisuall-mid-c-6", question: "在零样本分类中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "零样本分类是16-824: Visual Learning课程的重要主题。", difficulty: 1 },
+                { id: "cmuvisuall-mid-c-7", question: "在对比学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "对比学习是16-824: Visual Learning课程的重要主题。", difficulty: 2 },
+                { id: "cmuvisuall-mid-c-8", question: "在Patch Embedding中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Patch Embedding是16-824: Visual Learning课程的重要主题。", difficulty: 3 },
+                { id: "cmuvisuall-mid-c-9", question: "在视觉-语言对齐中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "视觉-语言对齐是16-824: Visual Learning课程的重要主题。", difficulty: 1 },
+                { id: "cmuvisuall-mid-c-10", question: "在ViT中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "ViT是16-824: Visual Learning课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cmuvisuall-mid-f-1", question: "16-824: Visual Learning中，____（CLIP）是一个核心概念。", answer: "CLIP", explanation: "CLIP是16-824: Visual Learning的核心内容之一。", difficulty: 2 },
+                { id: "cmuvisuall-mid-f-2", question: "16-824: Visual Learning中，____（SAM）是一个核心概念。", answer: "SAM", explanation: "SAM是16-824: Visual Learning的核心内容之一。", difficulty: 3 },
+                { id: "cmuvisuall-mid-f-3", question: "16-824: Visual Learning中，____（视觉基础模型）是一个核心概念。", answer: "视觉基础模型", explanation: "视觉基础模型是16-824: Visual Learning的核心内容之一。", difficulty: 1 },
+                { id: "cmuvisuall-mid-f-4", question: "16-824: Visual Learning中，____（多模态学习）是一个核心概念。", answer: "多模态学习", explanation: "多模态学习是16-824: Visual Learning的核心内容之一。", difficulty: 2 },
+                { id: "cmuvisuall-mid-f-5", question: "16-824: Visual Learning中，____（Prompt Tuning）是一个核心概念。", answer: "Prompt Tuning", explanation: "Prompt Tuning是16-824: Visual Learning的核心内容之一。", difficulty: 3 },
+                { id: "cmuvisuall-mid-f-6", question: "16-824: Visual Learning中，____（零样本分类）是一个核心概念。", answer: "零样本分类", explanation: "零样本分类是16-824: Visual Learning的核心内容之一。", difficulty: 1 },
+                { id: "cmuvisuall-mid-f-7", question: "16-824: Visual Learning中，____（对比学习）是一个核心概念。", answer: "对比学习", explanation: "对比学习是16-824: Visual Learning的核心内容之一。", difficulty: 2 },
+                { id: "cmuvisuall-mid-f-8", question: "16-824: Visual Learning中，____（Patch Embedding）是一个核心概念。", answer: "Patch Embedding", explanation: "Patch Embedding是16-824: Visual Learning的核心内容之一。", difficulty: 3 },
+                { id: "cmuvisuall-mid-f-9", question: "16-824: Visual Learning中，____（视觉-语言对齐）是一个核心概念。", answer: "视觉-语言对齐", explanation: "视觉-语言对齐是16-824: Visual Learning的核心内容之一。", difficulty: 1 },
+                { id: "cmuvisuall-mid-f-10", question: "16-824: Visual Learning中，____（ViT）是一个核心概念。", answer: "ViT", explanation: "ViT是16-824: Visual Learning的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmuvisuall-mid-code-1", question: "补全ViT相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是ViT的核心计算。", difficulty: 2 },
+                { id: "cmuvisuall-mid-code-2", question: "补全ViT相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是ViT的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cmuvisuall-fin-c-1", question: "在CLIP中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "CLIP是16-824: Visual Learning课程的重要主题。", difficulty: 2 },
+                { id: "cmuvisuall-fin-c-2", question: "在SAM中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SAM是16-824: Visual Learning课程的重要主题。", difficulty: 3 },
+                { id: "cmuvisuall-fin-c-3", question: "在视觉基础模型中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "视觉基础模型是16-824: Visual Learning课程的重要主题。", difficulty: 1 },
+                { id: "cmuvisuall-fin-c-4", question: "在多模态学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多模态学习是16-824: Visual Learning课程的重要主题。", difficulty: 2 },
+                { id: "cmuvisuall-fin-c-5", question: "在Prompt Tuning中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Prompt Tuning是16-824: Visual Learning课程的重要主题。", difficulty: 3 },
+                { id: "cmuvisuall-fin-c-6", question: "在零样本分类中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "零样本分类是16-824: Visual Learning课程的重要主题。", difficulty: 1 },
+                { id: "cmuvisuall-fin-c-7", question: "在对比学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "对比学习是16-824: Visual Learning课程的重要主题。", difficulty: 2 },
+                { id: "cmuvisuall-fin-c-8", question: "在Patch Embedding中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Patch Embedding是16-824: Visual Learning课程的重要主题。", difficulty: 3 },
+                { id: "cmuvisuall-fin-c-9", question: "在视觉-语言对齐中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "视觉-语言对齐是16-824: Visual Learning课程的重要主题。", difficulty: 1 },
+                { id: "cmuvisuall-fin-c-10", question: "在ViT中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "ViT是16-824: Visual Learning课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cmuvisuall-fin-f-1", question: "16-824: Visual Learning中，____（CLIP）是一个核心概念。", answer: "CLIP", explanation: "CLIP是16-824: Visual Learning的核心内容之一。", difficulty: 2 },
+                { id: "cmuvisuall-fin-f-2", question: "16-824: Visual Learning中，____（SAM）是一个核心概念。", answer: "SAM", explanation: "SAM是16-824: Visual Learning的核心内容之一。", difficulty: 3 },
+                { id: "cmuvisuall-fin-f-3", question: "16-824: Visual Learning中，____（视觉基础模型）是一个核心概念。", answer: "视觉基础模型", explanation: "视觉基础模型是16-824: Visual Learning的核心内容之一。", difficulty: 1 },
+                { id: "cmuvisuall-fin-f-4", question: "16-824: Visual Learning中，____（多模态学习）是一个核心概念。", answer: "多模态学习", explanation: "多模态学习是16-824: Visual Learning的核心内容之一。", difficulty: 2 },
+                { id: "cmuvisuall-fin-f-5", question: "16-824: Visual Learning中，____（Prompt Tuning）是一个核心概念。", answer: "Prompt Tuning", explanation: "Prompt Tuning是16-824: Visual Learning的核心内容之一。", difficulty: 3 },
+                { id: "cmuvisuall-fin-f-6", question: "16-824: Visual Learning中，____（零样本分类）是一个核心概念。", answer: "零样本分类", explanation: "零样本分类是16-824: Visual Learning的核心内容之一。", difficulty: 1 },
+                { id: "cmuvisuall-fin-f-7", question: "16-824: Visual Learning中，____（对比学习）是一个核心概念。", answer: "对比学习", explanation: "对比学习是16-824: Visual Learning的核心内容之一。", difficulty: 2 },
+                { id: "cmuvisuall-fin-f-8", question: "16-824: Visual Learning中，____（Patch Embedding）是一个核心概念。", answer: "Patch Embedding", explanation: "Patch Embedding是16-824: Visual Learning的核心内容之一。", difficulty: 3 },
+                { id: "cmuvisuall-fin-f-9", question: "16-824: Visual Learning中，____（视觉-语言对齐）是一个核心概念。", answer: "视觉-语言对齐", explanation: "视觉-语言对齐是16-824: Visual Learning的核心内容之一。", difficulty: 1 },
+                { id: "cmuvisuall-fin-f-10", question: "16-824: Visual Learning中，____（ViT）是一个核心概念。", answer: "ViT", explanation: "ViT是16-824: Visual Learning的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmuvisuall-fin-code-1", question: "补全ViT相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是ViT的核心计算。", difficulty: 2 },
+                { id: "cmuvisuall-fin-code-2", question: "补全ViT相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是ViT的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "16-385/720: Computer Vision": {
+        courseId: "cmu-cv", domain: "cv",
+        mid: {
+            choice: [
+                { id: "cmucv-mid-c-1", question: "在光流中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "光流是16-385/720: Computer Vision课程的重要主题。", difficulty: 2 },
+                { id: "cmucv-mid-c-2", question: "在3D视觉中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "3D视觉是16-385/720: Computer Vision课程的重要主题。", difficulty: 3 },
+                { id: "cmucv-mid-c-3", question: "在运动恢复结构中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "运动恢复结构是16-385/720: Computer Vision课程的重要主题。", difficulty: 1 },
+                { id: "cmucv-mid-c-4", question: "在立体匹配中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "立体匹配是16-385/720: Computer Vision课程的重要主题。", difficulty: 2 },
+                { id: "cmucv-mid-c-5", question: "在SfM中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SfM是16-385/720: Computer Vision课程的重要主题。", difficulty: 3 },
+                { id: "cmucv-mid-c-6", question: "在Bundle Adjustment中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Bundle Adjustment是16-385/720: Computer Vision课程的重要主题。", difficulty: 1 },
+                { id: "cmucv-mid-c-7", question: "在相机标定中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "相机标定是16-385/720: Computer Vision课程的重要主题。", difficulty: 2 },
+                { id: "cmucv-mid-c-8", question: "在极线几何中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "极线几何是16-385/720: Computer Vision课程的重要主题。", difficulty: 3 },
+                { id: "cmucv-mid-c-9", question: "在图像拼接中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "图像拼接是16-385/720: Computer Vision课程的重要主题。", difficulty: 1 },
+                { id: "cmucv-mid-c-10", question: "在特征匹配中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "特征匹配是16-385/720: Computer Vision课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cmucv-mid-f-1", question: "16-385/720: Computer Vision中，____（光流）是一个核心概念。", answer: "光流", explanation: "光流是16-385/720: Computer Vision的核心内容之一。", difficulty: 2 },
+                { id: "cmucv-mid-f-2", question: "16-385/720: Computer Vision中，____（3D视觉）是一个核心概念。", answer: "3D视觉", explanation: "3D视觉是16-385/720: Computer Vision的核心内容之一。", difficulty: 3 },
+                { id: "cmucv-mid-f-3", question: "16-385/720: Computer Vision中，____（运动恢复结构）是一个核心概念。", answer: "运动恢复结构", explanation: "运动恢复结构是16-385/720: Computer Vision的核心内容之一。", difficulty: 1 },
+                { id: "cmucv-mid-f-4", question: "16-385/720: Computer Vision中，____（立体匹配）是一个核心概念。", answer: "立体匹配", explanation: "立体匹配是16-385/720: Computer Vision的核心内容之一。", difficulty: 2 },
+                { id: "cmucv-mid-f-5", question: "16-385/720: Computer Vision中，____（SfM）是一个核心概念。", answer: "SfM", explanation: "SfM是16-385/720: Computer Vision的核心内容之一。", difficulty: 3 },
+                { id: "cmucv-mid-f-6", question: "16-385/720: Computer Vision中，____（Bundle Adjustment）是一个核心概念。", answer: "Bundle Adjustment", explanation: "Bundle Adjustment是16-385/720: Computer Vision的核心内容之一。", difficulty: 1 },
+                { id: "cmucv-mid-f-7", question: "16-385/720: Computer Vision中，____（相机标定）是一个核心概念。", answer: "相机标定", explanation: "相机标定是16-385/720: Computer Vision的核心内容之一。", difficulty: 2 },
+                { id: "cmucv-mid-f-8", question: "16-385/720: Computer Vision中，____（极线几何）是一个核心概念。", answer: "极线几何", explanation: "极线几何是16-385/720: Computer Vision的核心内容之一。", difficulty: 3 },
+                { id: "cmucv-mid-f-9", question: "16-385/720: Computer Vision中，____（图像拼接）是一个核心概念。", answer: "图像拼接", explanation: "图像拼接是16-385/720: Computer Vision的核心内容之一。", difficulty: 1 },
+                { id: "cmucv-mid-f-10", question: "16-385/720: Computer Vision中，____（特征匹配）是一个核心概念。", answer: "特征匹配", explanation: "特征匹配是16-385/720: Computer Vision的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmucv-mid-code-1", question: "补全特征匹配相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是特征匹配的核心计算。", difficulty: 2 },
+                { id: "cmucv-mid-code-2", question: "补全特征匹配相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是特征匹配的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "cmucv-fin-c-1", question: "在光流中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "光流是16-385/720: Computer Vision课程的重要主题。", difficulty: 2 },
+                { id: "cmucv-fin-c-2", question: "在3D视觉中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "3D视觉是16-385/720: Computer Vision课程的重要主题。", difficulty: 3 },
+                { id: "cmucv-fin-c-3", question: "在运动恢复结构中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "运动恢复结构是16-385/720: Computer Vision课程的重要主题。", difficulty: 1 },
+                { id: "cmucv-fin-c-4", question: "在立体匹配中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "立体匹配是16-385/720: Computer Vision课程的重要主题。", difficulty: 2 },
+                { id: "cmucv-fin-c-5", question: "在SfM中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "SfM是16-385/720: Computer Vision课程的重要主题。", difficulty: 3 },
+                { id: "cmucv-fin-c-6", question: "在Bundle Adjustment中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "Bundle Adjustment是16-385/720: Computer Vision课程的重要主题。", difficulty: 1 },
+                { id: "cmucv-fin-c-7", question: "在相机标定中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "相机标定是16-385/720: Computer Vision课程的重要主题。", difficulty: 2 },
+                { id: "cmucv-fin-c-8", question: "在极线几何中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "极线几何是16-385/720: Computer Vision课程的重要主题。", difficulty: 3 },
+                { id: "cmucv-fin-c-9", question: "在图像拼接中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "图像拼接是16-385/720: Computer Vision课程的重要主题。", difficulty: 1 },
+                { id: "cmucv-fin-c-10", question: "在特征匹配中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "特征匹配是16-385/720: Computer Vision课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "cmucv-fin-f-1", question: "16-385/720: Computer Vision中，____（光流）是一个核心概念。", answer: "光流", explanation: "光流是16-385/720: Computer Vision的核心内容之一。", difficulty: 2 },
+                { id: "cmucv-fin-f-2", question: "16-385/720: Computer Vision中，____（3D视觉）是一个核心概念。", answer: "3D视觉", explanation: "3D视觉是16-385/720: Computer Vision的核心内容之一。", difficulty: 3 },
+                { id: "cmucv-fin-f-3", question: "16-385/720: Computer Vision中，____（运动恢复结构）是一个核心概念。", answer: "运动恢复结构", explanation: "运动恢复结构是16-385/720: Computer Vision的核心内容之一。", difficulty: 1 },
+                { id: "cmucv-fin-f-4", question: "16-385/720: Computer Vision中，____（立体匹配）是一个核心概念。", answer: "立体匹配", explanation: "立体匹配是16-385/720: Computer Vision的核心内容之一。", difficulty: 2 },
+                { id: "cmucv-fin-f-5", question: "16-385/720: Computer Vision中，____（SfM）是一个核心概念。", answer: "SfM", explanation: "SfM是16-385/720: Computer Vision的核心内容之一。", difficulty: 3 },
+                { id: "cmucv-fin-f-6", question: "16-385/720: Computer Vision中，____（Bundle Adjustment）是一个核心概念。", answer: "Bundle Adjustment", explanation: "Bundle Adjustment是16-385/720: Computer Vision的核心内容之一。", difficulty: 1 },
+                { id: "cmucv-fin-f-7", question: "16-385/720: Computer Vision中，____（相机标定）是一个核心概念。", answer: "相机标定", explanation: "相机标定是16-385/720: Computer Vision的核心内容之一。", difficulty: 2 },
+                { id: "cmucv-fin-f-8", question: "16-385/720: Computer Vision中，____（极线几何）是一个核心概念。", answer: "极线几何", explanation: "极线几何是16-385/720: Computer Vision的核心内容之一。", difficulty: 3 },
+                { id: "cmucv-fin-f-9", question: "16-385/720: Computer Vision中，____（图像拼接）是一个核心概念。", answer: "图像拼接", explanation: "图像拼接是16-385/720: Computer Vision的核心内容之一。", difficulty: 1 },
+                { id: "cmucv-fin-f-10", question: "16-385/720: Computer Vision中，____（特征匹配）是一个核心概念。", answer: "特征匹配", explanation: "特征匹配是16-385/720: Computer Vision的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "cmucv-fin-code-1", question: "补全特征匹配相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是特征匹配的核心计算。", difficulty: 2 },
+                { id: "cmucv-fin-code-2", question: "补全特征匹配相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是特征匹配的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "6.819/6.869: Advances in CV": {
+        courseId: "mit-advances-cv-adv", domain: "cv",
+        mid: {
+            choice: [
+                { id: "mitadvance-mid-c-1", question: "在立体视觉中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "立体视觉是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 2 },
+                { id: "mitadvance-mid-c-2", question: "在3D重建中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "3D重建是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 3 },
+                { id: "mitadvance-mid-c-3", question: "在视觉推理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "视觉推理是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 1 },
+                { id: "mitadvance-mid-c-4", question: "在视频理解中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "视频理解是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 2 },
+                { id: "mitadvance-mid-c-5", question: "在NeRF中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "NeRF是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 3 },
+                { id: "mitadvance-mid-c-6", question: "在场景图中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "场景图是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 1 },
+                { id: "mitadvance-mid-c-7", question: "在视觉定位中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "视觉定位是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 2 },
+                { id: "mitadvance-mid-c-8", question: "在自监督学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自监督学习是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 3 },
+                { id: "mitadvance-mid-c-9", question: "在多任务学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多任务学习是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 1 },
+                { id: "mitadvance-mid-c-10", question: "在场景理解中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "场景理解是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "mitadvance-mid-f-1", question: "6.819/6.869: Advances in CV中，____（立体视觉）是一个核心概念。", answer: "立体视觉", explanation: "立体视觉是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 2 },
+                { id: "mitadvance-mid-f-2", question: "6.819/6.869: Advances in CV中，____（3D重建）是一个核心概念。", answer: "3D重建", explanation: "3D重建是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 3 },
+                { id: "mitadvance-mid-f-3", question: "6.819/6.869: Advances in CV中，____（视觉推理）是一个核心概念。", answer: "视觉推理", explanation: "视觉推理是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 1 },
+                { id: "mitadvance-mid-f-4", question: "6.819/6.869: Advances in CV中，____（视频理解）是一个核心概念。", answer: "视频理解", explanation: "视频理解是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 2 },
+                { id: "mitadvance-mid-f-5", question: "6.819/6.869: Advances in CV中，____（NeRF）是一个核心概念。", answer: "NeRF", explanation: "NeRF是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 3 },
+                { id: "mitadvance-mid-f-6", question: "6.819/6.869: Advances in CV中，____（场景图）是一个核心概念。", answer: "场景图", explanation: "场景图是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 1 },
+                { id: "mitadvance-mid-f-7", question: "6.819/6.869: Advances in CV中，____（视觉定位）是一个核心概念。", answer: "视觉定位", explanation: "视觉定位是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 2 },
+                { id: "mitadvance-mid-f-8", question: "6.819/6.869: Advances in CV中，____（自监督学习）是一个核心概念。", answer: "自监督学习", explanation: "自监督学习是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 3 },
+                { id: "mitadvance-mid-f-9", question: "6.819/6.869: Advances in CV中，____（多任务学习）是一个核心概念。", answer: "多任务学习", explanation: "多任务学习是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 1 },
+                { id: "mitadvance-mid-f-10", question: "6.819/6.869: Advances in CV中，____（场景理解）是一个核心概念。", answer: "场景理解", explanation: "场景理解是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "mitadvance-mid-code-1", question: "补全场景理解相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是场景理解的核心计算。", difficulty: 2 },
+                { id: "mitadvance-mid-code-2", question: "补全场景理解相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是场景理解的核心计算。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "mitadvance-fin-c-1", question: "在立体视觉中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "立体视觉是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 2 },
+                { id: "mitadvance-fin-c-2", question: "在3D重建中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "3D重建是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 3 },
+                { id: "mitadvance-fin-c-3", question: "在视觉推理中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "视觉推理是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 1 },
+                { id: "mitadvance-fin-c-4", question: "在视频理解中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "视频理解是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 2 },
+                { id: "mitadvance-fin-c-5", question: "在NeRF中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "NeRF是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 3 },
+                { id: "mitadvance-fin-c-6", question: "在场景图中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "场景图是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 1 },
+                { id: "mitadvance-fin-c-7", question: "在视觉定位中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "视觉定位是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 2 },
+                { id: "mitadvance-fin-c-8", question: "在自监督学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "自监督学习是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 3 },
+                { id: "mitadvance-fin-c-9", question: "在多任务学习中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "多任务学习是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 1 },
+                { id: "mitadvance-fin-c-10", question: "在场景理解中，以下哪个描述最准确？", options: ["方案A不正确","方案B正确且最优","方案C不完整","方案D错误"], answer: 1, explanation: "场景理解是6.819/6.869: Advances in CV课程的重要主题。", difficulty: 2 },
+            ],
+            fill: [
+                { id: "mitadvance-fin-f-1", question: "6.819/6.869: Advances in CV中，____（立体视觉）是一个核心概念。", answer: "立体视觉", explanation: "立体视觉是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 2 },
+                { id: "mitadvance-fin-f-2", question: "6.819/6.869: Advances in CV中，____（3D重建）是一个核心概念。", answer: "3D重建", explanation: "3D重建是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 3 },
+                { id: "mitadvance-fin-f-3", question: "6.819/6.869: Advances in CV中，____（视觉推理）是一个核心概念。", answer: "视觉推理", explanation: "视觉推理是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 1 },
+                { id: "mitadvance-fin-f-4", question: "6.819/6.869: Advances in CV中，____（视频理解）是一个核心概念。", answer: "视频理解", explanation: "视频理解是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 2 },
+                { id: "mitadvance-fin-f-5", question: "6.819/6.869: Advances in CV中，____（NeRF）是一个核心概念。", answer: "NeRF", explanation: "NeRF是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 3 },
+                { id: "mitadvance-fin-f-6", question: "6.819/6.869: Advances in CV中，____（场景图）是一个核心概念。", answer: "场景图", explanation: "场景图是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 1 },
+                { id: "mitadvance-fin-f-7", question: "6.819/6.869: Advances in CV中，____（视觉定位）是一个核心概念。", answer: "视觉定位", explanation: "视觉定位是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 2 },
+                { id: "mitadvance-fin-f-8", question: "6.819/6.869: Advances in CV中，____（自监督学习）是一个核心概念。", answer: "自监督学习", explanation: "自监督学习是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 3 },
+                { id: "mitadvance-fin-f-9", question: "6.819/6.869: Advances in CV中，____（多任务学习）是一个核心概念。", answer: "多任务学习", explanation: "多任务学习是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 1 },
+                { id: "mitadvance-fin-f-10", question: "6.819/6.869: Advances in CV中，____（场景理解）是一个核心概念。", answer: "场景理解", explanation: "场景理解是6.819/6.869: Advances in CV的核心内容之一。", difficulty: 2 },
+            ],
+            code: [
+                { id: "mitadvance-fin-code-1", question: "补全场景理解相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是场景理解的核心计算。", difficulty: 2 },
+                { id: "mitadvance-fin-code-2", question: "补全场景理解相关的核心代码", code: "import numpy as np\n\ndef compute(x):\n    result = ____\n    return result", answer: "x", explanation: "这是场景理解的核心计算。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Mathematics for Machine Learning": {
+        courseId: "deeplearningai-mml", domain: "ml",
+        mid: {
+            choice: [
+                { id: "dlai-mml-mid-c-1", question: "对于一个 n×n 的实对称矩阵，以下哪个说法是正确的？", options: ["它一定可逆","它一定可以对角化，且特征值全为实数","它的特征值一定是正数","它的行列式一定等于1"], answer: 1, explanation: "实对称矩阵一定可以正交对角化，且特征值全为实数，这是谱定理的核心结论。", difficulty: 2 },
+                { id: "dlai-mml-mid-c-2", question: "向量 x 在矩阵 A 下的 L2 范数 ∥Ax∥₂ 表示什么几何含义？", options: ["x 的长度","Ax 的长度，即 x 经过线性变换 A 后到原点的距离","矩阵 A 的面积","x 和 A 的内积"], answer: 1, explanation: "∥Ax∥₂ 是向量 Ax 的欧几里得长度，表示线性变换后向量到原点的距离。", difficulty: 1 },
+                { id: "dlai-mml-mid-c-3", question: "函数 f(x) = x³ 在 x=0 处的导数是多少？", options: ["0","1","3","不存在"], answer: 0, explanation: "f'(x) = 3x²，在 x=0 处 f'(0) = 0，因此 x=0 是一个驻点。", difficulty: 1 },
+                { id: "dlai-mml-mid-c-4", question: "多元函数 f(x,y) 的 Hessian 矩阵是由什么组成的？", options: ["一阶偏导数组成的向量","二阶偏导数组成的矩阵","函数值组成的矩阵","梯度组成的向量"], answer: 1, explanation: "Hessian 矩阵 H 的元素 H_ij = ∂²f/∂x_i∂x_j，由所有二阶偏导数组成。", difficulty: 2 },
+                { id: "dlai-mml-mid-c-5", question: "在概率论中，两个独立随机变量 X 和 Y，Var(X+Y) 等于什么？", options: ["Var(X) + Var(Y)","Var(X) - Var(Y)","Var(X) × Var(Y)","(Var(X) + Var(Y))²"], answer: 0, explanation: "当 X 和 Y 独立时，Cov(X,Y)=0，所以 Var(X+Y) = Var(X) + Var(Y)。", difficulty: 2 },
+                { id: "dlai-mml-mid-c-6", question: "梯度下降法中，学习率过大可能导致什么问题？", options: ["收敛太慢","在最优点附近震荡甚至发散","陷入局部最优","无法更新参数"], answer: 1, explanation: "学习率过大会导致步长过大，可能跳过最优点，在最优点附近震荡甚至发散。", difficulty: 1 },
+                { id: "dlai-mml-mid-c-7", question: "矩阵的奇异值分解(SVD)中，奇异值总是满足什么条件？", options: ["全为正数","全为实数且非负","全为整数","等于特征值"], answer: 1, explanation: "SVD 中的奇异值 σ_i 总是实数且非负，但矩阵的特征值可以是复数或负数。", difficulty: 2 },
+                { id: "dlai-mml-mid-c-8", question: "贝叶斯定理 P(A|B) = P(B|A)P(A)/P(B) 中，P(B) 在分类问题中通常被称为什么？", options: ["先验概率","后验概率","似然","证据(evidence)"], answer: 3, explanation: "P(B) 是证据(evidence)，在分类问题中作为归一化常数，使得后验概率总和为1。", difficulty: 2 },
+                { id: "dlai-mml-mid-c-9", question: "凸优化问题中，局部最优和全局最优的关系是什么？", options: ["局部最优一定不是全局最优","可能存在多个互不相等的局部最优","局部最优一定是全局最优","两者没有关系"], answer: 2, explanation: "对于凸优化问题，任何局部最优解都是全局最优解，这是凸优化的核心优势。", difficulty: 3 },
+                { id: "dlai-mml-mid-c-10", question: "拉格朗日乘子法的几何意义是什么？", options: ["最大化目标函数","在约束条件下，目标函数的梯度与约束函数的梯度共线","最小化约束条件","寻找无约束最优解"], answer: 1, explanation: "拉格朗日乘子法要求在约束极值点处，目标函数梯度与约束函数梯度平行(共线)。", difficulty: 3 },
+            ],
+            fill: [
+                { id: "dlai-mml-mid-f-1", question: "矩阵 A 的____分解(Orthogonal Diagonalization)可以表示为 A = QΛQ^T，其中 Q 是正交矩阵。", answer: "正交对角化", explanation: "实对称矩阵的正交对角化是谱定理的核心内容，Q 的列是 A 的单位特征向量。", difficulty: 2 },
+                { id: "dlai-mml-mid-f-2", question: "向量空间中，一个子空间必须包含____向量，且对加法和标量乘法封闭。", answer: "零", explanation: "零向量是子空间的必要条件，保证加法单位元存在。", difficulty: 1 },
+                { id: "dlai-mml-mid-f-3", question: "复合函数 f(g(x)) 的导数求解法则称为____法则。", answer: "链式", explanation: "链式法则(Chain Rule)：(f(g(x)))' = f'(g(x)) * g'(x)，是反向传播的理论基础。", difficulty: 1 },
+                { id: "dlai-mml-mid-f-4", question: "多元函数在某点取得极值的必要条件是该点的____等于零向量。", answer: "梯度", explanation: "梯度为零是多元函数极值的必要条件(一阶条件)，类似一元函数的 f'(x)=0。", difficulty: 2 },
+                { id: "dlai-mml-mid-f-5", question: "两个随机变量 X 和 Y 的____定义为 Cov(X,Y) = E[(X-μ_X)(Y-μ_Y)]。", answer: "协方差", explanation: "协方差衡量两个随机变量的线性相关程度，为0表示不相关。", difficulty: 1 },
+                { id: "dlai-mml-mid-f-6", question: "对于正定矩阵 A，其所有的____都大于零。", answer: "特征值", explanation: "正定矩阵的定义之一就是所有特征值均为正数，这保证了二次型 x^TAx > 0 (x≠0)。", difficulty: 2 },
+                { id: "dlai-mml-mid-f-7", question: "梯度下降的参数更新公式为 θ = θ - α____，其中 α 是学习率。", answer: "∇f(θ)", explanation: "梯度下降沿负梯度方向更新参数，∇f(θ) 是目标函数 f 对参数 θ 的梯度。", difficulty: 1 },
+                { id: "dlai-mml-mid-f-8", question: "SVD 分解将矩阵 A 分解为 A = UΣV^T，其中 U 和 V 分别是____矩阵。", answer: "正交", explanation: "U 和 V 是正交矩阵(酉矩阵)，Σ 是对角矩阵，对角线元素为奇异值。", difficulty: 2 },
+                { id: "dlai-mml-mid-f-9", question: "概率分布的____衡量分布的离散程度，定义为 Var(X) = E[X²] - (E[X])²。", answer: "方差", explanation: "方差衡量随机变量围绕均值的离散程度，标准差是方差的平方根。", difficulty: 1 },
+                { id: "dlai-mml-mid-f-10", question: "在约束优化中，____乘子法通过引入辅助变量将约束问题转化为无约束问题。", answer: "拉格朗日", explanation: "拉格朗日乘子法构造 L(x,λ) = f(x) + λh(x)，将约束优化问题转化为无约束问题。", difficulty: 3 },
+            ],
+            code: [
+                { id: "dlai-mml-mid-code-1", question: "使用 NumPy 实现向量的 L2 范数计算", code: "import numpy as np\n\ndef l2_norm(v):\n    return np.sqrt(np.sum(____))", answer: "v**2", explanation: "L2 范数(欧几里得范数)等于各分量平方和再开方，np.sum(v**2) 计算平方和。", difficulty: 1 },
+                { id: "dlai-mml-mid-code-2", question: "实现梯度下降的一次参数更新", code: "import numpy as np\n\ndef gradient_step(theta, grad, lr):\n    return theta - lr * ____", answer: "grad", explanation: "梯度下降更新规则：θ_new = θ - lr * ∇f(θ)，其中 grad 是梯度。", difficulty: 1 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "dlai-mml-fin-c-1", question: "在线性回归中，正规方程 θ = (X^TX)^{-1}X^Ty 成立的前提条件是什么？", options: ["X 必须是方阵","X^TX 必须可逆(满秩)","y 必须是零均值","X 的列必须正交"], answer: 1, explanation: "正规方程要求 X^TX 可逆，当特征数大于样本数或存在共线性时，X^TX 不可逆。", difficulty: 2 },
+                { id: "dlai-mml-fin-c-2", question: "PCA 降维时，主成分的方向由什么决定？", options: ["数据的均值方向","数据协方差矩阵的特征向量方向","数据的最大值方向","数据的中位数方向"], answer: 1, explanation: "PCA 的主成分方向是数据协方差矩阵的特征向量方向，按特征值从大到小排列。", difficulty: 2 },
+                { id: "dlai-mml-fin-c-3", question: "Softmax 函数将一个 K 维向量映射为什么分布？", options: ["均匀分布","正态分布","概率分布(各元素非负且和为1)","伯努利分布"], answer: 2, explanation: "Softmax 输出的每个元素在(0,1)之间，且所有元素之和为1，构成有效的概率分布。", difficulty: 1 },
+                { id: "dlai-mml-fin-c-4", question: "高斯分布的概率密度函数中，σ² 越大表示什么？", options: ["分布越集中","分布越平坦/分散","均值越大","偏度越大"], answer: 1, explanation: "方差 σ² 越大，概率密度曲线越平坦，数据分布越分散。", difficulty: 1 },
+                { id: "dlai-mml-fin-c-5", question: "在最大似然估计(MLE)中，我们最大化的是什么？", options: ["后验概率","先验概率","似然函数","条件概率"], answer: 2, explanation: "MLE 的目标是找到使观测数据出现概率最大的参数值，即最大化似然函数 L(θ|X)。", difficulty: 2 },
+                { id: "dlai-mml-fin-c-6", question: "KKT 条件是以下哪种优化问题的最优性条件？", options: ["无约束优化","线性规划","凸优化(含不等式约束)","动态规划"], answer: 2, explanation: "KKT(Karush-Kuhn-Tucker)条件是带有不等式约束的优化问题的一阶必要条件。", difficulty: 3 },
+                { id: "dlai-mml-fin-c-7", question: "Jensen 不等式 E[f(X)] >= f(E[X]) 成立的前提是 f 是什么函数？", options: ["线性函数","凹函数","凸函数","单调函数"], answer: 1, explanation: "Jensen 不等式对凸函数成立：f(E[X]) <= E[f(X)]，这是 EM 算法推导的关键。", difficulty: 3 },
+                { id: "dlai-mml-fin-c-8", question: "高斯混合模型(GMM)的参数估计通常使用什么算法？", options: ["梯度下降","随机梯度下降","EM 算法","牛顿法"], answer: 2, explanation: "GMM 含有隐变量(聚类分配)，EM 算法通过 E 步(期望)和 M 步(最大化)交替优化。", difficulty: 2 },
+                { id: "dlai-mml-fin-c-9", question: "矩阵的条件数过大说明什么问题？", options: ["矩阵是正定的","矩阵接近奇异，数值计算不稳定","矩阵的行列式很大","矩阵是对称的"], answer: 1, explanation: "条件数 = σ_max/σ_min，条件数过大意味着矩阵接近奇异，求逆或解线性方程组时数值不稳定。", difficulty: 2 },
+                { id: "dlai-mml-fin-c-10", question: "在深度学习中，反向传播算法的数学基础是什么？", options: ["泰勒展开","链式法则","卷积定理","中心极限定理"], answer: 1, explanation: "反向传播本质是链式法则在计算图上的高效应用，从输出层到输入层逐层传递梯度。", difficulty: 1 },
+            ],
+            fill: [
+                { id: "dlai-mml-fin-f-1", question: "对于 m 个样本的线性回归，最小二乘法最小化的目标函数是____误差。", answer: "残差平方和", explanation: "最小二乘法最小化 Σ(y_i - ŷ_i)²，即残差平方和(Sum of Squared Residuals)。", difficulty: 1 },
+                { id: "dlai-mml-fin-f-2", question: "PCA 中，数据降维到 k 维时，保留的方差比例由前 k 个特征值之和除以____来计算。", answer: "所有特征值之和", explanation: "解释方差比 = Σλ_i(i=1..k) / Σλ_i(i=1..n)，衡量降维后的信息保留程度。", difficulty: 2 },
+                { id: "dlai-mml-fin-f-3", question: "贝叶斯推断中，后验概率正比于____与先验概率的乘积。", answer: "似然函数", explanation: "后验 ∝ 似然 × 先验，即 P(θ|D) ∝ P(D|θ) × P(θ)，这是贝叶斯定理的核心。", difficulty: 2 },
+                { id: "dlai-mml-fin-f-4", question: "正则化通过在损失函数中添加参数的____范数来防止过拟合。", answer: "L1或L2", explanation: "L1 正则化(Lasso)产生稀疏解，L2 正则化(Ridge)使参数值变小，两者都防过拟合。", difficulty: 2 },
+                { id: "dlai-mml-fin-f-5", question: "向量的____定义为 ||v||_p = (Σ|v_i|^p)^(1/p)，当 p→∞ 时等于最大分量的绝对值。", answer: "p-范数", explanation: "p-范数是一族范数，L1、L2 和 L∞ 范数都是其特例，不同 p 值定义不同的距离度量。", difficulty: 3 },
+                { id: "dlai-mml-fin-f-6", question: "对于概率分布 P 和 Q，KL 散度 D_KL(P||Q) 度量的是两个分布之间的____。", answer: "差异", explanation: "KL 散度衡量用 Q 近似 P 时的信息损失，不对称且非负，常用于变分推断。", difficulty: 2 },
+                { id: "dlai-mml-fin-f-7", question: "多层神经网络中，第 l 层的输出 a^l = σ(W^l * ____ + b^l)。", answer: "a^{l-1}", explanation: "第 l 层的输入是上一层的输出 a^{l-1}，这是前向传播的核心公式。", difficulty: 1 },
+                { id: "dlai-mml-fin-f-8", question: "在优化理论中，如果 f 是凸函数且约束集是凸集，则局部最优一定是____最优。", answer: "全局", explanation: "凸优化问题的核心性质：局部最优即全局最优，保证了优化算法一定能找到最优解。", difficulty: 3 },
+                { id: "dlai-mml-fin-f-9", question: "马氏距离通过矩阵的____对特征进行白化，消除量纲和相关性的影响。", answer: "逆平方根", explanation: "马氏距离 d = √((x-μ)^T Σ^{-1} (x-μ))，通过协方差矩阵的逆进行白化。", difficulty: 3 },
+                { id: "dlai-mml-fin-f-10", question: "Adam 优化器结合了动量(Momentum)和自适应学习率，其中一阶矩估计 m 是____的指数移动平均。", answer: "梯度", explanation: "Adam 的 m_t = β₁ * m_{t-1} + (1-β₁) * g_t，是对梯度的一阶矩(均值)的指数移动平均。", difficulty: 3 },
+            ],
+            code: [
+                { id: "dlai-mml-fin-code-1", question: "实现余弦相似度计算", code: "import numpy as np\n\ndef cosine_similarity(a, b):\n    return np.dot(a, b) / (np.linalg.norm(a) * ____)", answer: "np.linalg.norm(b)", explanation: "余弦相似度 = a·b / (||a|| * ||b||)，衡量两个向量方向的相似程度。", difficulty: 1 },
+                { id: "dlai-mml-fin-code-2", question: "实现梯度下降求解线性回归参数", code: "import numpy as np\n\ndef linear_regression_gd(X, y, lr=0.01, epochs=1000):\n    m, n = X.shape\n    theta = np.zeros(n)\n    for _ in range(epochs):\n        grad = (1/m) * X.T @ (X @ ____ - y)\n        theta -= lr * grad\n    return theta", answer: "theta", explanation: "线性回归的梯度 grad = (1/m)X^T(Xθ - y)，沿负梯度方向更新 θ 最小化均方误差。", difficulty: 2 },
+            ]
+        },
+    },
+
+    "Applied ML in Python": {
+        courseId: "umich-applied-ml", domain: "ml",
+        mid: {
+            choice: [
+                { id: "umich-apml-mid-c-1", question: "在 scikit-learn 中，为什么推荐使用 Pipeline 而不是分别调用 fit 和 transform？", options: ["Pipeline 运行速度更快","Pipeline 避免数据泄露，保证训练/测试数据预处理一致","Pipeline 支持更多算法","Pipeline 不需要导入模块"], answer: 1, explanation: "Pipeline 将预处理和模型封装在一起，避免在交叉验证时因单独 fit/transform 导致的数据泄露。", difficulty: 2 },
+                { id: "umich-apml-mid-c-2", question: "K 折交叉验证中，K 值越大会导致什么结果？", options: ["模型偏差越大","每次训练集越小，训练时间越长，但偏差更小","方差越小","过拟合越严重"], answer: 1, explanation: "K 越大，每次训练集比例越大(偏差小)，但训练次数多(时间长)，且评估方差可能增大。", difficulty: 2 },
+                { id: "umich-apml-mid-c-3", question: "对于高度不平衡的分类问题，以下哪个评估指标最合适？", options: ["Accuracy","Macro F1-score","R²","MSE"], answer: 1, explanation: "不平衡分类中 Accuracy 有误导性，Macro F1-score 对每个类别平等计算 F1 再平均，适合不平衡数据。", difficulty: 2 },
+                { id: "umich-apml-mid-c-4", question: "使用 StandardScaler 之前应该先做什么？", options: ["先对测试集做标准化","将数据集划分为训练集和测试集","删除所有缺失值","将所有特征转换为类别型"], answer: 1, explanation: "必须先划分数据再标准化，且 scaler 只在训练集上 fit，避免测试集信息泄露。", difficulty: 1 },
+                { id: "umich-apml-mid-c-5", question: "在 scikit-learn 中，GridSearchCV 和 RandomizedSearchCV 的主要区别是什么？", options: ["GridSearchCV 更准确","RandomizedSearchCV 在参数空间中随机采样，效率更高","RandomizedSearchCV 不支持交叉验证","GridSearchCV 不支持并行计算"], answer: 1, explanation: "RandomizedSearchCV 在超参数空间中随机采样，当参数空间大时比 GridSearchCV 更高效。", difficulty: 2 },
+                { id: "umich-apml-mid-c-6", question: "L1 正则化(Lasso)相对于 L2 正则化(Ridge)的独特优势是什么？", options: ["总是泛化性能更好","可以产生稀疏解，自动进行特征选择","计算速度更快","对异常值更鲁棒"], answer: 1, explanation: "L1 正则化倾向于将部分参数压缩为恰好 0，实现自动特征选择，适合高维稀疏数据。", difficulty: 2 },
+                { id: "umich-apml-mid-c-7", question: "OneHotEncoder 与 LabelEncoder 的本质区别是什么？", options: ["OneHotEncoder 更快","OneHotEncoder 生成无序的二值特征，LabelEncoder 生成有序的整数编码","LabelEncoder 只能处理文本","OneHotEncoder 不支持缺失值"], answer: 1, explanation: "OneHotEncoder 适合无序类别特征(如颜色)，LabelEncoder 适合有序特征(如低/中/高)或树模型。", difficulty: 2 },
+                { id: "umich-apml-mid-c-8", question: "在模型选择中，偏差-方差权衡(Bias-Variance Tradeoff)的核心含义是什么？", options: ["模型越复杂越好","降低偏差通常会增加方差，需要找到两者的平衡","方差越低模型越好","偏差和方差总是同时降低"], answer: 1, explanation: "复杂模型偏差低但方差高(易过拟合)，简单模型方差低但偏差高(易欠拟合)，需平衡。", difficulty: 1 },
+                { id: "umich-apml-mid-c-9", question: "Confusion Matrix 中，TP 和 TN 分别表示什么？", options: ["真阳性和真阴性——正确预测的正例和负例","假阳性和假阴性","总正例和总负例","训练集和测试集"], answer: 0, explanation: "TP(True Positive)正确预测为正类，TN(True Negative)正确预测为负类，对角线元素。", difficulty: 1 },
+                { id: "umich-apml-mid-c-10", question: "当特征数量远大于样本数量时(n >> m)，以下哪种模型策略最合适？", options: ["使用深层神经网络","使用 L1 正则化进行特征选择，减少有效特征数","使用 KNN 且 K=1","增加多项式特征"], answer: 1, explanation: "高维小样本时 L1 正则化可以自动筛选重要特征，降低模型复杂度，防止过拟合。", difficulty: 3 },
+            ],
+            fill: [
+                { id: "umich-apml-mid-f-1", question: "在 scikit-learn 中，使用 Pipeline 将预处理和模型串联时，____方法可以一次性完成模型训练。", answer: "fit", explanation: "Pipeline.fit() 会依次调用各步骤的 fit_transform(预处理)和最后一步的 fit(模型)。", difficulty: 1 },
+                { id: "umich-apml-mid-f-2", question: "交叉验证的核心目的是评估模型的____性能，即对未见数据的泛化能力。", answer: "泛化", explanation: "交叉验证通过多次划分训练/验证集，得到模型泛化性能的更可靠估计。", difficulty: 1 },
+                { id: "umich-apml-mid-f-3", question: "对于分类问题，Precision 衡量的是预测为正类的样本中____的比例。", answer: "实际为正类", explanation: "Precision = TP/(TP+FP)，衡量预测为正类的样本中有多少是真正正类，关注误报。", difficulty: 1 },
+                { id: "umich-apml-mid-f-4", question: "____编码将每个类别转换为一个二值向量，适用于无序类别特征。", answer: "One-Hot", explanation: "One-Hot Encoding 将 k 个类别转为 k 维二值向量，避免模型将类别误认为有数值大小关系。", difficulty: 1 },
+                { id: "umich-apml-mid-f-5", question: "在 scikit-learn 中，transform 方法只在训练集上 fit 后才能用于____集的转换。", answer: "测试", explanation: "先在训练集 fit scaler/encoder，再用同一对象 transform 测试集，防止数据泄露。", difficulty: 1 },
+                { id: "umich-apml-mid-f-6", question: "ROC 曲线下面积(AUC)为 0.5 表示模型的分类效果等同于____。", answer: "随机猜测", explanation: "AUC=0.5 表示模型没有区分能力，等同于随机预测；AUC=1.0 是完美分类。", difficulty: 2 },
+                { id: "umich-apml-mid-f-7", question: "在 scikit-learn 中，estimator 的 score 方法默认返回分类任务的____指标。", answer: "准确率", explanation: "分类器的 score() 默认返回 accuracy_score，回归器默认返回 R² 分数。", difficulty: 1 },
+                { id: "umich-apml-mid-f-8", question: "____是一种常用的特征缩放方法，将特征转换为均值为0、标准差为1的分布。", answer: "StandardScaler", explanation: "StandardScaler 做标准化(z-score)：(x - μ) / σ，使不同量纲的特征可比。", difficulty: 1 },
+                { id: "umich-apml-mid-f-9", question: "当正则化系数 C 增大时，模型的____会增加，更容易出现过拟合。", answer: "复杂度", explanation: "在 scikit-learn 中 C 是正则化的倒数，C 越大正则化越弱，模型越复杂。", difficulty: 2 },
+                { id: "umich-apml-mid-f-10", question: "StratifiedKFold 确保每一折中各类别的____比例与原始数据集保持一致。", answer: "样本", explanation: "分层 K 折在每折中保持类别比例一致，避免某些折中某类别样本过少的问题。", difficulty: 2 },
+            ],
+            code: [
+                { id: "umich-apml-mid-code-1", question: "使用 scikit-learn 构建一个包含标准化和逻辑回归的 Pipeline", code: "from sklearn.pipeline import make_pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipe = make_pipeline(StandardScaler(), ____())", answer: "LogisticRegression", explanation: "make_pipeline 依次创建 StandardScaler 和 LogisticRegression 的 Pipeline。", difficulty: 1 },
+                { id: "umich-apml-mid-code-2", question: "使用 GridSearchCV 搜索最佳超参数，以下代码中填入的参数名是什么？", code: "from sklearn.model_selection import GridSearchCV\nfrom sklearn.svm import SVC\n\nparam_grid = {'C': [0.1, 1, 10], ____: ['linear', 'rbf']}\ngrid = GridSearchCV(SVC(), param_grid, cv=5)", answer: "'kernel'", explanation: "SVC 的 kernel 参数控制核函数类型，'kernel' 是 GridSearchCV 搜索的关键超参数。", difficulty: 2 },
+            ]
+        },
+        fin: {
+            choice: [
+                { id: "umich-apml-fin-c-1", question: "在 scikit-learn 中，cross_val_score 和 cross_val_predict 的区别是什么？", options: ["两者完全相同","cross_val_score 返回评分，cross_val_predict 返回每个样本的预测值","cross_val_score 只用于回归","cross_val_predict 不支持并行"], answer: 1, explanation: "cross_val_score 返回每折的评估分数，cross_val_predict 返回每个样本的 out-of-fold 预测。", difficulty: 2 },
+                { id: "umich-apml-fin-c-2", question: "决策树的 max_depth 参数增大通常会导致什么效果？", options: ["欠拟合加重","过拟合加重，训练集准确率提高但泛化下降","偏差增大","模型更简单"], answer: 1, explanation: "max_depth 增大使树更深、更复杂，能更好地拟合训练数据但可能过拟合，泛化能力下降。", difficulty: 1 },
+                { id: "umich-apml-fin-c-3", question: "Random Forest 相比单棵决策树的优势主要来自什么原理？", options: ["使用了更深的树","Bagging(自助采样)降低方差，随机特征子集增加多样性","使用了更多的超参数","数据预处理更精细"], answer: 1, explanation: "RF 通过 Bagging(有放回采样)和随机特征选择，集成多棵不相关的树来降低方差。", difficulty: 2 },
+                { id: "umich-apml-fin-c-4", question: "处理缺失值时，以下哪种方法最不会引入偏差？", options: ["直接删除含缺失值的行","用中位数填充","使用 KNN 填充或基于其他特征的模型预测来填充","用0填充所有缺失值"], answer: 2, explanation: "KNN/模型填充利用特征间关系估计缺失值，比简单填充更准确，但删除只在缺失比例很小时才安全。", difficulty: 2 },
+                { id: "umich-apml-fin-c-5", question: "在模型评估中，为什么要在交叉验证内部做预处理而不是在外部？", options: ["外部预处理速度更慢","防止信息泄露：预处理参数不应看到验证集数据","外部预处理不支持 Pipeline","没有区别"], answer: 1, explanation: "在外部做预处理会用全部数据 fit scaler，使验证集信息泄露给训练过程，导致评估偏乐观。", difficulty: 2 },
+                { id: "umich-apml-fin-c-6", question: "对于回归问题，R² = 0 说明什么？", options: ["模型完美预测","模型的预测效果与用目标均值预测一样好","模型完全失效","模型过拟合"], answer: 1, explanation: "R² = 1 - SS_res/SS_tot，R²=0 表示 SS_res=SS_tot，模型预测与简单取均值效果相同。", difficulty: 2 },
+                { id: "umich-apml-fin-c-7", question: "在 scikit-learn 中，SelectKBest 使用什么策略进行特征选择？", options: ["基于模型权重","基于统计检验的无监督方法，如 f_classif、mutual_info_classif","基于训练速度","基于缺失值比例"], answer: 1, explanation: "SelectKBest 用统计检验(如 ANOVA F 值、互信息)对每个特征独立评分，选择最高的 K 个。", difficulty: 2 },
+                { id: "umich-apml-fin-c-8", question: "Gradient Boosting 与 Random Forest 在集成方式上的本质区别是什么？", options: ["两者完全相同","GB 是顺序训练，每棵树修正前面树的错误；RF 是并行训练独立树","GB 只用于分类","RF 不能处理缺失值"], answer: 1, explanation: "GB 串行训练，每棵新树拟合前面所有树的残差(误差)；RF 并行训练，树之间独立。", difficulty: 2 },
+                { id: "umich-apml-fin-c-9", question: "处理类别不平衡时，以下哪种方法最有效？", options: ["增大训练集","使用 SMOTE 过采样少数类或 class_weight='balanced' 调整权重","增大测试集","删除所有多数类样本"], answer: 1, explanation: "SMOTE 合成新少数类样本，class_weight='balanced' 自动调整损失函数中各类的权重。", difficulty: 2 },
+                { id: "umich-apml-fin-c-10", question: "在生产环境中，如何监控模型是否发生了概念漂移(drift)？", options: ["只监控训练集指标","定期比较预测分布与真实分布的差异，如 PSI 或 KL 散度","不监控","只看准确率"], answer: 1, explanation: "概念漂移指数据分布随时间变化，需监控输入分布(PSI)和预测质量指标的变化。", difficulty: 3 },
+            ],
+            fill: [
+                { id: "umich-apml-fin-f-1", question: "____编码(Ordinal Encoding)将有序类别映射为整数，适用于具有内在顺序的特征。", answer: "Ordinal", explanation: "OrdinalEncoder 将有序类别如 {低,中,高} 映射为 {0,1,2}，保留顺序信息。", difficulty: 1 },
+                { id: "umich-apml-fin-f-2", question: "在 scikit-learn 中，__init__ 方法中设置的参数叫____参数，需要在训练前设置。", answer: "超", explanation: "超参数(hyperparameter)如 max_depth、C 等在初始化时设置，控制模型结构，不从数据学习。", difficulty: 1 },
+                { id: "umich-apml-fin-f-3", question: "混淆矩阵中，____ = TP / (TP + FP)，衡量的是预测为正类中有多少确实是正类。", answer: "Precision", explanation: "Precision(精确率/查准率)关注预测为正类的准确度，高 Precision 意味着低误报。", difficulty: 1 },
+                { id: "umich-apml-fin-f-4", question: "____是一种集成学习方法，通过有放回地从训练集中抽取多个子集来训练多个基学习器。", answer: "Bagging", explanation: "Bagging(Bootstrap Aggregating)通过自助采样产生多样性，Random Forest 是其改进版本。", difficulty: 2 },
+                { id: "umich-apml-fin-f-5", question: "学习曲线(Learning Curve)中，当训练集和验证集的得分差距很大时，说明模型____。", answer: "过拟合", explanation: "训练得分高而验证得分低，说明模型在训练集上拟合过好但泛化差，即过拟合。", difficulty: 2 },
+                { id: "umich-apml-fin-f-6", question: "在 scikit-learn 中，____函数可以一次性输出分类报告，包含每个类别的 Precision、Recall 和 F1。", answer: "classification_report", explanation: "classification_report 返回每个类别的 P/R/F1 以及 macro/weighted average，一目了然。", difficulty: 1 },
+                { id: "umich-apml-fin-f-7", question: "____搜索在超参数空间中随机采样固定次数，比网格搜索效率更高，适合参数空间大的情况。", answer: "随机", explanation: "RandomizedSearchCV 指定迭代次数而非遍历所有组合，在大参数空间中效率显著优于网格搜索。", difficulty: 2 },
+                { id: "umich-apml-fin-f-8", question: "当模型在训练集上表现很差(高偏差)时，应该考虑____模型复杂度。", answer: "增加", explanation: "高偏差说明模型太简单(欠拟合)，需要增加复杂度：更多特征、更深的树、更复杂的模型。", difficulty: 2 },
+                { id: "umich-apml-fin-f-9", question: "在 scikit-learn 中，estimator 的____属性存储了训练后学到的模型参数，如 coef_ 和 intercept_。", answer: "模型参数", explanation: "fit 之后模型参数保存在 coef_(权重)和 intercept_(偏置)等属性中，可用于预测和分析。", difficulty: 1 },
+                { id: "umich-apml-fin-f-10", question: "____曲线(ROC)以 FPR 为横轴、TPR 为纵轴绘制，曲线越靠近左上角说明模型越好。", answer: "ROC", explanation: "ROC 曲线反映模型在不同阈值下的 TPR-FPR 权衡，AUC 越大模型区分能力越强。", difficulty: 1 },
+            ],
+            code: [
+                { id: "umich-apml-fin-code-1", question: "使用 scikit-learn 的 cross_val_score 进行 5 折交叉验证评估模型", code: "from sklearn.model_selection import cross_val_score\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.datasets import load_iris\n\nX, y = load_iris(return_X_y=True)\nscores = cross_val_score(____(n_estimators=100), X, y, cv=5)\nprint(scores.mean())", answer: "RandomForestClassifier", explanation: "cross_val_score 接受一个estimator实例，RandomForestClassifier 是常用的集成分类模型。", difficulty: 1 },
+                { id: "umich-apml-fin-code-2", question: "使用 Pandas 对 DataFrame 中的缺失值进行统计并删除含缺失值的行", code: "import pandas as pd\n\ndf = pd.read_csv('data.csv')\nprint(df.isnull().sum())\ndf_clean = df.dropna(____=0)", answer: "'axis'", explanation: "dropna(axis=0) 删除含缺失值的行，axis=1 删除含缺失值的列。isnull().sum() 统计每列缺失数。", difficulty: 1 },
+            ]
+        },
+    },
+
 };
