@@ -2740,9 +2740,7 @@ p:last-child { margin-bottom: 0; }
 
   .dashboard-icon { width: 40px; height: 40px; font-size: 1.2rem; }
 
-  .visitor-map-section { padding: 3rem 1rem; }
-
-  .visitor-map-wrapper iframe { width: 280px; height: 280px; }
+  .visitor-map-section { padding: 2rem 0.5rem; }
 
   .footer { padding: 2rem 1rem 1.5rem; }
 
@@ -2845,8 +2843,8 @@ p:last-child { margin-bottom: 0; }
 .visitor-map-wrapper iframe {
   display: block;
   border: none;
-  width: 320px;
-  height: 320px;
+  width: min(680px, 90vw);
+  height: min(680px, 90vw);
 }
 
 .visitor-map-placeholder {
