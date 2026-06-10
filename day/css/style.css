@@ -2740,7 +2740,9 @@ p:last-child { margin-bottom: 0; }
 
   .dashboard-icon { width: 40px; height: 40px; font-size: 1.2rem; }
 
-  .visitor-map-section { padding: 2rem 0.5rem; }
+  .visitor-map-section { padding: 3rem 1rem; }
+  .visitor-map-section::before { width: 320px; height: 320px; }
+  .visitor-map-wrapper iframe { width: 280px; height: 280px; }
 
   .footer { padding: 2rem 1rem 1.5rem; }
 
@@ -2789,6 +2791,7 @@ p:last-child { margin-bottom: 0; }
   .dashboard-section { padding: 2rem 1.5rem; }
   .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-main { grid-template-columns: 1fr 1fr; }
+  .visitor-map-wrapper iframe { width: 380px; height: 380px; }
 }
 
 /* Desktop */
@@ -2821,66 +2824,55 @@ p:last-child { margin-bottom: 0; }
   padding: 5rem 2rem;
   background: var(--void);
   position: relative;
+  overflow: hidden;
+}
+
+/* Ambient glow behind the globe */
+.visitor-map-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.04) 40%, transparent 70%);
+  pointer-events: none;
 }
 
 .visitor-map-container {
   max-width: var(--max-w);
   margin: 0 auto;
+  position: relative;
 }
 
 .visitor-map-wrapper {
-  margin-top: 2rem;
-  background: var(--deep);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--r-xl);
-  overflow: hidden;
+  margin-top: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  position: relative;
+}
+
+/* Glass card frame around the globe */
+.visitor-map-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -1rem;
+  background: var(--deep);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-xl);
+  z-index: 0;
 }
 
 .visitor-map-wrapper iframe {
   display: block;
   border: none;
-  width: min(680px, 90vw);
-  height: min(680px, 90vw);
-}
-
-.visitor-map-placeholder {
-  text-align: center;
-  padding: 3rem 2rem;
-  color: var(--text-2);
-}
-
-.map-placeholder-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.map-placeholder-text {
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
-  color: var(--text-1);
-}
-
-.map-placeholder-link {
-  font-size: 0.85rem;
-  color: var(--accent);
-  text-decoration: none;
-  opacity: 0.7;
-  transition: opacity 0.3s;
-}
-
-.map-placeholder-link:hover {
-  opacity: 1;
-  text-decoration: underline;
+  width: 480px;
+  height: 480px;
+  position: relative;
+  z-index: 1;
+  border-radius: var(--r-lg);
 }
 
 /* Landscape phones */
