@@ -179,7 +179,7 @@ const Achievements = {
             favorites: FavoritesManager.count(),
             quizCompleted: typeof Quiz !== 'undefined' ? (Quiz.getStats().totalQuizzes || 0) : 0,
             quizPerfect: typeof Quiz !== 'undefined' ? (Quiz.getStats().totalQuestions > 0 && Quiz.getStats().totalCorrect === Quiz.getStats().totalQuestions ? 1 : 0) : 0,
-            exercisesCompleted: typeof CodePlayground !== 'undefined' ? (CodePlayground.getStats().completed || 0) : 0,
+            exercisesCompleted: 0,
             domainCount: completedDomains.size,
             notesCount: NotesManager.count(),
         };

@@ -198,37 +198,17 @@ layout: none
             </div>
         </section>
 
-        <!-- Knowledge Hub: Quiz & Flashcards -->
+        <!-- Course Quiz -->
         <section class="new-section" id="knowledgeHub">
             <div class="section-divider"></div>
             <div class="module-header">
                 <div class="module-header-icon-wrap"><div class="module-header-icon">🧠</div></div>
                 <div class="module-header-text">
-                    <div class="module-title">知识巩固</div>
-                    <div class="module-subtitle">通过自测和闪卡巩固 AI 概念</div>
+                    <div class="module-title">课程测验</div>
+                    <div class="module-subtitle">为每门课程提供期中和期末测验，涵盖选择题、填空题和代码补全</div>
                 </div>
             </div>
-            <div class="kh-tabs">
-                <button class="kh-tab active" onclick="KnowledgeHub.switchTab('quiz', event)">📝 每日自测</button>
-                <button class="kh-tab" onclick="KnowledgeHub.switchTab('flashcards', event)">🃏 概念速查</button>
-            </div>
-            <div id="quizContainer" class="kh-panel"></div>
-            <div id="flashcardContainer" class="kh-panel" style="display:none"></div>
-        </section>
-
-        <!-- Code Playground -->
-        <section class="new-section" id="codePlayground">
-            <div class="section-divider"></div>
-            <div class="module-header">
-                <div class="module-header-icon-wrap"><div class="module-header-icon">💻</div></div>
-                <div class="module-header-text">
-                    <div class="module-title">代码练习场</div>
-                    <div class="module-subtitle">在浏览器中直接编写和运行 Python 代码</div>
-                </div>
-            </div>
-            <div class="cp-container" id="cpContainer">
-                <!-- Populated by CodePlayground.init() -->
-            </div>
+            <div id="quizContainer"></div>
         </section>
 
         <!-- Domain Header (shows when a domain is selected) -->
@@ -513,9 +493,7 @@ layout: none
     <script src="js/data/courses/others.js"></script>
     <script src="js/data/courses/index.js"></script>
     <script src="js/data/quizQuestions.js"></script>
-    <script src="js/data/flashcards.js"></script>
     <script src="js/data/courseQuizData.js"></script>
-    <script src="js/data/codeExercises.js"></script>
     <script src="js/utils/helpers.js"></script>
     <script src="js/utils/storage.js"></script>
     <script src="js/utils/animations.js"></script>
@@ -533,10 +511,7 @@ layout: none
     <script src="js/components/learningCalendar.js"></script>
     <script src="js/components/achievements.js"></script>
     <script src="js/components/quiz.js"></script>
-    <script src="js/components/flashcards.js"></script>
-    <script src="js/components/codePlayground.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/app.js"></script>
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
 </body>
 </html>
