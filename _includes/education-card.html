@@ -8,13 +8,13 @@
         <div class="education__item-left">
           <h2 class="education__item-title">{{ include.school }}</h2>
           <p class="education__item-major">{{ include.major }}</p>
-          <p class="education__item-time">{{ include.time }}</p>
+          <p class="education__item-time">📅 {{ include.time }}</p>
         </div>
-        <div class="education__item-right">
-          {% if include.logo %}
+        {% if include.logo %}
+          <div class="education__item-logo-wrapper">
             <img class="education__item-logo" src="{{ base_path }}{{ include.logo }}" alt="{{ include.school }} logo">
-          {% endif %}
-        </div>
+          </div>
+        {% endif %}
       </div>
     </div>
   </article>

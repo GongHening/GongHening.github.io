@@ -444,7 +444,7 @@
 /* Card body */
 .education__item-body {
   flex: 1;
-  padding: 1.1em 1.4em 1.1em 1.6em;
+  padding: 1.2em 1.4em 1.2em 1.6em;
   min-width: 0;
 }
 
@@ -460,16 +460,18 @@
   min-width: 0;
 }
 
-.education__item-right {
+.education__item-logo-wrapper {
   flex-shrink: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 0.3em;
 }
 
 .education__item-title {
   margin: 0;
   font-family: $sans-serif;
-  font-size: 1.05em;
+  font-size: 1.08em;
   font-weight: 600;
   letter-spacing: -0.005em;
   line-height: 1.45;
@@ -477,23 +479,22 @@
 }
 
 .education__item-major {
-  margin: 0.3em 0 0;
+  margin: 0.35em 0 0;
   font-size: 0.92em;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #4b5563;
 }
 
 .education__item-time {
-  margin: 0.2em 0 0;
+  margin: 0.3em 0 0;
   font-size: 0.82em;
   color: #9ca3af;
 }
 
 .education__item-logo {
-  width: 64px;
-  height: 64px;
+  height: 72px;
+  width: auto;
   object-fit: contain;
-  border-radius: 8px;
 }
 
 
@@ -537,7 +538,7 @@
 /* Card body */
 .award__item-body {
   flex: 1;
-  padding: 1.1em 1.4em 1.1em 1.6em;
+  padding: 1em 1.4em 1em 1.6em;
   min-width: 0;
 }
 
@@ -562,7 +563,7 @@
 .award__item-title {
   margin: 0;
   font-family: $sans-serif;
-  font-size: 1.05em;
+  font-size: 1.02em;
   font-weight: 600;
   letter-spacing: -0.005em;
   line-height: 1.45;
@@ -570,10 +571,10 @@
 }
 
 .award__item-issuer {
-  margin: 0.3em 0 0;
-  font-size: 0.88em;
-  line-height: 1.6;
-  color: #9ca3af;
+  margin: 0.25em 0 0;
+  font-size: 0.85em;
+  line-height: 1.5;
+  color: #6b7280;
 }
 
 .award__item-time {
@@ -584,4 +585,8 @@
   font-family: $sans-serif;
   font-size: 0.82em;
   color: #9ca3af;
+  padding: 0.25em 0.7em;
+  background: #fef3c7;
+  border-radius: 20px;
+  color: #92400e;
 }
