@@ -14,6 +14,22 @@ I'm a second-year undergraduate student from [School of EECS](https://eecs.pku.e
 
 ---
 
+# Education
+
+{% include education-card.html school="School of EECS, Peking University" major="Information and Computational Science" time="2024.09 - Present" logo="/images/PKU.png" %}
+
+---
+
+# Awards
+
+{% include award-card.html title="Second Prize, Peking University Collegiate Programming Contest (PKU-CPC)" issuer="Peking University" time="2026.05" %}
+
+{% include award-card.html title="Tailong Star Scholarship" issuer="Peking University" time="2025.12" %}
+
+{% include award-card.html title="Merit Student of Peking University" issuer="Peking University" time="2025.12" %}
+
+---
+
 {% include base_path %}
 
 # My Blogs
@@ -29,11 +45,3 @@ From 2020, at the end of each year, I always write an annual review. They encour
     {% include archive-single.html %}
   {% endif %}
 {% endfor %}
-
-## Education
-
-{% include education-card.html school="Peking University" major="School of EECS" time="2024 - Present" logo="/images/PKU.png" %}
-
-## Awards
-
-{% include award-card.html title="Example Award" issuer="Example Institution" time="2025" %}
