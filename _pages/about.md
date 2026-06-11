@@ -20,16 +20,6 @@ I love computer systems.
 
 ---
 
-# Awards
-
-{% include award-card.html title="Second Prize, Peking University Collegiate Programming Contest (PKU-CPC)" issuer="Peking University" time="2026.05" %}
-
-{% include award-card.html title="Tailong Star Scholarship" issuer="Peking University" time="2025.12" %}
-
-{% include award-card.html title="Merit Student of Peking University" issuer="Peking University" time="2025.12" %}
-
----
-
 {% include base_path %}
 
 # Blogs
@@ -45,3 +35,13 @@ From 2020, at the end of each year, I always write an annual review. They encour
     {% include archive-single.html %}
   {% endif %}
 {% endfor %}
+
+---
+
+# Awards
+
+- **Second Prize**, Peking University Collegiate Programming Contest (PKU-CPC) — *2026.05*
+- **Tailong Star Scholarship**, Peking University — *2025.12*
+- **Merit Student of Peking University** — *2025.12*
+
+---
