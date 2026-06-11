@@ -1,18 +1,18 @@
 {% include base_path %}
 
 <div class="list__item">
-  <article class="education__item">
-    <div class="education__item-accent"></div>
-    <div class="education__item-body">
-      <div class="education__item-row">
-        <div class="education__item-left">
-          <h2 class="education__item-title">{{ include.school | markdownify | remove: "<p>" | remove: "</p>" }}</h2>
-          <p class="education__item-major">{{ include.major }}</p>
-          <p class="education__item-time">{{ include.time }}</p>
+  <article class="archive__item" data-collection="Education">
+    <div class="archive__item-accent"></div>
+    <div class="archive__item-body">
+      <div class="archive__item-row">
+        <div class="archive__item-left">
+          <h2 class="archive__item-title">{{ include.school | markdownify | remove: "<p>" | remove: "</p>" }}</h2>
+          <p class="archive__item-description">{{ include.major }}</p>
+          <p class="archive__item-description">{{ include.time }}</p>
         </div>
         {% if include.logo %}
-          <div class="education__item-logo-wrapper">
-            <img class="education__item-logo" src="{{ base_path }}{{ include.logo }}" alt="school logo">
+          <div class="archive__item-right">
+            <img class="archive__item-logo" src="{{ base_path }}{{ include.logo }}" alt="school logo">
           </div>
         {% endif %}
       </div>

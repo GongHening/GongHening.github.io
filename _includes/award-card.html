@@ -1,16 +1,16 @@
 {% include base_path %}
 
 <div class="list__item">
-  <article class="award__item">
-    <div class="award__item-accent"></div>
-    <div class="award__item-body">
-      <div class="award__item-row">
-        <div class="award__item-left">
-          <h2 class="award__item-title">{{ include.title }}</h2>
-          <p class="award__item-issuer">{{ include.issuer }}</p>
+  <article class="archive__item" data-collection="Award">
+    <div class="archive__item-accent"></div>
+    <div class="archive__item-body">
+      <div class="archive__item-row">
+        <div class="archive__item-left">
+          <h2 class="archive__item-title">{{ include.title }}</h2>
+          <p class="archive__item-description">{{ include.issuer }}</p>
         </div>
-        <div class="award__item-right">
-          <span class="award__item-time">{{ include.time }}</span>
+        <div class="archive__item-right">
+          <span class="archive__item-meta-item">{{ include.time }}</span>
         </div>
       </div>
     </div>
