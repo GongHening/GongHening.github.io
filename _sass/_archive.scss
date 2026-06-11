@@ -406,3 +406,186 @@
     transform: translateY(0);
   }
 }
+
+
+/*
+   Education card
+   ========================================================================== */
+
+.education__item {
+  position: relative;
+  display: flex;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+    border-color: rgba(0, 0, 0, 0.08);
+
+    .education__item-accent {
+      transform: scaleY(1.05);
+    }
+  }
+}
+
+/* Accent bar — left side color indicator */
+.education__item-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #059669, #10b981);
+  transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform-origin: center;
+}
+
+/* Card body */
+.education__item-body {
+  flex: 1;
+  padding: 1.1em 1.4em 1.1em 1.6em;
+  min-width: 0;
+}
+
+/* Row: left (info) + right (logo) */
+.education__item-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.education__item-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.education__item-right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.education__item-title {
+  margin: 0;
+  font-family: $sans-serif;
+  font-size: 1.05em;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.45;
+  color: #1a1a2e;
+}
+
+.education__item-major {
+  margin: 0.3em 0 0;
+  font-size: 0.92em;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.education__item-time {
+  margin: 0.2em 0 0;
+  font-size: 0.82em;
+  color: #9ca3af;
+}
+
+.education__item-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+
+/*
+   Award card
+   ========================================================================== */
+
+.award__item {
+  position: relative;
+  display: flex;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+    border-color: rgba(0, 0, 0, 0.08);
+
+    .award__item-accent {
+      transform: scaleY(1.05);
+    }
+  }
+}
+
+/* Accent bar — left side color indicator */
+.award__item-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #d97706, #f59e0b);
+  transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform-origin: center;
+}
+
+/* Card body */
+.award__item-body {
+  flex: 1;
+  padding: 1.1em 1.4em 1.1em 1.6em;
+  min-width: 0;
+}
+
+/* Row: left (info) + right (time) */
+.award__item-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.award__item-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.award__item-right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.award__item-title {
+  margin: 0;
+  font-family: $sans-serif;
+  font-size: 1.05em;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.45;
+  color: #1a1a2e;
+}
+
+.award__item-issuer {
+  margin: 0.3em 0 0;
+  font-size: 0.88em;
+  line-height: 1.6;
+  color: #9ca3af;
+}
+
+.award__item-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  white-space: nowrap;
+  font-family: $sans-serif;
+  font-size: 0.82em;
+  color: #9ca3af;
+}

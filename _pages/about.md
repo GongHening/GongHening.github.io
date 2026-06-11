@@ -29,3 +29,11 @@ From 2020, at the end of each year, I always write an annual review. They encour
     {% include archive-single.html %}
   {% endif %}
 {% endfor %}
+
+## Education
+
+{% include education-card.html school="Peking University" major="School of EECS" time="2024 - Present" logo="/images/PKU.png" %}
+
+## Awards
+
+{% include award-card.html title="Example Award" issuer="Example Institution" time="2025" %}
