@@ -40,8 +40,8 @@ From 2020, at the end of each year, I always write an annual review. They encour
 
 # Awards
 
-- **Second Prize**, Peking University Collegiate Programming Contest (PKU-CPC) — *2026.05*
-- **Tailong Star Scholarship**, Peking University — *2025.12*
+- **Second Prize, Peking University Collegiate Programming Contest (PKU-CPC)** — *2026.05*
+- **Tailong Star Scholarship** — *2025.12*
 - **Merit Student of Peking University** — *2025.12*
 
 ---
