@@ -413,6 +413,12 @@
   background: linear-gradient(180deg, #d97706, #f59e0b);
 }
 
+/* Education and Award cards are not clickable */
+.archive__item[data-collection="Education"],
+.archive__item[data-collection="Award"] {
+  cursor: default;
+}
+
 /* Logo in education cards */
 .archive__item-logo {
   height: 100px;
