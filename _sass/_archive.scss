@@ -461,6 +461,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 0.4em;
 }
 
 .education__item-logo-wrapper {
@@ -468,7 +469,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.3em;
+  padding: 0.5em;
 }
 
 .education__item-title {
@@ -482,20 +483,20 @@
 }
 
 .education__item-major {
-  margin: 0.4em 0 0;
+  margin: 0;
   font-size: 0.92em;
   line-height: 1.5;
   color: #4b5563;
 }
 
 .education__item-time {
-  margin: 0.25em 0 0;
+  margin: 0;
   font-size: 0.85em;
   color: #9ca3af;
 }
 
 .education__item-logo {
-  height: 72px;
+  height: 100px;
   width: auto;
   object-fit: contain;
 }
@@ -566,7 +567,7 @@
 .award__item-title {
   margin: 0;
   font-family: $sans-serif;
-  font-size: 1.02em;
+  font-size: 1.05em;
   font-weight: 600;
   letter-spacing: -0.005em;
   line-height: 1.45;
@@ -574,8 +575,8 @@
 }
 
 .award__item-issuer {
-  margin: 0.25em 0 0;
-  font-size: 0.85em;
+  margin: 0.3em 0 0;
+  font-size: 0.88em;
   line-height: 1.5;
   color: #6b7280;
 }
