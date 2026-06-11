@@ -458,6 +458,9 @@
 .education__item-left {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .education__item-logo-wrapper {
@@ -552,6 +555,9 @@
 .award__item-left {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .award__item-right {
