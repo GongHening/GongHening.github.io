@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-# About Me
+# About
 
 I love computer systems.
 
@@ -32,11 +32,11 @@ I love computer systems.
 
 {% include base_path %}
 
-# My Blogs
+# Blogs
 
 *Here lie the words I choose to set free.*
 
-## My Annual Reviews
+## Annual Reviews
 
 From 2020, at the end of each year, I always write an annual review. They encourage me to do better and make progress.
 
