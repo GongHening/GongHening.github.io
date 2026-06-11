@@ -114,33 +114,10 @@ const CourseCard = {
      * @returns {string} HTML string
      */
     createQuizButtons(course) {
-        // Debug logging (can be removed later)
-        if (!this._quizDebugLogged) {
-            this._quizDebugLogged = true;
-            console.log('COURSE_QUIZ_DATA available:', typeof COURSE_QUIZ_DATA !== 'undefined');
-            if (typeof COURSE_QUIZ_DATA !== 'undefined') {
-                console.log('Quiz data keys count:', Object.keys(COURSE_QUIZ_DATA).length);
-                console.log('First 3 keys:', Object.keys(COURSE_QUIZ_DATA).slice(0, 3));
-            }
-        }
-
         // Check if quiz data exists for this course
         var hasQuiz = typeof COURSE_QUIZ_DATA !== 'undefined' && COURSE_QUIZ_DATA[course.n];
 
         if (!hasQuiz) {
-            // Debug: log when quiz not found
-            if (typeof COURSE_QUIZ_DATA !== 'undefined' && course.n) {
-                // Only log for first few courses to avoid spam
-                if (!this._missingQuizLogged) this._missingQuizLogged = {};
-                if (!this._missingQuizLogged[course.n]) {
-                    this._missingQuizLogged[course.n] = true;
-                    var keys = Object.keys(COURSE_QUIZ_DATA);
-                    var found = keys.find(function(k) { return k === course.n; });
-                    if (!found) {
-                        console.log('Quiz not found for:', course.n);
-                    }
-                }
-            }
             return '';
         }
 
