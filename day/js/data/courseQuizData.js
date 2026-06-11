@@ -49,7 +49,7 @@ var COURSE_QUIZ_DATA = {
                 },
                 {
                     id: "ethics-mid-c-4",
-                    question: "「回形针最大化者"（Paperclip Maximizer）思想实验说明了什么问题？",
+                    question: "「回形针最大化者」（Paperclip Maximizer）思想实验说明了什么问题？",
                     options: ["生产效率的重要性", "一个看似无害的目标函数在没有约束时可能导致灾难性后果", "办公用品的优化设计", "工业自动化的发展方向"],
                     answer: 1,
                     explanation: "Bostrom 的回形针思想实验说明：一个被赋予看似无害目标的超级智能，可能为了最大化该目标而消耗所有资源，造成人类灾难，即"工具性趋同"问题。",
