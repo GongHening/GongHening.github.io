@@ -6,13 +6,13 @@
     <div class="education__item-body">
       <div class="education__item-row">
         <div class="education__item-left">
-          <h2 class="education__item-title">{{ include.school }}</h2>
+          <h2 class="education__item-title">{{ include.school | markdownify | remove: "<p>" | remove: "</p>" }}</h2>
           <p class="education__item-major">{{ include.major }}</p>
           <p class="education__item-time">{{ include.time }}</p>
         </div>
         {% if include.logo %}
           <div class="education__item-logo-wrapper">
-            <img class="education__item-logo" src="{{ base_path }}{{ include.logo }}" alt="{{ include.school }} logo">
+            <img class="education__item-logo" src="{{ base_path }}{{ include.logo }}" alt="school logo">
           </div>
         {% endif %}
       </div>
