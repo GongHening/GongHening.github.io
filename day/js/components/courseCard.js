@@ -162,18 +162,9 @@ const CourseCard = {
      * @param {string} examType - 'mid' or 'final'
      */
     startQuiz(courseName, examType) {
-        // Scroll to quiz section
-        var quizSection = document.getElementById('knowledgeHub');
-        if (quizSection) {
-            quizSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        // Initialize quiz with the selected course
+        // Start quiz exam in modal
         if (typeof Quiz !== 'undefined') {
-            // Small delay to allow scroll to start
-            setTimeout(function() {
-                Quiz.startExam(courseName, examType);
-            }, 300);
+            Quiz.startExam(courseName, examType);
         }
     },
 
