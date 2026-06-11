@@ -10,13 +10,13 @@ redirect_from:
 
 # About Me
 
-I'm a second-year undergraduate student from [School of EECS](https://eecs.pku.edu.cn/), [Peking University](https://www.pku.edu.cn/).
+I love computer systems.
 
 ---
 
 # Education
 
-{% include education-card.html school="School of EECS, Peking University" major="Information and Computational Science" time="2024.09 - Present" logo="/images/PKU.png" %}
+{% include education-card.html school="[Elite Class](https://news.pku.edu.cn/xwzh/129-292138.htm), [School of EECS](https://eecs.pku.edu.cn/), [Peking University](https://www.pku.edu.cn/)" major="Information and Computational Science" time="2024.09 - Present" logo="/images/PKU.png" %}
 
 ---
 
