@@ -10,7 +10,7 @@ redirect_from:
 
 # About
 
-I love computer systems.
+I study computer systems.
 
 ---
 
