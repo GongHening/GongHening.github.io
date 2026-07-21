@@ -1,10 +1,4 @@
 # main links
 main:
-  - title: "Work"
-    url: /#work
-  - title: "Writing"
-    url: /#writing
-  - title: "About"
-    url: /#about
-  - title: "Contact"
-    url: /#contact
+#  - title: "Day"
+#    url: /day/

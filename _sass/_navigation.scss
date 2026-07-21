@@ -183,10 +183,10 @@
   a {
     display: block;
     margin: 0 0.9rem;
-    padding: 0.65rem 0;
+    padding: 0.5rem 0;
     color: $masthead-link-color;
     text-decoration: none;
-    font-size: 0.72rem;
+    font-size: 0.95em;
     font-weight: 500;
     -webkit-transition: color 0.25s ease;
             transition: color 0.25s ease;
@@ -221,7 +221,7 @@
 
         a {
           margin-left: 0;
-          font-size: 0.78rem;
+          font-size: 1.05em;
           opacity: 1;
         }
       }
@@ -241,7 +241,7 @@
 
       &:hover {
         opacity: 1;
-        color: #0071e3;
+        color: #2563eb;
       }
     }
   }
