@@ -7,7 +7,7 @@
 {% endif %}
 
 <div class="{{ include.type | default: "list" }}__item">
-  <article class="archive__item" data-collection="{{ post.collection }}">
+  <article class="archive__item" data-collection="{{ post.collection }}"{% if post.collection == 'Blogs' %} data-accent="{{ forloop.index0 | modulo: 3 }}"{% endif %}>
     <a class="archive__item-link" href="{% if post.link %}{{ post.link }}{% else %}{{ base_path }}{{ post.url }}{% endif %}" aria-label="Read {{ title | strip_html | escape }}"></a>
     <div class="archive__item-accent"></div>
     <div class="archive__item-body">

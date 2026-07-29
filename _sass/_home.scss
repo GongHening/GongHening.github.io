@@ -2,8 +2,22 @@
    HOME PAGE REFINEMENTS
    ========================================================================== */
 
+body.home-page {
+  background-color: $background-color;
+  background-image:
+    radial-gradient(circle at 8% 3%, rgba(0, 113, 227, 0.085), transparent 25rem),
+    radial-gradient(circle at 92% 38%, rgba(175, 82, 222, 0.06), transparent 30rem);
+  background-repeat: no-repeat;
+}
+
 .home-page {
+  .masthead {
+    background: rgba(255, 255, 255, 0.82);
+    border-bottom-color: rgba(0, 102, 204, 0.08);
+  }
+
   #main {
+    position: relative;
     margin-top: clamp(2rem, 4vw, 3rem);
   }
 
@@ -42,17 +56,17 @@
 
     > hr {
       margin: 1.85rem 0;
-      border-color: $soft-border-color;
+      border-color: rgba(29, 29, 31, 0.08);
     }
   }
 
   @include breakpoint($large) {
     .sidebar {
       padding: 1.25rem;
-      background: $surface-color;
-      border-color: $soft-border-color;
+      background: linear-gradient(145deg, #fff 35%, #f7fbff 100%);
+      border-color: rgba(0, 102, 204, 0.1);
       border-radius: $border-radius;
-      box-shadow: $box-shadow;
+      box-shadow: 0 12px 36px rgba(0, 102, 204, 0.07), 0 2px 8px rgba(0, 0, 0, 0.035);
     }
   }
 
@@ -61,8 +75,8 @@
 
     @include breakpoint($large) {
       padding: 3px;
-      border: 1px solid $border-color;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 102, 204, 0.16);
+      box-shadow: 0 0 0 3px #fff, 0 0 0 5px rgba(0, 102, 204, 0.11), 0 8px 22px rgba(0, 0, 0, 0.08);
     }
   }
 
@@ -112,15 +126,15 @@
 
   .archive__item[data-collection="Education"] {
     min-height: 0;
-    background: $surface-color;
-    border-color: $soft-border-color;
+    background: linear-gradient(135deg, #fff 50%, #f3f9ff 100%);
+    border-color: rgba(0, 102, 204, 0.12);
     border-radius: $border-radius;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
     cursor: default;
 
     &:hover {
-      border-color: rgba(29, 29, 31, 0.14);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      border-color: rgba(0, 102, 204, 0.22);
+      box-shadow: 0 10px 28px rgba(0, 102, 204, 0.08);
       transform: none;
 
       .archive__item-accent {
@@ -129,8 +143,8 @@
     }
 
     .archive__item-accent {
-      width: 2px;
-      background: #c7c7cc;
+      width: 3px;
+      background: linear-gradient(180deg, #0071e3, #64d2ff);
     }
 
     .archive__item-body {
@@ -169,25 +183,33 @@
   }
 
   .archive__item[data-collection="Blogs"] {
-    background: $surface-color;
-    border-color: $soft-border-color;
+    --card-accent: #0071e3;
+    --card-tint: rgba(0, 113, 227, 0.065);
+    --card-border: rgba(0, 113, 227, 0.22);
+    --card-shadow: rgba(0, 113, 227, 0.08);
+    background: linear-gradient(135deg, #fff 58%, var(--card-tint) 140%);
+    border-color: rgba(0, 102, 204, 0.1);
     border-radius: $border-radius;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
     transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 
     &:hover {
-      border-color: rgba(29, 29, 31, 0.14);
-      box-shadow: 0 7px 22px rgba(0, 0, 0, 0.055);
+      border-color: var(--card-border);
+      box-shadow: 0 9px 26px var(--card-shadow);
       transform: translateY(-1px);
 
       .archive__item-accent {
         transform: none;
       }
+
+      .archive__item-title a {
+        color: var(--card-accent);
+      }
     }
 
     .archive__item-accent {
-      width: 2px;
-      background: rgba(0, 102, 204, 0.45);
+      width: 3px;
+      background: linear-gradient(180deg, var(--card-accent), rgba(255, 255, 255, 0.9));
     }
 
     .archive__item-body {
@@ -227,6 +249,20 @@
     }
   }
 
+  .archive__item[data-collection="Blogs"][data-accent="1"] {
+    --card-accent: #8e44ad;
+    --card-tint: rgba(175, 82, 222, 0.065);
+    --card-border: rgba(175, 82, 222, 0.2);
+    --card-shadow: rgba(175, 82, 222, 0.075);
+  }
+
+  .archive__item[data-collection="Blogs"][data-accent="2"] {
+    --card-accent: #d96c00;
+    --card-tint: rgba(255, 159, 10, 0.07);
+    --card-border: rgba(255, 159, 10, 0.22);
+    --card-shadow: rgba(255, 159, 10, 0.08);
+  }
+
   .home-awards {
     margin: 0.25rem 0 0;
     padding: 0;
@@ -251,10 +287,23 @@
     }
 
     time {
-      color: $subtle-text-color;
+      padding: 0.22rem 0.58rem;
+      color: #0066cc;
+      background: #eef6ff;
+      border-radius: 999px;
       font-size: 0.78rem;
       font-variant-numeric: tabular-nums;
       white-space: nowrap;
+    }
+
+    li:nth-child(2) time {
+      color: #7b3c98;
+      background: #f8f1fc;
+    }
+
+    li:nth-child(3) time {
+      color: #007a5e;
+      background: #edf9f5;
     }
   }
 
