@@ -7,7 +7,7 @@
 {% endif %}
 
 <div class="{{ include.type | default: "list" }}__item">
-  <article class="archive__item" data-collection="{{ post.collection }}"{% if post.collection == 'Blogs' %} data-accent="{{ forloop.index0 | modulo: 3 }}"{% endif %}>
+  <article class="archive__item" data-collection="{{ post.collection }}"{% if post.collection == 'Blogs' %} data-accent="{{ forloop.index0 | modulo: 6 }}"{% endif %}>
     <a class="archive__item-link" href="{% if post.link %}{{ post.link }}{% else %}{{ base_path }}{{ post.url }}{% endif %}" aria-label="Read {{ title | strip_html | escape }}"></a>
     <div class="archive__item-accent"></div>
     <div class="archive__item-body">
@@ -34,10 +34,16 @@
 
         <div class="archive__item-right">
           {% if post.date %}
-            <span class="archive__item-meta-item">🗓️ {{ post.date | date: "%Y.%m.%d" }}</span>
+            <span class="archive__item-meta-item">
+              <span class="archive__item-meta-icon" aria-hidden="true"><i class="fa fa-calendar-alt"></i></span>
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+            </span>
           {% endif %}
           {% if post.location %}
-            <span class="archive__item-meta-item">📍 {{ post.location }}</span>
+            <span class="archive__item-meta-item">
+              <span class="archive__item-meta-icon" aria-hidden="true"><i class="fa fa-map-marker"></i></span>
+              <span>{{ post.location }}</span>
+            </span>
           {% endif %}
         </div>
       </div>
