@@ -41,8 +41,19 @@ From 2020, at the end of each year, I always write an annual review. They encour
 
 # Awards
 
-- **Second Prize, Peking University Collegiate Programming Contest (PKU-CPC)** — *2026.05*
-- **Tailong Star Scholarship** — *2025.12*
-- **Merit Student of Peking University** — *2025.12*
+<ul class="home-awards" aria-label="Awards">
+  <li>
+    <strong>Second Prize, Peking University Collegiate Programming Contest (PKU-CPC)</strong>
+    <time datetime="2026-05">2026.05</time>
+  </li>
+  <li>
+    <strong>Tailong Star Scholarship</strong>
+    <time datetime="2025-12">2025.12</time>
+  </li>
+  <li>
+    <strong>Merit Student of Peking University</strong>
+    <time datetime="2025-12">2025.12</time>
+  </li>
+</ul>
 
 ---

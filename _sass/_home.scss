@@ -226,4 +226,35 @@
       line-height: 1.35;
     }
   }
+
+  .home-awards {
+    margin: 0.25rem 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid $soft-border-color;
+
+    li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0.9rem 0;
+      align-items: baseline;
+      border-bottom: 1px solid $soft-border-color;
+    }
+
+    strong {
+      color: $text-color;
+      font-size: 0.9rem;
+      font-weight: 550;
+      line-height: 1.5;
+    }
+
+    time {
+      color: $subtle-text-color;
+      font-size: 0.78rem;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+  }
 }
