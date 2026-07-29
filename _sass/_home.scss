@@ -257,4 +257,165 @@
       white-space: nowrap;
     }
   }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid $link-color;
+    outline-offset: 3px;
+  }
+
+  .archive__item:focus-within {
+    border-color: rgba(0, 102, 204, 0.45);
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.12);
+  }
+}
+
+@media (max-width: 1079px) {
+  .home-page {
+    #main {
+      margin-top: 1.25rem;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+
+    .sidebar {
+      padding: 0.9rem;
+      background: $surface-color;
+      border: 1px solid $soft-border-color;
+      border-radius: $border-radius;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
+    }
+
+    .author__avatar {
+      width: 64px;
+
+      img {
+        width: 64px;
+        height: 64px;
+        object-fit: cover;
+      }
+    }
+
+    .author__content {
+      padding-right: 0.75rem;
+      padding-left: 1rem;
+    }
+
+    .sidebar .author__name {
+      margin: 0 0 0.25rem;
+    }
+
+    .author__bio {
+      margin: 0;
+    }
+
+    .author__urls-wrapper {
+      vertical-align: top;
+
+      button {
+        min-height: 2.5rem;
+        padding: 0.55rem 0.8rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .home-page {
+    .masthead__inner-wrap {
+      padding: 0.7rem 1rem;
+    }
+
+    .page__content {
+      > h1 {
+        margin-top: 1.85rem;
+        font-size: 1.4rem;
+      }
+
+      > h2 {
+        margin-top: 1.5rem;
+      }
+
+      > hr {
+        margin: 1.5rem 0;
+      }
+    }
+
+    .archive__item[data-collection="Blogs"] {
+      .archive__item-row {
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+
+      .archive__item-right {
+        flex-direction: row;
+        align-items: center;
+        align-self: stretch;
+        flex-wrap: wrap;
+        gap: 0.35rem 1rem;
+      }
+
+      .archive__item-title,
+      .archive__item-description {
+        overflow-wrap: anywhere;
+      }
+    }
+
+    .archive__item[data-collection="Education"] {
+      .archive__item-logo {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+}
+
+@media (max-width: 599px) {
+  body.home-page {
+    padding-bottom: 6rem;
+  }
+
+  .home-page {
+    .archive__item[data-collection="Education"] {
+      .archive__item-body {
+        padding: 1rem 1rem 1rem 1.2rem;
+      }
+
+      .archive__item-row {
+        gap: 0.8rem;
+      }
+
+      .archive__item-logo {
+        width: 52px;
+        height: 52px;
+      }
+    }
+
+    .archive__item[data-collection="Blogs"] {
+      .archive__item-body {
+        padding: 0.9rem 1rem 0.9rem 1.2rem;
+      }
+    }
+
+    .home-awards li {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+      padding: 0.8rem 0;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page {
+    #main,
+    .list__item {
+      animation: none;
+    }
+
+    .archive__item,
+    .archive__item-accent,
+    .author__urls a {
+      transition: none;
+    }
+  }
 }
