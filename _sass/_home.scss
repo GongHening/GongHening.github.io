@@ -45,4 +45,68 @@
       border-color: $soft-border-color;
     }
   }
+
+  @include breakpoint($large) {
+    .sidebar {
+      padding: 1.25rem;
+      background: $surface-color;
+      border-color: $soft-border-color;
+      border-radius: $border-radius;
+      box-shadow: $box-shadow;
+    }
+  }
+
+  .author__avatar img {
+    max-width: 144px;
+
+    @include breakpoint($large) {
+      padding: 3px;
+      border: 1px solid $border-color;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .sidebar .author__name {
+    margin: 0.9rem 0 0.35rem;
+    color: $text-color;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .author__bio {
+    margin: 0 0 1rem;
+    color: $muted-text-color;
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+
+  .author__urls {
+    li {
+      margin: 0;
+    }
+
+    a {
+      display: flex;
+      min-height: 2.25rem;
+      margin: 0;
+      padding: 0.45rem 0.55rem;
+      align-items: center;
+      gap: 0.55rem;
+      color: $text-color;
+      border-radius: 8px;
+
+      &:hover {
+        color: $link-color;
+        background: rgba(0, 102, 204, 0.055);
+      }
+    }
+
+    i,
+    .x-icon {
+      width: 1rem;
+      flex: 0 0 1rem;
+      color: $subtle-text-color;
+      text-align: center;
+    }
+  }
 }
