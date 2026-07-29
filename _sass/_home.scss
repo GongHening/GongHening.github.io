@@ -109,4 +109,62 @@
       text-align: center;
     }
   }
+
+  .archive__item[data-collection="Education"] {
+    min-height: 0;
+    background: $surface-color;
+    border-color: $soft-border-color;
+    border-radius: $border-radius;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
+    cursor: default;
+
+    &:hover {
+      border-color: rgba(29, 29, 31, 0.14);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      transform: none;
+
+      .archive__item-accent {
+        transform: none;
+      }
+    }
+
+    .archive__item-accent {
+      width: 2px;
+      background: #c7c7cc;
+    }
+
+    .archive__item-body {
+      padding: 1.2rem 1.3rem 1.2rem 1.45rem;
+    }
+
+    .archive__item-row {
+      gap: 1.25rem;
+    }
+
+    .archive__item-title {
+      color: $text-color;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .archive__item-description {
+      color: $muted-text-color;
+      line-height: 1.5;
+    }
+
+    .education-card__major {
+      margin-top: 0.35rem;
+    }
+
+    .education-card__time {
+      margin-top: 0.8rem;
+      color: $subtle-text-color;
+    }
+
+    .archive__item-logo {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+    }
+  }
 }
