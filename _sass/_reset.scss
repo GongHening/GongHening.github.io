@@ -26,12 +26,12 @@ body { margin: 0; }
 
 ::-moz-selection {
   color: #fff;
-  background: #0071e3;
+  background: $primary-color;
 }
 
 ::selection {
   color: #fff;
-  background: #0071e3;
+  background: $primary-color;
 }
 
 /* Display HTML5 elements in IE6-9 and FF3 */
@@ -67,7 +67,7 @@ audio:not([controls]) {
 }
 
 a {
-  color: #0071e3;
+  color: $link-color;
   -webkit-transition: color 0.25s ease;
           transition: color 0.25s ease;
 }

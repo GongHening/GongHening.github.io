@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $header-font-family;
   font-weight: 600;
   letter-spacing: -0.015em;
-  color: #1a1a2e;
+  color: $text-color;
 }
 
 h1 {
@@ -105,8 +105,8 @@ blockquote {
   margin: 2em 0;
   padding: 1.25em 1.5em;
   font-style: italic;
-  border-left: 4px solid #2563eb;
-  background: rgba(0, 113, 227, 0.04);
+  border-left: 4px solid $primary-color;
+  background: rgba(0, 102, 204, 0.04);
   border-radius: 0 $border-radius $border-radius 0;
 
   cite {
@@ -152,8 +152,8 @@ td > code {
   padding-left: 0.4em;
   padding-right: 0.4em;
   font-size: $type-size-6;
-  background: #f3f4f6;
-  border: 1px solid #e5e7eb;
+  background: $code-background-color;
+  border: 1px solid $border-color;
   border-radius: 6px;
 
   &:before, &:after {
