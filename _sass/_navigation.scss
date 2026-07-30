@@ -137,8 +137,8 @@
     background: #fff;
 
     &:hover {
-      color: #2563eb;
-      border-color: #2563eb;
+      color: $link-color;
+      border-color: $link-color;
     }
 
     &:first-child {
@@ -241,7 +241,7 @@
 
       &:hover {
         opacity: 1;
-        color: #2563eb;
+        color: $link-color;
       }
     }
   }
@@ -266,8 +266,8 @@
       border-radius: 8px;
 
       &:hover {
-        color: #2563eb;
-        background: rgba(0, 113, 227, 0.06);
+        color: $link-color;
+        background: rgba(0, 102, 204, 0.06);
       }
     }
 
@@ -318,7 +318,7 @@
     padding-right: 0.5em;
     color: #fff;
     font-weight: 600;
-    background: #2563eb;
+    background: $link-color;
     border-radius: 8px;
 
     &:hover {
@@ -366,7 +366,7 @@
     color: #fff;
     font-size: $type-size-6;
     font-weight: 600;
-    background: #2563eb;
+    background: $link-color;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
   }
@@ -389,8 +389,8 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 
     &:hover {
-      color: #2563eb;
-      background: rgba(0, 113, 227, 0.04);
+      color: $link-color;
+      background: rgba(0, 102, 204, 0.04);
     }
   }
 

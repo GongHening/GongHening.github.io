@@ -12,7 +12,17 @@
         </div>
         {% if include.logo %}
           <div class="archive__item-right">
-            <img class="archive__item-logo" src="{{ base_path }}{{ include.logo }}" alt="{{ include.school }} logo" width="360" height="360" loading="lazy" decoding="async">
+            {% if include.logo == "/images/PKU.png" %}
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="{{ base_path }}/images/PKU-72.webp 72w, {{ base_path }}/images/PKU-144.webp 144w"
+                  sizes="(min-width: 768px) 72px, 52px">
+                <img class="archive__item-logo" src="{{ base_path }}{{ include.logo }}" alt="{{ include.school }} logo" width="72" height="72" loading="lazy" decoding="async">
+              </picture>
+            {% else %}
+              <img class="archive__item-logo" src="{{ base_path }}{{ include.logo }}" alt="{{ include.school }} logo" width="360" height="360" loading="lazy" decoding="async">
+            {% endif %}
           </div>
         {% endif %}
       </div>

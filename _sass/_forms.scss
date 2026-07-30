@@ -221,10 +221,10 @@ textarea[readonly] {
 
 input:focus,
 textarea:focus {
-  border-color: #0071e3;
+  border-color: $link-color;
   outline: 0;
   outline: thin dotted \9;
-  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
 }
 
 input[type="file"]:focus,

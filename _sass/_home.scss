@@ -5,7 +5,7 @@
 body.home-page {
   background-color: $background-color;
   background-image:
-    radial-gradient(circle at 8% 3%, rgba(0, 113, 227, 0.085), transparent 25rem),
+    radial-gradient(circle at 8% 3%, rgba(0, 102, 204, 0.085), transparent 25rem),
     radial-gradient(circle at 92% 38%, rgba(175, 82, 222, 0.06), transparent 30rem);
   background-repeat: no-repeat;
 }
@@ -23,31 +23,39 @@ body.home-page {
 
   .page__content {
     color: $text-color;
+    font-size: 1rem;
+    line-height: 1.75;
 
     > h1 {
-      margin: 2.25rem 0 0.65rem;
+      margin: 4rem 0 1rem;
       padding: 0;
-      font-size: clamp(1.45rem, 2vw, 1.7rem);
-      line-height: 1.18;
-      letter-spacing: -0.025em;
+      font-size: clamp(1.75rem, 2.8vw, 2rem);
+      font-weight: 650;
+      line-height: 1.1;
+      letter-spacing: -0.035em;
     }
 
-    > h1:first-child {
+    > h1:first-of-type {
       margin-top: 0;
+      font-size: clamp(3rem, 4.8vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.05em;
     }
 
     > h2 {
-      margin: 1.75rem 0 0.75rem;
+      margin: 2.25rem 0 0.85rem;
       padding: 0;
-      font-size: 1.05rem;
-      line-height: 1.35;
-      letter-spacing: -0.01em;
+      font-size: clamp(1.2rem, 1.8vw, 1.35rem);
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
     }
 
     > p {
       max-width: 44rem;
       color: #424245;
-      line-height: 1.65;
+      line-height: 1.8;
     }
 
     > p > em {
@@ -55,8 +63,17 @@ body.home-page {
     }
 
     > hr {
-      margin: 1.85rem 0;
-      border-color: rgba(29, 29, 31, 0.08);
+      height: 0;
+      margin: clamp(3.5rem, 6vw, 4.75rem) 0 0;
+      border: 0;
+    }
+
+    > hr + h1 {
+      margin-top: 0;
+    }
+
+    > hr:last-child {
+      display: none;
     }
   }
 
@@ -144,7 +161,7 @@ body.home-page {
 
     .archive__item-accent {
       width: 3px;
-      background: linear-gradient(180deg, #0071e3, #64d2ff);
+      background: linear-gradient(180deg, $link-color, #64d2ff);
     }
 
     .archive__item-body {
@@ -208,7 +225,7 @@ body.home-page {
       }
 
       .archive__item-title a {
-        color: var(--card-accent-start);
+        color: $link-color;
       }
     }
 
@@ -452,16 +469,20 @@ body.home-page {
 
     .page__content {
       > h1 {
-        margin-top: 1.85rem;
-        font-size: 1.4rem;
+        margin-top: 3.25rem;
+        font-size: clamp(1.75rem, 8vw, 2rem);
+      }
+
+      > h1:first-of-type {
+        font-size: clamp(2.75rem, 12vw, 3rem);
       }
 
       > h2 {
-        margin-top: 1.5rem;
+        margin-top: 2rem;
       }
 
       > hr {
-        margin: 1.5rem 0;
+        margin-top: 3rem;
       }
     }
 

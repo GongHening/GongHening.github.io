@@ -10,7 +10,17 @@
     {% if author.avatar contains "://" %}
       <img src="{{ author.avatar }}" alt="Portrait of {{ author.name }}" width="582" height="566" decoding="async">
     {% else %}
-      <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" class="author__avatar" alt="Portrait of {{ author.name }}" width="582" height="566" decoding="async">
+      {% if author.avatar == "avatar.png" %}
+        <picture>
+          <source
+            type="image/webp"
+            srcset="{{ base_path }}/images/avatar-144.webp 144w, {{ base_path }}/images/avatar-288.webp 288w"
+            sizes="(min-width: 1080px) 144px, 64px">
+          <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" alt="Portrait of {{ author.name }}" width="144" height="140" decoding="async">
+        </picture>
+      {% else %}
+        <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" alt="Portrait of {{ author.name }}" width="582" height="566" decoding="async">
+      {% endif %}
     {% endif %}
   </div>
 

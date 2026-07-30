@@ -19,7 +19,7 @@
     bottom: 0;
     left: 0;
     width: 4px;
-    background: linear-gradient(180deg, #2563eb, #14b8a6);
+    background: linear-gradient(180deg, $link-color, #14b8a6);
   }
 }
 
@@ -41,7 +41,7 @@
   font-size: $type-size-6;
   font-weight: 700;
   line-height: 1;
-  color: #2563eb;
+  color: $link-color;
   text-transform: uppercase;
 }
 
@@ -67,10 +67,10 @@
   line-height: 1.2;
   color: #fff;
   text-decoration: none;
-  background: #2563eb;
-  border: 1px solid #2563eb;
+  background: $link-color;
+  border: 1px solid $link-color;
   border-radius: 6px;
-  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.18);
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.18);
   transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 
   &:visited {
@@ -81,14 +81,14 @@
   &:focus {
     color: #fff;
     text-decoration: none;
-    background: #1d4ed8;
-    border-color: #1d4ed8;
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.24);
+    background: $link-color-hover;
+    border-color: $link-color-hover;
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.24);
     transform: translateY(-1px);
   }
 
   &:focus-visible {
-    outline: 3px solid rgba(37, 99, 235, 0.24);
+    outline: 3px solid rgba(0, 102, 204, 0.24);
     outline-offset: 3px;
   }
 }
@@ -101,7 +101,7 @@
   font-size: 9em;
   font-weight: 800;
   line-height: 1;
-  color: rgba(37, 99, 235, 0.055);
+  color: rgba(0, 102, 204, 0.055);
   pointer-events: none;
   user-select: none;
 }

@@ -35,7 +35,7 @@
 
   a {
     text-decoration: none;
-    color: #2563eb;
+    color: $link-color;
 
     &:hover {
       text-decoration: underline;
@@ -130,7 +130,7 @@
     }
 
     .archive__item-title a {
-      color: #2563eb;
+      color: $link-color;
     }
   }
 }
@@ -152,7 +152,7 @@
   top: 0;
   bottom: 0;
   width: 4px;
-  background: #2563eb;
+  background: $link-color;
   transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
   transform-origin: center;
 }
@@ -204,7 +204,7 @@
     transition: color 0.25s ease;
 
     &:hover {
-      color: #2563eb;
+      color: $link-color;
       text-decoration: none;
     }
   }
