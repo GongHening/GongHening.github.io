@@ -1,0 +1,154 @@
+---
+layout: null
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17201f">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="他方线 E04：翻阅无址物档案馆，寻找被空白覆盖的隐藏记录。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="无址物档案馆·404 库｜他方线 E04">
+  <meta property="og:description" content="不存在不是状态，是一种保管方式。">
+  <meta property="og:url" content="https://gonghening.github.io/elsewhere/archive-404/">
+  <meta property="og:image" content="https://gonghening.github.io/elsewhere/assets/media/og-elsewhere.png">
+  <meta property="og:image:alt" content="雨夜的零号月台，时钟停在 03:17，一张车票与票蛾等待旅客。">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>无址物档案馆·404 库｜他方线 E04</title>
+  <link rel="canonical" href="https://gonghening.github.io/elsewhere/archive-404/">
+  <link rel="stylesheet" href="/elsewhere/assets/css/world.css">
+  <link rel="stylesheet" href="/elsewhere/assets/css/rooms/archive.css">
+  <script src="/elsewhere/assets/js/core.js" defer></script>
+  <script src="/elsewhere/assets/js/rooms/archive.js" defer></script>
+</head>
+<body data-room="archive">
+  <noscript><div class="ew-noscript">档案检索需要 JavaScript。你仍可以阅读公开目录，或 <a href="/elsewhere/">返回零号月台</a>。</div></noscript>
+  <a class="archive-skip" href="#main">跳到档案目录</a>
+
+  <header class="archive-topbar" aria-label="房间导航">
+    <a href="/elsewhere/" aria-label="返回零号月台"><span aria-hidden="true">←</span> 零号月台</a>
+    <p>无址物档案馆 · 404 库</p>
+    <p>E04 / NIGHT ACCESS</p>
+  </header>
+
+  <main id="main" class="archive-main">
+    <section class="archive-heading" aria-labelledby="archive-title">
+      <div>
+        <p class="archive-kicker">MUSEUM OF UNADDRESSED OBJECTS</p>
+        <h1 id="archive-title">无址物档案馆</h1>
+      </div>
+      <p>
+        本库收存无法送达的网页、过期入口和从未被点击的链接。
+        清点时发现总数比目录多一份——请找出被空白覆盖的那条记录。
+      </p>
+      <div class="archive-stamp" aria-hidden="true">404<br><span>库</span></div>
+    </section>
+
+    <section class="archive-terminal" aria-label="404 库电子目录">
+      <header class="archive-terminal-bar">
+        <div aria-hidden="true"><i></i><i></i><i></i></div>
+        <p>CATALOG://NIGHT-DESK/404</p>
+        <span>只读访问</span>
+      </header>
+
+      <div class="archive-search-row">
+        <form id="archive-search-form" role="search">
+          <label for="archive-search">目录检索</label>
+          <div>
+            <span aria-hidden="true">⌕</span>
+            <input id="archive-search" type="search" autocomplete="off" spellcheck="false" placeholder="输入名称、编号或压痕…">
+            <button type="submit">查找</button>
+          </div>
+        </form>
+        <p id="archive-search-status" aria-live="polite">已载入 5 条登记记录。</p>
+      </div>
+
+      <div class="archive-catalog">
+        <nav class="archive-drawers" aria-label="档案分类">
+          <p>档案抽屉</p>
+          <button type="button" class="is-active" data-filter="all" aria-pressed="true">
+            <span aria-hidden="true">▤</span><strong>全部残页</strong><small>ALL</small>
+          </button>
+          <button type="button" data-filter="broken" aria-pressed="false">
+            <span aria-hidden="true">⌁</span><strong>断链网页</strong><small>BROKEN</small>
+          </button>
+          <button type="button" data-filter="withdrawn" aria-pressed="false">
+            <span aria-hidden="true">⊘</span><strong>撤回通信</strong><small>WITHDRAWN</small>
+          </button>
+          <button type="button" data-filter="unfiled" aria-pressed="false">
+            <span aria-hidden="true">?</span><strong>未归档物</strong><small>UNFILED</small>
+          </button>
+          <div class="archive-drawer-note">
+            <p>夜班提示</p>
+            <span>纸面会保留被删除编号的压力。空白不总是空的。</span>
+          </div>
+        </nav>
+
+        <section class="archive-ledger" aria-labelledby="archive-ledger-title">
+          <div class="archive-ledger-head">
+            <h2 id="archive-ledger-title">登记目录</h2>
+            <span>按年份倒序</span>
+          </div>
+          <div id="archive-record-list" class="archive-record-list">
+            <button type="button" class="archive-record" data-file="riverwalk" data-category="broken">
+              <span class="archive-file-icon" aria-hidden="true">HTML</span>
+              <span><strong>riverwalk-1999.html</strong><small>404-001 · 最后访问：从未</small></span>
+              <time>1999</time>
+            </button>
+            <button type="button" class="archive-record" data-file="umbrella" data-category="unfiled">
+              <span class="archive-file-icon" aria-hidden="true">WRTY</span>
+              <span><strong>blue-umbrella.warranty</strong><small>404-087 · 遗失物保修单</small></span>
+              <time>2008</time>
+            </button>
+            <button type="button" class="archive-record" data-file="forum" data-category="broken">
+              <span class="archive-file-icon" aria-hidden="true">TXT</span>
+              <span><strong>forum-last-post.txt</strong><small>404-203 · 0 条回复</small></span>
+              <time>2013</time>
+            </button>
+
+            <button type="button" id="archive-hidden-row" class="archive-record archive-record-gap" data-file="hidden" data-category="unfiled" aria-label="未编号的档案空白，按下检查纸面压痕">
+              <span class="archive-file-icon" aria-hidden="true">···</span>
+              <span aria-hidden="true"><strong>　　　　　　　　　</strong><small>纸张在这里厚了 0.4 毫米</small></span>
+              <time aria-hidden="true">----</time>
+            </button>
+
+            <button type="button" class="archive-record" data-file="apology" data-category="withdrawn">
+              <span class="archive-file-icon" aria-hidden="true">EML</span>
+              <span><strong>apology-unsent.eml</strong><small>410-019 · 草稿未投递</small></span>
+              <time>2021</time>
+            </button>
+            <button type="button" class="archive-record" data-file="robots" data-category="unfiled">
+              <span class="archive-file-icon" aria-hidden="true">SYS</span>
+              <span><strong>robots.txt</strong><small>404-404 · 爬虫夜间须知</small></span>
+              <time>2026</time>
+            </button>
+          </div>
+        </section>
+
+        <article class="archive-viewer" aria-labelledby="archive-file-title">
+          <div class="archive-viewer-empty" id="archive-viewer-empty">
+            <span aria-hidden="true">⌁</span>
+            <h2 id="archive-file-title">请选择一份记录</h2>
+            <p>文件不会从这里恢复，但仍然可以被阅读。</p>
+          </div>
+          <div id="archive-file-content" class="archive-file-content" hidden>
+            <p class="archive-file-meta"><span id="archive-file-code"></span><time id="archive-file-date"></time></p>
+            <h2 id="archive-file-name">档案标题</h2>
+            <p id="archive-file-description" class="archive-file-description"></p>
+            <div id="archive-file-body" class="archive-file-body"></div>
+            <p id="archive-file-status" class="archive-file-status"></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <aside class="archive-footnote">
+      <p><strong>馆员注：</strong>如果目录看起来完整，可能只是你把空白当成了间隔。</p>
+      <p id="archive-discovery-status" aria-live="polite">隐藏档案尚未显影。</p>
+    </aside>
+  </main>
+</body>
+</html>

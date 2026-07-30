@@ -1,0 +1,184 @@
+---
+layout: null
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17211f">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="他方线 E06：把日常烦恼改造成一本正经的无用专利。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="非常用途局 · 第七审查室｜Elsewhere">
+  <meta property="og:description" content="本局只批准不会改善效率、但可能改善一个下午的发明。">
+  <meta property="og:url" content="https://gonghening.github.io/elsewhere/inventions/">
+  <meta property="og:image" content="https://gonghening.github.io/elsewhere/assets/media/og-elsewhere.png">
+  <meta property="og:image:alt" content="雨夜的零号月台，时钟停在 03:17，一张车票与票蛾等待旅客。">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>非常用途局 · 第七审查室｜Elsewhere</title>
+  <link rel="canonical" href="https://gonghening.github.io/elsewhere/inventions/">
+  <link rel="stylesheet" href="/elsewhere/assets/css/world.css">
+  <link rel="stylesheet" href="/elsewhere/assets/css/rooms/inventions.css">
+  <script src="/elsewhere/assets/js/core.js" defer></script>
+  <script src="/elsewhere/assets/js/rooms/inventions.js" defer></script>
+</head>
+<body data-room="inventions">
+  <noscript><div class="ew-noscript">发明签发设备需要 JavaScript。申请内容只保存在本机；也可以 <a href="/elsewhere/">返回零号月台</a>。</div></noscript>
+  <a class="inv-skip" href="#inv-form">跳到申请表</a>
+
+  <header class="inv-masthead">
+    <a class="inv-back" href="/elsewhere/" aria-label="返回零号月台">
+      <span aria-hidden="true">←</span>
+      <span>零号月台</span>
+    </a>
+    <div class="inv-authority" role="group" aria-label="非常用途局，第七审查室">
+      <span class="inv-authority-seal" aria-hidden="true">非</span>
+      <p><strong>非常用途局</strong><span>第七审查室 · E06</span></p>
+    </div>
+    <p class="inv-hours">今日受理至 03:17</p>
+  </header>
+
+  <main class="inv-shell">
+    <section class="inv-hero" aria-labelledby="inv-title">
+      <div>
+        <p class="inv-kicker">BUREAU OF IMPRACTICAL PURPOSES</p>
+        <h1 id="inv-title">任何烦恼，<br>都值得一件更麻烦的发明。</h1>
+      </div>
+      <p class="inv-lede">提交一项微不足道的困扰，并指定两件毫不相干的物品。审查员会为它们找到一种正式、精密且基本无用的联系。</p>
+    </section>
+
+    <div class="inv-desk">
+      <section class="inv-application" aria-labelledby="inv-form-title">
+        <div class="inv-paper-head">
+          <span>表格 E06—7B</span>
+          <span>单次申请 · 无需费用</span>
+        </div>
+        <h2 id="inv-form-title">非常用途发明申请书</h2>
+
+        <form id="inv-form">
+          <label class="inv-field">
+            <span class="inv-field-number">01</span>
+            <span class="inv-field-copy">
+              <strong>请简述亟待解决的烦恼</strong>
+              <small>越日常越好。本局拒绝真正重要的问题。</small>
+            </span>
+            <textarea id="inv-trouble" rows="4" maxlength="96" required placeholder="例如：总在走出门以后才想起有没有锁门"></textarea>
+            <span class="inv-character-count" id="inv-count">0 / 96</span>
+          </label>
+
+          <div class="inv-object-fields">
+            <label class="inv-field inv-field-select">
+              <span class="inv-field-number">02</span>
+              <span class="inv-field-copy">
+                <strong>主要零件</strong>
+                <small>承担错误的责任</small>
+              </span>
+              <select id="inv-object-a">
+                <option value="umbrella">一把总是湿的伞</option>
+                <option value="alarm">一只慢三分钟的闹钟</option>
+                <option value="ticket">一张过期车票</option>
+                <option value="kettle">一只过分热心的水壶</option>
+                <option value="chair">一把会叹气的椅子</option>
+                <option value="mirror">一面记性很好的镜子</option>
+                <option value="spoon">一把方向感很差的勺子</option>
+                <option value="cloud">一小团室内云</option>
+              </select>
+            </label>
+
+            <label class="inv-field inv-field-select">
+              <span class="inv-field-number">03</span>
+              <span class="inv-field-copy">
+                <strong>辅助零件</strong>
+                <small>承担无法解释的部分</small>
+              </span>
+              <select id="inv-object-b">
+                <option value="moth">一只吃票根的白蛾</option>
+                <option value="thermos">半瓶昨天的温水</option>
+                <option value="button">一枚拒绝被按的按钮</option>
+                <option value="ruler">一把测量沉默的尺</option>
+                <option value="radio">一台只播天气的收音机</option>
+                <option value="sock">一只失去同伴的袜子</option>
+                <option value="lamp">一盏怕黑的台灯</option>
+                <option value="envelope">一个没有地址的信封</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="inv-consent">
+            <input id="inv-consent" type="checkbox" required>
+            <span>本人确认：该烦恼无需真正解决，并愿意承担发明意外有用的风险。</span>
+          </label>
+
+          <button class="inv-submit" type="submit">
+            <span>送交自动审查</span>
+            <span aria-hidden="true">盖章处 →</span>
+          </button>
+          <p class="inv-form-status" id="inv-form-status" role="status" aria-live="polite">当前排队人数：0</p>
+        </form>
+      </section>
+
+      <section class="inv-result" id="inv-result" aria-labelledby="inv-result-title">
+        <div class="inv-result-empty" id="inv-result-empty">
+          <span class="inv-empty-number">待审</span>
+          <h2 id="inv-result-title">蓝图尚未生成</h2>
+          <p>填写左侧表格后，本局将调用一套未经验证、但措辞极其严谨的审查程序。</p>
+          <div class="inv-empty-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+
+        <article class="inv-patent" id="inv-patent" hidden>
+          <header class="inv-patent-head">
+            <div>
+              <p>他方线 · 非常用途发明专利</p>
+              <h2 id="inv-patent-title">待生成发明</h2>
+            </div>
+            <dl>
+              <div><dt>公开编号</dt><dd id="inv-patent-number"></dd></div>
+              <div><dt>世界种子</dt><dd id="inv-patent-seed"></dd></div>
+              <div><dt>审查状态</dt><dd id="inv-patent-state">临时通过</dd></div>
+            </dl>
+          </header>
+
+          <div class="inv-blueprint-wrap">
+            <canvas id="inv-blueprint" width="1200" height="760" role="img" aria-label="根据申请生成的无用发明结构蓝图">当前浏览器无法显示蓝图；仍可签发并下载文字专利。</canvas>
+            <div class="inv-issued-stamp" id="inv-issued-stamp" aria-hidden="true">准予无用</div>
+          </div>
+
+          <div class="inv-patent-body">
+            <section>
+              <h3>摘要</h3>
+              <p id="inv-abstract"></p>
+            </section>
+            <section>
+              <h3>运行程序</h3>
+              <ol id="inv-process"></ol>
+            </section>
+            <section>
+              <h3>权利要求</h3>
+              <ol id="inv-claims"></ol>
+            </section>
+            <aside class="inv-warning">
+              <strong>审查员特别警告</strong>
+              <p id="inv-warning"></p>
+            </aside>
+          </div>
+
+          <footer class="inv-patent-actions">
+            <button class="inv-regenerate" id="inv-regenerate" type="button">换一种不可靠方案</button>
+            <div>
+              <button class="inv-download" id="inv-download" type="button">下载蓝图</button>
+              <button class="inv-issue" id="inv-issue" type="button">正式签发</button>
+            </div>
+          </footer>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="inv-footer">
+    <p>非常用途局不对任何实际改善负责。</p>
+    <p>E06 · 文件保留期限：直到你不再介意为止</p>
+  </footer>
+</body>
+</html>

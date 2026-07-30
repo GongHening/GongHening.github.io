@@ -1,0 +1,126 @@
+---
+layout: null
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151a20">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="他方线 E03：旋动指针，在城市低空噪声中找回三个清晰频道。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="八十八点零·低空广播室｜他方线 E03">
+  <meta property="og:description" content="本台不播报新闻，只播报差一点成为新闻的事情。">
+  <meta property="og:url" content="https://gonghening.github.io/elsewhere/radio-880/">
+  <meta property="og:image" content="https://gonghening.github.io/elsewhere/assets/media/og-elsewhere.png">
+  <meta property="og:image:alt" content="雨夜的零号月台，时钟停在 03:17，一张车票与票蛾等待旅客。">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>八十八点零·低空广播室｜他方线 E03</title>
+  <link rel="canonical" href="https://gonghening.github.io/elsewhere/radio-880/">
+  <link rel="stylesheet" href="/elsewhere/assets/css/world.css">
+  <link rel="stylesheet" href="/elsewhere/assets/css/rooms/radio.css">
+  <script src="/elsewhere/assets/js/core.js" defer></script>
+  <script src="/elsewhere/assets/js/rooms/radio.js" defer></script>
+</head>
+<body data-room="radio">
+  <noscript><div class="ew-noscript">调谐设备需要 JavaScript。声音默认保持关闭；你也可以 <a href="/elsewhere/">返回零号月台</a>。</div></noscript>
+  <a class="radio-skip" href="#main">跳到调谐台</a>
+
+  <header class="radio-topbar" aria-label="房间导航">
+    <a href="/elsewhere/" aria-label="返回零号月台"><span aria-hidden="true">←</span> 零号月台</a>
+    <p>E03 / LOW ALTITUDE SERVICE</p>
+    <p class="radio-on-air"><i aria-hidden="true"></i> OFF AIR</p>
+  </header>
+
+  <main id="main" class="radio-main">
+    <section class="radio-copy" aria-labelledby="radio-title">
+      <p class="radio-kicker">MUNICIPAL SHORT-RANGE RECEIVER · RX-0317</p>
+      <h1 id="radio-title">八十八点零</h1>
+      <p>
+        城市上空一直漂着没人接收的声音。给接收机通电，再缓慢移动指针：
+        三个频道仍在重复它们尚未播完的夜间节目。
+      </p>
+
+      <div class="radio-safety">
+        <span aria-hidden="true">◎</span>
+        <p><strong>声音默认关闭</strong><br>启用后仅在本机实时合成微弱电台声，不会录音或使用麦克风。</p>
+      </div>
+
+      <section class="radio-log" aria-labelledby="radio-log-title">
+        <div>
+          <p>接收登记</p>
+          <h2 id="radio-log-title"><span id="radio-found-count">0</span> / 3 个清晰频道</h2>
+        </div>
+        <ol>
+          <li data-channel-log="river"><span>CH. A</span><strong>--.- MHz</strong><small>等待信号</small></li>
+          <li data-channel-log="elsewhere"><span>CH. B</span><strong>--.- MHz</strong><small>等待信号</small></li>
+          <li data-channel-log="messages"><span>CH. C</span><strong>--.- MHz</strong><small>等待信号</small></li>
+        </ol>
+        <p id="radio-progress-status" class="radio-sr-only" aria-live="polite"></p>
+      </section>
+    </section>
+
+    <section class="radio-console" aria-label="RX-0317 模拟接收机">
+      <div class="radio-case">
+        <div class="radio-case-top">
+          <p><span>他方线</span> 低空广播接收机</p>
+          <span>PROPERTY OF<br>THE UNARRIVED</span>
+        </div>
+
+        <div class="radio-display">
+          <div class="radio-scope-wrap">
+            <canvas id="radio-scope" width="800" height="180" aria-hidden="true"></canvas>
+            <div class="radio-scope-grid" aria-hidden="true"></div>
+            <p id="radio-signal-label">NO CARRIER</p>
+          </div>
+          <div class="radio-frequency">
+            <output id="radio-frequency" for="radio-tuner">88.0</output>
+            <span>MHz</span>
+          </div>
+          <div class="radio-meter" role="group" aria-label="信号清晰度">
+            <span>SIGNAL</span>
+            <div><i id="radio-meter-fill"></i></div>
+            <output id="radio-clarity">0%</output>
+          </div>
+        </div>
+
+        <div class="radio-dial">
+          <div class="radio-dial-numbers" aria-hidden="true">
+            <span>76</span><span>80</span><span>84</span><span>88</span><span>92</span><span>96</span><span>100</span><span>104</span><span>108</span>
+          </div>
+          <div class="radio-track-wrap">
+            <span class="radio-secret-mark mark-a" aria-hidden="true"></span>
+            <span class="radio-secret-mark mark-b" aria-hidden="true"></span>
+            <span class="radio-secret-mark mark-c" aria-hidden="true"></span>
+            <input id="radio-tuner" type="range" min="760" max="1080" value="880" step="1" disabled aria-label="调谐频率，76.0 到 108.0 兆赫">
+          </div>
+          <div class="radio-fine-controls" role="group" aria-label="精细调谐">
+            <button type="button" id="radio-step-down" disabled aria-label="频率降低 0.1 兆赫">− 0.1</button>
+            <span>FINE TUNING</span>
+            <button type="button" id="radio-step-up" disabled aria-label="频率升高 0.1 兆赫">+ 0.1</button>
+          </div>
+        </div>
+
+        <div class="radio-transcript" aria-live="polite">
+          <p><span>LIVE TRANSCRIPT</span><time>03:17</time></p>
+          <h2 id="radio-transcript-title">接收机尚未通电</h2>
+          <p id="radio-transcript-copy">启用接收机后，沿刻度寻找微弱的金色标记。</p>
+          <p id="radio-echo" class="radio-echo" hidden></p>
+        </div>
+
+        <div class="radio-controls">
+          <button id="radio-power" class="radio-power" type="button" aria-pressed="false">
+            <i aria-hidden="true"></i>
+            <span><strong>启用接收机</strong><small>声音将在点击后开启</small></span>
+          </button>
+          <div class="radio-knobs" aria-hidden="true"><i></i><i></i></div>
+          <p>RX-0317<br><small>夜间收听许可</small></p>
+        </div>
+      </div>
+      <p class="radio-caption">提示：信号越清晰，指针两侧的噪声越安静。停留片刻即可登记频道。</p>
+    </section>
+  </main>
+</body>
+</html>

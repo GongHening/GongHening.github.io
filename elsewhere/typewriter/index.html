@@ -1,0 +1,136 @@
+---
+layout: null
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b26">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="他方线 E05：让一句话暂时失去重量。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="轻句室 · 失重打字间｜Elsewhere">
+  <meta property="og:description" content="沉默不是没有重量，它只是一直没有落地。">
+  <meta property="og:url" content="https://gonghening.github.io/elsewhere/typewriter/">
+  <meta property="og:image" content="https://gonghening.github.io/elsewhere/assets/media/og-elsewhere.png">
+  <meta property="og:image:alt" content="雨夜的零号月台，时钟停在 03:17，一张车票与票蛾等待旅客。">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>轻句室 · 失重打字间｜Elsewhere</title>
+  <link rel="canonical" href="https://gonghening.github.io/elsewhere/typewriter/">
+  <link rel="stylesheet" href="/elsewhere/assets/css/world.css">
+  <link rel="stylesheet" href="/elsewhere/assets/css/rooms/typewriter.css">
+  <script src="/elsewhere/assets/js/core.js" defer></script>
+  <script src="/elsewhere/assets/js/rooms/typewriter.js" defer></script>
+</head>
+<body data-room="typewriter">
+  <noscript><div class="ew-noscript">失重打字设备需要 JavaScript。你的文字不会被上传；也可以 <a href="/elsewhere/">返回零号月台</a>。</div></noscript>
+  <a class="tw-skip" href="#tw-workbench">跳到操作台</a>
+
+  <header class="tw-masthead">
+    <a class="tw-back" href="/elsewhere/" aria-label="返回零号月台">
+      <span aria-hidden="true">←</span>
+      <span>零号月台</span>
+    </a>
+    <p class="tw-station-code"><span>E05</span> LIGHT SENTENCE OFFICE</p>
+    <button class="tw-help" id="tw-help" type="button" aria-expanded="false" aria-controls="tw-instructions">
+      操作说明
+    </button>
+  </header>
+
+  <main class="tw-shell" id="tw-workbench">
+    <section class="tw-intro" aria-labelledby="tw-title">
+      <p class="tw-kicker">未抵达事物管理处 · 轻句科</p>
+      <h1 id="tw-title">让一句话，暂时失去重量。</h1>
+      <p class="tw-lede">我们不负责替你忘记。这里只把过重的字拆开，让它们在房间里多待一会儿。</p>
+    </section>
+
+    <aside class="tw-instructions" id="tw-instructions" hidden>
+      <p><strong>输入一句短句</strong>，按“放走”或 <kbd>Ctrl</kbd> + <kbd>Enter</kbd>。拖动画布里的磁场，改变字的去向；调节风和重力，看它们重新相遇。</p>
+      <p>导出海报后，管理处会在你的护照里盖上 E05 印章。所有文字只留在这台设备上。</p>
+    </aside>
+
+    <section class="tw-room" aria-label="失重打字操作间">
+      <div class="tw-stage-wrap">
+        <div class="tw-stage-meta" aria-hidden="true">
+          <span>CHAMBER 05</span>
+          <span id="tw-pressure">室压稳定 · 0.82</span>
+        </div>
+        <canvas id="tw-canvas" class="tw-canvas" role="img" aria-label="文字物理画布。输入的字会在此受重力、风和磁场影响。">
+          你的浏览器不支持画布。仍可输入文字并保存它。
+        </canvas>
+        <div class="tw-empty" id="tw-empty" aria-hidden="true">
+          <span class="tw-empty-mark">“</span>
+          <p>句子会从这里<br>离开纸面</p>
+        </div>
+        <div class="tw-magnet-cursor" id="tw-magnet-cursor" aria-hidden="true"></div>
+        <p class="tw-stage-hint" id="tw-stage-hint">在画布上按住并拖动，移动磁场</p>
+      </div>
+
+      <div class="tw-console">
+        <div class="tw-input-block">
+          <label for="tw-input">待减重语句</label>
+          <textarea id="tw-input" rows="3" maxlength="42" placeholder="例如：明天也许会有一阵好风" spellcheck="false"></textarea>
+          <div class="tw-input-foot">
+            <span id="tw-count">0 / 42</span>
+            <button class="tw-text-button" id="tw-suggestion" type="button">借一句临时的话</button>
+          </div>
+          <button class="tw-primary" id="tw-release" type="button">
+            <span>放走这句话</span>
+            <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+
+        <fieldset class="tw-fieldset">
+          <legend>室内条件</legend>
+
+          <div class="tw-range-row">
+            <span>
+              <label for="tw-gravity"><strong>重力</strong></label>
+              <output id="tw-gravity-value" for="tw-gravity">向下 48%</output>
+            </span>
+            <input id="tw-gravity" type="range" min="-100" max="100" value="48">
+          </div>
+
+          <div class="tw-range-row">
+            <span>
+              <label for="tw-wind"><strong>侧风</strong></label>
+              <output id="tw-wind-value" for="tw-wind">静止</output>
+            </span>
+            <input id="tw-wind" type="range" min="-100" max="100" value="0">
+          </div>
+
+          <div class="tw-mode-group" role="group" aria-labelledby="tw-magnet-label">
+            <span id="tw-magnet-label"><strong>磁场</strong></span>
+            <div class="tw-segmented">
+              <button type="button" data-magnet="attract" aria-pressed="true">聚拢</button>
+              <button type="button" data-magnet="repel" aria-pressed="false">推开</button>
+              <button type="button" data-magnet="off" aria-pressed="false">关闭</button>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="tw-actions">
+          <button class="tw-secondary" id="tw-reset" type="button">清空房间</button>
+          <button class="tw-export" id="tw-export" type="button" disabled>
+            保存减重海报
+          </button>
+        </div>
+
+        <p class="tw-status" id="tw-status" role="status" aria-live="polite">减重设备待命。</p>
+      </div>
+    </section>
+
+    <blockquote class="tw-notice">
+      <p>“轻”不是消失。只是换一种方式，占据空间。</p>
+      <footer>— 第五号减重条例，修订于某个风大的夜晚</footer>
+    </blockquote>
+  </main>
+
+  <footer class="tw-footer">
+    <span>E05 · 轻句室</span>
+    <span>本室不收集任何输入内容</span>
+  </footer>
+</body>
+</html>

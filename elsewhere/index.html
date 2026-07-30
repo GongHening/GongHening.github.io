@@ -1,0 +1,193 @@
+---
+layout: null
+sitemap: false
+permalink: /elsewhere/
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b1720">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Elsewhere / 他方线：一项保管未发生事物的深夜市政服务。">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Elsewhere / 他方线">
+    <meta property="og:description" content="开往未曾发生之处的列车，仍会准点到站。">
+    <meta property="og:url" content="https://gonghening.github.io/elsewhere/">
+    <meta property="og:image" content="https://gonghening.github.io/elsewhere/assets/media/og-elsewhere.png">
+    <meta property="og:image:alt" content="雨夜的零号月台，时钟停在 03:17，一张车票与票蛾等待旅客。">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Elsewhere / 他方线">
+    <meta name="twitter:description" content="开往未曾发生之处的列车，仍会准点到站。">
+    <meta name="twitter:image" content="https://gonghening.github.io/elsewhere/assets/media/og-elsewhere.png">
+    <meta name="twitter:image:alt" content="雨夜的零号月台，时钟停在 03:17，一张车票与票蛾等待旅客。">
+    <title>Elsewhere / 他方线 — 零号月台</title>
+    <link rel="canonical" href="https://gonghening.github.io/elsewhere/">
+    <link rel="stylesheet" href="/elsewhere/assets/css/world.css">
+    <link rel="stylesheet" href="/elsewhere/assets/css/station.css">
+    <script src="/elsewhere/assets/js/core.js" defer></script>
+    <script src="/elsewhere/assets/js/station.js" defer></script>
+  </head>
+  <body data-room="station">
+    <noscript>
+      <div class="ew-noscript">
+        他方线需要 JavaScript 才能签发车票。你仍然可以
+        <a href="/">返回地面</a>。
+      </div>
+    </noscript>
+
+    <main class="room station" id="main">
+      <section class="station-hero" aria-labelledby="stationTitle">
+        <div class="station-architecture" aria-hidden="true">
+          <span class="station-column station-column--left"></span>
+          <span class="station-column station-column--right"></span>
+          <span class="station-track station-track--one"></span>
+          <span class="station-track station-track--two"></span>
+          <span class="ticket-moth ticket-moth--one"></span>
+          <span class="ticket-moth ticket-moth--two"></span>
+        </div>
+
+        <div class="station-sign">
+          <span class="station-sign__roundel">0½</span>
+          <span>ELSEWHERE MUNICIPAL TRANSIT</span>
+          <span>未抵达事物管理处</span>
+        </div>
+
+        <div class="station-clock" role="group" aria-label="车站时钟">
+          <span class="station-clock__label">BEIJING MUNICIPAL TIME</span>
+          <time id="stationClock" datetime="03:17">03:17</time>
+          <span class="station-clock__status" id="clockStatus">所有班次正在等待</span>
+        </div>
+
+        <div class="station-hero__copy">
+          <p class="room-kicker">E00 · Platform zero / 余白换乘厅</p>
+          <h1 class="room-title" id="stationTitle">Elsewhere<br><span>他方线</span></h1>
+          <p class="room-intro">
+            每天凌晨 03:17，没说出口的话、没打开的网页、没等到的景色，
+            会被送到这里暂存。你不是受邀而来——你只是刚好迷路。
+          </p>
+          <div class="room-actions">
+            <button class="ew-btn ew-btn--paper" id="claimTicket" type="button">领取临时旅客证</button>
+            <button class="ew-btn ew-btn--ghost" id="openNetwork" type="button">查看今夜路线</button>
+          </div>
+        </div>
+
+        <aside class="station-ticket" id="stationTicket" aria-label="他方线车票">
+          <div class="station-ticket__stub">
+            <span>0½</span>
+            <small>ONE WAY<br>AND BACK</small>
+          </div>
+          <div class="station-ticket__body">
+            <span class="station-ticket__label">Elsewhere temporary transit permit</span>
+            <strong>他方线临时旅客证</strong>
+            <dl>
+              <div><dt>持证人</dt><dd>一个刚好迷路的人</dd></div>
+              <div><dt>车票编号</dt><dd id="ticketNumber">正在签发</dd></div>
+              <div><dt>回程手续</dt><dd id="ticketProgress">0 / 10</dd></div>
+            </dl>
+          </div>
+        </aside>
+      </section>
+
+      <section class="station-section" aria-labelledby="departuresTitle">
+        <header class="station-section__head">
+          <div>
+            <p class="room-kicker">Tonight's departures</p>
+            <h2 id="departuresTitle">今夜发车表</h2>
+          </div>
+          <p>所有目的地均可自由抵达。所谓推荐，只是车站今晚比较想念那里。</p>
+        </header>
+        <div class="departure-board" id="departureBoard" aria-live="polite"></div>
+      </section>
+
+      <section class="station-section station-notices" aria-labelledby="noticeTitle">
+        <header class="station-section__head">
+          <div>
+            <p class="room-kicker">Internal notices</p>
+            <h2 id="noticeTitle">内部通告</h2>
+          </div>
+          <p>通告会随着护照上的印章改变。没有内容被上传到车站之外。</p>
+        </header>
+        <div class="station-notice-grid">
+          <article class="station-notice">
+            <span>03:17 / 常设告示</span>
+            <p id="narrativeNotice">本证只证明你曾抵达，不保证那里存在。</p>
+          </article>
+          <article class="station-notice station-notice--daily">
+            <span id="dailyDate">今日种子</span>
+            <p id="dailyNotice">正在整理今天没有发生完的事。</p>
+          </article>
+          <article class="station-notice station-notice--moth">
+            <span>失物招领 / 票蛾科</span>
+            <p>若看见一只白色小蛾，请不要驱赶。它以废车票为食，偶尔也啃食边界。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="station-section final-platform" id="finalPlatform" aria-labelledby="finalTitle">
+        <div class="final-platform__gate" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="final-platform__content">
+          <p class="room-kicker">Return procedure / 03:18</p>
+          <h2 id="finalTitle">尚未开放的回程闸门</h2>
+          <p id="finalCopy">
+            十枚印章会把同一句话重新拼好。在那以前，闸门只把等待误认作永恒。
+          </p>
+          <div class="final-progress" role="progressbar" aria-label="回程手续" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+            <span id="finalProgressBar"></span>
+          </div>
+          <p class="final-progress__label" id="finalProgressLabel">0 / 10 枚印章</p>
+          <div class="return-artifacts" id="returnArtifacts" hidden></div>
+          <button class="ew-btn ew-btn--paper" id="bringToday" type="button" hidden>带回今天</button>
+        </div>
+      </section>
+
+      <footer class="station-footer">
+        <span>Elsewhere Municipal Transit · 未抵达事物管理处</span>
+        <a href="/">返回地面</a>
+      </footer>
+    </main>
+
+    <section class="station-entry" id="stationEntry" aria-labelledby="entryTitle">
+      <div class="station-entry__card">
+        <span class="station-entry__serial">E00 / ARRIVAL WITHOUT APPOINTMENT</span>
+        <h2 id="entryTitle">你来早了一分钟。</h2>
+        <p>
+          他方线目前停在 03:17。进入不需要姓名，也不会上传你的文字、声音或旅程。
+        </p>
+        <div class="station-entry__actions">
+          <button class="ew-btn ew-btn--paper" id="enterQuietly" type="button">安静进入</button>
+          <button class="ew-btn" id="enterWithSound" type="button">开启广播后进入</button>
+          <a class="ew-btn ew-btn--ghost" href="/">返回地面</a>
+        </div>
+      </div>
+    </section>
+
+    <dialog class="return-dialog" id="returnDialog" aria-labelledby="returnReceiptTitle">
+      <article class="return-receipt" id="returnReceipt">
+        <p class="return-receipt__overline">Elsewhere municipal transit · final receipt</p>
+        <p class="return-receipt__time">03:18</p>
+        <h2 id="returnReceiptTitle">恭喜，你没有找到另一个世界。</h2>
+        <p>
+          你只是替这个世界取回了一小块可能。
+        </p>
+        <p>
+          他方线不负责带人逃走。它只负责把那些差一点发生的事，
+          送回仍然来得及的今天。
+        </p>
+        <dl>
+          <div><dt>车票编号</dt><dd id="receiptTicket"></dd></div>
+          <div><dt>回程物</dt><dd id="receiptArtifact"></dd></div>
+          <div><dt>目的地</dt><dd>你原来所在的地方</dd></div>
+        </dl>
+        <p class="return-receipt__tail" id="receiptTail"></p>
+        <div class="room-actions">
+          <button class="ew-btn ew-btn--paper" id="downloadReceipt" type="button">保存回程凭条</button>
+          <button class="ew-btn ew-btn--ghost" id="closeReceipt" type="button">留在 03:18</button>
+        </div>
+      </article>
+    </dialog>
+  </body>
+</html>

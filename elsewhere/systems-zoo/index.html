@@ -1,0 +1,344 @@
+---
+layout: null
+sitemap: false
+permalink: /elsewhere/systems-zoo/
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24392f">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="他方线 E09 循规园：缓存仓鼠、数据包候鸟与死锁螃蟹的可玩系统动物园。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="循规园 · 可玩系统动物园｜Elsewhere">
+  <meta property="og:description" content="规则被执行得足够久，也会长出脾气。">
+  <meta property="og:url" content="https://gonghening.github.io/elsewhere/systems-zoo/">
+  <meta property="og:image" content="https://gonghening.github.io/elsewhere/assets/media/og-elsewhere.png">
+  <meta property="og:image:alt" content="雨夜的零号月台，时钟停在 03:17，一张车票与票蛾等待旅客。">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>循规园 · 可玩系统动物园 | Elsewhere</title>
+  <link rel="canonical" href="https://gonghening.github.io/elsewhere/systems-zoo/">
+  <link rel="stylesheet" href="/elsewhere/assets/css/world.css">
+  <link rel="stylesheet" href="/elsewhere/assets/css/rooms/zoo.css">
+  <script defer src="/elsewhere/assets/js/core.js"></script>
+  <script defer src="/elsewhere/assets/js/rooms/zoo.js"></script>
+</head>
+<body data-room="zoo">
+  <noscript><div class="ew-noscript">系统动物需要 JavaScript 才会活动。你仍可以阅读展牌，或 <a href="/elsewhere/">返回零号月台</a>。</div></noscript>
+  <a class="zoo-skip" href="#zoo-exhibits">跳到互动展区</a>
+
+  <main class="zoo-page">
+    <header class="zoo-masthead">
+      <a class="zoo-route" href="/elsewhere/" aria-label="返回零号月台">
+        <span aria-hidden="true">←</span>
+        <span>ELSEWHERE · E09</span>
+      </a>
+      <p>未抵达事物管理处 · 系统生物保育科</p>
+      <span class="zoo-open-mark">夜间开放</span>
+    </header>
+
+    <section class="zoo-hero" aria-labelledby="zoo-title">
+      <div class="zoo-title-block">
+        <p class="zoo-kicker">RULE-BOUND CREATURE RESERVE · SINCE 03:17</p>
+        <h1 id="zoo-title">循规园</h1>
+        <p class="zoo-subtitle">可玩系统动物园</p>
+      </div>
+      <div class="zoo-intro">
+        <p>
+          这里的动物不服从驯兽员，只服从规则。改变一次请求、路线或资源，
+          就能看见一套系统如何记住、迁徙，或在礼貌的等待中彻底停住。
+        </p>
+        <p class="zoo-instruction">
+          完成任意一项夜间巡检，即可取得 E09 号印章。
+        </p>
+      </div>
+    </section>
+
+    <section class="zoo-roster" aria-labelledby="roster-title">
+      <div class="roster-heading">
+        <span class="roster-number">E09</span>
+        <div>
+          <p>夜间巡检表</p>
+          <h2 id="roster-title">三处展区，任选其一完成</h2>
+        </div>
+      </div>
+      <ul class="roster-list" id="roster-list">
+        <li data-exhibit-status="cache">
+          <span class="roster-check" aria-hidden="true">01</span>
+          <span>缓存仓鼠</span>
+          <strong>待巡检</strong>
+        </li>
+        <li data-exhibit-status="packet">
+          <span class="roster-check" aria-hidden="true">02</span>
+          <span>数据包候鸟</span>
+          <strong>待巡检</strong>
+        </li>
+        <li data-exhibit-status="deadlock">
+          <span class="roster-check" aria-hidden="true">03</span>
+          <span>死锁螃蟹</span>
+          <strong>待巡检</strong>
+        </li>
+      </ul>
+      <div class="roster-stamp" id="roster-stamp" role="group" aria-label="E09 印章状态">
+        <span>巡检章</span>
+        <b id="roster-count">0/3</b>
+      </div>
+    </section>
+
+    <aside class="enrichment-facility" id="enrichment-facility" aria-labelledby="facility-title">
+      <div class="facility-sign" aria-hidden="true">
+        <span>NEW</span>
+        <b>丰容设施</b>
+      </div>
+      <div class="facility-copy">
+        <p class="zoo-eyebrow">来自 E06 非常用途局</p>
+        <h2 id="facility-title">一件发明正在办理入园手续</h2>
+        <p id="facility-description">
+          如果你曾在非常用途局登记发明，它会作为动物们的新玩具出现在这里。
+        </p>
+      </div>
+      <div class="facility-object" id="facility-object" aria-hidden="true">
+        <span class="facility-orbit"></span>
+        <span class="facility-core">?</span>
+      </div>
+      <div class="facility-ticket">
+        <span>设施编号</span>
+        <b id="facility-code">E06→E09</b>
+      </div>
+    </aside>
+
+    <section class="zoo-exhibits" id="zoo-exhibits" aria-label="系统动物互动展区">
+      <article class="zoo-exhibit cache-exhibit" id="cache-exhibit" aria-labelledby="cache-title">
+        <header class="exhibit-header">
+          <div class="exhibit-number">01</div>
+          <div>
+            <p class="zoo-eyebrow">LOCALITY HOUSE · 3 SLOTS</p>
+            <h2 id="cache-title">缓存仓鼠</h2>
+          </div>
+          <span class="exhibit-state" data-state-badge="cache">待巡检</span>
+        </header>
+
+        <div class="exhibit-brief">
+          <p>
+            它们把最近用过的东西塞进三个颊囊。请求再次出现时，请点中装着它的颊囊；
+            若没有，请选择一个颊囊装入——必要时会顶替旧物。
+          </p>
+          <dl>
+            <div><dt>容量</dt><dd>3</dd></div>
+            <div><dt>策略</dt><dd>由你替换</dd></div>
+            <div><dt>目标</dt><dd>处理整列请求</dd></div>
+          </dl>
+        </div>
+
+        <div class="cache-board">
+          <div class="request-panel">
+            <span>当前请求 / REQUEST</span>
+            <strong id="cache-current">准备开笼</strong>
+            <small id="cache-guidance">点任意颊囊，装入第一件物品。</small>
+          </div>
+
+          <ol class="request-queue" id="cache-request-queue" aria-label="缓存请求序列"></ol>
+
+          <div class="cache-slots" id="cache-slots" role="group" aria-label="三个缓存颊囊">
+            <button class="cache-slot" type="button" data-slot="0" aria-label="一号颊囊，当前为空">
+              <span class="hamster-face" aria-hidden="true"><i></i></span>
+              <span class="slot-index">颊囊 1</span>
+              <strong class="slot-value">空</strong>
+              <small class="slot-action">装入这里</small>
+            </button>
+            <button class="cache-slot" type="button" data-slot="1" aria-label="二号颊囊，当前为空">
+              <span class="hamster-face" aria-hidden="true"><i></i></span>
+              <span class="slot-index">颊囊 2</span>
+              <strong class="slot-value">空</strong>
+              <small class="slot-action">装入这里</small>
+            </button>
+            <button class="cache-slot" type="button" data-slot="2" aria-label="三号颊囊，当前为空">
+              <span class="hamster-face" aria-hidden="true"><i></i></span>
+              <span class="slot-index">颊囊 3</span>
+              <strong class="slot-value">空</strong>
+              <small class="slot-action">装入这里</small>
+            </button>
+          </div>
+
+          <div class="exhibit-controls">
+            <p id="cache-status" role="status" aria-live="polite">
+              连续出现的请求往往值得被记住。
+            </p>
+            <div class="cache-stats" role="group" aria-label="缓存统计">
+              <span>命中 <b id="cache-hits">0</b></span>
+              <span>未命中 <b id="cache-misses">0</b></span>
+            </div>
+            <button class="zoo-button button-quiet" id="cache-reset" type="button">重新开笼</button>
+          </div>
+        </div>
+
+        <footer class="exhibit-footnote">
+          <span>观察注记</span>
+          <p>缓存不会预知未来。它只是赌：刚刚发生过的事，也许还会发生。</p>
+        </footer>
+      </article>
+
+      <article class="zoo-exhibit packet-exhibit" id="packet-exhibit" aria-labelledby="packet-title">
+        <header class="exhibit-header">
+          <div class="exhibit-number">02</div>
+          <div>
+            <p class="zoo-eyebrow">PACKET FLYWAY · TTL CONTROL</p>
+            <h2 id="packet-title">数据包候鸟</h2>
+          </div>
+          <span class="exhibit-state" data-state-badge="packet">待巡检</span>
+        </header>
+
+        <div class="exhibit-brief">
+          <p>
+            每只候鸟都背着大小不同的包裹，也只剩有限的飞行时间。
+            请选一条既装得下、又来得及抵达的迁徙路线。
+          </p>
+        </div>
+
+        <div class="packet-board" id="packet-board">
+          <div class="packet-sky" aria-hidden="true">
+            <span class="packet-moon"></span>
+            <span class="packet-bird" id="packet-bird"><i></i></span>
+            <span class="packet-destination">目的地<br><b>03:18</b></span>
+          </div>
+
+          <div class="packet-card">
+            <span>当前迁徙任务</span>
+            <strong id="packet-name">紧急灯报码</strong>
+            <div class="packet-specs">
+              <span>包裹大小 <b id="packet-size">1</b></span>
+              <span>剩余时间 <b id="packet-ttl">1</b></span>
+            </div>
+          </div>
+
+          <div class="route-legend" aria-hidden="true">
+            <span>路线需同时满足：容量 ≥ 包裹，耗时 ≤ 剩余时间</span>
+          </div>
+
+          <div class="route-buttons" id="route-buttons" role="group" aria-label="候鸟迁徙路线">
+            <button class="route-button route-tower" type="button" data-route="tower">
+              <span class="route-glyph" aria-hidden="true">│</span>
+              <strong>塔顶线</strong>
+              <small>容量 1 · 耗时 1</small>
+            </button>
+            <button class="route-button route-tunnel" type="button" data-route="tunnel">
+              <span class="route-glyph" aria-hidden="true">∩</span>
+              <strong>隧道线</strong>
+              <small>容量 2 · 耗时 2</small>
+            </button>
+            <button class="route-button route-river" type="button" data-route="river">
+              <span class="route-glyph" aria-hidden="true">≈</span>
+              <strong>河湾线</strong>
+              <small>容量 3 · 耗时 3</small>
+            </button>
+          </div>
+
+          <ol class="packet-progress" id="packet-progress" aria-label="数据包投递进度"></ol>
+
+          <div class="exhibit-controls">
+            <p id="packet-status" role="status" aria-live="polite">第一只候鸟正在等候放行。</p>
+            <button class="zoo-button button-quiet" id="packet-reset" type="button">召回鸟群</button>
+          </div>
+        </div>
+
+        <footer class="exhibit-footnote">
+          <span>观察注记</span>
+          <p>网络里的“最快”没有意义；能携带它，并在期限前抵达，才叫路线。</p>
+        </footer>
+      </article>
+
+      <article class="zoo-exhibit deadlock-exhibit" id="deadlock-exhibit" aria-labelledby="deadlock-title">
+        <header class="exhibit-header">
+          <div class="exhibit-number">03</div>
+          <div>
+            <p class="zoo-eyebrow">CIRCULAR WAIT POOL · DO NOT FEED</p>
+            <h2 id="deadlock-title">死锁螃蟹</h2>
+          </div>
+          <span class="exhibit-state" data-state-badge="deadlock">待巡检</span>
+        </header>
+
+        <div class="deadlock-layout">
+          <div class="exhibit-brief">
+            <p>
+              三只螃蟹各自抱住一件资源，又等待下一只手里的东西。
+              大家都很有礼貌，所以谁也不会先动。请选择任意一只“礼让”，释放它已占有的资源。
+            </p>
+            <div class="deadlock-rule">
+              <span>甲持钥匙，等灯</span>
+              <span>乙持灯，等茶杯</span>
+              <span>丙持茶杯，等钥匙</span>
+            </div>
+          </div>
+
+          <div class="deadlock-pool" id="deadlock-pool" role="group" aria-label="三只互相等待的死锁螃蟹">
+            <div class="wait-ring" aria-hidden="true">
+              <span class="wait-arrow arrow-one">→</span>
+              <span class="wait-arrow arrow-two">→</span>
+              <span class="wait-arrow arrow-three">→</span>
+              <div class="ring-message" id="ring-message">循环等待</div>
+            </div>
+
+            <button class="crab crab-a" type="button" data-crab="a" aria-label="甲螃蟹，持有钥匙，等待灯；点击让它礼让">
+              <span class="crab-shape" aria-hidden="true"><i></i></span>
+              <strong>甲</strong>
+              <small>持「钥匙」<br>等「灯」</small>
+              <b>请它礼让</b>
+            </button>
+            <button class="crab crab-b" type="button" data-crab="b" aria-label="乙螃蟹，持有灯，等待茶杯；点击让它礼让">
+              <span class="crab-shape" aria-hidden="true"><i></i></span>
+              <strong>乙</strong>
+              <small>持「灯」<br>等「茶杯」</small>
+              <b>请它礼让</b>
+            </button>
+            <button class="crab crab-c" type="button" data-crab="c" aria-label="丙螃蟹，持有茶杯，等待钥匙；点击让它礼让">
+              <span class="crab-shape" aria-hidden="true"><i></i></span>
+              <strong>丙</strong>
+              <small>持「茶杯」<br>等「钥匙」</small>
+              <b>请它礼让</b>
+            </button>
+          </div>
+
+          <div class="deadlock-resolution">
+            <div>
+              <span>池塘状态</span>
+              <strong id="deadlock-state">没有任何进展</strong>
+            </div>
+            <p id="deadlock-status" role="status" aria-live="polite">
+              打破循环不需要更多资源，只需要其中一位先放手。
+            </p>
+            <button class="zoo-button button-quiet" id="deadlock-reset" type="button">恢复循环</button>
+          </div>
+        </div>
+
+        <footer class="exhibit-footnote">
+          <span>观察注记</span>
+          <p>死锁不是谁做错了，而是每个人都只等别人先做对。</p>
+        </footer>
+      </article>
+    </section>
+
+    <aside class="zoo-passport" id="zoo-passport" aria-labelledby="passport-title">
+      <span class="passport-punch" aria-hidden="true"></span>
+      <div>
+        <p class="zoo-eyebrow">NIGHT KEEPER RECORD</p>
+        <h2 id="passport-title">巡检记录尚未完成</h2>
+        <p id="passport-copy">完成上方任意一项挑战，系统动物园会把“今天”盖进你的护照。</p>
+      </div>
+      <div class="passport-seal" aria-hidden="true">
+        <span>循规园</span>
+        <b>E09</b>
+        <span>系统保育</span>
+      </div>
+    </aside>
+
+    <footer class="zoo-footer">
+      <span>他方线 · 循规园 · 系统生物保育科</span>
+      <a href="/elsewhere/">返回零号月台</a>
+    </footer>
+  </main>
+
+  <div class="zoo-sr-only" id="zoo-live" aria-live="assertive"></div>
+</body>
+</html>
